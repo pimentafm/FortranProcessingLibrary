@@ -1,0 +1,28 @@
+#Fortran Modules
+*.mod
+
+#Compiled Object Files
+*.o
+
+#Executables
+*.exe
+*.out
+
+#File Types
+*.txt
+*.nc
+*.prn
+*.swp
+*.swo
+*.pdf
+
+#Directories
+bin/
+
+#Eclipse Config Files
+*.cproject
+*.directory
+*.project
+*.xml
+
+#git files
