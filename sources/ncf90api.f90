@@ -35,7 +35,7 @@
 module ncf90api
   use netcdf
   implicit none
-
+  include "ncf90api_constants.f90"
   include "ncf90api_datatypes.f90"
   include "ncf90api_interfaces.f90"
 

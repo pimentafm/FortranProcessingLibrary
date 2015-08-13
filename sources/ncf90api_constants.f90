@@ -31,43 +31,8 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================
 
-!:==================== A Very Simple Text Program ========================
-program main
-  use ncf90api
-  implicit none
-
-  type (nc2d) :: nc
-
-  integer*4 :: i, j
-
-  character(100) :: ncfile, outfile
-  ncfile = "/home/fernando/Documents/dados_netcdf/arq.nc"
-  outfile = "/home/fernando/Documents/dados_netcdf/outarq.nc"
-  nc%varname = "Band1"
-  nc%lonname = "lon"
-  nc%latname = "lat"
-  call ncoords(ncfile, nc)
-
-  call readgrid(ncfile, nc)
-
-  do i = 1, nc%nlats
-    do j = 1, nc%nlons
-      if(nc%ncdata(i,j).ne.0) then
-        write(*,*)i, j, nc%ncdata(i,j)
-        nc%ncdata(i,j) = nf90_fill_float !nc%ncdata(i,j) * cos(2.4)
-        write(*,*)i, j, nc%ncdata(i,j)
-      end if
-    end do
-  end do
-  call writegrid(outfile, nc)
-
-
-  write(*,*) "lon: ", nc%nlons, "lat: ", nc%nlats
-
-  write(*,*)nf90_fill_int, nf90_fill_real
-
-  write(*,*)"Pi: ",pi
-  write(*,*)"Earth Radius: ",earth_radius
-  write(*,*)"Acceleration of Gravity: ",acc_gravity
-  write(*,*)"Boltzman: ",boltzman
-end program main
+!:========================== Constants ===================================
+real*8, parameter :: pi = 4*atan(1.0)
+real*8, parameter :: earth_radius = 6371.0  ! average radius of earth ~ km
+real*8, parameter :: acc_gravity = 9.80616     ! acceleration of gravity ~m/s^2
+real*8, parameter :: boltzman= 5.67e-8    ! Stefan-Boltzmann constant ~W/m^2/K^4
