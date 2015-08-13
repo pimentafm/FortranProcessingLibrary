@@ -24,7 +24,7 @@
 !Bachelor of Biosystems Engineer
 ! Federal University of São João del-Rei - Brazil
 
-! Reserach Group on Atmosphere-Biosphere Interaction
+! Research Group on Atmosphere-Biosphere Interaction
 ! Federal University of Viçosa
 ! Data: August 09, 2015
 
