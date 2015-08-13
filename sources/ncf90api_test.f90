@@ -34,7 +34,6 @@
 !:==================== A Very Simple Text Program ========================
 program main
   use ncf90api
-  use netcdf
   implicit none
 
   type (nc2d) :: nc
