@@ -15,6 +15,7 @@
 *.swp
 *.swo
 *.pdf
+*.so
 
 #Directories
 bin/
