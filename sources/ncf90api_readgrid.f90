@@ -33,10 +33,10 @@
 
 !:======= Read 2 dimensional NetCDF
 subroutine readgrid2d(ifile, idata)
-  character(100) :: ifile
+  character(*) :: ifile
   type(nc2d) :: idata
 
-  integer*4 :: ncid, varid, xvarid, yvarid
+  integer(kind=4) :: ncid, varid, xvarid, yvarid, vartype, nofill
 
   call ncoords(ifile, idata)
 
@@ -60,10 +60,10 @@ end subroutine readgrid2d
 
 !:=======  Read 3 dimensional NetCDF ===================================
 subroutine readgrid3d(ifile, idata)
-  character(100) :: ifile
+  character(*) :: ifile
   type(nc3d) :: idata
 
-  integer*4 :: ncid, varid, xvarid, yvarid, tvarid
+  integer(kind=4) :: ncid, varid, xvarid, yvarid, tvarid
 
   call ncoords(ifile, idata)
 

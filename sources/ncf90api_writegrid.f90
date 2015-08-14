@@ -33,10 +33,10 @@
 
 !:======= Write 2 dimensional NetCDF =====================================
 subroutine writegrid2d(ofile, odata)
-  character(50) :: ofile
+  character(*) :: ofile
   type(nc2d) :: odata
   integer(kind=4) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=4),dimension(2) :: dimids
+  integer(kind=4), dimension(2) :: dimids
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -50,7 +50,7 @@ subroutine writegrid2d(ofile, odata)
   call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
   call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
 
-  call check(nf90_def_var(ncid, odata%varname, nf90_double, dimids, varid))
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_enddef(ncid))
 
   !Write longitudes
@@ -67,7 +67,7 @@ end subroutine writegrid2d
 
 !:======= Write 3 dimensional NetCDF =====================================
 subroutine writegrid3d(ofile, odata)
-  character(50) :: ofile
+  character(*) :: ofile
   type(nc3d) :: odata
   integer(kind=4) :: ncid, varid, xdimid, ydimid, tdimid, tvarid, xvarid,&
                      yvarid

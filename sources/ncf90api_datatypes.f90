@@ -30,12 +30,11 @@
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================
-
 !NetCDF(lon, lat)
 type :: nc2d
   sequence
-  character(50) :: varname, lonname, latname
-  integer(kind=4) :: nlons, nlats
+  character(100) :: varname, lonname, latname
+  integer(kind=4) :: nlons, nlats, vartype
   real(kind=8),dimension(:), allocatable :: longitudes, latitudes
   real(kind=8), dimension(:,:), allocatable ::  ncdata
 end type nc2d
@@ -43,7 +42,7 @@ end type nc2d
 !NetCDF(lon, lat, time)
 type :: nc3d
   sequence
-  character(50) :: varname, lonname, latname, timename
+  character(100) :: varname, lonname, latname, timename
   integer(kind=4) :: nlons, nlats, ntimes
   integer(kind=4), dimension(:), allocatable :: times
   real(kind=8),dimension(:), allocatable :: longitudes, latitudes

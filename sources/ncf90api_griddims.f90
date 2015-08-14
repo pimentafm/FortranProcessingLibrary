@@ -33,8 +33,8 @@
 
 subroutine ncoords2d(ifile, idata)
   type (nc2d) :: idata
-  integer*4 :: ncid, xdimid, ydimid
-  character(100), intent(in) :: ifile
+  integer(kind=4) :: ncid, xdimid, ydimid, vdimid, varid
+  character(*), intent(in) :: ifile
 
   !Open NetCDF File
   call check(nf90_open(ifile, nf90_nowrite, ncid))
@@ -46,14 +46,18 @@ subroutine ncoords2d(ifile, idata)
   call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
+  !Inquire variable type
+  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
+
   !Close NetCDF
   call check(nf90_close(ncid))
 end subroutine ncoords2d
 
 subroutine ncoords3d(ifile, idata)
   type(nc3d) :: idata
-  integer*4 :: ncid, xdimid, ydimid, tdimid
-  character(100), intent(in) :: ifile
+  integer(kind=4) :: ncid, xdimid, ydimid, tdimid
+  character(*), intent(in) :: ifile
 
   !Open NetCDF File
   call check(nf90_open(ifile, nf90_nowrite, ncid))

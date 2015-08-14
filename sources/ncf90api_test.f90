@@ -42,7 +42,7 @@ program main
 
   character(100) :: ncfile, outfile
   ncfile = "/home/fernando/Documents/dados_netcdf/arq.nc"
-  outfile = "/home/fernando/Documents/dados_netcdf/outarq.nc"
+  outfile = "/home/fernando/Documents/dados_netcdf/oooutarq.nc"
   nc%varname = "Band1"
   nc%lonname = "lon"
   nc%latname = "lat"
@@ -54,7 +54,7 @@ program main
     do j = 1, nc%nlons
       if(nc%ncdata(i,j).ne.0) then
         write(*,*)i, j, nc%ncdata(i,j)
-        nc%ncdata(i,j) = nf90_fill_float !nc%ncdata(i,j) * cos(2.4)
+        nc%ncdata(i,j) = nc%ncdata(i,j) * cos(2.4) !nf90_fill_float !
         write(*,*)i, j, nc%ncdata(i,j)
       end if
     end do
@@ -62,12 +62,13 @@ program main
   call writegrid(outfile, nc)
 
 
-  write(*,*) "lon: ", nc%nlons, "lat: ", nc%nlats
+  !write(*,*) "lon: ", nc%nlons, "lat: ", nc%nlats
 
-  write(*,*)nf90_fill_int, nf90_fill_real
+  !write(*,*)nf90_fill_int, nf90_fill_real
 
-  write(*,*)"Pi: ",pi
-  write(*,*)"Earth Radius: ",earth_radius
-  write(*,*)"Acceleration of Gravity: ",acc_gravity
-  write(*,*)"Boltzman: ",boltzman
+  !write(*,*)"Pi: ",pi
+  !write(*,*)"Earth Radius: ",earth_radius
+  !write(*,*)"Acceleration of Gravity: ",acc_gravity
+  !write(*,*)"Boltzman: ",boltzman
+  write(*,*)"VarType: ",nc%vartype
 end program main
