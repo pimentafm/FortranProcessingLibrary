@@ -50,15 +50,15 @@ program main
 
   call readgrid(ncfile, nc)
 
-  do i = 1, nc%nlats
-    do j = 1, nc%nlons
-      if(nc%ncdata(i,j).ne.0) then
-        write(*,*)i, j, nc%ncdata(i,j)
-        nc%ncdata(i,j) = nc%ncdata(i,j) * cos(2.4) !nf90_fill_float !
-        write(*,*)i, j, nc%ncdata(i,j)
-      end if
-    end do
-  end do
+!  do i = 1, nc%nlats
+!    do j = 1, nc%nlons
+!      if(nc%ncdata(i,j).ne.0) then
+!        write(*,*)i, j, nc%ncdata(i,j)
+!        nc%ncdata(i,j) = nc%ncdata(i,j) * cos(2.4) !nf90_fill_float !
+!        write(*,*)i, j, nc%ncdata(i,j)
+!      end if
+!    end do
+!  end do
   call writegrid(outfile, nc)
 
 
@@ -70,5 +70,5 @@ program main
   !write(*,*)"Earth Radius: ",earth_radius
   !write(*,*)"Acceleration of Gravity: ",acc_gravity
   !write(*,*)"Boltzman: ",boltzman
-  write(*,*)"VarType: ",nc%vartype
+  !write(*,*)"VarType: ",nc%vartype
 end program main

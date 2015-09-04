@@ -57,36 +57,3 @@ subroutine readgrid2d(ifile, idata)
   call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_get_var(ncid,varid,idata%ncdata))
 end subroutine readgrid2d
-
-!:=======  Read 3 dimensional NetCDF ===================================
-subroutine readgrid3d(ifile, idata)
-  character(*) :: ifile
-  type(nc3d) :: idata
-
-  integer(kind=4) :: ncid, varid, xvarid, yvarid, tvarid
-
-  call ncoords(ifile, idata)
-
-  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
-  allocate(idata%longitudes(idata%nlons))
-  allocate(idata%latitudes(idata%nlats))
-  allocate(idata%times(idata%ntimes))
-
-
-  !Open NetCDF
-  call check(nf90_open(ifile, nf90_nowrite, ncid))
-
-  !Get Lons, lats and variable values
-  call check(nf90_inq_varid(ncid,idata%lonname,xvarid))
-  call check(nf90_get_var(ncid,xvarid,idata%longitudes))
-
-  call check(nf90_inq_varid(ncid,idata%latname,yvarid))
-  call check(nf90_get_var(ncid,yvarid,idata%latitudes))
-
-  call check(nf90_inq_varid(ncid,idata%timename,tvarid))
-  call check(nf90_get_var(ncid,tvarid,idata%times))
-
-  call check(nf90_inq_varid(ncid, idata%varname, varid))
-
-  call check(nf90_get_var(ncid,varid,idata%ncdata))
-end subroutine readgrid3d

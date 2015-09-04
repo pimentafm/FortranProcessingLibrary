@@ -32,13 +32,13 @@
 !:========================================================================
 
 interface ncoords
-  module procedure ncoords2d, ncoords3d
+  module procedure ncoords2d
 end interface ncoords
 
 interface readgrid
-  module procedure readgrid2d, readgrid3d
+  module procedure readgrid2d
 end interface readgrid
 
 interface writegrid
-  module procedure writegrid2d, writegrid3d
+  module procedure writegrid2d
 end interface writegrid

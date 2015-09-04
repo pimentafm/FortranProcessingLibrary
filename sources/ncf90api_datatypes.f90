@@ -38,13 +38,3 @@ type :: nc2d
   real(kind=8),dimension(:), allocatable :: longitudes, latitudes
   real(kind=8), dimension(:,:), allocatable ::  ncdata
 end type nc2d
-
-!NetCDF(lon, lat, time)
-type :: nc3d
-  sequence
-  character(100) :: varname, lonname, latname, timename
-  integer(kind=4) :: nlons, nlats, ntimes
-  integer(kind=4), dimension(:), allocatable :: times
-  real(kind=8),dimension(:), allocatable :: longitudes, latitudes
-  real(kind=8), dimension(:,:,:), allocatable ::  ncdata
-end type nc3d

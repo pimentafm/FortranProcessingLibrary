@@ -53,25 +53,3 @@ subroutine ncoords2d(ifile, idata)
   !Close NetCDF
   call check(nf90_close(ncid))
 end subroutine ncoords2d
-
-subroutine ncoords3d(ifile, idata)
-  type(nc3d) :: idata
-  integer(kind=4) :: ncid, xdimid, ydimid, tdimid
-  character(*), intent(in) :: ifile
-
-  !Open NetCDF File
-  call check(nf90_open(ifile, nf90_nowrite, ncid))
-
-  !Get Coordinate values and put them in nx, ny, nt
-  call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
-  call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
-
-  call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
-  call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
-
-  call check(nf90_inq_dimid(ncid, idata%timename, tdimid))
-  call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
-
-  !Close NetCDF
-  call check(nf90_close(ncid))
-end subroutine ncoords3d
