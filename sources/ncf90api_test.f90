@@ -64,6 +64,7 @@ program main
 !  end do
   call writegrid(outfile, nc)
 
+  write(*,*)"NC INFO-------------"
   write(*,*)"nc->long_name ", nc%long_name
   write(*,*)"nc->lonname ",nc%lonname
   write(*,*)"nc->latname ",nc%latname
@@ -71,12 +72,23 @@ program main
   write(*,*)"nc->vartype ",nc%vartype
   write(*,*)"nc->f_value ",nc%f_value
   write(*,*)"nc->units ",nc%units
+  write(*,*)" "
 
+  write(*,*)"KIND INFO-------------"
   write(*,*)"DOUBLE->: ", C_DOUBLE
   write(*,*)"INT->:    ",C_INT
   write(*,*)"FLOAT->:  ",C_FLOAT
   write(*,*)"SHORT->:  ",C_SHORT
   write(*,*)"BYTE->:   ",C_SIGNED_CHAR
+
+  write(*,*)" "
+
+  write(*,*)"FILL INFO-------------"
+  write(*,*)"Byte: ", nf90_fill_byte
+  write(*,*)"Short: ", nf90_fill_short
+  write(*,*)"Integer: ", nf90_fill_int
+  write(*,*)"Float: ", nf90_fill_float
+  write(*,*)"Double: ", nf90_fill_double
   !write(*,*) "lon: ", nc%nlons, "lat: ", nc%nlats
 
   !write(*,*)nf90_fill_int, nf90_fill_real
@@ -85,5 +97,4 @@ program main
   !write(*,*)"Earth Radius: ",earth_radius
   !write(*,*)"Acceleration of Gravity: ",acc_gravity
   !write(*,*)"Boltzman: ",boltzman
-  !write(*,*)"VarType: ",nc%vartype
 end program main

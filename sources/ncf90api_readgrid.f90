@@ -56,6 +56,8 @@ subroutine readgrid2d_byte(ifile, idata)
 
   call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_get_var(ncid,varid,idata%ncdata))
+
+  call check(nf90_close(ncid))
 end subroutine readgrid2d_byte
 
 
@@ -84,6 +86,8 @@ subroutine readgrid2d_short(ifile, idata)
 
   call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_get_var(ncid,varid,idata%ncdata))
+
+  call check(nf90_close(ncid))
 end subroutine readgrid2d_short
 
 
@@ -112,6 +116,8 @@ subroutine readgrid2d_int(ifile, idata)
 
   call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_get_var(ncid,varid,idata%ncdata))
+
+  call check(nf90_close(ncid))
 end subroutine readgrid2d_int
 
 
@@ -140,6 +146,8 @@ subroutine readgrid2d_float(ifile, idata)
 
   call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_get_var(ncid,varid,idata%ncdata))
+
+  call check(nf90_close(ncid))
 end subroutine readgrid2d_float
 
 
@@ -168,4 +176,6 @@ subroutine readgrid2d_double(ifile, idata)
 
   call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_get_var(ncid,varid,idata%ncdata))
+
+  call check(nf90_close(ncid))
 end subroutine readgrid2d_double
