@@ -41,11 +41,14 @@ program main
   integer*4 :: i, j
 
   character(100) :: ncfile, outfile
-  ncfile = "/home/fernando/Documents/dados_netcdf/arq.nc"
-  outfile = "/home/fernando/Documents/dados_netcdf/oooutarq.nc"
-  nc%varname = "Band1"
+  ncfile = "/home/fernando/Documents/dados_nc_test/LU1940v3.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/outLU.nc"
+  nc%varname = "landuse"
   nc%lonname = "lon"
   nc%latname = "lat"
+  nc%long_name = "nome do mapa"
+  nc%units = "km²"
+
   call ncoords(ncfile, nc)
 
   call readgrid(ncfile, nc)
@@ -60,6 +63,14 @@ program main
 !    end do
 !  end do
   call writegrid(outfile, nc)
+
+  write(*,*)"nc->long_name ", nc%long_name
+  write(*,*)"nc->lonname ",nc%lonname
+  write(*,*)"nc->latname ",nc%latname
+  write(*,*)"nc->varname ",nc%varname
+  write(*,*)"nc->vartype ",nc%vartype
+  write(*,*)"nc->f_value ",nc%f_value
+  write(*,*)"nc->units ",nc%units
 
   write(*,*)"DOUBLE->: ", C_DOUBLE
   write(*,*)"INT->:    ",C_INT
