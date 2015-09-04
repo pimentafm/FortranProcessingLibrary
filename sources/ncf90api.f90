@@ -34,6 +34,7 @@
 !:==================== Fortran NetCDF API Main Module ====================
 module ncf90api
   use netcdf
+  USE iso_c_binding
   implicit none
   include "ncf90api_constants.f90"
   include "ncf90api_datatypes.f90"

@@ -36,7 +36,7 @@ program main
   use ncf90api
   implicit none
 
-  type (nc2d) :: nc
+  type (nc2d_float) :: nc
 
   integer*4 :: i, j
 
@@ -61,7 +61,11 @@ program main
 !  end do
   call writegrid(outfile, nc)
 
-
+  write(*,*)"DOUBLE->: ", C_DOUBLE
+  write(*,*)"INT->:    ",C_INT
+  write(*,*)"FLOAT->:  ",C_FLOAT
+  write(*,*)"SHORT->:  ",C_SHORT
+  write(*,*)"BYTE->:   ",C_SIGNED_CHAR
   !write(*,*) "lon: ", nc%nlons, "lat: ", nc%nlats
 
   !write(*,*)nf90_fill_int, nf90_fill_real

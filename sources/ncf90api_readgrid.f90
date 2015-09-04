@@ -31,10 +31,10 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================
 
-!:======= Read 2 dimensional NetCDF
-subroutine readgrid2d(ifile, idata)
+!:======= Read 2 dimensional NetCDF byte ==========================
+subroutine readgrid2d_byte(ifile, idata)
   character(*) :: ifile
-  type(nc2d) :: idata
+  type(nc2d_byte) :: idata
 
   integer(kind=4) :: ncid, varid, xvarid, yvarid, vartype, nofill
 
@@ -56,4 +56,116 @@ subroutine readgrid2d(ifile, idata)
 
   call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_get_var(ncid,varid,idata%ncdata))
-end subroutine readgrid2d
+end subroutine readgrid2d_byte
+
+
+!:======= Read 2 dimensional NetCDF short ==========================
+subroutine readgrid2d_short(ifile, idata)
+  character(*) :: ifile
+  type(nc2d_short) :: idata
+
+  integer(kind=4) :: ncid, varid, xvarid, yvarid, vartype, nofill
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Lons, lats and variable values
+  call check(nf90_inq_varid(ncid,idata%lonname,xvarid))
+  call check(nf90_get_var(ncid,xvarid,idata%longitudes))
+
+  call check(nf90_inq_varid(ncid,idata%latname,yvarid))
+  call check(nf90_get_var(ncid,yvarid,idata%latitudes))
+
+  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call check(nf90_get_var(ncid,varid,idata%ncdata))
+end subroutine readgrid2d_short
+
+
+!:======= Read 2 dimensional NetCDF int ==========================
+subroutine readgrid2d_int(ifile, idata)
+  character(*) :: ifile
+  type(nc2d_int) :: idata
+
+  integer(kind=4) :: ncid, varid, xvarid, yvarid, vartype, nofill
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Lons, lats and variable values
+  call check(nf90_inq_varid(ncid,idata%lonname,xvarid))
+  call check(nf90_get_var(ncid,xvarid,idata%longitudes))
+
+  call check(nf90_inq_varid(ncid,idata%latname,yvarid))
+  call check(nf90_get_var(ncid,yvarid,idata%latitudes))
+
+  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call check(nf90_get_var(ncid,varid,idata%ncdata))
+end subroutine readgrid2d_int
+
+
+!:======= Read 2 dimensional NetCDF float ==========================
+subroutine readgrid2d_float(ifile, idata)
+  character(*) :: ifile
+  type(nc2d_float) :: idata
+
+  integer(kind=4) :: ncid, varid, xvarid, yvarid, vartype, nofill
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Lons, lats and variable values
+  call check(nf90_inq_varid(ncid,idata%lonname,xvarid))
+  call check(nf90_get_var(ncid,xvarid,idata%longitudes))
+
+  call check(nf90_inq_varid(ncid,idata%latname,yvarid))
+  call check(nf90_get_var(ncid,yvarid,idata%latitudes))
+
+  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call check(nf90_get_var(ncid,varid,idata%ncdata))
+end subroutine readgrid2d_float
+
+
+!:======= Read 2 dimensional NetCDF double ==========================
+subroutine readgrid2d_double(ifile, idata)
+  character(*) :: ifile
+  type(nc2d_double) :: idata
+
+  integer(kind=4) :: ncid, varid, xvarid, yvarid, vartype, nofill
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Lons, lats and variable values
+  call check(nf90_inq_varid(ncid,idata%lonname,xvarid))
+  call check(nf90_get_var(ncid,xvarid,idata%longitudes))
+
+  call check(nf90_inq_varid(ncid,idata%latname,yvarid))
+  call check(nf90_get_var(ncid,yvarid,idata%latitudes))
+
+  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call check(nf90_get_var(ncid,varid,idata%ncdata))
+end subroutine readgrid2d_double

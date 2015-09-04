@@ -31,8 +31,9 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================
 
-subroutine ncoords2d(ifile, idata)
-  type (nc2d) :: idata
+!NetCDF(lon, lat) byte
+subroutine ncoords2d_byte(ifile, idata)
+  type (nc2d_byte) :: idata
   integer(kind=4) :: ncid, xdimid, ydimid, vdimid, varid
   character(*), intent(in) :: ifile
 
@@ -50,6 +51,116 @@ subroutine ncoords2d(ifile, idata)
   call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
 
+  idata%f_value = nf90_fill_byte
+
   !Close NetCDF
   call check(nf90_close(ncid))
-end subroutine ncoords2d
+end subroutine ncoords2d_byte
+
+
+!NetCDF(lon, lat) short
+subroutine ncoords2d_short(ifile, idata)
+  type (nc2d_short) :: idata
+  integer(kind=4) :: ncid, xdimid, ydimid, vdimid, varid
+  character(*), intent(in) :: ifile
+
+  !Open NetCDF File
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Coordinate values and put them in nx, ny
+  call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
+  call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
+
+  call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
+  call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
+
+  !Inquire variable type
+  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
+
+  idata%f_value = nf90_fill_short
+
+  !Close NetCDF
+  call check(nf90_close(ncid))
+end subroutine ncoords2d_short
+
+
+!NetCDF(lon, lat) int
+subroutine ncoords2d_int(ifile, idata)
+  type (nc2d_int) :: idata
+  integer(kind=4) :: ncid, xdimid, ydimid, vdimid, varid
+  character(*), intent(in) :: ifile
+
+  !Open NetCDF File
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Coordinate values and put them in nx, ny
+  call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
+  call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
+
+  call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
+  call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
+
+  !Inquire variable type
+  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
+
+  idata%f_value = nf90_fill_int
+
+  !Close NetCDF
+  call check(nf90_close(ncid))
+end subroutine ncoords2d_int
+
+
+!NetCDF(lon, lat) float
+subroutine ncoords2d_float(ifile, idata)
+  type (nc2d_float) :: idata
+  integer(kind=4) :: ncid, xdimid, ydimid, vdimid, varid
+  character(*), intent(in) :: ifile
+
+  !Open NetCDF File
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Coordinate values and put them in nx, ny
+  call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
+  call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
+
+  call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
+  call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
+
+  !Inquire variable type
+  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
+
+  idata%f_value = nf90_fill_float
+
+  !Close NetCDF
+  call check(nf90_close(ncid))
+end subroutine ncoords2d_float
+
+
+!NetCDF(lon, lat) double
+subroutine ncoords2d_double(ifile, idata)
+  type (nc2d_double) :: idata
+  integer(kind=4) :: ncid, xdimid, ydimid, vdimid, varid
+  character(*), intent(in) :: ifile
+
+  !Open NetCDF File
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Coordinate values and put them in nx, ny
+  call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
+  call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
+
+  call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
+  call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
+
+  !Inquire variable type
+  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
+
+  idata%f_value = nf90_fill_double
+
+  !Close NetCDF
+  call check(nf90_close(ncid))
+end subroutine ncoords2d_double

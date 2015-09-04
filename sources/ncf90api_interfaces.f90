@@ -31,14 +31,21 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================
 
+!NetCDF(lon, lat)
 interface ncoords
-  module procedure ncoords2d
+  module procedure ncoords2d_byte, ncoords2d_short, &
+                   ncoords2d_int, ncoords2d_float, &
+                   ncoords2d_double
 end interface ncoords
 
 interface readgrid
-  module procedure readgrid2d
+  module procedure readgrid2d_byte, readgrid2d_short, &
+                   readgrid2d_int, readgrid2d_float, &
+                   readgrid2d_double
 end interface readgrid
 
 interface writegrid
-  module procedure writegrid2d
+  module procedure writegrid2d_byte, writegrid2d_short, &
+                   writegrid2d_int, writegrid2d_float, &
+                   writegrid2d_double
 end interface writegrid

@@ -31,10 +31,10 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================
 
-!:======= Write 2 dimensional NetCDF =====================================
-subroutine writegrid2d(ofile, odata)
+!:======= Write 2 dimensional NetCDF byte  =========================
+subroutine writegrid2d_byte(ofile, odata)
   character(*) :: ofile
-  type(nc2d) :: odata
+  type(nc2d_byte) :: odata
   integer(kind=4) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=4), dimension(2) :: dimids
 
@@ -63,4 +63,144 @@ subroutine writegrid2d(ofile, odata)
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
   call check(nf90_close(ncid))
-end subroutine writegrid2d
+end subroutine writegrid2d_byte
+
+
+!:======= Write 2 dimensional NetCDF short  =========================
+subroutine writegrid2d_short(ofile, odata)
+  character(*) :: ofile
+  type(nc2d_short) :: odata
+  integer(kind=4) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=4), dimension(2) :: dimids
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_enddef(ncid))
+
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid2d_short
+
+
+!:======= Write 2 dimensional NetCDF int  =========================
+subroutine writegrid2d_int(ofile, odata)
+  character(*) :: ofile
+  type(nc2d_int) :: odata
+  integer(kind=4) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=4), dimension(2) :: dimids
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_enddef(ncid))
+
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid2d_int
+
+
+!:======= Write 2 dimensional NetCDF float  =========================
+subroutine writegrid2d_float(ofile, odata)
+  character(*) :: ofile
+  type(nc2d_float) :: odata
+  integer(kind=4) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=4), dimension(2) :: dimids
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_enddef(ncid))
+
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid2d_float
+
+
+!:======= Write 2 dimensional NetCDF double  =========================
+subroutine writegrid2d_double(ofile, odata)
+  character(*) :: ofile
+  type(nc2d_double) :: odata
+  integer(kind=4) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=4), dimension(2) :: dimids
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_enddef(ncid))
+
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid2d_double
