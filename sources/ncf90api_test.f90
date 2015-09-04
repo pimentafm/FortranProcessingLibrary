@@ -41,13 +41,12 @@ program main
   integer*4 :: i, j
 
   character(100) :: ncfile, outfile
-  ncfile = "/home/fernando/Documents/dados_nc_test/LU1940v3.nc"
+  ncfile = "/home/fernando/Documents/dados_nc_test/maskara_estados_br.nc"
   outfile = "/home/fernando/Documents/dados_nc_test/outLU.nc"
-  nc%varname = "landuse"
+  nc%varname = "Band1"
   nc%lonname = "lon"
   nc%latname = "lat"
   nc%long_name = "nome do mapa"
-  nc%units = "km²"
 
   call ncoords(ncfile, nc)
 
@@ -69,9 +68,13 @@ program main
   write(*,*)"nc->lonname ",nc%lonname
   write(*,*)"nc->latname ",nc%latname
   write(*,*)"nc->varname ",nc%varname
+
   write(*,*)"nc->vartype ",nc%vartype
+
+  write(*,*)"nc->varunits ",nc%varunits
+  write(*,*)"nc->lonunits ",nc%lonunits
+  write(*,*)"nc->latunits ",nc%latunits
   write(*,*)"nc->f_value ",nc%f_value
-  write(*,*)"nc->units ",nc%units
   write(*,*)" "
 
   write(*,*)"KIND INFO-------------"
