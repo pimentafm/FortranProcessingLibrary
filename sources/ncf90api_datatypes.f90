@@ -34,7 +34,8 @@
 !NetCDF(lon, lat) byte
 type :: nc2d_byte
   sequence
-  character(len=20) :: varname, lonname, latname, long_name
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+                       lonunits, latunits
   integer(kind=C_INT) :: nlons, nlats, vartype
   integer(kind=C_SIGNED_CHAR) :: f_value
   real(kind=C_DOUBLE),dimension(:), allocatable :: longitudes, latitudes
@@ -45,7 +46,8 @@ end type nc2d_byte
 !NetCDF(lon, lat) short
 type :: nc2d_short
   sequence
-  character(len=20) :: varname, lonname, latname, long_name, units
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+                       lonunits, latunits
   integer(kind=C_INT) :: nlons, nlats, vartype
   integer(kind=C_SHORT) :: f_value
   real(kind=C_DOUBLE),dimension(:), allocatable :: longitudes, latitudes
@@ -56,7 +58,8 @@ end type nc2d_short
 !NetCDF(lon, lat) int
 type :: nc2d_int
   sequence
-  character(len=20) :: varname, lonname, latname, long_name, units
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+                       lonunits, latunits
   integer(kind=C_INT) :: nlons, nlats, vartype
   integer(kind=C_INT) :: f_value
   real(kind=C_DOUBLE),dimension(:), allocatable :: longitudes, latitudes
@@ -67,8 +70,8 @@ end type nc2d_int
 !NetCDF(lon, lat) float
 type :: nc2d_float
   sequence
-  character(len=20) :: varname, lonname, latname, long_name, &
-                       varunits, lonunits, latunits
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+                       lonunits, latunits
   integer(kind=C_INT) :: nlons, nlats, vartype
   real(kind=C_FLOAT) :: f_value
   real(kind=C_DOUBLE),dimension(:), allocatable :: longitudes, latitudes
@@ -79,12 +82,14 @@ end type nc2d_float
 !NetCDF(lon, lat) double
 type :: nc2d_double
   sequence
-  character(len=20) :: varname, lonname, latname, long_name, units
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+                       lonunits, latunits
   integer(kind=C_INT) :: nlons, nlats, vartype
   real(kind=C_DOUBLE) :: f_value
   real(kind=C_DOUBLE),dimension(:), allocatable :: longitudes, latitudes
   real(kind=C_DOUBLE), dimension(:,:), allocatable ::  ncdata
 end type nc2d_double
+
 
 
 

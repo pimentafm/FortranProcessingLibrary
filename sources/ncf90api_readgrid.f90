@@ -48,14 +48,22 @@ subroutine readgrid2d_byte(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, lats and variable values
-  call check(nf90_inq_varid(ncid,idata%lonname,xvarid))
-  call check(nf90_get_var(ncid,xvarid,idata%longitudes))
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits))
 
-  call check(nf90_inq_varid(ncid,idata%latname,yvarid))
-  call check(nf90_get_var(ncid,yvarid,idata%latitudes))
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits))
 
+  !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
-  call check(nf90_get_var(ncid,varid,idata%ncdata))
+  call check(nf90_get_var(ncid, varid, idata%ncdata))
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name))
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value))
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits))
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_byte
@@ -78,14 +86,22 @@ subroutine readgrid2d_short(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, lats and variable values
-  call check(nf90_inq_varid(ncid,idata%lonname,xvarid))
-  call check(nf90_get_var(ncid,xvarid,idata%longitudes))
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits))
 
-  call check(nf90_inq_varid(ncid,idata%latname,yvarid))
-  call check(nf90_get_var(ncid,yvarid,idata%latitudes))
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits))
 
+  !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
-  call check(nf90_get_var(ncid,varid,idata%ncdata))
+  call check(nf90_get_var(ncid, varid, idata%ncdata))
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name))
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value))
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits))
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_short
@@ -108,14 +124,22 @@ subroutine readgrid2d_int(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, lats and variable values
-  call check(nf90_inq_varid(ncid,idata%lonname,xvarid))
-  call check(nf90_get_var(ncid,xvarid,idata%longitudes))
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits))
 
-  call check(nf90_inq_varid(ncid,idata%latname,yvarid))
-  call check(nf90_get_var(ncid,yvarid,idata%latitudes))
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits))
 
+  !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
-  call check(nf90_get_var(ncid,varid,idata%ncdata))
+  call check(nf90_get_var(ncid, varid, idata%ncdata))
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name))
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value))
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits))
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_int
@@ -138,17 +162,17 @@ subroutine readgrid2d_float(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, lats and variable values
-  call check(nf90_inq_varid(ncid,idata%lonname,xvarid))
-  call check(nf90_get_var(ncid,xvarid,idata%longitudes))
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
   call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits))
 
-  call check(nf90_inq_varid(ncid,idata%latname,yvarid))
-  call check(nf90_get_var(ncid,yvarid,idata%latitudes))
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
   call check(nf90_get_att(ncid, yvarid, "units", idata%latunits))
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
-  call check(nf90_get_var(ncid,varid,idata%ncdata))
+  call check(nf90_get_var(ncid, varid, idata%ncdata))
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "long_name", idata%long_name))
@@ -176,14 +200,22 @@ subroutine readgrid2d_double(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, lats and variable values
-  call check(nf90_inq_varid(ncid,idata%lonname,xvarid))
-  call check(nf90_get_var(ncid,xvarid,idata%longitudes))
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits))
 
-  call check(nf90_inq_varid(ncid,idata%latname,yvarid))
-  call check(nf90_get_var(ncid,yvarid,idata%latitudes))
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits))
 
+  !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
-  call check(nf90_get_var(ncid,varid,idata%ncdata))
+  call check(nf90_get_var(ncid, varid, idata%ncdata))
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name))
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value))
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits))
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_double

@@ -36,13 +36,13 @@ program main
   use ncf90api
   implicit none
 
-  type (nc2d_float) :: nc
+  type (nc2d_double) :: nc
 
   integer*4 :: i, j
 
   character(100) :: ncfile, outfile
-  ncfile = "/home/fernando/Documents/dados_nc_test/maskara_estados_br.nc"
-  outfile = "/home/fernando/Documents/dados_nc_test/outLU.nc"
+  ncfile = "/home/fernando/Documents/dados_nc/mbio.nc"
+  outfile = "/home/fernando/Documents/dados_nc/out.nc"
   nc%varname = "Band1"
   nc%lonname = "lon"
   nc%latname = "lat"

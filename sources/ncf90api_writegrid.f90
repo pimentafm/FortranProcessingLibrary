@@ -48,9 +48,16 @@ subroutine writegrid2d_byte(ofile, odata)
 
   !Define variables
   call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
   call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
 
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+
   call check(nf90_enddef(ncid))
 
   !Write longitudes
@@ -83,9 +90,16 @@ subroutine writegrid2d_short(ofile, odata)
 
   !Define variables
   call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
   call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
 
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+
   call check(nf90_enddef(ncid))
 
   !Write longitudes
@@ -118,9 +132,16 @@ subroutine writegrid2d_int(ofile, odata)
 
   !Define variables
   call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
   call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
 
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+
   call check(nf90_enddef(ncid))
 
   !Write longitudes
@@ -153,9 +174,16 @@ subroutine writegrid2d_float(ofile, odata)
 
   !Define variables
   call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
   call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
 
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+
   call check(nf90_enddef(ncid))
 
   !Write longitudes
@@ -188,9 +216,16 @@ subroutine writegrid2d_double(ofile, odata)
 
   !Define variables
   call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
   call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
 
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+
   call check(nf90_enddef(ncid))
 
   !Write longitudes
