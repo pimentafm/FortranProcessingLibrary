@@ -1,5 +1,5 @@
 !:========================================================================
-! This file is part of f90NetCDF API (NetCDF API for Fortran 90).
+! This file is part of f90NetCDF API (Fortran 90 API for Netcdf).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
 
@@ -31,18 +31,20 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================
 
-!:==================== A Very Simple Text Program ========================
+!:==================== A Very Simple Test Program ========================
 program main
   use ncf90api
   implicit none
 
-  type (nc2d_double) :: nc
+  type (nc2d_byte) :: nc
 
   integer*4 :: i, j
 
   character(100) :: ncfile, outfile
-  ncfile = "/home/fernando/Documents/dados_nc/mbio.nc"
-  outfile = "/home/fernando/Documents/dados_nc/out.nc"
+
+  ncfile = "/home/fernando/Documents/dados_nc/biomas_byte.nc"
+  outfile = "/home/fernando/Documents/dados_nc/uint16.nc"
+
   nc%varname = "Band1"
   nc%lonname = "lon"
   nc%latname = "lat"
@@ -51,7 +53,6 @@ program main
   call ncoords(ncfile, nc)
 
   call readgrid(ncfile, nc)
-
 !  do i = 1, nc%nlats
 !    do j = 1, nc%nlons
 !      if(nc%ncdata(i,j).ne.0) then
@@ -61,40 +62,39 @@ program main
 !      end if
 !    end do
 !  end do
+
   call writegrid(outfile, nc)
 
-  write(*,*)"NC INFO-------------"
+  write(*,*)"NC INFO-------------------------"
   write(*,*)"nc->long_name ", nc%long_name
-  write(*,*)"nc->lonname ",nc%lonname
-  write(*,*)"nc->latname ",nc%latname
-  write(*,*)"nc->varname ",nc%varname
-
-  write(*,*)"nc->vartype ",nc%vartype
-
-  write(*,*)"nc->varunits ",nc%varunits
-  write(*,*)"nc->lonunits ",nc%lonunits
-  write(*,*)"nc->latunits ",nc%latunits
-  write(*,*)"nc->f_value ",nc%f_value
+  write(*,*)"nc->lonname   ", nc%lonname
+  write(*,*)"nc->latname   ", nc%latname
+  write(*,*)"nc->varname   ", nc%varname
+  write(*,*)"nc->nlons     ", nc%nlons
+  write(*,*)"nc->nlats     ", nc%nlats
+  write(*,*)"nc->vartype   ", nc%vartype, "-> 6_d, 5_f, 4_i, 3_s, 1_b"
+  write(*,*)" "
+  write(*,*)"nc->varunits  ",nc%varunits
+  write(*,*)"nc->lonunits  ",nc%lonunits
+  write(*,*)"nc->latunits  ",nc%latunits
+  write(*,*)"nc->f_value   ",nc%f_value
   write(*,*)" "
 
-  write(*,*)"KIND INFO-------------"
-  write(*,*)"DOUBLE->: ", C_DOUBLE
-  write(*,*)"INT->:    ",C_INT
-  write(*,*)"FLOAT->:  ",C_FLOAT
-  write(*,*)"SHORT->:  ",C_SHORT
-  write(*,*)"BYTE->:   ",C_SIGNED_CHAR
+  write(*,*)"KIND INFO-----------------------"
+  write(*,*)"DOUBLE->:     ", C_DOUBLE
+  write(*,*)"INT->:        ",C_INT
+  write(*,*)"FLOAT->:      ",C_FLOAT
+  write(*,*)"SHORT->:      ",C_SHORT
+  write(*,*)"BYTE->:       ",C_SIGNED_CHAR
 
   write(*,*)" "
 
-  write(*,*)"FILL INFO-------------"
-  write(*,*)"Byte: ", nf90_fill_byte
-  write(*,*)"Short: ", nf90_fill_short
-  write(*,*)"Integer: ", nf90_fill_int
-  write(*,*)"Float: ", nf90_fill_float
-  write(*,*)"Double: ", nf90_fill_double
-  !write(*,*) "lon: ", nc%nlons, "lat: ", nc%nlats
-
-  !write(*,*)nf90_fill_int, nf90_fill_real
+  write(*,*)"FILL INFO-----------------------"
+  write(*,*)"Byte:         ", nf90_fill_byte
+  write(*,*)"Short:        ", nf90_fill_short
+  write(*,*)"Integer:      ", nf90_fill_int
+  write(*,*)"Float:        ", nf90_fill_float
+  write(*,*)"Double:       ", nf90_fill_double
 
   !write(*,*)"Pi: ",pi
   !write(*,*)"Earth Radius: ",earth_radius

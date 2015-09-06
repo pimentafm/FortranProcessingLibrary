@@ -1,14 +1,14 @@
 !:========================================================================
-! This file is part of Fortran NetCDF Tools.
+! This file is part of f90NetCDF API (Fortran 90 API for Netcdf).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
 
-! f90NetCDF is free software: you can redistribute it and/or modify
+! f90NetCDF API is free software: you can redistribute it and/or modify
 ! it under the terms of the GNU General Public License as published by
 ! the Free Software Foundation, either version 3 of the License, or
 ! (at your option) any later version.
 
-! f90NetCDF is distributed in the hope that it will be useful,
+! f90NetCDF API is distributed in the hope that it will be useful,
 ! but WITHOUT ANY WARRANTY; without even the implied warranty of
 ! MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ! GNU General Public License for more details.
@@ -26,7 +26,7 @@
 
 ! Research Group on Atmosphere-Biosphere Interaction
 ! Federal University of Viçosa
-! Data: July 07, 2015
+! Data: August 09, 2015
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================

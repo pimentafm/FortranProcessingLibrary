@@ -1,5 +1,5 @@
 !:========================================================================
-! This file is part of f90NetCDF API (NetCDF API for Fortran 90).
+! This file is part of f90NetCDF API (Fortran 90 API for Netcdf).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
 
@@ -39,7 +39,7 @@ type :: nc2d_byte
   integer(kind=C_INT) :: nlons, nlats, vartype
   integer(kind=C_SIGNED_CHAR) :: f_value
   real(kind=C_DOUBLE),dimension(:), allocatable :: longitudes, latitudes
-  integer(kind=C_SIGNED_CHAR), dimension(:,:), allocatable ::  ncdata
+  integer(kind=C_SIGNED_CHAR), dimension(:,:), pointer ::  ncdata
 end type nc2d_byte
 
 

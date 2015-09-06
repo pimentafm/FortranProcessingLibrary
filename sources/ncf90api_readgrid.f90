@@ -1,5 +1,5 @@
 !:========================================================================
-! This file is part of f90NetCDF API (NetCDF API for Fortran 90).
+! This file is part of f90NetCDF API (Fortran 90 API for Netcdf).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
 
@@ -50,21 +50,32 @@ subroutine readgrid2d_byte(ifile, idata)
   !Get Lons, lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits))
+  if(nf90_get_att(ncid, xvarid, "units", idata%lonunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%lonname))//":units in your NetCDF!"
+  end if
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits))
+  if(nf90_get_att(ncid, yvarid, "units", idata%latunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%latname))//":units in your NetCDF!"
+  end if
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_get_var(ncid, varid, idata%ncdata))
 
   !Get some attributes
-  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name))
-  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value))
-  call check(nf90_get_att(ncid, varid, "units", idata%varunits))
+  if(nf90_get_att(ncid, varid, "long_name", idata%long_name).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":long_name in your NetCDF!"
+  end if
 
+  if(nf90_get_att(ncid, varid, "_FillValue", idata%f_value).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":_FillValue in your NetCDF!"
+  end if
+
+  if(nf90_get_att(ncid, varid, "units", idata%varunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":units in your NetCDF!"
+  end if
   call check(nf90_close(ncid))
 end subroutine readgrid2d_byte
 
@@ -88,21 +99,32 @@ subroutine readgrid2d_short(ifile, idata)
   !Get Lons, lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits))
+  if(nf90_get_att(ncid, xvarid, "units", idata%lonunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%lonname))//":units in your NetCDF!"
+  end if
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits))
+  if(nf90_get_att(ncid, yvarid, "units", idata%latunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%latname))//":units in your NetCDF!"
+  end if
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_get_var(ncid, varid, idata%ncdata))
 
   !Get some attributes
-  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name))
-  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value))
-  call check(nf90_get_att(ncid, varid, "units", idata%varunits))
+  if(nf90_get_att(ncid, varid, "long_name", idata%long_name).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":long_name in your NetCDF!"
+  end if
 
+  if(nf90_get_att(ncid, varid, "_FillValue", idata%f_value).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":_FillValue in your NetCDF!"
+  end if
+
+  if(nf90_get_att(ncid, varid, "units", idata%varunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":units in your NetCDF!"
+  end if
   call check(nf90_close(ncid))
 end subroutine readgrid2d_short
 
@@ -126,21 +148,32 @@ subroutine readgrid2d_int(ifile, idata)
   !Get Lons, lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits))
+  if(nf90_get_att(ncid, xvarid, "units", idata%lonunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%lonname))//":units in your NetCDF!"
+  end if
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits))
+  if(nf90_get_att(ncid, yvarid, "units", idata%latunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%latname))//":units in your NetCDF!"
+  end if
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_get_var(ncid, varid, idata%ncdata))
 
   !Get some attributes
-  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name))
-  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value))
-  call check(nf90_get_att(ncid, varid, "units", idata%varunits))
+  if(nf90_get_att(ncid, varid, "long_name", idata%long_name).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":long_name in your NetCDF!"
+  end if
 
+  if(nf90_get_att(ncid, varid, "_FillValue", idata%f_value).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":_FillValue in your NetCDF!"
+  end if
+
+  if(nf90_get_att(ncid, varid, "units", idata%varunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":units in your NetCDF!"
+  end if
   call check(nf90_close(ncid))
 end subroutine readgrid2d_int
 
@@ -164,21 +197,32 @@ subroutine readgrid2d_float(ifile, idata)
   !Get Lons, lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits))
+  if(nf90_get_att(ncid, xvarid, "units", idata%lonunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%lonname))//":units in your NetCDF!"
+  end if
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits))
+  if(nf90_get_att(ncid, yvarid, "units", idata%latunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%latname))//":units in your NetCDF!"
+  end if
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_get_var(ncid, varid, idata%ncdata))
 
   !Get some attributes
-  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name))
-  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value))
-  call check(nf90_get_att(ncid, varid, "units", idata%varunits))
+  if(nf90_get_att(ncid, varid, "long_name", idata%long_name).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":long_name in your NetCDF!"
+  end if
 
+  if(nf90_get_att(ncid, varid, "_FillValue", idata%f_value).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":_FillValue in your NetCDF!"
+  end if
+
+  if(nf90_get_att(ncid, varid, "units", idata%varunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":units in your NetCDF!"
+  end if
   call check(nf90_close(ncid))
 end subroutine readgrid2d_float
 
@@ -202,20 +246,31 @@ subroutine readgrid2d_double(ifile, idata)
   !Get Lons, lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits))
+  if(nf90_get_att(ncid, xvarid, "units", idata%lonunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%lonname))//":units in your NetCDF!"
+  end if
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits))
+  if(nf90_get_att(ncid, yvarid, "units", idata%latunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%latname))//":units in your NetCDF!"
+  end if
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_get_var(ncid, varid, idata%ncdata))
 
   !Get some attributes
-  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name))
-  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value))
-  call check(nf90_get_att(ncid, varid, "units", idata%varunits))
+  if(nf90_get_att(ncid, varid, "long_name", idata%long_name).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":long_name in your NetCDF!"
+  end if
 
+  if(nf90_get_att(ncid, varid, "_FillValue", idata%f_value).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":_FillValue in your NetCDF!"
+  end if
+
+  if(nf90_get_att(ncid, varid, "units", idata%varunits).ne.nf90_noerr) then
+    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":units in your NetCDF!"
+  end if
   call check(nf90_close(ncid))
 end subroutine readgrid2d_double
