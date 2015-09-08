@@ -62,7 +62,8 @@ subroutine readgrid2d_byte(ifile, idata)
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
-  call check(nf90_get_var(ncid, varid, idata%ncdata))
+
+  call checktype(nf90_get_var(ncid, varid, idata%ncdata),idata%vartype,1)
 
   !Get some attributes
   if(nf90_get_att(ncid, varid, "long_name", idata%long_name).ne.nf90_noerr) then
@@ -77,6 +78,7 @@ subroutine readgrid2d_byte(ifile, idata)
     write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":units in your NetCDF!"
   end if
   call check(nf90_close(ncid))
+
 end subroutine readgrid2d_byte
 
 

@@ -36,7 +36,43 @@
 !======================================
 subroutine check(ncstatus)
   integer, intent(in) :: ncstatus
+
   if(ncstatus.ne.nf90_noerr)then
     write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
   end if
 end subroutine check
+
+subroutine checktype(ncstatus, rvar, dvar)
+  integer, intent(in) :: ncstatus, dvar, rvar
+  character(len=8) :: dtype
+
+  select case (dvar)
+      case (6)
+        dtype = "DOUBLE"
+      case (5)
+        dtype = "FLOAT"
+      case (4)
+        dtype = "INTEGER"
+      case (3)
+        dtype = "SHORT"
+      case (1)
+        dtype = "BYTE"
+  end select
+
+  if(ncstatus.ne.nf90_noerr)then
+    write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
+    write(*,*)"\033[31m Check data type of the input file and data type declared! \033[0m"
+    select case (rvar)
+      case (6)
+        write(*,*)"Input type: DOUBLE | Declared type: "//trim(adjustl(dtype))//"!"
+      case (5)
+        write(*,*)"Input type: FLOAT | Declared type: "//trim(adjustl(dtype))//"!"
+      case (4)
+        write(*,*)"Input type: INTEGER | Declared type: "//trim(adjustl(dtype))//"!"
+      case (3)
+        write(*,*)"Input type: SHORT | Declared type: "//trim(adjustl(dtype))//"!"
+      case (1)
+        write(*,*)"Input type: BYTE | Declared type: "//trim(adjustl(dtype))//"!"
+    end select
+  end if
+end subroutine checktype

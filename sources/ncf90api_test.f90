@@ -42,15 +42,15 @@ program main
 
   character(100) :: ncfile, outfile
 
-  ncfile = "/home/fernando/Documents/dados_nc/biomas_byte.nc"
-  outfile = "/home/fernando/Documents/dados_nc/uint16.nc"
+  ncfile = "/home/fernando/Documents/dados_nc_test/maskara_estados_br.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/out_estados.nc"
 
   nc%varname = "Band1"
   nc%lonname = "lon"
   nc%latname = "lat"
   nc%long_name = "nome do mapa"
 
-  call ncoords(ncfile, nc)
+  !call ncoords(ncfile, nc)
 
   call readgrid(ncfile, nc)
 !  do i = 1, nc%nlats
