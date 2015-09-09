@@ -32,6 +32,10 @@
 !:========================================================================
 
 !NetCDF(lon, lat)
+interface check
+  module procedure checkerror, checktype
+end interface
+
 interface ncoords
   module procedure ncoords2d_byte, ncoords2d_short, &
                    ncoords2d_int, ncoords2d_float, &

@@ -33,46 +33,50 @@
 
 !:======= Error Handler Module ===========================================
 !:======= Check for NetCDF errors
-!======================================
-subroutine check(ncstatus)
-  integer, intent(in) :: ncstatus
+!=========================================================================
 
+!General check
+subroutine checkerror(ncstatus)
+  integer, intent(in) :: ncstatus
   if(ncstatus.ne.nf90_noerr)then
     write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
   end if
-end subroutine check
+end subroutine checkerror
 
+!Check nf90_get_var ======================================================
 subroutine checktype(ncstatus, rvar, dvar)
-  integer, intent(in) :: ncstatus, dvar, rvar
+  integer, intent(in) :: ncstatus, rvar
+  character(*), intent(in) :: dvar
   character(len=8) :: dtype
 
-  select case (dvar)
-      case (6)
-        dtype = "DOUBLE"
-      case (5)
-        dtype = "FLOAT"
-      case (4)
-        dtype = "INTEGER"
-      case (3)
-        dtype = "SHORT"
-      case (1)
-        dtype = "BYTE"
-  end select
-
   if(ncstatus.ne.nf90_noerr)then
     write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
-    write(*,*)"\033[31m Check data type of the input file and data type declared! \033[0m"
+    call system('echo -e "\033[1;91m Check data type of the input file and data type declared! \033[0m"')
     select case (rvar)
       case (6)
-        write(*,*)"Input type: DOUBLE | Declared type: "//trim(adjustl(dtype))//"!"
+        call system('echo -e "\e[0;91m WARNING: Input type: DOUBLE | Declared type: '//trim(adjustl(dvar))//'\e[0m\n"')
       case (5)
-        write(*,*)"Input type: FLOAT | Declared type: "//trim(adjustl(dtype))//"!"
+        call system('echo -e "\e[0;91m WARNING: Input type: FLOAT | Declared type: '//trim(adjustl(dvar))//'\e[0m\n"')
       case (4)
-        write(*,*)"Input type: INTEGER | Declared type: "//trim(adjustl(dtype))//"!"
+        call system('echo -e "\e[0;91m WARNING: Input type: INTEGER | Declared type: '//trim(adjustl(dvar))//'\e[0m\n"')
       case (3)
-        write(*,*)"Input type: SHORT | Declared type: "//trim(adjustl(dtype))//"!"
+        call system('echo -e "\e[0;91m WARNING: Input type: SHORT | Declared type: '//trim(adjustl(dvar))//'\e[0m\n"')
       case (1)
-        write(*,*)"Input type: BYTE | Declared type: "//trim(adjustl(dtype))//"!"
+        call system('echo -e "\e[0;91m WARNING: Input type: BYTE | Declared type: '//trim(adjustl(dvar))//'\e[0m\n"')
     end select
+    stop
   end if
 end subroutine checktype
+
+!Check nf90_get_att ======================================================
+subroutine checkatt(ncstatus, uname)
+  integer, intent(in) :: ncstatus
+  character(*), intent(in) :: uname
+  if(ncstatus.ne.nf90_noerr)then
+    write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
+    call system('echo -e "\e[38;5;166m WARNING: Declare '//trim(adjustl(uname))//' in your NetCDF!\e[0m"')
+  end if
+end subroutine checkatt
+!=========================================================================
+
+

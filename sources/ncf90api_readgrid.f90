@@ -1,5 +1,5 @@
 !:========================================================================
-! This file is part of f90NetCDF API (Fortran 90 API for Netcdf).
+! This file is part of f90NetCDF API (NetCDF API for Fortran 90).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
 
@@ -35,7 +35,6 @@
 subroutine readgrid2d_byte(ifile, idata)
   character(*) :: ifile
   type(nc2d_byte) :: idata
-
   integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
@@ -47,38 +46,25 @@ subroutine readgrid2d_byte(ifile, idata)
   !Open NetCDF
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
-  !Get Lons, lats and variable values
+  !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  if(nf90_get_att(ncid, xvarid, "units", idata%lonunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%lonname))//":units in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"degrees_east")
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  if(nf90_get_att(ncid, yvarid, "units", idata%latunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%latname))//":units in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "degrees_north")
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
-
-  call checktype(nf90_get_var(ncid, varid, idata%ncdata),idata%vartype,1)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"BYTE")
 
   !Get some attributes
-  if(nf90_get_att(ncid, varid, "long_name", idata%long_name).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":long_name in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name")
+  call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
+  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
 
-  if(nf90_get_att(ncid, varid, "_FillValue", idata%f_value).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":_FillValue in your NetCDF!"
-  end if
-
-  if(nf90_get_att(ncid, varid, "units", idata%varunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":units in your NetCDF!"
-  end if
   call check(nf90_close(ncid))
-
 end subroutine readgrid2d_byte
 
 
@@ -86,7 +72,6 @@ end subroutine readgrid2d_byte
 subroutine readgrid2d_short(ifile, idata)
   character(*) :: ifile
   type(nc2d_short) :: idata
-
   integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
@@ -98,35 +83,24 @@ subroutine readgrid2d_short(ifile, idata)
   !Open NetCDF
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
-  !Get Lons, lats and variable values
+  !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  if(nf90_get_att(ncid, xvarid, "units", idata%lonunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%lonname))//":units in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"degrees_east")
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  if(nf90_get_att(ncid, yvarid, "units", idata%latunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%latname))//":units in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "degrees_north")
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
-  call check(nf90_get_var(ncid, varid, idata%ncdata))
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"SHORT")
 
   !Get some attributes
-  if(nf90_get_att(ncid, varid, "long_name", idata%long_name).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":long_name in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name")
+  call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
+  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
 
-  if(nf90_get_att(ncid, varid, "_FillValue", idata%f_value).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":_FillValue in your NetCDF!"
-  end if
-
-  if(nf90_get_att(ncid, varid, "units", idata%varunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":units in your NetCDF!"
-  end if
   call check(nf90_close(ncid))
 end subroutine readgrid2d_short
 
@@ -135,7 +109,6 @@ end subroutine readgrid2d_short
 subroutine readgrid2d_int(ifile, idata)
   character(*) :: ifile
   type(nc2d_int) :: idata
-
   integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
@@ -147,35 +120,27 @@ subroutine readgrid2d_int(ifile, idata)
   !Open NetCDF
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
-  !Get Lons, lats and variable values
+  !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  if(nf90_get_att(ncid, xvarid, "units", idata%lonunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%lonname))//":units in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"degrees_east")
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  if(nf90_get_att(ncid, yvarid, "units", idata%latunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%latname))//":units in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "degrees_north")
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
-  call check(nf90_get_var(ncid, varid, idata%ncdata))
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"INT")
 
   !Get some attributes
-  if(nf90_get_att(ncid, varid, "long_name", idata%long_name).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":long_name in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name")
+  call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
+  write(*,*) idata%f_value
+  write(*,*) nf90_fill_int
+  write(*,*) nf90_fill_double
+  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
 
-  if(nf90_get_att(ncid, varid, "_FillValue", idata%f_value).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":_FillValue in your NetCDF!"
-  end if
-
-  if(nf90_get_att(ncid, varid, "units", idata%varunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":units in your NetCDF!"
-  end if
   call check(nf90_close(ncid))
 end subroutine readgrid2d_int
 
@@ -184,7 +149,6 @@ end subroutine readgrid2d_int
 subroutine readgrid2d_float(ifile, idata)
   character(*) :: ifile
   type(nc2d_float) :: idata
-
   integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
@@ -196,35 +160,24 @@ subroutine readgrid2d_float(ifile, idata)
   !Open NetCDF
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
-  !Get Lons, lats and variable values
+  !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  if(nf90_get_att(ncid, xvarid, "units", idata%lonunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%lonname))//":units in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"degrees_east")
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  if(nf90_get_att(ncid, yvarid, "units", idata%latunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%latname))//":units in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "degrees_north")
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
-  call check(nf90_get_var(ncid, varid, idata%ncdata))
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"FLOAT")
 
   !Get some attributes
-  if(nf90_get_att(ncid, varid, "long_name", idata%long_name).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":long_name in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name")
+  call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
+  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
 
-  if(nf90_get_att(ncid, varid, "_FillValue", idata%f_value).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":_FillValue in your NetCDF!"
-  end if
-
-  if(nf90_get_att(ncid, varid, "units", idata%varunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":units in your NetCDF!"
-  end if
   call check(nf90_close(ncid))
 end subroutine readgrid2d_float
 
@@ -233,7 +186,6 @@ end subroutine readgrid2d_float
 subroutine readgrid2d_double(ifile, idata)
   character(*) :: ifile
   type(nc2d_double) :: idata
-
   integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
@@ -245,34 +197,23 @@ subroutine readgrid2d_double(ifile, idata)
   !Open NetCDF
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
-  !Get Lons, lats and variable values
+  !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  if(nf90_get_att(ncid, xvarid, "units", idata%lonunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%lonname))//":units in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"degrees_east")
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  if(nf90_get_att(ncid, yvarid, "units", idata%latunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%latname))//":units in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "degrees_north")
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
-  call check(nf90_get_var(ncid, varid, idata%ncdata))
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"DOUBLE")
 
   !Get some attributes
-  if(nf90_get_att(ncid, varid, "long_name", idata%long_name).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":long_name in your NetCDF!"
-  end if
+  call checkatt(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name")
+  call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
+  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
 
-  if(nf90_get_att(ncid, varid, "_FillValue", idata%f_value).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":_FillValue in your NetCDF!"
-  end if
-
-  if(nf90_get_att(ncid, varid, "units", idata%varunits).ne.nf90_noerr) then
-    write(*,*)"WARNNING: Declare "//trim(adjustl(idata%varname))//":units in your NetCDF!"
-  end if
   call check(nf90_close(ncid))
 end subroutine readgrid2d_double
