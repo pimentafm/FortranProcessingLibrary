@@ -36,16 +36,16 @@ program main
   use ncf90api
   implicit none
 
-  type (nc2d_byte) :: nc
+  type (nc2d_double) :: nc
 
   integer*4 :: i, j
 
   character(100) :: ncfile, outfile
 
-  ncfile = "/home/fernando/Documents/dados_nc_test/maskara_estados_br.nc"
-  outfile = "/home/fernando/Documents/dados_nc_test/out_estados.nc"
+  ncfile = "/home/fernando/Documents/dados_nc_test/LUPASTNAT2012v3.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/out_lu.nc"
 
-  nc%varname = "Band1"
+  nc%varname = "landuse"
   nc%lonname = "lon"
   nc%latname = "lat"
   nc%long_name = "nome do mapa"
@@ -65,36 +65,36 @@ program main
 
   call writegrid(outfile, nc)
 
-  write(*,*)"NC INFO-------------------------"
-  write(*,*)"nc->long_name ", nc%long_name
-  write(*,*)"nc->lonname   ", nc%lonname
-  write(*,*)"nc->latname   ", nc%latname
-  write(*,*)"nc->varname   ", nc%varname
-  write(*,*)"nc->nlons     ", nc%nlons
-  write(*,*)"nc->nlats     ", nc%nlats
-  write(*,*)"nc->vartype   ", nc%vartype, "-> 6_d, 5_f, 4_i, 3_s, 1_b"
-  write(*,*)" "
-  write(*,*)"nc->varunits  ",nc%varunits
-  write(*,*)"nc->lonunits  ",nc%lonunits
-  write(*,*)"nc->latunits  ",nc%latunits
-  write(*,*)"nc->f_value   ",nc%f_value
-  write(*,*)" "
+  !write(*,*)"NC INFO-------------------------"
+  !write(*,*)"nc->long_name ", nc%long_name
+  !write(*,*)"nc->lonname   ", nc%lonname
+  !write(*,*)"nc->latname   ", nc%latname
+  !write(*,*)"nc->varname   ", nc%varname
+  !write(*,*)"nc->nlons     ", nc%nlons
+  !write(*,*)"nc->nlats     ", nc%nlats
+  !write(*,*)"nc->vartype   ", nc%vartype, "-> 6_d, 5_f, 4_i, 3_s, 1_b"
+  !write(*,*)" "
+  !write(*,*)"nc->varunits  ",nc%varunits
+  !write(*,*)"nc->lonunits  ",nc%lonunits
+  !write(*,*)"nc->latunits  ",nc%latunits
+  !write(*,*)"nc->f_value   ",nc%f_value
+  !write(*,*)" "
 
-  write(*,*)"KIND INFO-----------------------"
-  write(*,*)"DOUBLE->:     ", C_DOUBLE
-  write(*,*)"INT->:        ",C_INT
-  write(*,*)"FLOAT->:      ",C_FLOAT
-  write(*,*)"SHORT->:      ",C_SHORT
-  write(*,*)"BYTE->:       ",C_SIGNED_CHAR
+  !write(*,*)"KIND INFO-----------------------"
+  !write(*,*)"DOUBLE->:     ", C_DOUBLE
+  !write(*,*)"INT->:        ",C_INT
+  !write(*,*)"FLOAT->:      ",C_FLOAT
+  !write(*,*)"SHORT->:      ",C_SHORT
+  !write(*,*)"BYTE->:       ",C_SIGNED_CHAR
 
-  write(*,*)" "
+  !write(*,*)" "
 
-  write(*,*)"FILL INFO-----------------------"
-  write(*,*)"Byte:         ", nf90_fill_byte
-  write(*,*)"Short:        ", nf90_fill_short
-  write(*,*)"Integer:      ", nf90_fill_int
-  write(*,*)"Float:        ", nf90_fill_float
-  write(*,*)"Double:       ", nf90_fill_double
+  !write(*,*)"FILL INFO-----------------------"
+  !write(*,*)"Byte:         ", nf90_fill_byte
+  !write(*,*)"Short:        ", nf90_fill_short
+  !write(*,*)"Integer:      ", nf90_fill_int
+  !write(*,*)"Float:        ", nf90_fill_float
+  !write(*,*)"Double:       ", nf90_fill_double
 
   !write(*,*)"Pi: ",pi
   !write(*,*)"Earth Radius: ",earth_radius

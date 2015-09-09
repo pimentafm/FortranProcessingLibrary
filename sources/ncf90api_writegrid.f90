@@ -1,5 +1,5 @@
 !:========================================================================
-! This file is part of f90NetCDF API (Fortran 90 API for Netcdf).
+! This file is part of f90NetCDF API (NetCDF API for Fortran 90).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
 
@@ -38,7 +38,7 @@ subroutine writegrid2d_byte(ofile, odata)
   integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=C_INT), dimension(2) :: dimids
 
-  !Create Netcdf
+    !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
@@ -58,7 +58,7 @@ subroutine writegrid2d_byte(ofile, odata)
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
 
-  call check(nf90_enddef(ncid))
+  call check(nf90_enddef(ncid), odata%vartype, "BYTE")
 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
@@ -69,7 +69,7 @@ subroutine writegrid2d_byte(ofile, odata)
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
-  call check(nf90_close(ncid))
+  call check(nf90_close(ncid), odata%vartype, "BYTE")
 end subroutine writegrid2d_byte
 
 
@@ -80,7 +80,7 @@ subroutine writegrid2d_short(ofile, odata)
   integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=C_INT), dimension(2) :: dimids
 
-  !Create Netcdf
+    !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
@@ -100,7 +100,7 @@ subroutine writegrid2d_short(ofile, odata)
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
 
-  call check(nf90_enddef(ncid))
+  call check(nf90_enddef(ncid), odata%vartype, "SHORT")
 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
@@ -111,7 +111,7 @@ subroutine writegrid2d_short(ofile, odata)
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
-  call check(nf90_close(ncid))
+  call check(nf90_close(ncid), odata%vartype, "SHORT")
 end subroutine writegrid2d_short
 
 
@@ -122,7 +122,7 @@ subroutine writegrid2d_int(ofile, odata)
   integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=C_INT), dimension(2) :: dimids
 
-  !Create Netcdf
+    !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
@@ -142,7 +142,7 @@ subroutine writegrid2d_int(ofile, odata)
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
 
-  call check(nf90_enddef(ncid))
+  call check(nf90_enddef(ncid), odata%vartype, "INT")
 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
@@ -153,7 +153,7 @@ subroutine writegrid2d_int(ofile, odata)
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
-  call check(nf90_close(ncid))
+  call check(nf90_close(ncid), odata%vartype, "INT")
 end subroutine writegrid2d_int
 
 
@@ -164,7 +164,7 @@ subroutine writegrid2d_float(ofile, odata)
   integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=C_INT), dimension(2) :: dimids
 
-  !Create Netcdf
+    !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
@@ -184,7 +184,7 @@ subroutine writegrid2d_float(ofile, odata)
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
 
-  call check(nf90_enddef(ncid))
+  call check(nf90_enddef(ncid), odata%vartype, "FLOAT")
 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
@@ -195,7 +195,7 @@ subroutine writegrid2d_float(ofile, odata)
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
-  call check(nf90_close(ncid))
+  call check(nf90_close(ncid), odata%vartype, "FLOAT")
 end subroutine writegrid2d_float
 
 
@@ -206,7 +206,7 @@ subroutine writegrid2d_double(ofile, odata)
   integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=C_INT), dimension(2) :: dimids
 
-  !Create Netcdf
+    !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
@@ -226,7 +226,7 @@ subroutine writegrid2d_double(ofile, odata)
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
 
-  call check(nf90_enddef(ncid))
+  call check(nf90_enddef(ncid), odata%vartype, "DOUBLE")
 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
@@ -237,5 +237,5 @@ subroutine writegrid2d_double(ofile, odata)
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
-  call check(nf90_close(ncid))
+  call check(nf90_close(ncid), odata%vartype, "DOUBLE")
 end subroutine writegrid2d_double

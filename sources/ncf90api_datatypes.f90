@@ -38,7 +38,7 @@ type :: nc2d_byte
                        lonunits, latunits
   integer(kind=C_INT) :: nlons, nlats, vartype
   integer(kind=C_SIGNED_CHAR) :: f_value
-  real(kind=C_DOUBLE),dimension(:), allocatable :: longitudes, latitudes
+  real(kind=C_DOUBLE),dimension(:), pointer :: longitudes, latitudes
   integer(kind=C_SIGNED_CHAR), dimension(:,:), pointer ::  ncdata
 end type nc2d_byte
 
@@ -50,8 +50,8 @@ type :: nc2d_short
                        lonunits, latunits
   integer(kind=C_INT) :: nlons, nlats, vartype
   integer(kind=C_SHORT) :: f_value
-  real(kind=C_DOUBLE),dimension(:), allocatable :: longitudes, latitudes
-  integer(kind=C_SHORT), dimension(:,:), allocatable ::  ncdata
+  real(kind=C_DOUBLE),dimension(:), pointer :: longitudes, latitudes
+  integer(kind=C_SHORT), dimension(:,:), pointer ::  ncdata
 end type nc2d_short
 
 
@@ -62,8 +62,8 @@ type :: nc2d_int
                        lonunits, latunits
   integer(kind=C_INT) :: nlons, nlats, vartype
   integer(kind=C_INT) :: f_value
-  real(kind=C_DOUBLE),dimension(:), allocatable :: longitudes, latitudes
-  integer(kind=C_INT), dimension(:,:), allocatable ::  ncdata
+  real(kind=C_DOUBLE),dimension(:), pointer :: longitudes, latitudes
+  integer(kind=C_INT), dimension(:,:), pointer ::  ncdata
 end type nc2d_int
 
 
@@ -74,8 +74,8 @@ type :: nc2d_float
                        lonunits, latunits
   integer(kind=C_INT) :: nlons, nlats, vartype
   real(kind=C_FLOAT) :: f_value
-  real(kind=C_DOUBLE),dimension(:), allocatable :: longitudes, latitudes
-  real(kind=C_FLOAT), dimension(:,:), allocatable ::  ncdata
+  real(kind=C_DOUBLE),dimension(:), pointer :: longitudes, latitudes
+  real(kind=C_FLOAT), dimension(:,:), pointer ::  ncdata
 end type nc2d_float
 
 
@@ -86,8 +86,8 @@ type :: nc2d_double
                        lonunits, latunits
   integer(kind=C_INT) :: nlons, nlats, vartype
   real(kind=C_DOUBLE) :: f_value
-  real(kind=C_DOUBLE),dimension(:), allocatable :: longitudes, latitudes
-  real(kind=C_DOUBLE), dimension(:,:), allocatable ::  ncdata
+  real(kind=C_DOUBLE),dimension(:), pointer :: longitudes, latitudes
+  real(kind=C_DOUBLE), dimension(:,:), pointer ::  ncdata
 end type nc2d_double
 
 
