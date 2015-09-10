@@ -43,6 +43,17 @@ subroutine checkerror(ncstatus)
   end if
 end subroutine checkerror
 
+!Check nf90_open
+
+subroutine checkfile(ncstatus)
+  integer, intent(in) :: ncstatus
+  if(ncstatus.ne.nf90_noerr)then
+    write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
+    call system('echo -e "\033[1;91m No such file or directory!\033[0m"')
+    stop
+  end if
+end subroutine checkfile
+
 !Check nf90_get_var ======================================================
 subroutine checktype(ncstatus, rvar, dvar)
   integer, intent(in) :: ncstatus, rvar
@@ -51,7 +62,7 @@ subroutine checktype(ncstatus, rvar, dvar)
 
   if(ncstatus.ne.nf90_noerr)then
     write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
-    call system('echo -e "\033[1;91m Check data type of the input file and data type declared! \033[0m"')
+    call system('echo -e "\033[1;91m Check data type of the input file and data type declared!\033[0m"')
     select case (rvar)
       case (6)
         call system('echo -e "\e[0;91m WARNING: Input type: DOUBLE | Declared type: '//trim(adjustl(dvar))//'\e[0m\n"')
