@@ -195,7 +195,7 @@ subroutine readgrid2d_double(ifile, idata)
   allocate(idata%latitudes(idata%nlats))
 
   !Open NetCDF
-  call check(nf90_open(ifile, nf90_nowrite, ncid))
+  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
