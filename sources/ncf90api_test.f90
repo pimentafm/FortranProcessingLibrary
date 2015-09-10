@@ -52,6 +52,7 @@ program main
 
   !call ncoords(ncfile, nc)
 
+  write(*,*)nc%f_value
   call readgrid(ncfile, nc)
 !  do i = 1, nc%nlats
 !    do j = 1, nc%nlons
@@ -62,9 +63,9 @@ program main
 !      end if
 !    end do
 !  end do
-
+write(*,*)nc%f_value
   call writegrid(outfile, nc)
-
+write(*,*)nc%f_value
   !write(*,*)"NC INFO-------------------------"
   !write(*,*)"nc->long_name ", nc%long_name
   !write(*,*)"nc->lonname   ", nc%lonname
