@@ -1,5 +1,5 @@
 !:========================================================================
-! This file is part of f90NetCDF API (NetCDF API for Fortran 90).
+! This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
 
@@ -35,6 +35,7 @@
 subroutine readgrid2d_byte(ifile, idata)
   character(*) :: ifile
   type(nc2d_byte) :: idata
+
   integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
@@ -44,7 +45,7 @@ subroutine readgrid2d_byte(ifile, idata)
   allocate(idata%latitudes(idata%nlats))
 
   !Open NetCDF
-  call check(nf90_open(ifile, nf90_nowrite, ncid))
+  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
@@ -72,6 +73,7 @@ end subroutine readgrid2d_byte
 subroutine readgrid2d_short(ifile, idata)
   character(*) :: ifile
   type(nc2d_short) :: idata
+
   integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
@@ -81,7 +83,7 @@ subroutine readgrid2d_short(ifile, idata)
   allocate(idata%latitudes(idata%nlats))
 
   !Open NetCDF
-  call check(nf90_open(ifile, nf90_nowrite, ncid))
+  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
@@ -109,6 +111,7 @@ end subroutine readgrid2d_short
 subroutine readgrid2d_int(ifile, idata)
   character(*) :: ifile
   type(nc2d_int) :: idata
+
   integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
@@ -118,7 +121,7 @@ subroutine readgrid2d_int(ifile, idata)
   allocate(idata%latitudes(idata%nlats))
 
   !Open NetCDF
-  call check(nf90_open(ifile, nf90_nowrite, ncid))
+  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
@@ -136,9 +139,6 @@ subroutine readgrid2d_int(ifile, idata)
   !Get some attributes
   call checkatt(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name")
   call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
-  write(*,*) idata%f_value
-  write(*,*) nf90_fill_int
-  write(*,*) nf90_fill_double
   call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
 
   call check(nf90_close(ncid))
@@ -149,6 +149,7 @@ end subroutine readgrid2d_int
 subroutine readgrid2d_float(ifile, idata)
   character(*) :: ifile
   type(nc2d_float) :: idata
+
   integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
@@ -158,7 +159,7 @@ subroutine readgrid2d_float(ifile, idata)
   allocate(idata%latitudes(idata%nlats))
 
   !Open NetCDF
-  call check(nf90_open(ifile, nf90_nowrite, ncid))
+  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
@@ -186,6 +187,7 @@ end subroutine readgrid2d_float
 subroutine readgrid2d_double(ifile, idata)
   character(*) :: ifile
   type(nc2d_double) :: idata
+
   integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
