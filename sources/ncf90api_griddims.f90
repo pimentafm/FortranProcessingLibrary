@@ -138,9 +138,9 @@ subroutine ncoords2d_double(ifile, idata)
   character(*), intent(in) :: ifile
 
   !Open NetCDF File
-  write(*,*)"AAAAAAAAAAA"
+
   call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
-  write(*,*)"GGGGGGGGGGG"
+
   !Get Coordinate values and put them in nx, ny
   call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
   call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
