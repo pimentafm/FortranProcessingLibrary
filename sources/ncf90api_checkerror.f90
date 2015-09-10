@@ -48,7 +48,6 @@ end subroutine checkerror
 subroutine checkfile(ncstatus)
   integer, intent(in) :: ncstatus
   if(ncstatus.ne.nf90_noerr)then
-    write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
     call system('echo -e "\033[1;91m No such file or directory!\033[0m"')
     stop
   end if
