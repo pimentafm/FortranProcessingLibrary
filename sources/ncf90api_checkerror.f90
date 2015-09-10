@@ -76,7 +76,7 @@ subroutine checkatt(ncstatus, uname)
   if(ncstatus.ne.nf90_noerr)then
     if(uname.eq."_FillValue")then
       call system('echo -e "\033[1;91m FAULT: Declare _FillValue in your NetCDF!\e[0m\n"')
-      !stop
+      stop
       else
         write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
         call system('echo -e "\e[38;5;166m WARNING: Declare '//trim(adjustl(uname))//' in your NetCDF!\e[0m\n"')
