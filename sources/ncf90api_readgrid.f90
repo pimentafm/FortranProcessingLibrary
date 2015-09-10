@@ -45,7 +45,7 @@ subroutine readgrid2d_byte(ifile, idata)
   allocate(idata%latitudes(idata%nlats))
 
   !Open NetCDF
-  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
@@ -83,7 +83,7 @@ subroutine readgrid2d_short(ifile, idata)
   allocate(idata%latitudes(idata%nlats))
 
   !Open NetCDF
-  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
@@ -121,7 +121,7 @@ subroutine readgrid2d_int(ifile, idata)
   allocate(idata%latitudes(idata%nlats))
 
   !Open NetCDF
-  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
@@ -159,7 +159,7 @@ subroutine readgrid2d_float(ifile, idata)
   allocate(idata%latitudes(idata%nlats))
 
   !Open NetCDF
-  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
@@ -197,7 +197,7 @@ subroutine readgrid2d_double(ifile, idata)
   allocate(idata%latitudes(idata%nlats))
 
   !Open NetCDF
-  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))

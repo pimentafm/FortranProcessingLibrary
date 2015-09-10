@@ -39,19 +39,10 @@
 subroutine checkerror(ncstatus)
   integer, intent(in) :: ncstatus
   if(ncstatus.ne.nf90_noerr)then
-    write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
-  end if
-end subroutine checkerror
-
-!Check nf90_open
-
-subroutine checkfile(ncstatus)
-  integer, intent(in) :: ncstatus
-  if(ncstatus.ne.nf90_noerr)then
-    call system('echo -e "\033[1;91m No such file or directory!\033[0m"')
+    call system('echo -e "\e[1;91m'//trim(adjustl(nf90_strerror(ncstatus)))//'\e[0m\n"')
     stop
   end if
-end subroutine checkfile
+end subroutine checkerror
 
 !Check nf90_get_var ======================================================
 subroutine checktype(ncstatus, rvar, dvar)

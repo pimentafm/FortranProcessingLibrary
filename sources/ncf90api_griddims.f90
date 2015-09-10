@@ -38,7 +38,7 @@ subroutine ncoords2d_byte(ifile, idata)
   character(*), intent(in) :: ifile
 
   !Open NetCDF File
-  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
   call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
@@ -65,7 +65,7 @@ subroutine ncoords2d_short(ifile, idata)
   character(*), intent(in) :: ifile
 
   !Open NetCDF File
-  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
   call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
@@ -92,7 +92,7 @@ subroutine ncoords2d_int(ifile, idata)
   character(*), intent(in) :: ifile
 
   !Open NetCDF File
-  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
   call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
@@ -119,7 +119,7 @@ subroutine ncoords2d_float(ifile, idata)
   character(*), intent(in) :: ifile
 
   !Open NetCDF File
-  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
   call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
@@ -146,7 +146,7 @@ subroutine ncoords2d_double(ifile, idata)
   character(*), intent(in) :: ifile
 
   !Open NetCDF File
-  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
   call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
