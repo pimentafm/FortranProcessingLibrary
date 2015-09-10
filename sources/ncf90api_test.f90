@@ -42,17 +42,17 @@ program main
 
   character(100) :: ncfile, outfile
 
-  ncfile = "/home/fernando/Documents/dados_nc_test/LUPASTNAT2012v3.nc"
-  outfile = "/home/fernando/Documents/dados_nc_test/out_lu.nc"
+  ncfile = "/home/fernando/Documents/dados_nxxxxc_test/maskara_estados_br.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/out_mask.nc"
 
-  nc%varname = "landuse"
+  nc%varname = "Band1"
   nc%lonname = "lon"
   nc%latname = "lat"
   nc%long_name = "nome do mapa"
 
   !call ncoords(ncfile, nc)
 
-  write(*,*)nc%f_value
+
   call readgrid(ncfile, nc)
 !  do i = 1, nc%nlats
 !    do j = 1, nc%nlons
@@ -63,9 +63,9 @@ program main
 !      end if
 !    end do
 !  end do
-write(*,*)nc%f_value
+
   call writegrid(outfile, nc)
-write(*,*)nc%f_value
+
   !write(*,*)"NC INFO-------------------------"
   !write(*,*)"nc->long_name ", nc%long_name
   !write(*,*)"nc->lonname   ", nc%lonname
