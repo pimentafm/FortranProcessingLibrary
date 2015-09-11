@@ -34,7 +34,7 @@
 !NetCDF(lon, lat)
 interface check
   module procedure checkerror, checktype
-end interface
+end interface check
 
 interface ncoords
   module procedure ncoords2d_byte, ncoords2d_short, &
@@ -53,3 +53,7 @@ interface writegrid
                    writegrid2d_int, writegrid2d_float, &
                    writegrid2d_double
 end interface writegrid
+
+interface fvmask
+  module procedure fvalue_by_mask2d
+end interface fvmask

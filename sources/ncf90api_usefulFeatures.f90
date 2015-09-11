@@ -30,3 +30,18 @@
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================
+
+!Set Fill Value by Mask for NetCDF(lon, lat) double
+subroutine fvalue_by_mask2d(idata, mask)
+  integer :: i, j
+  type(nc2d_double) :: idata, mask
+
+  do i = 1, idata%nlats
+    do j = 1, idata%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value)then
+        idata%ncdata(i,j) = -8888
+      end if
+   end do
+ end do
+
+end subroutine fvalue_by_mask2d

@@ -36,23 +36,34 @@ program main
   use ncf90api
   implicit none
 
-  type (nc2d_double) :: nc
+  type (nc2d_double) :: lu
+  type (nc2d_int) :: maskara
 
   integer*4 :: i, j
 
-  character(100) :: ncfile, outfile
+  character(100) :: lufile, maskfile, outfile
 
-  ncfile = "/home/fernando/Documents/dados_nc_test/lucult90.nc"
-  outfile = "/home/fernando/Documents/dados_nc_test/lucult_final.nc"
+  lufile = "/home/fernando/Documents/dados_nc_test/lucult90.nc"
+  maskfile = "/home/fernando/Documents/dados_nc_test/maskara_br.nc"
 
-  nc%varname = "landuse"
-  nc%lonname = "lon"
-  nc%latname = "lat"
+  outfile = "/home/fernando/Documents/dados_nc_test/maskarada.nc"
+
+  lu%varname = "landuse"
+  lu%lonname = "lon"
+  lu%latname = "lat"
+
+  maskara%varname = "Band1"
+  maskara%lonname = "lon"
+  maskara%latname = "lat"
   !nc%long_name = "nome do mapa"
 
   !call ncoords(ncfile, nc)
 
-  call readgrid(ncfile, nc)
+  call readgrid(lufile, lu)
+  call readgrid(maskfile, maskara)
+
+  call fvmask(lu,maskara)
+
 !  do i = 1, nc%nlats
 !    do j = 1, nc%nlons
 !      if(nc%ncdata(i,j).ne.0) then
@@ -63,7 +74,7 @@ program main
 !    end do
 !  end do
 
-  call writegrid(outfile, nc)
+  call writegrid(outfile, lu)
 
   !write(*,*)"NC INFO-------------------------"
   !write(*,*)"nc->long_name ", nc%long_name

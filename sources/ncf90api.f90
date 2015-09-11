@@ -46,5 +46,4 @@ contains
   include "ncf90api_readgrid.f90"
   include "ncf90api_writegrid.f90"
   include "ncf90api_usefulFeatures.f90"
-
 end module ncf90api
