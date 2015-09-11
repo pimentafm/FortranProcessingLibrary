@@ -1,5 +1,5 @@
 !:========================================================================
-! This file is part of f90NetCDF API (Fortran 90 API for Netcdf).
+! This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
 
@@ -42,10 +42,10 @@ program main
 
   character(100) :: ncfile, outfile
 
-  ncfile = "/home/fernando/Documents/dados_nc_test/maskara_estados_br.nc"
-  outfile = "/home/fernando/Documents/dados_nc_test/testkkk.nc"
+  ncfile = "/home/fernando/Documents/dados_nc_test/40x.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/azt.nc"
 
-  nc%varname = "Band1"
+  nc%varname = "landuse"
   nc%lonname = "lon"
   nc%latname = "lat"
   !nc%long_name = "nome do mapa"
@@ -65,7 +65,7 @@ program main
 !    end do
 !  end do
 
-  !call writegrid(outfile, nc)
+  call writegrid(outfile, nc)
 
   !write(*,*)"NC INFO-------------------------"
   !write(*,*)"nc->long_name ", nc%long_name

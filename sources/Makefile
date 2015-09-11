@@ -1,5 +1,5 @@
 #:========================================================================
-# This file is part of f90NetCDF API (Fortran 90 API fo NetCDF).
+# This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 # Copyright (C) 2015 Fernando Martins Pimenta
 
