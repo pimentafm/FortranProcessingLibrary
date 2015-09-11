@@ -32,7 +32,7 @@
 !:========================================================================
 
 !Set Fill Value by Mask for NetCDF(lon, lat) double
-subroutine fvalue_by_mask2d(idata, mask)
+subroutine fvmask2d(idata, mask)
   integer :: i, j
   type(nc2d_double) :: idata, mask
 
@@ -44,4 +44,4 @@ subroutine fvalue_by_mask2d(idata, mask)
    end do
  end do
 
-end subroutine fvalue_by_mask2d
+end subroutine fvmask2d

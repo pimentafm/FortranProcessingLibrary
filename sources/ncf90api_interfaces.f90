@@ -55,5 +55,5 @@ interface writegrid
 end interface writegrid
 
 interface fvmask
-  module procedure fvalue_by_mask2d
+  module procedure fvmask2d
 end interface fvmask
