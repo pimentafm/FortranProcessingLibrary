@@ -42,8 +42,8 @@ program main
 
   character(100) :: ncfile, outfile
 
-  ncfile = "/home/fernando/Documents/dados_nc_test/40x.nc"
-  outfile = "/home/fernando/Documents/dados_nc_test/azt.nc"
+  ncfile = "/home/fernando/Documents/dados_nc_test/lucult90.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/lucult_final.nc"
 
   nc%varname = "landuse"
   nc%lonname = "lon"
@@ -53,8 +53,6 @@ program main
   !call ncoords(ncfile, nc)
 
   call readgrid(ncfile, nc)
-  write(*,*)"_FillValue: "
-  write(*,*)nc%f_value
 !  do i = 1, nc%nlats
 !    do j = 1, nc%nlons
 !      if(nc%ncdata(i,j).ne.0) then

@@ -30,21 +30,3 @@
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================
-
-!:==================== Fortran NetCDF API Main Module ====================
-module ncf90api
-  use netcdf
-  use iso_c_binding
-  implicit none
-  include "ncf90api_constants.f90"
-  include "ncf90api_datatypes.f90"
-  include "ncf90api_interfaces.f90"
-
-contains
-  include "ncf90api_checkerror.f90"
-  include "ncf90api_griddims.f90"
-  include "ncf90api_readgrid.f90"
-  include "ncf90api_writegrid.f90"
-  include "ncf90api_usefulFeatures.f90"
-
-end module ncf90api
