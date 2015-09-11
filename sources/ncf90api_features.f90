@@ -32,16 +32,6 @@
 !:========================================================================
 
 !Set Fill Value by Mask for NetCDF(lon, lat) double
-subroutine fvmask2d(idata, mask)
-  integer :: i, j
-  type(nc2d_double) :: idata, mask
-
-  do i = 1, idata%nlats
-    do j = 1, idata%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value)then
-        idata%ncdata(i,j) = -8888
-      end if
-   end do
- end do
-
-end subroutine fvmask2d
+subroutine fvalue_by_mask2d()
+  write(*,*)"test"
+end subroutine fvalue_by_mask2d

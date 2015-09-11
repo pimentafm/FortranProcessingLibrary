@@ -46,7 +46,7 @@ program main
   lufile = "/home/fernando/Documents/dados_nc_test/lucult90.nc"
   maskfile = "/home/fernando/Documents/dados_nc_test/maskara_br.nc"
 
-  outfile = "/home/fernando/Documents/dados_nc_test/maskarada.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/kkk.nc"
 
   lu%varname = "landuse"
   lu%lonname = "lon"
@@ -62,7 +62,7 @@ program main
   call readgrid(lufile, lu)
   call readgrid(maskfile, maskara)
 
-  call fvmask(lu,maskara)
+  call fvalue_by_mask2d()
 
 !  do i = 1, nc%nlats
 !    do j = 1, nc%nlons

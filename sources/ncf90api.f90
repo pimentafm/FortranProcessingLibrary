@@ -40,11 +40,10 @@ module ncf90api
   include "ncf90api_datatypes.f90"
   include "ncf90api_interfaces.f90"
 
-contains
-
+  contains
   include "ncf90api_checkerror.f90"
   include "ncf90api_griddims.f90"
   include "ncf90api_readgrid.f90"
   include "ncf90api_writegrid.f90"
-  include "ncf90api_usefulFeatures.f90"
+  include "ncf90api_features.f90"
 end module ncf90api

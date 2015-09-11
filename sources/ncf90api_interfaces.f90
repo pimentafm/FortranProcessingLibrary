@@ -53,7 +53,3 @@ interface writegrid
                    writegrid2d_int, writegrid2d_float, &
                    writegrid2d_double
 end interface writegrid
-
-interface fvmask
-  module procedure fvmask2d
-end interface fvmask
