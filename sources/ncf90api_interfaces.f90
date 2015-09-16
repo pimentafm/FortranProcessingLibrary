@@ -55,5 +55,10 @@ interface writegrid
 end interface writegrid
 
 interface fvalue_bymask
-  module procedure fvbm_di, fvbm_dd, fvbm_sd
+  module procedure fvbm2d_bb, fvbm2d_bs, fvbm2d_bi, fvbm2d_bf, &
+                   fvbm2d_sb, fvbm2d_ss, fvbm2d_si, fvbm2d_sf, &
+                   fvbm2d_sd, fvbm2d_ib, fvbm2d_is, fvbm2d_ii, &
+                   fvbm2d_if, fvbm2d_id, fvbm2d_fb, fvbm2d_fs, &
+                   fvbm2d_fi, fvbm2d_ff, fvbm2d_fd, fvbm2d_db, &
+                   fvbm2d_ds, fvbm2d_di, fvbm2d_df, fvbm2d_dd
 end interface fvalue_bymask
