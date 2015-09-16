@@ -37,11 +37,12 @@ declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arrid=("b" "s" "i" "f" "d")
 declare -a arr2=("integer(kind=C_SIGNED_CHAR)" "integer(kind=C_SHORT)" "integer(kind=C_INT)" "real(kind=C_FLOAT)" "real(kind=C_DOUBLE)")
 
-for i in ${arr[@]}; do
+for i in {0..4}; do
+for j in {0..4}; do
   echo "
-subroutine fvbm2d_${arrid[$i]}${arrid[*]:-4,-1}(mask, map)
-  type (nc2d_double) :: map
-  type (nc2d_int) :: mask
+subroutine fvbm2d_${arrid[$i]}${arrid[$j]}(mask, map)
+  type (nc2d_${arr[$i]}) :: map
+  type (nc2d_${arr[$j]}) :: mask
   integer(kind=4) :: i, j
 
  do i = 1, mask%nlats
@@ -50,6 +51,7 @@ subroutine fvbm2d_${arrid[$i]}${arrid[*]:-4,-1}(mask, map)
      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
    end do
  end do
-end subroutine fvbm2d_di
+end subroutine fvbm2d_${arrid[$i]}${arrid[$j]}
 "
+done
 done
