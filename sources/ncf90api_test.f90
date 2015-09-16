@@ -38,13 +38,22 @@ program main
 
   type (nc2d_double) :: lu
   type (nc2d_int) :: maskara
+  type (nc2d_short):: matopiba
+
+  type (nc2d_double) :: lu2
+  type (nc2d_double) :: maskara2
 
   integer*4 :: i, j
 
-  character(100) :: lufile, maskfile, outfile
+  character(100) :: lufile, maskfile, outfile, lufile2, maskfile2, matopibafile
 
   lufile = "/home/fernando/Documents/dados_nc_test/lucult90.nc"
   maskfile = "/home/fernando/Documents/dados_nc_test/maskara_br.nc"
+
+  lufile2 = "/home/fernando/Documents/dados_nc_test/lucult90.nc"
+  maskfile2 = "/home/fernando/Documents/dados_nc_test/maskara_estados_br.nc"
+
+  matopibafile = "/home/fernando/Documents/dados_nc_test/mask_matopiba.nc"
 
   outfile = "/home/fernando/Documents/dados_nc_test/kkk.nc"
 
@@ -55,12 +64,31 @@ program main
   maskara%varname = "Band1"
   maskara%lonname = "lon"
   maskara%latname = "lat"
+
+
+  lu2%varname = "landuse"
+  lu2%lonname = "lon"
+  lu2%latname = "lat"
+
+  maskara2%varname = "Band1"
+  maskara2%lonname = "lon"
+  maskara2%latname = "lat"
+
+  matopiba%varname = "mask"
+  matopiba%lonname = "lon"
+  matopiba%latname = "lat"
+
   !nc%long_name = "nome do mapa"
 
   !call ncoords(ncfile, nc)
 
   call readgrid(lufile, lu)
   call readgrid(maskfile, maskara)
+
+  call readgrid(lufile2, lu2)
+  call readgrid(maskfile2, maskara2)
+
+   call readgrid(matopibafile, matopiba)
 
 !  do i = 1, nc%nlats
 !    do j = 1, nc%nlons
@@ -71,6 +99,12 @@ program main
 !      end if
 !    end do
 !  end do
+
+  !call fvalue_bymask(maskara,lu)
+  write(*,*)"outro"
+  !call fvalue_bymask(maskara2,lu2)
+
+  call fvalue_bymask(matopiba,lu)
 
   call writegrid(outfile, lu)
 

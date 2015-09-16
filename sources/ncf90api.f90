@@ -45,4 +45,5 @@ module ncf90api
   include "ncf90api_griddims.f90"
   include "ncf90api_readgrid.f90"
   include "ncf90api_writegrid.f90"
+  include "ncf90api_fvalue.f90"
 end module ncf90api

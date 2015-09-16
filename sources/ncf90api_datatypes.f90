@@ -31,6 +31,27 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================
 
+! From Fortran NetCDF sources: module_netcdf_nc_data.F90
+!
+! Enumerator nc_type data as integers
+
+! NetCDF3 types
+! Integer(KIND=C_INT), Parameter :: NC_NAT    = 0
+! Integer(KIND=C_INT), Parameter :: NC_BYTE   = 1
+! Integer(KIND=C_INT), Parameter :: NC_CHAR   = 2
+! Integer(KIND=C_INT), Parameter :: NC_SHORT  = 3
+! Integer(KIND=C_INT), Parameter :: NC_INT    = 4
+! Integer(KIND=C_INT), Parameter :: NC_FLOAT  = 5
+! Integer(KIND=C_INT), Parameter :: NC_DOUBLE = 6
+
+! Extra NetCDF4 types
+! Integer(KIND=C_INT), Parameter :: NC_LONG     = NC_INT
+! Integer(KIND=C_INT), Parameter :: NC_UBYTE    = 7
+! Integer(KIND=C_INT), Parameter :: NC_USHORT   = 8
+! Integer(KIND=C_INT), Parameter :: NC_UINT     = 9
+! Integer(KIND=C_INT), Parameter :: NC_INT64    = 10
+! Integer(KIND=C_INT), Parameter :: NC_UINT64   = 11
+
 !NetCDF(lon, lat) byte
 type :: nc2d_byte
   sequence
@@ -42,7 +63,6 @@ type :: nc2d_byte
   integer(kind=C_SIGNED_CHAR), dimension(:,:), pointer ::  ncdata
 end type nc2d_byte
 
-
 !NetCDF(lon, lat) short
 type :: nc2d_short
   sequence
@@ -53,7 +73,6 @@ type :: nc2d_short
   real(kind=C_DOUBLE),dimension(:), pointer :: longitudes, latitudes
   integer(kind=C_SHORT), dimension(:,:), pointer ::  ncdata
 end type nc2d_short
-
 
 !NetCDF(lon, lat) int
 type :: nc2d_int

@@ -53,3 +53,7 @@ interface writegrid
                    writegrid2d_int, writegrid2d_float, &
                    writegrid2d_double
 end interface writegrid
+
+interface fvalue_bymask
+  module procedure fvbm_di, fvbm_dd, fvbm_sd
+end interface fvalue_bymask
