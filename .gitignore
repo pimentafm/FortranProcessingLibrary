@@ -18,9 +18,6 @@
 *.pdf
 *.so
 
-#Directories
-bin/
-
 #Eclipse Config Files
 *.cproject
 *.directory
