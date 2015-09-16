@@ -62,8 +62,6 @@ program main
   call readgrid(lufile, lu)
   call readgrid(maskfile, maskara)
 
-  call fvalue_by_mask2d()
-
 !  do i = 1, nc%nlats
 !    do j = 1, nc%nlons
 !      if(nc%ncdata(i,j).ne.0) then
