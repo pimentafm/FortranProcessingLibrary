@@ -37,11 +37,7 @@ program main
   implicit none
 
   type (nc2d_double) :: lu
-  type (nc2d_int) :: maskara
   type (nc2d_short):: matopiba
-
-  type (nc2d_double) :: lu2
-  type (nc2d_double) :: maskara2
 
   integer*4 :: i, j
 
