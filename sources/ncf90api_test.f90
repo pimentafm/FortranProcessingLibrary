@@ -82,6 +82,7 @@ program main
 
   call writegrid(outfile, lu)
 
+  call system('ncview '//trim(adjustl(outfile)))
   !write(*,*)"NC INFO-------------------------"
   !write(*,*)"nc->long_name ", nc%long_name
   !write(*,*)"nc->lonname   ", nc%lonname
