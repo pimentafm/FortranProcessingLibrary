@@ -36,14 +36,15 @@
 ! Enumerator nc_type data as integers
 
 ! NetCDF3 types
-! Integer(KIND=C_INT), Parameter :: NC_NAT    = 0
+!  TODO: Integer(KIND=C_INT), Parameter :: NC_NAT    = 0
 ! Integer(KIND=C_INT), Parameter :: NC_BYTE   = 1
-! Integer(KIND=C_INT), Parameter :: NC_CHAR   = 2
+!  TODO: Integer(KIND=C_INT), Parameter :: NC_CHAR   = 2
 ! Integer(KIND=C_INT), Parameter :: NC_SHORT  = 3
 ! Integer(KIND=C_INT), Parameter :: NC_INT    = 4
 ! Integer(KIND=C_INT), Parameter :: NC_FLOAT  = 5
 ! Integer(KIND=C_INT), Parameter :: NC_DOUBLE = 6
 
+! TODO:
 ! Extra NetCDF4 types
 ! Integer(KIND=C_INT), Parameter :: NC_LONG     = NC_INT
 ! Integer(KIND=C_INT), Parameter :: NC_UBYTE    = 7
