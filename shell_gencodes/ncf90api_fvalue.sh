@@ -40,6 +40,7 @@ declare -a arr2=("integer(kind=C_SIGNED_CHAR)" "integer(kind=C_SHORT)" "integer(
 for i in {0..4}; do
 for j in {0..4}; do
   echo "
+!NetCDF(i,j)-> ${arr[$i]}-${arr[$j]} 
 subroutine fvbm2d_${arrid[$i]}${arrid[$j]}(mask, map)
   type (nc2d_${arr[$i]}) :: map
   type (nc2d_${arr[$j]}) :: mask
