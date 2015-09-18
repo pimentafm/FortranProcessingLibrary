@@ -67,5 +67,12 @@ for i in {0..4}; do
   done
 done
 
+for i in {0..4}; do
+  for j in {0..4}; do
+    echo "fvbnm2d_${arrid[$i]}${arrid[$j]}"
+  done
+done
+
+
 echo "end interface fvalue_bymask"
 
