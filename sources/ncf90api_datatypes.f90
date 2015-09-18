@@ -59,9 +59,9 @@ type :: nc2d_byte
   character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=C_INT) :: nlons, nlats, vartype
-  integer(kind=C_SIGNED_CHAR) :: f_value
+  integer(kind=C_INT) :: f_value
   real(kind=C_DOUBLE),dimension(:), pointer :: longitudes, latitudes
-  integer(kind=C_SIGNED_CHAR), dimension(:,:), pointer ::  ncdata
+  integer(kind=C_INT), dimension(:,:), pointer ::  ncdata
 end type nc2d_byte
 
 !NetCDF(lon, lat) short
