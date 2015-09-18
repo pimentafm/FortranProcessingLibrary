@@ -44,7 +44,7 @@ program main
   character(100) :: lufile, outfile, statesfile
 
   lufile = "/home/fernando/Documents/dados_nc_test/lucult90.nc"
-  statesfile = "/home/fernando/Documents/dados_nc_test/maskara_estados_br.nc"
+  statesfile = "/home/fernando/Documents/dados_nc_test/m_states_brbyte.nc"
 
   outfile = "/home/fernando/Documents/dados_nc_test/mysanthropic.nc"
 
@@ -53,7 +53,7 @@ program main
   lu%latname = "lat"
 
 
-  states%varname = "mask"
+  states%varname = "Band1"
   states%lonname = "lon"
   states%latname = "lat"
 
@@ -74,7 +74,7 @@ program main
 !    end do
 !  end do
 
-  call fvalue_bymask(states,lu,18)
+  call setfill_bymask(states, lu, 27)
 
   call writegrid(outfile, lu)
 
