@@ -34,7 +34,7 @@ echo "!:========================================================================
 !:========================================================================"
 
 declare -a arr=("byte" "short" "int" "float" "double")
-declare -a arr2=("integer(kind=C_SIGNED_CHAR)" "integer(kind=C_SHORT)" "integer(kind=C_INT)" "real(kind=C_FLOAT)" "real(kind=C_DOUBLE)")
+declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
 for i in {0..4}; do
   echo "
@@ -43,7 +43,7 @@ subroutine readgrid2d_${arr[$i]}(ifile, idata)
   character(*) :: ifile
   type(nc2d_${arr[$i]}) :: idata
 
-  integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
 
@@ -52,7 +52,7 @@ subroutine readgrid2d_${arr[$i]}(ifile, idata)
   allocate(idata%latitudes(idata%nlats))
 
   !Open NetCDF
-  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))

@@ -34,18 +34,18 @@ echo "!:========================================================================
 !:========================================================================"
 
 declare -a arr=("byte" "short" "int" "float" "double")
-declare -a arr2=("integer(kind=C_SIGNED_CHAR)" "integer(kind=C_SHORT)" "integer(kind=C_INT)" "real(kind=C_FLOAT)" "real(kind=C_DOUBLE)")
+declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
 for i in {0..4}; do
   echo "
 !NetCDF(lon, lat) ${arr[$i]}
 subroutine ncoords2d_${arr[$i]}(ifile, idata)
   type (nc2d_${arr[$i]}) :: idata
-  integer(kind=C_INT) :: ncid, xdimid, ydimid, vdimid, varid
+  integer(kind=intgr) :: ncid, xdimid, ydimid, vdimid, varid
   character(*), intent(in) :: ifile
 
   !Open NetCDF File
-  call checkfile(nf90_open(ifile, nf90_nowrite, ncid))
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
   call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))

@@ -34,7 +34,7 @@ echo "!:========================================================================
 !:========================================================================"
 
 declare -a arr=("byte" "short" "int" "float" "double")
-declare -a arr2=("integer(kind=C_SIGNED_CHAR)" "integer(kind=C_SHORT)" "integer(kind=C_INT)" "real(kind=C_FLOAT)" "real(kind=C_DOUBLE)")
+declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
 for i in {0..4}; do
   echo "
@@ -42,8 +42,8 @@ for i in {0..4}; do
 subroutine writegrid2d_${arr[$i]}(ofile, odata)
   character(*) :: ofile
   type(nc2d_${arr[$i]}) :: odata
-  integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=C_INT), dimension(2) :: dimids
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=intgr), dimension(2) :: dimids
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))

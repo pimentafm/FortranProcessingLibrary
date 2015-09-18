@@ -35,7 +35,7 @@ echo "!:========================================================================
 
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arrid=("b" "s" "i" "f" "d")
-declare -a arr2=("integer(kind=C_INT)" "integer(kind=C_SHORT)" "integer(kind=C_INT)" "real(kind=C_FLOAT)" "real(kind=C_DOUBLE)")
+declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
 echo "!Set FillValue in map using mask FillValue - NetCDF(i,j) ==========="
 
@@ -46,7 +46,7 @@ for j in {0..4}; do
 subroutine fvbm2d_${arrid[$i]}${arrid[$j]}(mask, map)
   type (nc2d_${arr[$i]}) :: mask
   type (nc2d_${arr[$j]}) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -68,7 +68,7 @@ subroutine fvbnm2d_${arrid[$i]}${arrid[$j]}(mask, map, num)
   type (nc2d_${arr[$i]}) :: mask
   type (nc2d_${arr[$j]}) :: map
   ${arr2[$i]} :: num
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons

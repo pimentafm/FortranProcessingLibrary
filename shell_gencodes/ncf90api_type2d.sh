@@ -34,17 +34,18 @@ echo "!:========================================================================
 !:========================================================================"
 
 declare -a arr=("byte" "short" "int" "float" "double")
-declare -a arr2=("integer(kind=C_INT)" "integer(kind=C_SHORT)" "integer(kind=C_INT)" "real(kind=C_FLOAT)" "real(kind=C_DOUBLE)")
+declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
 for i in {0..4}; do
   echo "
 !NetCDF(lon, lat) ${arr[$i]}
 type :: nc2d_${arr[$i]}
   sequence
-  character(len=20) :: varname, lonname, latname, long_name, units
-  integer(kind=C_INT) :: nlons, nlats, vartype
+  character(len=20) :: varname, lonname, latname, varunits, long_name, units, &
+                       lonunits, latunits
+  integer(kind=intgr) :: nlons, nlats, vartype
   ${arr2[$i]} :: f_value
-  real(kind=C_DOUBLE),dimension(:), allocatable :: longitudes, latitudes
+  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
   ${arr2[$i]}, dimension(:,:), allocatable ::  ncdata
 end type nc2d_${arr[$i]}
 "
