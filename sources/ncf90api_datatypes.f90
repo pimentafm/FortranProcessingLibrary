@@ -56,58 +56,60 @@
 !NetCDF(lon, lat) byte
 type :: nc2d_byte
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=20) :: varname, lonname, latname, varunits, long_name, units, &
                        lonunits, latunits
-  integer(kind=C_INT) :: nlons, nlats, vartype
-  integer(kind=C_INT) :: f_value
-  real(kind=C_DOUBLE),dimension(:), pointer :: longitudes, latitudes
-  integer(kind=C_INT), dimension(:,:), pointer ::  ncdata
+  integer(kind=intgr) :: nlons, nlats, vartype
+  integer(kind=byte) :: f_value
+  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=byte), dimension(:,:), allocatable ::  ncdata
 end type nc2d_byte
+
 
 !NetCDF(lon, lat) short
 type :: nc2d_short
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=20) :: varname, lonname, latname, varunits, long_name, units, &
                        lonunits, latunits
-  integer(kind=C_INT) :: nlons, nlats, vartype
-  integer(kind=C_SHORT) :: f_value
-  real(kind=C_DOUBLE),dimension(:), pointer :: longitudes, latitudes
-  integer(kind=C_SHORT), dimension(:,:), pointer ::  ncdata
+  integer(kind=intgr) :: nlons, nlats, vartype
+  integer(kind=short) :: f_value
+  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=short), dimension(:,:), allocatable ::  ncdata
 end type nc2d_short
+
 
 !NetCDF(lon, lat) int
 type :: nc2d_int
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=20) :: varname, lonname, latname, varunits, long_name, units, &
                        lonunits, latunits
-  integer(kind=C_INT) :: nlons, nlats, vartype
-  integer(kind=C_INT) :: f_value
-  real(kind=C_DOUBLE),dimension(:), pointer :: longitudes, latitudes
-  integer(kind=C_INT), dimension(:,:), pointer ::  ncdata
+  integer(kind=intgr) :: nlons, nlats, vartype
+  integer(kind=intgr) :: f_value
+  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=intgr), dimension(:,:), allocatable ::  ncdata
 end type nc2d_int
 
 
 !NetCDF(lon, lat) float
 type :: nc2d_float
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=20) :: varname, lonname, latname, varunits, long_name, units, &
                        lonunits, latunits
-  integer(kind=C_INT) :: nlons, nlats, vartype
-  real(kind=C_FLOAT) :: f_value
-  real(kind=C_DOUBLE),dimension(:), pointer :: longitudes, latitudes
-  real(kind=C_FLOAT), dimension(:,:), pointer ::  ncdata
+  integer(kind=intgr) :: nlons, nlats, vartype
+  real(kind=float) :: f_value
+  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  real(kind=float), dimension(:,:), allocatable ::  ncdata
 end type nc2d_float
 
 
 !NetCDF(lon, lat) double
 type :: nc2d_double
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=20) :: varname, lonname, latname, varunits, long_name, units, &
                        lonunits, latunits
-  integer(kind=C_INT) :: nlons, nlats, vartype
-  real(kind=C_DOUBLE) :: f_value
-  real(kind=C_DOUBLE),dimension(:), pointer :: longitudes, latitudes
-  real(kind=C_DOUBLE), dimension(:,:), pointer ::  ncdata
+  integer(kind=intgr) :: nlons, nlats, vartype
+  real(kind=double) :: f_value
+  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  real(kind=double), dimension(:,:), allocatable ::  ncdata
 end type nc2d_double
 
 
