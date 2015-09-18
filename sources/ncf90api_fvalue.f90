@@ -30,393 +30,729 @@
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================
+!Set FillValue in map using mask FillValue - NetCDF(i,j) ===========
 
-!NetCDF(i,j)-> byte-byte =================================================
+!NetCDF(i,j)-> byte-byte
 subroutine fvbm2d_bb(mask, map)
-  type (nc2d_byte) :: map
   type (nc2d_byte) :: mask
+  type (nc2d_byte) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_bb
 
 
 !NetCDF(i,j)-> byte-short
 subroutine fvbm2d_bs(mask, map)
-  type (nc2d_byte) :: map
-  type (nc2d_short) :: mask
+  type (nc2d_byte) :: mask
+  type (nc2d_short) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_bs
 
 
 !NetCDF(i,j)-> byte-int
 subroutine fvbm2d_bi(mask, map)
-  type (nc2d_byte) :: map
-  type (nc2d_int) :: mask
+  type (nc2d_byte) :: mask
+  type (nc2d_int) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_bi
 
 
 !NetCDF(i,j)-> byte-float
 subroutine fvbm2d_bf(mask, map)
-  type (nc2d_byte) :: map
-  type (nc2d_float) :: mask
+  type (nc2d_byte) :: mask
+  type (nc2d_float) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_bf
 
 
 !NetCDF(i,j)-> byte-double
 subroutine fvbm2d_bd(mask, map)
-  type (nc2d_byte) :: map
-  type (nc2d_double) :: mask
+  type (nc2d_byte) :: mask
+  type (nc2d_double) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_bd
 
 
 !NetCDF(i,j)-> short-byte
 subroutine fvbm2d_sb(mask, map)
-  type (nc2d_short) :: map
-  type (nc2d_byte) :: mask
+  type (nc2d_short) :: mask
+  type (nc2d_byte) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_sb
 
 
 !NetCDF(i,j)-> short-short
 subroutine fvbm2d_ss(mask, map)
-  type (nc2d_short) :: map
   type (nc2d_short) :: mask
+  type (nc2d_short) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_ss
 
 
 !NetCDF(i,j)-> short-int
 subroutine fvbm2d_si(mask, map)
-  type (nc2d_short) :: map
-  type (nc2d_int) :: mask
+  type (nc2d_short) :: mask
+  type (nc2d_int) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_si
 
 
 !NetCDF(i,j)-> short-float
 subroutine fvbm2d_sf(mask, map)
-  type (nc2d_short) :: map
-  type (nc2d_float) :: mask
+  type (nc2d_short) :: mask
+  type (nc2d_float) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_sf
 
 
 !NetCDF(i,j)-> short-double
 subroutine fvbm2d_sd(mask, map)
-  type (nc2d_short) :: map
-  type (nc2d_double) :: mask
+  type (nc2d_short) :: mask
+  type (nc2d_double) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_sd
 
 
 !NetCDF(i,j)-> int-byte
 subroutine fvbm2d_ib(mask, map)
-  type (nc2d_int) :: map
-  type (nc2d_byte) :: mask
+  type (nc2d_int) :: mask
+  type (nc2d_byte) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_ib
 
 
 !NetCDF(i,j)-> int-short
 subroutine fvbm2d_is(mask, map)
-  type (nc2d_int) :: map
-  type (nc2d_short) :: mask
+  type (nc2d_int) :: mask
+  type (nc2d_short) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_is
 
 
 !NetCDF(i,j)-> int-int
 subroutine fvbm2d_ii(mask, map)
-  type (nc2d_int) :: map
   type (nc2d_int) :: mask
+  type (nc2d_int) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_ii
 
 
 !NetCDF(i,j)-> int-float
 subroutine fvbm2d_if(mask, map)
-  type (nc2d_int) :: map
-  type (nc2d_float) :: mask
+  type (nc2d_int) :: mask
+  type (nc2d_float) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_if
 
 
 !NetCDF(i,j)-> int-double
 subroutine fvbm2d_id(mask, map)
-  type (nc2d_int) :: map
-  type (nc2d_double) :: mask
+  type (nc2d_int) :: mask
+  type (nc2d_double) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_id
 
 
 !NetCDF(i,j)-> float-byte
 subroutine fvbm2d_fb(mask, map)
-  type (nc2d_float) :: map
-  type (nc2d_byte) :: mask
+  type (nc2d_float) :: mask
+  type (nc2d_byte) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_fb
 
 
 !NetCDF(i,j)-> float-short
 subroutine fvbm2d_fs(mask, map)
-  type (nc2d_float) :: map
-  type (nc2d_short) :: mask
+  type (nc2d_float) :: mask
+  type (nc2d_short) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_fs
 
 
 !NetCDF(i,j)-> float-int
 subroutine fvbm2d_fi(mask, map)
-  type (nc2d_float) :: map
-  type (nc2d_int) :: mask
+  type (nc2d_float) :: mask
+  type (nc2d_int) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_fi
 
 
 !NetCDF(i,j)-> float-float
 subroutine fvbm2d_ff(mask, map)
-  type (nc2d_float) :: map
   type (nc2d_float) :: mask
+  type (nc2d_float) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_ff
 
 
 !NetCDF(i,j)-> float-double
 subroutine fvbm2d_fd(mask, map)
-  type (nc2d_float) :: map
-  type (nc2d_double) :: mask
+  type (nc2d_float) :: mask
+  type (nc2d_double) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_fd
 
 
 !NetCDF(i,j)-> double-byte
 subroutine fvbm2d_db(mask, map)
-  type (nc2d_double) :: map
-  type (nc2d_byte) :: mask
+  type (nc2d_double) :: mask
+  type (nc2d_byte) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_db
 
 
 !NetCDF(i,j)-> double-short
 subroutine fvbm2d_ds(mask, map)
-  type (nc2d_double) :: map
-  type (nc2d_short) :: mask
+  type (nc2d_double) :: mask
+  type (nc2d_short) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_ds
 
 
 !NetCDF(i,j)-> double-int
 subroutine fvbm2d_di(mask, map)
-  type (nc2d_double) :: map
-  type (nc2d_int) :: mask
+  type (nc2d_double) :: mask
+  type (nc2d_int) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_di
 
 
 !NetCDF(i,j)-> double-float
 subroutine fvbm2d_df(mask, map)
-  type (nc2d_double) :: map
-  type (nc2d_float) :: mask
+  type (nc2d_double) :: mask
+  type (nc2d_float) :: map
   integer(kind=4) :: i, j
 
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
 end subroutine fvbm2d_df
 
 
 !NetCDF(i,j)-> double-double
 subroutine fvbm2d_dd(mask, map)
-  type (nc2d_double) :: map
   type (nc2d_double) :: mask
-  integer(kind=4) :: i, j
-
- do i = 1, mask%nlats
-   do j = 1, mask%nlons
-     !write(*,*)mask%f_value
-     if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-   end do
- end do
-end subroutine fvbm2d_dd
-
-!NetCDF(i,j)-> double-byte ==============================================
-subroutine fvbnm2d_ds(mask, map, num)
-  type (nc2d_byte) :: mask
   type (nc2d_double) :: map
-  integer(kind=C_SIGNED_CHAR) :: num
   integer(kind=4) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
-      !write(*,*)mask%f_value
+      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbm2d_dd
+
+!Set FillValue in map using a number selected into maskfile ========
+
+!NetCDF(i,j)-> byte-byte
+subroutine fvbnm2d_bb(mask, map, num)
+  type (nc2d_byte) :: mask
+  type (nc2d_byte) :: map
+  integer(kind=C_INT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_bb
+
+
+!NetCDF(i,j)-> byte-short
+subroutine fvbnm2d_bs(mask, map, num)
+  type (nc2d_byte) :: mask
+  type (nc2d_short) :: map
+  integer(kind=C_INT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_bs
+
+
+!NetCDF(i,j)-> byte-int
+subroutine fvbnm2d_bi(mask, map, num)
+  type (nc2d_byte) :: mask
+  type (nc2d_int) :: map
+  integer(kind=C_INT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_bi
+
+
+!NetCDF(i,j)-> byte-float
+subroutine fvbnm2d_bf(mask, map, num)
+  type (nc2d_byte) :: mask
+  type (nc2d_float) :: map
+  integer(kind=C_INT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_bf
+
+
+!NetCDF(i,j)-> byte-double
+subroutine fvbnm2d_bd(mask, map, num)
+  type (nc2d_byte) :: mask
+  type (nc2d_double) :: map
+  integer(kind=C_INT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_bd
+
+
+!NetCDF(i,j)-> short-byte
+subroutine fvbnm2d_sb(mask, map, num)
+  type (nc2d_short) :: mask
+  type (nc2d_byte) :: map
+  integer(kind=C_SHORT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_sb
+
+
+!NetCDF(i,j)-> short-short
+subroutine fvbnm2d_ss(mask, map, num)
+  type (nc2d_short) :: mask
+  type (nc2d_short) :: map
+  integer(kind=C_SHORT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_ss
+
+
+!NetCDF(i,j)-> short-int
+subroutine fvbnm2d_si(mask, map, num)
+  type (nc2d_short) :: mask
+  type (nc2d_int) :: map
+  integer(kind=C_SHORT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_si
+
+
+!NetCDF(i,j)-> short-float
+subroutine fvbnm2d_sf(mask, map, num)
+  type (nc2d_short) :: mask
+  type (nc2d_float) :: map
+  integer(kind=C_SHORT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_sf
+
+
+!NetCDF(i,j)-> short-double
+subroutine fvbnm2d_sd(mask, map, num)
+  type (nc2d_short) :: mask
+  type (nc2d_double) :: map
+  integer(kind=C_SHORT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_sd
+
+
+!NetCDF(i,j)-> int-byte
+subroutine fvbnm2d_ib(mask, map, num)
+  type (nc2d_int) :: mask
+  type (nc2d_byte) :: map
+  integer(kind=C_INT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_ib
+
+
+!NetCDF(i,j)-> int-short
+subroutine fvbnm2d_is(mask, map, num)
+  type (nc2d_int) :: mask
+  type (nc2d_short) :: map
+  integer(kind=C_INT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_is
+
+
+!NetCDF(i,j)-> int-int
+subroutine fvbnm2d_ii(mask, map, num)
+  type (nc2d_int) :: mask
+  type (nc2d_int) :: map
+  integer(kind=C_INT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_ii
+
+
+!NetCDF(i,j)-> int-float
+subroutine fvbnm2d_if(mask, map, num)
+  type (nc2d_int) :: mask
+  type (nc2d_float) :: map
+  integer(kind=C_INT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_if
+
+
+!NetCDF(i,j)-> int-double
+subroutine fvbnm2d_id(mask, map, num)
+  type (nc2d_int) :: mask
+  type (nc2d_double) :: map
+  integer(kind=C_INT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_id
+
+
+!NetCDF(i,j)-> float-byte
+subroutine fvbnm2d_fb(mask, map, num)
+  type (nc2d_float) :: mask
+  type (nc2d_byte) :: map
+  real(kind=C_FLOAT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_fb
+
+
+!NetCDF(i,j)-> float-short
+subroutine fvbnm2d_fs(mask, map, num)
+  type (nc2d_float) :: mask
+  type (nc2d_short) :: map
+  real(kind=C_FLOAT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_fs
+
+
+!NetCDF(i,j)-> float-int
+subroutine fvbnm2d_fi(mask, map, num)
+  type (nc2d_float) :: mask
+  type (nc2d_int) :: map
+  real(kind=C_FLOAT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_fi
+
+
+!NetCDF(i,j)-> float-float
+subroutine fvbnm2d_ff(mask, map, num)
+  type (nc2d_float) :: mask
+  type (nc2d_float) :: map
+  real(kind=C_FLOAT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_ff
+
+
+!NetCDF(i,j)-> float-double
+subroutine fvbnm2d_fd(mask, map, num)
+  type (nc2d_float) :: mask
+  type (nc2d_double) :: map
+  real(kind=C_FLOAT) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_fd
+
+
+!NetCDF(i,j)-> double-byte
+subroutine fvbnm2d_db(mask, map, num)
+  type (nc2d_double) :: mask
+  type (nc2d_byte) :: map
+  real(kind=C_DOUBLE) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_db
+
+
+!NetCDF(i,j)-> double-short
+subroutine fvbnm2d_ds(mask, map, num)
+  type (nc2d_double) :: mask
+  type (nc2d_short) :: map
+  real(kind=C_DOUBLE) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
       if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
     end do
   end do
 end subroutine fvbnm2d_ds
 
+
+!NetCDF(i,j)-> double-int
+subroutine fvbnm2d_di(mask, map, num)
+  type (nc2d_double) :: mask
+  type (nc2d_int) :: map
+  real(kind=C_DOUBLE) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_di
+
+
+!NetCDF(i,j)-> double-float
+subroutine fvbnm2d_df(mask, map, num)
+  type (nc2d_double) :: mask
+  type (nc2d_float) :: map
+  real(kind=C_DOUBLE) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_df
+
+
+!NetCDF(i,j)-> double-double
+subroutine fvbnm2d_dd(mask, map, num)
+  type (nc2d_double) :: mask
+  type (nc2d_double) :: map
+  real(kind=C_DOUBLE) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_dd
