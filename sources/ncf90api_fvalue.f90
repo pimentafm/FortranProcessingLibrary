@@ -36,7 +36,7 @@
 subroutine fvbm2d_bb(mask, map)
   type (nc2d_byte) :: mask
   type (nc2d_byte) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -50,7 +50,7 @@ end subroutine fvbm2d_bb
 subroutine fvbm2d_bs(mask, map)
   type (nc2d_byte) :: mask
   type (nc2d_short) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -64,7 +64,7 @@ end subroutine fvbm2d_bs
 subroutine fvbm2d_bi(mask, map)
   type (nc2d_byte) :: mask
   type (nc2d_int) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -78,7 +78,7 @@ end subroutine fvbm2d_bi
 subroutine fvbm2d_bf(mask, map)
   type (nc2d_byte) :: mask
   type (nc2d_float) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -92,7 +92,7 @@ end subroutine fvbm2d_bf
 subroutine fvbm2d_bd(mask, map)
   type (nc2d_byte) :: mask
   type (nc2d_double) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -106,7 +106,7 @@ end subroutine fvbm2d_bd
 subroutine fvbm2d_sb(mask, map)
   type (nc2d_short) :: mask
   type (nc2d_byte) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -120,7 +120,7 @@ end subroutine fvbm2d_sb
 subroutine fvbm2d_ss(mask, map)
   type (nc2d_short) :: mask
   type (nc2d_short) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -134,7 +134,7 @@ end subroutine fvbm2d_ss
 subroutine fvbm2d_si(mask, map)
   type (nc2d_short) :: mask
   type (nc2d_int) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -148,7 +148,7 @@ end subroutine fvbm2d_si
 subroutine fvbm2d_sf(mask, map)
   type (nc2d_short) :: mask
   type (nc2d_float) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -162,7 +162,7 @@ end subroutine fvbm2d_sf
 subroutine fvbm2d_sd(mask, map)
   type (nc2d_short) :: mask
   type (nc2d_double) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -176,7 +176,7 @@ end subroutine fvbm2d_sd
 subroutine fvbm2d_ib(mask, map)
   type (nc2d_int) :: mask
   type (nc2d_byte) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -190,7 +190,7 @@ end subroutine fvbm2d_ib
 subroutine fvbm2d_is(mask, map)
   type (nc2d_int) :: mask
   type (nc2d_short) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -204,7 +204,7 @@ end subroutine fvbm2d_is
 subroutine fvbm2d_ii(mask, map)
   type (nc2d_int) :: mask
   type (nc2d_int) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -218,7 +218,7 @@ end subroutine fvbm2d_ii
 subroutine fvbm2d_if(mask, map)
   type (nc2d_int) :: mask
   type (nc2d_float) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -232,7 +232,7 @@ end subroutine fvbm2d_if
 subroutine fvbm2d_id(mask, map)
   type (nc2d_int) :: mask
   type (nc2d_double) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -246,7 +246,7 @@ end subroutine fvbm2d_id
 subroutine fvbm2d_fb(mask, map)
   type (nc2d_float) :: mask
   type (nc2d_byte) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -260,7 +260,7 @@ end subroutine fvbm2d_fb
 subroutine fvbm2d_fs(mask, map)
   type (nc2d_float) :: mask
   type (nc2d_short) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -274,7 +274,7 @@ end subroutine fvbm2d_fs
 subroutine fvbm2d_fi(mask, map)
   type (nc2d_float) :: mask
   type (nc2d_int) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -288,7 +288,7 @@ end subroutine fvbm2d_fi
 subroutine fvbm2d_ff(mask, map)
   type (nc2d_float) :: mask
   type (nc2d_float) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -302,7 +302,7 @@ end subroutine fvbm2d_ff
 subroutine fvbm2d_fd(mask, map)
   type (nc2d_float) :: mask
   type (nc2d_double) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -316,7 +316,7 @@ end subroutine fvbm2d_fd
 subroutine fvbm2d_db(mask, map)
   type (nc2d_double) :: mask
   type (nc2d_byte) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -330,7 +330,7 @@ end subroutine fvbm2d_db
 subroutine fvbm2d_ds(mask, map)
   type (nc2d_double) :: mask
   type (nc2d_short) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -344,7 +344,7 @@ end subroutine fvbm2d_ds
 subroutine fvbm2d_di(mask, map)
   type (nc2d_double) :: mask
   type (nc2d_int) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -358,7 +358,7 @@ end subroutine fvbm2d_di
 subroutine fvbm2d_df(mask, map)
   type (nc2d_double) :: mask
   type (nc2d_float) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -372,7 +372,7 @@ end subroutine fvbm2d_df
 subroutine fvbm2d_dd(mask, map)
   type (nc2d_double) :: mask
   type (nc2d_double) :: map
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -387,8 +387,8 @@ end subroutine fvbm2d_dd
 subroutine fvbnm2d_bb(mask, map, num)
   type (nc2d_byte) :: mask
   type (nc2d_byte) :: map
-  integer(kind=C_INT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=byte) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -402,8 +402,8 @@ end subroutine fvbnm2d_bb
 subroutine fvbnm2d_bs(mask, map, num)
   type (nc2d_byte) :: mask
   type (nc2d_short) :: map
-  integer(kind=C_INT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=byte) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -417,8 +417,8 @@ end subroutine fvbnm2d_bs
 subroutine fvbnm2d_bi(mask, map, num)
   type (nc2d_byte) :: mask
   type (nc2d_int) :: map
-  integer(kind=C_INT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=byte) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -432,8 +432,8 @@ end subroutine fvbnm2d_bi
 subroutine fvbnm2d_bf(mask, map, num)
   type (nc2d_byte) :: mask
   type (nc2d_float) :: map
-  integer(kind=C_INT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=byte) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -447,8 +447,8 @@ end subroutine fvbnm2d_bf
 subroutine fvbnm2d_bd(mask, map, num)
   type (nc2d_byte) :: mask
   type (nc2d_double) :: map
-  integer(kind=C_INT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=byte) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -462,8 +462,8 @@ end subroutine fvbnm2d_bd
 subroutine fvbnm2d_sb(mask, map, num)
   type (nc2d_short) :: mask
   type (nc2d_byte) :: map
-  integer(kind=C_SHORT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=short) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -477,8 +477,8 @@ end subroutine fvbnm2d_sb
 subroutine fvbnm2d_ss(mask, map, num)
   type (nc2d_short) :: mask
   type (nc2d_short) :: map
-  integer(kind=C_SHORT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=short) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -492,8 +492,8 @@ end subroutine fvbnm2d_ss
 subroutine fvbnm2d_si(mask, map, num)
   type (nc2d_short) :: mask
   type (nc2d_int) :: map
-  integer(kind=C_SHORT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=short) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -507,8 +507,8 @@ end subroutine fvbnm2d_si
 subroutine fvbnm2d_sf(mask, map, num)
   type (nc2d_short) :: mask
   type (nc2d_float) :: map
-  integer(kind=C_SHORT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=short) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -522,8 +522,8 @@ end subroutine fvbnm2d_sf
 subroutine fvbnm2d_sd(mask, map, num)
   type (nc2d_short) :: mask
   type (nc2d_double) :: map
-  integer(kind=C_SHORT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=short) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -537,8 +537,8 @@ end subroutine fvbnm2d_sd
 subroutine fvbnm2d_ib(mask, map, num)
   type (nc2d_int) :: mask
   type (nc2d_byte) :: map
-  integer(kind=C_INT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -552,8 +552,8 @@ end subroutine fvbnm2d_ib
 subroutine fvbnm2d_is(mask, map, num)
   type (nc2d_int) :: mask
   type (nc2d_short) :: map
-  integer(kind=C_INT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -567,8 +567,8 @@ end subroutine fvbnm2d_is
 subroutine fvbnm2d_ii(mask, map, num)
   type (nc2d_int) :: mask
   type (nc2d_int) :: map
-  integer(kind=C_INT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -582,8 +582,8 @@ end subroutine fvbnm2d_ii
 subroutine fvbnm2d_if(mask, map, num)
   type (nc2d_int) :: mask
   type (nc2d_float) :: map
-  integer(kind=C_INT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -597,8 +597,8 @@ end subroutine fvbnm2d_if
 subroutine fvbnm2d_id(mask, map, num)
   type (nc2d_int) :: mask
   type (nc2d_double) :: map
-  integer(kind=C_INT) :: num
-  integer(kind=4) :: i, j
+  integer(kind=intgr) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -612,8 +612,8 @@ end subroutine fvbnm2d_id
 subroutine fvbnm2d_fb(mask, map, num)
   type (nc2d_float) :: mask
   type (nc2d_byte) :: map
-  real(kind=C_FLOAT) :: num
-  integer(kind=4) :: i, j
+  real(kind=float) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -627,8 +627,8 @@ end subroutine fvbnm2d_fb
 subroutine fvbnm2d_fs(mask, map, num)
   type (nc2d_float) :: mask
   type (nc2d_short) :: map
-  real(kind=C_FLOAT) :: num
-  integer(kind=4) :: i, j
+  real(kind=float) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -642,8 +642,8 @@ end subroutine fvbnm2d_fs
 subroutine fvbnm2d_fi(mask, map, num)
   type (nc2d_float) :: mask
   type (nc2d_int) :: map
-  real(kind=C_FLOAT) :: num
-  integer(kind=4) :: i, j
+  real(kind=float) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -657,8 +657,8 @@ end subroutine fvbnm2d_fi
 subroutine fvbnm2d_ff(mask, map, num)
   type (nc2d_float) :: mask
   type (nc2d_float) :: map
-  real(kind=C_FLOAT) :: num
-  integer(kind=4) :: i, j
+  real(kind=float) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -672,8 +672,8 @@ end subroutine fvbnm2d_ff
 subroutine fvbnm2d_fd(mask, map, num)
   type (nc2d_float) :: mask
   type (nc2d_double) :: map
-  real(kind=C_FLOAT) :: num
-  integer(kind=4) :: i, j
+  real(kind=float) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -687,8 +687,8 @@ end subroutine fvbnm2d_fd
 subroutine fvbnm2d_db(mask, map, num)
   type (nc2d_double) :: mask
   type (nc2d_byte) :: map
-  real(kind=C_DOUBLE) :: num
-  integer(kind=4) :: i, j
+  real(kind=double) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -702,8 +702,8 @@ end subroutine fvbnm2d_db
 subroutine fvbnm2d_ds(mask, map, num)
   type (nc2d_double) :: mask
   type (nc2d_short) :: map
-  real(kind=C_DOUBLE) :: num
-  integer(kind=4) :: i, j
+  real(kind=double) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -717,8 +717,8 @@ end subroutine fvbnm2d_ds
 subroutine fvbnm2d_di(mask, map, num)
   type (nc2d_double) :: mask
   type (nc2d_int) :: map
-  real(kind=C_DOUBLE) :: num
-  integer(kind=4) :: i, j
+  real(kind=double) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -732,8 +732,8 @@ end subroutine fvbnm2d_di
 subroutine fvbnm2d_df(mask, map, num)
   type (nc2d_double) :: mask
   type (nc2d_float) :: map
-  real(kind=C_DOUBLE) :: num
-  integer(kind=4) :: i, j
+  real(kind=double) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
@@ -747,8 +747,8 @@ end subroutine fvbnm2d_df
 subroutine fvbnm2d_dd(mask, map, num)
   type (nc2d_double) :: mask
   type (nc2d_double) :: map
-  real(kind=C_DOUBLE) :: num
-  integer(kind=4) :: i, j
+  real(kind=double) :: num
+  integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
     do j = 1, mask%nlons
