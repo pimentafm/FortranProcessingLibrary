@@ -34,7 +34,7 @@ echo "!:========================================================================
 !:========================================================================"
 
 declare -a arr=("byte" "short" "int" "float" "double")
-declare -a arr2=("integer(kind=C_SIGNED_CHAR)" "integer(kind=C_SHORT)" "integer(kind=C_INT)" "real(kind=C_FLOAT)" "real(kind=C_DOUBLE)")
+declare -a arr2=("integer(kind=C_INT)" "integer(kind=C_SHORT)" "integer(kind=C_INT)" "real(kind=C_FLOAT)" "real(kind=C_DOUBLE)")
 
 for i in {0..4}; do
   echo "
