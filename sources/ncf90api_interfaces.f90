@@ -60,5 +60,6 @@ interface fvalue_bymask
                    fvbm2d_sd, fvbm2d_ib, fvbm2d_is, fvbm2d_ii, &
                    fvbm2d_if, fvbm2d_id, fvbm2d_fb, fvbm2d_fs, &
                    fvbm2d_fi, fvbm2d_ff, fvbm2d_fd, fvbm2d_db, &
-                   fvbm2d_ds, fvbm2d_di, fvbm2d_df, fvbm2d_dd
+                   fvbm2d_ds, fvbm2d_di, fvbm2d_df, fvbm2d_dd, &
+                   fvbnm2d_ds
 end interface fvalue_bymask

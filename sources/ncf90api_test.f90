@@ -37,32 +37,32 @@ program main
   implicit none
 
   type (nc2d_double) :: lu
-  type (nc2d_short):: matopiba
+  type (nc2d_byte):: states
 
   integer*4 :: i, j
 
-  character(100) :: lufile, outfile, matopibafile
+  character(100) :: lufile, outfile, statesfile
 
   lufile = "/home/fernando/Documents/dados_nc_test/lucult90.nc"
-  matopibafile = "/home/fernando/Documents/dados_nc_test/mask_matopiba.nc"
+  statesfile = "/home/fernando/Documents/dados_nc_test/maskara_estados_br.nc"
 
-  outfile = "/home/fernando/Documents/dados_nc_test/zzz.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/mysanthropic.nc"
 
   lu%varname = "landuse"
   lu%lonname = "lon"
   lu%latname = "lat"
 
 
-  matopiba%varname = "mask"
-  matopiba%lonname = "lon"
-  matopiba%latname = "lat"
+  states%varname = "mask"
+  states%lonname = "lon"
+  states%latname = "lat"
 
   !nc%long_name = "nome do mapa"
 
   !call ncoords(ncfile, nc)
 
   call readgrid(lufile, lu)
-  call readgrid(matopibafile, matopiba)
+  call readgrid(statesfile, states)
 
 !  do i = 1, nc%nlats
 !    do j = 1, nc%nlons
@@ -74,7 +74,7 @@ program main
 !    end do
 !  end do
 
-  call fvalue_bymask(matopiba,lu)
+  call fvalue_bymask(states,lu,18)
 
   call writegrid(outfile, lu)
 

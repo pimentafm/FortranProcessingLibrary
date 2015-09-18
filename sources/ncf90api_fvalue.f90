@@ -31,7 +31,7 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================
 
-!NetCDF(i,j)-> byte-byte
+!NetCDF(i,j)-> byte-byte =================================================
 subroutine fvbm2d_bb(mask, map)
   type (nc2d_byte) :: map
   type (nc2d_byte) :: mask
@@ -404,3 +404,19 @@ subroutine fvbm2d_dd(mask, map)
    end do
  end do
 end subroutine fvbm2d_dd
+
+!NetCDF(i,j)-> double-byte ==============================================
+subroutine fvbnm2d_ds(mask, map, num)
+  type (nc2d_byte) :: mask
+  type (nc2d_double) :: map
+  integer(kind=C_SIGNED_CHAR) :: num
+  integer(kind=4) :: i, j
+
+  do i = 1, mask%nlats
+    do j = 1, mask%nlons
+      !write(*,*)mask%f_value
+      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+    end do
+  end do
+end subroutine fvbnm2d_ds
+
