@@ -34,7 +34,7 @@
 !NetCDF(lon, lat) byte
 subroutine ncoords2d_byte(ifile, idata)
   type (nc2d_byte) :: idata
-  integer(kind=C_INT) :: ncid, xdimid, ydimid, vdimid, varid
+  integer(kind=intgr) :: ncid, xdimid, ydimid, vdimid, varid
   character(*), intent(in) :: ifile
 
   !Open NetCDF File
@@ -61,7 +61,7 @@ end subroutine ncoords2d_byte
 !NetCDF(lon, lat) short
 subroutine ncoords2d_short(ifile, idata)
   type (nc2d_short) :: idata
-  integer(kind=C_INT) :: ncid, xdimid, ydimid, vdimid, varid
+  integer(kind=intgr) :: ncid, xdimid, ydimid, vdimid, varid
   character(*), intent(in) :: ifile
 
   !Open NetCDF File
@@ -88,7 +88,7 @@ end subroutine ncoords2d_short
 !NetCDF(lon, lat) int
 subroutine ncoords2d_int(ifile, idata)
   type (nc2d_int) :: idata
-  integer(kind=C_INT) :: ncid, xdimid, ydimid, vdimid, varid
+  integer(kind=intgr) :: ncid, xdimid, ydimid, vdimid, varid
   character(*), intent(in) :: ifile
 
   !Open NetCDF File
@@ -115,7 +115,7 @@ end subroutine ncoords2d_int
 !NetCDF(lon, lat) float
 subroutine ncoords2d_float(ifile, idata)
   type (nc2d_float) :: idata
-  integer(kind=C_INT) :: ncid, xdimid, ydimid, vdimid, varid
+  integer(kind=intgr) :: ncid, xdimid, ydimid, vdimid, varid
   character(*), intent(in) :: ifile
 
   !Open NetCDF File
@@ -142,7 +142,7 @@ end subroutine ncoords2d_float
 !NetCDF(lon, lat) double
 subroutine ncoords2d_double(ifile, idata)
   type (nc2d_double) :: idata
-  integer(kind=C_INT) :: ncid, xdimid, ydimid, vdimid, varid
+  integer(kind=intgr) :: ncid, xdimid, ydimid, vdimid, varid
   character(*), intent(in) :: ifile
 
   !Open NetCDF File

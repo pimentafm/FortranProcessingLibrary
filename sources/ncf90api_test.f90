@@ -39,7 +39,7 @@ program main
   type (nc2d_double) :: lu
   type (nc2d_byte):: states
 
-  integer*4 :: i, j
+  integer(kind=intgr) :: i, j
 
   character(100) :: lufile, outfile, statesfile
 

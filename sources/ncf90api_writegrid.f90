@@ -1,5 +1,5 @@
 !:========================================================================
-! This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
+! This file is part of f90NetCDF API (NetCDF API for Fortran 90).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
 
@@ -35,8 +35,8 @@
 subroutine writegrid2d_byte(ofile, odata)
   character(*) :: ofile
   type(nc2d_byte) :: odata
-  integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=C_INT), dimension(2) :: dimids
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=intgr), dimension(2) :: dimids
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -77,8 +77,8 @@ end subroutine writegrid2d_byte
 subroutine writegrid2d_short(ofile, odata)
   character(*) :: ofile
   type(nc2d_short) :: odata
-  integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=C_INT), dimension(2) :: dimids
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=intgr), dimension(2) :: dimids
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -119,8 +119,8 @@ end subroutine writegrid2d_short
 subroutine writegrid2d_int(ofile, odata)
   character(*) :: ofile
   type(nc2d_int) :: odata
-  integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=C_INT), dimension(2) :: dimids
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=intgr), dimension(2) :: dimids
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -161,8 +161,8 @@ end subroutine writegrid2d_int
 subroutine writegrid2d_float(ofile, odata)
   character(*) :: ofile
   type(nc2d_float) :: odata
-  integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=C_INT), dimension(2) :: dimids
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=intgr), dimension(2) :: dimids
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -203,8 +203,8 @@ end subroutine writegrid2d_float
 subroutine writegrid2d_double(ofile, odata)
   character(*) :: ofile
   type(nc2d_double) :: odata
-  integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=C_INT), dimension(2) :: dimids
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=intgr), dimension(2) :: dimids
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))

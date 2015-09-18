@@ -36,7 +36,7 @@ subroutine readgrid2d_byte(ifile, idata)
   character(*) :: ifile
   type(nc2d_byte) :: idata
 
-  integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
 
@@ -74,7 +74,7 @@ subroutine readgrid2d_short(ifile, idata)
   character(*) :: ifile
   type(nc2d_short) :: idata
 
-  integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
 
@@ -112,7 +112,7 @@ subroutine readgrid2d_int(ifile, idata)
   character(*) :: ifile
   type(nc2d_int) :: idata
 
-  integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
 
@@ -150,7 +150,7 @@ subroutine readgrid2d_float(ifile, idata)
   character(*) :: ifile
   type(nc2d_float) :: idata
 
-  integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
 
@@ -188,7 +188,7 @@ subroutine readgrid2d_double(ifile, idata)
   character(*) :: ifile
   type(nc2d_double) :: idata
 
-  integer(kind=C_INT) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
 
@@ -216,4 +216,6 @@ subroutine readgrid2d_double(ifile, idata)
   call checkatt(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name")
   call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
   call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
+
+  call check(nf90_close(ncid))
 end subroutine readgrid2d_double
