@@ -65,6 +65,9 @@ subroutine writegrid2d_${arr[$i]}(ofile, odata)
   call check(nf90_put_att(ncid, varid, "'"_FillValue"'", odata%f_value))
   call check(nf90_put_att(ncid, varid, "'"units"'", odata%varunits))
 
+  !Global Attributes
+  call check(nf90_put_att(ncid, nf90_global, "Source", "Research Group on Atmosphere-Biosphere Interaction"))
+
   call check(nf90_enddef(ncid), odata%vartype, "'"'${arr[$i]^^}'"'")
  
   !Write longitudes
