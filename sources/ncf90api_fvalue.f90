@@ -150,9 +150,11 @@ subroutine fvbm2d_sf(mask, map)
   type (nc2d_float) :: map
   integer(kind=intgr) :: i, j
 
+  write(*,*)mask%f_value, map%f_value
   do i = 1, mask%nlats
     do j = 1, mask%nlons
       if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
     end do
   end do
 end subroutine fvbm2d_sf

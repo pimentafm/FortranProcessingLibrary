@@ -36,19 +36,19 @@ program main
   use ncf90api
   implicit none
 
-  type (nc2d_double) :: lu
-  type (nc2d_byte):: states
+  type (nc2d_float) :: lu
+  type (nc2d_short):: states
 
   integer(kind=intgr) :: i, j
 
   character(100) :: lufile, outfile, statesfile
 
-  lufile = "/home/fernando/Documents/dados_nc_test/lucult90.nc"
-  statesfile = "/home/fernando/Documents/dados_nc_test/m_states_brbyte.nc"
+  lufile = "/home/fernando/Documents/dados_nc_test/maskara_comsudeste.nc"
+  statesfile = "/home/fernando/Documents/dados_nc_test/maskara_br.nc"
 
-  outfile = "/home/fernando/Documents/dados_nc_test/mysanthropic.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/mcs.nc"
 
-  lu%varname = "landuse"
+  lu%varname = "mask"
   lu%lonname = "lon"
   lu%latname = "lat"
 
@@ -74,7 +74,8 @@ program main
 !    end do
 !  end do
 
-  call setfill_bymask(states, lu, 27)
+ states%f_value = -1
+  call setfill_bymask(states, lu)
 
   call writegrid(outfile, lu)
 
