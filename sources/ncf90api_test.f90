@@ -36,20 +36,20 @@ program main
   use ncf90api
   implicit none
 
-  type (nc2d_float) :: lu
+  type (nc2d_double) :: lu
   type (nc2d_double):: states
 
   integer(kind=intgr) :: i, j
 
   character(100) :: lufile, outfile, statesfile
 
-  lufile = "/home/fernando/Documents/dados_nc_test/mask_comsudeste.nc"
+  lufile = "/home/fernando/Documents/dados_nc_test/lucult_final.nc"
 
   statesfile = "/home/fernando/Documents/dados_nc_test/maskara_br.nc"
 
   outfile = "/home/fernando/Documents/dados_nc_test/maskara_csudeste.nc"
 
-  lu%varname = "Band1"
+  lu%varname = "landuse"
   lu%lonname = "lon"
   lu%latname = "lat"
 
