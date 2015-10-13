@@ -35,8 +35,8 @@
 subroutine writegrid2d_byte(ofile, odata)
   character(*) :: ofile
   type(nc2d_byte) :: odata
-  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=intgr), dimension(2) :: dimids
+  integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=C_INT), dimension(2) :: dimids
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -77,8 +77,8 @@ end subroutine writegrid2d_byte
 subroutine writegrid2d_short(ofile, odata)
   character(*) :: ofile
   type(nc2d_short) :: odata
-  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=intgr), dimension(2) :: dimids
+  integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=C_INT), dimension(2) :: dimids
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -119,8 +119,8 @@ end subroutine writegrid2d_short
 subroutine writegrid2d_int(ofile, odata)
   character(*) :: ofile
   type(nc2d_int) :: odata
-  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=intgr), dimension(2) :: dimids
+  integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=C_INT), dimension(2) :: dimids
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -161,8 +161,8 @@ end subroutine writegrid2d_int
 subroutine writegrid2d_float(ofile, odata)
   character(*) :: ofile
   type(nc2d_float) :: odata
-  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=intgr), dimension(2) :: dimids
+  integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=C_INT), dimension(2) :: dimids
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -203,8 +203,8 @@ end subroutine writegrid2d_float
 subroutine writegrid2d_double(ofile, odata)
   character(*) :: ofile
   type(nc2d_double) :: odata
-  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=intgr), dimension(2) :: dimids
+  integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=C_INT), dimension(2) :: dimids
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -225,9 +225,6 @@ subroutine writegrid2d_double(ofile, odata)
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
-
-  !Global Attributes
-  call check(nf90_put_att(ncid, nf90_global, "Source", "Research Group on Atmosphere-Biosphere Interaction"))
 
   call check(nf90_enddef(ncid), odata%vartype, "DOUBLE")
 

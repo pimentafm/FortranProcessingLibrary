@@ -37,7 +37,7 @@ program main
   implicit none
 
   type (nc2d_double) :: lu
-  type (nc2d_double):: states
+  type (nc2d_byte):: states
 
   integer(kind=intgr) :: i, j
 
@@ -45,9 +45,9 @@ program main
 
   lufile = "/home/fernando/Documents/dados_nc_test/lucult_final.nc"
 
-  statesfile = "/home/fernando/Documents/dados_nc_test/maskara_br.nc"
+  statesfile = "/home/fernando/Documents/dados_nc_test/bytestates.nc"
 
-  outfile = "/home/fernando/Documents/dados_nc_test/maskara_csudeste.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/newtest.nc"
 
   lu%varname = "landuse"
   lu%lonname = "lon"
@@ -75,7 +75,7 @@ program main
 !    end do
 !  end do
  lu%varname = "mask"
-  !states%f_value = -1
+  states%f_value = -1
   call setfill_bymask(states, lu)
 
   call writegrid(outfile, lu)
