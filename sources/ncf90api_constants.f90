@@ -32,7 +32,7 @@
 !:========================================================================
 
 !:========================== Constants ===================================
-integer, parameter :: byte = C_INT
+integer, parameter :: byte = C_SIGNED_CHAR
 integer, parameter :: short = C_SHORT
 integer, parameter :: intgr = C_INT
 integer, parameter :: float = C_FLOAT
