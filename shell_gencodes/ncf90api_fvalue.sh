@@ -68,7 +68,7 @@ for j in {0..4}; do
 subroutine fvbnm2d_${arrid[$i]}${arrid[$j]}(mask, map, num)
   type (nc2d_${arr[$i]}) :: mask
   type (nc2d_${arr[$j]}) :: map
-  ${arr2[$i]} :: num
+  integer :: num
   integer(kind=intgr) :: i, j
 
   do i = 1, mask%nlats
