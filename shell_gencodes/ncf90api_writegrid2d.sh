@@ -1,4 +1,6 @@
-!:========================================================================
+#!/bin/bash
+
+echo "!:========================================================================
 ! This file is part of f90NetCDF API (NetCDF API for Fortran 90).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
@@ -29,14 +31,19 @@
 ! Data: August 09, 2015
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-!:========================================================================
+!:========================================================================"
 
-!:======= Write 2 dimensional NetCDF byte  =========================
-subroutine writegrid2d_byte(ofile, odata)
+declare -a arr=("byte" "short" "int" "float" "double")
+declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
+
+for i in {0..4}; do
+  echo "
+!:======= Write 2 dimensional NetCDF ${arr[$i]}  =========================
+subroutine writegrid2d_${arr[$i]}(ofile, odata)
   character(*) :: ofile
-  type(nc2d_byte) :: odata
-  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=intgr), dimension(2) :: dimids
+  type(nc2d_${arr[$i]}) :: odata
+  integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=C_INT), dimension(2) :: dimids
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -48,20 +55,17 @@ subroutine writegrid2d_byte(ofile, odata)
 
   !Define variables
   call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
-  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+  call check(nf90_put_att(ncid, xvarid, "'"units"'", odata%lonunits))
 
   call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
-  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+  call check(nf90_put_att(ncid, yvarid, "'"units"'", odata%latunits))
 
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
-  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
-  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+  call check(nf90_put_att(ncid, varid, "'"long_name"'", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "'"_FillValue"'", odata%f_value))
+  call check(nf90_put_att(ncid, varid, "'"units"'", odata%varunits))
 
-  !Global Attributes
-  call check(nf90_put_att(ncid, nf90_global, Source, Research Group on Atmosphere-Biosphere Interaction))
-
-  call check(nf90_enddef(ncid), odata%vartype, "BYTE")
+  call check(nf90_enddef(ncid), odata%vartype, "'"'${arr[$i]^^}'"'")
  
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
@@ -72,185 +76,7 @@ subroutine writegrid2d_byte(ofile, odata)
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
-  call check(nf90_close(ncid), odata%vartype, "BYTE")
-end subroutine writegrid2d_byte
-
-
-!:======= Write 2 dimensional NetCDF short  =========================
-subroutine writegrid2d_short(ofile, odata)
-  character(*) :: ofile
-  type(nc2d_short) :: odata
-  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=intgr), dimension(2) :: dimids
-
-    !Create Netcdf
-  call check(nf90_create(ofile, nf90_clobber, ncid))
-
-  !Define dimensions
-  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
-  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
-  dimids = (/xdimid, ydimid/)
-
-  !Define variables
-  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
-  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
-
-  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
-  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
-
-  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
-  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
-  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
-
-  !Global Attributes
-  call check(nf90_put_att(ncid, nf90_global, Source, Research Group on Atmosphere-Biosphere Interaction))
-
-  call check(nf90_enddef(ncid), odata%vartype, "SHORT")
- 
-  !Write longitudes
-  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
-
-  !Write latitudes
-  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
-
-  !Write variable
-  call check(nf90_put_var(ncid, varid, odata%ncdata))
-
-  call check(nf90_close(ncid), odata%vartype, "SHORT")
-end subroutine writegrid2d_short
-
-
-!:======= Write 2 dimensional NetCDF int  =========================
-subroutine writegrid2d_int(ofile, odata)
-  character(*) :: ofile
-  type(nc2d_int) :: odata
-  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=intgr), dimension(2) :: dimids
-
-    !Create Netcdf
-  call check(nf90_create(ofile, nf90_clobber, ncid))
-
-  !Define dimensions
-  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
-  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
-  dimids = (/xdimid, ydimid/)
-
-  !Define variables
-  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
-  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
-
-  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
-  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
-
-  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
-  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
-  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
-
-  !Global Attributes
-  call check(nf90_put_att(ncid, nf90_global, Source, Research Group on Atmosphere-Biosphere Interaction))
-
-  call check(nf90_enddef(ncid), odata%vartype, "INT")
- 
-  !Write longitudes
-  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
-
-  !Write latitudes
-  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
-
-  !Write variable
-  call check(nf90_put_var(ncid, varid, odata%ncdata))
-
-  call check(nf90_close(ncid), odata%vartype, "INT")
-end subroutine writegrid2d_int
-
-
-!:======= Write 2 dimensional NetCDF float  =========================
-subroutine writegrid2d_float(ofile, odata)
-  character(*) :: ofile
-  type(nc2d_float) :: odata
-  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=intgr), dimension(2) :: dimids
-
-    !Create Netcdf
-  call check(nf90_create(ofile, nf90_clobber, ncid))
-
-  !Define dimensions
-  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
-  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
-  dimids = (/xdimid, ydimid/)
-
-  !Define variables
-  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
-  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
-
-  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
-  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
-
-  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
-  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
-  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
-
-  !Global Attributes
-  call check(nf90_put_att(ncid, nf90_global, Source, Research Group on Atmosphere-Biosphere Interaction))
-
-  call check(nf90_enddef(ncid), odata%vartype, "FLOAT")
- 
-  !Write longitudes
-  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
-
-  !Write latitudes
-  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
-
-  !Write variable
-  call check(nf90_put_var(ncid, varid, odata%ncdata))
-
-  call check(nf90_close(ncid), odata%vartype, "FLOAT")
-end subroutine writegrid2d_float
-
-
-!:======= Write 2 dimensional NetCDF double  =========================
-subroutine writegrid2d_double(ofile, odata)
-  character(*) :: ofile
-  type(nc2d_double) :: odata
-  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=intgr), dimension(2) :: dimids
-
-    !Create Netcdf
-  call check(nf90_create(ofile, nf90_clobber, ncid))
-
-  !Define dimensions
-  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
-  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
-  dimids = (/xdimid, ydimid/)
-
-  !Define variables
-  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
-  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
-
-  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
-  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
-
-  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
-  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
-  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
-
-  !Global Attributes
-  call check(nf90_put_att(ncid, nf90_global, Source, Research Group on Atmosphere-Biosphere Interaction))
-
-  call check(nf90_enddef(ncid), odata%vartype, "DOUBLE")
- 
-  !Write longitudes
-  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
-
-  !Write latitudes
-  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
-
-  !Write variable
-  call check(nf90_put_var(ncid, varid, odata%ncdata))
-
-  call check(nf90_close(ncid), odata%vartype, "DOUBLE")
-end subroutine writegrid2d_double
+  call check(nf90_close(ncid), odata%vartype, "'"'${arr[$i]^^}'"'")
+end subroutine writegrid2d_${arr[$i]}
+"
+done
