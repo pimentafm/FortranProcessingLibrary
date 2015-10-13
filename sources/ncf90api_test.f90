@@ -74,34 +74,49 @@ program main
 !      end if
 !    end do
 !  end do
- lu%varname = "mask"
-  states%f_value = -1
-  call setfill_bymask(states, lu)
 
-  call writegrid(outfile, lu)
-  call system('ncview '//trim(adjustl(outfile)))
+  !call setfill_bymask(states, lu)
 
-  !write(*,*)"NC INFO-------------------------"
-  !write(*,*)"nc->long_name ", nc%long_name
-  !write(*,*)"nc->lonname   ", nc%lonname
-  !write(*,*)"nc->latname   ", nc%latname
-  !write(*,*)"nc->varname   ", nc%varname
-  !write(*,*)"nc->nlons     ", nc%nlons
-  !write(*,*)"nc->nlats     ", nc%nlats
-  !write(*,*)"nc->vartype   ", nc%vartype, "-> 6_d, 5_f, 4_i, 3_s, 1_b"
-  !write(*,*)" "
-  !write(*,*)"nc->varunits  ",nc%varunits
-  !write(*,*)"nc->lonunits  ",nc%lonunits
-  !write(*,*)"nc->latunits  ",nc%latunits
-  !write(*,*)"nc->f_value   ",nc%f_value
-  !write(*,*)" "
+  !call writegrid(outfile, lu)
+  !call system('ncview '//trim(adjustl(outfile)))
 
-  !write(*,*)"KIND INFO-----------------------"
-  !write(*,*)"DOUBLE->:     ", C_DOUBLE
-  !write(*,*)"INT->:        ",C_INT
-  !write(*,*)"FLOAT->:      ",C_FLOAT
-  !write(*,*)"SHORT->:      ",C_SHORT
-  !write(*,*)"BYTE->:       ",C_SIGNED_CHAR
+  write(*,*)"NC INFO STATES-------------------------"
+  write(*,*)"nc->long_name ", states%long_name
+  write(*,*)"nc->lonname   ", states%lonname
+  write(*,*)"nc->latname   ", states%latname
+  write(*,*)"nc->varname   ", states%varname
+  write(*,*)"nc->nlons     ", states%nlons
+  write(*,*)"nc->nlats     ", states%nlats
+  write(*,*)"nc->vartype   ", states%vartype, "-> 6_d, 5_f, 4_i, 3_s, 1_b"
+  write(*,*)" "
+  write(*,*)"nc->varunits  ",states%varunits
+  write(*,*)"nc->lonunits  ",states%lonunits
+  write(*,*)"nc->latunits  ",states%latunits
+  write(*,*)"nc->f_value   ",states%f_value
+  write(*,*)" "
+
+    write(*,*)"NC INFO LU-------------------------"
+  write(*,*)"nc->long_name ", lu%long_name
+  write(*,*)"nc->lonname   ", lu%lonname
+  write(*,*)"nc->latname   ", lu%latname
+  write(*,*)"nc->varname   ", lu%varname
+  write(*,*)"nc->nlons     ", lu%nlons
+  write(*,*)"nc->nlats     ", lu%nlats
+  write(*,*)"nc->vartype   ", lu%vartype, "-> 6_d, 5_f, 4_i, 3_s, 1_b"
+  write(*,*)" "
+  write(*,*)"nc->varunits  ",lu%varunits
+  write(*,*)"nc->lonunits  ",lu%lonunits
+  write(*,*)"nc->latunits  ",lu%latunits
+  write(*,*)"nc->f_value   ",lu%f_value
+  write(*,*)" "
+
+  write(*,*)"KIND INFO-----------------------"
+  write(*,*)"DOUBLE->:     ", C_DOUBLE, double
+  write(*,*)"INT->:        ",C_INT, intgr
+  write(*,*)"FLOAT->:      ",C_FLOAT, float
+  write(*,*)"SHORT->:      ",C_SHORT, short
+  write(*,*)"BYTE->:       ",C_SIGNED_CHAR, byte
+
 
   !write(*,*)" "
 

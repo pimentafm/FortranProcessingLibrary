@@ -56,7 +56,7 @@
 !NetCDF(lon, lat) byte
 type :: nc2d_byte
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, units, &
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   integer(kind=byte) :: f_value
@@ -68,7 +68,7 @@ end type nc2d_byte
 !NetCDF(lon, lat) short
 type :: nc2d_short
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, units, &
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   integer(kind=short) :: f_value
@@ -80,7 +80,7 @@ end type nc2d_short
 !NetCDF(lon, lat) int
 type :: nc2d_int
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, units, &
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   integer(kind=intgr) :: f_value
@@ -92,7 +92,7 @@ end type nc2d_int
 !NetCDF(lon, lat) float
 type :: nc2d_float
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, units, &
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   real(kind=float) :: f_value
@@ -104,15 +104,10 @@ end type nc2d_float
 !NetCDF(lon, lat) double
 type :: nc2d_double
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, units, &
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   real(kind=double) :: f_value
   real(kind=double),dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:), allocatable ::  ncdata
 end type nc2d_double
-
-
-
-
-
