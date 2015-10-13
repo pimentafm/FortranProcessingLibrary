@@ -41,7 +41,7 @@ for i in {0..4}; do
 !NetCDF(lon, lat) ${arr[$i]}
 type :: nc2d_${arr[$i]}
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, units, &
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   ${arr2[$i]} :: f_value
