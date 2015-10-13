@@ -36,8 +36,8 @@ program main
   use ncf90api
   implicit none
 
-  type (nc2d_double) :: lu
   type (nc2d_byte):: states
+  type (nc2d_double) :: lu
 
   integer(kind=intgr) :: i, j
 
@@ -75,10 +75,10 @@ program main
 !    end do
 !  end do
 
-  !call setfill_bymask(states, lu)
+  call setfill_bymask(states, lu, 18)
 
-  !call writegrid(outfile, lu)
-  !call system('ncview '//trim(adjustl(outfile)))
+  call writegrid(outfile, lu)
+  call system('ncview '//trim(adjustl(outfile)))
 
   write(*,*)"NC INFO STATES-------------------------"
   write(*,*)"nc->long_name ", states%long_name
