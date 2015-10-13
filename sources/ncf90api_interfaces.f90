@@ -55,12 +55,11 @@ interface writegrid
 end interface writegrid
 
 interface setfill_bymask
-  module procedure fvbm2d_bb, fvbm2d_bs, fvbm2d_bi, fvbm2d_bf, &
-                   fvbm2d_sb, fvbm2d_ss, fvbm2d_si, fvbm2d_sf, &
-                   fvbm2d_sd, fvbm2d_ib, fvbm2d_is, fvbm2d_ii, &
-                   fvbm2d_if, fvbm2d_id, fvbm2d_fb, fvbm2d_fs, &
-                   fvbm2d_fi, fvbm2d_ff, fvbm2d_fd, fvbm2d_db, &
-                   fvbm2d_ds, fvbm2d_di, fvbm2d_df, fvbm2d_dd, &
+  module procedure fvbm2d_bb, fvbm2d_bs, fvbm2d_bi, fvbm2d_bf, fvbm2d_bd, &
+                   fvbm2d_sb, fvbm2d_ss, fvbm2d_si, fvbm2d_sf, fvbm2d_sd, &
+                   fvbm2d_ib, fvbm2d_is, fvbm2d_ii, fvbm2d_if, fvbm2d_id, &
+                   fvbm2d_fb, fvbm2d_fs, fvbm2d_fi, fvbm2d_ff, fvbm2d_fd, &
+                   fvbm2d_db, fvbm2d_ds, fvbm2d_di, fvbm2d_df, fvbm2d_dd, &
                    fvbnm2d_bb, fvbnm2d_bs, fvbnm2d_bi, fvbnm2d_bf, &
                    fvbnm2d_bd, fvbnm2d_sb, fvbnm2d_ss, fvbnm2d_si, &
                    fvbnm2d_sf, fvbnm2d_sd, fvbnm2d_ib, fvbnm2d_is, &
