@@ -45,6 +45,7 @@ subroutine checkerror(ncstatus)
 end subroutine checkerror
 
      !TODO: Add checker to set_fillValue subroutines and return correct usage
+     !      Add checkversion function
 
 !Check nf90_get_var ======================================================
 subroutine checktype(ncstatus, rvar, dvar)
