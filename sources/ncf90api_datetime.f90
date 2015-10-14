@@ -33,18 +33,35 @@
 
 !Date and Time subroutine
 
- program fdate_time
-   integer*4 date(3), systime(3)
+ subroutine fdate_time(sysdatetime)
+   integer(kind=4) date(3), systime(3)
+   integer :: i
    character(len=3), dimension(12) :: month
+   character(len=3) :: sysmonth
+   character(len=2) :: strday
+   character(len=4) :: stryear
+   character(len=2) :: strhour
+   character(len=2) :: strmin
+   character(len=2) :: strsec
+   character(len=21) :: sysdatetime
 
-   month = (/'Jan','Feb','Mar','Apr','May','Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'/)
 
-   call idate(date)   ! today(1)=day, (2)=month, (3)=year
-   call itime(systime)     ! now(1)=hour, (2)=minute, (3)=second
+   month = (/'Jan','Feb','Mar','Apr','May','Jun', 'Jul','Aug','Sep', &
+             'Oct','Nov','Dec'/)
 
-   write ( *, 10 )  date(2), date(1), date(3), systime
+   call idate(date)        !date(1) = day, date(2) = month, date(3) = year
+   call itime(systime)     !systime(1) = hour, systime(2) = minute, systime(3) = second
 
- 10 format ( 'Date ', i2.2, '/', i2.2, '/', i4.4, ' ', i2.2, ':', i2.2, ':', i2.2 )
-      stop
-end program fdate_time
+   do i = 1, 12
+     if(date(2).eq.i) sysmonth = month(i)
+   end do
+
+   write (strday, '(i2)') date(1)
+   write (stryear, '(i4)') date(3)
+   write (strhour, '(i2)') systime(1)
+   write (strmin, '(i2)') systime(2)
+   write (strsec, '(i2)') systime(3)
+
+   sysdatetime = sysmonth//" "//strday//" "//stryear//" "//strhour//':'//strmin//':'//strsec
+end subroutine fdate_time
 
