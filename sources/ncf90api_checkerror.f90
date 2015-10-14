@@ -44,6 +44,8 @@ subroutine checkerror(ncstatus)
   end if
 end subroutine checkerror
 
+     !TODO: Add checker to set_fillValue subroutines and return correct usage
+
 !Check nf90_get_var ======================================================
 subroutine checktype(ncstatus, rvar, dvar)
   integer, intent(in) :: ncstatus, rvar
