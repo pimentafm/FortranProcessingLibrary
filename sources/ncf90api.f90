@@ -45,6 +45,7 @@ module ncf90api
 
   contains
   include "ncf90api_checkerror.f90"
+  include "ncf90api_datetime.f90"
   include "ncf90api_griddims.f90"
   include "ncf90api_readgrid.f90"
   include "ncf90api_writegrid.f90"
