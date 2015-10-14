@@ -202,6 +202,7 @@ end subroutine writegrid2d_float
 !:======= Write 2 dimensional NetCDF double  =========================
 subroutine writegrid2d_double(ofile, odata)
   character(*) :: ofile
+  character(len=21) :: sysdatetime
   type(nc2d_double) :: odata
   integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=C_INT), dimension(2) :: dimids
@@ -225,6 +226,9 @@ subroutine writegrid2d_double(ofile, odata)
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "history", sysdatetime))
 
   call check(nf90_enddef(ncid), odata%vartype, "DOUBLE")
 
