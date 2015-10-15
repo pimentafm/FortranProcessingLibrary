@@ -75,7 +75,7 @@ program main
 !    end do
 !  end do
 
-  call setfill_bymask(states, lu)
+  call setfill_bymask(states, lu,21)
 
   call writegrid(outfile, lu)
   call system('ncview '//trim(adjustl(outfile)))
