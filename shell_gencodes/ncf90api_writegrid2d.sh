@@ -41,6 +41,7 @@ for i in {0..4}; do
 !:======= Write 2 dimensional NetCDF ${arr[$i]}  =========================
 subroutine writegrid2d_${arr[$i]}(ofile, odata)
   character(*) :: ofile
+  character(len=21) :: sysdatetime
   type(nc2d_${arr[$i]}) :: odata
   integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=C_INT), dimension(2) :: dimids
@@ -66,7 +67,8 @@ subroutine writegrid2d_${arr[$i]}(ofile, odata)
   call check(nf90_put_att(ncid, varid, "'"units"'", odata%varunits))
  
   !Put Global Attributes
-  call check(nf90_put_att(ncid, nf90_global, "history", call system('date +"%m-%d-%y  %r"'))
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "'"'history'"'", sysdatetime//"'"' Created by f90NetCDF API v0.1'"'"))
 
   call check(nf90_enddef(ncid), odata%vartype, "'"'${arr[$i]^^}'"'")
  
