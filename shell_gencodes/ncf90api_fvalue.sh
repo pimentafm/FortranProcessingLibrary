@@ -74,7 +74,7 @@ subroutine fvbnm2d_${arrid[$i]}${arrid[$j]}(mask, map, num)
   do i = 1, mask%nlats
     do j = 1, mask%nlons
       if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-    if((mask%ncdata(i,j).ne.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = map%f_value
+      if((mask%ncdata(i,j).ne.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = map%f_value
     end do
   end do
 end subroutine fvbnm2d_${arrid[$i]}${arrid[$j]}
