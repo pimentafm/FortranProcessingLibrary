@@ -45,7 +45,7 @@ program main
 
   lufile = "/home/fernando/Documents/dados_nc_test/lucult_final.nc"
 
-  statesfile = "/home/fernando/Documents/dados_nc_test/bytestates.nc"
+  statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
 
   outfile = "/home/fernando/Documents/dados_nc_test/newtest.nc"
 
@@ -75,7 +75,7 @@ program main
 !    end do
 !  end do
 
-  call setfill_bymask(states, lu, 18)
+  call setfill_bymask(states, lu)
 
   call writegrid(outfile, lu)
   call system('ncview '//trim(adjustl(outfile)))
@@ -118,17 +118,18 @@ program main
   write(*,*)"BYTE->:       ",C_SIGNED_CHAR, byte
 
 
-  !write(*,*)" "
+  write(*,*)" "
 
-  !write(*,*)"FILL INFO-----------------------"
-  !write(*,*)"Byte:         ", nf90_fill_byte
-  !write(*,*)"Short:        ", nf90_fill_short
-  !write(*,*)"Integer:      ", nf90_fill_int
-  !write(*,*)"Float:        ", nf90_fill_float
-  !write(*,*)"Double:       ", nf90_fill_double
+  write(*,*)"FILL INFO-----------------------"
+  write(*,*)"Byte:         ", nf90_fill_byte
+  write(*,*)"Short:        ", nf90_fill_short
+  write(*,*)"Integer:      ", nf90_fill_int
+  write(*,*)"Float:        ", nf90_fill_float
+  write(*,*)"Double:       ", nf90_fill_double
 
-  !write(*,*)"Pi: ",pi
-  !write(*,*)"Earth Radius: ",earth_radius
-  !write(*,*)"Acceleration of Gravity: ",acc_gravity
-  !write(*,*)"Boltzman: ",boltzman
+  write(*,*)"Pi: ",pi
+  write(*,*)"Earth Radius: ",earth_radius
+  write(*,*)"Acceleration of Gravity: ",acc_gravity
+  write(*,*)"Boltzman: ",boltzman
+  write(*,*)"Speed of light: ",speed_of_light
 end program main
