@@ -43,8 +43,8 @@ subroutine writegrid2d_${arr[$i]}(ofile, odata)
   character(*) :: ofile
   character(len=21) :: sysdatetime
   type(nc2d_${arr[$i]}) :: odata
-  integer(kind=C_INT) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=C_INT), dimension(2) :: dimids
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=intgr), dimension(2) :: dimids
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
