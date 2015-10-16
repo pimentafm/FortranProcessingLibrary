@@ -43,7 +43,7 @@
    character(len=2) :: strhour
    character(len=2) :: strmin
    character(len=2) :: strsec
-   character(len=21) :: sysdatetime
+   character(len=21), intent(out) :: sysdatetime
 
 
    month = (/'Jan','Feb','Mar','Apr','May','Jun', 'Jul','Aug','Sep', &
@@ -58,7 +58,7 @@
 
    write (strday, '(i2)') date(1)
    write (stryear, '(i4)') date(3)
-   write (strhour, '(i2)') systime(1)
+   write (strhour, '(i2.2)') systime(1)
    write (strmin, '(i2)') systime(2)
    write (strsec, '(i2)') systime(3)
 

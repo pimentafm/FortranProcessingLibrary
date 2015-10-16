@@ -37,19 +37,19 @@ program main
   implicit none
 
   type (nc2d_byte):: states
-  type (nc2d_double) :: lu
+  type (nc2d_float) :: lu
 
   integer(kind=intgr) :: i, j
 
   character(100) :: lufile, outfile, statesfile
 
-  lufile = "/home/fernando/Documents/dados_nc_test/lucult_final.nc"
+  lufile = "/home/fernando/Documents/dados_nc_test/ncdata.nc"
 
-  statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
+  statesfile = "/home/fernando/Documents/dados_nc_test/biomas_byte.nc"
 
   outfile = "/home/fernando/Documents/dados_nc_test/newtest.nc"
 
-  lu%varname = "landuse"
+  lu%varname = "Band1"
   lu%lonname = "lon"
   lu%latname = "lat"
 
@@ -75,7 +75,7 @@ program main
 !    end do
 !  end do
 
-  call setfill_bymask(states, lu,21)
+  call setfill_bymask(states, lu,3)
 
   call writegrid(outfile, lu)
   call system('ncview '//trim(adjustl(outfile)))
