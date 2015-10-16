@@ -127,9 +127,9 @@ program main
   write(*,*)"Float:        ", nf90_fill_float
   write(*,*)"Double:       ", nf90_fill_double
 
-  write(*,*)"Pi: ",pi
-  write(*,*)"Earth Radius: ",earth_radius
+  write(*,*)"Pi:                      ",pi
+  write(*,*)"Earth Radius:            ",earth_radius
   write(*,*)"Acceleration of Gravity: ",acc_gravity
-  write(*,*)"Boltzman: ",boltzman
-  write(*,*)"Speed of light: ",speed_of_light
+  write(*,*)"Boltzman:                ",boltzman
+  write(*,*)"Speed of light:          ",speed_of_light
 end program main
