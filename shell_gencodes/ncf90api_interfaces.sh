@@ -58,7 +58,7 @@ interface writegrid
 end interface writegrid
 "
 
-echo "interface fvalue_bymask
+echo "interface setfvalue
   module procedure
 "
 for i in {0..4}; do
@@ -67,5 +67,5 @@ for i in {0..4}; do
   done
 done
 
-echo "end interface fvalue_bymask"
+echo "end interface setfvalue"
 
