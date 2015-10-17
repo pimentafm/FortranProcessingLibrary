@@ -34,7 +34,7 @@
 !Date and Time subroutine
 
  subroutine fdate_time(sysdatetime)
-   integer(kind=4) date(3), systime(3)
+   integer(kind=4) :: date(3), systime(3)
    integer :: i
    character(len=3), dimension(12) :: month
    character(len=3) :: sysmonth

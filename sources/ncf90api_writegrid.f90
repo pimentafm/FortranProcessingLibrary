@@ -33,7 +33,7 @@
 
 !:======= Write 2 dimensional NetCDF byte  =========================
 subroutine writegrid2d_byte(ofile, odata)
-  character(*) :: ofile
+  character(*), intent(in) :: ofile
   character(len=21) :: sysdatetime
   type(nc2d_byte) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
@@ -80,7 +80,7 @@ end subroutine writegrid2d_byte
 
 !:======= Write 2 dimensional NetCDF short  =========================
 subroutine writegrid2d_short(ofile, odata)
-  character(*) :: ofile
+  character(*), intent(in) :: ofile
   character(len=21) :: sysdatetime
   type(nc2d_short) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
@@ -127,7 +127,7 @@ end subroutine writegrid2d_short
 
 !:======= Write 2 dimensional NetCDF int  =========================
 subroutine writegrid2d_int(ofile, odata)
-  character(*) :: ofile
+  character(*), intent(in) :: ofile
   character(len=21) :: sysdatetime
   type(nc2d_int) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
@@ -174,7 +174,7 @@ end subroutine writegrid2d_int
 
 !:======= Write 2 dimensional NetCDF float  =========================
 subroutine writegrid2d_float(ofile, odata)
-  character(*) :: ofile
+  character(*), intent(in) :: ofile
   character(len=21) :: sysdatetime
   type(nc2d_float) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
@@ -221,7 +221,7 @@ end subroutine writegrid2d_float
 
 !:======= Write 2 dimensional NetCDF double  =========================
 subroutine writegrid2d_double(ofile, odata)
-  character(*) :: ofile
+  character(*), intent(in) :: ofile
   character(len=21) :: sysdatetime
   type(nc2d_double) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid

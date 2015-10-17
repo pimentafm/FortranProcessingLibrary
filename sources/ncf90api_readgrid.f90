@@ -33,7 +33,7 @@
 
 !:======= Read 2 dimensional NetCDF byte ==========================
 subroutine readgrid2d_byte(ifile, idata)
-  character(*) :: ifile
+  character(*), intent(in) :: ifile
   type(nc2d_byte) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
@@ -71,7 +71,7 @@ end subroutine readgrid2d_byte
 
 !:======= Read 2 dimensional NetCDF short ==========================
 subroutine readgrid2d_short(ifile, idata)
-  character(*) :: ifile
+  character(*), intent(in) :: ifile
   type(nc2d_short) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
@@ -109,7 +109,7 @@ end subroutine readgrid2d_short
 
 !:======= Read 2 dimensional NetCDF int ==========================
 subroutine readgrid2d_int(ifile, idata)
-  character(*) :: ifile
+  character(*), intent(in) :: ifile
   type(nc2d_int) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
@@ -147,7 +147,7 @@ end subroutine readgrid2d_int
 
 !:======= Read 2 dimensional NetCDF float ==========================
 subroutine readgrid2d_float(ifile, idata)
-  character(*) :: ifile
+  character(*), intent(in) :: ifile
   type(nc2d_float) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
@@ -185,7 +185,7 @@ end subroutine readgrid2d_float
 
 !:======= Read 2 dimensional NetCDF double ==========================
 subroutine readgrid2d_double(ifile, idata)
-  character(*) :: ifile
+  character(*), intent(in) :: ifile
   type(nc2d_double) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype

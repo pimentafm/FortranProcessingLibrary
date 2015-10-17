@@ -40,7 +40,7 @@ for i in {0..4}; do
   echo "
 !:======= Read 2 dimensional NetCDF ${arr[$i]} ==========================
 subroutine readgrid2d_${arr[$i]}(ifile, idata)
-  character(*) :: ifile
+  character(*), intent(in) :: ifile
   type(nc2d_${arr[$i]}) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype

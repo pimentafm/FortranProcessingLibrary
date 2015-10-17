@@ -40,7 +40,7 @@ for i in {0..4}; do
   echo "
 !:======= Write 2 dimensional NetCDF ${arr[$i]}  =========================
 subroutine writegrid2d_${arr[$i]}(ofile, odata)
-  character(*) :: ofile
+  character(*), intent(in) :: ofile
   character(len=21) :: sysdatetime
   type(nc2d_${arr[$i]}) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
