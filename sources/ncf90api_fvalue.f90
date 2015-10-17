@@ -33,776 +33,625 @@
 !Set FillValue in map using mask FillValue - NetCDF(i,j) ===========
 
 !NetCDF(i,j)-> byte-byte
-subroutine fvbm2d_bb(mask, map)
+subroutine setfvalue2d_bb(mask, map, num)
   type (nc2d_byte) :: mask
   type (nc2d_byte) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_bb
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_bb
 
 
 !NetCDF(i,j)-> byte-short
-subroutine fvbm2d_bs(mask, map)
+subroutine setfvalue2d_bs(mask, map, num)
   type (nc2d_byte) :: mask
   type (nc2d_short) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_bs
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_bs
 
 
 !NetCDF(i,j)-> byte-int
-subroutine fvbm2d_bi(mask, map)
+subroutine setfvalue2d_bi(mask, map, num)
   type (nc2d_byte) :: mask
   type (nc2d_int) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_bi
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_bi
 
 
 !NetCDF(i,j)-> byte-float
-subroutine fvbm2d_bf(mask, map)
+subroutine setfvalue2d_bf(mask, map, num)
   type (nc2d_byte) :: mask
   type (nc2d_float) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_bf
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_bf
 
 
 !NetCDF(i,j)-> byte-double
-subroutine fvbm2d_bd(mask, map)
+subroutine setfvalue2d_bd(mask, map, num)
   type (nc2d_byte) :: mask
   type (nc2d_double) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_bd
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_bd
 
 
 !NetCDF(i,j)-> short-byte
-subroutine fvbm2d_sb(mask, map)
+subroutine setfvalue2d_sb(mask, map, num)
   type (nc2d_short) :: mask
   type (nc2d_byte) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_sb
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_sb
 
 
 !NetCDF(i,j)-> short-short
-subroutine fvbm2d_ss(mask, map)
+subroutine setfvalue2d_ss(mask, map, num)
   type (nc2d_short) :: mask
   type (nc2d_short) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_ss
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_ss
 
 
 !NetCDF(i,j)-> short-int
-subroutine fvbm2d_si(mask, map)
+subroutine setfvalue2d_si(mask, map, num)
   type (nc2d_short) :: mask
   type (nc2d_int) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_si
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_si
 
 
 !NetCDF(i,j)-> short-float
-subroutine fvbm2d_sf(mask, map)
+subroutine setfvalue2d_sf(mask, map, num)
   type (nc2d_short) :: mask
   type (nc2d_float) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_sf
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_sf
 
 
 !NetCDF(i,j)-> short-double
-subroutine fvbm2d_sd(mask, map)
+subroutine setfvalue2d_sd(mask, map, num)
   type (nc2d_short) :: mask
   type (nc2d_double) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_sd
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_sd
 
 
 !NetCDF(i,j)-> int-byte
-subroutine fvbm2d_ib(mask, map)
+subroutine setfvalue2d_ib(mask, map, num)
   type (nc2d_int) :: mask
   type (nc2d_byte) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_ib
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_ib
 
 
 !NetCDF(i,j)-> int-short
-subroutine fvbm2d_is(mask, map)
+subroutine setfvalue2d_is(mask, map, num)
   type (nc2d_int) :: mask
   type (nc2d_short) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_is
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_is
 
 
 !NetCDF(i,j)-> int-int
-subroutine fvbm2d_ii(mask, map)
+subroutine setfvalue2d_ii(mask, map, num)
   type (nc2d_int) :: mask
   type (nc2d_int) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_ii
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_ii
 
 
 !NetCDF(i,j)-> int-float
-subroutine fvbm2d_if(mask, map)
+subroutine setfvalue2d_if(mask, map, num)
   type (nc2d_int) :: mask
   type (nc2d_float) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_if
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_if
 
 
 !NetCDF(i,j)-> int-double
-subroutine fvbm2d_id(mask, map)
+subroutine setfvalue2d_id(mask, map, num)
   type (nc2d_int) :: mask
   type (nc2d_double) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_id
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_id
 
 
 !NetCDF(i,j)-> float-byte
-subroutine fvbm2d_fb(mask, map)
+subroutine setfvalue2d_fb(mask, map, num)
   type (nc2d_float) :: mask
   type (nc2d_byte) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_fb
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_fb
 
 
 !NetCDF(i,j)-> float-short
-subroutine fvbm2d_fs(mask, map)
+subroutine setfvalue2d_fs(mask, map, num)
   type (nc2d_float) :: mask
   type (nc2d_short) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_fs
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_fs
 
 
 !NetCDF(i,j)-> float-int
-subroutine fvbm2d_fi(mask, map)
+subroutine setfvalue2d_fi(mask, map, num)
   type (nc2d_float) :: mask
   type (nc2d_int) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_fi
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_fi
 
 
 !NetCDF(i,j)-> float-float
-subroutine fvbm2d_ff(mask, map)
+subroutine setfvalue2d_ff(mask, map, num)
   type (nc2d_float) :: mask
   type (nc2d_float) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_ff
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_ff
 
 
 !NetCDF(i,j)-> float-double
-subroutine fvbm2d_fd(mask, map)
+subroutine setfvalue2d_fd(mask, map, num)
   type (nc2d_float) :: mask
   type (nc2d_double) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_fd
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_fd
 
 
 !NetCDF(i,j)-> double-byte
-subroutine fvbm2d_db(mask, map)
+subroutine setfvalue2d_db(mask, map, num)
   type (nc2d_double) :: mask
   type (nc2d_byte) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_db
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_db
 
 
 !NetCDF(i,j)-> double-short
-subroutine fvbm2d_ds(mask, map)
+subroutine setfvalue2d_ds(mask, map, num)
   type (nc2d_double) :: mask
   type (nc2d_short) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_ds
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_ds
 
 
 !NetCDF(i,j)-> double-int
-subroutine fvbm2d_di(mask, map)
+subroutine setfvalue2d_di(mask, map, num)
   type (nc2d_double) :: mask
   type (nc2d_int) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_di
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_di
 
 
 !NetCDF(i,j)-> double-float
-subroutine fvbm2d_df(mask, map)
+subroutine setfvalue2d_df(mask, map, num)
   type (nc2d_double) :: mask
   type (nc2d_float) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_df
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_df
 
 
 !NetCDF(i,j)-> double-double
-subroutine fvbm2d_dd(mask, map)
+subroutine setfvalue2d_dd(mask, map, num)
   type (nc2d_double) :: mask
   type (nc2d_double) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_dd
-
-!Set FillValue in map using a number selected into maskfile ========
-
-!NetCDF(i,j)-> byte-byte
-subroutine fvbnm2d_bb(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc2d_byte) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbnm2d_bb
-
-
-!NetCDF(i,j)-> byte-short
-subroutine fvbnm2d_bs(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc2d_short) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_bs
-
-
-!NetCDF(i,j)-> byte-int
-subroutine fvbnm2d_bi(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc2d_int) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_bi
-
-
-!NetCDF(i,j)-> byte-float
-subroutine fvbnm2d_bf(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc2d_float) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_bf
-
-
-!NetCDF(i,j)-> byte-double
-subroutine fvbnm2d_bd(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc2d_double) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_bd
-
-
-!NetCDF(i,j)-> short-byte
-subroutine fvbnm2d_sb(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc2d_byte) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_sb
-
-
-!NetCDF(i,j)-> short-short
-subroutine fvbnm2d_ss(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc2d_short) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_ss
-
-
-!NetCDF(i,j)-> short-int
-subroutine fvbnm2d_si(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc2d_int) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_si
-
-
-!NetCDF(i,j)-> short-float
-subroutine fvbnm2d_sf(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc2d_float) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_sf
-
-
-!NetCDF(i,j)-> short-double
-subroutine fvbnm2d_sd(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc2d_double) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_sd
-
-
-!NetCDF(i,j)-> int-byte
-subroutine fvbnm2d_ib(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc2d_byte) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_ib
-
-
-!NetCDF(i,j)-> int-short
-subroutine fvbnm2d_is(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc2d_short) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_is
-
-
-!NetCDF(i,j)-> int-int
-subroutine fvbnm2d_ii(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc2d_int) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_ii
-
-
-!NetCDF(i,j)-> int-float
-subroutine fvbnm2d_if(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc2d_float) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_if
-
-
-!NetCDF(i,j)-> int-double
-subroutine fvbnm2d_id(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc2d_double) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_id
-
-
-!NetCDF(i,j)-> float-byte
-subroutine fvbnm2d_fb(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc2d_byte) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_fb
-
-
-!NetCDF(i,j)-> float-short
-subroutine fvbnm2d_fs(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc2d_short) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_fs
-
-
-!NetCDF(i,j)-> float-int
-subroutine fvbnm2d_fi(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc2d_int) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_fi
-
-
-!NetCDF(i,j)-> float-float
-subroutine fvbnm2d_ff(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc2d_float) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_ff
-
-
-!NetCDF(i,j)-> float-double
-subroutine fvbnm2d_fd(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc2d_double) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_fd
-
-
-!NetCDF(i,j)-> double-byte
-subroutine fvbnm2d_db(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc2d_byte) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_db
-
-
-!NetCDF(i,j)-> double-short
-subroutine fvbnm2d_ds(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc2d_short) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_ds
-
-
-!NetCDF(i,j)-> double-int
-subroutine fvbnm2d_di(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc2d_int) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_di
-
-
-!NetCDF(i,j)-> double-float
-subroutine fvbnm2d_df(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc2d_float) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_df
-
-
-!NetCDF(i,j)-> double-double
-subroutine fvbnm2d_dd(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc2d_double) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
-    end do
-  end do
-end subroutine fvbnm2d_dd
+  end if
+end subroutine setfvalue2d_dd
