@@ -43,41 +43,28 @@ for i in {0..4}; do
 for j in {0..4}; do
   echo "
 !NetCDF(i,j)-> ${arr[$i]}-${arr[$j]} 
-subroutine fvbm2d_${arrid[$i]}${arrid[$j]}(mask, map)
+subroutine setfvalue2d_${arrid[$i]}${arrid[$j]}(mask, map, num)
   type (nc2d_${arr[$i]}) :: mask
   type (nc2d_${arr[$j]}) :: map
+  integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = map%f_value
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbm2d_${arrid[$i]}${arrid[$j]}
-"
-done
-done
-
-echo "!Set FillValue in map using a number selected into maskfile ========"
-
-for i in {0..4}; do
-for j in {0..4}; do
-  echo "
-!NetCDF(i,j)-> ${arr[$i]}-${arr[$j]} 
-subroutine fvbnm2d_${arrid[$i]}${arrid[$j]}(mask, map, num)
-  type (nc2d_${arr[$i]}) :: mask
-  type (nc2d_${arr[$j]}) :: map
-  integer :: num
-  integer(kind=intgr) :: i, j
-
-  do i = 1, mask%nlats
-    do j = 1, mask%nlons
-      if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-      if((mask%ncdata(i,j).ne.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = map%f_value
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
+        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+      end do
     end do
-  end do
-end subroutine fvbnm2d_${arrid[$i]}${arrid[$j]}
+  end if
+end subroutine setfvalue2d_${arrid[$i]}${arrid[$j]}
 "
 done
 done
