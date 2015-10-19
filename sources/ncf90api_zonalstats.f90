@@ -33,6 +33,26 @@
 
 !Calculates Zonal Statistics
 
+
+
+!Prototype
+!subroutine zonal_identify(mask)
+!  type (nc2d_byte) :: mask
+!  integer(kind=intgr) :: nclass, aux, i, j
+!  integer(kind=intgr), allocatable :: class
+
+!  write(*,*)"NCLASS--------> ",nclass
+!end subroutine zonal_identify
+!NetCDF(i,j)-> <><>
+
+!Prototype
+!subroutine zonalstats_bd(mask, map, num)
+!  type (nc2d_byte) :: mask
+!  type (nc2d_byte) :: map
+!  integer, optional, intent(in):: num
+!  integer(kind=intgr) :: i, j
+!end subroutine zonalstats_bd
+
 !Count
 !Sum
 !Average

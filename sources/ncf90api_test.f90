@@ -37,19 +37,19 @@ program main
   implicit none
 
   type (nc2d_byte):: states
-  type (nc2d_float) :: lu
+  type (nc2d_double) :: lu
 
   integer(kind=intgr) :: i, j
 
   character(100) :: lufile, outfile, statesfile
 
-  lufile = "/home/fernando/Documents/dados_nc_test/ncdata.nc"
+  lufile = "/home/fernando/Documents/dados_nc_test/lucult_final.nc"
 
-  statesfile = "/home/fernando/Documents/dados_nc_test/biomas_byte.nc"
+  statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
 
   outfile = "/home/fernando/Documents/dados_nc_test/newtest.nc"
 
-  lu%varname = "Band1"
+  lu%varname = "landuse"
   lu%lonname = "lon"
   lu%latname = "lat"
 
@@ -65,6 +65,8 @@ program main
   call readgrid(lufile, lu)
   call readgrid(statesfile, states)
 
+
+  call zonal_identify(states)
 !  do i = 1, nc%nlats
 !    do j = 1, nc%nlons
 !      if(nc%ncdata(i,j).ne.0) then
@@ -75,10 +77,10 @@ program main
 !    end do
 !  end do
 
-  call setfvalue(states, lu, 3)
+  !call setfvalue(states, lu, 18)
 
-  call writegrid(outfile, lu)
-  call system('ncview '//trim(adjustl(outfile)))
+  !call writegrid(outfile, lu)
+  !call system('ncview '//trim(adjustl(outfile)))
 
   write(*,*)"NC INFO STATES-------------------------"
   write(*,*)"nc->long_name ", states%long_name
