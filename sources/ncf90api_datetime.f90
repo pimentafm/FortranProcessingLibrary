@@ -56,11 +56,12 @@
      if(date(2).eq.i) sysmonth = month(i)
    end do
 
+   !Integer to Character
    write (strday, '(i2)') date(1)
    write (stryear, '(i4)') date(3)
    write (strhour, '(i2.2)') systime(1)
-   write (strmin, '(i2)') systime(2)
-   write (strsec, '(i2)') systime(3)
+   write (strmin, '(i2.2)') systime(2)
+   write (strsec, '(i2.2)') systime(3)
 
    sysdatetime = sysmonth//" "//strday//" "//stryear//" "//strhour//':'//strmin//':'//strsec
 end subroutine fdate_time
