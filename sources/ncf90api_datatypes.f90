@@ -111,3 +111,17 @@ type :: nc2d_double
   real(kind=double),dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:), allocatable ::  ncdata
 end type nc2d_double
+
+!Zonal Statistics
+type :: zonal
+  sequence
+  integer(kind=intgr), dimension(:), allocatable :: zclass
+  integer(kind=8), dimension(:), allocatable :: zcount
+  real(kind=double), dimension(:), allocatable :: zsum
+  real(kind=double), dimension(:), allocatable :: zaverage
+  real(kind=double), dimension(:), allocatable :: zmin
+  real(kind=double), dimension(:), allocatable :: zmax
+  real(kind=double), dimension(:), allocatable :: zstdeviation
+  real(kind=double), dimension(:), allocatable :: zvariance
+end type zonal
+
