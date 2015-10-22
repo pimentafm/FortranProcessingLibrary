@@ -36,7 +36,7 @@
 subroutine zonalstats_b(classfile, mask, map)
     type(nc2d_byte) :: mask
     type(nc2d_double) :: map
-    real(kind=8), dimension(:,:), allocatable :: classarray
+    type(zonal) :: zstats
     character(*) :: classfile
     integer(kind=4) :: nlines, i, j, k
 
@@ -51,28 +51,42 @@ subroutine zonalstats_b(classfile, mask, map)
 101 continue
     rewind(100)
 
-    allocate(classarray(nlines,3))
+    allocate(zstats%zclass(nlines))
+    allocate(zstats%zcount(nlines))
+    allocate(zstats%zsum(nlines))
+    allocate(zstats%zaverage(nlines))
+    allocate(zstats%zmin(nlines))
+    allocate(zstats%zmax(nlines))
+    allocate(zstats%zstdeviation(nlines))
+    allocate(zstats%zvariance(nlines))
 
     do i = 1, nlines
-      read(100,*) classarray(i,1)
+      read(100,*) zstats%zclass(i)
     end do
 
     do k = 1, nlines
-      classarray(k,2) = 0
-      classarray(k,3) = 0
+      zstats%zcount(k) = 0
+      zstats%zsum(k) = 0
+      zstats%zaverage(k) = 0
+      zstats%zmin(k) = 0
+      zstats%zmax(k) = 0
+      zstats%zstdeviation(k) = 0
+      zstats%zvariance(k) = 0
+
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-           if(classarray(k,1).eq.mask%ncdata(j,i))then
-             classarray(k,2) = classarray(k,2) + 1
-             classarray(k,3) = classarray(k,3) + mask%ncdata(j,i)
+           if(zstats%zclass(k).eq.mask%ncdata(j,i))then
+             zstats%zcount(k) = zstats%zcount(k) + 1
+             zstats%zsum(k) = zstats%zsum(k) + mask%ncdata(j,i)
            end if
         end do
       end do
+      zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
     end do
 
-    write(*,*)"Class       Count         Sum "
+    write(*,*)"Class    Count            Sum          Average "
     do i = 1, nlines
-      write(*,'(f3.0,f10.0,f20.6)')classarray(i,1), classarray(i,2), classarray(i,3)
+      write(*,'(i5,i 10,f20.6, f20.6)')zstats%zclass(i), zstats%zcount(i), zstats%zsum(i), zstats%zaverage(i)
     end do
 
 end subroutine zonalstats_b
