@@ -75,9 +75,9 @@ subroutine zonalstats_b(classfile, mask, map)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-           if(zstats%zclass(k).eq.mask%ncdata(j,i))then
+           if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
              zstats%zcount(k) = zstats%zcount(k) + 1
-             zstats%zsum(k) = zstats%zsum(k) + mask%ncdata(j,i)
+             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
            end if
         end do
       end do
@@ -86,20 +86,8 @@ subroutine zonalstats_b(classfile, mask, map)
 
     write(*,*)"Class    Count            Sum          Average "
     do i = 1, nlines
-      write(*,'(i5,i 10,f20.6, f20.6)')zstats%zclass(i), zstats%zcount(i), zstats%zsum(i), zstats%zaverage(i)
+      write(*,'(i5,i 10,f20.6, f20.6, f20.6, f20.6)')zstats%zclass(i), zstats%zcount(i), &
+       zstats%zsum(i), zstats%zaverage(i)
     end do
 
 end subroutine zonalstats_b
-
-!-------------------------------------------------
-
-!Count
-!Sum
-!Average
-!Min
-!Max
-!Range
-!Standard Deviation
-!Variance
-
-
