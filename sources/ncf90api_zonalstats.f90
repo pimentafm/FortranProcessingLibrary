@@ -33,25 +33,51 @@
 
 !Calculates Zonal Statistics
 
+subroutine zonalstats_b(classfile, mask, map)
+    type(nc2d_byte) :: mask
+    type(nc2d_double) :: map
+    real(kind=8), dimension(:,:), allocatable :: classarray
+    character(*) :: classfile
+    integer(kind=4) :: nlines, i, j, k
 
+    !Open file
+    open(100, file = classfile, status = 'old')
 
-!Prototype
-!subroutine zonal_identify(mask)
-!  type (nc2d_byte) :: mask
-!  integer(kind=intgr) :: nclass, aux, i, j
-!  integer(kind=intgr), allocatable :: class
+    nlines = 0
+    do
+      read(100, *, end=101)
+      nlines = nlines +1
+    end do
+101 continue
+    rewind(100)
 
-!  write(*,*)"NCLASS--------> ",nclass
-!end subroutine zonal_identify
-!NetCDF(i,j)-> <><>
+    allocate(classarray(nlines,3))
 
-!Prototype
-!subroutine zonalstats_bd(mask, map, num)
-!  type (nc2d_byte) :: mask
-!  type (nc2d_byte) :: map
-!  integer, optional, intent(in):: num
-!  integer(kind=intgr) :: i, j
-!end subroutine zonalstats_bd
+    do i = 1, nlines
+      read(100,*) classarray(i,1)
+    end do
+
+    do k = 1, nlines
+      classarray(k,2) = 0
+      classarray(k,3) = 0
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
+           if(classarray(k,1).eq.mask%ncdata(j,i))then
+             classarray(k,2) = classarray(k,2) + 1
+             classarray(k,3) = classarray(k,3) + mask%ncdata(j,i)
+           end if
+        end do
+      end do
+    end do
+
+    write(*,*)"Class       Count         Sum "
+    do i = 1, nlines
+      write(*,'(f3.0,f10.0,f20.6)')classarray(i,1), classarray(i,2), classarray(i,3)
+    end do
+
+end subroutine zonalstats_b
+
+!-------------------------------------------------
 
 !Count
 !Sum

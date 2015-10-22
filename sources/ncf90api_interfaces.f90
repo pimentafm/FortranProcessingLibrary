@@ -69,3 +69,7 @@ interface setfvalue
                    setfvalue2d_di, setfvalue2d_df, &
                    setfvalue2d_dd
 end interface setfvalue
+
+interface zonalstats
+  module procedure zonalstats_b
+end interface zonalstats

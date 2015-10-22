@@ -41,13 +41,7 @@ program main
 
   integer(kind=intgr) :: i, j
 
-  character(100) :: lufile, outfile, statesfile
-
-  lufile = "/home/fernando/Documents/dados_nc_test/lucult_final.nc"
-
-  statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
-
-  outfile = "/home/fernando/Documents/dados_nc_test/newtest.nc"
+  character(100) :: lufile, outfile, statesfile, classfile
 
   lu%varname = "landuse"
   lu%lonname = "lon"
@@ -58,80 +52,23 @@ program main
   states%lonname = "lon"
   states%latname = "lat"
 
-  !nc%long_name = "nome do mapa"
+  statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
+  lufile = "/home/fernando/Documents/dados_nc_test/lucult_final.nc"
 
-  !call ncoords(ncfile, nc)
+  classfile = "/home/fernando/Documents/dados_nc_test/maskestados_class.txt"
 
-  call readgrid(lufile, lu)
+  outfile = "/home/fernando/Documents/dados_nc_test/testxx.nc"
+
   call readgrid(statesfile, states)
+  call readgrid(lufile, lu)
 
+  call zonalstats(classfile, states, lu)
 
-  call zonal_identify(states)
-!  do i = 1, nc%nlats
-!    do j = 1, nc%nlons
-!      if(nc%ncdata(i,j).ne.0) then
-!        write(*,*)i, j, nc%ncdata(i,j)
-!        nc%ncdata(i,j) = nc%ncdata(i,j) * cos(2.4) !nf90_fill_float !
-!        write(*,*)i, j, nc%ncdata(i,j)
-!      end if
-!    end do
-!  end do
+  call setfvalue(states, lu)
 
-  !call setfvalue(states, lu, 18)
 
   !call writegrid(outfile, lu)
+
   !call system('ncview '//trim(adjustl(outfile)))
 
-  write(*,*)"NC INFO STATES-------------------------"
-  write(*,*)"nc->long_name ", states%long_name
-  write(*,*)"nc->lonname   ", states%lonname
-  write(*,*)"nc->latname   ", states%latname
-  write(*,*)"nc->varname   ", states%varname
-  write(*,*)"nc->nlons     ", states%nlons
-  write(*,*)"nc->nlats     ", states%nlats
-  write(*,*)"nc->vartype   ", states%vartype, "-> 6_d, 5_f, 4_i, 3_s, 1_b"
-  write(*,*)" "
-  write(*,*)"nc->varunits  ",states%varunits
-  write(*,*)"nc->lonunits  ",states%lonunits
-  write(*,*)"nc->latunits  ",states%latunits
-  write(*,*)"nc->f_value   ",states%f_value
-  write(*,*)" "
-
-    write(*,*)"NC INFO LU-------------------------"
-  write(*,*)"nc->long_name ", lu%long_name
-  write(*,*)"nc->lonname   ", lu%lonname
-  write(*,*)"nc->latname   ", lu%latname
-  write(*,*)"nc->varname   ", lu%varname
-  write(*,*)"nc->nlons     ", lu%nlons
-  write(*,*)"nc->nlats     ", lu%nlats
-  write(*,*)"nc->vartype   ", lu%vartype, "-> 6_d, 5_f, 4_i, 3_s, 1_b"
-  write(*,*)" "
-  write(*,*)"nc->varunits  ",lu%varunits
-  write(*,*)"nc->lonunits  ",lu%lonunits
-  write(*,*)"nc->latunits  ",lu%latunits
-  write(*,*)"nc->f_value   ",lu%f_value
-  write(*,*)" "
-
-  write(*,*)"KIND INFO-----------------------"
-  write(*,*)"DOUBLE->:     ", C_DOUBLE, double
-  write(*,*)"INT->:        ",C_INT, intgr
-  write(*,*)"FLOAT->:      ",C_FLOAT, float
-  write(*,*)"SHORT->:      ",C_SHORT, short
-  write(*,*)"BYTE->:       ",C_SIGNED_CHAR, byte
-
-
-  write(*,*)" "
-
-  write(*,*)"FILL INFO-----------------------"
-  write(*,*)"Byte:         ", nf90_fill_byte
-  write(*,*)"Short:        ", nf90_fill_short
-  write(*,*)"Integer:      ", nf90_fill_int
-  write(*,*)"Float:        ", nf90_fill_float
-  write(*,*)"Double:       ", nf90_fill_double
-
-  write(*,*)"Pi:                      ",pi
-  write(*,*)"Earth Radius:            ",earth_radius
-  write(*,*)"Acceleration of Gravity: ",acc_gravity
-  write(*,*)"Boltzman:                ",boltzman
-  write(*,*)"Speed of light:          ",speed_of_light
 end program main
