@@ -34,3 +34,4 @@
 TODO:
     -> Develop a better way to generate subroutines in fortran from ShellScripts.
     -> Develop an interface to call subroutines in fortran from the command line.
+    -> Develop a deallocate datatype subroutine
