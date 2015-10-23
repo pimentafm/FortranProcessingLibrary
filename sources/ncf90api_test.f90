@@ -37,7 +37,7 @@ program main
   implicit none
 
   type (nc2d_byte):: states
-  type (nc2d_double) :: lu
+  type (nc2d_float) :: lu
 
   integer(kind=intgr) :: i, j
 
@@ -53,7 +53,7 @@ program main
   states%latname = "lat"
 
   statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
-  lufile = "/home/fernando/Documents/dados_nc_test/lucult_final.nc"
+  lufile = "/home/fernando/Documents/dados_nc_test/des2014.nc"
 
   classfile = "/home/fernando/Documents/dados_nc_test/maskestados_class.txt"
 
@@ -62,7 +62,7 @@ program main
   call readgrid(statesfile, states)
   call readgrid(lufile, lu)
 
-  call zonalstats(classfile, states, lu)
+  call zonalstats(lu)
 
   call setfvalue(states, lu)
 

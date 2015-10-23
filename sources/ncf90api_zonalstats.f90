@@ -33,13 +33,14 @@
 
 !Calculates Zonal Statistics
 
-subroutine zonalstats_b(classfile, mask, map)
-    type(nc2d_byte) :: mask
-    type(nc2d_double) :: map
-    type(zonal) :: zstats
-    character(*) :: classfile
-    integer(kind=4) :: nlines, i, j, k
+subroutine zonalstats_b(map, mask, classfile)
+  character(*), optional, intent(in) :: classfile
+  type(nc2d_byte), optional, intent(in) :: mask
+  type(nc2d_float), intent(in) :: map
+  type(zonal) :: zstats
+  integer(kind=4) :: nlines, i, j, k
 
+  if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
 
@@ -63,7 +64,19 @@ subroutine zonalstats_b(classfile, mask, map)
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
+  else
+    nlines = 1
+    allocate(zstats%zclass(nlines))
+    allocate(zstats%zcount(nlines))
+    allocate(zstats%zsum(nlines))
+    allocate(zstats%zaverage(nlines))
+    allocate(zstats%zmin(nlines))
+    allocate(zstats%zmax(nlines))
+    allocate(zstats%zstdeviation(nlines))
+    allocate(zstats%zvariance(nlines))
+  end if
 
+  if(present(mask))then
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -75,19 +88,35 @@ subroutine zonalstats_b(classfile, mask, map)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-           if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
-             zstats%zcount(k) = zstats%zcount(k) + 1
-             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-           end if
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+            zstats%zcount(k) = zstats%zcount(k) + 1
+            zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
+          end if
         end do
       end do
-      zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
+      if(zstats%zcount(k).ne.0) zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
     end do
-
-    write(*,*)"Class    Count            Sum          Average "
-    do i = 1, nlines
-      write(*,'(i5,i 10,f20.6, f20.6, f20.6, f20.6)')zstats%zclass(i), zstats%zcount(i), &
-       zstats%zsum(i), zstats%zaverage(i)
+  else
+    zstats%zcount(nlines) = 0
+    zstats%zsum(nlines) = 0
+    zstats%zaverage(nlines) = 0
+    zstats%zmin(nlines) = 0
+    zstats%zmax(nlines) = 0
+    zstats%zstdeviation(nlines) = 0
+    zstats%zvariance(nlines) = 0
+    do i = 1, map%nlons
+      do j = 1, map%nlats
+        if(map%ncdata(j,i).ne.map%f_value)then
+          zstats%zcount(nlines) = zstats%zcount(nlines) + 1
+          zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
+        end if
+      end do
     end do
-
+    if(zstats%zcount(nlines).ne.0) zstats%zaverage(nlines) = zstats%zsum(nlines)/zstats%zcount(nlines)
+  end if
+  write(*,'(a8,3a20)')"Class", "Count", "Sum", "Average"
+  do i = 1, nlines
+    write(*,'(i8,i20,f20.6, f20.6, f20.6, f20.6)')zstats%zclass(i), zstats%zcount(i), &
+    zstats%zsum(i), zstats%zaverage(i)
+  end do
 end subroutine zonalstats_b
