@@ -44,7 +44,7 @@ for j in {0..4}; do
   echo "!NetCDF(i,j)-> ${arr[$i]}-${arr[$j]}
 subroutine zonalstats_${arrid[$i]}${arrid[$j]}(map, mask, classfile)
   character(*), optional, intent(in) :: classfile
-  type(nc2d_${arr[$j]}), optional, intent(in) :: mask
+  type(nc2d_${arr[$j]}), intent(in) :: mask
   type(nc2d_${arr[$i]}), intent(in) :: map
   type(zonal_${arr[$i]}) :: zstats
   real(kind=double) :: sumquad
@@ -54,7 +54,8 @@ subroutine zonalstats_${arrid[$i]}${arrid[$j]}(map, mask, classfile)
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
+    
+    !:Count file line numbers --------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -72,24 +73,12 @@ subroutine zonalstats_${arrid[$i]}${arrid[$j]}(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
+    !:Read zonal classes from file ---------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-  !:Case classmap not present --------------------------------------------
-  else
-    nlines = 1
-    allocate(zstats%zclass(nlines))
-    allocate(zstats%zcount(nlines))
-    allocate(zstats%zsum(nlines))
-    allocate(zstats%zaverage(nlines))
-    allocate(zstats%zmin(nlines))
-    allocate(zstats%zmax(nlines))
-    allocate(zstats%zstdeviation(nlines))
-    allocate(zstats%zvariance(nlines))
-  end if
-
-!:Check if mask is present -----------------------------------------------
-  if(present(mask))then
+    
+    !:Calculate statistics -----------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -113,6 +102,7 @@ subroutine zonalstats_${arrid[$i]}${arrid[$j]}(map, mask, classfile)
           end if
         end do
       end do
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -120,8 +110,18 @@ subroutine zonalstats_${arrid[$i]}${arrid[$j]}(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case mask not present ------------------------------------------------
+  !:Case classmap is not present -----------------------------------------
   else
+    nlines = 1
+    allocate(zstats%zclass(nlines))
+    allocate(zstats%zcount(nlines))
+    allocate(zstats%zsum(nlines))
+    allocate(zstats%zaverage(nlines))
+    allocate(zstats%zmin(nlines))
+    allocate(zstats%zmax(nlines))
+    allocate(zstats%zstdeviation(nlines))
+    allocate(zstats%zvariance(nlines))
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -130,6 +130,8 @@ subroutine zonalstats_${arrid[$i]}${arrid[$j]}(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
+    
+    !:Calculate statistics -----------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
