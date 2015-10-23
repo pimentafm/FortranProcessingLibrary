@@ -71,5 +71,17 @@ interface setfvalue
 end interface setfvalue
 
 interface zonalstats
-  module procedure zonalstats_b
+  module procedure zonalstats_bb, zonalstats_bs, &
+                   zonalstats_bi, zonalstats_bf, &
+                   zonalstats_bd, zonalstats_sb, &
+                   zonalstats_ss, zonalstats_si, &
+                   zonalstats_sf, zonalstats_sd, &
+                   zonalstats_ib, zonalstats_is, &
+                   zonalstats_ii, zonalstats_if, &
+                   zonalstats_id, zonalstats_fb, &
+                   zonalstats_fs, zonalstats_fi, &
+                   zonalstats_ff, zonalstats_fd, &
+                   zonalstats_db, zonalstats_ds, &
+                   zonalstats_di, zonalstats_df, &
+                   zonalstats_dd
 end interface zonalstats

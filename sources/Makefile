@@ -34,6 +34,6 @@ compile:
 	gfortran -shared -fPIC -o libncf90api.so ncf90api.f90 -I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
 	mv libncf90api.so /usr/lib64/
 	mv ncf90api.mod /usr/lib64/gfortran/modules/
-	gfortran ncf90api_test.f90 -I/usr/lib64/gfortran/modules/ -lncf90api
+	gfortran -Wall -W -pedantic ncf90api_test.f90 -I/usr/lib64/gfortran/modules/ -lncf90api
 #	gfortran -c ncf90api.f90 -I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
 #	gfortran ncf90api_test.f90 ncf90api.o -I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
