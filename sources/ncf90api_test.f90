@@ -39,7 +39,7 @@ program main
   type (nc2d_byte):: states
   type (nc2d_float) :: lu
 
-  integer(kind=intgr) :: i, j
+  !integer(kind=intgr) :: i, j
 
   character(100) :: lufile, outfile, statesfile, classfile
 
@@ -64,8 +64,8 @@ program main
 
   call zonalstats(lu, states, classfile)
 
-  write(*,*)"outro"
-  call zonalstats(lu)
+  write(*,*) "outro----------------------"
+  call zonalstats(lu, states)
 
   call setfvalue(states, lu)
 
