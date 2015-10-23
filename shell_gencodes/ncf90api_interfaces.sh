@@ -69,3 +69,13 @@ done
 
 echo "end interface setfvalue"
 
+echo "interface zonalstats
+  module procedure
+"
+for i in {0..4}; do
+  for j in {0..4}; do
+    echo "zonalstats_${arrid[$i]}${arrid[$j]}"
+  done
+done
+
+echo "end interface zonalstats"
