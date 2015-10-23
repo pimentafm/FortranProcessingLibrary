@@ -59,7 +59,6 @@ type :: nc2d_byte
   character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
-  integer(kind=byte) :: valid_min, valid_max
   integer(kind=byte) :: f_value
   real(kind=double),dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:), allocatable ::  ncdata
@@ -72,7 +71,6 @@ type :: nc2d_short
   character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
-  integer(kind=short) :: valid_min, valid_max
   integer(kind=short) :: f_value
   real(kind=double),dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:), allocatable ::  ncdata
@@ -85,7 +83,6 @@ type :: nc2d_int
   character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
-  integer(kind=intgr) :: valid_min, valid_max
   integer(kind=intgr) :: f_value
   real(kind=double),dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:), allocatable ::  ncdata
@@ -98,7 +95,6 @@ type :: nc2d_float
   character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
-  real(kind=float) :: valid_min, valid_max
   real(kind=float) :: f_value
   real(kind=double),dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:), allocatable ::  ncdata
@@ -111,7 +107,6 @@ type :: nc2d_double
   character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
-  real(kind=double) :: valid_min, valid_max
   real(kind=double) :: f_value
   real(kind=double),dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:), allocatable ::  ncdata
