@@ -44,6 +44,7 @@ type :: nc2d_${arr[$i]}
   character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
+  ${arr2[$i]} :: valid_min, valid_max
   ${arr2[$i]} :: f_value
   real(kind=double),dimension(:), allocatable :: longitudes, latitudes
   ${arr2[$i]}, dimension(:,:), allocatable ::  ncdata

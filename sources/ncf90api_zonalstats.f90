@@ -97,9 +97,9 @@ subroutine zonalstats_b(map, mask, classfile)
       if(zstats%zcount(k).ne.0) zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
     end do
   else
-    zstats%zcount(nlines) = 0
-    zstats%zsum(nlines) = 0
-    zstats%zaverage(nlines) = 0
+    zstats%zcount(nlines) = 0    !OK
+    zstats%zsum(nlines) = 0      !OK
+    zstats%zaverage(nlines) = 0  !OK
     zstats%zmin(nlines) = 0
     zstats%zmax(nlines) = 0
     zstats%zstdeviation(nlines) = 0
