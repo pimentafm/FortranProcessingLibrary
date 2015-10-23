@@ -38,8 +38,10 @@ subroutine zonalstats_b(map, mask, classfile)
   type(nc2d_byte), optional, intent(in) :: mask
   type(nc2d_float), intent(in) :: map
   type(zonal) :: zstats
+  real(kind=double) :: sumquad
   integer(kind=4) :: nlines, i, j, k
 
+!:Check if classfile is present ------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
@@ -64,6 +66,7 @@ subroutine zonalstats_b(map, mask, classfile)
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
+  !:Case classmap not present --------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -76,6 +79,7 @@ subroutine zonalstats_b(map, mask, classfile)
     allocate(zstats%zvariance(nlines))
   end if
 
+!:Check if mask is present -----------------------------------------------
   if(present(mask))then
     do k = 1, nlines
       zstats%zcount(k) = 0
@@ -85,38 +89,60 @@ subroutine zonalstats_b(map, mask, classfile)
       zstats%zmax(k) = 0
       zstats%zstdeviation(k) = 0
       zstats%zvariance(k) = 0
+      sumquad = 0
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
           if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
+            if(map%ncdata(j,i).ne.map%f_value)then
+              zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
+              zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
+              sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
+            end if
           end if
         end do
       end do
-      if(zstats%zcount(k).ne.0) zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
+      if(zstats%zcount(k).ne.0)then
+        zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
+                                       zstats%zcount(k))/(zstats%zcount(k)-1))
+        zstats%zvariance(k) = zstats%zstdeviation(k)*zstats%zstdeviation(k)
+        zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
+      end if
     end do
+  !:Case mask not present ------------------------------------------------
   else
-    zstats%zcount(nlines) = 0    !OK
-    zstats%zsum(nlines) = 0      !OK
-    zstats%zaverage(nlines) = 0  !OK
+    zstats%zcount(nlines) = 0
+    zstats%zsum(nlines) = 0
+    zstats%zaverage(nlines) = 0
     zstats%zmin(nlines) = 0
     zstats%zmax(nlines) = 0
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
+    sumquad = 0
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
+          sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    if(zstats%zcount(nlines).ne.0) zstats%zaverage(nlines) = zstats%zsum(nlines)/zstats%zcount(nlines)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    if(zstats%zcount(nlines).ne.0)then
+      zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
+                                          zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
+      zstats%zvariance(nlines) = zstats%zstdeviation(nlines)*zstats%zstdeviation(nlines)
+      zstats%zaverage(nlines) = zstats%zsum(nlines)/zstats%zcount(nlines)
+    end if
   end if
-  write(*,'(a8,3a20)')"Class", "Count", "Sum", "Average"
+
+  write(*,'(a8,a15,5a20)')"Class", "Count", "Sum", "Average", "Min", "Max", "Standard Deviation"
   do i = 1, nlines
-    write(*,'(i8,i20,f20.6, f20.6, f20.6, f20.6)')zstats%zclass(i), zstats%zcount(i), &
-    zstats%zsum(i), zstats%zaverage(i)
+    write(*,'(i8,i15,5f20.5)')zstats%zclass(i), zstats%zcount(i), zstats%zsum(i), &
+         zstats%zaverage(i), zstats%zmin(i), zstats%zmax(i), zstats%zstdeviation(i)
   end do
 end subroutine zonalstats_b
