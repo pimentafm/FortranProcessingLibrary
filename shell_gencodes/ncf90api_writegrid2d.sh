@@ -64,6 +64,9 @@ subroutine writegrid2d_${arr[$i]}(ofile, odata)
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "'"long_name"'", odata%long_name))
   call check(nf90_put_att(ncid, varid, "'"_FillValue"'", odata%f_value))
+  call check(nf90_put_att(ncid, varid, "'"valid_range"'",real((/&
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value),&
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)/))))
   call check(nf90_put_att(ncid, varid, "'"units"'", odata%varunits))
  
   !Put Global Attributes
