@@ -113,7 +113,64 @@ type :: nc2d_double
 end type nc2d_double
 
 !Zonal Statistics
-type :: zonal
+!NetCDF(lon, lat) byte
+type :: zonal_byte
+  sequence
+  integer(kind=intgr), dimension(:), allocatable :: zclass
+  integer(kind=8), dimension(:), allocatable :: zcount
+  real(kind=double), dimension(:), allocatable :: zsum
+  real(kind=double), dimension(:), allocatable :: zaverage
+  integer(kind=byte), dimension(:), allocatable :: zmin
+  integer(kind=byte), dimension(:), allocatable :: zmax
+  real(kind=double), dimension(:), allocatable :: zstdeviation
+  real(kind=double), dimension(:), allocatable :: zvariance
+end type zonal_byte
+
+
+!NetCDF(lon, lat) short
+type :: zonal_short
+  sequence
+  integer(kind=intgr), dimension(:), allocatable :: zclass
+  integer(kind=8), dimension(:), allocatable :: zcount
+  real(kind=double), dimension(:), allocatable :: zsum
+  real(kind=double), dimension(:), allocatable :: zaverage
+  integer(kind=short), dimension(:), allocatable :: zmin
+  integer(kind=short), dimension(:), allocatable :: zmax
+  real(kind=double), dimension(:), allocatable :: zstdeviation
+  real(kind=double), dimension(:), allocatable :: zvariance
+end type zonal_short
+
+
+!NetCDF(lon, lat) int
+type :: zonal_int
+  sequence
+  integer(kind=intgr), dimension(:), allocatable :: zclass
+  integer(kind=8), dimension(:), allocatable :: zcount
+  real(kind=double), dimension(:), allocatable :: zsum
+  real(kind=double), dimension(:), allocatable :: zaverage
+  integer(kind=intgr), dimension(:), allocatable :: zmin
+  integer(kind=intgr), dimension(:), allocatable :: zmax
+  real(kind=double), dimension(:), allocatable :: zstdeviation
+  real(kind=double), dimension(:), allocatable :: zvariance
+end type zonal_int
+
+
+!NetCDF(lon, lat) float
+type :: zonal_float
+  sequence
+  integer(kind=intgr), dimension(:), allocatable :: zclass
+  integer(kind=8), dimension(:), allocatable :: zcount
+  real(kind=double), dimension(:), allocatable :: zsum
+  real(kind=double), dimension(:), allocatable :: zaverage
+  real(kind=float), dimension(:), allocatable :: zmin
+  real(kind=float), dimension(:), allocatable :: zmax
+  real(kind=double), dimension(:), allocatable :: zstdeviation
+  real(kind=double), dimension(:), allocatable :: zvariance
+end type zonal_float
+
+
+!NetCDF(lon, lat) double
+type :: zonal_double
   sequence
   integer(kind=intgr), dimension(:), allocatable :: zclass
   integer(kind=8), dimension(:), allocatable :: zcount
@@ -123,4 +180,5 @@ type :: zonal
   real(kind=double), dimension(:), allocatable :: zmax
   real(kind=double), dimension(:), allocatable :: zstdeviation
   real(kind=double), dimension(:), allocatable :: zvariance
-end type zonal
+end type zonal_double
+
