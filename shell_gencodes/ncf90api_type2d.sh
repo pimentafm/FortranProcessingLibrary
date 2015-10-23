@@ -51,4 +51,22 @@ end type nc2d_${arr[$i]}
 "
 done
 
+for i in {0..4}; do
+  echo "
+!NetCDF(lon, lat) ${arr[$i]}
+type :: zonal_${arr[$i]}
+  sequence
+  integer(kind=intgr), dimension(:), allocatable :: zclass
+  integer(kind=8), dimension(:), allocatable :: zcount
+  real(kind=double), dimension(:), allocatable :: zsum
+  real(kind=double), dimension(:), allocatable :: zaverage
+  ${arr2[$i]}, dimension(:), allocatable :: zmin
+  ${arr2[$i]}, dimension(:), allocatable :: zmax
+  real(kind=double), dimension(:), allocatable :: zstdeviation
+  real(kind=double), dimension(:), allocatable :: zvariance
+end type zonal_${arr[$i]}
+"
+done
+
+
 
