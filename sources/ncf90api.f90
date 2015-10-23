@@ -39,16 +39,16 @@ module ncf90api
   use netcdf
   use iso_c_binding
   implicit none
-  include "ncf90api_constants.f90"
-  include "ncf90api_datatypes.f90"
-  include "ncf90api_interfaces.f90"
+  include "ncf90api_constants.f90"   !Parameter variables
+  include "ncf90api_datatypes.f90"   !Datatype structure declarations
+  include "ncf90api_interfaces.f90"  !Interfaces for subroutines definitions and datatypes
 
   contains
-  include "ncf90api_checkerror.f90"
-  include "ncf90api_datetime.f90"
-  include "ncf90api_griddims.f90"
-  include "ncf90api_readgrid.f90"
-  include "ncf90api_writegrid.f90"
-  include "ncf90api_fvalue.f90"
-  include "ncf90api_zonalstats.f90"
+  include "ncf90api_checkerror.f90"  !Error checker subroutines
+  include "ncf90api_datetime.f90"    !System date-time subroutine
+  include "ncf90api_griddims.f90"    !Subroutines to get the number of coordinates from NetCDF file
+  include "ncf90api_readgrid.f90"    !NetCDF file reader subroutines
+  include "ncf90api_writegrid.f90"   !NetCDF file writer subroutines
+  include "ncf90api_fvalue.f90"      !Set FillValue subroutines
+  include "ncf90api_zonalstats.f90"  !Zonal Statistics subroutines
 end module ncf90api
