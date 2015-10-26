@@ -36,3 +36,8 @@ TODO:
     -> Develop an interface to call subroutines in fortran from the command line.
     -> Develop a deallocate datatype subroutine
     OK Add valid_min and valid_max in netcdf datatypes
+    -> Add check class error subroutine if not encounter number of class into map
+    -> Fixes output format for zonalstatistics subroutines
+    
+    
+    

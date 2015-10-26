@@ -37,13 +37,13 @@ program main
   implicit none
 
   type (nc2d_byte):: states
-  type (nc2d_float) :: lu
+  type (nc2d_byte) :: lu
 
   !integer(kind=intgr) :: i, j
 
   character(100) :: lufile, outfile, statesfile, classfile
 
-  lu%varname = "landuse"
+  lu%varname = "Band1"
   lu%lonname = "lon"
   lu%latname = "lat"
 
@@ -53,9 +53,9 @@ program main
   states%latname = "lat"
 
   statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
-  lufile = "/home/fernando/Documents/dados_nc_test/UMD_30seg_2014_km2.nc"
+  lufile = "/home/fernando/Documents/dados_nc_test/biomas_byte.nc"
 
-  classfile = "/home/fernando/Documents/dados_nc_test/maskestados_class.txt"
+  classfile = "/home/fernando/Documents/dados_nc_test/biomas_class.txt"
 
   outfile = "/home/fernando/Documents/dados_nc_test/newmap.nc"
 

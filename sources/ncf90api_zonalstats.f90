@@ -30,7 +30,8 @@
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:========================================================================
-!Zonal Statistics =======================================================
+
+!Zonal Statistics ========================================================
 !NetCDF(i,j)-> byte-byte
 subroutine zonalstats_bb(map, mask, classfile)
   character(*), optional, intent(in) :: classfile
@@ -143,7 +144,7 @@ subroutine zonalstats_bb(map, mask, classfile)
 
   write(*,'(a8,a15,5a20)')"Class", "Count", "Sum", "Average", "Min", "Max", "Standard Deviation"
   do i = 1, nlines
-    write(*,'(i8,i15,5f20.5)')zstats%zclass(i), zstats%zcount(i), zstats%zsum(i), &
+    write(*,'(i8,i15,2f20.5,2i20,f20.5)')zstats%zclass(i), zstats%zcount(i), zstats%zsum(i), &
          zstats%zaverage(i), zstats%zmin(i), zstats%zmax(i), zstats%zstdeviation(i)
   end do
 end subroutine zonalstats_bb
