@@ -73,7 +73,7 @@ subroutine writegrid2d_${arr[$i]}(ofile, odata)
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "'"'history'"'", sysdatetime//"'"' Created by f90NetCDF API v0.1'"'"))
 
-  call check(nf90_enddef(ncid), odata%vartype, "'"'${arr[$i]^^}'"'")
+  call check(nf90_enddef(ncid))
  
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
@@ -84,7 +84,7 @@ subroutine writegrid2d_${arr[$i]}(ofile, odata)
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
-  call check(nf90_close(ncid), odata%vartype, "'"'${arr[$i]^^}'"'")
+  call check(nf90_close(ncid))
 end subroutine writegrid2d_${arr[$i]}
 "
 done
