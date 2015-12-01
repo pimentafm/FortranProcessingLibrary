@@ -37,41 +37,40 @@ program main
   implicit none
 
   type (nc2d_byte):: states
-  type (nc2d_byte) :: lu
+  type (nc2d_double) :: lu
 
   !integer(kind=intgr) :: i, j
 
   character(100) :: lufile, outfile, statesfile, classfile
 
-  lu%varname = "Band1"
+  lu%varname = "landuse"
   lu%lonname = "lon"
   lu%latname = "lat"
-
 
   states%varname = "Band1"
   states%lonname = "lon"
   states%latname = "lat"
 
-  statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
-  lufile = "/home/fernando/Documents/dados_nc_test/biomas_byte.nc"
+  statesfile = "/home/fernando/Documents/dados_nc_test/m_statesbr_correto.nc"
+  lufile = "/home/fernando/Documents/dados_nc_test/lucult90.nc"
 
-  classfile = "/home/fernando/Documents/dados_nc_test/biomas_class.txt"
+  classfile = "/home/fernando/Documents/dados_nc_test/maskestados_class.txt"
 
   outfile = "/home/fernando/Documents/dados_nc_test/newmap.nc"
 
   call readgrid(statesfile, states)
   call readgrid(lufile, lu)
 
-  call zonalstats(lu, states, classfile)
+  !call zonalstats(lu, states, classfile)
 
-  write(*,*) "outro----------------------"
-  call zonalstats(lu, states)
+  !write(*,*) "outro----------------------"
+  !call zonalstats(lu, states)
 
-  call setfvalue(states, lu)
+  !call setfvalue(states, lu)
 
 
-  call writegrid(outfile, lu)
+  !call writegrid(outfile, lu)
 
-  call system('ncview '//trim(adjustl(outfile)))
+  !call system('ncview '//trim(adjustl(outfile)))
 
 end program main
