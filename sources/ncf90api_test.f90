@@ -51,7 +51,7 @@ program main
   states%lonname = "lon"
   states%latname = "lat"
 
-  statesfile = "/home/fernando/Documents/dados_nc_test/m_statesbr_correto.nc"
+  statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
   lufile = "/home/fernando/Documents/dados_nc_test/lucult90.nc"
 
   classfile = "/home/fernando/Documents/dados_nc_test/maskestados_class.txt"
@@ -61,16 +61,16 @@ program main
   call readgrid(statesfile, states)
   call readgrid(lufile, lu)
 
-  !call zonalstats(lu, states, classfile)
+  call zonalstats(lu, states, classfile)
 
   !write(*,*) "outro----------------------"
   !call zonalstats(lu, states)
 
-  !call setfvalue(states, lu)
+  call setfvalue(states, lu)
 
 
-  !call writegrid(outfile, lu)
+  call writegrid(outfile, lu)
 
-  !call system('ncview '//trim(adjustl(outfile)))
+  call system('ncview '//trim(adjustl(outfile)))
 
 end program main
