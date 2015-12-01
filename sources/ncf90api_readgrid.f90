@@ -65,7 +65,7 @@ subroutine readgrid2d_byte(ifile, idata)
   call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
   call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
 
-  call check(nf90_close(ncid), idata%vartype, "BYTE")
+  call check(nf90_close(ncid))
 end subroutine readgrid2d_byte
 
 
@@ -103,7 +103,7 @@ subroutine readgrid2d_short(ifile, idata)
   call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
   call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
 
-  call check(nf90_close(ncid), idata%vartype, "SHORT")
+  call check(nf90_close(ncid))
 end subroutine readgrid2d_short
 
 
@@ -179,7 +179,7 @@ subroutine readgrid2d_float(ifile, idata)
   call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
   call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
 
-  call check(nf90_close(ncid), idata%vartype, "FLOAT")
+  call check(nf90_close(ncid))
 end subroutine readgrid2d_float
 
 
@@ -217,5 +217,5 @@ subroutine readgrid2d_double(ifile, idata)
   call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
   call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
 
-  call check(nf90_close(ncid), idata%vartype, "DOUBLE")
+  call check(nf90_close(ncid))
 end subroutine readgrid2d_double
