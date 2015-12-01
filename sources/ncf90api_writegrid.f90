@@ -66,7 +66,7 @@ subroutine writegrid2d_byte(ofile, odata)
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "history", sysdatetime//" Created by f90NetCDF API v0.1"))
 
-  call check(nf90_enddef(ncid), odata%vartype, "BYTE")
+  call check(nf90_enddef(ncid))
 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
@@ -77,7 +77,7 @@ subroutine writegrid2d_byte(ofile, odata)
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
-  call check(nf90_close(ncid), odata%vartype, "BYTE")
+  call check(nf90_close(ncid))
 end subroutine writegrid2d_byte
 
 
@@ -116,7 +116,7 @@ subroutine writegrid2d_short(ofile, odata)
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "history", sysdatetime//" Created by f90NetCDF API v0.1"))
 
-  call check(nf90_enddef(ncid), odata%vartype, "SHORT")
+  call check(nf90_enddef(ncid))
 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
@@ -127,7 +127,7 @@ subroutine writegrid2d_short(ofile, odata)
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
-  call check(nf90_close(ncid), odata%vartype, "SHORT")
+  call check(nf90_close(ncid))
 end subroutine writegrid2d_short
 
 
@@ -166,7 +166,7 @@ subroutine writegrid2d_int(ofile, odata)
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "history", sysdatetime//" Created by f90NetCDF API v0.1"))
 
-  call check(nf90_enddef(ncid), odata%vartype, "INT")
+  call check(nf90_enddef(ncid))
 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
@@ -177,7 +177,7 @@ subroutine writegrid2d_int(ofile, odata)
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
-  call check(nf90_close(ncid), odata%vartype, "INT")
+  call check(nf90_close(ncid))
 end subroutine writegrid2d_int
 
 
@@ -216,7 +216,7 @@ subroutine writegrid2d_float(ofile, odata)
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "history", sysdatetime//" Created by f90NetCDF API v0.1"))
 
-  call check(nf90_enddef(ncid), odata%vartype, "FLOAT")
+  call check(nf90_enddef(ncid))
 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
@@ -227,7 +227,7 @@ subroutine writegrid2d_float(ofile, odata)
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
-  call check(nf90_close(ncid), odata%vartype, "FLOAT")
+  call check(nf90_close(ncid))
 end subroutine writegrid2d_float
 
 
@@ -266,7 +266,7 @@ subroutine writegrid2d_double(ofile, odata)
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "history", sysdatetime//" Created by f90NetCDF API v0.1"))
 
-  call check(nf90_enddef(ncid), odata%vartype, "DOUBLE")
+  call check(nf90_enddef(ncid))
 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
@@ -277,5 +277,5 @@ subroutine writegrid2d_double(ofile, odata)
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
-  call check(nf90_close(ncid), odata%vartype, "DOUBLE")
+  call check(nf90_close(ncid))
 end subroutine writegrid2d_double
