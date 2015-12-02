@@ -61,7 +61,7 @@ program main
   call readgrid(statesfile, states)
   call readgrid(lufile, lu)
 
-  call zonalstats(lu, states, classfile)
+  !call zonalstats(lu, states, classfile)
 
   !write(*,*) "outro----------------------"
   !call zonalstats(lu, states)
@@ -71,6 +71,6 @@ program main
 
   call writegrid(outfile, lu)
 
-  call system('ncview '//trim(adjustl(outfile)))
+  !call system('ncview '//trim(adjustl(outfile)))
 
 end program main

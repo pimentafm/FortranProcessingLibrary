@@ -53,11 +53,11 @@ subroutine checktype(ncstatus, rvar, dvar)
   character(len(dvar)) :: dvaraux
   character(len=8) :: dtype
 
-    if(rvar.eq.6) dvaraux = "DOUBLE"
-    if(rvar.eq.5) dvaraux = "FLOAT"
-    if(rvar.eq.4) dvaraux = "INTEGER"
-    if(rvar.eq.3) dvaraux = "SHORT"
-    if(rvar.eq.1) dvaraux = "BYTE"
+  if(rvar.eq.6) dvaraux = "DOUBLE"
+  if(rvar.eq.5) dvaraux = "FLOAT"
+  if(rvar.eq.4) dvaraux = "INTEGER"
+  if(rvar.eq.3) dvaraux = "SHORT"
+  if(rvar.eq.1) dvaraux = "BYTE"
 
   if(ncstatus.eq.nf90_noerr.and.dvar.ne.dvaraux)then
     write(*,*)trim(adjustl(nf90_strerror(ncstatus)))

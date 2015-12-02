@@ -51,4 +51,5 @@ module ncf90api
   include "ncf90api_writegrid.f90"   !NetCDF file writer subroutines
   include "ncf90api_fvalue.f90"      !Set FillValue subroutines
   include "ncf90api_zonalstats.f90"  !Zonal Statistics subroutines
+  include "ncf90api_fileutils.f90"   !File Utilities
 end module ncf90api
