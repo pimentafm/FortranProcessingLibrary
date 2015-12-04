@@ -41,7 +41,7 @@ program main
 
   !integer(kind=intgr) :: i, j
 
-  character(100) :: lufile, outfile, statesfile, classfile
+  character(100) :: lufile, outfile, statesfile, classfile, headerfile
 
   lu%varname = "landuse"
   lu%lonname = "lon"
@@ -51,6 +51,7 @@ program main
   states%lonname = "lon"
   states%latname = "lat"
 
+  headerfile = "/home/fernando/Documents/dados_nc_test/header.txt"
   statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
   lufile = "/home/fernando/Documents/dados_nc_test/lucult90.nc"
 
@@ -69,7 +70,7 @@ program main
   call setfvalue(states, lu)
 
 
-  call writegrid(outfile, lu)
+  call writegrid(outfile, lu, headerfile)
 
   !call system('ncview '//trim(adjustl(outfile)))
 

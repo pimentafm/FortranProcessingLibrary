@@ -232,8 +232,9 @@ end subroutine writegrid2d_float
 
 
 !:======= Write 2 dimensional NetCDF double  =========================
-subroutine writegrid2d_double(ofile, odata)
+subroutine writegrid2d_double(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
   type(nc2d_double) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
@@ -266,15 +267,17 @@ subroutine writegrid2d_double(ofile, odata)
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "history", sysdatetime//" Created by f90NetCDF API v0.1"))
 
-  call file_exists("/home/fernando/Documents/dados_nc_test/header.txt")
-  !!!!!!!!!!!!!
-  !!!!!!!!!!!!!
-  !!!!!!!!!!!!!
-  !!! Add subroutine to add global attributes from a header file!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  !call check(nf90_put_att(ncid, nf90_global, "Author", "Fernando Martins Pimenta"))
-  !call check(nf90_put_att(ncid, nf90_global, "e-mail", "fernando.m.pimenta@gmail.com"))
-  !call check(nf90_put_att(ncid, nf90_global, "source", "Research Group on Atmosphere-Biosphere Interaction"))
-
+  if(present(headerfile))then
+    call file_exists(headerfile)
+    !!!!!!!!!!!!!
+    !!!!!!!!!!!!!
+    !!!!!!!!!!!!!
+    !!! Add subroutine to add global attributes from a header file!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    call check(nf90_put_att(ncid, nf90_global, "Author", "Fernando Martins Pimenta"))
+    call check(nf90_put_att(ncid, nf90_global, "e-mail", "fernando.m.pimenta@gmail.com"))
+    call check(nf90_put_att(ncid, nf90_global, "source", "Research Group on Atmosphere-Biosphere Interaction"))
+    call check(nf90_put_att(ncid, nf90_global, "version", "1.0"))
+  end if
   call check(nf90_enddef(ncid))
 
   !Write longitudes

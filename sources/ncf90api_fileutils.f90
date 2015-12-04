@@ -38,5 +38,9 @@ subroutine file_exists(ifile)
 
   inquire(file=ifile, exist=fexist)
   
+  if(.not.fexist)then
+    write(*,*)"Header file don't exist"
+    stop
+  end if
   if(fexist)write(*,*) ifile, " EXIST!"
 end subroutine file_exists
