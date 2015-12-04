@@ -273,10 +273,10 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
     !!!!!!!!!!!!!
     !!!!!!!!!!!!!
     !!! Add subroutine to add global attributes from a header file!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    call check(nf90_put_att(ncid, nf90_global, "Author", "Fernando Martins Pimenta"))
-    call check(nf90_put_att(ncid, nf90_global, "e-mail", "fernando.m.pimenta@gmail.com"))
-    call check(nf90_put_att(ncid, nf90_global, "source", "Research Group on Atmosphere-Biosphere Interaction"))
-    call check(nf90_put_att(ncid, nf90_global, "version", "1.0"))
+    !call check(nf90_put_att(ncid, nf90_global, "Author", "Fernando Martins Pimenta"))
+    !call check(nf90_put_att(ncid, nf90_global, "e-mail", "fernando.m.pimenta@gmail.com"))
+    !call check(nf90_put_att(ncid, nf90_global, "source", "Research Group on Atmosphere-Biosphere Interaction"))
+    !call check(nf90_put_att(ncid, nf90_global, "version", "1.0"))
   end if
   call check(nf90_enddef(ncid))
 
