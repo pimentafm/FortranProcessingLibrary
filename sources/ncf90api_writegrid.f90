@@ -237,8 +237,12 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
   type(nc2d_double) :: odata
-  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid, i
   integer(kind=intgr), dimension(2) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: ncontent = 0
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -269,14 +273,16 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
 
   if(present(headerfile))then
     call file_exists(headerfile)
-    !!!!!!!!!!!!!
-    !!!!!!!!!!!!!
-    !!!!!!!!!!!!!
-    !!! Add subroutine to add global attributes from a header file!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    !call check(nf90_put_att(ncid, nf90_global, "Author", "Fernando Martins Pimenta"))
-    !call check(nf90_put_att(ncid, nf90_global, "e-mail", "fernando.m.pimenta@gmail.com"))
-    !call check(nf90_put_att(ncid, nf90_global, "source", "Research Group on Atmosphere-Biosphere Interaction"))
-    !call check(nf90_put_att(ncid, nf90_global, "version", "1.0"))
+    call countkeys(headerfile, ncontent)
+
+    allocate(attribute(ncontent))
+    allocate(content(ncontent))
+
+    call readheader(headerfile, attribute, content)
+
+    do i = 1, ncontent
+      call check(nf90_put_att(ncid, nf90_global, attribute(i), content(i)))
+    end do
   end if
   call check(nf90_enddef(ncid))
 
