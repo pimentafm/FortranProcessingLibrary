@@ -32,6 +32,7 @@
 !:========================================================================
 !File Manipulation subroutines ===========================================
 
+!:=== Checks if the file exists.
 subroutine file_exists(ifile)
   logical :: fexist
   character(*) :: ifile
@@ -42,5 +43,57 @@ subroutine file_exists(ifile)
     write(*,*)"Header file don't exist"
     stop
   end if
-  if(fexist)write(*,*) ifile, " EXIST!"
+  !if(fexist)write(*,*) ifile, " EXIST!"
 end subroutine file_exists
+
+!:=== This subroutine count existing keys within a file.
+subroutine countkeys(ifile, nkeys)
+  character(*) :: ifile
+  character(100) :: inline
+  integer :: stats, nkeys
+
+  open(100, file=ifile, status="old", action="read", position="rewind")
+
+  loop: do
+    read(100, '(a)', iostat=stats) inline
+
+    if(stats < 0)then
+      exit loop
+    end if
+
+    if(inline(1:1).eq.'[')then
+      nkeys = nkeys + 1
+    end if
+
+  end do loop
+  close(100)
+end subroutine countkeys
+
+!:=== Allocate attributs and contents into arrays.
+subroutine readheader(hfile, attribute, content)
+  character(len=*) :: hfile
+  character(len=200) :: inline
+  character(len=*), dimension(:), allocatable :: attribute, content
+  integer :: stats, n
+
+  open(100, file=hfile, status="old", action="read", position="rewind")
+
+  !:==== Read number of attribute keylines and the content of all keylines
+  n = 0
+  keys: do
+    read(100, '(a)', iostat=stats) inline
+
+    if(stats < 0)then
+      exit keys
+    end if
+    !:==== Remove '[' and ']'
+    if(inline(1:1).eq.'[')then
+      n = n + 1
+      attribute(n) = trim(adjustl(inline(2:len_trim(inline)-1)))
+    end if
+    if(inline(1:1).ne.'['.and.len_trim(inline).ne.0)then
+        content(n) = trim(adjustl(inline))
+    end if
+  end do keys
+end subroutine readheader
+
