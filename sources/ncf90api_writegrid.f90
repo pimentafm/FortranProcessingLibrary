@@ -242,7 +242,7 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: ncontent = 0
+  integer(kind=4) :: nkeys = 0
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -274,15 +274,15 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
   !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, ncontent)!Count number of keys inside headerfile
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(ncontent))
-    allocate(content(ncontent))
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
 
     call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do ncontent = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(ncontent), content(ncontent)))
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
     end do
   end if
   call check(nf90_enddef(ncid))
