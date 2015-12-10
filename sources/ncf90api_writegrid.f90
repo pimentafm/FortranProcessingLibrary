@@ -69,7 +69,7 @@ subroutine writegrid2d_byte(ofile, odata, headerfile)
 
   !Put Global Attributes
   call fdate_time(sysdatetime)
-  call check(nf90_put_att(ncid, nf90_global, "history", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
 
  !Check if headerfile was setted
   if(present(headerfile))then
@@ -138,7 +138,7 @@ subroutine writegrid2d_short(ofile, odata, headerfile)
 
   !Put Global Attributes
   call fdate_time(sysdatetime)
-  call check(nf90_put_att(ncid, nf90_global, "history", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
 
  !Check if headerfile was setted
   if(present(headerfile))then
@@ -207,7 +207,7 @@ subroutine writegrid2d_int(ofile, odata, headerfile)
 
   !Put Global Attributes
   call fdate_time(sysdatetime)
-  call check(nf90_put_att(ncid, nf90_global, "history", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
 
  !Check if headerfile was setted
   if(present(headerfile))then
@@ -276,7 +276,7 @@ subroutine writegrid2d_float(ofile, odata, headerfile)
 
   !Put Global Attributes
   call fdate_time(sysdatetime)
-  call check(nf90_put_att(ncid, nf90_global, "history", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
 
  !Check if headerfile was setted
   if(present(headerfile))then
@@ -345,7 +345,7 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
 
   !Put Global Attributes
   call fdate_time(sysdatetime)
-  call check(nf90_put_att(ncid, nf90_global, "history", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
 
  !Check if headerfile was setted
   if(present(headerfile))then
