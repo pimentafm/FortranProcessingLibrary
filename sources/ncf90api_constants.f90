@@ -32,6 +32,7 @@
 !:========================================================================
 
 !:========================== Constants ===================================
+!NetCDF 3
 integer, parameter :: byte = C_SIGNED_CHAR
 integer, parameter :: short = C_SHORT
 integer, parameter :: intgr = C_INT
