@@ -39,12 +39,17 @@ declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)
 for i in {0..4}; do
   echo "
 !:======= Write 2 dimensional NetCDF ${arr[$i]}  =========================
-subroutine writegrid2d_${arr[$i]}(ofile, odata)
+subroutine writegrid2d_${arr[$i]}(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
   type(nc2d_${arr[$i]}) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=intgr), dimension(2) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
 
     !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -71,8 +76,22 @@ subroutine writegrid2d_${arr[$i]}(ofile, odata)
  
   !Put Global Attributes
   call fdate_time(sysdatetime)
-  call check(nf90_put_att(ncid, nf90_global, "'"'history'"'", sysdatetime//"'"' Created by f90NetCDF API v0.1'"'"))
+  call check(nf90_put_att(ncid, nf90_global, "'"'History'"'", sysdatetime//"'"' Created by f90NetCDF API v0.1'"'"))
 
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
   call check(nf90_enddef(ncid))
  
   !Write longitudes
