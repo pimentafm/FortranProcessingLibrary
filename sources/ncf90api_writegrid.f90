@@ -237,7 +237,7 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
   type(nc2d_double) :: odata
-  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid, i
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=intgr), dimension(2) :: dimids
 
   !:=== Header file
@@ -267,21 +267,22 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)/))))
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
 
-  !Put Global Attributes
+  !Put Date and Time as Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "history", sysdatetime//" Created by f90NetCDF API v0.1"))
 
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile)
-    call countkeys(headerfile, ncontent)
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, ncontent)!Count number of keys inside headerfile
 
     allocate(attribute(ncontent))
     allocate(content(ncontent))
 
-    call readheader(headerfile, attribute, content)
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do i = 1, ncontent
-      call check(nf90_put_att(ncid, nf90_global, attribute(i), content(i)))
+    do ncontent = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(ncontent), content(ncontent)))
     end do
   end if
   call check(nf90_enddef(ncid))
