@@ -49,7 +49,7 @@ end subroutine file_exists
 !:=== This subroutine count existing keys within a file.
 subroutine countkeys(ifile, nkeys)
   character(*) :: ifile
-  character(100) :: inline
+  character(300) :: inline
   integer :: stats, nkeys
 
   open(100, file=ifile, status="old", action="read", position="rewind")
@@ -95,5 +95,6 @@ subroutine readheader(hfile, attribute, content)
         content(n) = trim(adjustl(inline))
     end if
   end do keys
+  close(100)
 end subroutine readheader
 
