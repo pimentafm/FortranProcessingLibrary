@@ -53,6 +53,22 @@ done
 
 for i in {0..4}; do
   echo "
+!NetCDF(lon, lat, time) ${arr[$i]}
+type :: nc3d_${arr[$i]}
+  sequence
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+                       lonunits, latunits, timename, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  ${arr2[$i]} :: f_value
+  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  ${arr2[$i]}, dimension(:,:,:), allocatable ::  ncdata
+end type nc3d_${arr[$i]}
+"
+done
+
+
+for i in {0..4}; do
+  echo "
 !NetCDF(lon, lat) ${arr[$i]}
 type :: zonal_${arr[$i]}
   sequence
