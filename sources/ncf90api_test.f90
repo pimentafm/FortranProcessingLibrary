@@ -57,7 +57,7 @@ program main
 
   classfile = "/home/fernando/Documents/dados_nc_test/maskestados_class.txt"
 
-  outfile = "/home/fernando/Documents/dados_nc_test/newmap.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/newdata.nc"
 
   call readgrid(statesfile, states)
   call readgrid(lufile, lu)
