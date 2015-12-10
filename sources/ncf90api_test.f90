@@ -69,7 +69,6 @@ program main
 
   call setfvalue(states, lu)
 
-
   call writegrid(outfile, lu, headerfile)
 
   !call system('ncview '//trim(adjustl(outfile)))
