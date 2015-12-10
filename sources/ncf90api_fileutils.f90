@@ -43,10 +43,9 @@ subroutine file_exists(ifile)
     write(*,*)"Header file don't exist"
     stop
   end if
-  !if(fexist)write(*,*) ifile, " EXIST!"
 end subroutine file_exists
 
-!:=== This subroutine count existing keys within a file.
+!:=== This subroutine counts existing keys within a file.
 subroutine countkeys(ifile, nkeys)
   character(*) :: ifile
   character(300) :: inline
