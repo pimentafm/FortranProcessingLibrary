@@ -1,4 +1,4 @@
-!:========================================================================
+!:=============================================================================
 ! This file is part of f90NetCDF API (NetCDF API for Fortran 90).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
@@ -16,7 +16,7 @@
 ! You should have received a copy of the GNU General Public License
 ! along with f90NetCDF.  If not, see <http://www.gnu.org/licenses/>.
 
-!:========================================================================
+!:=============================================================================
 !About Author:
 !Student of Surveying and Cartographic Engineering
 ! Federal University of Viçosa - Brazil
@@ -29,9 +29,9 @@
 ! Data: August 09, 2015
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-!:========================================================================
+!:=============================================================================
 
-!:======= Write 2 dimensional NetCDF byte  =========================
+!:======= Write 2 dimensional NetCDF byte =====================================
 subroutine writegrid2d_byte(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -62,9 +62,12 @@ subroutine writegrid2d_byte(ofile, odata, headerfile)
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-  call check(nf90_put_att(ncid, varid, "valid_range",real((/&
-             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value),&
-             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)/))))
+
+  call check(nf90_put_att(ncid, varid, "valid_min", &
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+  call check(nf90_put_att(ncid, varid, "valid_max", &
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
 
   !Put Global Attributes
@@ -100,7 +103,7 @@ subroutine writegrid2d_byte(ofile, odata, headerfile)
 end subroutine writegrid2d_byte
 
 
-!:======= Write 2 dimensional NetCDF short  =========================
+!:======= Write 2 dimensional NetCDF short =====================================
 subroutine writegrid2d_short(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -131,9 +134,12 @@ subroutine writegrid2d_short(ofile, odata, headerfile)
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-  call check(nf90_put_att(ncid, varid, "valid_range",real((/&
-             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value),&
-             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)/))))
+
+  call check(nf90_put_att(ncid, varid, "valid_min", &
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+  call check(nf90_put_att(ncid, varid, "valid_max", &
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
 
   !Put Global Attributes
@@ -169,7 +175,7 @@ subroutine writegrid2d_short(ofile, odata, headerfile)
 end subroutine writegrid2d_short
 
 
-!:======= Write 2 dimensional NetCDF int  =========================
+!:======= Write 2 dimensional NetCDF int =====================================
 subroutine writegrid2d_int(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -200,9 +206,12 @@ subroutine writegrid2d_int(ofile, odata, headerfile)
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-  call check(nf90_put_att(ncid, varid, "valid_range",real((/&
-             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value),&
-             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)/))))
+
+  call check(nf90_put_att(ncid, varid, "valid_min", &
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+  call check(nf90_put_att(ncid, varid, "valid_max", &
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
 
   !Put Global Attributes
@@ -238,7 +247,7 @@ subroutine writegrid2d_int(ofile, odata, headerfile)
 end subroutine writegrid2d_int
 
 
-!:======= Write 2 dimensional NetCDF float  =========================
+!:======= Write 2 dimensional NetCDF float =====================================
 subroutine writegrid2d_float(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -269,9 +278,12 @@ subroutine writegrid2d_float(ofile, odata, headerfile)
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-  call check(nf90_put_att(ncid, varid, "valid_range",real((/&
-             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value),&
-             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)/))))
+
+  call check(nf90_put_att(ncid, varid, "valid_min", &
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+  call check(nf90_put_att(ncid, varid, "valid_max", &
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
 
   !Put Global Attributes
@@ -307,7 +319,7 @@ subroutine writegrid2d_float(ofile, odata, headerfile)
 end subroutine writegrid2d_float
 
 
-!:======= Write 2 dimensional NetCDF double  =========================
+!:======= Write 2 dimensional NetCDF double =====================================
 subroutine writegrid2d_double(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -341,7 +353,6 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
 
   call check(nf90_put_att(ncid, varid, "valid_min", &
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
-
   call check(nf90_put_att(ncid, varid, "valid_max", &
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
 
