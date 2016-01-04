@@ -16,7 +16,7 @@
 ! You should have received a copy of the GNU General Public License
 ! along with f90NetCDF.  If not, see <http://www.gnu.org/licenses/>.
 
-!:========================================================================
+!:=============================================================================
 !About Author:
 !Student of Surveying and Cartographic Engineering
 ! Federal University of Viçosa - Brazil
@@ -29,11 +29,12 @@
 ! Data: August 09, 2015
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-!:========================================================================
+!:=============================================================================
 
-!:======= Error Handler Module ===========================================
-!:======= Check for NetCDF errors
-!=========================================================================
+!:======= Error Handler Module ================================================
+!:RED -> fatal errors
+!:ORANGE -> warnning errors
+!==============================================================================
 
 !General check
 subroutine checkerror(ncstatus)
@@ -46,7 +47,7 @@ end subroutine checkerror
 
      !      Add checkversion function
 
-!Check nf90_get_var ======================================================
+!Check nf90_get_var ===========================================================
 subroutine checktype(ncstatus, rvar, dvar)
   integer, intent(in) :: ncstatus, rvar
   character(*), intent(in) :: dvar
