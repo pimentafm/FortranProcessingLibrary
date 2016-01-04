@@ -49,8 +49,8 @@
    month = (/'Jan','Feb','Mar','Apr','May','Jun', 'Jul','Aug','Sep', &
              'Oct','Nov','Dec'/)
 
-   call idate(date)        !date(1) = day, date(2) = month, date(3) = year
-   call itime(systime)     !systime(1) = hour, systime(2) = minute, systime(3) = second
+   call idate(date)    !date(1) = day, date(2) = month, date(3) = year
+   call itime(systime) !systime(1) = hour, systime(2) = minute, systime(3) = second
 
    do i = 1, 12
      if(date(2).eq.i) sysmonth = month(i)
