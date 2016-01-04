@@ -32,7 +32,7 @@
 !:========================================================================
 !File Manipulation subroutines ===========================================
 
-!:=== Checks if the file exists.
+!:=== Checks if file exists.
 subroutine file_exists(ifile)
   logical :: fexist
   character(*) :: ifile
@@ -68,7 +68,7 @@ subroutine countkeys(ifile, nkeys)
   close(100)
 end subroutine countkeys
 
-!:=== Allocate attributs and contents into arrays.
+!:=== Allocate attributes and contents into arrays.
 subroutine readheader(hfile, attribute, content)
   character(len=*) :: hfile
   character(len=200) :: inline
