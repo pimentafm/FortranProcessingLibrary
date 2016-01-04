@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "!:========================================================================
+echo "!:=============================================================================
 ! This file is part of f90NetCDF API (NetCDF API for Fortran 90).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
@@ -18,7 +18,7 @@ echo "!:========================================================================
 ! You should have received a copy of the GNU General Public License
 ! along with f90NetCDF.  If not, see <http://www.gnu.org/licenses/>.
 
-!:========================================================================
+!:=============================================================================
 !About Author:
 !Student of Surveying and Cartographic Engineering
 ! Federal University of Viçosa - Brazil
@@ -31,14 +31,14 @@ echo "!:========================================================================
 ! Data: August 09, 2015
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-!:========================================================================"
+!:============================================================================="
 
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
 for i in {0..4}; do
   echo "
-!:======= Write 2 dimensional NetCDF ${arr[$i]}  =========================
+!:======= Write 2 dimensional NetCDF ${arr[$i]} =====================================
 subroutine writegrid2d_${arr[$i]}(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -69,9 +69,12 @@ subroutine writegrid2d_${arr[$i]}(ofile, odata, headerfile)
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "'"long_name"'", odata%long_name))
   call check(nf90_put_att(ncid, varid, "'"_FillValue"'", odata%f_value))
-  call check(nf90_put_att(ncid, varid, "'"valid_range"'",real((/&
-             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value),&
-             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)/))))
+         
+  call check(nf90_put_att(ncid, varid, "'"valid_min"'", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+  call check(nf90_put_att(ncid, varid, "'"valid_max"'", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+			
   call check(nf90_put_att(ncid, varid, "'"units"'", odata%varunits))
  
   !Put Global Attributes
