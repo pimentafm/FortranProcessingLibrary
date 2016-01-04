@@ -103,7 +103,7 @@ subroutine writegrid2d_byte(ofile, odata, headerfile)
 end subroutine writegrid2d_byte
 
 
-!:======= Write 2 dimensional NetCDF short =====================================
+!:======= Write 2 dimensional NetCDF short ====================================
 subroutine writegrid2d_short(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -175,7 +175,7 @@ subroutine writegrid2d_short(ofile, odata, headerfile)
 end subroutine writegrid2d_short
 
 
-!:======= Write 2 dimensional NetCDF int =====================================
+!:======= Write 2 dimensional NetCDF int ======================================
 subroutine writegrid2d_int(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -247,7 +247,7 @@ subroutine writegrid2d_int(ofile, odata, headerfile)
 end subroutine writegrid2d_int
 
 
-!:======= Write 2 dimensional NetCDF float =====================================
+!:======= Write 2 dimensional NetCDF float ====================================
 subroutine writegrid2d_float(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -319,7 +319,7 @@ subroutine writegrid2d_float(ofile, odata, headerfile)
 end subroutine writegrid2d_float
 
 
-!:======= Write 2 dimensional NetCDF double =====================================
+!:======= Write 2 dimensional NetCDF double ===================================
 subroutine writegrid2d_double(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
