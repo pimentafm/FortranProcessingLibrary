@@ -1,4 +1,4 @@
-!:========================================================================
+!:=============================================================================
 ! This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
@@ -16,7 +16,7 @@
 ! You should have received a copy of the GNU General Public License
 ! along with f90NetCDF.  If not, see <http://www.gnu.org/licenses/>.
 
-!:========================================================================
+!:=============================================================================
 !About Author:
 !Student of Surveying and Cartographic Engineering
 ! Federal University of Viçosa - Brazil
@@ -29,8 +29,8 @@
 ! Data: August 09, 2015
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-!:========================================================================
-!Set FillValue in map using mask FillValue - NetCDF(i,j) ===========
+!:=============================================================================
+!Set FillValue in map using mask FillValue - NetCDF(i,j) ======================
 
 !NetCDF(i,j)-> byte-byte
 subroutine setfvalue2d_bb(mask, map, num)

@@ -39,8 +39,6 @@ program main
   type (nc2d_byte):: states
   type (nc2d_double) :: lu
 
-  !integer(kind=intgr) :: i, j
-
   character(100) :: lufile, outfile, statesfile, classfile, headerfile
 
   lu%varname = "landuse"
@@ -62,15 +60,16 @@ program main
   call readgrid(statesfile, states)
   call readgrid(lufile, lu)
 
+  !:======== zonalstats(map, mask, classfile) -> classfile is optional
   !call zonalstats(lu, states, classfile)
-
-  !write(*,*) "outro----------------------"
   !call zonalstats(lu, states)
+
+  !setfvalue(mask, map, num) -> num is optional
 
   call setfvalue(states, lu)
 
-  call writegrid(outfile, lu, headerfile)
+  call writegrid(outfile, lu)
 
-  !call system('ncview '//trim(adjustl(outfile)))
+  call system('qgis '//trim(adjustl(outfile)))
 
 end program main
