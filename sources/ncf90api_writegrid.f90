@@ -381,16 +381,18 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
       call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
     end do
   end if
-  call check(nf90_enddef(ncid))
 
+  call check(nf90_enddef(ncid))
+  
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
 
   !Write latitudes
   call check(nf90_put_var(ncid, yvarid, odata%latitudes))
 
+
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
-
+  
   call check(nf90_close(ncid))
 end subroutine writegrid2d_double
