@@ -1,4 +1,4 @@
-!:========================================================================
+!:=============================================================================
 ! This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
@@ -16,7 +16,7 @@
 ! You should have received a copy of the GNU General Public License
 ! along with f90NetCDF.  If not, see <http://www.gnu.org/licenses/>.
 
-!:========================================================================
+!:=============================================================================
 !About Author:
 !Student of Surveying and Cartographic Engineering
 ! Federal University of Viçosa - Brazil
@@ -29,14 +29,14 @@
 ! Data: August 09, 2015
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-!:========================================================================
+!:=============================================================================
 
-!:==================== A Very Simple Test Program ========================
+!:==================== A Very Simple Test Program =============================
 program main
   use ncf90api
   implicit none
 
-  type (nc2d_byte):: states
+  type (nc2d_byte) :: states
   type (nc2d_double) :: lu
 
   character(100) :: lufile, outfile, statesfile, classfile, headerfile
@@ -65,7 +65,6 @@ program main
   !call zonalstats(lu, states)
 
   !setfvalue(mask, map, num) -> num is optional
-
   call setfvalue(states, lu)
 
   call writegrid(outfile, lu, headerfile)

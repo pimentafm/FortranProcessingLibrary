@@ -26,4 +26,6 @@
 
 #kdevelop files
 *.kdev4*
+*.kate-swp
+
 #git files
