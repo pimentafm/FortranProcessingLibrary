@@ -24,4 +24,6 @@
 *.project
 *.xml
 
+#kdevelop files
+*.kdev4*
 #git files
