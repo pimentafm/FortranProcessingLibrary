@@ -38,6 +38,10 @@ TODO:
     OK Add valid_min and valid_max in netcdf datatypes
     -> Add check class error subroutine if not encounter number of class into map
     -> Fixes output format for zonalstatistics subroutines
+    -> Develop function to check if exists _FillValue variable in the file. 
+       If does not exist, the program must return the option for user to set _FillValue 
+       or set automatically according to the data type defined.
+
     
     
     
