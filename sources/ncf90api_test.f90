@@ -39,9 +39,9 @@ program main
   type (nc2d_byte) :: states
   type (nc2d_double) :: lu
 
-  character(200) :: lufile, outfile, statesfile, classfile, headerfile, prog
+  character(200) :: lufile, outfile, statesfile, classfile, headerfile!, prog
 
-  lu%varname = "taxa"
+  lu%varname = "landuse"
   lu%lonname = "lon"
   lu%latname = "lat"
 
@@ -49,12 +49,12 @@ program main
   states%lonname = "lon"
   states%latname = "lat"
 
-  call getarg(0, prog)
-  call getarg(1, lufile)
-  call getarg(2, outfile)
+  !call getarg(0, prog)
+  !call getarg(1, lufile)
+  !call getarg(2, outfile)
   
-  !lufile = "/home/fernando/Documents/dados_nc_test/correcoes/pastTot/LUPAST1983v3.nc"
-  !outfile = "/home/fernando/Documents/dados_nc_test/correcoes/pastTot/pastTot_corrigido/totalPasture1983.nc"
+  lufile = "/home/fernando/Documents/dados_nc_test/correcoes/pastTot/LUPAST1980v3.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/totalPasture1980.nc"
   
   headerfile = "/home/fernando/Documents/dados_nc_test/header.txt"
   statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
@@ -80,7 +80,7 @@ program main
 
   call writegrid(outfile, lu, headerfile)
 
-  !call system('ncview '//trim(adjustl(outfile)))
+  call system('ncview '//trim(adjustl(outfile)))
   !call system('qgis '//trim(adjustl(outfile)))
 
 end program main
