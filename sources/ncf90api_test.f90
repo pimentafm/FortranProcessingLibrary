@@ -60,7 +60,7 @@ program main
   call readgrid(statesfile, states)
   call readgrid(lufile, lu)
 
-  !:======== zonalstats(map, mask, classfile) -> classfile is optional
+  !zonalstats(map, mask, classfile) -> classfile is optional
   !call zonalstats(lu, states, classfile)
   !call zonalstats(lu, states)
 
