@@ -178,7 +178,7 @@ subroutine readgrid2d_float(ifile, idata)
 
   !Get some attributes
   call checkatt(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name")
-  call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
+  !call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
   call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
 
   call check(nf90_close(ncid))
@@ -216,7 +216,7 @@ subroutine readgrid2d_double(ifile, idata)
 
   !Get some attributes
   call checkatt(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name")
-  call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
+  !call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
   call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
 
   call check(nf90_close(ncid))
