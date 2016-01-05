@@ -68,7 +68,7 @@ program main
 
   call setfvalue(states, lu)
 
-  call writegrid(outfile, lu)
+  call writegrid(outfile, lu, headerfile)
 
   !call system('qgis '//trim(adjustl(outfile)))
 

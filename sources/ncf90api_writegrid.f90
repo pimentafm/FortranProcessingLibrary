@@ -361,6 +361,7 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
 
  !Check if headerfile was setted
   if(present(headerfile))then
