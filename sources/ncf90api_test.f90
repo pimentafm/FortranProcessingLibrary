@@ -39,9 +39,9 @@ program main
   type (nc2d_byte) :: states
   type (nc2d_double) :: lu
 
-  character(100) :: lufile, outfile, statesfile, classfile, headerfile
+  character(200) :: lufile, outfile, statesfile, classfile, headerfile, prog
 
-  lu%varname = "landuse"
+  lu%varname = "taxa"
   lu%lonname = "lon"
   lu%latname = "lat"
 
@@ -49,26 +49,38 @@ program main
   states%lonname = "lon"
   states%latname = "lat"
 
+  call getarg(0, prog)
+  call getarg(1, lufile)
+  call getarg(2, outfile)
+  
+  !lufile = "/home/fernando/Documents/dados_nc_test/correcoes/pastTot/LUPAST1983v3.nc"
+  !outfile = "/home/fernando/Documents/dados_nc_test/correcoes/pastTot/pastTot_corrigido/totalPasture1983.nc"
+  
   headerfile = "/home/fernando/Documents/dados_nc_test/header.txt"
   statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
-  lufile = "/home/fernando/Documents/dados_nc_test/lucult90.nc"
-
+ 
   classfile = "/home/fernando/Documents/dados_nc_test/maskestados_class.txt"
-
-  outfile = "/home/fernando/Documents/dados_nc_test/newdata.nc"
 
   call readgrid(statesfile, states)
   call readgrid(lufile, lu)
+ 
+  lu%long_name = "Stocking Rate"
+  lu%lonunits = "degrees_east"
+  lu%latunits = "degrees_north"
+  lu%varunits = "head/ha"
+  lu%f_value = -9999.0
 
   !zonalstats(map, mask, classfile) -> classfile is optional
   !call zonalstats(lu, states, classfile)
   !call zonalstats(lu, states)
-
   !setfvalue(mask, map, num) -> num is optional
   call setfvalue(states, lu)
+    
+  lu%varname = "stockingRate"
 
   call writegrid(outfile, lu, headerfile)
 
+  !call system('ncview '//trim(adjustl(outfile)))
   !call system('qgis '//trim(adjustl(outfile)))
 
 end program main
