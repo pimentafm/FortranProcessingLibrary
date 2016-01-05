@@ -70,6 +70,6 @@ program main
 
   call writegrid(outfile, lu)
 
-  call system('qgis '//trim(adjustl(outfile)))
+  !call system('qgis '//trim(adjustl(outfile)))
 
 end program main
