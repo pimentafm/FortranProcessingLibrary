@@ -41,6 +41,7 @@ TODO:
     -> Develop function to check if exists _FillValue variable in the file. 
        If does not exist, the program must return the option for user to set _FillValue 
        or set automatically according to the data type defined.
+    -> Create a subroutine to insert easily the FillValue within the variable of netcdf file.
 
     
     
