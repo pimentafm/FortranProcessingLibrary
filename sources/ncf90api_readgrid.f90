@@ -50,11 +50,11 @@ subroutine readgrid2d_byte(ifile, idata)
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"degrees_east")
+  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits")
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "degrees_north")
+  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits")
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
@@ -65,7 +65,7 @@ subroutine readgrid2d_byte(ifile, idata)
 
   call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
 
-  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
+  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits")
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_byte
@@ -90,11 +90,11 @@ subroutine readgrid2d_short(ifile, idata)
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"degrees_east")
+  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits")
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "degrees_north")
+  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits")
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
@@ -103,7 +103,7 @@ subroutine readgrid2d_short(ifile, idata)
   !Get some attributes
   call checkatt(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name")
   call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
-  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
+  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits")
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_short
@@ -128,11 +128,11 @@ subroutine readgrid2d_int(ifile, idata)
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"degrees_east")
+  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits")
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "degrees_north")
+  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits")
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
@@ -141,7 +141,7 @@ subroutine readgrid2d_int(ifile, idata)
   !Get some attributes
   call checkatt(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name")
   call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
-  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
+  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits")
 
   call check(nf90_close(ncid), idata%vartype, "INT")
 end subroutine readgrid2d_int
@@ -166,11 +166,11 @@ subroutine readgrid2d_float(ifile, idata)
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"degrees_east")
+  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits")
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "degrees_north")
+  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits")
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
@@ -179,7 +179,7 @@ subroutine readgrid2d_float(ifile, idata)
   !Get some attributes
   call checkatt(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name")
   call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
-  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
+  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits")
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_float
@@ -204,11 +204,11 @@ subroutine readgrid2d_double(ifile, idata)
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
   call check(nf90_get_var(ncid, xvarid, idata%longitudes))
-  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"degrees_east")
+  call checkatt(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits")
 
   call check(nf90_inq_varid(ncid, idata%latname, yvarid))
   call check(nf90_get_var(ncid, yvarid, idata%latitudes))
-  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "degrees_north")
+  call checkatt(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits")
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
@@ -217,7 +217,7 @@ subroutine readgrid2d_double(ifile, idata)
   !Get some attributes
   call checkatt(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name")
   call checkatt(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue")
-  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"variable units")
+  call checkatt(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits")
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_double
