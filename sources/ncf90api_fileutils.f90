@@ -85,7 +85,7 @@ subroutine readheader(hfile, attribute, content)
     if(stats < 0)then
       exit keys
     end if
-    !:==== Remove '[' and ']'
+    !:==== Remove brackets '[ ]'
     if(inline(1:1).eq.'[')then
       n = n + 1
       attribute(n) = trim(adjustl(inline(2:len_trim(inline)-1)))

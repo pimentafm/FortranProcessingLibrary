@@ -39,7 +39,7 @@ program main
   !type (nc2d_byte) :: states
   type (nc2d_double) :: lu
 
-  character(200) :: lufile, outfile, statesfile, classfile, headerfile!, prog
+  character(200) :: lufile, outfile, statesfile, classfile, headerfile
 
   lu%varname = "totalCrop"
   lu%lonname = "lon"
