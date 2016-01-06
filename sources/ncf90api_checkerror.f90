@@ -32,8 +32,24 @@
 !:=============================================================================
 
 !:======= Error Handler Module ================================================
+!:======= ShellScript Colours
+
 !:RED -> fatal errors
 !:ORANGE -> warnning errors
+!:BLUE -> help
+
+!Colour	  Regular       Bold        Underline   High        BoldHigh    Background  High Intensity
+!                                               Intensity   Intens                  Backgrounds
+
+!Black	  \e[0;30m      \e[1;30m    \e[4;30m    \e[0;90m    \e[1;90m    \e[40m      \e[0;100m
+!Red	  \e[0;31m      \e[1;31m    \e[4;31m    \e[0;91m    \e[1;91m    \e[41m      \e[0;101m';
+!Green	  \e[0;32m      \e[1;32m    \e[4;32m    \e[0;92m    \e[1;92m    \e[42m      \e[0;102m';
+!Yellow	  \e[0;33m      \e[1;33m    \e[4;33m    \e[0;93m    \e[1;93m    \e[43m      \e[0;103m';
+!Blue	  \e[0;34m      \e[1;34m    \e[4;34m    \e[0;94m    \e[1;94m    \e[44m      \e[0;104m';
+!Purple	  \e[0;35m      \e[1;35m    \e[4;35m    \e[0;95m    \e[1;95m    \e[45m      \e[0;105m';
+!Cyan	  \e[0;36m      \e[1;36m    \e[4;36m    \e[0;96m    \e[1;96m    \e[46m      \e[0;106m';
+!White	  \e[0;37m      \e[1;37m    \e[4;37m    \e[0;97m    \e[1;97m    \e[47m      \e[0;107m';
+!Orange   \e[38;5;166m
 !==============================================================================
 
 !General check
@@ -85,11 +101,17 @@ subroutine checkatt(ncstatus, uname)
   character(*), intent(in) :: uname
   if(ncstatus.ne.nf90_noerr)then
     if(uname.eq."_FillValue")then
-      call system('echo -e "\033[1;91m FAULT: Declare _FillValue in your NetCDF!\e[0m\n"')
+      call system('echo -e "\e[1;91m FAULT: Declare _FillValue in your NetCDF!\e[0m"')  
+      call system('echo -e "\e[1;94m Use the GDAL Library to add _FillValue into your file!\e[0m"')
+      call system('echo -e "\e[0;94m 	Try this: gdal_translate -of netcdf -a_nodata <nodata_value> input.nc output.nc\e[0m\n"')  
       stop
       else
         write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
-        call system('echo -e "\e[38;5;166m WARNING: Declare '//trim(adjustl(uname))//' in your NetCDF!\e[0m\n"')
+        call system('echo -e "\e[38;5;166m WARNING: Declare '//trim(adjustl(uname))//' in your NetCDF!\e[0m"')
+        call system('echo -e "\e[1;94m Set this into your code!\e[0m"')
+        call system('echo -e "\e[0;94m 	Example: \e[0m"')
+        call system('echo -e "\e[0;94m 	  If you declared type(nc2d_<type>) :: yourdata\e[0m"')
+        call system('echo -e "\e[0;94m 	    Set in your file: yourdata%'//trim(adjustl(uname))//'\e[0m\n"')
     end if
   end if
 end subroutine checkatt
