@@ -61,7 +61,18 @@ subroutine checkerror(ncstatus)
   end if
 end subroutine checkerror
 
-     !      Add checkversion function
+!Check nf90_inq_varid ========================================================
+!This subroutine was not added in ncf90api_interfaces.f90 because it's ambiguous with checkatt.
+subroutine checkvarid(ncstatus, varname)
+  integer, intent(in) :: ncstatus
+  character(*), intent(in) :: varname
+  if(ncstatus.ne.nf90_noerr)then
+    call system('echo -e "\e[1;91m'//trim(adjustl(nf90_strerror(ncstatus)))//'\e[0m"')
+    call system('echo -e "\e[0;91m	'//trim(adjustl(varname))//' does not exist!\e[0m"')
+    call system('echo -e "\e[0;94m	Add correct variable name.\e[0m\n"')
+    stop
+  end if
+end subroutine checkvarid
 
 !Check nf90_get_var ===========================================================
 subroutine checktype(ncstatus, rvar, dvar)
