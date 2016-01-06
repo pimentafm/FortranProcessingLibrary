@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "!:========================================================================
+echo "!:=============================================================================
 ! This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
@@ -18,7 +18,7 @@ echo "!:========================================================================
 ! You should have received a copy of the GNU General Public License
 ! along with f90NetCDF.  If not, see <http://www.gnu.org/licenses/>.
 
-!:========================================================================
+!:=============================================================================
 !About Author:
 !Student of Surveying and Cartographic Engineering
 ! Federal University of Viçosa - Brazil
@@ -31,7 +31,7 @@ echo "!:========================================================================
 ! Data: August 09, 2015
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-!:========================================================================"
+!:============================================================================="
 
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
@@ -55,7 +55,7 @@ subroutine ncoords2d_${arr[$i]}(ifile, idata)
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
   !Inquire variable type
-  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
   call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
 
   idata%f_value = nf90_fill_${arr[$i]}
