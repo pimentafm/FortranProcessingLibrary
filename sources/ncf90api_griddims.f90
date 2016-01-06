@@ -149,14 +149,14 @@ subroutine ncoords2d_double(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
-  call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
+  call checkvarid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
   call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
 
-  call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
+  call checkvarid(nf90_inq_dimid(ncid, idata%latname, ydimid), idata%latname)
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
   !Inquire variable type
-  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
   call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
 
   idata%f_value = nf90_fill_double
