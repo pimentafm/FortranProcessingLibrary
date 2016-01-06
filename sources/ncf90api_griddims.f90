@@ -41,10 +41,10 @@ subroutine ncoords2d_byte(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
-  call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
+  call checkdimid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
   call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
 
-  call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
+  call checkdimid(nf90_inq_dimid(ncid, idata%latname, ydimid), idata%latname)
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
   !Inquire variable type
@@ -68,10 +68,10 @@ subroutine ncoords2d_short(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
-  call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
+  call checkdimid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
   call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
 
-  call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
+  call checkdimid(nf90_inq_dimid(ncid, idata%latname, ydimid), idata%latname)
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
   !Inquire variable type
@@ -95,10 +95,10 @@ subroutine ncoords2d_int(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
-  call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
+  call checkdimid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
   call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
 
-  call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
+  call checkdimid(nf90_inq_dimid(ncid, idata%latname, ydimid), idata%latname)
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
   !Inquire variable type
@@ -122,10 +122,10 @@ subroutine ncoords2d_float(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
-  call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
+  call checkdimid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
   call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
 
-  call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
+  call checkdimid(nf90_inq_dimid(ncid, idata%latname, ydimid), idata%latname)
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
   !Inquire variable type
@@ -149,10 +149,10 @@ subroutine ncoords2d_double(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
-  call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
+  call checkdimid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
   call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
 
-  call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
+  call checkdimid(nf90_inq_dimid(ncid, idata%latname, ydimid), idata%latname)
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
   !Inquire variable type

@@ -48,10 +48,10 @@ subroutine ncoords2d_${arr[$i]}(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
-  call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
+  call checkdimid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
   call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
 
-  call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
+  call checkdimid(nf90_inq_dimid(ncid, idata%latname, ydimid), idata%latname)
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
   !Inquire variable type
