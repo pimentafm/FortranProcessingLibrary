@@ -36,47 +36,39 @@ program main
   use ncf90api
   implicit none
 
-  type (nc2d_byte) :: states
+  !type (nc2d_byte) :: states
   type (nc2d_double) :: lu
 
   character(200) :: lufile, outfile, statesfile, classfile, headerfile!, prog
 
-  lu%varname = "landuse"
+  lu%varname = "totalCropSd"
   lu%lonname = "lon"
   lu%latname = "lat"
 
-  states%varname = "Band1"
-  states%lonname = "lon"
-  states%latname = "lat"
+  !states%varname = "Band1"
+  !states%lonname = "lon"
+  !states%latname = "lat"
 
   !call getarg(0, prog)
   !call getarg(1, lufile)
   !call getarg(2, outfile)
   
-  lufile = "/home/fernando/Documents/dados_nc_test/correcoes/pastTot/LUPAST1980v3.nc"
-  outfile = "/home/fernando/Documents/dados_nc_test/totalPasture1980.nc"
+  lufile = "/home/fernando/Documents/dados_nc_test/unitsteste.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/unitstates2.nc"
   
   headerfile = "/home/fernando/Documents/dados_nc_test/header.txt"
   statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
  
   classfile = "/home/fernando/Documents/dados_nc_test/maskestados_class.txt"
 
-  call readgrid(statesfile, states)
+  !call readgrid(statesfile, states)
   call readgrid(lufile, lu)
- 
-  lu%long_name = "Stocking Rate"
-  lu%lonunits = "degrees_east"
-  lu%latunits = "degrees_north"
-  lu%varunits = "head/ha"
-  lu%f_value = -9999.0
 
   !zonalstats(map, mask, classfile) -> classfile is optional
   !call zonalstats(lu, states, classfile)
   !call zonalstats(lu, states)
   !setfvalue(mask, map, num) -> num is optional
-  call setfvalue(states, lu)
-    
-  lu%varname = "stockingRate"
+  !call setfvalue(states, lu)
 
   call writegrid(outfile, lu, headerfile)
 
