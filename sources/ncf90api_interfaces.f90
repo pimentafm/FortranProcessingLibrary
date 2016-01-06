@@ -33,7 +33,7 @@
 
 !NetCDF(lon, lat)
 interface check
-  module procedure checkerror, checktype
+  module procedure checkerror, checktype, checkatt
 end interface check
 
 interface ncoords
