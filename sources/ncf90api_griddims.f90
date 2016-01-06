@@ -1,4 +1,4 @@
-!:========================================================================
+!:=============================================================================
 ! This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
@@ -16,7 +16,7 @@
 ! You should have received a copy of the GNU General Public License
 ! along with f90NetCDF.  If not, see <http://www.gnu.org/licenses/>.
 
-!:========================================================================
+!:=============================================================================
 !About Author:
 !Student of Surveying and Cartographic Engineering
 ! Federal University of Viçosa - Brazil
@@ -29,7 +29,7 @@
 ! Data: August 09, 2015
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-!:========================================================================
+!:=============================================================================
 
 !NetCDF(lon, lat) byte
 subroutine ncoords2d_byte(ifile, idata)
@@ -48,7 +48,7 @@ subroutine ncoords2d_byte(ifile, idata)
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
   !Inquire variable type
-  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
   call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
 
   idata%f_value = nf90_fill_byte
@@ -75,7 +75,7 @@ subroutine ncoords2d_short(ifile, idata)
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
   !Inquire variable type
-  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
   call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
 
   idata%f_value = nf90_fill_short
@@ -102,7 +102,7 @@ subroutine ncoords2d_int(ifile, idata)
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
   !Inquire variable type
-  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
   call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
 
   idata%f_value = nf90_fill_int
@@ -129,7 +129,7 @@ subroutine ncoords2d_float(ifile, idata)
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
   !Inquire variable type
-  call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
   call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
 
   idata%f_value = nf90_fill_float
@@ -149,10 +149,10 @@ subroutine ncoords2d_double(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Coordinate values and put them in nx, ny
-  call checkvarid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
+  call check(nf90_inq_dimid(ncid, idata%lonname, xdimid))
   call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
 
-  call checkvarid(nf90_inq_dimid(ncid, idata%latname, ydimid), idata%latname)
+  call check(nf90_inq_dimid(ncid, idata%latname, ydimid))
   call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
 
   !Inquire variable type
