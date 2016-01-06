@@ -191,7 +191,7 @@ subroutine readgrid2d_double(ifile, idata)
   type(nc2d_double) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
-
+  
   call ncoords(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats))
@@ -212,6 +212,7 @@ subroutine readgrid2d_double(ifile, idata)
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid))
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
   call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"DOUBLE")
 
   !Get some attributes
