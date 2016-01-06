@@ -61,7 +61,7 @@ subroutine checkerror(ncstatus)
   end if
 end subroutine checkerror
 
-!Check nf90_inq_varid ========================================================
+!Check nf90_inq_varid =========================================================
 !This subroutine was not added in ncf90api_interfaces.f90 because it's ambiguous with checkatt.
 subroutine checkvarid(ncstatus, varname)
   integer, intent(in) :: ncstatus
