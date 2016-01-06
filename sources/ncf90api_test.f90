@@ -73,6 +73,6 @@ program main
   call writegrid(outfile, lu, headerfile)
 
   call system('ncview '//trim(adjustl(outfile)))
-  !call system('qgis '//trim(adjustl(outfile)))
+  call system('qgis '//trim(adjustl(outfile)))
 
 end program main

@@ -28,4 +28,13 @@
 *.kdev4*
 *.kate-swp
 
+#images
+*.png
+*.jpeg
+*.jpg
+*.svg
+*.ps
+*.eps
+*.tif
+
 #git files
