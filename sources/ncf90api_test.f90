@@ -42,7 +42,7 @@ program main
   character(200) :: lufile, outfile, statesfile, classfile, headerfile!, prog
 
   lu%varname = "totalCrop"
-  lu%lonname = "lonss"
+  lu%lonname = "lon"
   lu%latname = "lat"
 
   !states%varname = "Band1"
