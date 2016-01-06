@@ -69,7 +69,7 @@ subroutine checkvarid(ncstatus, varname)
   if(ncstatus.ne.nf90_noerr)then
     call system('echo -e "\e[1;91m'//trim(adjustl(nf90_strerror(ncstatus)))//'\e[0m"')
     call system('echo -e "\e[0;91m	'//trim(adjustl(varname))//' does not exist!\e[0m"')
-    call system('echo -e "\e[0;94m	Add correct variable name.\e[0m\n"')
+    call system('echo -e "\e[0;94m	Add the correct name of the variable.\e[0m\n"')
     stop
   end if
 end subroutine checkvarid
