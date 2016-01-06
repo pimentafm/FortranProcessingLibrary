@@ -61,8 +61,8 @@ subroutine checkerror(ncstatus)
   end if
 end subroutine checkerror
 
-!Check nf90_inq_varid =========================================================
-!This subroutine was not added in ncf90api_interfaces.f90 because it's ambiguous with checkatt.
+!Check nf90_inq_varid and nf90_inq_dimid ======================================
+!These subroutine was not added in ncf90api_interfaces.f90 because it's ambiguous with checkatt.
 subroutine checkvarid(ncstatus, varname)
   integer, intent(in) :: ncstatus
   character(*), intent(in) :: varname
@@ -73,6 +73,17 @@ subroutine checkvarid(ncstatus, varname)
     stop
   end if
 end subroutine checkvarid
+
+subroutine checkdimid(ncstatus, varname)
+  integer, intent(in) :: ncstatus
+  character(*), intent(in) :: varname
+  if(ncstatus.ne.nf90_noerr)then
+    call system('echo -e "\e[1;91m'//trim(adjustl(nf90_strerror(ncstatus)))//'\e[0m"')
+    call system('echo -e "\e[0;91m	'//trim(adjustl(varname))//' does not exist!\e[0m"')
+    call system('echo -e "\e[0;94m	Add the correct name of the variable.\e[0m\n"')
+    stop
+  end if
+end subroutine checkdimid
 
 !Check nf90_get_var ===========================================================
 subroutine checktype(ncstatus, rvar, dvar)
