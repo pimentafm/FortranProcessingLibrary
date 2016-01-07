@@ -36,7 +36,7 @@ program main
   use ncf90api
   implicit none
 
-  !type (nc2d_byte) :: states
+  type (nc2d_byte) :: states
   type (nc2d_double) :: lu
 
   character(200) :: lufile, outfile, statesfile, classfile, headerfile
@@ -45,9 +45,9 @@ program main
   lu%lonname = "lon"
   lu%latname = "lat"
 
-  !states%varname = "Band1"
-  !states%lonname = "lon"
-  !states%latname = "lat"
+  states%varname = "Band1"
+  states%lonname = "lon"
+  states%latname = "lat"
 
   !call getarg(0, prog)
   !call getarg(1, lufile)
@@ -61,18 +61,18 @@ program main
  
   classfile = "/home/fernando/Documents/dados_nc_test/maskestados_class.txt"
 
-  !call readgrid(statesfile, states)
+  call readgrid(statesfile, states)
   call readgrid(lufile, lu)
 
   !zonalstats(map, mask, classfile) -> classfile is optional
-  !call zonalstats(lu, states, classfile)
+  call zonalstats(lu, states, classfile)
   !call zonalstats(lu, states)
   !setfvalue(mask, map, num) -> num is optional
-  !call setfvalue(states, lu)
+  call setfvalue(states, lu)
 
   call writegrid(outfile, lu, headerfile)
 
   call system('ncview '//trim(adjustl(outfile)))
-  call system('qgis '//trim(adjustl(outfile)))
+  !call system('qgis '//trim(adjustl(outfile)))
 
 end program main
