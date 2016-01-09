@@ -1,4 +1,4 @@
-!:========================================================================
+!:=============================================================================
 ! This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
@@ -16,7 +16,7 @@
 ! You should have received a copy of the GNU General Public License
 ! along with f90NetCDF.  If not, see <http://www.gnu.org/licenses/>.
 
-!:========================================================================
+!:=============================================================================
 !About Author:
 !Student of Surveying and Cartographic Engineering
 ! Federal University of Viçosa - Brazil
@@ -29,9 +29,8 @@
 ! Data: August 09, 2015
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-!:========================================================================
-
-!Zonal Statistics ========================================================
+!:=============================================================================
+!Zonal Statistics =============================================================
 !NetCDF(i,j)-> byte-byte
 subroutine zonalstats_bb(map, mask, classfile)
   character(*), optional, intent(in) :: classfile
@@ -41,12 +40,12 @@ subroutine zonalstats_bb(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -64,12 +63,12 @@ subroutine zonalstats_bb(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -93,7 +92,7 @@ subroutine zonalstats_bb(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -101,7 +100,7 @@ subroutine zonalstats_bb(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -112,7 +111,7 @@ subroutine zonalstats_bb(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -121,8 +120,8 @@ subroutine zonalstats_bb(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -144,7 +143,7 @@ subroutine zonalstats_bb(map, mask, classfile)
 
   write(*,'(a8,a15,5a20)')"Class", "Count", "Sum", "Average", "Min", "Max", "Standard Deviation"
   do i = 1, nlines
-    write(*,'(i8,i15,2f20.5,2i20,f20.5)')zstats%zclass(i), zstats%zcount(i), zstats%zsum(i), &
+    write(*,'(i8,i15,5f20.5)')zstats%zclass(i), zstats%zcount(i), zstats%zsum(i), &
          zstats%zaverage(i), zstats%zmin(i), zstats%zmax(i), zstats%zstdeviation(i)
   end do
 end subroutine zonalstats_bb
@@ -158,12 +157,12 @@ subroutine zonalstats_bs(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -181,12 +180,12 @@ subroutine zonalstats_bs(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -210,7 +209,7 @@ subroutine zonalstats_bs(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -218,7 +217,7 @@ subroutine zonalstats_bs(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -229,7 +228,7 @@ subroutine zonalstats_bs(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -238,8 +237,8 @@ subroutine zonalstats_bs(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -275,12 +274,12 @@ subroutine zonalstats_bi(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -298,12 +297,12 @@ subroutine zonalstats_bi(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -327,7 +326,7 @@ subroutine zonalstats_bi(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -335,7 +334,7 @@ subroutine zonalstats_bi(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -346,7 +345,7 @@ subroutine zonalstats_bi(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -355,8 +354,8 @@ subroutine zonalstats_bi(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -392,12 +391,12 @@ subroutine zonalstats_bf(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -415,12 +414,12 @@ subroutine zonalstats_bf(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -444,7 +443,7 @@ subroutine zonalstats_bf(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -452,7 +451,7 @@ subroutine zonalstats_bf(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -463,7 +462,7 @@ subroutine zonalstats_bf(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -472,8 +471,8 @@ subroutine zonalstats_bf(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -509,12 +508,12 @@ subroutine zonalstats_bd(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -532,12 +531,12 @@ subroutine zonalstats_bd(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -561,7 +560,7 @@ subroutine zonalstats_bd(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -569,7 +568,7 @@ subroutine zonalstats_bd(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -580,7 +579,7 @@ subroutine zonalstats_bd(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -589,8 +588,8 @@ subroutine zonalstats_bd(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -626,12 +625,12 @@ subroutine zonalstats_sb(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -649,12 +648,12 @@ subroutine zonalstats_sb(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -678,7 +677,7 @@ subroutine zonalstats_sb(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -686,7 +685,7 @@ subroutine zonalstats_sb(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -697,7 +696,7 @@ subroutine zonalstats_sb(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -706,8 +705,8 @@ subroutine zonalstats_sb(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -743,12 +742,12 @@ subroutine zonalstats_ss(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -766,12 +765,12 @@ subroutine zonalstats_ss(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -795,7 +794,7 @@ subroutine zonalstats_ss(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -803,7 +802,7 @@ subroutine zonalstats_ss(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -814,7 +813,7 @@ subroutine zonalstats_ss(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -823,8 +822,8 @@ subroutine zonalstats_ss(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -860,12 +859,12 @@ subroutine zonalstats_si(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -883,12 +882,12 @@ subroutine zonalstats_si(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -912,7 +911,7 @@ subroutine zonalstats_si(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -920,7 +919,7 @@ subroutine zonalstats_si(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -931,7 +930,7 @@ subroutine zonalstats_si(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -940,8 +939,8 @@ subroutine zonalstats_si(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -977,12 +976,12 @@ subroutine zonalstats_sf(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -1000,12 +999,12 @@ subroutine zonalstats_sf(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -1029,7 +1028,7 @@ subroutine zonalstats_sf(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -1037,7 +1036,7 @@ subroutine zonalstats_sf(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -1048,7 +1047,7 @@ subroutine zonalstats_sf(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -1057,8 +1056,8 @@ subroutine zonalstats_sf(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -1094,12 +1093,12 @@ subroutine zonalstats_sd(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -1117,12 +1116,12 @@ subroutine zonalstats_sd(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -1146,7 +1145,7 @@ subroutine zonalstats_sd(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -1154,7 +1153,7 @@ subroutine zonalstats_sd(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -1165,7 +1164,7 @@ subroutine zonalstats_sd(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -1174,8 +1173,8 @@ subroutine zonalstats_sd(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -1211,12 +1210,12 @@ subroutine zonalstats_ib(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -1234,12 +1233,12 @@ subroutine zonalstats_ib(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -1263,7 +1262,7 @@ subroutine zonalstats_ib(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -1271,7 +1270,7 @@ subroutine zonalstats_ib(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -1282,7 +1281,7 @@ subroutine zonalstats_ib(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -1291,8 +1290,8 @@ subroutine zonalstats_ib(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -1328,12 +1327,12 @@ subroutine zonalstats_is(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -1351,12 +1350,12 @@ subroutine zonalstats_is(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -1380,7 +1379,7 @@ subroutine zonalstats_is(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -1388,7 +1387,7 @@ subroutine zonalstats_is(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -1399,7 +1398,7 @@ subroutine zonalstats_is(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -1408,8 +1407,8 @@ subroutine zonalstats_is(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -1445,12 +1444,12 @@ subroutine zonalstats_ii(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -1468,12 +1467,12 @@ subroutine zonalstats_ii(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -1497,7 +1496,7 @@ subroutine zonalstats_ii(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -1505,7 +1504,7 @@ subroutine zonalstats_ii(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -1516,7 +1515,7 @@ subroutine zonalstats_ii(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -1525,8 +1524,8 @@ subroutine zonalstats_ii(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -1562,12 +1561,12 @@ subroutine zonalstats_if(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -1585,12 +1584,12 @@ subroutine zonalstats_if(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -1614,7 +1613,7 @@ subroutine zonalstats_if(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -1622,7 +1621,7 @@ subroutine zonalstats_if(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -1633,7 +1632,7 @@ subroutine zonalstats_if(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -1642,8 +1641,8 @@ subroutine zonalstats_if(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -1679,12 +1678,12 @@ subroutine zonalstats_id(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -1702,12 +1701,12 @@ subroutine zonalstats_id(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -1731,7 +1730,7 @@ subroutine zonalstats_id(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -1739,7 +1738,7 @@ subroutine zonalstats_id(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -1750,7 +1749,7 @@ subroutine zonalstats_id(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -1759,8 +1758,8 @@ subroutine zonalstats_id(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -1796,12 +1795,12 @@ subroutine zonalstats_fb(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -1819,12 +1818,12 @@ subroutine zonalstats_fb(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -1848,7 +1847,7 @@ subroutine zonalstats_fb(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -1856,7 +1855,7 @@ subroutine zonalstats_fb(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -1867,7 +1866,7 @@ subroutine zonalstats_fb(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -1876,8 +1875,8 @@ subroutine zonalstats_fb(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -1913,12 +1912,12 @@ subroutine zonalstats_fs(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -1936,12 +1935,12 @@ subroutine zonalstats_fs(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -1965,7 +1964,7 @@ subroutine zonalstats_fs(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -1973,7 +1972,7 @@ subroutine zonalstats_fs(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -1984,7 +1983,7 @@ subroutine zonalstats_fs(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -1993,8 +1992,8 @@ subroutine zonalstats_fs(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -2030,12 +2029,12 @@ subroutine zonalstats_fi(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -2053,12 +2052,12 @@ subroutine zonalstats_fi(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -2082,7 +2081,7 @@ subroutine zonalstats_fi(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -2090,7 +2089,7 @@ subroutine zonalstats_fi(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -2101,7 +2100,7 @@ subroutine zonalstats_fi(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -2110,8 +2109,8 @@ subroutine zonalstats_fi(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -2147,12 +2146,12 @@ subroutine zonalstats_ff(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -2170,12 +2169,12 @@ subroutine zonalstats_ff(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -2199,7 +2198,7 @@ subroutine zonalstats_ff(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -2207,7 +2206,7 @@ subroutine zonalstats_ff(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -2218,7 +2217,7 @@ subroutine zonalstats_ff(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -2227,8 +2226,8 @@ subroutine zonalstats_ff(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -2264,12 +2263,12 @@ subroutine zonalstats_fd(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -2287,12 +2286,12 @@ subroutine zonalstats_fd(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -2316,7 +2315,7 @@ subroutine zonalstats_fd(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -2324,7 +2323,7 @@ subroutine zonalstats_fd(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -2335,7 +2334,7 @@ subroutine zonalstats_fd(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -2344,8 +2343,8 @@ subroutine zonalstats_fd(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -2381,12 +2380,12 @@ subroutine zonalstats_db(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -2404,12 +2403,12 @@ subroutine zonalstats_db(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -2433,7 +2432,7 @@ subroutine zonalstats_db(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -2441,7 +2440,7 @@ subroutine zonalstats_db(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -2452,7 +2451,7 @@ subroutine zonalstats_db(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -2461,8 +2460,8 @@ subroutine zonalstats_db(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -2498,12 +2497,12 @@ subroutine zonalstats_ds(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -2521,12 +2520,12 @@ subroutine zonalstats_ds(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -2550,7 +2549,7 @@ subroutine zonalstats_ds(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -2558,7 +2557,7 @@ subroutine zonalstats_ds(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -2569,7 +2568,7 @@ subroutine zonalstats_ds(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -2578,8 +2577,8 @@ subroutine zonalstats_ds(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -2615,12 +2614,12 @@ subroutine zonalstats_di(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -2638,12 +2637,12 @@ subroutine zonalstats_di(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -2667,7 +2666,7 @@ subroutine zonalstats_di(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -2675,7 +2674,7 @@ subroutine zonalstats_di(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -2686,7 +2685,7 @@ subroutine zonalstats_di(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -2695,8 +2694,8 @@ subroutine zonalstats_di(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -2732,12 +2731,12 @@ subroutine zonalstats_df(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -2755,12 +2754,12 @@ subroutine zonalstats_df(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -2784,7 +2783,7 @@ subroutine zonalstats_df(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -2792,7 +2791,7 @@ subroutine zonalstats_df(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -2803,7 +2802,7 @@ subroutine zonalstats_df(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -2812,8 +2811,8 @@ subroutine zonalstats_df(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then
@@ -2849,12 +2848,12 @@ subroutine zonalstats_dd(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
-
-    !:Count file line numbers --------------------------------------------
+    
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -2872,12 +2871,12 @@ subroutine zonalstats_dd(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -2901,7 +2900,7 @@ subroutine zonalstats_dd(map, mask, classfile)
           end if
         end do
       end do
-
+      
       if(zstats%zcount(k).ne.0)then
         zstats%zstdeviation(k) = sqrt((sumquad-(zstats%zsum(k)*zstats%zsum(k))/&
                                        zstats%zcount(k))/(zstats%zcount(k)-1))
@@ -2909,7 +2908,7 @@ subroutine zonalstats_dd(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -2920,7 +2919,7 @@ subroutine zonalstats_dd(map, mask, classfile)
     allocate(zstats%zmax(nlines))
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
-
+    
     zstats%zcount(nlines) = 0
     zstats%zsum(nlines) = 0
     zstats%zaverage(nlines) = 0
@@ -2929,8 +2928,8 @@ subroutine zonalstats_dd(map, mask, classfile)
     zstats%zstdeviation(nlines) = 0
     zstats%zvariance(nlines) = 0
     sumquad = 0
-
-    !:Calculate statistics -----------------------------------------------
+    
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then

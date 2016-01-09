@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "!:========================================================================
+echo "!:=============================================================================
 ! This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
@@ -18,7 +18,7 @@ echo "!:========================================================================
 ! You should have received a copy of the GNU General Public License
 ! along with f90NetCDF.  If not, see <http://www.gnu.org/licenses/>.
 
-!:========================================================================
+!:=============================================================================
 !About Author:
 !Student of Surveying and Cartographic Engineering
 ! Federal University of Viçosa - Brazil
@@ -31,13 +31,13 @@ echo "!:========================================================================
 ! Data: August 09, 2015
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-!:========================================================================"
+!:============================================================================="
 
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arrid=("b" "s" "i" "f" "d")
 declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
-echo "!Zonal Statistics ======================================================="
+echo "!Zonal Statistics ============================================================="
 
 for i in {0..4}; do
 for j in {0..4}; do
@@ -50,12 +50,12 @@ subroutine zonalstats_${arrid[$i]}${arrid[$j]}(map, mask, classfile)
   real(kind=double) :: sumquad
   integer(kind=8) :: nlines, i, j, k
 
-!:Check if classfile is present ------------------------------------------
+!:Check if classfile is present -----------------------------------------------
   if(present(classfile))then
     !Open file
     open(100, file = classfile, status = 'old')
     
-    !:Count file line numbers --------------------------------------------
+    !:Count file line numbers -------------------------------------------------
     nlines = 0
     do
       read(100, *, end=101)
@@ -73,12 +73,12 @@ subroutine zonalstats_${arrid[$i]}${arrid[$j]}(map, mask, classfile)
     allocate(zstats%zstdeviation(nlines))
     allocate(zstats%zvariance(nlines))
 
-    !:Read zonal classes from file ---------------------------------------
+    !:Read zonal classes from file --------------------------------------------
     do i = 1, nlines
       read(100,*) zstats%zclass(i)
     end do
     
-    !:Calculate statistics -----------------------------------------------
+    !:Calculate statistics ----------------------------------------------------
     do k = 1, nlines
       zstats%zcount(k) = 0
       zstats%zsum(k) = 0
@@ -110,7 +110,7 @@ subroutine zonalstats_${arrid[$i]}${arrid[$j]}(map, mask, classfile)
         zstats%zaverage(k) = zstats%zsum(k)/zstats%zcount(k)
       end if
     end do
-  !:Case classmap is not present -----------------------------------------
+  !:Case classmap is not present ----------------------------------------------
   else
     nlines = 1
     allocate(zstats%zclass(nlines))
@@ -131,7 +131,7 @@ subroutine zonalstats_${arrid[$i]}${arrid[$j]}(map, mask, classfile)
     zstats%zvariance(nlines) = 0
     sumquad = 0
     
-    !:Calculate statistics -----------------------------------------------
+    !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
         if(map%ncdata(j,i).ne.map%f_value)then

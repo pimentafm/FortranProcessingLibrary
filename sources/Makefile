@@ -1,4 +1,4 @@
-#:========================================================================
+#:=============================================================================
 # This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 # Copyright (C) 2015 Fernando Martins Pimenta
@@ -16,7 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with f90NetCDF_tools.  If not, see <http://www.gnu.org/licenses/>.
 
-#:========================================================================
+#:=============================================================================
 #About Author:
 #Student of Surveying and Cartographic Engineering
 # Federal University of Viçosa - Brazil
@@ -29,11 +29,9 @@
 # Data: August 09, 2015
 
 #Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-#:========================================================================
+#:=============================================================================
 compile:
 	gfortran -shared -fPIC -o libncf90api.so ncf90api.f90 -I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
 	mv libncf90api.so /usr/lib64/
 	mv ncf90api.mod /usr/lib64/gfortran/modules/
 	gfortran -Wall -W ncf90api_test.f90 -I/usr/lib64/gfortran/modules/ -lncf90api
-#	gfortran -c ncf90api.f90 -I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
-#	gfortran ncf90api_test.f90 ncf90api.o -I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf

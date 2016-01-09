@@ -1,4 +1,4 @@
-!:========================================================================
+!:=============================================================================
 ! This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
@@ -117,7 +117,7 @@ subroutine checktype(ncstatus, rvar, dvar)
   end if
 end subroutine checktype
 
-!Check nf90_get_att ======================================================
+!Check nf90_get_att ===========================================================
 subroutine checkatt(ncstatus, uname)
   integer, intent(in) :: ncstatus
   character(*), intent(in) :: uname
@@ -137,6 +137,6 @@ subroutine checkatt(ncstatus, uname)
     end if
   end if
 end subroutine checkatt
-!=========================================================================
+!==============================================================================
 
 
