@@ -39,9 +39,9 @@ program main
   type (nc2d_byte) :: states
   type (nc2d_double) :: lu
 
-  character(200) :: lufile, outfile, statesfile, classfile, headerfile, prog
+  character(200) :: lufile, outfile, statesfile, classfile, headerfile
 
-  lu%varname = "landuse"
+  lu%varname = "totalCrop"
   lu%lonname = "lon"
   lu%latname = "lat"
 
@@ -49,12 +49,12 @@ program main
   states%lonname = "lon"
   states%latname = "lat"
 
-  call getarg(0, prog)
-  call getarg(1, lufile)
-  call getarg(2, outfile)
+  !call getarg(0, prog)
+  !call getarg(1, lufile)
+  !call getarg(2, outfile)
   
-  !lufile = "/home/fernando/Documents/dados_nc_test/unitsteste.nc"
-  !outfile = "/home/fernando/Documents/dados_nc_test/unitstates2.nc"
+  lufile = "/home/fernando/Documents/dados_nc_test/unitsteste.nc"
+  outfile = "/home/fernando/Documents/dados_nc_test/unitstates2.nc"
   
   headerfile = "/home/fernando/Documents/dados_nc_test/header.txt"
   statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
@@ -69,13 +69,9 @@ program main
   !call zonalstats(lu, states)
   !setfvalue(mask, map, num) -> num is optional
   call setfvalue(states, lu)
-
-  lu%varname = "plantedArea"
-  lu%long_name = "Planted Area"
-  lu%varunits = "%"
   call writegrid(outfile, lu, headerfile)
 
-  !call system('ncview '//trim(adjustl(outfile)))
+  call system('ncview '//trim(adjustl(outfile)))
   !call system('qgis '//trim(adjustl(outfile)))
 
 end program main
