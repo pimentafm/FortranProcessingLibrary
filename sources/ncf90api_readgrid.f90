@@ -191,7 +191,7 @@ subroutine readgrid2d_double(ifile, idata)
   type(nc2d_double) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
-  
+
   call ncoords(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats))

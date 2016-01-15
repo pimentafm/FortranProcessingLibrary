@@ -49,16 +49,12 @@ program main
   states%lonname = "lon"
   states%latname = "lat"
 
-  !call getarg(0, prog)
-  !call getarg(1, lufile)
-  !call getarg(2, outfile)
-  
   lufile = "/home/fernando/Documents/dados_nc_test/unitsteste.nc"
   outfile = "/home/fernando/Documents/dados_nc_test/unitstates2.nc"
-  
+
   headerfile = "/home/fernando/Documents/dados_nc_test/header.txt"
   statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
- 
+
   classfile = "/home/fernando/Documents/dados_nc_test/maskestados_class.txt"
 
   call readgrid(statesfile, states)
