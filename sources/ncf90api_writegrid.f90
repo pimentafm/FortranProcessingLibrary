@@ -1,5 +1,5 @@
 !:=============================================================================
-! This file is part of f90NetCDF API (NetCDF API for Fortran 90).
+! This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
 
@@ -44,7 +44,7 @@ subroutine writegrid2d_byte(ofile, odata, headerfile)
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys = 0
 
-    !Create Netcdf
+  !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
@@ -62,19 +62,19 @@ subroutine writegrid2d_byte(ofile, odata, headerfile)
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-
-  call check(nf90_put_att(ncid, varid, "valid_min", &
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
-  call check(nf90_put_att(ncid, varid, "valid_max", &
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
 
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
-
+ 
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-
+  
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -90,7 +90,7 @@ subroutine writegrid2d_byte(ofile, odata, headerfile)
     end do
   end if
   call check(nf90_enddef(ncid))
-
+ 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
 
@@ -104,7 +104,7 @@ subroutine writegrid2d_byte(ofile, odata, headerfile)
 end subroutine writegrid2d_byte
 
 
-!:======= Write 2 dimensional NetCDF short ====================================
+!:======= Write 2 dimensional NetCDF short =====================================
 subroutine writegrid2d_short(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -117,7 +117,7 @@ subroutine writegrid2d_short(ofile, odata, headerfile)
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys = 0
 
-    !Create Netcdf
+  !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
@@ -135,19 +135,19 @@ subroutine writegrid2d_short(ofile, odata, headerfile)
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-
+         
   call check(nf90_put_att(ncid, varid, "valid_min", & 
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
 
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
-
+ 
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-
+  
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -163,7 +163,7 @@ subroutine writegrid2d_short(ofile, odata, headerfile)
     end do
   end if
   call check(nf90_enddef(ncid))
-
+ 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
 
@@ -177,7 +177,7 @@ subroutine writegrid2d_short(ofile, odata, headerfile)
 end subroutine writegrid2d_short
 
 
-!:======= Write 2 dimensional NetCDF int ======================================
+!:======= Write 2 dimensional NetCDF int =====================================
 subroutine writegrid2d_int(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -190,7 +190,7 @@ subroutine writegrid2d_int(ofile, odata, headerfile)
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys = 0
 
-    !Create Netcdf
+  !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
@@ -208,19 +208,19 @@ subroutine writegrid2d_int(ofile, odata, headerfile)
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-
+         
   call check(nf90_put_att(ncid, varid, "valid_min", & 
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
 
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
-
+ 
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-
+  
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -236,7 +236,7 @@ subroutine writegrid2d_int(ofile, odata, headerfile)
     end do
   end if
   call check(nf90_enddef(ncid))
-
+ 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
 
@@ -250,7 +250,7 @@ subroutine writegrid2d_int(ofile, odata, headerfile)
 end subroutine writegrid2d_int
 
 
-!:======= Write 2 dimensional NetCDF float ====================================
+!:======= Write 2 dimensional NetCDF float =====================================
 subroutine writegrid2d_float(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -263,7 +263,7 @@ subroutine writegrid2d_float(ofile, odata, headerfile)
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys = 0
 
-    !Create Netcdf
+  !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
@@ -281,19 +281,19 @@ subroutine writegrid2d_float(ofile, odata, headerfile)
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-
+         
   call check(nf90_put_att(ncid, varid, "valid_min", & 
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
 
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
-
+ 
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-
+  
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -309,7 +309,7 @@ subroutine writegrid2d_float(ofile, odata, headerfile)
     end do
   end if
   call check(nf90_enddef(ncid))
-
+ 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
 
@@ -323,7 +323,7 @@ subroutine writegrid2d_float(ofile, odata, headerfile)
 end subroutine writegrid2d_float
 
 
-!:======= Write 2 dimensional NetCDF double ===================================
+!:======= Write 2 dimensional NetCDF double =====================================
 subroutine writegrid2d_double(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -336,7 +336,7 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys = 0
 
-    !Create Netcdf
+  !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
@@ -354,19 +354,19 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
   call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
-
+         
   call check(nf90_put_att(ncid, varid, "valid_min", & 
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
 
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
-
+ 
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-
+  
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -381,15 +381,13 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
       call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
     end do
   end if
-
   call check(nf90_enddef(ncid))
-
+ 
   !Write longitudes
   call check(nf90_put_var(ncid, xvarid, odata%longitudes))
 
   !Write latitudes
   call check(nf90_put_var(ncid, yvarid, odata%latitudes))
-
 
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))

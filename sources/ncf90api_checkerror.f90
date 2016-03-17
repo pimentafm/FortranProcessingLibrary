@@ -86,9 +86,9 @@ subroutine checkdimid(ncstatus, varname)
 end subroutine checkdimid
 
 !Check nf90_get_var ===========================================================
-subroutine checktype(ncstatus, rvar, dvar)
+subroutine checktype(ncstatus, rvar, dvar, ifile)
   integer, intent(in) :: ncstatus, rvar
-  character(*), intent(in) :: dvar
+  character(*), intent(in) :: dvar, ifile
   character(len(dvar)) :: dvaraux
   character(len=8) :: dtype
 
@@ -118,25 +118,28 @@ subroutine checktype(ncstatus, rvar, dvar)
 end subroutine checktype
 
 !Check nf90_get_att ===========================================================
-subroutine checkatt(ncstatus, uname)
+subroutine checkatt(ncstatus, uname, ifile)
   integer, intent(in) :: ncstatus
-  character(*), intent(in) :: uname
+  character(*), intent(in) :: uname, ifile
+  
   if(ncstatus.ne.nf90_noerr)then
     if(uname.eq."_FillValue")then
       call system('echo -e "\e[1;91m FAULT: Declare _FillValue in your NetCDF!\e[0m"')  
       call system('echo -e "\e[1;94m Use the GDAL Library to add _FillValue into your file!\e[0m"')
-      call system('echo -e "\e[0;94m 	Try this: gdal_translate -of netcdf -a_nodata <nodata_value> input.nc output.nc\e[0m\n"')  
+      call system('echo -e "\e[0;94m 	Try this: gdal_translate -of netcdf -a_nodata <nodata_value> input.nc output.nc\e[0m"')  
+      call system(" echo "//trim(adjustl(ifile))//" | sed 's/.*\// File: /'")
       stop
       else
         write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
         call system('echo -e "\e[38;5;166m WARNING: Declare '//trim(adjustl(uname))//' in your NetCDF!\e[0m"')
-        call system('echo -e "\e[1;94m Set this into your code!\e[0m"')
+        call system('echo -e "\e[1;94m You can set '//trim(adjustl(uname))//' into your NetCDF file\e[0m"')
+        call system('echo -e "\e[1;94m or set it into your code!\e[0m"')
         call system('echo -e "\e[0;94m 	Example: \e[0m"')
         call system('echo -e "\e[0;94m 	  If you declared type(nc2d_<type>) :: yourdata\e[0m"')
-        call system('echo -e "\e[0;94m 	    Set in your file: yourdata%'//trim(adjustl(uname))//'\e[0m\n"')
+        call system('echo -e "\e[0;94m 	    Set in your file: yourdata%'//trim(adjustl(uname))//' = units (degrees, km, ...)\e[0m"')
+        call system(" echo "//trim(adjustl(ifile))//" | sed 's/.*\// File: /'")
+        call system('echo -e "\n"')
     end if
   end if
 end subroutine checkatt
 !==============================================================================
-
-
