@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "!:=============================================================================
-! This file is part of f90NetCDF API (NetCDF API for Fortran 90).
+! This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
 
@@ -51,7 +51,7 @@ subroutine writegrid2d_${arr[$i]}(ofile, odata, headerfile)
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys = 0
 
-    !Create Netcdf
+  !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
@@ -74,7 +74,7 @@ subroutine writegrid2d_${arr[$i]}(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
   call check(nf90_put_att(ncid, varid, "'"valid_max"'", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
-			
+		
   call check(nf90_put_att(ncid, varid, "'"units"'", odata%varunits))
  
   !Put Global Attributes

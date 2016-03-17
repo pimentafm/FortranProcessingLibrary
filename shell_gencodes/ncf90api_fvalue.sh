@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "!:========================================================================
+echo "!:=============================================================================
 ! This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
@@ -18,7 +18,7 @@ echo "!:========================================================================
 ! You should have received a copy of the GNU General Public License
 ! along with f90NetCDF.  If not, see <http://www.gnu.org/licenses/>.
 
-!:========================================================================
+!:=============================================================================
 !About Author:
 !Student of Surveying and Cartographic Engineering
 ! Federal University of Viçosa - Brazil
@@ -31,7 +31,7 @@ echo "!:========================================================================
 ! Data: August 09, 2015
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-!:========================================================================"
+!:============================================================================="
 
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arrid=("b" "s" "i" "f" "d")
