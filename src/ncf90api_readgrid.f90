@@ -57,7 +57,6 @@ subroutine readgrid2d_byte(ifile, idata)
   call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
 
   !Get Variable name
-  call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
   call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"BYTE", ifile)
 
@@ -96,7 +95,6 @@ subroutine readgrid2d_short(ifile, idata)
   call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
 
   !Get Variable name
-  call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
   call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"SHORT", ifile)
 
@@ -135,7 +133,6 @@ subroutine readgrid2d_int(ifile, idata)
   call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
 
   !Get Variable name
-  call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
   call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"INT", ifile)
 
@@ -174,7 +171,6 @@ subroutine readgrid2d_float(ifile, idata)
   call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
 
   !Get Variable name
-  call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
   call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"FLOAT", ifile)
 
@@ -213,7 +209,6 @@ subroutine readgrid2d_double(ifile, idata)
   call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
 
   !Get Variable name
-  call check(nf90_inq_varid(ncid, idata%varname, varid))
   call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
   call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"DOUBLE", ifile)
 

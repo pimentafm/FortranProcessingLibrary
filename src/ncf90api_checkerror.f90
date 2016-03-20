@@ -61,7 +61,7 @@ subroutine checkerror(ncstatus)
   end if
 end subroutine checkerror
 
-!Check nf90_inq_varid and nf90_inq_dimid ======================================
+!Check nf90_inq_varid and nf90_inq_dimid -> ncf90api_griddims.f90 =============
 !These subroutine was not added in ncf90api_interfaces.f90 because it's ambiguous with checkatt.
 subroutine checkvarid(ncstatus, varname)
   integer, intent(in) :: ncstatus
@@ -74,18 +74,18 @@ subroutine checkvarid(ncstatus, varname)
   end if
 end subroutine checkvarid
 
-subroutine checkdimid(ncstatus, varname)
+subroutine checkdimid(ncstatus, dimname)
   integer, intent(in) :: ncstatus
-  character(*), intent(in) :: varname
+  character(*), intent(in) :: dimname
   if(ncstatus.ne.nf90_noerr)then
     call system('echo -e "\e[1;91m'//trim(adjustl(nf90_strerror(ncstatus)))//'\e[0m"')
-    call system('echo -e "\e[0;91m	'//trim(adjustl(varname))//' does not exist!\e[0m"')
-    call system('echo -e "\e[0;94m	Add the correct name of the variable.\e[0m\n"')
+    call system('echo -e "\e[0;91m	'//trim(adjustl(dimname))//' does not exist!\e[0m"')
+    call system('echo -e "\e[0;94m	Add the correct name of the dimension.\e[0m\n"')
     stop
   end if
 end subroutine checkdimid
 
-!Check nf90_get_var ===========================================================
+!Check nf90_get_var -> ncf90api_readgrid.f90 ===================================
 subroutine checktype(ncstatus, rvar, dvar, ifile)
   integer, intent(in) :: ncstatus, rvar
   character(*), intent(in) :: dvar, ifile
@@ -98,26 +98,28 @@ subroutine checktype(ncstatus, rvar, dvar, ifile)
   if(rvar.eq.3) dvaraux = "SHORT"
   if(rvar.eq.1) dvaraux = "BYTE"
 
-  if(ncstatus.eq.nf90_noerr.and.dvar.ne.dvaraux)then
+  if(dvar.ne.dvaraux)then !.and.ncstatus.eq.nf90_noerr
     write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
     call system('echo -e "\033[1;91m Check data type of the input file and data type declared!\033[0m"')
     select case (rvar)
       case (6)
-        call system('echo -e "\e[0;91m WARNING: Input type: DOUBLE | Declared type: '//trim(adjustl(dvar))//'\e[0m\n"')
+        call system('echo -e "\e[0;91m WARNING: Input type: DOUBLE | Declared type: '//trim(adjustl(dvar))//'\e[0m"')
       case (5)
-        call system('echo -e "\e[0;91m WARNING: Input type: FLOAT | Declared type: '//trim(adjustl(dvar))//'\e[0m\n"')
+        call system('echo -e "\e[0;91m WARNING: Input type: FLOAT | Declared type: '//trim(adjustl(dvar))//'\e[0m"')
       case (4)
-        call system('echo -e "\e[0;91m WARNING: Input type: INTEGER | Declared type: '//trim(adjustl(dvar))//'\e[0m\n"')
+        call system('echo -e "\e[0;91m WARNING: Input type: INTEGER | Declared type: '//trim(adjustl(dvar))//'\e[0m"')
       case (3)
-        call system('echo -e "\e[0;91m WARNING: Input type: SHORT | Declared type: '//trim(adjustl(dvar))//'\e[0m\n"')
+        call system('echo -e "\e[0;91m WARNING: Input type: SHORT | Declared type: '//trim(adjustl(dvar))//'\e[0m"')
       case (1)
-        call system('echo -e "\e[0;91m WARNING: Input type: BYTE | Declared type: '//trim(adjustl(dvar))//'\e[0m\n"')
+        call system('echo -e "\e[0;91m WARNING: Input type: BYTE | Declared type: '//trim(adjustl(dvar))//'\e[0m"')
     end select
+    call system(" echo "//trim(adjustl(ifile))//" | sed 's/.*\// File: /'")
+    call system('echo -e "\n"')
     stop
   end if
 end subroutine checktype
 
-!Check nf90_get_att ===========================================================
+!Check nf90_get_att -> ncf90api_readgrid.f90 ==================================
 subroutine checkatt(ncstatus, uname, ifile)
   integer, intent(in) :: ncstatus
   character(*), intent(in) :: uname, ifile

@@ -36,36 +36,38 @@ program main
   use ncf90api
   implicit none
 
-  !type (nc2d_byte) :: states
+  type (nc2d_byte) :: states
   type (nc2d_double) :: lu
 
-  character(200) :: lufile!, outfile, statesfile, classfile, headerfile
+  character(200) :: lufile, outfile, statesfile, headerfile, classfile
 
   lu%varname = "landuse"
   lu%lonname = "lon"
   lu%latname = "lat"
+    
 
-  !states%varname = "Band1"
-  !states%lonname = "lon"
-  !states%latname = "lat"
+  states%varname = "Band1"
+  states%lonname = "lon"
+  states%latname = "lat"
 
-  lufile = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/LU1980v3.nc"
-  !outfile = "/home/fernando/Documents/dados_nc_test/unitstates2.nc"
+  lufile ="/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/lu80correto.nc"
+  outfile ="/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/lu80write.nc"
 
-  !headerfile = "/home/fernando/Documents/dados_nc_test/header.txt"
-  !statesfile = "/home/fernando/Documents/dados_nc_test/maskestados.nc"
+  headerfile = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/header.txt"
+  statesfile = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/maskestadosBRbyte.nc"
 
-  !classfile = "/home/fernando/Documents/dados_nc_test/maskestados_class.txt"
+  classfile = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/maskestados_class.txt"
 
-  !call readgrid(statesfile, states)
+  call readgrid(statesfile, states)
   call readgrid(lufile, lu)
 
-  !zonalstats(map, mask, classfile) -> classfile is optional
-  !call zonalstats(lu, states, classfile)
-  !call zonalstats(lu, states)
-  !setfvalue(mask, map, num) -> num is optional
-  !call setfvalue(states, lu)
-  !call writegrid(outfile, lu, headerfile)
+  !--zonalstats(map, mask, classfile) -> classfile is optional
+  call zonalstats(lu, states, classfile)
+  call zonalstats(lu, states)
+  !--setfvalue(mask, map, num) -> num is optional
+  call setfvalue(states, lu, 13)
+  !--call writegrid(outfile, output, header) -> header is optional
+  call writegrid(outfile, lu)
 
   !call system('ncview '//trim(adjustl(outfile)))
   !call system('qgis '//trim(adjustl(outfile)))
