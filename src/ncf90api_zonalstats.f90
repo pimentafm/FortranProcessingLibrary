@@ -81,10 +81,10 @@ subroutine zonalstats_bb(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -124,15 +124,15 @@ subroutine zonalstats_bb(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -198,10 +198,10 @@ subroutine zonalstats_bs(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -241,15 +241,15 @@ subroutine zonalstats_bs(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -315,10 +315,10 @@ subroutine zonalstats_bi(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -358,15 +358,15 @@ subroutine zonalstats_bi(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -432,10 +432,10 @@ subroutine zonalstats_bf(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -475,15 +475,15 @@ subroutine zonalstats_bf(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -549,10 +549,10 @@ subroutine zonalstats_bd(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -592,15 +592,15 @@ subroutine zonalstats_bd(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -666,10 +666,10 @@ subroutine zonalstats_sb(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -709,15 +709,15 @@ subroutine zonalstats_sb(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -783,10 +783,10 @@ subroutine zonalstats_ss(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -826,15 +826,15 @@ subroutine zonalstats_ss(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -900,10 +900,10 @@ subroutine zonalstats_si(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -943,15 +943,15 @@ subroutine zonalstats_si(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -1017,10 +1017,10 @@ subroutine zonalstats_sf(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -1060,15 +1060,15 @@ subroutine zonalstats_sf(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -1134,10 +1134,10 @@ subroutine zonalstats_sd(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -1177,15 +1177,15 @@ subroutine zonalstats_sd(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -1251,10 +1251,10 @@ subroutine zonalstats_ib(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -1294,15 +1294,15 @@ subroutine zonalstats_ib(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -1368,10 +1368,10 @@ subroutine zonalstats_is(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -1411,15 +1411,15 @@ subroutine zonalstats_is(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -1485,10 +1485,10 @@ subroutine zonalstats_ii(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -1528,15 +1528,15 @@ subroutine zonalstats_ii(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -1602,10 +1602,10 @@ subroutine zonalstats_if(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -1645,15 +1645,15 @@ subroutine zonalstats_if(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -1719,10 +1719,10 @@ subroutine zonalstats_id(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -1762,15 +1762,15 @@ subroutine zonalstats_id(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -1836,10 +1836,10 @@ subroutine zonalstats_fb(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -1879,15 +1879,15 @@ subroutine zonalstats_fb(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -1953,10 +1953,10 @@ subroutine zonalstats_fs(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -1996,15 +1996,15 @@ subroutine zonalstats_fs(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -2070,10 +2070,10 @@ subroutine zonalstats_fi(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -2113,15 +2113,15 @@ subroutine zonalstats_fi(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -2187,10 +2187,10 @@ subroutine zonalstats_ff(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -2230,15 +2230,15 @@ subroutine zonalstats_ff(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -2304,10 +2304,10 @@ subroutine zonalstats_fd(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -2347,15 +2347,15 @@ subroutine zonalstats_fd(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -2421,10 +2421,10 @@ subroutine zonalstats_db(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -2464,15 +2464,15 @@ subroutine zonalstats_db(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -2538,10 +2538,10 @@ subroutine zonalstats_ds(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -2581,15 +2581,15 @@ subroutine zonalstats_ds(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -2655,10 +2655,10 @@ subroutine zonalstats_di(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -2698,15 +2698,15 @@ subroutine zonalstats_di(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -2772,10 +2772,10 @@ subroutine zonalstats_df(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -2815,15 +2815,15 @@ subroutine zonalstats_df(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))
@@ -2889,10 +2889,10 @@ subroutine zonalstats_dd(map, mask, classfile)
 
       do i = 1, mask%nlons
         do j = 1, mask%nlats
-          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%f_value)then
+          if(zstats%zclass(k).eq.mask%ncdata(j,i).and.map%ncdata(j,i).ne.map%FillValue)then
             zstats%zcount(k) = zstats%zcount(k) + 1
             zstats%zsum(k) = zstats%zsum(k) + map%ncdata(j,i)
-            if(map%ncdata(j,i).ne.map%f_value)then
+            if(map%ncdata(j,i).ne.map%FillValue)then
               zstats%zmin(k) = min(map%ncdata(j,i), zstats%zmin(nlines))
               zstats%zmax(k) = max(map%ncdata(j,i), zstats%zmax(nlines))
               sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
@@ -2932,15 +2932,15 @@ subroutine zonalstats_dd(map, mask, classfile)
     !:Calculate statistics ----------------------------------------------------
     do i = 1, map%nlons
       do j = 1, map%nlats
-        if(map%ncdata(j,i).ne.map%f_value)then
+        if(map%ncdata(j,i).ne.map%FillValue)then
           zstats%zcount(nlines) = zstats%zcount(nlines) + 1
           zstats%zsum(nlines) = zstats%zsum(nlines) + map%ncdata(j,i)
           sumquad = sumquad + map%ncdata(j,i)*map%ncdata(j,i)
         end if
       end do
     end do
-    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%f_value)
-    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%f_value)
+    zstats%zmin(nlines) = minval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
+    zstats%zmax(nlines) = maxval(map%ncdata, mask=map%ncdata.ne.map%FillValue)
     if(zstats%zcount(nlines).ne.0)then
       zstats%zstdeviation(nlines) = sqrt((sumquad-(zstats%zsum(nlines)*zstats%zsum(nlines))/&
                                           zstats%zcount(nlines))/(zstats%zcount(nlines)-1))

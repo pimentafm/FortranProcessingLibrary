@@ -40,7 +40,7 @@ integer, parameter :: float = C_FLOAT
 integer, parameter :: double = C_DOUBLE
 
 real(kind=double), parameter :: pi = 4*atan(1.0)
-real(kind=double), parameter :: earth_radius = 6371.0  ! average radius of earth ~ km
-real(kind=double), parameter :: acc_gravity = 9.80616     ! acceleration of gravity ~m/s^2
-real(kind=double), parameter :: boltzman= 5.67e-8    ! Stefan-Boltzmann constant ~W/m^2/K^4
-real(kind=double), parameter :: speed_of_light = 299792458 ! m/s
+real(kind=double), parameter :: earth_radius = 6371.0      ! average radius of earth ~ km
+real(kind=double), parameter :: acc_gravity = 9.80616      ! acceleration of gravity ~ m/s^2
+real(kind=double), parameter :: boltzman= 5.67e-8          ! Stefan-Boltzmann constant ~ W/m^2/K^4
+real(kind=double), parameter :: speed_of_light = 299792458 ! Speed of the light ~ m/s

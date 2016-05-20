@@ -51,7 +51,7 @@ subroutine ncoords2d_byte(ifile, idata)
   call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
   call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
 
-  idata%f_value = nf90_fill_byte
+  idata%FillValue = nf90_fill_byte
 
   !Close NetCDF
   call check(nf90_close(ncid))
@@ -78,7 +78,7 @@ subroutine ncoords2d_short(ifile, idata)
   call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
   call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
 
-  idata%f_value = nf90_fill_short
+  idata%FillValue = nf90_fill_short
 
   !Close NetCDF
   call check(nf90_close(ncid))
@@ -105,7 +105,7 @@ subroutine ncoords2d_int(ifile, idata)
   call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
   call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
 
-  idata%f_value = nf90_fill_int
+  idata%FillValue = nf90_fill_int
 
   !Close NetCDF
   call check(nf90_close(ncid))
@@ -132,7 +132,7 @@ subroutine ncoords2d_float(ifile, idata)
   call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
   call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
 
-  idata%f_value = nf90_fill_float
+  idata%FillValue = nf90_fill_float
 
   !Close NetCDF
   call check(nf90_close(ncid))
@@ -159,7 +159,7 @@ subroutine ncoords2d_double(ifile, idata)
   call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
   call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
 
-  idata%f_value = nf90_fill_double
+  idata%FillValue = nf90_fill_double
 
   !Close NetCDF
   call check(nf90_close(ncid))

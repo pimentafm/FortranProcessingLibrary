@@ -42,15 +42,15 @@ subroutine setfvalue2d_bb(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -67,15 +67,15 @@ subroutine setfvalue2d_bs(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -92,15 +92,15 @@ subroutine setfvalue2d_bi(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -117,15 +117,15 @@ subroutine setfvalue2d_bf(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -142,15 +142,15 @@ subroutine setfvalue2d_bd(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -167,15 +167,15 @@ subroutine setfvalue2d_sb(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -192,15 +192,15 @@ subroutine setfvalue2d_ss(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -217,15 +217,15 @@ subroutine setfvalue2d_si(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -242,15 +242,15 @@ subroutine setfvalue2d_sf(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -267,15 +267,15 @@ subroutine setfvalue2d_sd(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -292,15 +292,15 @@ subroutine setfvalue2d_ib(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -317,15 +317,15 @@ subroutine setfvalue2d_is(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -342,15 +342,15 @@ subroutine setfvalue2d_ii(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -367,15 +367,15 @@ subroutine setfvalue2d_if(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -392,15 +392,15 @@ subroutine setfvalue2d_id(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -417,15 +417,15 @@ subroutine setfvalue2d_fb(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -442,15 +442,15 @@ subroutine setfvalue2d_fs(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -467,15 +467,15 @@ subroutine setfvalue2d_fi(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -492,15 +492,15 @@ subroutine setfvalue2d_ff(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -517,15 +517,15 @@ subroutine setfvalue2d_fd(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -542,15 +542,15 @@ subroutine setfvalue2d_db(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -567,15 +567,15 @@ subroutine setfvalue2d_ds(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -592,15 +592,15 @@ subroutine setfvalue2d_di(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -617,15 +617,15 @@ subroutine setfvalue2d_df(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if
@@ -642,15 +642,15 @@ subroutine setfvalue2d_dd(mask, map, num)
   if(present(num))then
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   else
     do i = 1, mask%nlats
       do j = 1, mask%nlons
-        if(mask%ncdata(i,j).eq.mask%f_value) map%ncdata(i,j) = map%f_value
-        if((mask%ncdata(i,j).ne.mask%f_value).and.map%ncdata(i,j).eq.map%f_value) map%ncdata(i,j) = 0
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
   end if

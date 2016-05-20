@@ -61,12 +61,12 @@ subroutine writegrid2d_byte(ofile, odata, headerfile)
 
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
-  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
          
   call check(nf90_put_att(ncid, varid, "valid_min", & 
-             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
-             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
 
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
@@ -134,12 +134,12 @@ subroutine writegrid2d_short(ofile, odata, headerfile)
 
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
-  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
          
   call check(nf90_put_att(ncid, varid, "valid_min", & 
-             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
-             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
 
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
@@ -207,12 +207,12 @@ subroutine writegrid2d_int(ofile, odata, headerfile)
 
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
-  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
          
   call check(nf90_put_att(ncid, varid, "valid_min", & 
-             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
-             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
 
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
@@ -280,12 +280,12 @@ subroutine writegrid2d_float(ofile, odata, headerfile)
 
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
-  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
          
   call check(nf90_put_att(ncid, varid, "valid_min", & 
-             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
-             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
 
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
@@ -353,12 +353,12 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
 
   call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
   call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
-  call check(nf90_put_att(ncid, varid, "_FillValue", odata%f_value))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
          
   call check(nf90_put_att(ncid, varid, "valid_min", & 
-             minval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
-             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%f_value)))
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
 
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  

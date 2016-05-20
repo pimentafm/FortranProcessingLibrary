@@ -62,7 +62,7 @@ subroutine readgrid2d_byte(ifile, idata)
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
-  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
@@ -100,7 +100,7 @@ subroutine readgrid2d_short(ifile, idata)
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
-  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
@@ -138,7 +138,7 @@ subroutine readgrid2d_int(ifile, idata)
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
-  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
@@ -176,7 +176,7 @@ subroutine readgrid2d_float(ifile, idata)
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
-  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
@@ -214,7 +214,7 @@ subroutine readgrid2d_double(ifile, idata)
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
-  call check(nf90_get_att(ncid, varid, "_FillValue", idata%f_value), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
