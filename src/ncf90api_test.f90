@@ -36,24 +36,40 @@ program main
   use ncf90api
   implicit none
 
-  type(nc2d_double) :: landuse
-  type(nc2d_double) :: outfile
+  type(nc3d_double) :: cattle
+  !type(nc2d_double) :: outfile
 
-  character(200) :: inputpath, outputpath
+  character(200) :: inputpath!, outputpath
 
-  inputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/lu80.nc"
-  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/landuseNovo.nc"
+  inputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/CATTLE19902012.nc"
+  !outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/cattle.nc"
 
-  landuse%varname = "landuse"
-  landuse%lonname = "lon"
-  landuse%latname = "lat"
+  cattle%varname = "Cattle"
+  cattle%timename = "time"
+  cattle%lonname = "lon"
+  cattle%latname = "lat"
 
-  call readgrid(inputpath, landuse)
+  call ncoords(inputpath, cattle)
 
-  outfile = landuse
+  write(*,*) "ntimes: ", cattle%ntimes
+  write(*,*) "nlats: ", cattle%nlats
+  write(*,*) "nlons: ", cattle%nlons
+  write(*,*) "timename: ", cattle%timename
+  write(*,*) "latname: ", cattle%latname
+  write(*,*) "lonanme: ", cattle%lonname
+  write(*,*) "timeunits: ", cattle%timeunits
+  write(*,*) "latunits: ", cattle%latunits
+  write(*,*) "lonunits: ", cattle%lonunits
+  write(*,*) "varunits: ", cattle%varunits
+  
 
-  call writegrid(outputpath, outfile)
+
+   
+  
+  !call readgrid(inputpath, landuse)
+
+  !outfile = landuse
+
+  !call writegrid(outputpath, outfile)
  
-
-
 end program main

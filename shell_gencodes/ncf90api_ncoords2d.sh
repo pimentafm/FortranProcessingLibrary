@@ -58,7 +58,37 @@ subroutine ncoords2d_${arr[$i]}(ifile, idata)
   call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
   call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
 
-  idata%f_value = nf90_fill_${arr[$i]}
+  idata%FillValue = nf90_fill_${arr[$i]}
+
+  !Close NetCDF
+  call check(nf90_close(ncid))
+end subroutine ncoords2d_${arr[$i]}
+"
+done
+
+for i in {0..4}; do
+  echo "
+!NetCDF(lon, lat) ${arr[$i]}
+subroutine ncoords3d_${arr[$i]}(ifile, idata)
+  type (nc3d_${arr[$i]}) :: idata
+  integer(kind=intgr) :: ncid, xdimid, ydimid, vdimid, varid
+  character(*), intent(in) :: ifile
+
+  !Open NetCDF File
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Coordinate values and put them in nx, ny
+  call checkdimid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
+  call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
+
+  call checkdimid(nf90_inq_dimid(ncid, idata%latname, ydimid), idata%latname)
+  call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
+
+  !Inquire variable type
+  call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
+  call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
+
+  idata%FillValue = nf90_fill_${arr[$i]}
 
   !Close NetCDF
   call check(nf90_close(ncid))

@@ -44,3 +44,4 @@ TODO:
     -> Implement subroutines to 3D and 4D I/O. 
     -> Implement map plotting subroutine.
     -> Implement subroutines to datatype conversions.
+    -> Command Line Args to call subroutines

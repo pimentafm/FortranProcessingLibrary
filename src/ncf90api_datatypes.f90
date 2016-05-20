@@ -90,6 +90,17 @@ type :: nc2d_double
   real(kind=double), dimension(:,:), allocatable ::  ncdata
 end type nc2d_double
 
+!NetCDF(time, lon, lat) double
+type :: nc3d_double
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, timeunits, lonunits, latunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  real(kind=double) :: FillValue
+  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  real(kind=double), dimension(:,:,:), allocatable ::  ncdata
+end type nc3d_double
+
 !Zonal Statistics
 !NetCDF(lon, lat) byte
 type :: zonal_byte
