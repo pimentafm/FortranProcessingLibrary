@@ -36,13 +36,15 @@ program main
   use ncf90api
   implicit none
 
+  !integer :: i, j, k
+
   type(nc3d_double) :: cattle
   !type(nc2d_double) :: outfile
 
-  character(200) :: inputpath!, outputpath
+  character(200) :: inputpath, outputpath
 
   inputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/CATTLE19902012.nc"
-  !outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/cattle.nc"
+  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/cattle.nc"
 
   cattle%varname = "Cattle"
   cattle%timename = "time"
@@ -62,14 +64,20 @@ program main
   write(*,*) "lonunits: ", cattle%lonunits
   write(*,*) "varunits: ", cattle%varunits
   
+  call readgrid3d_double(inputpath, cattle)
 
-
-   
-  
-  !call readgrid(inputpath, landuse)
+  !do i = 1,cattle%ntimes
+  !  do j = 1, cattle%nlats, 10
+  !    do k = 1, cattle%nlons, 10
+  !      if(cattle%ncdata(j,k,i).gt.cattle%FillValue)then
+  !        write(*,*)cattle%ncdata(j, k, i), i, j, k
+  !      end if
+  !    end do
+  !  end do
+  !end do
 
   !outfile = landuse
 
-  !call writegrid(outputpath, outfile)
+  call writegrid3d_double(outputpath, cattle)
  
 end program main

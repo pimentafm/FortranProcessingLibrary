@@ -97,6 +97,7 @@ type :: nc3d_double
                        long_name, timeunits, lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=double) :: FillValue
+  integer(kind=intgr), dimension(:), allocatable :: times
   real(kind=double),dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:), allocatable ::  ncdata
 end type nc3d_double
