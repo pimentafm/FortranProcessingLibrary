@@ -50,13 +50,17 @@ end interface ncoords
 interface readgrid
   module procedure readgrid2d_${arr[$i]}, readgrid2d_${arr[$i+1]}, &
                    readgrid2d_${arr[$i+2]}, readgrid2d_${arr[$i+3]}, &
-                   readgrid2d_${arr[$i+4]}
+                   readgrid2d_${arr[$i+4]}, readgrid3d_${arr[$i]}, &
+                   readgrid3d_${arr[$i+1]}, readgrid3d_${arr[$i+2]}, &
+                   readgrid3d_${arr[$i+3]}, readgrid3d_${arr[$i+4]}
 end interface readgrid
 
 interface writegrid
   module procedure writegrid2d_${arr[$i]}, writegrid2d_${arr[$i+1]}, &
                    writegrid2d_${arr[$i+2]}, writegrid2d_${arr[$i+3]}, &
-                   writegrid2d_${arr[$i+4]}
+                   writegrid2d_${arr[$i+4]}, writegrid3d_${arr[$i]}, &
+                   writegrid3d_${arr[$i+1]}, writegrid3d_${arr[$i+2]}, &
+                   writegrid3d_${arr[$i+3]}, writegrid3d_${arr[$i+4]}
 end interface writegrid
 "
 

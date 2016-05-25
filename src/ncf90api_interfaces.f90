@@ -47,13 +47,17 @@ end interface ncoords
 interface readgrid
   module procedure readgrid2d_byte, readgrid2d_short, &
                    readgrid2d_int, readgrid2d_float, &
-                   readgrid2d_double
+                   readgrid2d_double, readgrid3d_byte, &
+                   readgrid3d_short, readgrid3d_int, &
+                   readgrid3d_float, readgrid3d_double
 end interface readgrid
 
 interface writegrid
   module procedure writegrid2d_byte, writegrid2d_short, &
                    writegrid2d_int, writegrid2d_float, &
-                   writegrid2d_double
+                   writegrid2d_double, writegrid3d_byte, &
+                   writegrid3d_short, writegrid3d_int, &
+                   writegrid3d_float, writegrid3d_double
 end interface writegrid
 
 interface setfvalue

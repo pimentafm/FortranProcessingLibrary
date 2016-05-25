@@ -44,7 +44,7 @@ program main
   character(200) :: inputpath, outputpath
 
   inputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/CATTLE19902012.nc"
-  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/cattle.nc"
+  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/cattle2.nc"
 
   cattle%varname = "Cattle"
   cattle%timename = "time"
@@ -64,7 +64,7 @@ program main
   write(*,*) "lonunits: ", cattle%lonunits
   write(*,*) "varunits: ", cattle%varunits
   
-  call readgrid3d_double(inputpath, cattle)
+  call readgrid(inputpath, cattle)
 
   !do i = 1,cattle%ntimes
   !  do j = 1, cattle%nlats, 10
@@ -78,6 +78,6 @@ program main
 
   !outfile = landuse
 
-  call writegrid3d_double(outputpath, cattle)
+  call writegrid(outputpath, cattle)
  
 end program main
