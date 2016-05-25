@@ -69,7 +69,7 @@ subroutine readgrid2d_${arr[$i]}(ifile, idata)
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "'"long_name"'", idata%long_name), "'"long_name"'", ifile)
-  call check(nf90_get_att(ncid, varid, "'"FillValue"'", idata%FillValue), "'"FillValue"'", ifile)
+  call check(nf90_get_att(ncid, varid, "'"_FillValue"'", idata%FillValue), "'"_FillValue"'", ifile)
   call check(nf90_get_att(ncid, varid, "'"units"'", idata%varunits),"'"varunits"'", ifile)
 
   call check(nf90_close(ncid))
@@ -89,7 +89,7 @@ subroutine readgrid3d_${arr[$i]}(ifile, idata)
   call ncoords(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
-  allocate(idata%ntimes)
+  allocate(idata%times(idata%ntimes))
   allocate(idata%longitudes(idata%nlons))
   allocate(idata%latitudes(idata%nlats))
 
@@ -116,7 +116,7 @@ subroutine readgrid3d_${arr[$i]}(ifile, idata)
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "'"long_name"'", idata%long_name), "'"long_name"'", ifile)
-  call check(nf90_get_att(ncid, varid, "'"FillValue"'", idata%FillValue), "'"FillValue"'", ifile)
+  call check(nf90_get_att(ncid, varid, "'"_FillValue"'", idata%FillValue), "'"_FillValue"'", ifile)
   call check(nf90_get_att(ncid, varid, "'"units"'", idata%varunits),"'"varunits"'", ifile)
 
   call check(nf90_close(ncid))

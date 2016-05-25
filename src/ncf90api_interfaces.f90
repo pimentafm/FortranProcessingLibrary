@@ -39,7 +39,9 @@ end interface check
 interface ncoords
   module procedure ncoords2d_byte, ncoords2d_short, &
                    ncoords2d_int, ncoords2d_float, &
-                   ncoords2d_double, ncoords3d_double
+                   ncoords2d_double, ncoords3d_byte, &
+                   ncoords3d_short, ncoords3d_int, &
+                   ncoords3d_float, ncoords3d_double
 end interface ncoords
 
 interface readgrid

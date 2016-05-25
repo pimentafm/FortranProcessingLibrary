@@ -42,7 +42,9 @@ echo "
 interface ncoords
   module procedure ncoords2d_${arr[$i]}, ncoords2d_${arr[$i+1]}, &
                    ncoords2d_${arr[$i+2]}, ncoords2d_${arr[$i+3]}, &
-                   ncoords2d_${arr[$i+4]}
+                   ncoords2d_${arr[$i+4]}, ncoords3d_${arr[$i]}, &
+                   ncoords3d_${arr[$i+1]}, ncoords3d_${arr[$i+2]}, &
+                   ncoords3d_${arr[$i+3]}, ncoords3d_${arr[$i+4]}
 end interface ncoords
 
 interface readgrid
