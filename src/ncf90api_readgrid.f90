@@ -225,7 +225,7 @@ subroutine readgrid3d_double(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_double) :: idata
 
-  integer(kind=intgr) :: i,j,k, ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
 

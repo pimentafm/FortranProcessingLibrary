@@ -46,22 +46,23 @@ type :: nc2d_${arr[$i]}
   integer(kind=intgr) :: nlons, nlats, vartype
   ${arr2[$i]} :: FillValue
   real(kind=double),dimension(:), allocatable :: longitudes, latitudes
-  ${arr2[$i]}, dimension(:,:), allocatable ::  ncdata
+  ${arr2[$i]}, dimension(:,:), allocatable :: ncdata
 end type nc2d_${arr[$i]}
 "
 done
 
 for i in {0..4}; do
   echo "
-!NetCDF(time, lon, lat) ${arr[$i]}
+!NetCDF(lon, lat, time) ${arr[$i]}
 type :: nc3d_${arr[$i]}
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
-                       lonunits, latunits, timename, timeunits
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   ${arr2[$i]} :: FillValue
+  integer(kind=intgr), dimension(:), allocatable :: times
   real(kind=double),dimension(:), allocatable :: longitudes, latitudes
-  ${arr2[$i]}, dimension(:,:,:), allocatable ::  ncdata
+  ${arr2[$i]}, dimension(:,:,:), allocatable :: ncdata
 end type nc3d_${arr[$i]}
 "
 done
@@ -83,6 +84,4 @@ type :: zonal_${arr[$i]}
 end type zonal_${arr[$i]}
 "
 done
-
-
 

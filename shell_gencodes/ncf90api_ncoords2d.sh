@@ -68,14 +68,18 @@ done
 
 for i in {0..4}; do
   echo "
-!NetCDF(lon, lat) ${arr[$i]}
+!NetCDF(lon, lat, time) ${arr[$i]}
 subroutine ncoords3d_${arr[$i]}(ifile, idata)
   type (nc3d_${arr[$i]}) :: idata
-  integer(kind=intgr) :: ncid, xdimid, ydimid, vdimid, varid
+  integer(kind=intgr) :: ncid, tdimid, xdimid, ydimid, vdimid, varid
   character(*), intent(in) :: ifile
 
   !Open NetCDF File
   call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Time Number
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
   call checkdimid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
@@ -92,7 +96,7 @@ subroutine ncoords3d_${arr[$i]}(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-end subroutine ncoords2d_${arr[$i]}
+end subroutine ncoords3d_${arr[$i]}
 "
 done
 

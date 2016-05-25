@@ -165,7 +165,127 @@ subroutine ncoords2d_double(ifile, idata)
   call check(nf90_close(ncid))
 end subroutine ncoords2d_double
 
-!NetCDF(time, lon, lat) double
+!NetCDF(lon, lat, time) byte
+subroutine ncoords3d_byte(ifile, idata)
+  type (nc3d_byte) :: idata
+  integer(kind=intgr) :: ncid, tdimid, xdimid, ydimid, vdimid, varid
+  character(*), intent(in) :: ifile
+
+  !Open NetCDF File
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Time Number
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
+
+  !Get Coordinate values and put them in nx, ny
+  call checkdimid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
+  call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
+
+  call checkdimid(nf90_inq_dimid(ncid, idata%latname, ydimid), idata%latname)
+  call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
+
+  !Inquire variable type
+  call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
+  call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
+
+  idata%FillValue = nf90_fill_byte
+
+  !Close NetCDF
+  call check(nf90_close(ncid))
+end subroutine ncoords3d_byte
+
+!NetCDF(lon, lat, time) short
+subroutine ncoords3d_short(ifile, idata)
+  type (nc3d_short) :: idata
+  integer(kind=intgr) :: ncid, tdimid, xdimid, ydimid, vdimid, varid
+  character(*), intent(in) :: ifile
+
+  !Open NetCDF File
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Time Number
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
+
+  !Get Coordinate values and put them in nx, ny
+  call checkdimid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
+  call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
+
+  call checkdimid(nf90_inq_dimid(ncid, idata%latname, ydimid), idata%latname)
+  call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
+
+  !Inquire variable type
+  call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
+  call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
+
+  idata%FillValue = nf90_fill_short
+
+  !Close NetCDF
+  call check(nf90_close(ncid))
+end subroutine ncoords3d_short
+
+!NetCDF(lon, lat, time) int
+subroutine ncoords3d_int(ifile, idata)
+  type (nc3d_int) :: idata
+  integer(kind=intgr) :: ncid, tdimid, xdimid, ydimid, vdimid, varid
+  character(*), intent(in) :: ifile
+
+  !Open NetCDF File
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Time Number
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
+
+  !Get Coordinate values and put them in nx, ny
+  call checkdimid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
+  call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
+
+  call checkdimid(nf90_inq_dimid(ncid, idata%latname, ydimid), idata%latname)
+  call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
+
+  !Inquire variable type
+  call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
+  call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
+
+  idata%FillValue = nf90_fill_int
+
+  !Close NetCDF
+  call check(nf90_close(ncid))
+end subroutine ncoords3d_int
+
+!NetCDF(lon, lat, time) float
+subroutine ncoords3d_float(ifile, idata)
+  type (nc3d_float) :: idata
+  integer(kind=intgr) :: ncid, tdimid, xdimid, ydimid, vdimid, varid
+  character(*), intent(in) :: ifile
+
+  !Open NetCDF File
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Time Number
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
+
+  !Get Coordinate values and put them in nx, ny
+  call checkdimid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
+  call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
+
+  call checkdimid(nf90_inq_dimid(ncid, idata%latname, ydimid), idata%latname)
+  call check(nf90_inquire_dimension(ncid, ydimid, idata%latname, idata%nlats))
+
+  !Inquire variable type
+  call checkvarid(nf90_inq_varid(ncid, idata%varname, varid), idata%varname)
+  call check(nf90_inquire_variable(ncid,varid,idata%varname, idata%vartype))
+
+  idata%FillValue = nf90_fill_float
+
+  !Close NetCDF
+  call check(nf90_close(ncid))
+end subroutine ncoords3d_float
+
+!NetCDF(lon, lat, time) double
 subroutine ncoords3d_double(ifile, idata)
   type (nc3d_double) :: idata
   integer(kind=intgr) :: ncid, tdimid, xdimid, ydimid, vdimid, varid
@@ -177,7 +297,7 @@ subroutine ncoords3d_double(ifile, idata)
   !Get Time Number
   call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
-  
+
   !Get Coordinate values and put them in nx, ny
   call checkdimid(nf90_inq_dimid(ncid, idata%lonname, xdimid), idata%lonname)
   call check(nf90_inquire_dimension(ncid, xdimid, idata%lonname, idata%nlons))
@@ -194,3 +314,4 @@ subroutine ncoords3d_double(ifile, idata)
   !Close NetCDF
   call check(nf90_close(ncid))
 end subroutine ncoords3d_double
+

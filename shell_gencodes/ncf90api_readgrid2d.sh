@@ -69,7 +69,7 @@ subroutine readgrid2d_${arr[$i]}(ifile, idata)
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "'"long_name"'", idata%long_name), "'"long_name"'", ifile)
-  call check(nf90_get_att(ncid, varid, "'"_FillValue"'", idata%FillValue), "'"_FillValue"'", ifile)
+  call check(nf90_get_att(ncid, varid, "'"FillValue"'", idata%FillValue), "'"FillValue"'", ifile)
   call check(nf90_get_att(ncid, varid, "'"units"'", idata%varunits),"'"varunits"'", ifile)
 
   call check(nf90_close(ncid))
@@ -82,18 +82,24 @@ for i in {0..4}; do
 !:======= Read 3 dimensional NetCDF ${arr[$i]} ==========================
 subroutine readgrid3d_${arr[$i]}(ifile, idata)
   character(*), intent(in) :: ifile
-  type(nc2d_${arr[$i]}) :: idata
+  type(nc3d_${arr[$i]}) :: idata
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
 
   call ncoords(ifile, idata)
 
-  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%ntimes)
   allocate(idata%longitudes(idata%nlons))
   allocate(idata%latitudes(idata%nlats))
 
   !Open NetCDF
   call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "'"units"'", idata%timeunits),"'"timeunits"'", ifile)
 
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
@@ -110,10 +116,10 @@ subroutine readgrid3d_${arr[$i]}(ifile, idata)
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "'"long_name"'", idata%long_name), "'"long_name"'", ifile)
-  call check(nf90_get_att(ncid, varid, "'"_FillValue"'", idata%FillValue), "'"_FillValue"'", ifile)
+  call check(nf90_get_att(ncid, varid, "'"FillValue"'", idata%FillValue), "'"FillValue"'", ifile)
   call check(nf90_get_att(ncid, varid, "'"units"'", idata%varunits),"'"varunits"'", ifile)
 
   call check(nf90_close(ncid))
-end subroutine readgrid2d_${arr[$i]}
+end subroutine readgrid3d_${arr[$i]}
 "
 done
