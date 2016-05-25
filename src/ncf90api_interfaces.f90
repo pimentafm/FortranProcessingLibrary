@@ -60,21 +60,33 @@ interface writegrid
                    writegrid3d_float, writegrid3d_double
 end interface writegrid
 
-interface setfvalue
-  module procedure setfvalue2d_bb, setfvalue2d_bs, &
-                   setfvalue2d_bi, setfvalue2d_bf, &
-                   setfvalue2d_bd, setfvalue2d_sb, &
-                   setfvalue2d_ss, setfvalue2d_si, &
-                   setfvalue2d_sf, setfvalue2d_sd, &
-                   setfvalue2d_ib, setfvalue2d_is, &
-                   setfvalue2d_ii, setfvalue2d_if, &
-                   setfvalue2d_id, setfvalue2d_fb, &
-                   setfvalue2d_fs, setfvalue2d_fi, &
-                   setfvalue2d_ff, setfvalue2d_fd, &
-                   setfvalue2d_db, setfvalue2d_ds, &
-                   setfvalue2d_di, setfvalue2d_df, &
-                   setfvalue2d_dd
-end interface setfvalue
+interface setFillValue
+  module procedure setFillValue2d_bb, setFillValue2d_bs, &
+                   setFillValue2d_bi, setFillValue2d_bf, &
+                   setFillValue2d_bd, setFillValue2d_sb, &
+                   setFillValue2d_ss, setFillValue2d_si, &
+                   setFillValue2d_sf, setFillValue2d_sd, &
+                   setFillValue2d_ib, setFillValue2d_is, &
+                   setFillValue2d_ii, setFillValue2d_if, &
+                   setFillValue2d_id, setFillValue2d_fb, &
+                   setFillValue2d_fs, setFillValue2d_fi, &
+                   setFillValue2d_ff, setFillValue2d_fd, &
+                   setFillValue2d_db, setFillValue2d_ds, &
+                   setFillValue2d_di, setFillValue2d_df, &
+                   setFillValue2d_dd, setFillValue3d_bb, &
+                   setFillValue3d_bs, setFillValue3d_bi, &
+                   setFillValue3d_bf, setFillValue3d_bd, &
+                   setFillValue3d_sb, setFillValue3d_ss, &
+                   setFillValue3d_si, setFillValue3d_sf, &
+                   setFillValue3d_sd, setFillValue3d_ib, &
+                   setFillValue3d_is, setFillValue3d_ii, &
+                   setFillValue3d_if, setFillValue3d_id, &
+                   setFillValue3d_fb, setFillValue3d_fs, &
+                   setFillValue3d_fi, setFillValue3d_ff, &
+                   setFillValue3d_fd, setFillValue3d_db, &
+                   setFillValue3d_ds, setFillValue3d_di, &
+                   setFillValue3d_df, setFillValue3d_dd
+end interface setFillValue
 
 interface zonalstats
   module procedure zonalstats_bb, zonalstats_bs, &

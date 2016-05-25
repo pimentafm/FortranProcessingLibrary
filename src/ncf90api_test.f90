@@ -39,19 +39,24 @@ program main
   !integer :: i, j, k
 
   type(nc3d_double) :: cattle
-  !type(nc2d_double) :: outfile
+  type(nc2d_byte) :: maskara
 
-  character(200) :: inputpath, outputpath
+  character(200) :: inputpath, outputpath, maskfile
 
   inputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/CATTLE19902012.nc"
-  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/cattle2.nc"
+
+  maskfile = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/maskestadosBRbyte.nc"
+
+  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/cattle3.nc"
 
   cattle%varname = "Cattle"
   cattle%timename = "time"
   cattle%lonname = "lon"
   cattle%latname = "lat"
-
-  call ncoords(inputpath, cattle)
+ 
+  maskara%varname = "Band1"
+  maskara%lonname = "lon"
+  maskara%latname = "lat"
 
   write(*,*) "ntimes: ", cattle%ntimes
   write(*,*) "nlats: ", cattle%nlats
@@ -63,7 +68,9 @@ program main
   write(*,*) "latunits: ", cattle%latunits
   write(*,*) "lonunits: ", cattle%lonunits
   write(*,*) "varunits: ", cattle%varunits
-  
+ 
+  call readgrid(maskfile, maskara)
+ 
   call readgrid(inputpath, cattle)
 
   !do i = 1,cattle%ntimes
@@ -77,6 +84,7 @@ program main
   !end do
 
   !outfile = landuse
+  call setFillValue(maskara, cattle, 21)
 
   call writegrid(outputpath, cattle)
  
