@@ -33,55 +33,48 @@ echo "!:========================================================================
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:============================================================================="
 
+declare -a arrid=("b" "s" "i" "f" "d")
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
-for i in {0..4}; do
+for j in {3..4};do
+for i in {0..4};do
   echo "
 !NetCDF(lon, lat) ${arr[$i]}
-type :: nc2d_${arr[$i]}
+
+type :: nc2d_${arr[$i]}_ll${arrid[$j]}
   sequence
   character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   ${arr2[$i]} :: FillValue
-  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  real(kind=${arr[$j]}), dimension(:), allocatable :: longitudes, latitudes
   ${arr2[$i]}, dimension(:,:), allocatable :: ncdata
-end type nc2d_${arr[$i]}
+end type nc2d_${arr[$i]}_ll${arrid[$j]}
+
 "
 done
+done
 
-for i in {0..4}; do
+for k in {2..4};do
+for j in {3..4};do
+for i in {0..4};do
   echo "
 !NetCDF(lon, lat, time) ${arr[$i]}
-type :: nc3d_${arr[$i]}
+type :: nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}
+
   sequence
   character(len=20) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   ${arr2[$i]} :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times
-  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  ${arr2[$k]}, dimension(:), allocatable :: times
+  real(kind=${arr[$j]}), dimension(:), allocatable :: longitudes, latitudes
   ${arr2[$i]}, dimension(:,:,:), allocatable :: ncdata
-end type nc3d_${arr[$i]}
+end type nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}
+
 "
 done
-
-
-for i in {0..4}; do
-  echo "
-!NetCDF(lon, lat) ${arr[$i]}
-type :: zonal_${arr[$i]}
-  sequence
-  integer(kind=intgr), dimension(:), allocatable :: zclass
-  integer(kind=8), dimension(:), allocatable :: zcount
-  real(kind=double), dimension(:), allocatable :: zsum
-  real(kind=double), dimension(:), allocatable :: zaverage
-  ${arr2[$i]}, dimension(:), allocatable :: zmin
-  ${arr2[$i]}, dimension(:), allocatable :: zmax
-  real(kind=double), dimension(:), allocatable :: zstdeviation
-  real(kind=double), dimension(:), allocatable :: zvariance
-end type zonal_${arr[$i]}
-"
+done
 done
 
