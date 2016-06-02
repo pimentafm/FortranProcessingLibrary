@@ -32,16 +32,17 @@ echo "!:========================================================================
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:============================================================================="
-
+declare -a arrid=("b" "s" "i" "f" "d")
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
+for j in {3..4}; do
 for i in {0..4}; do
   echo "
-!:======= Read 2 dimensional NetCDF ${arr[$i]} ==========================
-subroutine readgrid2d_${arr[$i]}(ifile, idata)
+!NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>)
+subroutine readgrid2d_${arr[$i]}_ll${arrid[$j]}(ifile, idata)
   character(*), intent(in) :: ifile
-  type(nc2d_${arr[$i]}) :: idata
+  type(nc2d_${arr[$i]}_ll${arrid[$j]}) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
 
@@ -65,7 +66,7 @@ subroutine readgrid2d_${arr[$i]}(ifile, idata)
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
-  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"'"'${arr[$i]^^}'"'", ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"'"'${arr[$i]}'"'", ifile)
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "'"long_name"'", idata%long_name), "'"long_name"'", ifile)
@@ -73,16 +74,20 @@ subroutine readgrid2d_${arr[$i]}(ifile, idata)
   call check(nf90_get_att(ncid, varid, "'"units"'", idata%varunits),"'"varunits"'", ifile)
 
   call check(nf90_close(ncid))
-end subroutine readgrid2d_${arr[$i]}
+end subroutine readgrid2d_${arr[$i]}_ll${arrid[$j]}
+
 "
 done
+done
 
+for k in {2..4}; do
+for j in {3..4}; do
 for i in {0..4}; do
   echo "
-!:======= Read 3 dimensional NetCDF ${arr[$i]} ==========================
-subroutine readgrid3d_${arr[$i]}(ifile, idata)
+!NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>, time <${arr[$k]}>)
+subroutine readgrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ifile, idata)
   character(*), intent(in) :: ifile
-  type(nc3d_${arr[$i]}) :: idata
+  type(nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}) :: idata
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
 
@@ -112,7 +117,7 @@ subroutine readgrid3d_${arr[$i]}(ifile, idata)
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
-  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"'"'${arr[$i]^^}'"'", ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"'"'${arr[$i]}'"'", ifile)
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "'"long_name"'", idata%long_name), "'"long_name"'", ifile)
@@ -120,6 +125,9 @@ subroutine readgrid3d_${arr[$i]}(ifile, idata)
   call check(nf90_get_att(ncid, varid, "'"units"'", idata%varunits),"'"varunits"'", ifile)
 
   call check(nf90_close(ncid))
-end subroutine readgrid3d_${arr[$i]}
+end subroutine readgrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}
+
 "
+done
+done
 done

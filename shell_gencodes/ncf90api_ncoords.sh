@@ -33,14 +33,16 @@ echo "!:========================================================================
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:============================================================================="
 
+declare -a arrid=("b" "s" "i" "f" "d")
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
+for j in {3..4}; do 
 for i in {0..4}; do
   echo "
-!NetCDF(lon, lat) ${arr[$i]}
-subroutine ncoords2d_${arr[$i]}(ifile, idata)
-  type (nc2d_${arr[$i]}) :: idata
+!NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>)
+subroutine ncoords2d_${arr[$i]}_ll${arrid[$j]}(ifile, idata)
+  type (nc2d_${arr[$i]}_ll${arrid[$j]}) :: idata
   integer(kind=intgr) :: ncid, xdimid, ydimid, vdimid, varid
   character(*), intent(in) :: ifile
 
@@ -62,15 +64,18 @@ subroutine ncoords2d_${arr[$i]}(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-end subroutine ncoords2d_${arr[$i]}
+end subroutine ncoords2d_${arr[$i]}_ll${arrid[$j]}
 "
 done
+done
 
+for k in {2..4}; do
+for j in {3..4}; do
 for i in {0..4}; do
   echo "
-!NetCDF(lon, lat, time) ${arr[$i]}
-subroutine ncoords3d_${arr[$i]}(ifile, idata)
-  type (nc3d_${arr[$i]}) :: idata
+!NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>, time <${arr[$k]}>)
+subroutine ncoords3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ifile, idata)
+  type :: nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}  
   integer(kind=intgr) :: ncid, tdimid, xdimid, ydimid, vdimid, varid
   character(*), intent(in) :: ifile
 
@@ -96,8 +101,10 @@ subroutine ncoords3d_${arr[$i]}(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-end subroutine ncoords3d_${arr[$i]}
+  end subroutine ncoords3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}
+
 "
 done
-
+done
+done
 

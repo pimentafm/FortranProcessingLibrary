@@ -32,18 +32,19 @@ echo "!:========================================================================
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:============================================================================="
-
+declare -a arrid=("b" "s" "i" "f" "d")
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
+for j in {3..4}; do
 for i in {0..4}; do
   echo "
-!:======= Write 2 dimensional NetCDF ${arr[$i]} =====================================
-subroutine writegrid2d_${arr[$i]}(ofile, odata, headerfile)
+!NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>)
+subroutine writegrid2d_${arr[$i]}_ll${arrid[$j]}(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_${arr[$i]}) :: odata
+  type(nc2d_${arr[$i]}_ll${arrid[$j]}) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=intgr), dimension(2) :: dimids
 
@@ -108,18 +109,22 @@ subroutine writegrid2d_${arr[$i]}(ofile, odata, headerfile)
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
   call check(nf90_close(ncid))
-end subroutine writegrid2d_${arr[$i]}
+end subroutine writegrid2d_${arr[$i]}_ll${arrid[$j]}
+
 "
 done
+done
 
+for k in {2..4}; do
+for j in {3..4}; do
 for i in {0..4}; do
   echo "
-!:======= Write 3 dimensional NetCDF ${arr[$i]} =====================================
-subroutine writegrid3d_${arr[$i]}(ofile, odata, headerfile)
+!NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>, time <${arr[$k]}>)
+subroutine writegrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_${arr[$i]}) :: odata
+  type(nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}) :: odata
   integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
   integer(kind=intgr), dimension(3) :: dimids
 
@@ -191,6 +196,9 @@ subroutine writegrid3d_${arr[$i]}(ofile, odata, headerfile)
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
   call check(nf90_close(ncid))
-end subroutine writegrid3d_${arr[$i]}
+end subroutine writegrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}
+
 "
+done
+done
 done

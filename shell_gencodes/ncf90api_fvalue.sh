@@ -39,13 +39,14 @@ declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)
 
 echo "!Set FillValue in map using mask FillValue - NetCDF(i,j) ==========="
 
-for i in {0..4}; do
+for k in {3..4}; do #lon, lat
 for j in {0..4}; do
+for i in {0..4}; do
   echo "
-!NetCDF(i,j)-> ${arr[$i]}-${arr[$j]} 
-subroutine setfvalue2d_${arrid[$i]}${arrid[$j]}(mask, map, num)
-  type (nc2d_${arr[$i]}) :: mask
-  type (nc2d_${arr[$j]}) :: map
+!NetCDF <var ${arr[$j]}-${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$i]}>)-> 
+subroutine setfvalue2d_${arrid[$j]}${arrid[$i]}_ll${arrid[$k]}(mask, map, num)
+  type (nc2d_${arr[$j]}_ll${arrid[$k]}) :: mask
+  type (nc2d_${arr[$i]}_ll${arrid[$k]}) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -64,20 +65,23 @@ subroutine setfvalue2d_${arrid[$i]}${arrid[$j]}(mask, map, num)
       end do
     end do
   end if
-end subroutine setfvalue2d_${arrid[$i]}${arrid[$j]}
+end subroutine setfvalue2d_${arrid[$j]}${arrid[$i]}_ll${arrid[$k]}
+
 "
 done
 done
 
 echo "!Set FillValue in map using mask FillValue - NetCDF(i,j,k) ==========="
 
-for i in {0..4}; do
+for l in {2..4}; do #time
+for k in {3..4}; do #lon, lat
 for j in {0..4}; do
+for i in {0..4}; do
   echo "
-!NetCDF(i,j,k)-> ${arr[$i]}-${arr[$j]} 
-subroutine setfvalue3d_${arrid[$i]}${arrid[$j]}(mask, map, num)
-  type (nc2d_${arr[$i]}) :: mask
-  type (nc3d_${arr[$j]}) :: map
+!NetCDF <var ${arr[$j]}-${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$i]}>, time <${arr[$k]}>)-> 
+subroutine setfvalue3d_${arrid[$j]}${arrid[$i]}_ll${arrid[$k]}_t${arr[$l]}(mask, map, num)
+  type (nc2d_${arr[$i]}_ll${arrid[$j]}) :: mask
+  type (nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -100,8 +104,11 @@ subroutine setfvalue3d_${arrid[$i]}${arrid[$j]}(mask, map, num)
       end do
     end do
   end if
-end subroutine setfvalue3d_${arrid[$i]}${arrid[$j]}
+end subroutine setfvalue3d_${arrid[$j]}${arrid[$i]}_ll${arrid[$k]}_t${arr[$l]}
+
 "
+done
+done
 done
 done
 
