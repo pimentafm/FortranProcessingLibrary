@@ -36,7 +36,7 @@ declare -a arrid=("b" "s" "i" "f" "d")
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
-for j in {3..4}; do
+for j in {3..4}; do # lon, lat
 for i in {0..4}; do
   echo "
 !NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>)
@@ -66,7 +66,7 @@ subroutine readgrid2d_${arr[$i]}_ll${arrid[$j]}(ifile, idata)
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
-  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"'"'${arr[$i]}'"'", ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"'"'$(tr [a-z] [A-Z] <<< ${arr[$i]})'"'", ifile)
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "'"long_name"'", idata%long_name), "'"long_name"'", ifile)
@@ -80,8 +80,8 @@ end subroutine readgrid2d_${arr[$i]}_ll${arrid[$j]}
 done
 done
 
-for k in {2..4}; do
-for j in {3..4}; do
+for k in {2..4}; do # time
+for j in {3..4}; do # lon, lat
 for i in {0..4}; do
   echo "
 !NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>, time <${arr[$k]}>)
@@ -117,7 +117,7 @@ subroutine readgrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ifile, idata)
 
   !Get Variable name
   call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
-  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"'"'${arr[$i]}'"'", ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"'"'$(tr [a-z] [A-Z] <<< ${arr[$i]})'"'", ifile)
 
   !Get some attributes
   call check(nf90_get_att(ncid, varid, "'"long_name"'", idata%long_name), "'"long_name"'", ifile)

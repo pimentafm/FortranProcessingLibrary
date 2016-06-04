@@ -36,7 +36,7 @@ declare -a arrid=("b" "s" "i" "f" "d")
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
-for j in {3..4}; do
+for j in {3..4}; do # lon, lat
 for i in {0..4}; do
   echo "
 !NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>)
@@ -115,8 +115,8 @@ end subroutine writegrid2d_${arr[$i]}_ll${arrid[$j]}
 done
 done
 
-for k in {2..4}; do
-for j in {3..4}; do
+for k in {2..4}; do # time
+for j in {3..4}; do # lon,lat
 for i in {0..4}; do
   echo "
 !NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>, time <${arr[$k]}>)

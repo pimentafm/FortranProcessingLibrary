@@ -43,8 +43,8 @@ for k in {3..4}; do #lon, lat
 for j in {0..4}; do
 for i in {0..4}; do
   echo "
-!NetCDF <var ${arr[$j]}-${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$i]}>)-> 
-subroutine setfvalue2d_${arrid[$j]}${arrid[$i]}_ll${arrid[$k]}(mask, map, num)
+!NetCDF <var ${arr[$j]}-${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$i]}>)
+subroutine setfvalue2d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}(mask, map, num)
   type (nc2d_${arr[$j]}_ll${arrid[$k]}) :: mask
   type (nc2d_${arr[$i]}_ll${arrid[$k]}) :: map
   integer, optional, intent(in):: num
@@ -65,9 +65,10 @@ subroutine setfvalue2d_${arrid[$j]}${arrid[$i]}_ll${arrid[$k]}(mask, map, num)
       end do
     end do
   end if
-end subroutine setfvalue2d_${arrid[$j]}${arrid[$i]}_ll${arrid[$k]}
+end subroutine setfvalue2d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}
 
 "
+done
 done
 done
 
@@ -78,10 +79,10 @@ for k in {3..4}; do #lon, lat
 for j in {0..4}; do
 for i in {0..4}; do
   echo "
-!NetCDF <var ${arr[$j]}-${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$i]}>, time <${arr[$k]}>)-> 
-subroutine setfvalue3d_${arrid[$j]}${arrid[$i]}_ll${arrid[$k]}_t${arr[$l]}(mask, map, num)
-  type (nc2d_${arr[$i]}_ll${arrid[$j]}) :: mask
-  type (nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}) :: map
+!NetCDF <var ${arr[$j]}-${arr[$i]}> (lon <${arr[$k]}>, lat <${arr[$k]}>, time <${arr[$l]}>)
+subroutine setfvalue3d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}_t${arrid[$l]}(mask, map, num)
+  type (nc2d_${arr[$j]}_ll${arrid[$k]}) :: mask
+  type (nc3d_${arr[$i]}_ll${arrid[$k]}_t${arrid[$l]}) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -104,7 +105,7 @@ subroutine setfvalue3d_${arrid[$j]}${arrid[$i]}_ll${arrid[$k]}_t${arr[$l]}(mask,
       end do
     end do
   end if
-end subroutine setfvalue3d_${arrid[$j]}${arrid[$i]}_ll${arrid[$k]}_t${arr[$l]}
+end subroutine setfvalue3d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}_t${arrid[$l]}
 
 "
 done
