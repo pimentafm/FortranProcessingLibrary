@@ -30,12 +30,12 @@
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
-!Set FillValue in map using mask FillValue - NetCDF(i,j) ======================
+!Set FillValue in map using mask FillValue - NetCDF(i,j) ===========
 
-!NetCDF(i,j)-> byte-byte
-subroutine setFillValue2d_bb(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc2d_byte) :: map
+!NetCDF <var byte-byte> (lon <byte>, lat <byte>)
+subroutine setfvalue2d_bytebyte_llf(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc2d_byte_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -54,13 +54,14 @@ subroutine setFillValue2d_bb(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_bb
+end subroutine setfvalue2d_bytebyte_llf
 
 
-!NetCDF(i,j)-> byte-short
-subroutine setFillValue2d_bs(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc2d_short) :: map
+
+!NetCDF <var byte-short> (lon <byte>, lat <short>)
+subroutine setfvalue2d_byteshort_llf(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc2d_short_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -79,13 +80,14 @@ subroutine setFillValue2d_bs(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_bs
+end subroutine setfvalue2d_byteshort_llf
 
 
-!NetCDF(i,j)-> byte-int
-subroutine setFillValue2d_bi(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc2d_int) :: map
+
+!NetCDF <var byte-int> (lon <byte>, lat <int>)
+subroutine setfvalue2d_byteint_llf(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc2d_int_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -104,13 +106,14 @@ subroutine setFillValue2d_bi(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_bi
+end subroutine setfvalue2d_byteint_llf
 
 
-!NetCDF(i,j)-> byte-float
-subroutine setFillValue2d_bf(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc2d_float) :: map
+
+!NetCDF <var byte-float> (lon <byte>, lat <float>)
+subroutine setfvalue2d_bytefloat_llf(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc2d_float_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -129,13 +132,14 @@ subroutine setFillValue2d_bf(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_bf
+end subroutine setfvalue2d_bytefloat_llf
 
 
-!NetCDF(i,j)-> byte-double
-subroutine setFillValue2d_bd(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc2d_double) :: map
+
+!NetCDF <var byte-double> (lon <byte>, lat <double>)
+subroutine setfvalue2d_bytedouble_llf(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc2d_double_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -154,13 +158,14 @@ subroutine setFillValue2d_bd(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_bd
+end subroutine setfvalue2d_bytedouble_llf
 
 
-!NetCDF(i,j)-> short-byte
-subroutine setFillValue2d_sb(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc2d_byte) :: map
+
+!NetCDF <var short-byte> (lon <short>, lat <byte>)
+subroutine setfvalue2d_shortbyte_llf(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc2d_byte_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -179,13 +184,14 @@ subroutine setFillValue2d_sb(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_sb
+end subroutine setfvalue2d_shortbyte_llf
 
 
-!NetCDF(i,j)-> short-short
-subroutine setFillValue2d_ss(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc2d_short) :: map
+
+!NetCDF <var short-short> (lon <short>, lat <short>)
+subroutine setfvalue2d_shortshort_llf(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc2d_short_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -204,13 +210,14 @@ subroutine setFillValue2d_ss(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_ss
+end subroutine setfvalue2d_shortshort_llf
 
 
-!NetCDF(i,j)-> short-int
-subroutine setFillValue2d_si(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc2d_int) :: map
+
+!NetCDF <var short-int> (lon <short>, lat <int>)
+subroutine setfvalue2d_shortint_llf(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc2d_int_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -229,13 +236,14 @@ subroutine setFillValue2d_si(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_si
+end subroutine setfvalue2d_shortint_llf
 
 
-!NetCDF(i,j)-> short-float
-subroutine setFillValue2d_sf(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc2d_float) :: map
+
+!NetCDF <var short-float> (lon <short>, lat <float>)
+subroutine setfvalue2d_shortfloat_llf(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc2d_float_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -254,13 +262,14 @@ subroutine setFillValue2d_sf(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_sf
+end subroutine setfvalue2d_shortfloat_llf
 
 
-!NetCDF(i,j)-> short-double
-subroutine setFillValue2d_sd(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc2d_double) :: map
+
+!NetCDF <var short-double> (lon <short>, lat <double>)
+subroutine setfvalue2d_shortdouble_llf(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc2d_double_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -279,13 +288,14 @@ subroutine setFillValue2d_sd(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_sd
+end subroutine setfvalue2d_shortdouble_llf
 
 
-!NetCDF(i,j)-> int-byte
-subroutine setFillValue2d_ib(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc2d_byte) :: map
+
+!NetCDF <var int-byte> (lon <int>, lat <byte>)
+subroutine setfvalue2d_intbyte_llf(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc2d_byte_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -304,13 +314,14 @@ subroutine setFillValue2d_ib(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_ib
+end subroutine setfvalue2d_intbyte_llf
 
 
-!NetCDF(i,j)-> int-short
-subroutine setFillValue2d_is(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc2d_short) :: map
+
+!NetCDF <var int-short> (lon <int>, lat <short>)
+subroutine setfvalue2d_intshort_llf(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc2d_short_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -329,13 +340,14 @@ subroutine setFillValue2d_is(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_is
+end subroutine setfvalue2d_intshort_llf
 
 
-!NetCDF(i,j)-> int-int
-subroutine setFillValue2d_ii(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc2d_int) :: map
+
+!NetCDF <var int-int> (lon <int>, lat <int>)
+subroutine setfvalue2d_intint_llf(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc2d_int_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -354,13 +366,14 @@ subroutine setFillValue2d_ii(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_ii
+end subroutine setfvalue2d_intint_llf
 
 
-!NetCDF(i,j)-> int-float
-subroutine setFillValue2d_if(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc2d_float) :: map
+
+!NetCDF <var int-float> (lon <int>, lat <float>)
+subroutine setfvalue2d_intfloat_llf(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc2d_float_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -379,13 +392,14 @@ subroutine setFillValue2d_if(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_if
+end subroutine setfvalue2d_intfloat_llf
 
 
-!NetCDF(i,j)-> int-double
-subroutine setFillValue2d_id(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc2d_double) :: map
+
+!NetCDF <var int-double> (lon <int>, lat <double>)
+subroutine setfvalue2d_intdouble_llf(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc2d_double_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -404,13 +418,14 @@ subroutine setFillValue2d_id(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_id
+end subroutine setfvalue2d_intdouble_llf
 
 
-!NetCDF(i,j)-> float-byte
-subroutine setFillValue2d_fb(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc2d_byte) :: map
+
+!NetCDF <var float-byte> (lon <float>, lat <byte>)
+subroutine setfvalue2d_floatbyte_llf(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc2d_byte_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -429,13 +444,14 @@ subroutine setFillValue2d_fb(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_fb
+end subroutine setfvalue2d_floatbyte_llf
 
 
-!NetCDF(i,j)-> float-short
-subroutine setFillValue2d_fs(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc2d_short) :: map
+
+!NetCDF <var float-short> (lon <float>, lat <short>)
+subroutine setfvalue2d_floatshort_llf(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc2d_short_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -454,13 +470,14 @@ subroutine setFillValue2d_fs(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_fs
+end subroutine setfvalue2d_floatshort_llf
 
 
-!NetCDF(i,j)-> float-int
-subroutine setFillValue2d_fi(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc2d_int) :: map
+
+!NetCDF <var float-int> (lon <float>, lat <int>)
+subroutine setfvalue2d_floatint_llf(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc2d_int_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -479,13 +496,14 @@ subroutine setFillValue2d_fi(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_fi
+end subroutine setfvalue2d_floatint_llf
 
 
-!NetCDF(i,j)-> float-float
-subroutine setFillValue2d_ff(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc2d_float) :: map
+
+!NetCDF <var float-float> (lon <float>, lat <float>)
+subroutine setfvalue2d_floatfloat_llf(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc2d_float_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -504,13 +522,14 @@ subroutine setFillValue2d_ff(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_ff
+end subroutine setfvalue2d_floatfloat_llf
 
 
-!NetCDF(i,j)-> float-double
-subroutine setFillValue2d_fd(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc2d_double) :: map
+
+!NetCDF <var float-double> (lon <float>, lat <double>)
+subroutine setfvalue2d_floatdouble_llf(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc2d_double_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -529,13 +548,14 @@ subroutine setFillValue2d_fd(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_fd
+end subroutine setfvalue2d_floatdouble_llf
 
 
-!NetCDF(i,j)-> double-byte
-subroutine setFillValue2d_db(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc2d_byte) :: map
+
+!NetCDF <var double-byte> (lon <double>, lat <byte>)
+subroutine setfvalue2d_doublebyte_llf(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc2d_byte_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -554,13 +574,14 @@ subroutine setFillValue2d_db(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_db
+end subroutine setfvalue2d_doublebyte_llf
 
 
-!NetCDF(i,j)-> double-short
-subroutine setFillValue2d_ds(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc2d_short) :: map
+
+!NetCDF <var double-short> (lon <double>, lat <short>)
+subroutine setfvalue2d_doubleshort_llf(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc2d_short_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -579,13 +600,14 @@ subroutine setFillValue2d_ds(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_ds
+end subroutine setfvalue2d_doubleshort_llf
 
 
-!NetCDF(i,j)-> double-int
-subroutine setFillValue2d_di(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc2d_int) :: map
+
+!NetCDF <var double-int> (lon <double>, lat <int>)
+subroutine setfvalue2d_doubleint_llf(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc2d_int_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -604,13 +626,14 @@ subroutine setFillValue2d_di(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_di
+end subroutine setfvalue2d_doubleint_llf
 
 
-!NetCDF(i,j)-> double-float
-subroutine setFillValue2d_df(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc2d_float) :: map
+
+!NetCDF <var double-float> (lon <double>, lat <float>)
+subroutine setfvalue2d_doublefloat_llf(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc2d_float_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -629,13 +652,14 @@ subroutine setFillValue2d_df(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_df
+end subroutine setfvalue2d_doublefloat_llf
 
 
-!NetCDF(i,j)-> double-double
-subroutine setFillValue2d_dd(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc2d_double) :: map
+
+!NetCDF <var double-double> (lon <double>, lat <double>)
+subroutine setfvalue2d_doubledouble_llf(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc2d_double_llf) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
@@ -654,14 +678,665 @@ subroutine setFillValue2d_dd(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue2d_dd
+end subroutine setfvalue2d_doubledouble_llf
+
+
+
+!NetCDF <var byte-byte> (lon <byte>, lat <byte>)
+subroutine setfvalue2d_bytebyte_lld(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc2d_byte_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_bytebyte_lld
+
+
+
+!NetCDF <var byte-short> (lon <byte>, lat <short>)
+subroutine setfvalue2d_byteshort_lld(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc2d_short_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_byteshort_lld
+
+
+
+!NetCDF <var byte-int> (lon <byte>, lat <int>)
+subroutine setfvalue2d_byteint_lld(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc2d_int_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_byteint_lld
+
+
+
+!NetCDF <var byte-float> (lon <byte>, lat <float>)
+subroutine setfvalue2d_bytefloat_lld(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc2d_float_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_bytefloat_lld
+
+
+
+!NetCDF <var byte-double> (lon <byte>, lat <double>)
+subroutine setfvalue2d_bytedouble_lld(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc2d_double_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_bytedouble_lld
+
+
+
+!NetCDF <var short-byte> (lon <short>, lat <byte>)
+subroutine setfvalue2d_shortbyte_lld(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc2d_byte_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_shortbyte_lld
+
+
+
+!NetCDF <var short-short> (lon <short>, lat <short>)
+subroutine setfvalue2d_shortshort_lld(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc2d_short_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_shortshort_lld
+
+
+
+!NetCDF <var short-int> (lon <short>, lat <int>)
+subroutine setfvalue2d_shortint_lld(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc2d_int_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_shortint_lld
+
+
+
+!NetCDF <var short-float> (lon <short>, lat <float>)
+subroutine setfvalue2d_shortfloat_lld(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc2d_float_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_shortfloat_lld
+
+
+
+!NetCDF <var short-double> (lon <short>, lat <double>)
+subroutine setfvalue2d_shortdouble_lld(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc2d_double_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_shortdouble_lld
+
+
+
+!NetCDF <var int-byte> (lon <int>, lat <byte>)
+subroutine setfvalue2d_intbyte_lld(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc2d_byte_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_intbyte_lld
+
+
+
+!NetCDF <var int-short> (lon <int>, lat <short>)
+subroutine setfvalue2d_intshort_lld(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc2d_short_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_intshort_lld
+
+
+
+!NetCDF <var int-int> (lon <int>, lat <int>)
+subroutine setfvalue2d_intint_lld(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc2d_int_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_intint_lld
+
+
+
+!NetCDF <var int-float> (lon <int>, lat <float>)
+subroutine setfvalue2d_intfloat_lld(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc2d_float_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_intfloat_lld
+
+
+
+!NetCDF <var int-double> (lon <int>, lat <double>)
+subroutine setfvalue2d_intdouble_lld(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc2d_double_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_intdouble_lld
+
+
+
+!NetCDF <var float-byte> (lon <float>, lat <byte>)
+subroutine setfvalue2d_floatbyte_lld(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc2d_byte_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_floatbyte_lld
+
+
+
+!NetCDF <var float-short> (lon <float>, lat <short>)
+subroutine setfvalue2d_floatshort_lld(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc2d_short_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_floatshort_lld
+
+
+
+!NetCDF <var float-int> (lon <float>, lat <int>)
+subroutine setfvalue2d_floatint_lld(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc2d_int_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_floatint_lld
+
+
+
+!NetCDF <var float-float> (lon <float>, lat <float>)
+subroutine setfvalue2d_floatfloat_lld(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc2d_float_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_floatfloat_lld
+
+
+
+!NetCDF <var float-double> (lon <float>, lat <double>)
+subroutine setfvalue2d_floatdouble_lld(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc2d_double_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_floatdouble_lld
+
+
+
+!NetCDF <var double-byte> (lon <double>, lat <byte>)
+subroutine setfvalue2d_doublebyte_lld(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc2d_byte_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_doublebyte_lld
+
+
+
+!NetCDF <var double-short> (lon <double>, lat <short>)
+subroutine setfvalue2d_doubleshort_lld(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc2d_short_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_doubleshort_lld
+
+
+
+!NetCDF <var double-int> (lon <double>, lat <int>)
+subroutine setfvalue2d_doubleint_lld(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc2d_int_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_doubleint_lld
+
+
+
+!NetCDF <var double-float> (lon <double>, lat <float>)
+subroutine setfvalue2d_doublefloat_lld(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc2d_float_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_doublefloat_lld
+
+
+
+!NetCDF <var double-double> (lon <double>, lat <double>)
+subroutine setfvalue2d_doubledouble_lld(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc2d_double_lld) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j
+
+  if(present(num))then
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  else
+    do i = 1, mask%nlats
+      do j = 1, mask%nlons
+        if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
+        if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
+      end do
+    end do
+  end if
+end subroutine setfvalue2d_doubledouble_lld
+
 
 !Set FillValue in map using mask FillValue - NetCDF(i,j,k) ===========
 
-!NetCDF(i,j,k)-> byte-byte 
-subroutine setFillValue3d_bb(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc3d_byte) :: map
+!NetCDF <var byte-byte> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_bytebyte_llf_ti(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_byte_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -684,13 +1359,14 @@ subroutine setFillValue3d_bb(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_bb
+end subroutine setfvalue3d_bytebyte_llf_ti
 
 
-!NetCDF(i,j,k)-> byte-short 
-subroutine setFillValue3d_bs(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc3d_short) :: map
+
+!NetCDF <var byte-short> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_byteshort_llf_ti(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_short_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -713,13 +1389,14 @@ subroutine setFillValue3d_bs(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_bs
+end subroutine setfvalue3d_byteshort_llf_ti
 
 
-!NetCDF(i,j,k)-> byte-int 
-subroutine setFillValue3d_bi(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc3d_int) :: map
+
+!NetCDF <var byte-int> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_byteint_llf_ti(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_int_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -742,13 +1419,14 @@ subroutine setFillValue3d_bi(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_bi
+end subroutine setfvalue3d_byteint_llf_ti
 
 
-!NetCDF(i,j,k)-> byte-float 
-subroutine setFillValue3d_bf(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc3d_float) :: map
+
+!NetCDF <var byte-float> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_bytefloat_llf_ti(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_float_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -771,13 +1449,14 @@ subroutine setFillValue3d_bf(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_bf
+end subroutine setfvalue3d_bytefloat_llf_ti
 
 
-!NetCDF(i,j,k)-> byte-double 
-subroutine setFillValue3d_bd(mask, map, num)
-  type (nc2d_byte) :: mask
-  type (nc3d_double) :: map
+
+!NetCDF <var byte-double> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_bytedouble_llf_ti(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_double_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -800,13 +1479,14 @@ subroutine setFillValue3d_bd(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_bd
+end subroutine setfvalue3d_bytedouble_llf_ti
 
 
-!NetCDF(i,j,k)-> short-byte 
-subroutine setFillValue3d_sb(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc3d_byte) :: map
+
+!NetCDF <var short-byte> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_shortbyte_llf_ti(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_byte_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -829,13 +1509,14 @@ subroutine setFillValue3d_sb(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_sb
+end subroutine setfvalue3d_shortbyte_llf_ti
 
 
-!NetCDF(i,j,k)-> short-short 
-subroutine setFillValue3d_ss(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc3d_short) :: map
+
+!NetCDF <var short-short> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_shortshort_llf_ti(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_short_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -858,13 +1539,14 @@ subroutine setFillValue3d_ss(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_ss
+end subroutine setfvalue3d_shortshort_llf_ti
 
 
-!NetCDF(i,j,k)-> short-int 
-subroutine setFillValue3d_si(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc3d_int) :: map
+
+!NetCDF <var short-int> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_shortint_llf_ti(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_int_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -887,13 +1569,14 @@ subroutine setFillValue3d_si(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_si
+end subroutine setfvalue3d_shortint_llf_ti
 
 
-!NetCDF(i,j,k)-> short-float 
-subroutine setFillValue3d_sf(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc3d_float) :: map
+
+!NetCDF <var short-float> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_shortfloat_llf_ti(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_float_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -916,13 +1599,14 @@ subroutine setFillValue3d_sf(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_sf
+end subroutine setfvalue3d_shortfloat_llf_ti
 
 
-!NetCDF(i,j,k)-> short-double 
-subroutine setFillValue3d_sd(mask, map, num)
-  type (nc2d_short) :: mask
-  type (nc3d_double) :: map
+
+!NetCDF <var short-double> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_shortdouble_llf_ti(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_double_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -945,13 +1629,14 @@ subroutine setFillValue3d_sd(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_sd
+end subroutine setfvalue3d_shortdouble_llf_ti
 
 
-!NetCDF(i,j,k)-> int-byte 
-subroutine setFillValue3d_ib(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc3d_byte) :: map
+
+!NetCDF <var int-byte> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_intbyte_llf_ti(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_byte_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -974,13 +1659,14 @@ subroutine setFillValue3d_ib(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_ib
+end subroutine setfvalue3d_intbyte_llf_ti
 
 
-!NetCDF(i,j,k)-> int-short 
-subroutine setFillValue3d_is(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc3d_short) :: map
+
+!NetCDF <var int-short> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_intshort_llf_ti(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_short_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1003,13 +1689,14 @@ subroutine setFillValue3d_is(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_is
+end subroutine setfvalue3d_intshort_llf_ti
 
 
-!NetCDF(i,j,k)-> int-int 
-subroutine setFillValue3d_ii(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc3d_int) :: map
+
+!NetCDF <var int-int> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_intint_llf_ti(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_int_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1032,13 +1719,14 @@ subroutine setFillValue3d_ii(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_ii
+end subroutine setfvalue3d_intint_llf_ti
 
 
-!NetCDF(i,j,k)-> int-float 
-subroutine setFillValue3d_if(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc3d_float) :: map
+
+!NetCDF <var int-float> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_intfloat_llf_ti(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_float_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1061,13 +1749,14 @@ subroutine setFillValue3d_if(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_if
+end subroutine setfvalue3d_intfloat_llf_ti
 
 
-!NetCDF(i,j,k)-> int-double 
-subroutine setFillValue3d_id(mask, map, num)
-  type (nc2d_int) :: mask
-  type (nc3d_double) :: map
+
+!NetCDF <var int-double> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_intdouble_llf_ti(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_double_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1090,13 +1779,14 @@ subroutine setFillValue3d_id(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_id
+end subroutine setfvalue3d_intdouble_llf_ti
 
 
-!NetCDF(i,j,k)-> float-byte 
-subroutine setFillValue3d_fb(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc3d_byte) :: map
+
+!NetCDF <var float-byte> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_floatbyte_llf_ti(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_byte_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1119,13 +1809,14 @@ subroutine setFillValue3d_fb(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_fb
+end subroutine setfvalue3d_floatbyte_llf_ti
 
 
-!NetCDF(i,j,k)-> float-short 
-subroutine setFillValue3d_fs(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc3d_short) :: map
+
+!NetCDF <var float-short> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_floatshort_llf_ti(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_short_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1148,13 +1839,14 @@ subroutine setFillValue3d_fs(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_fs
+end subroutine setfvalue3d_floatshort_llf_ti
 
 
-!NetCDF(i,j,k)-> float-int 
-subroutine setFillValue3d_fi(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc3d_int) :: map
+
+!NetCDF <var float-int> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_floatint_llf_ti(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_int_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1177,13 +1869,14 @@ subroutine setFillValue3d_fi(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_fi
+end subroutine setfvalue3d_floatint_llf_ti
 
 
-!NetCDF(i,j,k)-> float-float 
-subroutine setFillValue3d_ff(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc3d_float) :: map
+
+!NetCDF <var float-float> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_floatfloat_llf_ti(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_float_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1206,13 +1899,14 @@ subroutine setFillValue3d_ff(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_ff
+end subroutine setfvalue3d_floatfloat_llf_ti
 
 
-!NetCDF(i,j,k)-> float-double 
-subroutine setFillValue3d_fd(mask, map, num)
-  type (nc2d_float) :: mask
-  type (nc3d_double) :: map
+
+!NetCDF <var float-double> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_floatdouble_llf_ti(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_double_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1235,13 +1929,14 @@ subroutine setFillValue3d_fd(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_fd
+end subroutine setfvalue3d_floatdouble_llf_ti
 
 
-!NetCDF(i,j,k)-> double-byte 
-subroutine setFillValue3d_db(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc3d_byte) :: map
+
+!NetCDF <var double-byte> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_doublebyte_llf_ti(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_byte_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1264,13 +1959,14 @@ subroutine setFillValue3d_db(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_db
+end subroutine setfvalue3d_doublebyte_llf_ti
 
 
-!NetCDF(i,j,k)-> double-short 
-subroutine setFillValue3d_ds(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc3d_short) :: map
+
+!NetCDF <var double-short> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_doubleshort_llf_ti(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_short_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1293,13 +1989,14 @@ subroutine setFillValue3d_ds(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_ds
+end subroutine setfvalue3d_doubleshort_llf_ti
 
 
-!NetCDF(i,j,k)-> double-int 
-subroutine setFillValue3d_di(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc3d_int) :: map
+
+!NetCDF <var double-int> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_doubleint_llf_ti(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_int_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1322,13 +2019,14 @@ subroutine setFillValue3d_di(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_di
+end subroutine setfvalue3d_doubleint_llf_ti
 
 
-!NetCDF(i,j,k)-> double-float 
-subroutine setFillValue3d_df(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc3d_float) :: map
+
+!NetCDF <var double-float> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_doublefloat_llf_ti(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_float_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1351,13 +2049,14 @@ subroutine setFillValue3d_df(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_df
+end subroutine setfvalue3d_doublefloat_llf_ti
 
 
-!NetCDF(i,j,k)-> double-double 
-subroutine setFillValue3d_dd(mask, map, num)
-  type (nc2d_double) :: mask
-  type (nc3d_double) :: map
+
+!NetCDF <var double-double> (lon <float>, lat <float>, time <int>)
+subroutine setfvalue3d_doubledouble_llf_ti(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_double_llf_ti) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
@@ -1380,5 +2079,3756 @@ subroutine setFillValue3d_dd(mask, map, num)
       end do
     end do
   end if
-end subroutine setFillValue3d_dd
+end subroutine setfvalue3d_doubledouble_llf_ti
+
+
+
+!NetCDF <var byte-byte> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_bytebyte_lld_ti(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_byte_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytebyte_lld_ti
+
+
+
+!NetCDF <var byte-short> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_byteshort_lld_ti(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_short_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_byteshort_lld_ti
+
+
+
+!NetCDF <var byte-int> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_byteint_lld_ti(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_int_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_byteint_lld_ti
+
+
+
+!NetCDF <var byte-float> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_bytefloat_lld_ti(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_float_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytefloat_lld_ti
+
+
+
+!NetCDF <var byte-double> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_bytedouble_lld_ti(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_double_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytedouble_lld_ti
+
+
+
+!NetCDF <var short-byte> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_shortbyte_lld_ti(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_byte_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortbyte_lld_ti
+
+
+
+!NetCDF <var short-short> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_shortshort_lld_ti(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_short_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortshort_lld_ti
+
+
+
+!NetCDF <var short-int> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_shortint_lld_ti(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_int_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortint_lld_ti
+
+
+
+!NetCDF <var short-float> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_shortfloat_lld_ti(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_float_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortfloat_lld_ti
+
+
+
+!NetCDF <var short-double> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_shortdouble_lld_ti(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_double_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortdouble_lld_ti
+
+
+
+!NetCDF <var int-byte> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_intbyte_lld_ti(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_byte_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intbyte_lld_ti
+
+
+
+!NetCDF <var int-short> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_intshort_lld_ti(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_short_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intshort_lld_ti
+
+
+
+!NetCDF <var int-int> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_intint_lld_ti(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_int_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intint_lld_ti
+
+
+
+!NetCDF <var int-float> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_intfloat_lld_ti(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_float_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intfloat_lld_ti
+
+
+
+!NetCDF <var int-double> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_intdouble_lld_ti(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_double_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intdouble_lld_ti
+
+
+
+!NetCDF <var float-byte> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_floatbyte_lld_ti(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_byte_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatbyte_lld_ti
+
+
+
+!NetCDF <var float-short> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_floatshort_lld_ti(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_short_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatshort_lld_ti
+
+
+
+!NetCDF <var float-int> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_floatint_lld_ti(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_int_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatint_lld_ti
+
+
+
+!NetCDF <var float-float> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_floatfloat_lld_ti(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_float_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatfloat_lld_ti
+
+
+
+!NetCDF <var float-double> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_floatdouble_lld_ti(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_double_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatdouble_lld_ti
+
+
+
+!NetCDF <var double-byte> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_doublebyte_lld_ti(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_byte_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doublebyte_lld_ti
+
+
+
+!NetCDF <var double-short> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_doubleshort_lld_ti(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_short_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubleshort_lld_ti
+
+
+
+!NetCDF <var double-int> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_doubleint_lld_ti(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_int_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubleint_lld_ti
+
+
+
+!NetCDF <var double-float> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_doublefloat_lld_ti(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_float_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doublefloat_lld_ti
+
+
+
+!NetCDF <var double-double> (lon <double>, lat <double>, time <int>)
+subroutine setfvalue3d_doubledouble_lld_ti(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_double_lld_ti) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubledouble_lld_ti
+
+
+
+!NetCDF <var byte-byte> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_bytebyte_llf_tf(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_byte_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytebyte_llf_tf
+
+
+
+!NetCDF <var byte-short> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_byteshort_llf_tf(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_short_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_byteshort_llf_tf
+
+
+
+!NetCDF <var byte-int> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_byteint_llf_tf(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_int_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_byteint_llf_tf
+
+
+
+!NetCDF <var byte-float> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_bytefloat_llf_tf(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_float_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytefloat_llf_tf
+
+
+
+!NetCDF <var byte-double> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_bytedouble_llf_tf(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_double_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytedouble_llf_tf
+
+
+
+!NetCDF <var short-byte> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_shortbyte_llf_tf(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_byte_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortbyte_llf_tf
+
+
+
+!NetCDF <var short-short> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_shortshort_llf_tf(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_short_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortshort_llf_tf
+
+
+
+!NetCDF <var short-int> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_shortint_llf_tf(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_int_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortint_llf_tf
+
+
+
+!NetCDF <var short-float> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_shortfloat_llf_tf(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_float_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortfloat_llf_tf
+
+
+
+!NetCDF <var short-double> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_shortdouble_llf_tf(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_double_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortdouble_llf_tf
+
+
+
+!NetCDF <var int-byte> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_intbyte_llf_tf(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_byte_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intbyte_llf_tf
+
+
+
+!NetCDF <var int-short> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_intshort_llf_tf(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_short_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intshort_llf_tf
+
+
+
+!NetCDF <var int-int> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_intint_llf_tf(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_int_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intint_llf_tf
+
+
+
+!NetCDF <var int-float> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_intfloat_llf_tf(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_float_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intfloat_llf_tf
+
+
+
+!NetCDF <var int-double> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_intdouble_llf_tf(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_double_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intdouble_llf_tf
+
+
+
+!NetCDF <var float-byte> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_floatbyte_llf_tf(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_byte_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatbyte_llf_tf
+
+
+
+!NetCDF <var float-short> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_floatshort_llf_tf(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_short_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatshort_llf_tf
+
+
+
+!NetCDF <var float-int> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_floatint_llf_tf(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_int_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatint_llf_tf
+
+
+
+!NetCDF <var float-float> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_floatfloat_llf_tf(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_float_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatfloat_llf_tf
+
+
+
+!NetCDF <var float-double> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_floatdouble_llf_tf(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_double_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatdouble_llf_tf
+
+
+
+!NetCDF <var double-byte> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_doublebyte_llf_tf(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_byte_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doublebyte_llf_tf
+
+
+
+!NetCDF <var double-short> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_doubleshort_llf_tf(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_short_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubleshort_llf_tf
+
+
+
+!NetCDF <var double-int> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_doubleint_llf_tf(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_int_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubleint_llf_tf
+
+
+
+!NetCDF <var double-float> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_doublefloat_llf_tf(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_float_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doublefloat_llf_tf
+
+
+
+!NetCDF <var double-double> (lon <float>, lat <float>, time <float>)
+subroutine setfvalue3d_doubledouble_llf_tf(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_double_llf_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubledouble_llf_tf
+
+
+
+!NetCDF <var byte-byte> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_bytebyte_lld_tf(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_byte_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytebyte_lld_tf
+
+
+
+!NetCDF <var byte-short> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_byteshort_lld_tf(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_short_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_byteshort_lld_tf
+
+
+
+!NetCDF <var byte-int> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_byteint_lld_tf(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_int_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_byteint_lld_tf
+
+
+
+!NetCDF <var byte-float> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_bytefloat_lld_tf(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_float_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytefloat_lld_tf
+
+
+
+!NetCDF <var byte-double> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_bytedouble_lld_tf(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_double_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytedouble_lld_tf
+
+
+
+!NetCDF <var short-byte> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_shortbyte_lld_tf(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_byte_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortbyte_lld_tf
+
+
+
+!NetCDF <var short-short> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_shortshort_lld_tf(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_short_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortshort_lld_tf
+
+
+
+!NetCDF <var short-int> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_shortint_lld_tf(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_int_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortint_lld_tf
+
+
+
+!NetCDF <var short-float> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_shortfloat_lld_tf(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_float_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortfloat_lld_tf
+
+
+
+!NetCDF <var short-double> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_shortdouble_lld_tf(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_double_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortdouble_lld_tf
+
+
+
+!NetCDF <var int-byte> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_intbyte_lld_tf(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_byte_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intbyte_lld_tf
+
+
+
+!NetCDF <var int-short> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_intshort_lld_tf(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_short_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intshort_lld_tf
+
+
+
+!NetCDF <var int-int> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_intint_lld_tf(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_int_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intint_lld_tf
+
+
+
+!NetCDF <var int-float> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_intfloat_lld_tf(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_float_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intfloat_lld_tf
+
+
+
+!NetCDF <var int-double> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_intdouble_lld_tf(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_double_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intdouble_lld_tf
+
+
+
+!NetCDF <var float-byte> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_floatbyte_lld_tf(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_byte_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatbyte_lld_tf
+
+
+
+!NetCDF <var float-short> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_floatshort_lld_tf(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_short_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatshort_lld_tf
+
+
+
+!NetCDF <var float-int> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_floatint_lld_tf(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_int_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatint_lld_tf
+
+
+
+!NetCDF <var float-float> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_floatfloat_lld_tf(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_float_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatfloat_lld_tf
+
+
+
+!NetCDF <var float-double> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_floatdouble_lld_tf(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_double_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatdouble_lld_tf
+
+
+
+!NetCDF <var double-byte> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_doublebyte_lld_tf(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_byte_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doublebyte_lld_tf
+
+
+
+!NetCDF <var double-short> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_doubleshort_lld_tf(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_short_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubleshort_lld_tf
+
+
+
+!NetCDF <var double-int> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_doubleint_lld_tf(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_int_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubleint_lld_tf
+
+
+
+!NetCDF <var double-float> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_doublefloat_lld_tf(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_float_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doublefloat_lld_tf
+
+
+
+!NetCDF <var double-double> (lon <double>, lat <double>, time <float>)
+subroutine setfvalue3d_doubledouble_lld_tf(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_double_lld_tf) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubledouble_lld_tf
+
+
+
+!NetCDF <var byte-byte> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_bytebyte_llf_td(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_byte_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytebyte_llf_td
+
+
+
+!NetCDF <var byte-short> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_byteshort_llf_td(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_short_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_byteshort_llf_td
+
+
+
+!NetCDF <var byte-int> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_byteint_llf_td(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_int_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_byteint_llf_td
+
+
+
+!NetCDF <var byte-float> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_bytefloat_llf_td(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_float_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytefloat_llf_td
+
+
+
+!NetCDF <var byte-double> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_bytedouble_llf_td(mask, map, num)
+  type (nc2d_byte_llf) :: mask
+  type (nc3d_double_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytedouble_llf_td
+
+
+
+!NetCDF <var short-byte> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_shortbyte_llf_td(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_byte_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortbyte_llf_td
+
+
+
+!NetCDF <var short-short> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_shortshort_llf_td(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_short_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortshort_llf_td
+
+
+
+!NetCDF <var short-int> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_shortint_llf_td(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_int_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortint_llf_td
+
+
+
+!NetCDF <var short-float> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_shortfloat_llf_td(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_float_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortfloat_llf_td
+
+
+
+!NetCDF <var short-double> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_shortdouble_llf_td(mask, map, num)
+  type (nc2d_short_llf) :: mask
+  type (nc3d_double_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortdouble_llf_td
+
+
+
+!NetCDF <var int-byte> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_intbyte_llf_td(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_byte_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intbyte_llf_td
+
+
+
+!NetCDF <var int-short> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_intshort_llf_td(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_short_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intshort_llf_td
+
+
+
+!NetCDF <var int-int> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_intint_llf_td(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_int_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intint_llf_td
+
+
+
+!NetCDF <var int-float> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_intfloat_llf_td(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_float_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intfloat_llf_td
+
+
+
+!NetCDF <var int-double> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_intdouble_llf_td(mask, map, num)
+  type (nc2d_int_llf) :: mask
+  type (nc3d_double_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intdouble_llf_td
+
+
+
+!NetCDF <var float-byte> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_floatbyte_llf_td(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_byte_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatbyte_llf_td
+
+
+
+!NetCDF <var float-short> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_floatshort_llf_td(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_short_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatshort_llf_td
+
+
+
+!NetCDF <var float-int> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_floatint_llf_td(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_int_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatint_llf_td
+
+
+
+!NetCDF <var float-float> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_floatfloat_llf_td(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_float_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatfloat_llf_td
+
+
+
+!NetCDF <var float-double> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_floatdouble_llf_td(mask, map, num)
+  type (nc2d_float_llf) :: mask
+  type (nc3d_double_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatdouble_llf_td
+
+
+
+!NetCDF <var double-byte> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_doublebyte_llf_td(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_byte_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doublebyte_llf_td
+
+
+
+!NetCDF <var double-short> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_doubleshort_llf_td(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_short_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubleshort_llf_td
+
+
+
+!NetCDF <var double-int> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_doubleint_llf_td(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_int_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubleint_llf_td
+
+
+
+!NetCDF <var double-float> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_doublefloat_llf_td(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_float_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doublefloat_llf_td
+
+
+
+!NetCDF <var double-double> (lon <float>, lat <float>, time <double>)
+subroutine setfvalue3d_doubledouble_llf_td(mask, map, num)
+  type (nc2d_double_llf) :: mask
+  type (nc3d_double_llf_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubledouble_llf_td
+
+
+
+!NetCDF <var byte-byte> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_bytebyte_lld_td(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_byte_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytebyte_lld_td
+
+
+
+!NetCDF <var byte-short> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_byteshort_lld_td(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_short_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_byteshort_lld_td
+
+
+
+!NetCDF <var byte-int> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_byteint_lld_td(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_int_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_byteint_lld_td
+
+
+
+!NetCDF <var byte-float> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_bytefloat_lld_td(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_float_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytefloat_lld_td
+
+
+
+!NetCDF <var byte-double> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_bytedouble_lld_td(mask, map, num)
+  type (nc2d_byte_lld) :: mask
+  type (nc3d_double_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_bytedouble_lld_td
+
+
+
+!NetCDF <var short-byte> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_shortbyte_lld_td(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_byte_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortbyte_lld_td
+
+
+
+!NetCDF <var short-short> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_shortshort_lld_td(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_short_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortshort_lld_td
+
+
+
+!NetCDF <var short-int> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_shortint_lld_td(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_int_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortint_lld_td
+
+
+
+!NetCDF <var short-float> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_shortfloat_lld_td(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_float_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortfloat_lld_td
+
+
+
+!NetCDF <var short-double> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_shortdouble_lld_td(mask, map, num)
+  type (nc2d_short_lld) :: mask
+  type (nc3d_double_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_shortdouble_lld_td
+
+
+
+!NetCDF <var int-byte> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_intbyte_lld_td(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_byte_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intbyte_lld_td
+
+
+
+!NetCDF <var int-short> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_intshort_lld_td(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_short_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intshort_lld_td
+
+
+
+!NetCDF <var int-int> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_intint_lld_td(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_int_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intint_lld_td
+
+
+
+!NetCDF <var int-float> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_intfloat_lld_td(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_float_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intfloat_lld_td
+
+
+
+!NetCDF <var int-double> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_intdouble_lld_td(mask, map, num)
+  type (nc2d_int_lld) :: mask
+  type (nc3d_double_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_intdouble_lld_td
+
+
+
+!NetCDF <var float-byte> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_floatbyte_lld_td(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_byte_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatbyte_lld_td
+
+
+
+!NetCDF <var float-short> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_floatshort_lld_td(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_short_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatshort_lld_td
+
+
+
+!NetCDF <var float-int> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_floatint_lld_td(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_int_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatint_lld_td
+
+
+
+!NetCDF <var float-float> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_floatfloat_lld_td(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_float_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatfloat_lld_td
+
+
+
+!NetCDF <var float-double> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_floatdouble_lld_td(mask, map, num)
+  type (nc2d_float_lld) :: mask
+  type (nc3d_double_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_floatdouble_lld_td
+
+
+
+!NetCDF <var double-byte> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_doublebyte_lld_td(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_byte_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doublebyte_lld_td
+
+
+
+!NetCDF <var double-short> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_doubleshort_lld_td(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_short_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubleshort_lld_td
+
+
+
+!NetCDF <var double-int> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_doubleint_lld_td(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_int_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubleint_lld_td
+
+
+
+!NetCDF <var double-float> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_doublefloat_lld_td(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_float_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doublefloat_lld_td
+
+
+
+!NetCDF <var double-double> (lon <double>, lat <double>, time <double>)
+subroutine setfvalue3d_doubledouble_lld_td(mask, map, num)
+  type (nc2d_double_lld) :: mask
+  type (nc3d_double_lld_td) :: map
+  integer, optional, intent(in):: num
+  integer(kind=intgr) :: i, j, k
+
+  if(present(num))then
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  else
+    do k = 1, map%ntimes
+      do i = 1, mask%nlats
+        do j = 1, mask%nlons
+          if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
+          if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
+        end do
+      end do
+    end do
+  end if
+end subroutine setfvalue3d_doubledouble_lld_td
+
 

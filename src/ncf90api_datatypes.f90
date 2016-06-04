@@ -32,190 +32,590 @@
 !:=============================================================================
 
 !NetCDF(lon, lat) byte
-type :: nc2d_byte
+
+type :: nc2d_byte_llf
+  sequence
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+                       lonunits, latunits
+  integer(kind=intgr) :: nlons, nlats, vartype
+  integer(kind=byte) :: FillValue
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=byte), dimension(:,:), allocatable :: ncdata
+end type nc2d_byte_llf
+
+
+
+!NetCDF(lon, lat) short
+
+type :: nc2d_short_llf
+  sequence
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+                       lonunits, latunits
+  integer(kind=intgr) :: nlons, nlats, vartype
+  integer(kind=short) :: FillValue
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=short), dimension(:,:), allocatable :: ncdata
+end type nc2d_short_llf
+
+
+
+!NetCDF(lon, lat) int
+
+type :: nc2d_int_llf
+  sequence
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+                       lonunits, latunits
+  integer(kind=intgr) :: nlons, nlats, vartype
+  integer(kind=intgr) :: FillValue
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=intgr), dimension(:,:), allocatable :: ncdata
+end type nc2d_int_llf
+
+
+
+!NetCDF(lon, lat) float
+
+type :: nc2d_float_llf
+  sequence
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+                       lonunits, latunits
+  integer(kind=intgr) :: nlons, nlats, vartype
+  real(kind=float) :: FillValue
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  real(kind=float), dimension(:,:), allocatable :: ncdata
+end type nc2d_float_llf
+
+
+
+!NetCDF(lon, lat) double
+
+type :: nc2d_double_llf
+  sequence
+  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+                       lonunits, latunits
+  integer(kind=intgr) :: nlons, nlats, vartype
+  real(kind=double) :: FillValue
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  real(kind=double), dimension(:,:), allocatable :: ncdata
+end type nc2d_double_llf
+
+
+
+!NetCDF(lon, lat) byte
+
+type :: nc2d_byte_lld
   sequence
   character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   integer(kind=byte) :: FillValue
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
-  integer(kind=byte), dimension(:,:), allocatable ::  ncdata
-end type nc2d_byte
+  integer(kind=byte), dimension(:,:), allocatable :: ncdata
+end type nc2d_byte_lld
+
 
 
 !NetCDF(lon, lat) short
-type :: nc2d_short
+
+type :: nc2d_short_lld
   sequence
   character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   integer(kind=short) :: FillValue
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
-  integer(kind=short), dimension(:,:), allocatable ::  ncdata
-end type nc2d_short
+  integer(kind=short), dimension(:,:), allocatable :: ncdata
+end type nc2d_short_lld
+
 
 
 !NetCDF(lon, lat) int
-type :: nc2d_int
+
+type :: nc2d_int_lld
   sequence
   character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   integer(kind=intgr) :: FillValue
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
-  integer(kind=intgr), dimension(:,:), allocatable ::  ncdata
-end type nc2d_int
+  integer(kind=intgr), dimension(:,:), allocatable :: ncdata
+end type nc2d_int_lld
+
 
 
 !NetCDF(lon, lat) float
-type :: nc2d_float
+
+type :: nc2d_float_lld
   sequence
   character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   real(kind=float) :: FillValue
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
-  real(kind=float), dimension(:,:), allocatable ::  ncdata
-end type nc2d_float
+  real(kind=float), dimension(:,:), allocatable :: ncdata
+end type nc2d_float_lld
+
 
 
 !NetCDF(lon, lat) double
-type :: nc2d_double
+
+type :: nc2d_double_lld
   sequence
   character(len=20) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   real(kind=double) :: FillValue
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
-  real(kind=double), dimension(:,:), allocatable ::  ncdata
-end type nc2d_double
+  real(kind=double), dimension(:,:), allocatable :: ncdata
+end type nc2d_double_lld
+
+
 
 !NetCDF(lon, lat, time) byte
-type :: nc3d_byte
+type :: nc3d_byte_llf_ti
+
   sequence
   character(len=20) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=byte) :: FillValue
   integer(kind=intgr), dimension(:), allocatable :: times
-  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:,:), allocatable :: ncdata
-end type nc3d_byte
+end type nc3d_byte_llf_ti
+
+
 
 !NetCDF(lon, lat, time) short
-type :: nc3d_short
+type :: nc3d_short_llf_ti
+
   sequence
   character(len=20) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=short) :: FillValue
   integer(kind=intgr), dimension(:), allocatable :: times
-  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:,:), allocatable :: ncdata
-end type nc3d_short
+end type nc3d_short_llf_ti
+
+
 
 !NetCDF(lon, lat, time) int
-type :: nc3d_int
+type :: nc3d_int_llf_ti
+
   sequence
   character(len=20) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=intgr) :: FillValue
   integer(kind=intgr), dimension(:), allocatable :: times
-  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:,:), allocatable :: ncdata
-end type nc3d_int
+end type nc3d_int_llf_ti
+
+
 
 !NetCDF(lon, lat, time) float
-type :: nc3d_float
+type :: nc3d_float_llf_ti
+
   sequence
   character(len=20) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=float) :: FillValue
   integer(kind=intgr), dimension(:), allocatable :: times
-  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:,:), allocatable :: ncdata
-end type nc3d_float
+end type nc3d_float_llf_ti
+
+
 
 !NetCDF(lon, lat, time) double
-type :: nc3d_double
+type :: nc3d_double_llf_ti
+
   sequence
   character(len=20) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=double) :: FillValue
   integer(kind=intgr), dimension(:), allocatable :: times
-  real(kind=double),dimension(:), allocatable :: longitudes, latitudes
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:), allocatable :: ncdata
-end type nc3d_double
+end type nc3d_double_llf_ti
 
-!Zonal Statistics
-!NetCDF(lon, lat) byte
-type :: zonal_byte
+
+
+!NetCDF(lon, lat, time) byte
+type :: nc3d_byte_lld_ti
+
   sequence
-  integer(kind=intgr), dimension(:), allocatable :: zclass
-  integer(kind=8), dimension(:), allocatable :: zcount
-  real(kind=double), dimension(:), allocatable :: zsum
-  real(kind=double), dimension(:), allocatable :: zaverage
-  integer(kind=byte), dimension(:), allocatable :: zmin
-  integer(kind=byte), dimension(:), allocatable :: zmax
-  real(kind=double), dimension(:), allocatable :: zstdeviation
-  real(kind=double), dimension(:), allocatable :: zvariance
-end type zonal_byte
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=byte) :: FillValue
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=byte), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_byte_lld_ti
 
 
-!NetCDF(lon, lat) short
-type :: zonal_short
+
+!NetCDF(lon, lat, time) short
+type :: nc3d_short_lld_ti
+
   sequence
-  integer(kind=intgr), dimension(:), allocatable :: zclass
-  integer(kind=8), dimension(:), allocatable :: zcount
-  real(kind=double), dimension(:), allocatable :: zsum
-  real(kind=double), dimension(:), allocatable :: zaverage
-  integer(kind=short), dimension(:), allocatable :: zmin
-  integer(kind=short), dimension(:), allocatable :: zmax
-  real(kind=double), dimension(:), allocatable :: zstdeviation
-  real(kind=double), dimension(:), allocatable :: zvariance
-end type zonal_short
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=short) :: FillValue
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=short), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_short_lld_ti
 
 
-!NetCDF(lon, lat) int
-type :: zonal_int
+
+!NetCDF(lon, lat, time) int
+type :: nc3d_int_lld_ti
+
   sequence
-  integer(kind=intgr), dimension(:), allocatable :: zclass
-  integer(kind=8), dimension(:), allocatable :: zcount
-  real(kind=double), dimension(:), allocatable :: zsum
-  real(kind=double), dimension(:), allocatable :: zaverage
-  integer(kind=intgr), dimension(:), allocatable :: zmin
-  integer(kind=intgr), dimension(:), allocatable :: zmax
-  real(kind=double), dimension(:), allocatable :: zstdeviation
-  real(kind=double), dimension(:), allocatable :: zvariance
-end type zonal_int
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=intgr) :: FillValue
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=intgr), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_int_lld_ti
 
 
-!NetCDF(lon, lat) float
-type :: zonal_float
+
+!NetCDF(lon, lat, time) float
+type :: nc3d_float_lld_ti
+
   sequence
-  integer(kind=intgr), dimension(:), allocatable :: zclass
-  integer(kind=8), dimension(:), allocatable :: zcount
-  real(kind=double), dimension(:), allocatable :: zsum
-  real(kind=double), dimension(:), allocatable :: zaverage
-  real(kind=float), dimension(:), allocatable :: zmin
-  real(kind=float), dimension(:), allocatable :: zmax
-  real(kind=double), dimension(:), allocatable :: zstdeviation
-  real(kind=double), dimension(:), allocatable :: zvariance
-end type zonal_float
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  real(kind=float) :: FillValue
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  real(kind=float), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_float_lld_ti
 
 
-!NetCDF(lon, lat) double
-type :: zonal_double
+
+!NetCDF(lon, lat, time) double
+type :: nc3d_double_lld_ti
+
   sequence
-  integer(kind=intgr), dimension(:), allocatable :: zclass
-  integer(kind=8), dimension(:), allocatable :: zcount
-  real(kind=double), dimension(:), allocatable :: zsum
-  real(kind=double), dimension(:), allocatable :: zaverage
-  real(kind=double), dimension(:), allocatable :: zmin
-  real(kind=double), dimension(:), allocatable :: zmax
-  real(kind=double), dimension(:), allocatable :: zstdeviation
-  real(kind=double), dimension(:), allocatable :: zvariance
-end type zonal_double
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  real(kind=double) :: FillValue
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  real(kind=double), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_double_lld_ti
+
+
+
+!NetCDF(lon, lat, time) byte
+type :: nc3d_byte_llf_tf
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=byte) :: FillValue
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=byte), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_byte_llf_tf
+
+
+
+!NetCDF(lon, lat, time) short
+type :: nc3d_short_llf_tf
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=short) :: FillValue
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=short), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_short_llf_tf
+
+
+
+!NetCDF(lon, lat, time) int
+type :: nc3d_int_llf_tf
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=intgr) :: FillValue
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=intgr), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_int_llf_tf
+
+
+
+!NetCDF(lon, lat, time) float
+type :: nc3d_float_llf_tf
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  real(kind=float) :: FillValue
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  real(kind=float), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_float_llf_tf
+
+
+
+!NetCDF(lon, lat, time) double
+type :: nc3d_double_llf_tf
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  real(kind=double) :: FillValue
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  real(kind=double), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_double_llf_tf
+
+
+
+!NetCDF(lon, lat, time) byte
+type :: nc3d_byte_lld_tf
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=byte) :: FillValue
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=byte), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_byte_lld_tf
+
+
+
+!NetCDF(lon, lat, time) short
+type :: nc3d_short_lld_tf
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=short) :: FillValue
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=short), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_short_lld_tf
+
+
+
+!NetCDF(lon, lat, time) int
+type :: nc3d_int_lld_tf
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=intgr) :: FillValue
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=intgr), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_int_lld_tf
+
+
+
+!NetCDF(lon, lat, time) float
+type :: nc3d_float_lld_tf
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  real(kind=float) :: FillValue
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  real(kind=float), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_float_lld_tf
+
+
+
+!NetCDF(lon, lat, time) double
+type :: nc3d_double_lld_tf
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  real(kind=double) :: FillValue
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  real(kind=double), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_double_lld_tf
+
+
+
+!NetCDF(lon, lat, time) byte
+type :: nc3d_byte_llf_td
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=byte) :: FillValue
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=byte), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_byte_llf_td
+
+
+
+!NetCDF(lon, lat, time) short
+type :: nc3d_short_llf_td
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=short) :: FillValue
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=short), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_short_llf_td
+
+
+
+!NetCDF(lon, lat, time) int
+type :: nc3d_int_llf_td
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=intgr) :: FillValue
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=intgr), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_int_llf_td
+
+
+
+!NetCDF(lon, lat, time) float
+type :: nc3d_float_llf_td
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  real(kind=float) :: FillValue
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  real(kind=float), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_float_llf_td
+
+
+
+!NetCDF(lon, lat, time) double
+type :: nc3d_double_llf_td
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  real(kind=double) :: FillValue
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: longitudes, latitudes
+  real(kind=double), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_double_llf_td
+
+
+
+!NetCDF(lon, lat, time) byte
+type :: nc3d_byte_lld_td
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=byte) :: FillValue
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=byte), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_byte_lld_td
+
+
+
+!NetCDF(lon, lat, time) short
+type :: nc3d_short_lld_td
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=short) :: FillValue
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=short), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_short_lld_td
+
+
+
+!NetCDF(lon, lat, time) int
+type :: nc3d_int_lld_td
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  integer(kind=intgr) :: FillValue
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  integer(kind=intgr), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_int_lld_td
+
+
+
+!NetCDF(lon, lat, time) float
+type :: nc3d_float_lld_td
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  real(kind=float) :: FillValue
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  real(kind=float), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_float_lld_td
+
+
+
+!NetCDF(lon, lat, time) double
+type :: nc3d_double_lld_td
+
+  sequence
+  character(len=20) :: varname, timename, lonname, latname, varunits, &
+                       long_name, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  real(kind=double) :: FillValue
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=double), dimension(:), allocatable :: longitudes, latitudes
+  real(kind=double), dimension(:,:,:), allocatable :: ncdata
+end type nc3d_double_lld_td
+
+

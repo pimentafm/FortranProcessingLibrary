@@ -31,12 +31,12 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
 
-!:======= Write 2 dimensional NetCDF byte =====================================
-subroutine writegrid2d_byte(ofile, odata, headerfile)
+!NetCDF <var byte> (lon <float>, lat <float>)
+subroutine writegrid2d_byte_llf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_byte) :: odata
+  type(nc2d_byte_llf) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=intgr), dimension(2) :: dimids
 
@@ -67,7 +67,7 @@ subroutine writegrid2d_byte(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-
+		
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -101,15 +101,16 @@ subroutine writegrid2d_byte(ofile, odata, headerfile)
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
   call check(nf90_close(ncid))
-end subroutine writegrid2d_byte
+end subroutine writegrid2d_byte_llf
 
 
-!:======= Write 2 dimensional NetCDF short =====================================
-subroutine writegrid2d_short(ofile, odata, headerfile)
+
+!NetCDF <var short> (lon <float>, lat <float>)
+subroutine writegrid2d_short_llf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_short) :: odata
+  type(nc2d_short_llf) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=intgr), dimension(2) :: dimids
 
@@ -140,7 +141,7 @@ subroutine writegrid2d_short(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-
+		
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -174,15 +175,16 @@ subroutine writegrid2d_short(ofile, odata, headerfile)
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
   call check(nf90_close(ncid))
-end subroutine writegrid2d_short
+end subroutine writegrid2d_short_llf
 
 
-!:======= Write 2 dimensional NetCDF int =====================================
-subroutine writegrid2d_int(ofile, odata, headerfile)
+
+!NetCDF <var int> (lon <float>, lat <float>)
+subroutine writegrid2d_int_llf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_int) :: odata
+  type(nc2d_int_llf) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=intgr), dimension(2) :: dimids
 
@@ -213,7 +215,7 @@ subroutine writegrid2d_int(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-
+		
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -247,15 +249,16 @@ subroutine writegrid2d_int(ofile, odata, headerfile)
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
   call check(nf90_close(ncid))
-end subroutine writegrid2d_int
+end subroutine writegrid2d_int_llf
 
 
-!:======= Write 2 dimensional NetCDF float =====================================
-subroutine writegrid2d_float(ofile, odata, headerfile)
+
+!NetCDF <var float> (lon <float>, lat <float>)
+subroutine writegrid2d_float_llf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_float) :: odata
+  type(nc2d_float_llf) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=intgr), dimension(2) :: dimids
 
@@ -286,7 +289,7 @@ subroutine writegrid2d_float(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-
+		
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -320,15 +323,16 @@ subroutine writegrid2d_float(ofile, odata, headerfile)
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
   call check(nf90_close(ncid))
-end subroutine writegrid2d_float
+end subroutine writegrid2d_float_llf
 
 
-!:======= Write 2 dimensional NetCDF double =====================================
-subroutine writegrid2d_double(ofile, odata, headerfile)
+
+!NetCDF <var double> (lon <float>, lat <float>)
+subroutine writegrid2d_double_llf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_double) :: odata
+  type(nc2d_double_llf) :: odata
   integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
   integer(kind=intgr), dimension(2) :: dimids
 
@@ -359,7 +363,7 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-
+		
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -393,13 +397,386 @@ subroutine writegrid2d_double(ofile, odata, headerfile)
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
   call check(nf90_close(ncid))
-end subroutine writegrid2d_double
+end subroutine writegrid2d_double_llf
 
-subroutine writegrid3d_byte(ofile, odata, headerfile)
+
+
+!NetCDF <var byte> (lon <double>, lat <double>)
+subroutine writegrid2d_byte_lld(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_byte) :: odata
+  type(nc2d_byte_lld) :: odata
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=intgr), dimension(2) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid2d_byte_lld
+
+
+
+!NetCDF <var short> (lon <double>, lat <double>)
+subroutine writegrid2d_short_lld(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc2d_short_lld) :: odata
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=intgr), dimension(2) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid2d_short_lld
+
+
+
+!NetCDF <var int> (lon <double>, lat <double>)
+subroutine writegrid2d_int_lld(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc2d_int_lld) :: odata
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=intgr), dimension(2) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid2d_int_lld
+
+
+
+!NetCDF <var float> (lon <double>, lat <double>)
+subroutine writegrid2d_float_lld(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc2d_float_lld) :: odata
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=intgr), dimension(2) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid2d_float_lld
+
+
+
+!NetCDF <var double> (lon <double>, lat <double>)
+subroutine writegrid2d_double_lld(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc2d_double_lld) :: odata
+  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
+  integer(kind=intgr), dimension(2) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid2d_double_lld
+
+
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <int>)
+subroutine writegrid3d_byte_llf_ti(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_byte_llf_ti) :: odata
   integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
   integer(kind=intgr), dimension(3) :: dimids
 
@@ -434,7 +811,7 @@ subroutine writegrid3d_byte(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-                
+		
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -471,15 +848,16 @@ subroutine writegrid3d_byte(ofile, odata, headerfile)
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
   call check(nf90_close(ncid))
-end subroutine writegrid3d_byte
+end subroutine writegrid3d_byte_llf_ti
 
 
-!:======= Write 3 dimensional NetCDF short =====================================
-subroutine writegrid3d_short(ofile, odata, headerfile)
+
+!NetCDF <var short> (lon <float>, lat <float>, time <int>)
+subroutine writegrid3d_short_llf_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_short) :: odata
+  type(nc3d_short_llf_ti) :: odata
   integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
   integer(kind=intgr), dimension(3) :: dimids
 
@@ -514,7 +892,7 @@ subroutine writegrid3d_short(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-                
+		
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -551,15 +929,16 @@ subroutine writegrid3d_short(ofile, odata, headerfile)
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
   call check(nf90_close(ncid))
-end subroutine writegrid3d_short
+end subroutine writegrid3d_short_llf_ti
 
 
-!:======= Write 3 dimensional NetCDF int =====================================
-subroutine writegrid3d_int(ofile, odata, headerfile)
+
+!NetCDF <var int> (lon <float>, lat <float>, time <int>)
+subroutine writegrid3d_int_llf_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_int) :: odata
+  type(nc3d_int_llf_ti) :: odata
   integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
   integer(kind=intgr), dimension(3) :: dimids
 
@@ -594,7 +973,7 @@ subroutine writegrid3d_int(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-                
+		
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -631,15 +1010,16 @@ subroutine writegrid3d_int(ofile, odata, headerfile)
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
   call check(nf90_close(ncid))
-end subroutine writegrid3d_int
+end subroutine writegrid3d_int_llf_ti
 
 
-!:======= Write 3 dimensional NetCDF float =====================================
-subroutine writegrid3d_float(ofile, odata, headerfile)
+
+!NetCDF <var float> (lon <float>, lat <float>, time <int>)
+subroutine writegrid3d_float_llf_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_float) :: odata
+  type(nc3d_float_llf_ti) :: odata
   integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
   integer(kind=intgr), dimension(3) :: dimids
 
@@ -674,7 +1054,7 @@ subroutine writegrid3d_float(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-                
+		
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -711,15 +1091,16 @@ subroutine writegrid3d_float(ofile, odata, headerfile)
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
   call check(nf90_close(ncid))
-end subroutine writegrid3d_float
+end subroutine writegrid3d_float_llf_ti
 
 
-!:======= Write 3 dimensional NetCDF double =====================================
-subroutine writegrid3d_double(ofile, odata, headerfile)
+
+!NetCDF <var double> (lon <float>, lat <float>, time <int>)
+subroutine writegrid3d_double_llf_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_double) :: odata
+  type(nc3d_double_llf_ti) :: odata
   integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
   integer(kind=intgr), dimension(3) :: dimids
 
@@ -754,7 +1135,7 @@ subroutine writegrid3d_double(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-                
+		
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -791,5 +1172,2031 @@ subroutine writegrid3d_double(ofile, odata, headerfile)
   call check(nf90_put_var(ncid, varid, odata%ncdata))
 
   call check(nf90_close(ncid))
-end subroutine writegrid3d_double
+end subroutine writegrid3d_double_llf_ti
+
+
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <int>)
+subroutine writegrid3d_byte_lld_ti(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_byte_lld_ti) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_byte_lld_ti
+
+
+
+!NetCDF <var short> (lon <double>, lat <double>, time <int>)
+subroutine writegrid3d_short_lld_ti(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_short_lld_ti) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_short_lld_ti
+
+
+
+!NetCDF <var int> (lon <double>, lat <double>, time <int>)
+subroutine writegrid3d_int_lld_ti(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_int_lld_ti) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_int_lld_ti
+
+
+
+!NetCDF <var float> (lon <double>, lat <double>, time <int>)
+subroutine writegrid3d_float_lld_ti(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_float_lld_ti) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_float_lld_ti
+
+
+
+!NetCDF <var double> (lon <double>, lat <double>, time <int>)
+subroutine writegrid3d_double_lld_ti(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_double_lld_ti) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_double_lld_ti
+
+
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <float>)
+subroutine writegrid3d_byte_llf_tf(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_byte_llf_tf) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_byte_llf_tf
+
+
+
+!NetCDF <var short> (lon <float>, lat <float>, time <float>)
+subroutine writegrid3d_short_llf_tf(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_short_llf_tf) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_short_llf_tf
+
+
+
+!NetCDF <var int> (lon <float>, lat <float>, time <float>)
+subroutine writegrid3d_int_llf_tf(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_int_llf_tf) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_int_llf_tf
+
+
+
+!NetCDF <var float> (lon <float>, lat <float>, time <float>)
+subroutine writegrid3d_float_llf_tf(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_float_llf_tf) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_float_llf_tf
+
+
+
+!NetCDF <var double> (lon <float>, lat <float>, time <float>)
+subroutine writegrid3d_double_llf_tf(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_double_llf_tf) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_double_llf_tf
+
+
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <float>)
+subroutine writegrid3d_byte_lld_tf(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_byte_lld_tf) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_byte_lld_tf
+
+
+
+!NetCDF <var short> (lon <double>, lat <double>, time <float>)
+subroutine writegrid3d_short_lld_tf(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_short_lld_tf) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_short_lld_tf
+
+
+
+!NetCDF <var int> (lon <double>, lat <double>, time <float>)
+subroutine writegrid3d_int_lld_tf(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_int_lld_tf) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_int_lld_tf
+
+
+
+!NetCDF <var float> (lon <double>, lat <double>, time <float>)
+subroutine writegrid3d_float_lld_tf(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_float_lld_tf) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_float_lld_tf
+
+
+
+!NetCDF <var double> (lon <double>, lat <double>, time <float>)
+subroutine writegrid3d_double_lld_tf(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_double_lld_tf) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_double_lld_tf
+
+
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <double>)
+subroutine writegrid3d_byte_llf_td(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_byte_llf_td) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_byte_llf_td
+
+
+
+!NetCDF <var short> (lon <float>, lat <float>, time <double>)
+subroutine writegrid3d_short_llf_td(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_short_llf_td) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_short_llf_td
+
+
+
+!NetCDF <var int> (lon <float>, lat <float>, time <double>)
+subroutine writegrid3d_int_llf_td(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_int_llf_td) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_int_llf_td
+
+
+
+!NetCDF <var float> (lon <float>, lat <float>, time <double>)
+subroutine writegrid3d_float_llf_td(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_float_llf_td) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_float_llf_td
+
+
+
+!NetCDF <var double> (lon <float>, lat <float>, time <double>)
+subroutine writegrid3d_double_llf_td(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_double_llf_td) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_double_llf_td
+
+
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <double>)
+subroutine writegrid3d_byte_lld_td(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_byte_lld_td) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_byte_lld_td
+
+
+
+!NetCDF <var short> (lon <double>, lat <double>, time <double>)
+subroutine writegrid3d_short_lld_td(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_short_lld_td) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_short_lld_td
+
+
+
+!NetCDF <var int> (lon <double>, lat <double>, time <double>)
+subroutine writegrid3d_int_lld_td(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_int_lld_td) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_int_lld_td
+
+
+
+!NetCDF <var float> (lon <double>, lat <double>, time <double>)
+subroutine writegrid3d_float_lld_td(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_float_lld_td) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_float_lld_td
+
+
+
+!NetCDF <var double> (lon <double>, lat <double>, time <double>)
+subroutine writegrid3d_double_lld_td(ofile, odata, headerfile)
+  character(*), intent(in) :: ofile
+  character(*),  optional, intent(in) :: headerfile
+  character(len=21) :: sysdatetime
+  type(nc3d_double_lld_td) :: odata
+  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
+  integer(kind=intgr), dimension(3) :: dimids
+
+  !:=== Header file
+  character(len=100), dimension(:), allocatable :: attribute, content
+  integer(kind=4) :: nkeys = 0
+
+  !Create Netcdf
+  call check(nf90_create(ofile, nf90_clobber, ncid))
+
+  !Define dimensions
+  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
+  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
+  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
+  dimids = (/xdimid, ydimid, tdimid/)
+
+  !Define variables
+  call check(nf90_def_var(ncid, odata%timename, nf90_int, tdimid, tvarid))
+  call check(nf90_put_att(ncid, tvarid, "units", odata%timeunits))
+
+  call check(nf90_def_var(ncid, odata%lonname, nf90_double, xdimid, xvarid))
+  call check(nf90_put_att(ncid, xvarid, "units", odata%lonunits))
+
+  call check(nf90_def_var(ncid, odata%latname, nf90_double, ydimid, yvarid))
+  call check(nf90_put_att(ncid, yvarid, "units", odata%latunits))
+
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_put_att(ncid, varid, "long_name", odata%long_name))
+  call check(nf90_put_att(ncid, varid, "_FillValue", odata%FillValue))
+         
+  call check(nf90_put_att(ncid, varid, "valid_min", & 
+             minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+  call check(nf90_put_att(ncid, varid, "valid_max", & 
+             maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
+		
+  call check(nf90_put_att(ncid, varid, "units", odata%varunits))
+ 
+  !Put Global Attributes
+  call fdate_time(sysdatetime)
+  call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+  call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
+  
+ !Check if headerfile was setted
+  if(present(headerfile))then
+    call file_exists(headerfile) !Check if headerfile exists
+    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+
+    allocate(attribute(nkeys))
+    allocate(content(nkeys))
+
+    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+
+    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+    end do
+  end if
+  call check(nf90_enddef(ncid))
+
+  !Write times
+  call check(nf90_put_var(ncid, tvarid, odata%times))
+ 
+  !Write longitudes
+  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
+
+  !Write latitudes
+  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+
+  !Write variable
+  call check(nf90_put_var(ncid, varid, odata%ncdata))
+
+  call check(nf90_close(ncid))
+end subroutine writegrid3d_double_lld_td
+
 

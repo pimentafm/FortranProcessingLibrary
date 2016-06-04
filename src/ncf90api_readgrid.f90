@@ -31,10 +31,10 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
 
-!:======= Read 2 dimensional NetCDF byte ==========================
-subroutine readgrid2d_byte(ifile, idata)
+!NetCDF <var byte> (lon <float>, lat <float>)
+subroutine readgrid2d_byte_llf(ifile, idata)
   character(*), intent(in) :: ifile
-  type(nc2d_byte) :: idata
+  type(nc2d_byte_llf) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
 
@@ -66,13 +66,14 @@ subroutine readgrid2d_byte(ifile, idata)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
-end subroutine readgrid2d_byte
+end subroutine readgrid2d_byte_llf
 
 
-!:======= Read 2 dimensional NetCDF short ==========================
-subroutine readgrid2d_short(ifile, idata)
+
+!NetCDF <var short> (lon <float>, lat <float>)
+subroutine readgrid2d_short_llf(ifile, idata)
   character(*), intent(in) :: ifile
-  type(nc2d_short) :: idata
+  type(nc2d_short_llf) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
 
@@ -104,13 +105,14 @@ subroutine readgrid2d_short(ifile, idata)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
-end subroutine readgrid2d_short
+end subroutine readgrid2d_short_llf
 
 
-!:======= Read 2 dimensional NetCDF int ==========================
-subroutine readgrid2d_int(ifile, idata)
+
+!NetCDF <var int> (lon <float>, lat <float>)
+subroutine readgrid2d_int_llf(ifile, idata)
   character(*), intent(in) :: ifile
-  type(nc2d_int) :: idata
+  type(nc2d_int_llf) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
 
@@ -142,13 +144,14 @@ subroutine readgrid2d_int(ifile, idata)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
-end subroutine readgrid2d_int
+end subroutine readgrid2d_int_llf
 
 
-!:======= Read 2 dimensional NetCDF float ==========================
-subroutine readgrid2d_float(ifile, idata)
+
+!NetCDF <var float> (lon <float>, lat <float>)
+subroutine readgrid2d_float_llf(ifile, idata)
   character(*), intent(in) :: ifile
-  type(nc2d_float) :: idata
+  type(nc2d_float_llf) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
 
@@ -180,13 +183,14 @@ subroutine readgrid2d_float(ifile, idata)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
-end subroutine readgrid2d_float
+end subroutine readgrid2d_float_llf
 
 
-!:======= Read 2 dimensional NetCDF double ==========================
-subroutine readgrid2d_double(ifile, idata)
+
+!NetCDF <var double> (lon <float>, lat <float>)
+subroutine readgrid2d_double_llf(ifile, idata)
   character(*), intent(in) :: ifile
-  type(nc2d_double) :: idata
+  type(nc2d_double_llf) :: idata
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
 
@@ -218,12 +222,209 @@ subroutine readgrid2d_double(ifile, idata)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
-end subroutine readgrid2d_double
+end subroutine readgrid2d_double_llf
 
-!:======= Read 3 dimensional NetCDF byte ==========================
-subroutine readgrid3d_byte(ifile, idata)
+
+
+!NetCDF <var byte> (lon <double>, lat <double>)
+subroutine readgrid2d_byte_lld(ifile, idata)
   character(*), intent(in) :: ifile
-  type(nc3d_byte) :: idata
+  type(nc2d_byte_lld) :: idata
+
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"BYTE", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid2d_byte_lld
+
+
+
+!NetCDF <var short> (lon <double>, lat <double>)
+subroutine readgrid2d_short_lld(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc2d_short_lld) :: idata
+
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"SHORT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid2d_short_lld
+
+
+
+!NetCDF <var int> (lon <double>, lat <double>)
+subroutine readgrid2d_int_lld(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc2d_int_lld) :: idata
+
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"INT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid2d_int_lld
+
+
+
+!NetCDF <var float> (lon <double>, lat <double>)
+subroutine readgrid2d_float_lld(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc2d_float_lld) :: idata
+
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"FLOAT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid2d_float_lld
+
+
+
+!NetCDF <var double> (lon <double>, lat <double>)
+subroutine readgrid2d_double_lld(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc2d_double_lld) :: idata
+
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"DOUBLE", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid2d_double_lld
+
+
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <int>)
+subroutine readgrid3d_byte_llf_ti(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_byte_llf_ti) :: idata
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
 
@@ -261,13 +462,14 @@ subroutine readgrid3d_byte(ifile, idata)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
-end subroutine readgrid3d_byte
+end subroutine readgrid3d_byte_llf_ti
 
 
-!:======= Read 3 dimensional NetCDF short ==========================
-subroutine readgrid3d_short(ifile, idata)
+
+!NetCDF <var short> (lon <float>, lat <float>, time <int>)
+subroutine readgrid3d_short_llf_ti(ifile, idata)
   character(*), intent(in) :: ifile
-  type(nc3d_short) :: idata
+  type(nc3d_short_llf_ti) :: idata
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
 
@@ -305,13 +507,14 @@ subroutine readgrid3d_short(ifile, idata)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
-end subroutine readgrid3d_short
+end subroutine readgrid3d_short_llf_ti
 
 
-!:======= Read 3 dimensional NetCDF int ==========================
-subroutine readgrid3d_int(ifile, idata)
+
+!NetCDF <var int> (lon <float>, lat <float>, time <int>)
+subroutine readgrid3d_int_llf_ti(ifile, idata)
   character(*), intent(in) :: ifile
-  type(nc3d_int) :: idata
+  type(nc3d_int_llf_ti) :: idata
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
 
@@ -349,13 +552,14 @@ subroutine readgrid3d_int(ifile, idata)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
-end subroutine readgrid3d_int
+end subroutine readgrid3d_int_llf_ti
 
 
-!:======= Read 3 dimensional NetCDF float ==========================
-subroutine readgrid3d_float(ifile, idata)
+
+!NetCDF <var float> (lon <float>, lat <float>, time <int>)
+subroutine readgrid3d_float_llf_ti(ifile, idata)
   character(*), intent(in) :: ifile
-  type(nc3d_float) :: idata
+  type(nc3d_float_llf_ti) :: idata
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
 
@@ -393,13 +597,14 @@ subroutine readgrid3d_float(ifile, idata)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
-end subroutine readgrid3d_float
+end subroutine readgrid3d_float_llf_ti
 
 
-!:======= Read 3 dimensional NetCDF double ==========================
-subroutine readgrid3d_double(ifile, idata)
+
+!NetCDF <var double> (lon <float>, lat <float>, time <int>)
+subroutine readgrid3d_double_llf_ti(ifile, idata)
   character(*), intent(in) :: ifile
-  type(nc3d_double) :: idata
+  type(nc3d_double_llf_ti) :: idata
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
 
@@ -437,5 +642,1144 @@ subroutine readgrid3d_double(ifile, idata)
   call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
 
   call check(nf90_close(ncid))
-end subroutine readgrid3d_double
+end subroutine readgrid3d_double_llf_ti
+
+
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <int>)
+subroutine readgrid3d_byte_lld_ti(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_byte_lld_ti) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"BYTE", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_byte_lld_ti
+
+
+
+!NetCDF <var short> (lon <double>, lat <double>, time <int>)
+subroutine readgrid3d_short_lld_ti(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_short_lld_ti) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"SHORT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_short_lld_ti
+
+
+
+!NetCDF <var int> (lon <double>, lat <double>, time <int>)
+subroutine readgrid3d_int_lld_ti(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_int_lld_ti) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"INT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_int_lld_ti
+
+
+
+!NetCDF <var float> (lon <double>, lat <double>, time <int>)
+subroutine readgrid3d_float_lld_ti(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_float_lld_ti) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"FLOAT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_float_lld_ti
+
+
+
+!NetCDF <var double> (lon <double>, lat <double>, time <int>)
+subroutine readgrid3d_double_lld_ti(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_double_lld_ti) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"DOUBLE", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_double_lld_ti
+
+
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <float>)
+subroutine readgrid3d_byte_llf_tf(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_byte_llf_tf) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"BYTE", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_byte_llf_tf
+
+
+
+!NetCDF <var short> (lon <float>, lat <float>, time <float>)
+subroutine readgrid3d_short_llf_tf(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_short_llf_tf) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"SHORT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_short_llf_tf
+
+
+
+!NetCDF <var int> (lon <float>, lat <float>, time <float>)
+subroutine readgrid3d_int_llf_tf(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_int_llf_tf) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"INT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_int_llf_tf
+
+
+
+!NetCDF <var float> (lon <float>, lat <float>, time <float>)
+subroutine readgrid3d_float_llf_tf(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_float_llf_tf) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"FLOAT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_float_llf_tf
+
+
+
+!NetCDF <var double> (lon <float>, lat <float>, time <float>)
+subroutine readgrid3d_double_llf_tf(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_double_llf_tf) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"DOUBLE", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_double_llf_tf
+
+
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <float>)
+subroutine readgrid3d_byte_lld_tf(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_byte_lld_tf) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"BYTE", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_byte_lld_tf
+
+
+
+!NetCDF <var short> (lon <double>, lat <double>, time <float>)
+subroutine readgrid3d_short_lld_tf(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_short_lld_tf) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"SHORT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_short_lld_tf
+
+
+
+!NetCDF <var int> (lon <double>, lat <double>, time <float>)
+subroutine readgrid3d_int_lld_tf(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_int_lld_tf) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"INT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_int_lld_tf
+
+
+
+!NetCDF <var float> (lon <double>, lat <double>, time <float>)
+subroutine readgrid3d_float_lld_tf(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_float_lld_tf) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"FLOAT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_float_lld_tf
+
+
+
+!NetCDF <var double> (lon <double>, lat <double>, time <float>)
+subroutine readgrid3d_double_lld_tf(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_double_lld_tf) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"DOUBLE", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_double_lld_tf
+
+
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <double>)
+subroutine readgrid3d_byte_llf_td(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_byte_llf_td) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"BYTE", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_byte_llf_td
+
+
+
+!NetCDF <var short> (lon <float>, lat <float>, time <double>)
+subroutine readgrid3d_short_llf_td(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_short_llf_td) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"SHORT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_short_llf_td
+
+
+
+!NetCDF <var int> (lon <float>, lat <float>, time <double>)
+subroutine readgrid3d_int_llf_td(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_int_llf_td) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"INT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_int_llf_td
+
+
+
+!NetCDF <var float> (lon <float>, lat <float>, time <double>)
+subroutine readgrid3d_float_llf_td(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_float_llf_td) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"FLOAT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_float_llf_td
+
+
+
+!NetCDF <var double> (lon <float>, lat <float>, time <double>)
+subroutine readgrid3d_double_llf_td(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_double_llf_td) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"DOUBLE", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_double_llf_td
+
+
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <double>)
+subroutine readgrid3d_byte_lld_td(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_byte_lld_td) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"BYTE", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_byte_lld_td
+
+
+
+!NetCDF <var short> (lon <double>, lat <double>, time <double>)
+subroutine readgrid3d_short_lld_td(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_short_lld_td) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"SHORT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_short_lld_td
+
+
+
+!NetCDF <var int> (lon <double>, lat <double>, time <double>)
+subroutine readgrid3d_int_lld_td(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_int_lld_td) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"INT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_int_lld_td
+
+
+
+!NetCDF <var float> (lon <double>, lat <double>, time <double>)
+subroutine readgrid3d_float_lld_td(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_float_lld_td) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  !write(*,*) "ntimes: ", idata%ntimes
+  !write(*,*) "nlats: ", idata%nlats
+  !write(*,*) "nlons: ", idata%nlons
+  !write(*,*) "timename: ", idata%timename
+  !write(*,*) "latname: ", idata%latname
+  !write(*,*) "lonanme: ", idata%lonname
+  !write(*,*) "timeunits: ", idata%timeunits
+  !write(*,*) "latunits: ", idata%latunits
+  !write(*,*) "lonunits: ", idata%lonunits
+  !write(*,*) "varunits: ", idata%varunits
+  
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits), "timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"FLOAT", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_float_lld_td
+
+
+
+!NetCDF <var double> (lon <double>, lat <double>, time <double>)
+subroutine readgrid3d_double_lld_td(ifile, idata)
+  character(*), intent(in) :: ifile
+  type(nc3d_double_lld_td) :: idata
+
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+
+  call ncoords(ifile, idata)
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))
+  allocate(idata%latitudes(idata%nlats))
+
+  !Open NetCDF
+  call check(nf90_open(ifile, nf90_nowrite, ncid))
+
+  !Get time
+  call check(nf90_inq_varid(ncid, idata%timename, tvarid))
+  call check(nf90_get_var(ncid, tvarid, idata%times))
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
+
+  !Get Lons, Lats and variable values
+  call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
+  call check(nf90_get_var(ncid, xvarid, idata%longitudes))
+  call check(nf90_get_att(ncid, xvarid, "units", idata%lonunits),"lonunits", ifile)
+
+  call check(nf90_inq_varid(ncid, idata%latname, yvarid))
+  call check(nf90_get_var(ncid, yvarid, idata%latitudes))
+  call check(nf90_get_att(ncid, yvarid, "units", idata%latunits), "latunits", ifile)
+
+  !Get Variable name
+  call check(nf90_inq_varid(ncid, idata%varname, varid), idata%varname, ifile)
+  call check(nf90_get_var(ncid, varid, idata%ncdata), idata%vartype,"DOUBLE", ifile)
+
+  !Get some attributes
+  call check(nf90_get_att(ncid, varid, "long_name", idata%long_name), "long_name", ifile)
+  call check(nf90_get_att(ncid, varid, "_FillValue", idata%FillValue), "_FillValue", ifile)
+  call check(nf90_get_att(ncid, varid, "units", idata%varunits),"varunits", ifile)
+
+  call check(nf90_close(ncid))
+end subroutine readgrid3d_double_lld_td
+
 

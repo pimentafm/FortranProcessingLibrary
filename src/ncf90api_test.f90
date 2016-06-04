@@ -38,54 +38,60 @@ program main
 
   !integer :: i, j, k
 
-  type(nc3d_double) :: cattle
-  type(nc2d_byte) :: maskara
+!  type(nc3d_double_lld_ti) :: cattle
+  type(nc3d_float_lld_td) :: spectral
+!  type(nc2d_byte_lld) :: maskara
 
-  character(200) :: inputpath, outputpath, maskfile
+  character(200) :: inputpath, outputpath, outputpath2, maskfile, inputspectral
 
   inputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/CATTLE19902012.nc"
+  
+  inputspectral = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/test_echam_spectral.nc"
 
   maskfile = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/maskestadosBRbyte.nc"
 
-  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/cattle3.nc"
+  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/output/cattle3.nc"
+  
+  outputpath2 = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/output/spectral.nc"
 
-  cattle%varname = "Cattle"
-  cattle%timename = "time"
-  cattle%lonname = "lon"
-  cattle%latname = "lat"
+  spectral%varname = "albedo_nir"
+  spectral%timename = "time"
+  spectral%lonname = "lon"
+  spectral%latname = "lat"
+  
+!  cattle%varname = "Cattle"
+!  cattle%timename = "time"
+!  cattle%lonname = "lon"
+!  cattle%latname = "lat"
  
-  maskara%varname = "Band1"
-  maskara%lonname = "lon"
-  maskara%latname = "lat"
+!  maskara%varname = "Band1"
+!  maskara%lonname = "lon"
+!  maskara%latname = "lat"
 
-  write(*,*) "ntimes: ", cattle%ntimes
-  write(*,*) "nlats: ", cattle%nlats
-  write(*,*) "nlons: ", cattle%nlons
-  write(*,*) "timename: ", cattle%timename
-  write(*,*) "latname: ", cattle%latname
-  write(*,*) "lonanme: ", cattle%lonname
-  write(*,*) "timeunits: ", cattle%timeunits
-  write(*,*) "latunits: ", cattle%latunits
-  write(*,*) "lonunits: ", cattle%lonunits
-  write(*,*) "varunits: ", cattle%varunits
+
+  call readgrid(inputspectral, spectral)
+  
+  !call ncoords(inputspectral, spectral)
+
+write(*,*) "After"  
+  write(*,*) "ntimes: ", spectral%ntimes
+  write(*,*) "nlats: ", spectral%nlats
+  write(*,*) "nlons: ", spectral%nlons
+  write(*,*) "timename: ", spectral%timename
+  write(*,*) "latname: ", spectral%latname
+  write(*,*) "lonanme: ", spectral%lonname
+  write(*,*) "timeunits: ", spectral%timeunits
+  write(*,*) "latunits: ", spectral%latunits
+  write(*,*) "lonunits: ", spectral%lonunits
+  write(*,*) "varunits: ", spectral%varunits
  
-  call readgrid(maskfile, maskara)
+!  call readgrid(maskfile, maskara)
  
-  call readgrid(inputpath, cattle)
 
-  !do i = 1,cattle%ntimes
-  !  do j = 1, cattle%nlats, 10
-  !    do k = 1, cattle%nlons, 10
-  !      if(cattle%ncdata(j,k,i).gt.cattle%FillValue)then
-  !        write(*,*)cattle%ncdata(j, k, i), i, j, k
-  !      end if
-  !    end do
-  !  end do
-  !end do
+!  call readgrid(inputpath, cattle)
 
-  !outfile = landuse
-  call setFillValue(maskara, cattle, 21)
+!  call setFillValue(maskara, cattle, 21)
 
-  call writegrid(outputpath, cattle)
- 
+!  call writegrid(outputpath, cattle)
+  call writegrid(outputpath2, spectral) 
 end program main
