@@ -39,7 +39,9 @@ program main
   !integer :: i, j, k
 
 !  type(nc3d_double_lld_ti) :: cattle
+
   type(nc3d_float_lld_td) :: spectral
+
 !  type(nc2d_byte_lld) :: maskara
 
   character(200) :: inputpath, outputpath, outputpath2, maskfile, inputspectral
@@ -68,12 +70,11 @@ program main
 !  maskara%lonname = "lon"
 !  maskara%latname = "lat"
 
-
   call readgrid(inputspectral, spectral)
   
   !call ncoords(inputspectral, spectral)
 
-write(*,*) "After"  
+!  write(*,*) "After"  
   write(*,*) "ntimes: ", spectral%ntimes
   write(*,*) "nlats: ", spectral%nlats
   write(*,*) "nlons: ", spectral%nlons
@@ -87,11 +88,12 @@ write(*,*) "After"
  
 !  call readgrid(maskfile, maskara)
  
-
 !  call readgrid(inputpath, cattle)
 
 !  call setFillValue(maskara, cattle, 21)
 
 !  call writegrid(outputpath, cattle)
+
   call writegrid(outputpath2, spectral) 
+
 end program main

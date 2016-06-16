@@ -32,7 +32,7 @@
 ===============================================================================
 
 TODO:
-    -> Develop a better way to generate subroutines in fortran from ShellScripts.
+    OK Develop a better way to generate subroutines in fortran from ShellScripts.
     -> Develop an interface to call subroutines in fortran from the command line.
     -> Develop a deallocate datatype subroutine.
     OK Add valid_min and valid_max in netcdf datatypes.
