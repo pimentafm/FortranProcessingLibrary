@@ -22,6 +22,8 @@ Contents:
 Quick links:
 ------------
 
+  * GNU Fortran Compiler https://gcc.gnu.org/onlinedocs/gfortran/
+  * NetCDF Library (C/C++ and Fortran) http://www.unidata.ucar.edu/software/netcdf/
   * Fortran 90 Documentation http://www.fortran90.org/
   * Fortran Standards: https://gcc.gnu.org/wiki/GFortranStandards
 
