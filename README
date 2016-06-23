@@ -41,7 +41,8 @@ TODO:
     OK Develop function to check if exists _FillValue variable in the file. 
     OK User can use GDAL for set a _FillValue into netcdf file easily.
     -> Parallelize the code.
-    -> Implement subroutines to 3D and 4D I/O. 
+    OK Implement subroutines for 3D I/O. 
+    -> Implement subroutines for 4D I/O. 
     -> Implement map plotting subroutine.
     -> Implement subroutines to datatype conversions.
     -> Command Line Args to call subroutines
