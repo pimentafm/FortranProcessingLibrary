@@ -67,7 +67,7 @@ subroutine writegrid2d_byte_llf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
