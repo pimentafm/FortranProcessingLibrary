@@ -30,8 +30,12 @@
 
 #Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 #:=============================================================================
+srcdir=$(shell pwd)/src/
+ncf90lib=libncf90api.so
+ncf90mod=ncf90api.mod
 compile:
-	gfortran -shared -fPIC -o libncf90api.so ncf90api.f90 -I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
-	mv libncf90api.so /usr/lib64/
-	mv ncf90api.mod /usr/lib64/gfortran/modules/
-	gfortran -Wall -W ncf90api_test.f90 -I/usr/lib64/gfortran/modules/ -lncf90api
+	gfortran -shared -fPIC -o $(ncf90lib) $(srcdir)ncf90api.f90 -I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
+	chown 775 $(ncf90lib)
+	mv $(ncf90lib) /usr/lib64/
+	mv $(ncf90mod) /usr/lib64/gfortran/modules/
+	gfortran -Wall -W $(srcdir)ncf90api_test.f90 -I/usr/lib64/gfortran/modules/ -lncf90api
