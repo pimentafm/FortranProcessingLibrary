@@ -33,9 +33,12 @@
 srcdir=$(shell pwd)/src/
 ncf90lib=libncf90api.so
 ncf90mod=ncf90api.mod
-progname=ncf90api_test
-compile:
-	gfortran -Wall -W -o $(progname) ncf90api_test.f90 -I/usr/local/ncf90api/ -lncf90api
+progname=ncf90api_
 
+ex1:
+	gfortran -Wall -W -o $(progname)getinfo.out ncf90api_getinfo.f90 -I/usr/local/ncf90api/ -lncf90api
+
+ex2:	
+	gfortran -Wall -W -o $(progname)test.out ncf90api_test.f90 -I/usr/local/ncf90api/ -lncf90api
 clean:
-	rm -rf $(progname)
+	rm -f *.out

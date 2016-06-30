@@ -36,64 +36,32 @@ program main
   use ncf90api
   implicit none
 
-  !integer :: i, j, k
+  !Structure declarations
+  type(nc3d_double_lld_ti) :: cattle
 
-!  type(nc3d_double_lld_ti) :: cattle
-
-  type(nc3d_float_lld_td) :: spectral
-
-!  type(nc2d_byte_lld) :: maskara
-
-  character(200) :: inputpath, outputpath, outputpath2, maskfile, inputspectral
+  type(nc2d_byte_lld) :: maskara
+  
+  character(200) :: inputpath, outputpath, maskfile
 
   inputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/CATTLE19902012.nc"
-  
-  inputspectral = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/test_echam_spectral.nc"
-
   maskfile = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/maskestadosBRbyte.nc"
-
   outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/output/cattle3.nc"
   
-  outputpath2 = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/output/spectral.nc"
-
-  spectral%varname = "albedo_nir"
-  spectral%timename = "time"
-  spectral%lonname = "lon"
-  spectral%latname = "lat"
-  
-!  cattle%varname = "Cattle"
-!  cattle%timename = "time"
-!  cattle%lonname = "lon"
-!  cattle%latname = "lat"
+  cattle%varname = "Cattle"
+  cattle%timename = "time"
+  cattle%lonname = "lon"
+  cattle%latname = "lat"
  
-!  maskara%varname = "Band1"
-!  maskara%lonname = "lon"
-!  maskara%latname = "lat"
+  maskara%varname = "Band1"
+  maskara%lonname = "lon"
+  maskara%latname = "lat"
 
-  call readgrid(inputspectral, spectral)
-  
-  !call ncoords(inputspectral, spectral)
-
-!  write(*,*) "After"  
-  write(*,*) "ntimes: ", spectral%ntimes
-  write(*,*) "nlats: ", spectral%nlats
-  write(*,*) "nlons: ", spectral%nlons
-  write(*,*) "timename: ", spectral%timename
-  write(*,*) "latname: ", spectral%latname
-  write(*,*) "lonanme: ", spectral%lonname
-  write(*,*) "timeunits: ", spectral%timeunits
-  write(*,*) "latunits: ", spectral%latunits
-  write(*,*) "lonunits: ", spectral%lonunits
-  write(*,*) "varunits: ", spectral%varunits
+  call readgrid(maskfile, maskara)
  
-!  call readgrid(maskfile, maskara)
- 
-!  call readgrid(inputpath, cattle)
+  call readgrid(inputpath, cattle)
 
-!  call setFillValue(maskara, cattle, 21)
+  call setFillValue(maskara, cattle, 21)
 
-!  call writegrid(outputpath, cattle)
-
-  call writegrid(outputpath2, spectral) 
+  call writegrid(outputpath, cattle)
 
 end program main
