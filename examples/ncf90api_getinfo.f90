@@ -36,6 +36,10 @@ program main
   use ncf90api
   implicit none
 
+  !Database download from UNIDATA:
+  !                               file: test_echam_spectral.nc
+  !                               http://www.unidata.ucar.edu/software/netcdf/examples/files.html                  
+
   !Set float datatype 3d dataset with, longitude and latitude and time in double datatype  
   type(nc3d_float_lld_td) :: spectral
 
@@ -52,7 +56,7 @@ program main
   spectral%lonname = "lon"
   spectral%latname = "lat"
 
-  !Call function to read the data (readgrid(input__data_path, defined_data_structure))
+  !Call function to read the data (readgrid(input_data_path, defined_data_structure))
   call readgrid(inputpath, spectral)
   
   write(*,*) "====== Dataset Information ======="
@@ -77,14 +81,6 @@ program main
 100 format(2a10)
 101 format(a10,i10)
  
-!  call readgrid(maskfile, maskara)
- 
-!  call readgrid(inputpath, cattle)
-
-!  call setFillValue(maskara, cattle, 21)
-
-!  call writegrid(outputpath, cattle)
-
   call writegrid(outputpath, spectral) 
 
 end program main
