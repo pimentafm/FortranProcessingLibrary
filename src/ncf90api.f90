@@ -33,6 +33,7 @@
 
 !:==================== Fortran NetCDF API Main Module =========================
 module ncf90api
+  use omp_lib
   use netcdf
   use iso_c_binding
   implicit none
@@ -50,3 +51,4 @@ module ncf90api
 !  include "ncf90api_zonalstats.f90"  !Zonal Statistics subroutines
   include "ncf90api_fileutils.f90"   !File Utilities
 end module ncf90api
+
