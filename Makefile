@@ -45,13 +45,14 @@ ncf90api_docs=docs/_build/html/
 ncf90api_lib=libncf90api.so
 ncf90api_mod=ncf90api.mod
 
-FLAGS=-Wall -shared -fPIC
+COMPILER=gfortran
+FLAGS=-Wall -shared -fPIC -cpp
 OPENMP=-fopenmp
 
 $(shell mkdir -p $(ncf90api_libdir))
 
 compile:
-	gfortran $(OPENMP) $(FLAGS) -o $(ncf90api_lib) $(ncf90api_srcdir)ncf90api.f90 $(netcdf_mod) -lnetcdff -lnetcdf
+	$(COMPILER) $(OPENMP) $(FLAGS) -o $(ncf90api_lib) $(ncf90api_srcdir)ncf90api.f90 $(netcdf_mod) -lnetcdff -lnetcdf
 	chown 775 $(ncf90api_lib)
 	mv $(ncf90api_lib) $(ncf90api_libdir)
 	mv $(ncf90api_mod) $(ncf90api_libdir)

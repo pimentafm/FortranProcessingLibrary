@@ -70,12 +70,16 @@ program main
   maskara%lonname = "lon"
   maskara%latname = "lat"
 
+  write(*,*)"Readind data"
   call readgrid(maskfile, maskara)
  
+  write(*,*)"Reading mask"
   call readgrid(inputpath, cattle)
 
+  write(*,*)"Setting FillValue"
   call setFillValue(maskara, cattle, 21)
 
+  write(*,*) "Writing data"
   call writegrid(outputpath, cattle)
 
 end program main

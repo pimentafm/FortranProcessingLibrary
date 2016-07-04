@@ -34,11 +34,13 @@ srcdir=$(shell pwd)/src/
 ncf90lib=libncf90api.so
 ncf90mod=ncf90api.mod
 progname=ncf90api_
+FLAGS=-Wall
 OPENMP=-fopenmp
+
 ex1:
-	gfortran -Wall -W -o $(progname)getinfo.out ncf90api_getinfo.f90 -I/usr/local/ncf90api/ -lncf90api
+	gfortran $(FLAGS) -o $(progname)getinfo.out ncf90api_getinfo.f90 -I/usr/local/ncf90api/ -lncf90api
 
 ex2:	
-	gfortran -Wall -W -o $(progname)mask.out ncf90api_mask.f90 -I/usr/local/ncf90api/ -lncf90api
+	gfortran $(FLAGS) -Wall -W -o $(progname)mask.out ncf90api_mask.f90 -I/usr/local/ncf90api/ -lncf90api
 clean:
 	rm -f *.out
