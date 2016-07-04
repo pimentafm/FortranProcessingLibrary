@@ -43,7 +43,7 @@ for i in {0..4}; do
 !NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>)
 subroutine ncoords2d_${arr[$i]}_ll${arrid[$j]}(ifile, idata)
   type (nc2d_${arr[$i]}_ll${arrid[$j]}) :: idata
-  integer(kind=intgr) :: ncid, xdimid, ydimid, vdimid, varid
+  integer(kind=intgr) :: ncid, xdimid, ydimid, varid
   character(*), intent(in) :: ifile
 
   !Open NetCDF File
@@ -76,7 +76,7 @@ for i in {0..4}; do
 !NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>, time <${arr[$k]}>)
 subroutine ncoords3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ifile, idata)
   type (nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}) :: idata 
-  integer(kind=intgr) :: ncid, tdimid, xdimid, ydimid, vdimid, varid
+  integer(kind=intgr) :: ncid, tdimid, xdimid, ydimid, varid
   character(*), intent(in) :: ifile
 
   !Open NetCDF File

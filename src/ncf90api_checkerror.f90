@@ -90,7 +90,6 @@ subroutine checktype(ncstatus, rvar, dvar, ifile)
   integer, intent(in) :: ncstatus, rvar
   character(*), intent(in) :: dvar, ifile
   character(len(dvar)) :: dvaraux
-  character(len=8) :: dtype
 
   if(rvar.eq.6) dvaraux = "DOUBLE"
   if(rvar.eq.5) dvaraux = "FLOAT"

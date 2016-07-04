@@ -36,7 +36,7 @@ subroutine readgrid2d_byte_llf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc2d_byte_llf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -75,7 +75,7 @@ subroutine readgrid2d_short_llf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc2d_short_llf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -114,7 +114,7 @@ subroutine readgrid2d_int_llf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc2d_int_llf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -153,7 +153,7 @@ subroutine readgrid2d_float_llf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc2d_float_llf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -192,7 +192,7 @@ subroutine readgrid2d_double_llf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc2d_double_llf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -231,7 +231,7 @@ subroutine readgrid2d_byte_lld(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc2d_byte_lld) :: idata
 
-  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -270,7 +270,7 @@ subroutine readgrid2d_short_lld(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc2d_short_lld) :: idata
 
-  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -309,7 +309,7 @@ subroutine readgrid2d_int_lld(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc2d_int_lld) :: idata
 
-  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -348,7 +348,7 @@ subroutine readgrid2d_float_lld(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc2d_float_lld) :: idata
 
-  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -387,7 +387,7 @@ subroutine readgrid2d_double_lld(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc2d_double_lld) :: idata
 
-  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -426,7 +426,7 @@ subroutine readgrid3d_byte_llf_ti(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_byte_llf_ti) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -471,7 +471,7 @@ subroutine readgrid3d_short_llf_ti(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_short_llf_ti) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -516,7 +516,7 @@ subroutine readgrid3d_int_llf_ti(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_int_llf_ti) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -561,7 +561,7 @@ subroutine readgrid3d_float_llf_ti(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_float_llf_ti) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -606,7 +606,7 @@ subroutine readgrid3d_double_llf_ti(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_double_llf_ti) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -651,7 +651,7 @@ subroutine readgrid3d_byte_lld_ti(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_byte_lld_ti) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -696,7 +696,7 @@ subroutine readgrid3d_short_lld_ti(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_short_lld_ti) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -741,7 +741,7 @@ subroutine readgrid3d_int_lld_ti(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_int_lld_ti) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -786,7 +786,7 @@ subroutine readgrid3d_float_lld_ti(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_float_lld_ti) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -831,7 +831,7 @@ subroutine readgrid3d_double_lld_ti(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_double_lld_ti) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -876,7 +876,7 @@ subroutine readgrid3d_byte_llf_tf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_byte_llf_tf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -921,7 +921,7 @@ subroutine readgrid3d_short_llf_tf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_short_llf_tf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -966,7 +966,7 @@ subroutine readgrid3d_int_llf_tf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_int_llf_tf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1011,7 +1011,7 @@ subroutine readgrid3d_float_llf_tf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_float_llf_tf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1056,7 +1056,7 @@ subroutine readgrid3d_double_llf_tf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_double_llf_tf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1101,7 +1101,7 @@ subroutine readgrid3d_byte_lld_tf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_byte_lld_tf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1146,7 +1146,7 @@ subroutine readgrid3d_short_lld_tf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_short_lld_tf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1191,7 +1191,7 @@ subroutine readgrid3d_int_lld_tf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_int_lld_tf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1236,7 +1236,7 @@ subroutine readgrid3d_float_lld_tf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_float_lld_tf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1281,7 +1281,7 @@ subroutine readgrid3d_double_lld_tf(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_double_lld_tf) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1326,7 +1326,7 @@ subroutine readgrid3d_byte_llf_td(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_byte_llf_td) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1371,7 +1371,7 @@ subroutine readgrid3d_short_llf_td(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_short_llf_td) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1416,7 +1416,7 @@ subroutine readgrid3d_int_llf_td(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_int_llf_td) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1461,7 +1461,7 @@ subroutine readgrid3d_float_llf_td(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_float_llf_td) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1506,7 +1506,7 @@ subroutine readgrid3d_double_llf_td(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_double_llf_td) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1551,7 +1551,7 @@ subroutine readgrid3d_byte_lld_td(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_byte_lld_td) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1596,7 +1596,7 @@ subroutine readgrid3d_short_lld_td(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_short_lld_td) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1641,7 +1641,7 @@ subroutine readgrid3d_int_lld_td(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_int_lld_td) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -1686,23 +1686,11 @@ subroutine readgrid3d_float_lld_td(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_float_lld_td) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
-  !write(*,*) "ntimes: ", idata%ntimes
-  !write(*,*) "nlats: ", idata%nlats
-  !write(*,*) "nlons: ", idata%nlons
-  !write(*,*) "timename: ", idata%timename
-  !write(*,*) "latname: ", idata%latname
-  !write(*,*) "lonanme: ", idata%lonname
-  !write(*,*) "timeunits: ", idata%timeunits
-  !write(*,*) "latunits: ", idata%latunits
-  !write(*,*) "lonunits: ", idata%lonunits
-  !write(*,*) "varunits: ", idata%varunits
-  
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
-
   allocate(idata%times(idata%ntimes))
   allocate(idata%longitudes(idata%nlons))
   allocate(idata%latitudes(idata%nlats))
@@ -1713,8 +1701,7 @@ subroutine readgrid3d_float_lld_td(ifile, idata)
   !Get time
   call check(nf90_inq_varid(ncid, idata%timename, tvarid))
   call check(nf90_get_var(ncid, tvarid, idata%times))
-  
-  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits), "timeunits", ifile)
+  call check(nf90_get_att(ncid, tvarid, "units", idata%timeunits),"timeunits", ifile)
 
   !Get Lons, Lats and variable values
   call check(nf90_inq_varid(ncid, idata%lonname, xvarid))
@@ -1744,7 +1731,7 @@ subroutine readgrid3d_double_lld_td(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_double_lld_td) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 

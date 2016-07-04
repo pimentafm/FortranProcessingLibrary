@@ -44,7 +44,7 @@ subroutine readgrid2d_${arr[$i]}_ll${arrid[$j]}(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc2d_${arr[$i]}_ll${arrid[$j]}) :: idata
 
-  integer(kind=intgr) :: ncid, varid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
@@ -89,7 +89,7 @@ subroutine readgrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ifile, idata)
   character(*), intent(in) :: ifile
   type(nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}) :: idata
 
-  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid, vartype
+  integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
   call ncoords(ifile, idata)
 
