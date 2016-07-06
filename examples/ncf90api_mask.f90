@@ -69,6 +69,8 @@ program main
   maskara%varname = "Band1"
   maskara%lonname = "lon"
   maskara%latname = "lat"
+ 
+  write(*,*) achar(27)//"[1"//achar(59)//"91m"//trim(adjustl(maskara%lonname))//achar(27)//"[0m"
 
   write(*,*)"Readind data"
   call readgrid(maskfile, maskara)
