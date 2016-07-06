@@ -51,19 +51,23 @@ subroutine setfvalue2d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}(mask, map, num)
   integer(kind=intgr) :: i, j
 
   if(present(num))then
+    !"'$omp'" parallel do private(i, j)
     do i = 1, mask%nlats
       do j = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
+    !"'$omp'" end parallel do
   else
+    !"'$omp'" parallel do private(i, j)
     do i = 1, mask%nlats
       do j = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
     end do
+    !"'$omp'" end parallel do
   end if
 end subroutine setfvalue2d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}
 
@@ -87,6 +91,7 @@ subroutine setfvalue3d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}_t${arrid[$l]}(mask, m
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
+    !"'$omp'" parallel do private(k, i, j)
     do k = 1, map%ntimes
       do i = 1, mask%nlats
         do j = 1, mask%nlons
@@ -95,7 +100,9 @@ subroutine setfvalue3d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}_t${arrid[$l]}(mask, m
         end do
       end do
     end do
+    !"'$omp'" end parallel do
   else
+    !"'$omp'" parallel do private(k, i, j)
     do k = 1, map%ntimes
       do i = 1, mask%nlats
         do j = 1, mask%nlons
@@ -104,6 +111,7 @@ subroutine setfvalue3d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}_t${arrid[$l]}(mask, m
         end do
       end do
     end do
+    !"'$omp'" end parallel do
   end if
 end subroutine setfvalue3d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}_t${arrid[$l]}
 
