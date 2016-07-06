@@ -31,16 +31,19 @@
 #Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 #:=============================================================================
 srcdir=$(shell pwd)/src/
-ncf90lib=libncf90api.so
-ncf90mod=ncf90api.mod
+
+ncf90api_library=-lncf90api
+
+ncf90api_module=-I/usr/lib64/gfortran/modules/
+
 progname=ncf90api_
+
 FLAGS=-Wall
-OPENMP=-fopenmp
 
 ex1:
-	gfortran $(FLAGS) -o $(progname)getinfo.out ncf90api_getinfo.f90 -I/usr/local/ncf90api/ -lncf90api
+	gfortran $(FLAGS) -o $(progname)getinfo.out ncf90api_getinfo.f90 $(ncf90api_module) $(ncf90api_library)
 
 ex2:	
-	gfortran $(FLAGS) -Wall -W -o $(progname)mask.out ncf90api_mask.f90 -I/usr/local/ncf90api/ -lncf90api
+	gfortran $(FLAGS) -o $(progname)mask.out ncf90api_mask.f90 $(ncf90api_module) $(ncf90api_library)
 clean:
 	rm -f *.out
