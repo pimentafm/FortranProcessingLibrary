@@ -30,23 +30,46 @@
 
 #Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 #:=============================================================================
+
+#Check OS
+OS=$(shell lsb_release -si)
+ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+VERSION=$(shell lsb_release -sr)
+
+ifeq ($(OS), Fedora) 
+  #Print OS
+  $(info "$(OS) $(VERSION) $(ARCH) bits")
+  
+  #Set module path
+  ncf90api_module=-I/usr/lib64/gfortran/modules/
+endif
+ifeq ($(OS), Debian)
+  #Print OS
+  $(info "$(OS) $(VERSION) $(ARCH) bits")
+  
+  #Set module path
+  ncf90api_module=-I/usr/include/
+endif
+
 srcdir=$(shell pwd)/src/
 
 ncf90api_library=-lncf90api
-
-ncf90api_module=-I/usr/lib64/gfortran/modules/
 
 #Debian based
 #ncf90api_module=-I/usr/include/
 
 progname=ncf90api_
 
-FLAGS=-Wall
+FLAGS=-Wall -O3
 
 ex1:
 	gfortran $(FLAGS) -o $(progname)getinfo.out ncf90api_getinfo.f90 $(ncf90api_module) $(ncf90api_library)
 
 ex2:	
 	gfortran $(FLAGS) -o $(progname)mask.out ncf90api_mask.f90 $(ncf90api_module) $(ncf90api_library)
+
+ex3:	
+	gfortran $(FLAGS) -o $(progname)time.out ncf90api_time.f90 $(ncf90api_module) $(ncf90api_library)
+
 clean:
 	rm -f *.out

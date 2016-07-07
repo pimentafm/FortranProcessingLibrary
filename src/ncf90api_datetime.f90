@@ -66,3 +66,12 @@
    sysdatetime = sysmonth//" "//strday//" "//stryear//" "//strhour//':'//strmin//':'//strsec
 end subroutine fdate_time
 
+subroutine exec_time(time)
+  real(kind=4) :: time
+  character(len=10) :: t
+
+  call date_and_time(TIME=t)
+
+  read(t, *)time
+
+end subroutine exec_time

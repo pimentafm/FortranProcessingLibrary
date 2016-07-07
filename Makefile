@@ -42,7 +42,7 @@ ncf90api_lib=libncf90api.so
 ncf90api_mod=ncf90api.mod
 
 COMPILER=gfortran
-FLAGS=-Wall -shared -fPIC -cpp
+FLAGS=-Wall -shared -O3 -fPIC -cpp
 OPENMP=-fopenmp
 
 ifeq ($(OS), Fedora)
