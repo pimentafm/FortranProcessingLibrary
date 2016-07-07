@@ -52,11 +52,16 @@
 !Orange   \e[38;5;166m
 !==============================================================================
 
+!Fortran symbols
+!achar(27) ^[
+!achar(59) ;
+
 !General check
 subroutine checkerror(ncstatus)
   integer, intent(in) :: ncstatus
   if(ncstatus.ne.nf90_noerr)then
-    call system('echo -e "\e[1;91m'//trim(adjustl(nf90_strerror(ncstatus)))//'\e[0m\n"')
+    write(*,*) achar(27)//"[1"//achar(59)// &
+               "91m"//trim(adjustl(nf90_strerror(ncstatus)))//achar(27)//"[0m"
     stop
   end if
 end subroutine checkerror
@@ -67,9 +72,12 @@ subroutine checkvarid(ncstatus, varname)
   integer, intent(in) :: ncstatus
   character(*), intent(in) :: varname
   if(ncstatus.ne.nf90_noerr)then
-    call system('echo -e "\e[1;91m'//trim(adjustl(nf90_strerror(ncstatus)))//'\e[0m"')
-    call system('echo -e "\e[0;91m	'//trim(adjustl(varname))//' does not exist!\e[0m"')
-    call system('echo -e "\e[0;94m	Add the correct name of the variable.\e[0m\n"')
+    write(*,*) achar(27)//"[1"//achar(59)// &
+               "91m"//trim(adjustl(nf90_strerror(ncstatus)))//achar(27)//"[0m"
+    write(*,*) achar(27)//"[0"//achar(59)// &
+               "91m        "//trim(adjustl(varname))//" does not exist"//achar(27)//"[0m"
+    write(*,*) achar(27)//"[0"//achar(59)// &
+               "94mAdd the correct name of the variable."//achar(27)//"[0m"
     stop
   end if
 end subroutine checkvarid
@@ -78,9 +86,12 @@ subroutine checkdimid(ncstatus, dimname)
   integer, intent(in) :: ncstatus
   character(*), intent(in) :: dimname
   if(ncstatus.ne.nf90_noerr)then
-    call system('echo -e "\e[1;91m'//trim(adjustl(nf90_strerror(ncstatus)))//'\e[0m"')
-    call system('echo -e "\e[0;91m	'//trim(adjustl(dimname))//' does not exist!\e[0m"')
-    call system('echo -e "\e[0;94m	Add the correct name of the dimension.\e[0m\n"')
+    write(*,*) achar(27)//"[1"//achar(59)// &
+               "91m"//trim(adjustl(nf90_strerror(ncstatus)))//achar(27)//"[0m"
+    write(*,*) achar(27)//"[0"//achar(59)// &
+               "91m        "//trim(adjustl(dimname))//" does not exist!"//achar(27)//"[0m"
+    write(*,*) achar(27)//"[0"//achar(59)// &
+               "94m        Add the correct name of the dimension."//achar(27)//"[0m"
     stop
   end if
 end subroutine checkdimid
@@ -98,19 +109,31 @@ subroutine checktype(ncstatus, rvar, dvar, ifile)
   if(rvar.eq.1) dvaraux = "BYTE"
 
   if(dvar.ne.dvaraux)then !.and.ncstatus.eq.nf90_noerr
-    write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
-    call system('echo -e "\033[1;91m Check data type of the input file and data type declared!\033[0m"')
+    write(*,*) trim(adjustl(nf90_strerror(ncstatus)))
+    write(*,*) achar(27)//"[1"//achar(59)// &
+               "91m Check data type of the input file and data type declared!" &
+               //achar(27)//"[0m"
     select case (rvar)
       case (6)
-        call system('echo -e "\e[0;91m WARNING: Input type: DOUBLE | Declared type: '//trim(adjustl(dvar))//'\e[0m"')
+        write(*,*) achar(27)//"[0"//achar(59)// &
+                   "91m WARNING: Input type: DOUBLE | Declared type: " &
+                   //trim(adjustl(dvar))//achar(27)//"[0m"
       case (5)
-        call system('echo -e "\e[0;91m WARNING: Input type: FLOAT | Declared type: '//trim(adjustl(dvar))//'\e[0m"')
+        write(*,*) achar(27)//"[0"//achar(59)// &
+                   "91m WARNING: Input type: FLOAT | Declared type: " &
+                   //trim(adjustl(dvar))//achar(27)//"[0m"
       case (4)
-        call system('echo -e "\e[0;91m WARNING: Input type: INTEGER | Declared type: '//trim(adjustl(dvar))//'\e[0m"')
+        write(*,*) achar(27)//"[0"//achar(59)// &
+                   "91m WARNING: Input type: INTEGER | Declared type: " &
+                   //trim(adjustl(dvar))//achar(27)//"[0m"
       case (3)
-        call system('echo -e "\e[0;91m WARNING: Input type: SHORT | Declared type: '//trim(adjustl(dvar))//'\e[0m"')
+        write(*,*) achar(27)//"[0"//achar(59)// &
+                   "91m WARNING: Input type: SHORT | Declared type: " &
+                   //trim(adjustl(dvar))//achar(27)//"[0m"
       case (1)
-        call system('echo -e "\e[0;91m WARNING: Input type: BYTE | Declared type: '//trim(adjustl(dvar))//'\e[0m"')
+        write(*,*) achar(27)//"[0"//achar(59)// &
+                   "91m WARNING: Input type: BYTE | Declared type: " &
+                   //trim(adjustl(dvar))//achar(27)//"[0m"
     end select
     call system(" echo "//trim(adjustl(ifile))//" | sed 's/.*\// File: /'")
     call system('echo -e "\n"')
@@ -125,19 +148,33 @@ subroutine checkatt(ncstatus, uname, ifile)
   
   if(ncstatus.ne.nf90_noerr)then
     if(uname.eq."_FillValue")then
-      call system('echo -e "\e[1;91m FAULT: Declare _FillValue in your NetCDF!\e[0m"')  
-      call system('echo -e "\e[1;94m Use the GDAL Library to add _FillValue into your file!\e[0m"')
-      call system('echo -e "\e[0;94m 	Try this: gdal_translate -of netcdf -a_nodata <nodata_value> input.nc output.nc\e[0m"')  
+      write(*,*) achar(27)//"[1"//achar(59)// &
+                 "91m FAULT: Declare _FillValue in your NetCDF!" &
+                 //achar(27)//"[0m"  
+      write(*,*) achar(27)//"[1"//achar(59)// &
+                 "94m Use the GDAL Library to add _FillValue into your file!" &
+                 //achar(27)//"[0m"
+      write(*,*) achar(27)//"[0"//achar(59)// &
+                 "94m  Try this: gdal_translate -of netcdf -a_nodata <nodata_value> input.nc output.nc" &
+                 //achar(27)//"[0m"  
       call system(" echo "//trim(adjustl(ifile))//" | sed 's/.*\// File: /'")
       stop
       else
         write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
-        call system('echo -e "\e[38;5;166m WARNING: Declare '//trim(adjustl(uname))//' in your NetCDF!\e[0m"')
-        call system('echo -e "\e[1;94m You can set '//trim(adjustl(uname))//' into your NetCDF file\e[0m"')
-        call system('echo -e "\e[1;94m or set it into your code!\e[0m"')
-        call system('echo -e "\e[0;94m 	Example: \e[0m"')
-        call system('echo -e "\e[0;94m 	  If you declared type(nc2d_<type>) :: yourdata\e[0m"')
-        call system('echo -e "\e[0;94m 	    Set in your file: yourdata%'//trim(adjustl(uname))//' = units (degrees, km, ...)\e[0m"')
+        write(*,*) achar(27)//"[38"//achar(59)//"5"//achar(59)// &
+                   "166m WARNING: Declare "//trim(adjustl(uname))//" in your NetCDF!" &
+                   //achar(27)//"[0m"
+        write(*,*) achar(27)//"[1"//achar(59)// &
+                   "94m You can set "//trim(adjustl(uname))//" into your NetCDF file" &
+                   //achar(27)//"[0m"
+        write(*,*) achar(27)//"[1"//achar(59)//"94m or set it into your code!" &
+                   //achar(27)//"[0m"
+        write(*,*) achar(27)//"[0"//achar(59)//"94m       Example: "//achar(27)//"[0m"
+        write(*,*) achar(27)//"[0"//achar(59)// &
+                   "94m       If you declared type(nc2d_<type>) :: yourdata"//achar(27)//"[0m"
+        write(*,*) achar(27)//"[0"//achar(59)// &
+                   "94m         Set in your file: yourdata%"//trim(adjustl(uname))// &
+                   " = units (degrees, km, ...)"//achar(27)//"[0m"
         call system(" echo "//trim(adjustl(ifile))//" | sed 's/.*\// File: /'")
         call system('echo -e "\n"')
     end if

@@ -36,6 +36,9 @@ ncf90api_library=-lncf90api
 
 ncf90api_module=-I/usr/lib64/gfortran/modules/
 
+#Debian based
+#ncf90api_module=-I/usr/include/
+
 progname=ncf90api_
 
 FLAGS=-Wall
