@@ -1,148 +1,158 @@
 Build System
 ************
-Elemental's build system relies on `CMake <http://www.cmake.org>`__ 
-in order to manage a large number of configuration options in a 
-platform-independent manner; it can be easily configured to build on Linux and 
-Unix environments (including Darwin), as well as via Cygwin in a Windows 
-environment (Visual Studio's is expected to begin supporting ``constexpr``, 
-which is heavily used by Elemental, with the official VS 2015 release in 
-July 2015). A relatively recent C++11 compiler (e.g., gcc >= 4.7) is 
-required in all cases.
 
-Elemental's main external dependencies are
+.. highlight:: sh
 
-1. `CMake <http://www.cmake.org/>`__ ,
-2. `MPI <http://en.wikipedia.org/wiki/Message_Passing_Interface>`__ ,
-3. `BLAS <http://netlib.org/blas>`__ ,
-4. `LAPACK <http://netlib.org/lapack>`__, 
-5. `METIS <http://glaros.dtc.umn.edu/gkhome/metis/metis/overview>`__, and
-6. `PMRRR <http://code.google.com/p/pmrrr>`__,
+Download ncf90api Source Code
+=============================
 
-and the dependencies which can **not** currently be automatically handled by 
-Elemental's build system are
+`Download the ncf90api source code <http://www.biosfera.dea.ufv.br>`__
 
-1. CMake, and
-2. MPI.
+Directory Structure
+===================
 
-Handling mandatory external dependencies
-========================================
+::
 
-Installing CMake
-----------------
-Elemental uses several relatively new CMake modules, so it is important to 
-ensure that CMake version 2.8.12 or later is available. Thankfully, the 
-`installation process <http://www.cmake.org/cmake/help/install.html>`_
-is extremely straightforward: either download a platform-specific binary from
-the `downloads page <http://www.cmake.org/cmake/resources/software.html>`_,
-or instead grab the most recent stable tarball and have CMake bootstrap itself.
-In the simplest case, the bootstrap process is as simple as running the 
-following commands::
+  ncf90api
+          -->src
+                ncf90api.f90
+                ncf90api_constants.f90
+                ncf90api_datatypes.f90
+                ncf90api_interfaces.f90
+                ncf90api_griddims.f90
+                ncf90api_readgrid.f90
+                ncf90api_writegrid.f90        
+                ncf90api_fvalue.f90
+                ncf90api_checkerror.f90
+                ncf90api_datetime.f90
+                ncf90api_fileutils.f90
+          -->shell_gencodes
+                           ncf90api_datatype.sh
+                           ncf90api_interfaces.sh
+                           ncf90api_ncoords.sh
+                           ncf90api_readgrid.sh
+                           ncf90api_writegrid2d.sh
+                           ncf90api_fvalue.sh
+          -->examples
+                     Makefile
+                     ncf90api_getinfo.f90
+                     ncf90api_mask.f90
+                     ncf90api_time.f90
+          -->docs
+          Makefile
+          GNUGPL
+          README
 
-    ./bootstrap
-    make
-    sudo make install
+Instalation
+===========
 
-Note that recent versions of `Ubuntu <http://www.ubuntu.com/>`__ (e.g., version 13.10) have sufficiently up-to-date
-versions of CMake, and so the following command is sufficient for installation::
-
-    sudo apt-get install cmake
-
-If you do install from source, there are two important issues to consider
-
-1. By default, ``make install`` attempts a system-wide installation 
-   (e.g., into ``/usr/bin``) and will likely require administrative privileges.
-   A different installation folder may be specified with the ``--prefix`` 
-   option to the ``bootstrap`` script, e.g.,::
-
-    ./bootstrap --prefix=/home/your_username
-    make
-    make install
-
-   Afterwards, it is a good idea to make sure that the environment variable 
-   ``PATH`` includes the ``bin`` subdirectory of the installation folder, e.g.,
-   ``/home/your_username/bin``.
-
-2. Some highly optimizing compilers will not correctly build CMake, but the GNU
-   compilers nearly always work. You can specify which compilers to use by
-   setting the environment variables ``CC`` and ``CXX`` to the full paths to 
-   your preferred C and C++ compilers before running the ``bootstrap`` script.
-
-Basic usage
-^^^^^^^^^^^
-Though many configuration utilities, like 
-`autoconf <http://www.gnu.org/software/autoconf/>`_, are designed such that
-the user need only invoke ``./configure && make && sudo make install`` from the
-top-level source directory, CMake targets *out-of-source* builds, which is 
-to say that the build process occurs away from the source code. The 
-out-of-source build approach is ideal for projects that offer several 
-different build modes, as each version of the project can be built in a 
-separate folder.
-
-A common approach is to create a folder named ``build`` in the top-level of 
-the source directory and to invoke CMake from within it::
-
-    mkdir build
-    cd build
-    cmake ..
-
-The last line calls the command line version of CMake, ``cmake``,
-and tells it that it should look in the parent directory for the configuration
-instructions, which should be in a file named ``CMakeLists.txt``. Users that 
-would prefer a graphical interface from the terminal (through ``curses``)
-should instead use ``ccmake`` (on Unix platforms) or ``CMakeSetup`` 
-(on Windows platforms). In addition, a GUI version is available through 
-``cmake-gui``. 
-
-Though running ``make clean`` will remove all files generated from running 
-``make``, it will not remove configuration files. Thus, the best approach for
-completely cleaning a build is to remove the entire build folder. On \*nix 
-machines, this is most easily accomplished with::
-
-    cd .. 
-    rm -rf build/
-
-This is perhaps a safer habit than simply running ``rm -rf *`` since, 
-if accidentally run from the wrong directory, deleting ``build/`` would be 
-unlikely to have any effect.
-
-Soft dependencies
-=================
-As was already mentioned, Elemental has several external dependencies which
-can be optionally be handled by the build process, and one 
-(`PMRRR <http://code.google.com/p/pmrrr>`__), which is always built by 
-Elemental. For the optionally-specified dependencies 
-(i.e., BLAS, LAPACK, METIS, ParMETIS, and ScaLAPACK), if custom implementations
-were not specified during the CMake configuration phase, then appropriate 
-libraries will be automatically downloaded/built/installed via CMake's 
-`ExternalProject <http://www.cmake.org/cmake/help/v3.0/module/ExternalProject.html>`__ functionality. In particular, Elemental can automatically fulfill 
-dependencies using:
-
-1. `OpenBLAS <http://www.openblas.net/>`__ or `BLIS <https://code.google.com/p/blis>`__ (to provide BLAS+LAPACK)
-2. `METIS <http://glaros.dtc.umn.edu/gkhome/metis/metis/overview>`__ and/or `ParMETIS <http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview>`__ (for computing a vertex separator of a graph), and
-3. `ScaLAPACK <http://netlib.org/scalapack>`__ (for implementations of distributed Hessenberg QR algorithms).
-
-Furthermore, there are several further (optional) external dependencies:
-
-1. `libFLAME <http://www.cs.utexas.edu/users/flame/>`_ is recommended 
-   for faster SVD's due to its high-performance bidiagonal QR algorithm 
-   implementation, 
-2. `libquadmath <https://gcc.gnu.org/onlinedocs/libquadmath/>`_ for 
-   quad-precision support (and more robust sparse-direct solvers),
-3. `Qt5 <http://qt-project.org>`_ for C++11 matrix visualization,
-4. `matplotlib <http://matplotlib.org/>`_ for Python matrix visualization,
-5. `NetworkX <https://networkx.github.io/>`_ for Python graph visualization, and
-6. `NumPy <http://www.numpy.org/>`_ for supporting the Python interface in 
-   general.
-
-Support is not required for any of these libraries, but each is helpful for 
-particular components of Elemental's functionality.
-
-Elemental as a CMake subproject
-===============================
+The **ncf90api** library was developed in Fedora Linux operating system. The compilation was tested in Fedora 23 and Debian 8.4.
 
 .. note::
+   
+  If your operating system has different architecture you can define the variables according to it in the Makefile.
 
-   These instructions are somewhat out of date and so an email to 
-   `users@libelemental.org <mailto:users@libelemental.org>`_ might be 
-   more appropriate for now in order to help with using Elemental as a
-   subproject of another CMake build system.
+:: 
+
+  cd ncf90api/
+  make
+
+::
+   
+ #Check OS
+ OS=$(shell lsb_release -si)
+ ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+ VERSION=$(shell lsb_release -sr) 
+ 
+ #ncf90api library and module names
+ ncf90api_lib=libncf90api.so
+ ncf90api_mod=ncf90api.mod
+ 
+ COMPILER=gfortran
+ FLAGS=-Wall -shared -O3 -fPIC -cpp
+ OPENMP=-fopenmp
+
+ #Modify the paths below according to your operating system ======
+ ifeq ($(OS), Fedora)
+   $(info "$(OS) $(VERSION) $(ARCH) bits")
+ 
+   #RedHat netcdf modules path
+   netcdf_libs=-I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
+ 
+   #ncf90api source files and directories
+   ncf90api_srcdir=$(shell pwd)/src/
+   ncf90api_libdir=/usr/lib64/
+   ncf90api_moddir=/usr/lib64/gfortran/modules/
+ endif
+ ifeq ($(OS), Debian)
+   $(info "$(OS) $(VERSION) $(ARCH) bits")
+   #Debian netcdf modules path
+   netcdf_libs=-I/usr/include/ -lnetcdff -lnetcdf
+   #ncf90api source files and directories
+   ncf90api_srcdir=$(shell pwd)/src/
+   ncf90api_libdir=/usr/lib/
+   ncf90api_moddir=/usr/include/
+ endif
+ #================================================================
+
+ compile:
+         $(COMPILER) $(OPENMP) $(FLAGS) -o $(ncf90api_lib) $(ncf90api_srcdir)ncf90api.f90 $(netcdf_libs)
+         mv $(ncf90api_lib) $(ncf90api_libdir)
+         mv $(ncf90api_mod) $(ncf90api_moddir)
+
+
+Compile Examples
+================
+
+::
+
+  cd examples/
+  make ex<N> # N is the number of example
+
+::
+
+ #Check OS
+ OS=$(shell lsb_release -si)
+ ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+ VERSION=$(shell lsb_release -sr)
+ 
+ #Modify the paths below according to your operating system ======
+ ifeq ($(OS), Fedora)
+   #Print OS
+   $(info "$(OS) $(VERSION) $(ARCH) bits")
+ 
+   #Set module path
+   ncf90api_module=-I/usr/lib64/gfortran/modules/
+ endif
+ ifeq ($(OS), Debian)
+   #Print OS
+   $(info "$(OS) $(VERSION) $(ARCH) bits")
+ 
+   #Set module path
+   ncf90api_module=-I/usr/include/
+ endif 
+ #================================================================
+ 
+ srcdir=$(shell pwd)/src/
+ 
+ ncf90api_library=-lncf90api
+ 
+ #Debian based
+ #ncf90api_module=-I/usr/include/
+ 
+ progname=ncf90api_
+ 
+ FLAGS=-Wall -O3
+ 
+ ex1:
+         gfortran $(FLAGS) -o $(progname)getinfo.out ncf90api_getinfo.f90 $(ncf90api_module) $(ncf90api_library    )
+ 
+ ex2:    
+         gfortran $(FLAGS) -o $(progname)mask.out ncf90api_mask.f90 $(ncf90api_module) $(ncf90api_library)
+ 
+ ex3:    
+         gfortran $(FLAGS) -o $(progname)time.out ncf90api_time.f90 $(ncf90api_module) $(ncf90api_library)
+ 
+ clean:
+         rm -f *.out
+
