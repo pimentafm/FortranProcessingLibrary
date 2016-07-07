@@ -62,7 +62,7 @@ ifeq ($(OS), Debian)
   netcdf_libs=-I/usr/include/ -lnetcdff -lnetcdf
   #ncf90api source files and directories
   ncf90api_srcdir=$(shell pwd)/src/
-  ncf90api_libdir=/usr/lib64/
+  ncf90api_libdir=/usr/lib/
   ncf90api_moddir=/usr/include/
 endif
 

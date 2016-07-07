@@ -136,7 +136,6 @@ subroutine checktype(ncstatus, rvar, dvar, ifile)
                    //trim(adjustl(dvar))//achar(27)//"[0m"
     end select
     call system(" echo "//trim(adjustl(ifile))//" | sed 's/.*\// File: /'")
-    call system('echo -e "\n"')
     stop
   end if
 end subroutine checktype
@@ -176,7 +175,6 @@ subroutine checkatt(ncstatus, uname, ifile)
                    "94m         Set in your file: yourdata%"//trim(adjustl(uname))// &
                    " = units (degrees, km, ...)"//achar(27)//"[0m"
         call system(" echo "//trim(adjustl(ifile))//" | sed 's/.*\// File: /'")
-        call system('echo -e "\n"')
     end if
   end if
 end subroutine checkatt
