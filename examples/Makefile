@@ -71,5 +71,10 @@ ex2:
 ex3:	
 	gfortran $(FLAGS) -o $(progname)time.out ncf90api_time.f90 $(ncf90api_module) $(ncf90api_library)
 
+ex4:	
+	gfortran $(FLAGS) -o $(progname)mary.out ncf90api_mary.f90 $(ncf90api_module) $(ncf90api_library)
+
+ex5:	
+	gfortran $(FLAGS) -o $(progname)5p.out ncf90api_5p.f90 $(ncf90api_module) $(ncf90api_library)
 clean:
 	rm -f *.out

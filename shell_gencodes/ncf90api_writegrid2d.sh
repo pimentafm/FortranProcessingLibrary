@@ -50,7 +50,8 @@ subroutine writegrid2d_${arr[$i]}_ll${arrid[$j]}(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -130,7 +131,8 @@ subroutine writegrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ofile, odata, hea
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
