@@ -42,7 +42,8 @@ subroutine writegrid2d_byte_llf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -67,7 +68,7 @@ subroutine writegrid2d_byte_llf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-
+		
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -116,7 +117,8 @@ subroutine writegrid2d_short_llf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -190,7 +192,8 @@ subroutine writegrid2d_int_llf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -264,7 +267,8 @@ subroutine writegrid2d_float_llf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -338,7 +342,8 @@ subroutine writegrid2d_double_llf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -412,7 +417,8 @@ subroutine writegrid2d_byte_lld(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -486,7 +492,8 @@ subroutine writegrid2d_short_lld(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -560,7 +567,8 @@ subroutine writegrid2d_int_lld(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -634,7 +642,8 @@ subroutine writegrid2d_float_lld(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -708,7 +717,8 @@ subroutine writegrid2d_double_lld(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -782,7 +792,8 @@ subroutine writegrid3d_byte_llf_ti(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -863,7 +874,8 @@ subroutine writegrid3d_short_llf_ti(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -944,7 +956,8 @@ subroutine writegrid3d_int_llf_ti(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -1025,7 +1038,8 @@ subroutine writegrid3d_float_llf_ti(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -1106,7 +1120,8 @@ subroutine writegrid3d_double_llf_ti(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -1187,7 +1202,8 @@ subroutine writegrid3d_byte_lld_ti(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -1268,7 +1284,8 @@ subroutine writegrid3d_short_lld_ti(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -1349,7 +1366,8 @@ subroutine writegrid3d_int_lld_ti(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -1430,7 +1448,8 @@ subroutine writegrid3d_float_lld_ti(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -1511,7 +1530,8 @@ subroutine writegrid3d_double_lld_ti(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -1592,7 +1612,8 @@ subroutine writegrid3d_byte_llf_tf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -1673,7 +1694,8 @@ subroutine writegrid3d_short_llf_tf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -1754,7 +1776,8 @@ subroutine writegrid3d_int_llf_tf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -1835,7 +1858,8 @@ subroutine writegrid3d_float_llf_tf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -1916,7 +1940,8 @@ subroutine writegrid3d_double_llf_tf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -1997,7 +2022,8 @@ subroutine writegrid3d_byte_lld_tf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -2078,7 +2104,8 @@ subroutine writegrid3d_short_lld_tf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -2159,7 +2186,8 @@ subroutine writegrid3d_int_lld_tf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -2240,7 +2268,8 @@ subroutine writegrid3d_float_lld_tf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -2321,7 +2350,8 @@ subroutine writegrid3d_double_lld_tf(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -2402,7 +2432,8 @@ subroutine writegrid3d_byte_llf_td(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -2483,7 +2514,8 @@ subroutine writegrid3d_short_llf_td(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -2564,7 +2596,8 @@ subroutine writegrid3d_int_llf_td(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -2645,7 +2678,8 @@ subroutine writegrid3d_float_llf_td(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -2726,7 +2760,8 @@ subroutine writegrid3d_double_llf_td(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -2807,7 +2842,8 @@ subroutine writegrid3d_byte_lld_td(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -2888,7 +2924,8 @@ subroutine writegrid3d_short_lld_td(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -2969,7 +3006,8 @@ subroutine writegrid3d_int_lld_td(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -3050,7 +3088,8 @@ subroutine writegrid3d_float_lld_td(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
@@ -3131,7 +3170,8 @@ subroutine writegrid3d_double_lld_td(ofile, odata, headerfile)
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
-  integer(kind=4) :: nkeys = 0
+  integer(kind=4) :: nkeys
+  nkeys = 0
 
   !Create Netcdf
   call check(nf90_create(ofile, nf90_clobber, ncid))
