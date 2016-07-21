@@ -76,7 +76,7 @@ subroutine writegrid2d_${arr[$i]}_ll${arrid[$j]}(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "'"valid_max"'", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "'"units"'", odata%varunits))
  
   !Put Global Attributes
@@ -161,14 +161,14 @@ subroutine writegrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ofile, odata, hea
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "'"valid_max"'", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "'"units"'", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "'"'History'"'", sysdatetime//"'"' Created by f90NetCDF API v0.1'"'"))
   call check(nf90_put_att(ncid, nf90_global, "'"'NetCDF-Version'"'", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists

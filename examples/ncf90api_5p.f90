@@ -24,7 +24,7 @@ program fivep
     write(*,*) k
 
     inputpath = "/home/fernando/Documents/WORKSPACE/pousa/bhalu/LUCULTSOJA"//year//".nc"
-    outputpath = "/home/fernando/Documents/WORKSPACE/pousa/output/soja5p/LUCULTSOJA"//year//".nc"
+    outputpath = "/home/fernando/Documents/WORKSPACE/pousa/output/soja_pcent/LUCULTSOJA"//year//".nc"
 
     soja%varname = "landuse"
     soja%lonname = "lon"
@@ -39,16 +39,16 @@ program fivep
         end if
       end do
     end do
-    
-    do i = 1, soja%nlons
-      do j = 1, soja%nlats
-        if(soja%ncdata(i,j).ne.soja%FillValue.and.soja%ncdata(i,j).gt.0.05) then
-          soja%ncdata(i,j) = soja%ncdata(i,j)*(areapix%ncdata(i,j)/0.01)
-          else
-            soja%ncdata(i,j) = soja%FillValue
-        end if
-      end do
-    end do
+    soja%varunits = "%"
+!    do i = 1, soja%nlons
+!      do j = 1, soja%nlats
+!        if(soja%ncdata(i,j).ne.soja%FillValue.and.soja%ncdata(i,j).gt.0.05) then
+!          soja%ncdata(i,j) = soja%ncdata(i,j)*(areapix%ncdata(i,j)/0.01)
+!          else
+!            soja%ncdata(i,j) = soja%FillValue
+!        end if
+!      end do
+!    end do
     
     call writegrid(outputpath, soja, headerfile)
     

@@ -68,7 +68,7 @@ subroutine writegrid2d_byte_llf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -143,7 +143,7 @@ subroutine writegrid2d_short_llf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -218,7 +218,7 @@ subroutine writegrid2d_int_llf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -293,7 +293,7 @@ subroutine writegrid2d_float_llf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -368,7 +368,7 @@ subroutine writegrid2d_double_llf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -443,7 +443,7 @@ subroutine writegrid2d_byte_lld(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -518,7 +518,7 @@ subroutine writegrid2d_short_lld(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -593,7 +593,7 @@ subroutine writegrid2d_int_lld(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -668,7 +668,7 @@ subroutine writegrid2d_float_lld(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -743,7 +743,7 @@ subroutine writegrid2d_double_lld(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
  
   !Put Global Attributes
@@ -822,14 +822,14 @@ subroutine writegrid3d_byte_llf_ti(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -904,14 +904,14 @@ subroutine writegrid3d_short_llf_ti(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -986,14 +986,14 @@ subroutine writegrid3d_int_llf_ti(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -1068,14 +1068,14 @@ subroutine writegrid3d_float_llf_ti(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -1150,14 +1150,14 @@ subroutine writegrid3d_double_llf_ti(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -1232,14 +1232,14 @@ subroutine writegrid3d_byte_lld_ti(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -1314,14 +1314,14 @@ subroutine writegrid3d_short_lld_ti(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -1396,14 +1396,14 @@ subroutine writegrid3d_int_lld_ti(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -1478,14 +1478,14 @@ subroutine writegrid3d_float_lld_ti(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -1560,14 +1560,14 @@ subroutine writegrid3d_double_lld_ti(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -1642,14 +1642,14 @@ subroutine writegrid3d_byte_llf_tf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -1724,14 +1724,14 @@ subroutine writegrid3d_short_llf_tf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -1806,14 +1806,14 @@ subroutine writegrid3d_int_llf_tf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -1888,14 +1888,14 @@ subroutine writegrid3d_float_llf_tf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -1970,14 +1970,14 @@ subroutine writegrid3d_double_llf_tf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -2052,14 +2052,14 @@ subroutine writegrid3d_byte_lld_tf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -2134,14 +2134,14 @@ subroutine writegrid3d_short_lld_tf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -2216,14 +2216,14 @@ subroutine writegrid3d_int_lld_tf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -2298,14 +2298,14 @@ subroutine writegrid3d_float_lld_tf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -2380,14 +2380,14 @@ subroutine writegrid3d_double_lld_tf(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -2462,14 +2462,14 @@ subroutine writegrid3d_byte_llf_td(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -2544,14 +2544,14 @@ subroutine writegrid3d_short_llf_td(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -2626,14 +2626,14 @@ subroutine writegrid3d_int_llf_td(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -2708,14 +2708,14 @@ subroutine writegrid3d_float_llf_td(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -2790,14 +2790,14 @@ subroutine writegrid3d_double_llf_td(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -2872,14 +2872,14 @@ subroutine writegrid3d_byte_lld_td(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -2954,14 +2954,14 @@ subroutine writegrid3d_short_lld_td(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -3036,14 +3036,14 @@ subroutine writegrid3d_int_lld_td(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -3118,14 +3118,14 @@ subroutine writegrid3d_float_lld_td(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists
@@ -3200,14 +3200,14 @@ subroutine writegrid3d_double_lld_td(ofile, odata, headerfile)
              minval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
   call check(nf90_put_att(ncid, varid, "valid_max", & 
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
-		
+
   call check(nf90_put_att(ncid, varid, "units", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
-  
+ 
  !Check if headerfile was setted
   if(present(headerfile))then
     call file_exists(headerfile) !Check if headerfile exists

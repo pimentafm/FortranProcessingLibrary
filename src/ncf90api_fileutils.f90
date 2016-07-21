@@ -49,7 +49,7 @@ end subroutine file_exists
 subroutine countkeys(ifile, nkeys)
   character(*) :: ifile
   character(300) :: inline
-  integer :: stats, nkeys
+  integer(kind = 4) :: stats, nkeys
 
   open(100, file=ifile, status="old", action="read", position="rewind")
 
