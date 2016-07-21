@@ -69,7 +69,6 @@ subroutine readgrid2d_byte_llf(ifile, idata)
 end subroutine readgrid2d_byte_llf
 
 
-
 !NetCDF <var short> (lon <float>, lat <float>)
 subroutine readgrid2d_short_llf(ifile, idata)
   character(*), intent(in) :: ifile
@@ -106,7 +105,6 @@ subroutine readgrid2d_short_llf(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_short_llf
-
 
 
 !NetCDF <var int> (lon <float>, lat <float>)
@@ -147,7 +145,6 @@ subroutine readgrid2d_int_llf(ifile, idata)
 end subroutine readgrid2d_int_llf
 
 
-
 !NetCDF <var float> (lon <float>, lat <float>)
 subroutine readgrid2d_float_llf(ifile, idata)
   character(*), intent(in) :: ifile
@@ -184,7 +181,6 @@ subroutine readgrid2d_float_llf(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_float_llf
-
 
 
 !NetCDF <var double> (lon <float>, lat <float>)
@@ -225,7 +221,6 @@ subroutine readgrid2d_double_llf(ifile, idata)
 end subroutine readgrid2d_double_llf
 
 
-
 !NetCDF <var byte> (lon <double>, lat <double>)
 subroutine readgrid2d_byte_lld(ifile, idata)
   character(*), intent(in) :: ifile
@@ -262,7 +257,6 @@ subroutine readgrid2d_byte_lld(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_byte_lld
-
 
 
 !NetCDF <var short> (lon <double>, lat <double>)
@@ -303,7 +297,6 @@ subroutine readgrid2d_short_lld(ifile, idata)
 end subroutine readgrid2d_short_lld
 
 
-
 !NetCDF <var int> (lon <double>, lat <double>)
 subroutine readgrid2d_int_lld(ifile, idata)
   character(*), intent(in) :: ifile
@@ -340,7 +333,6 @@ subroutine readgrid2d_int_lld(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_int_lld
-
 
 
 !NetCDF <var float> (lon <double>, lat <double>)
@@ -381,7 +373,6 @@ subroutine readgrid2d_float_lld(ifile, idata)
 end subroutine readgrid2d_float_lld
 
 
-
 !NetCDF <var double> (lon <double>, lat <double>)
 subroutine readgrid2d_double_lld(ifile, idata)
   character(*), intent(in) :: ifile
@@ -418,7 +409,6 @@ subroutine readgrid2d_double_lld(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_double_lld
-
 
 
 !NetCDF <var byte> (lon <float>, lat <float>, time <int>)
@@ -465,7 +455,6 @@ subroutine readgrid3d_byte_llf_ti(ifile, idata)
 end subroutine readgrid3d_byte_llf_ti
 
 
-
 !NetCDF <var short> (lon <float>, lat <float>, time <int>)
 subroutine readgrid3d_short_llf_ti(ifile, idata)
   character(*), intent(in) :: ifile
@@ -508,7 +497,6 @@ subroutine readgrid3d_short_llf_ti(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_short_llf_ti
-
 
 
 !NetCDF <var int> (lon <float>, lat <float>, time <int>)
@@ -555,7 +543,6 @@ subroutine readgrid3d_int_llf_ti(ifile, idata)
 end subroutine readgrid3d_int_llf_ti
 
 
-
 !NetCDF <var float> (lon <float>, lat <float>, time <int>)
 subroutine readgrid3d_float_llf_ti(ifile, idata)
   character(*), intent(in) :: ifile
@@ -598,7 +585,6 @@ subroutine readgrid3d_float_llf_ti(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_float_llf_ti
-
 
 
 !NetCDF <var double> (lon <float>, lat <float>, time <int>)
@@ -645,7 +631,6 @@ subroutine readgrid3d_double_llf_ti(ifile, idata)
 end subroutine readgrid3d_double_llf_ti
 
 
-
 !NetCDF <var byte> (lon <double>, lat <double>, time <int>)
 subroutine readgrid3d_byte_lld_ti(ifile, idata)
   character(*), intent(in) :: ifile
@@ -688,7 +673,6 @@ subroutine readgrid3d_byte_lld_ti(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_byte_lld_ti
-
 
 
 !NetCDF <var short> (lon <double>, lat <double>, time <int>)
@@ -735,7 +719,6 @@ subroutine readgrid3d_short_lld_ti(ifile, idata)
 end subroutine readgrid3d_short_lld_ti
 
 
-
 !NetCDF <var int> (lon <double>, lat <double>, time <int>)
 subroutine readgrid3d_int_lld_ti(ifile, idata)
   character(*), intent(in) :: ifile
@@ -778,7 +761,6 @@ subroutine readgrid3d_int_lld_ti(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_int_lld_ti
-
 
 
 !NetCDF <var float> (lon <double>, lat <double>, time <int>)
@@ -825,7 +807,6 @@ subroutine readgrid3d_float_lld_ti(ifile, idata)
 end subroutine readgrid3d_float_lld_ti
 
 
-
 !NetCDF <var double> (lon <double>, lat <double>, time <int>)
 subroutine readgrid3d_double_lld_ti(ifile, idata)
   character(*), intent(in) :: ifile
@@ -868,7 +849,6 @@ subroutine readgrid3d_double_lld_ti(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_double_lld_ti
-
 
 
 !NetCDF <var byte> (lon <float>, lat <float>, time <float>)
@@ -915,7 +895,6 @@ subroutine readgrid3d_byte_llf_tf(ifile, idata)
 end subroutine readgrid3d_byte_llf_tf
 
 
-
 !NetCDF <var short> (lon <float>, lat <float>, time <float>)
 subroutine readgrid3d_short_llf_tf(ifile, idata)
   character(*), intent(in) :: ifile
@@ -958,7 +937,6 @@ subroutine readgrid3d_short_llf_tf(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_short_llf_tf
-
 
 
 !NetCDF <var int> (lon <float>, lat <float>, time <float>)
@@ -1005,7 +983,6 @@ subroutine readgrid3d_int_llf_tf(ifile, idata)
 end subroutine readgrid3d_int_llf_tf
 
 
-
 !NetCDF <var float> (lon <float>, lat <float>, time <float>)
 subroutine readgrid3d_float_llf_tf(ifile, idata)
   character(*), intent(in) :: ifile
@@ -1048,7 +1025,6 @@ subroutine readgrid3d_float_llf_tf(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_float_llf_tf
-
 
 
 !NetCDF <var double> (lon <float>, lat <float>, time <float>)
@@ -1095,7 +1071,6 @@ subroutine readgrid3d_double_llf_tf(ifile, idata)
 end subroutine readgrid3d_double_llf_tf
 
 
-
 !NetCDF <var byte> (lon <double>, lat <double>, time <float>)
 subroutine readgrid3d_byte_lld_tf(ifile, idata)
   character(*), intent(in) :: ifile
@@ -1138,7 +1113,6 @@ subroutine readgrid3d_byte_lld_tf(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_byte_lld_tf
-
 
 
 !NetCDF <var short> (lon <double>, lat <double>, time <float>)
@@ -1185,7 +1159,6 @@ subroutine readgrid3d_short_lld_tf(ifile, idata)
 end subroutine readgrid3d_short_lld_tf
 
 
-
 !NetCDF <var int> (lon <double>, lat <double>, time <float>)
 subroutine readgrid3d_int_lld_tf(ifile, idata)
   character(*), intent(in) :: ifile
@@ -1228,7 +1201,6 @@ subroutine readgrid3d_int_lld_tf(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_int_lld_tf
-
 
 
 !NetCDF <var float> (lon <double>, lat <double>, time <float>)
@@ -1275,7 +1247,6 @@ subroutine readgrid3d_float_lld_tf(ifile, idata)
 end subroutine readgrid3d_float_lld_tf
 
 
-
 !NetCDF <var double> (lon <double>, lat <double>, time <float>)
 subroutine readgrid3d_double_lld_tf(ifile, idata)
   character(*), intent(in) :: ifile
@@ -1318,7 +1289,6 @@ subroutine readgrid3d_double_lld_tf(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_double_lld_tf
-
 
 
 !NetCDF <var byte> (lon <float>, lat <float>, time <double>)
@@ -1365,7 +1335,6 @@ subroutine readgrid3d_byte_llf_td(ifile, idata)
 end subroutine readgrid3d_byte_llf_td
 
 
-
 !NetCDF <var short> (lon <float>, lat <float>, time <double>)
 subroutine readgrid3d_short_llf_td(ifile, idata)
   character(*), intent(in) :: ifile
@@ -1408,7 +1377,6 @@ subroutine readgrid3d_short_llf_td(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_short_llf_td
-
 
 
 !NetCDF <var int> (lon <float>, lat <float>, time <double>)
@@ -1455,7 +1423,6 @@ subroutine readgrid3d_int_llf_td(ifile, idata)
 end subroutine readgrid3d_int_llf_td
 
 
-
 !NetCDF <var float> (lon <float>, lat <float>, time <double>)
 subroutine readgrid3d_float_llf_td(ifile, idata)
   character(*), intent(in) :: ifile
@@ -1498,7 +1465,6 @@ subroutine readgrid3d_float_llf_td(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_float_llf_td
-
 
 
 !NetCDF <var double> (lon <float>, lat <float>, time <double>)
@@ -1545,7 +1511,6 @@ subroutine readgrid3d_double_llf_td(ifile, idata)
 end subroutine readgrid3d_double_llf_td
 
 
-
 !NetCDF <var byte> (lon <double>, lat <double>, time <double>)
 subroutine readgrid3d_byte_lld_td(ifile, idata)
   character(*), intent(in) :: ifile
@@ -1588,7 +1553,6 @@ subroutine readgrid3d_byte_lld_td(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_byte_lld_td
-
 
 
 !NetCDF <var short> (lon <double>, lat <double>, time <double>)
@@ -1635,7 +1599,6 @@ subroutine readgrid3d_short_lld_td(ifile, idata)
 end subroutine readgrid3d_short_lld_td
 
 
-
 !NetCDF <var int> (lon <double>, lat <double>, time <double>)
 subroutine readgrid3d_int_lld_td(ifile, idata)
   character(*), intent(in) :: ifile
@@ -1678,7 +1641,6 @@ subroutine readgrid3d_int_lld_td(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_int_lld_td
-
 
 
 !NetCDF <var float> (lon <double>, lat <double>, time <double>)
@@ -1725,7 +1687,6 @@ subroutine readgrid3d_float_lld_td(ifile, idata)
 end subroutine readgrid3d_float_lld_td
 
 
-
 !NetCDF <var double> (lon <double>, lat <double>, time <double>)
 subroutine readgrid3d_double_lld_td(ifile, idata)
   character(*), intent(in) :: ifile
@@ -1768,5 +1729,4 @@ subroutine readgrid3d_double_lld_td(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_double_lld_td
-
 

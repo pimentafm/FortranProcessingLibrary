@@ -83,7 +83,7 @@ subroutine ncoords3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -101,8 +101,7 @@ subroutine ncoords3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}
-
+end subroutine ncoords3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}
 "
 done
 done

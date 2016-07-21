@@ -311,7 +311,7 @@ subroutine ncoords3d_byte_llf_ti(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -329,8 +329,7 @@ subroutine ncoords3d_byte_llf_ti(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_byte_llf_ti
-
+end subroutine ncoords3d_byte_llf_ti
 
 
 !NetCDF <var short> (lon <float>, lat <float>, time <int>)
@@ -343,7 +342,7 @@ subroutine ncoords3d_short_llf_ti(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -361,8 +360,7 @@ subroutine ncoords3d_short_llf_ti(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_short_llf_ti
-
+end subroutine ncoords3d_short_llf_ti
 
 
 !NetCDF <var int> (lon <float>, lat <float>, time <int>)
@@ -375,7 +373,7 @@ subroutine ncoords3d_int_llf_ti(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -393,8 +391,7 @@ subroutine ncoords3d_int_llf_ti(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_int_llf_ti
-
+end subroutine ncoords3d_int_llf_ti
 
 
 !NetCDF <var float> (lon <float>, lat <float>, time <int>)
@@ -407,7 +404,7 @@ subroutine ncoords3d_float_llf_ti(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -425,8 +422,7 @@ subroutine ncoords3d_float_llf_ti(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_float_llf_ti
-
+end subroutine ncoords3d_float_llf_ti
 
 
 !NetCDF <var double> (lon <float>, lat <float>, time <int>)
@@ -439,7 +435,7 @@ subroutine ncoords3d_double_llf_ti(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -457,8 +453,7 @@ subroutine ncoords3d_double_llf_ti(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_double_llf_ti
-
+end subroutine ncoords3d_double_llf_ti
 
 
 !NetCDF <var byte> (lon <double>, lat <double>, time <int>)
@@ -471,7 +466,7 @@ subroutine ncoords3d_byte_lld_ti(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -489,8 +484,7 @@ subroutine ncoords3d_byte_lld_ti(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_byte_lld_ti
-
+end subroutine ncoords3d_byte_lld_ti
 
 
 !NetCDF <var short> (lon <double>, lat <double>, time <int>)
@@ -503,7 +497,7 @@ subroutine ncoords3d_short_lld_ti(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -521,8 +515,7 @@ subroutine ncoords3d_short_lld_ti(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_short_lld_ti
-
+end subroutine ncoords3d_short_lld_ti
 
 
 !NetCDF <var int> (lon <double>, lat <double>, time <int>)
@@ -535,7 +528,7 @@ subroutine ncoords3d_int_lld_ti(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -553,8 +546,7 @@ subroutine ncoords3d_int_lld_ti(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_int_lld_ti
-
+end subroutine ncoords3d_int_lld_ti
 
 
 !NetCDF <var float> (lon <double>, lat <double>, time <int>)
@@ -567,7 +559,7 @@ subroutine ncoords3d_float_lld_ti(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -585,8 +577,7 @@ subroutine ncoords3d_float_lld_ti(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_float_lld_ti
-
+end subroutine ncoords3d_float_lld_ti
 
 
 !NetCDF <var double> (lon <double>, lat <double>, time <int>)
@@ -599,7 +590,7 @@ subroutine ncoords3d_double_lld_ti(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -617,8 +608,7 @@ subroutine ncoords3d_double_lld_ti(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_double_lld_ti
-
+end subroutine ncoords3d_double_lld_ti
 
 
 !NetCDF <var byte> (lon <float>, lat <float>, time <float>)
@@ -631,7 +621,7 @@ subroutine ncoords3d_byte_llf_tf(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -649,8 +639,7 @@ subroutine ncoords3d_byte_llf_tf(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_byte_llf_tf
-
+end subroutine ncoords3d_byte_llf_tf
 
 
 !NetCDF <var short> (lon <float>, lat <float>, time <float>)
@@ -663,7 +652,7 @@ subroutine ncoords3d_short_llf_tf(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -681,8 +670,7 @@ subroutine ncoords3d_short_llf_tf(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_short_llf_tf
-
+end subroutine ncoords3d_short_llf_tf
 
 
 !NetCDF <var int> (lon <float>, lat <float>, time <float>)
@@ -695,7 +683,7 @@ subroutine ncoords3d_int_llf_tf(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -713,8 +701,7 @@ subroutine ncoords3d_int_llf_tf(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_int_llf_tf
-
+end subroutine ncoords3d_int_llf_tf
 
 
 !NetCDF <var float> (lon <float>, lat <float>, time <float>)
@@ -727,7 +714,7 @@ subroutine ncoords3d_float_llf_tf(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -745,8 +732,7 @@ subroutine ncoords3d_float_llf_tf(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_float_llf_tf
-
+end subroutine ncoords3d_float_llf_tf
 
 
 !NetCDF <var double> (lon <float>, lat <float>, time <float>)
@@ -759,7 +745,7 @@ subroutine ncoords3d_double_llf_tf(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -777,8 +763,7 @@ subroutine ncoords3d_double_llf_tf(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_double_llf_tf
-
+end subroutine ncoords3d_double_llf_tf
 
 
 !NetCDF <var byte> (lon <double>, lat <double>, time <float>)
@@ -791,7 +776,7 @@ subroutine ncoords3d_byte_lld_tf(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -809,8 +794,7 @@ subroutine ncoords3d_byte_lld_tf(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_byte_lld_tf
-
+end subroutine ncoords3d_byte_lld_tf
 
 
 !NetCDF <var short> (lon <double>, lat <double>, time <float>)
@@ -823,7 +807,7 @@ subroutine ncoords3d_short_lld_tf(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -841,8 +825,7 @@ subroutine ncoords3d_short_lld_tf(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_short_lld_tf
-
+end subroutine ncoords3d_short_lld_tf
 
 
 !NetCDF <var int> (lon <double>, lat <double>, time <float>)
@@ -855,7 +838,7 @@ subroutine ncoords3d_int_lld_tf(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -873,8 +856,7 @@ subroutine ncoords3d_int_lld_tf(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_int_lld_tf
-
+end subroutine ncoords3d_int_lld_tf
 
 
 !NetCDF <var float> (lon <double>, lat <double>, time <float>)
@@ -887,7 +869,7 @@ subroutine ncoords3d_float_lld_tf(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -905,8 +887,7 @@ subroutine ncoords3d_float_lld_tf(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_float_lld_tf
-
+end subroutine ncoords3d_float_lld_tf
 
 
 !NetCDF <var double> (lon <double>, lat <double>, time <float>)
@@ -919,7 +900,7 @@ subroutine ncoords3d_double_lld_tf(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -937,8 +918,7 @@ subroutine ncoords3d_double_lld_tf(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_double_lld_tf
-
+end subroutine ncoords3d_double_lld_tf
 
 
 !NetCDF <var byte> (lon <float>, lat <float>, time <double>)
@@ -951,7 +931,7 @@ subroutine ncoords3d_byte_llf_td(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -969,8 +949,7 @@ subroutine ncoords3d_byte_llf_td(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_byte_llf_td
-
+end subroutine ncoords3d_byte_llf_td
 
 
 !NetCDF <var short> (lon <float>, lat <float>, time <double>)
@@ -983,7 +962,7 @@ subroutine ncoords3d_short_llf_td(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -1001,8 +980,7 @@ subroutine ncoords3d_short_llf_td(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_short_llf_td
-
+end subroutine ncoords3d_short_llf_td
 
 
 !NetCDF <var int> (lon <float>, lat <float>, time <double>)
@@ -1015,7 +993,7 @@ subroutine ncoords3d_int_llf_td(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -1033,8 +1011,7 @@ subroutine ncoords3d_int_llf_td(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_int_llf_td
-
+end subroutine ncoords3d_int_llf_td
 
 
 !NetCDF <var float> (lon <float>, lat <float>, time <double>)
@@ -1047,7 +1024,7 @@ subroutine ncoords3d_float_llf_td(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -1065,8 +1042,7 @@ subroutine ncoords3d_float_llf_td(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_float_llf_td
-
+end subroutine ncoords3d_float_llf_td
 
 
 !NetCDF <var double> (lon <float>, lat <float>, time <double>)
@@ -1079,7 +1055,7 @@ subroutine ncoords3d_double_llf_td(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -1097,8 +1073,7 @@ subroutine ncoords3d_double_llf_td(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_double_llf_td
-
+end subroutine ncoords3d_double_llf_td
 
 
 !NetCDF <var byte> (lon <double>, lat <double>, time <double>)
@@ -1111,7 +1086,7 @@ subroutine ncoords3d_byte_lld_td(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -1129,8 +1104,7 @@ subroutine ncoords3d_byte_lld_td(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_byte_lld_td
-
+end subroutine ncoords3d_byte_lld_td
 
 
 !NetCDF <var short> (lon <double>, lat <double>, time <double>)
@@ -1143,7 +1117,7 @@ subroutine ncoords3d_short_lld_td(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -1161,8 +1135,7 @@ subroutine ncoords3d_short_lld_td(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_short_lld_td
-
+end subroutine ncoords3d_short_lld_td
 
 
 !NetCDF <var int> (lon <double>, lat <double>, time <double>)
@@ -1175,7 +1148,7 @@ subroutine ncoords3d_int_lld_td(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -1193,8 +1166,7 @@ subroutine ncoords3d_int_lld_td(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_int_lld_td
-
+end subroutine ncoords3d_int_lld_td
 
 
 !NetCDF <var float> (lon <double>, lat <double>, time <double>)
@@ -1207,7 +1179,7 @@ subroutine ncoords3d_float_lld_td(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -1225,8 +1197,7 @@ subroutine ncoords3d_float_lld_td(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_float_lld_td
-
+end subroutine ncoords3d_float_lld_td
 
 
 !NetCDF <var double> (lon <double>, lat <double>, time <double>)
@@ -1239,7 +1210,7 @@ subroutine ncoords3d_double_lld_td(ifile, idata)
   call check(nf90_open(ifile, nf90_nowrite, ncid))
 
   !Get Time Number
-  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%lonname)
+  call checkdimid(nf90_inq_dimid(ncid, idata%timename, tdimid), idata%timename)
   call check(nf90_inquire_dimension(ncid, tdimid, idata%timename, idata%ntimes))
 
   !Get Coordinate values and put them in nx, ny
@@ -1257,6 +1228,5 @@ subroutine ncoords3d_double_lld_td(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-  end subroutine ncoords3d_double_lld_td
-
+end subroutine ncoords3d_double_lld_td
 

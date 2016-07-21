@@ -75,7 +75,6 @@ subroutine readgrid2d_${arr[$i]}_ll${arrid[$j]}(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid2d_${arr[$i]}_ll${arrid[$j]}
-
 "
 done
 done
@@ -126,7 +125,6 @@ subroutine readgrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ifile, idata)
 
   call check(nf90_close(ncid))
 end subroutine readgrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}
-
 "
 done
 done

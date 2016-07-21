@@ -44,7 +44,7 @@ for i in {0..4};do
 
 type :: nc2d_${arr[$i]}_ll${arrid[$j]}
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=100) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   ${arr2[$i]} :: FillValue
@@ -64,7 +64,7 @@ for i in {0..4};do
 type :: nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   ${arr2[$i]} :: FillValue

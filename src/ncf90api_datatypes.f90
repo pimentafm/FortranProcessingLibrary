@@ -35,7 +35,7 @@
 
 type :: nc2d_byte_llf
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=100) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   integer(kind=byte) :: FillValue
@@ -49,7 +49,7 @@ end type nc2d_byte_llf
 
 type :: nc2d_short_llf
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=100) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   integer(kind=short) :: FillValue
@@ -63,7 +63,7 @@ end type nc2d_short_llf
 
 type :: nc2d_int_llf
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=100) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   integer(kind=intgr) :: FillValue
@@ -77,7 +77,7 @@ end type nc2d_int_llf
 
 type :: nc2d_float_llf
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=100) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   real(kind=float) :: FillValue
@@ -91,7 +91,7 @@ end type nc2d_float_llf
 
 type :: nc2d_double_llf
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=100) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   real(kind=double) :: FillValue
@@ -105,7 +105,7 @@ end type nc2d_double_llf
 
 type :: nc2d_byte_lld
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=100) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   integer(kind=byte) :: FillValue
@@ -119,7 +119,7 @@ end type nc2d_byte_lld
 
 type :: nc2d_short_lld
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=100) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   integer(kind=short) :: FillValue
@@ -133,7 +133,7 @@ end type nc2d_short_lld
 
 type :: nc2d_int_lld
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=100) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   integer(kind=intgr) :: FillValue
@@ -147,7 +147,7 @@ end type nc2d_int_lld
 
 type :: nc2d_float_lld
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=100) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   real(kind=float) :: FillValue
@@ -161,7 +161,7 @@ end type nc2d_float_lld
 
 type :: nc2d_double_lld
   sequence
-  character(len=20) :: varname, lonname, latname, varunits, long_name, &
+  character(len=100) :: varname, lonname, latname, varunits, long_name, &
                        lonunits, latunits
   integer(kind=intgr) :: nlons, nlats, vartype
   real(kind=double) :: FillValue
@@ -175,7 +175,7 @@ end type nc2d_double_lld
 type :: nc3d_byte_llf_ti
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=byte) :: FillValue
@@ -190,7 +190,7 @@ end type nc3d_byte_llf_ti
 type :: nc3d_short_llf_ti
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=short) :: FillValue
@@ -205,7 +205,7 @@ end type nc3d_short_llf_ti
 type :: nc3d_int_llf_ti
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=intgr) :: FillValue
@@ -220,7 +220,7 @@ end type nc3d_int_llf_ti
 type :: nc3d_float_llf_ti
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=float) :: FillValue
@@ -235,7 +235,7 @@ end type nc3d_float_llf_ti
 type :: nc3d_double_llf_ti
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=double) :: FillValue
@@ -250,7 +250,7 @@ end type nc3d_double_llf_ti
 type :: nc3d_byte_lld_ti
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=byte) :: FillValue
@@ -265,7 +265,7 @@ end type nc3d_byte_lld_ti
 type :: nc3d_short_lld_ti
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=short) :: FillValue
@@ -280,7 +280,7 @@ end type nc3d_short_lld_ti
 type :: nc3d_int_lld_ti
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=intgr) :: FillValue
@@ -295,7 +295,7 @@ end type nc3d_int_lld_ti
 type :: nc3d_float_lld_ti
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=float) :: FillValue
@@ -310,7 +310,7 @@ end type nc3d_float_lld_ti
 type :: nc3d_double_lld_ti
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=double) :: FillValue
@@ -325,7 +325,7 @@ end type nc3d_double_lld_ti
 type :: nc3d_byte_llf_tf
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=byte) :: FillValue
@@ -340,7 +340,7 @@ end type nc3d_byte_llf_tf
 type :: nc3d_short_llf_tf
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=short) :: FillValue
@@ -355,7 +355,7 @@ end type nc3d_short_llf_tf
 type :: nc3d_int_llf_tf
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=intgr) :: FillValue
@@ -370,7 +370,7 @@ end type nc3d_int_llf_tf
 type :: nc3d_float_llf_tf
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=float) :: FillValue
@@ -385,7 +385,7 @@ end type nc3d_float_llf_tf
 type :: nc3d_double_llf_tf
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=double) :: FillValue
@@ -400,7 +400,7 @@ end type nc3d_double_llf_tf
 type :: nc3d_byte_lld_tf
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=byte) :: FillValue
@@ -415,7 +415,7 @@ end type nc3d_byte_lld_tf
 type :: nc3d_short_lld_tf
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=short) :: FillValue
@@ -430,7 +430,7 @@ end type nc3d_short_lld_tf
 type :: nc3d_int_lld_tf
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=intgr) :: FillValue
@@ -445,7 +445,7 @@ end type nc3d_int_lld_tf
 type :: nc3d_float_lld_tf
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=float) :: FillValue
@@ -460,7 +460,7 @@ end type nc3d_float_lld_tf
 type :: nc3d_double_lld_tf
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=double) :: FillValue
@@ -475,7 +475,7 @@ end type nc3d_double_lld_tf
 type :: nc3d_byte_llf_td
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=byte) :: FillValue
@@ -490,7 +490,7 @@ end type nc3d_byte_llf_td
 type :: nc3d_short_llf_td
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=short) :: FillValue
@@ -505,7 +505,7 @@ end type nc3d_short_llf_td
 type :: nc3d_int_llf_td
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=intgr) :: FillValue
@@ -520,7 +520,7 @@ end type nc3d_int_llf_td
 type :: nc3d_float_llf_td
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=float) :: FillValue
@@ -535,7 +535,7 @@ end type nc3d_float_llf_td
 type :: nc3d_double_llf_td
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=double) :: FillValue
@@ -550,7 +550,7 @@ end type nc3d_double_llf_td
 type :: nc3d_byte_lld_td
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=byte) :: FillValue
@@ -565,7 +565,7 @@ end type nc3d_byte_lld_td
 type :: nc3d_short_lld_td
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=short) :: FillValue
@@ -580,7 +580,7 @@ end type nc3d_short_lld_td
 type :: nc3d_int_lld_td
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   integer(kind=intgr) :: FillValue
@@ -593,8 +593,9 @@ end type nc3d_int_lld_td
 
 !NetCDF(lon, lat, time) float
 type :: nc3d_float_lld_td
+
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=float) :: FillValue
@@ -609,7 +610,7 @@ end type nc3d_float_lld_td
 type :: nc3d_double_lld_td
 
   sequence
-  character(len=20) :: varname, timename, lonname, latname, varunits, &
+  character(len=100) :: varname, timename, lonname, latname, varunits, &
                        long_name, lonunits, latunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, vartype
   real(kind=double) :: FillValue
