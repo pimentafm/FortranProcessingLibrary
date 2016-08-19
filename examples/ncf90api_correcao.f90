@@ -40,20 +40,17 @@ program main
 
   character(200) :: inputpath, outputpath
 
-  inputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/precdaily1980.nc"
-
+  inputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/test_echam_spectral2.nc"
   
-  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/output/precX.nc"
+  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/output/specX.nc"
 
-  var%varname = "prec"
-  var%levelname = "level"
-  var%lonname = "longitude"
-  var%latname = "latitude"
+  var%varname = "aclcac"
+  var%levelname = "mlev"
+  var%lonname = "lon"
+  var%latname = "lat"
   var%timename = "time"
 
-
-  call readgrid(inputpath, var)
-
+  call readgrid4d_float_lld_td_lf(inputpath, var)
 
   call writegrid(outputpath, var)
 

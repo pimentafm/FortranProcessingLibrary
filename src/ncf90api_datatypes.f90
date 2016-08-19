@@ -550,7 +550,8 @@ type :: nc4d_byte_llf_ti_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=byte) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_byte_llf_ti_li
@@ -564,7 +565,8 @@ type :: nc4d_short_llf_ti_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=short) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_short_llf_ti_li
@@ -578,7 +580,8 @@ type :: nc4d_int_llf_ti_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=intgr) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_int_llf_ti_li
@@ -592,7 +595,8 @@ type :: nc4d_float_llf_ti_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=float) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_float_llf_ti_li
@@ -606,7 +610,8 @@ type :: nc4d_double_llf_ti_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=double) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_double_llf_ti_li
@@ -620,7 +625,8 @@ type :: nc4d_byte_lld_ti_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=byte) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_byte_lld_ti_li
@@ -634,7 +640,8 @@ type :: nc4d_short_lld_ti_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=short) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_short_lld_ti_li
@@ -648,7 +655,8 @@ type :: nc4d_int_lld_ti_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=intgr) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_int_lld_ti_li
@@ -662,7 +670,8 @@ type :: nc4d_float_lld_ti_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=float) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_float_lld_ti_li
@@ -676,7 +685,8 @@ type :: nc4d_double_lld_ti_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=double) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_double_lld_ti_li
@@ -690,7 +700,8 @@ type :: nc4d_byte_llf_tf_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=byte) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_byte_llf_tf_li
@@ -704,7 +715,8 @@ type :: nc4d_short_llf_tf_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=short) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_short_llf_tf_li
@@ -718,7 +730,8 @@ type :: nc4d_int_llf_tf_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=intgr) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_int_llf_tf_li
@@ -732,7 +745,8 @@ type :: nc4d_float_llf_tf_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=float) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_float_llf_tf_li
@@ -746,7 +760,8 @@ type :: nc4d_double_llf_tf_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=double) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_double_llf_tf_li
@@ -760,7 +775,8 @@ type :: nc4d_byte_lld_tf_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=byte) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_byte_lld_tf_li
@@ -774,7 +790,8 @@ type :: nc4d_short_lld_tf_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=short) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_short_lld_tf_li
@@ -788,7 +805,8 @@ type :: nc4d_int_lld_tf_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=intgr) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_int_lld_tf_li
@@ -802,7 +820,8 @@ type :: nc4d_float_lld_tf_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=float) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_float_lld_tf_li
@@ -816,7 +835,8 @@ type :: nc4d_double_lld_tf_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=double) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_double_lld_tf_li
@@ -830,7 +850,8 @@ type :: nc4d_byte_llf_td_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=byte) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_byte_llf_td_li
@@ -844,7 +865,8 @@ type :: nc4d_short_llf_td_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=short) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_short_llf_td_li
@@ -858,7 +880,8 @@ type :: nc4d_int_llf_td_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=intgr) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_int_llf_td_li
@@ -872,7 +895,8 @@ type :: nc4d_float_llf_td_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=float) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_float_llf_td_li
@@ -886,7 +910,8 @@ type :: nc4d_double_llf_td_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=double) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_double_llf_td_li
@@ -900,7 +925,8 @@ type :: nc4d_byte_lld_td_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=byte) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_byte_lld_td_li
@@ -914,7 +940,8 @@ type :: nc4d_short_lld_td_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=short) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_short_lld_td_li
@@ -928,7 +955,8 @@ type :: nc4d_int_lld_td_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=intgr) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_int_lld_td_li
@@ -942,7 +970,8 @@ type :: nc4d_float_lld_td_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=float) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_float_lld_td_li
@@ -956,7 +985,8 @@ type :: nc4d_double_lld_td_li
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=double) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  integer(kind=intgr), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_double_lld_td_li
@@ -970,7 +1000,8 @@ type :: nc4d_byte_llf_ti_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=byte) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_byte_llf_ti_lf
@@ -984,7 +1015,8 @@ type :: nc4d_short_llf_ti_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=short) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_short_llf_ti_lf
@@ -998,7 +1030,8 @@ type :: nc4d_int_llf_ti_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=intgr) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_int_llf_ti_lf
@@ -1012,7 +1045,8 @@ type :: nc4d_float_llf_ti_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=float) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_float_llf_ti_lf
@@ -1026,7 +1060,8 @@ type :: nc4d_double_llf_ti_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=double) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_double_llf_ti_lf
@@ -1040,7 +1075,8 @@ type :: nc4d_byte_lld_ti_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=byte) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_byte_lld_ti_lf
@@ -1054,7 +1090,8 @@ type :: nc4d_short_lld_ti_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=short) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_short_lld_ti_lf
@@ -1068,7 +1105,8 @@ type :: nc4d_int_lld_ti_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=intgr) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_int_lld_ti_lf
@@ -1082,7 +1120,8 @@ type :: nc4d_float_lld_ti_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=float) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_float_lld_ti_lf
@@ -1096,7 +1135,8 @@ type :: nc4d_double_lld_ti_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=double) :: FillValue
-  integer(kind=intgr), dimension(:), allocatable :: times, levels
+  integer(kind=intgr), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_double_lld_ti_lf
@@ -1110,7 +1150,8 @@ type :: nc4d_byte_llf_tf_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=byte) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_byte_llf_tf_lf
@@ -1124,7 +1165,8 @@ type :: nc4d_short_llf_tf_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=short) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_short_llf_tf_lf
@@ -1138,7 +1180,8 @@ type :: nc4d_int_llf_tf_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=intgr) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_int_llf_tf_lf
@@ -1152,7 +1195,8 @@ type :: nc4d_float_llf_tf_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=float) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_float_llf_tf_lf
@@ -1166,7 +1210,8 @@ type :: nc4d_double_llf_tf_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=double) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_double_llf_tf_lf
@@ -1180,7 +1225,8 @@ type :: nc4d_byte_lld_tf_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=byte) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_byte_lld_tf_lf
@@ -1194,7 +1240,8 @@ type :: nc4d_short_lld_tf_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=short) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_short_lld_tf_lf
@@ -1208,7 +1255,8 @@ type :: nc4d_int_lld_tf_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=intgr) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_int_lld_tf_lf
@@ -1222,7 +1270,8 @@ type :: nc4d_float_lld_tf_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=float) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_float_lld_tf_lf
@@ -1236,7 +1285,8 @@ type :: nc4d_double_lld_tf_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=double) :: FillValue
-  real(kind=float), dimension(:), allocatable :: times, levels
+  real(kind=float), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_double_lld_tf_lf
@@ -1250,7 +1300,8 @@ type :: nc4d_byte_llf_td_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=byte) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_byte_llf_td_lf
@@ -1264,7 +1315,8 @@ type :: nc4d_short_llf_td_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=short) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_short_llf_td_lf
@@ -1278,7 +1330,8 @@ type :: nc4d_int_llf_td_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=intgr) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_int_llf_td_lf
@@ -1292,7 +1345,8 @@ type :: nc4d_float_llf_td_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=float) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_float_llf_td_lf
@@ -1306,7 +1360,8 @@ type :: nc4d_double_llf_td_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=double) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=float), dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_double_llf_td_lf
@@ -1320,7 +1375,8 @@ type :: nc4d_byte_lld_td_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=byte) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=byte), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_byte_lld_td_lf
@@ -1334,7 +1390,8 @@ type :: nc4d_short_lld_td_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=short) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=short), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_short_lld_td_lf
@@ -1348,7 +1405,8 @@ type :: nc4d_int_lld_td_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   integer(kind=intgr) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   integer(kind=intgr), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_int_lld_td_lf
@@ -1362,7 +1420,8 @@ type :: nc4d_float_lld_td_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=float) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   real(kind=float), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_float_lld_td_lf
@@ -1376,7 +1435,8 @@ type :: nc4d_double_lld_td_lf
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   real(kind=double) :: FillValue
-  real(kind=double), dimension(:), allocatable :: times, levels
+  real(kind=double), dimension(:), allocatable :: times
+  real(kind=float), dimension(:), allocatable :: levels
   real(kind=double), dimension(:), allocatable :: longitudes, latitudes
   real(kind=double), dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_double_lld_td_lf

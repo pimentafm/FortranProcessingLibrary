@@ -110,7 +110,8 @@ type :: nc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}
                         levelunits, timeunits
   integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
   ${arr2[$i]} :: FillValue
-  ${arr2[$k]}, dimension(:), allocatable :: times, levels
+  ${arr2[$k]}, dimension(:), allocatable :: times
+  ${arr2[$l]}, dimension(:), allocatable :: levels
   real(kind=${arr[$j]}), dimension(:), allocatable :: longitudes, latitudes
   ${arr2[$i]}, dimension(:,:,:,:), allocatable :: ncdata
 end type nc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}"
