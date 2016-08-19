@@ -38,27 +38,27 @@ program main
 
   type(nc4d_float_lld_td_lf) :: var
 
-  character(200) :: inputpath, outputpath
+  character(400) :: inputpath, outputpath
 
-  inputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/test_echam_spectral2.nc"
+  inputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/precdaily1980.nc"
   
-  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/output/specX.nc"
+  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/output/precX.nc"
 
-  var%varname = "aclcac"
-  var%levelname = "mlev"
-  var%lonname = "lon"
-  var%latname = "lat"
-  var%timename = "time"
+  var%varname =   "prec"
+  var%levelname = "level"
+  var%lonname =   "longitude"
+  var%latname =   "latitude"
+  var%timename =  "time"
 
-  call readgrid4d_float_lld_td_lf(inputpath, var)
+  call readgrid(inputpath, var)
 
-  call writegrid(outputpath, var)
-
-  write(*,*) var%nlons
-  write(*,*) var%nlats
-  write(*,*) var%ntimes
-  write(*,*) var%timeunits 
   write(*,*) var%nlevels
-  write(*,*) var%levelunits
+  write(*,*) var%ntimes
+  write(*,*) var%nlats
+  write(*,*) var%nlons
+
+  write(*,*) var%levels
+  write(*,*) var%ncdata 
+  call writegrid(outputpath, var)
 
 end program main
