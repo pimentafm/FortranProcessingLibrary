@@ -78,8 +78,8 @@ program main
   write(*,101) "ntimes:   ", spectral%ntimes
   write(*,100) "timeunits:", spectral%timeunits
 
-100 format(2a10)
-101 format(a10,i10)
+100 format(2a20)
+101 format(a10,i20)
  
   call writegrid(outputpath, spectral) 
 

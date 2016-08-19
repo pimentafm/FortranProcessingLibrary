@@ -75,7 +75,67 @@ interface ncoords
                 ncoords3d_short_lld_td, &
                 ncoords3d_int_lld_td, &
                 ncoords3d_float_lld_td, &
-                ncoords3d_double_lld_td
+                ncoords3d_double_lld_td, &
+                ncoords4d_byte_llf_ti_li, &
+                ncoords4d_short_llf_ti_li, &
+                ncoords4d_int_llf_ti_li, &
+                ncoords4d_float_llf_ti_li, &
+                ncoords4d_double_llf_ti_li, &
+                ncoords4d_byte_lld_ti_li, &
+                ncoords4d_short_lld_ti_li, &
+                ncoords4d_int_lld_ti_li, &
+                ncoords4d_float_lld_ti_li, &
+                ncoords4d_double_lld_ti_li, &
+                ncoords4d_byte_llf_tf_li, &
+                ncoords4d_short_llf_tf_li, &
+                ncoords4d_int_llf_tf_li, &
+                ncoords4d_float_llf_tf_li, &
+                ncoords4d_double_llf_tf_li, &
+                ncoords4d_byte_lld_tf_li, &
+                ncoords4d_short_lld_tf_li, &
+                ncoords4d_int_lld_tf_li, &
+                ncoords4d_float_lld_tf_li, &
+                ncoords4d_double_lld_tf_li, &
+                ncoords4d_byte_llf_td_li, &
+                ncoords4d_short_llf_td_li, &
+                ncoords4d_int_llf_td_li, &
+                ncoords4d_float_llf_td_li, &
+                ncoords4d_double_llf_td_li, &
+                ncoords4d_byte_lld_td_li, &
+                ncoords4d_short_lld_td_li, &
+                ncoords4d_int_lld_td_li, &
+                ncoords4d_float_lld_td_li, &
+                ncoords4d_double_lld_td_li, &
+                ncoords4d_byte_llf_ti_lf, &
+                ncoords4d_short_llf_ti_lf, &
+                ncoords4d_int_llf_ti_lf, &
+                ncoords4d_float_llf_ti_lf, &
+                ncoords4d_double_llf_ti_lf, &
+                ncoords4d_byte_lld_ti_lf, &
+                ncoords4d_short_lld_ti_lf, &
+                ncoords4d_int_lld_ti_lf, &
+                ncoords4d_float_lld_ti_lf, &
+                ncoords4d_double_lld_ti_lf, &
+                ncoords4d_byte_llf_tf_lf, &
+                ncoords4d_short_llf_tf_lf, &
+                ncoords4d_int_llf_tf_lf, &
+                ncoords4d_float_llf_tf_lf, &
+                ncoords4d_double_llf_tf_lf, &
+                ncoords4d_byte_lld_tf_lf, &
+                ncoords4d_short_lld_tf_lf, &
+                ncoords4d_int_lld_tf_lf, &
+                ncoords4d_float_lld_tf_lf, &
+                ncoords4d_double_lld_tf_lf, &
+                ncoords4d_byte_llf_td_lf, &
+                ncoords4d_short_llf_td_lf, &
+                ncoords4d_int_llf_td_lf, &
+                ncoords4d_float_llf_td_lf, &
+                ncoords4d_double_llf_td_lf, &
+                ncoords4d_byte_lld_td_lf, &
+                ncoords4d_short_lld_td_lf, &
+                ncoords4d_int_lld_td_lf, &
+                ncoords4d_float_lld_td_lf, &
+                ncoords4d_double_lld_td_lf
 end interface ncoords
 
 interface readgrid
@@ -118,7 +178,67 @@ interface readgrid
                 readgrid3d_short_lld_td, &
                 readgrid3d_int_lld_td, &
                 readgrid3d_float_lld_td, &
-                readgrid3d_double_lld_td
+                readgrid3d_double_lld_td, &
+                readgrid4d_byte_llf_ti_li, &
+                readgrid4d_short_llf_ti_li, &
+                readgrid4d_int_llf_ti_li, &
+                readgrid4d_float_llf_ti_li, &
+                readgrid4d_double_llf_ti_li, &
+                readgrid4d_byte_lld_ti_li, &
+                readgrid4d_short_lld_ti_li, &
+                readgrid4d_int_lld_ti_li, &
+                readgrid4d_float_lld_ti_li, &
+                readgrid4d_double_lld_ti_li, &
+                readgrid4d_byte_llf_tf_li, &
+                readgrid4d_short_llf_tf_li, &
+                readgrid4d_int_llf_tf_li, &
+                readgrid4d_float_llf_tf_li, &
+                readgrid4d_double_llf_tf_li, &
+                readgrid4d_byte_lld_tf_li, &
+                readgrid4d_short_lld_tf_li, &
+                readgrid4d_int_lld_tf_li, &
+                readgrid4d_float_lld_tf_li, &
+                readgrid4d_double_lld_tf_li, &
+                readgrid4d_byte_llf_td_li, &
+                readgrid4d_short_llf_td_li, &
+                readgrid4d_int_llf_td_li, &
+                readgrid4d_float_llf_td_li, &
+                readgrid4d_double_llf_td_li, &
+                readgrid4d_byte_lld_td_li, &
+                readgrid4d_short_lld_td_li, &
+                readgrid4d_int_lld_td_li, &
+                readgrid4d_float_lld_td_li, &
+                readgrid4d_double_lld_td_li, &
+                readgrid4d_byte_llf_ti_lf, &
+                readgrid4d_short_llf_ti_lf, &
+                readgrid4d_int_llf_ti_lf, &
+                readgrid4d_float_llf_ti_lf, &
+                readgrid4d_double_llf_ti_lf, &
+                readgrid4d_byte_lld_ti_lf, &
+                readgrid4d_short_lld_ti_lf, &
+                readgrid4d_int_lld_ti_lf, &
+                readgrid4d_float_lld_ti_lf, &
+                readgrid4d_double_lld_ti_lf, &
+                readgrid4d_byte_llf_tf_lf, &
+                readgrid4d_short_llf_tf_lf, &
+                readgrid4d_int_llf_tf_lf, &
+                readgrid4d_float_llf_tf_lf, &
+                readgrid4d_double_llf_tf_lf, &
+                readgrid4d_byte_lld_tf_lf, &
+                readgrid4d_short_lld_tf_lf, &
+                readgrid4d_int_lld_tf_lf, &
+                readgrid4d_float_lld_tf_lf, &
+                readgrid4d_double_lld_tf_lf, &
+                readgrid4d_byte_llf_td_lf, &
+                readgrid4d_short_llf_td_lf, &
+                readgrid4d_int_llf_td_lf, &
+                readgrid4d_float_llf_td_lf, &
+                readgrid4d_double_llf_td_lf, &
+                readgrid4d_byte_lld_td_lf, &
+                readgrid4d_short_lld_td_lf, &
+                readgrid4d_int_lld_td_lf, &
+                readgrid4d_float_lld_td_lf, &
+                readgrid4d_double_lld_td_lf
 end interface readgrid
 
 interface writegrid
@@ -161,7 +281,67 @@ interface writegrid
                 writegrid3d_short_lld_td, &
                 writegrid3d_int_lld_td, &
                 writegrid3d_float_lld_td, &
-                writegrid3d_double_lld_td
+                writegrid3d_double_lld_td, &
+                writegrid4d_byte_llf_ti_li, &
+                writegrid4d_short_llf_ti_li, &
+                writegrid4d_int_llf_ti_li, &
+                writegrid4d_float_llf_ti_li, &
+                writegrid4d_double_llf_ti_li, &
+                writegrid4d_byte_lld_ti_li, &
+                writegrid4d_short_lld_ti_li, &
+                writegrid4d_int_lld_ti_li, &
+                writegrid4d_float_lld_ti_li, &
+                writegrid4d_double_lld_ti_li, &
+                writegrid4d_byte_llf_tf_li, &
+                writegrid4d_short_llf_tf_li, &
+                writegrid4d_int_llf_tf_li, &
+                writegrid4d_float_llf_tf_li, &
+                writegrid4d_double_llf_tf_li, &
+                writegrid4d_byte_lld_tf_li, &
+                writegrid4d_short_lld_tf_li, &
+                writegrid4d_int_lld_tf_li, &
+                writegrid4d_float_lld_tf_li, &
+                writegrid4d_double_lld_tf_li, &
+                writegrid4d_byte_llf_td_li, &
+                writegrid4d_short_llf_td_li, &
+                writegrid4d_int_llf_td_li, &
+                writegrid4d_float_llf_td_li, &
+                writegrid4d_double_llf_td_li, &
+                writegrid4d_byte_lld_td_li, &
+                writegrid4d_short_lld_td_li, &
+                writegrid4d_int_lld_td_li, &
+                writegrid4d_float_lld_td_li, &
+                writegrid4d_double_lld_td_li, &
+                writegrid4d_byte_llf_ti_lf, &
+                writegrid4d_short_llf_ti_lf, &
+                writegrid4d_int_llf_ti_lf, &
+                writegrid4d_float_llf_ti_lf, &
+                writegrid4d_double_llf_ti_lf, &
+                writegrid4d_byte_lld_ti_lf, &
+                writegrid4d_short_lld_ti_lf, &
+                writegrid4d_int_lld_ti_lf, &
+                writegrid4d_float_lld_ti_lf, &
+                writegrid4d_double_lld_ti_lf, &
+                writegrid4d_byte_llf_tf_lf, &
+                writegrid4d_short_llf_tf_lf, &
+                writegrid4d_int_llf_tf_lf, &
+                writegrid4d_float_llf_tf_lf, &
+                writegrid4d_double_llf_tf_lf, &
+                writegrid4d_byte_lld_tf_lf, &
+                writegrid4d_short_lld_tf_lf, &
+                writegrid4d_int_lld_tf_lf, &
+                writegrid4d_float_lld_tf_lf, &
+                writegrid4d_double_lld_tf_lf, &
+                writegrid4d_byte_llf_td_lf, &
+                writegrid4d_short_llf_td_lf, &
+                writegrid4d_int_llf_td_lf, &
+                writegrid4d_float_llf_td_lf, &
+                writegrid4d_double_llf_td_lf, &
+                writegrid4d_byte_lld_td_lf, &
+                writegrid4d_short_lld_td_lf, &
+                writegrid4d_int_lld_td_lf, &
+                writegrid4d_float_lld_td_lf, &
+                writegrid4d_double_lld_td_lf
 end interface writegrid
 
 interface setFillValue

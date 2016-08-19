@@ -77,9 +77,6 @@ ex4:
 ex5:	
 	gfortran $(FLAGS) -o $(progname)5p.out ncf90api_5p.f90 $(ncf90api_module) $(ncf90api_library)
 
-ex6:	
-	gfortran $(FLAGS) -o $(progname)mapdelbrot.out ncf90api_mapdelbrot.f90 $(ncf90api_module) $(ncf90api_library)
-
 correcao:	
 	gfortran $(FLAGS) -o $(progname)correcao.out ncf90api_correcao.f90 $(ncf90api_module) $(ncf90api_library)
 

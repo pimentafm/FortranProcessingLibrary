@@ -36,7 +36,7 @@ program main
   use ncf90api
   implicit none
 
-  type(nc3d_float_lld_td) :: var
+  type(nc4d_float_lld_td_lf) :: var
 
   character(200) :: inputpath, outputpath
 
@@ -46,6 +46,7 @@ program main
   outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/output/precX.nc"
 
   var%varname = "prec"
+  var%levelname = "level"
   var%lonname = "longitude"
   var%latname = "latitude"
   var%timename = "time"
@@ -53,9 +54,14 @@ program main
 
   call readgrid(inputpath, var)
 
+
+  call writegrid(outputpath, var)
+
   write(*,*) var%nlons
   write(*,*) var%nlats
   write(*,*) var%ntimes
   write(*,*) var%timeunits 
+  write(*,*) var%nlevels
+  write(*,*) var%levelunits
 
 end program main
