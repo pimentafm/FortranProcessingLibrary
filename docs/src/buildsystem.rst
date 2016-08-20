@@ -6,7 +6,7 @@ Build System
 Download f90NetCDF API Source Code
 ==================================
 
-`Download the f90NetCDF source code <http://www.biosfera.dea.ufv.br>`__
+Download the `f90NetCDF <http://www.biosfera.dea.ufv.br>`_ source code 
 
 Directory Structure
 ===================
@@ -26,6 +26,7 @@ Directory Structure
                 f90NetCDF_checkerror.f90
                 f90NetCDF_datetime.f90
                 f90NetCDF_fileutils.f90
+
           -->shell_gencodes
                            f90NetCDF_datatype.sh
                            f90NetCDF_interfaces.sh
@@ -38,7 +39,10 @@ Directory Structure
                      f90NetCDF_getinfo.f90
                      f90NetCDF_mask.f90
                      f90NetCDF_time.f90
+
           -->docs
+                 **Sphinx document structure**  
+     
           Makefile
           GNUGPL
           README
@@ -66,7 +70,7 @@ The **f90NetCDF** library was developed in Fedora Linux operating system. The co
  
  #f90NetCDF library and module names
  f90NetCDF_lib=libf90NetCDF.so
- f90NetCDF_mod=f90NetCDF.mod
+ f90NetCDF_mod=f90netcdf.mod
  
  COMPILER=gfortran
  FLAGS=-Wall -shared -O3 -fPIC -cpp
