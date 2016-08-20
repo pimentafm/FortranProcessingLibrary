@@ -41,44 +41,44 @@ ifeq ($(OS), Fedora)
   $(info "$(OS) $(VERSION) $(ARCH) bits")
   
   #Set module path
-  ncf90api_module=-I/usr/lib64/gfortran/modules/
+  f90NetCDF_module=-I/usr/lib64/gfortran/modules/
 endif
 ifeq ($(OS), Debian)
   #Print OS
   $(info "$(OS) $(VERSION) $(ARCH) bits")
   
   #Set module path
-  ncf90api_module=-I/usr/include/
+  f90NetCDF_module=-I/usr/include/
 endif
 
 srcdir=$(shell pwd)/src/
 
-ncf90api_library=-lncf90api
+f90NetCDF_library=-lf90NetCDF
 
 #Debian based
-#ncf90api_module=-I/usr/include/
+#f90NetCDF_module=-I/usr/include/
 
-progname=ncf90api_
+progname=f90NetCDF_
 
 FLAGS=-Wall -O3
 
 ex1:
-	gfortran $(FLAGS) -o $(progname)getinfo.out ncf90api_getinfo.f90 $(ncf90api_module) $(ncf90api_library)
+	gfortran $(FLAGS) -o $(progname)getinfo.out f90NetCDF_getinfo.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 ex2:	
-	gfortran $(FLAGS) -o $(progname)mask.out ncf90api_mask.f90 $(ncf90api_module) $(ncf90api_library)
+	gfortran $(FLAGS) -o $(progname)mask.out f90NetCDF_mask.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 ex3:	
-	gfortran $(FLAGS) -o $(progname)time.out ncf90api_time.f90 $(ncf90api_module) $(ncf90api_library)
+	gfortran $(FLAGS) -o $(progname)time.out f90NetCDF_time.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 ex4:	
-	gfortran $(FLAGS) -o $(progname)mary.out ncf90api_mary.f90 $(ncf90api_module) $(ncf90api_library)
+	gfortran $(FLAGS) -o $(progname)mary.out f90NetCDF_mary.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 ex5:	
-	gfortran $(FLAGS) -o $(progname)5p.out ncf90api_5p.f90 $(ncf90api_module) $(ncf90api_library)
+	gfortran $(FLAGS) -o $(progname)5p.out f90NetCDF_5p.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 correcao:	
-	gfortran $(FLAGS) -o $(progname)correcao.out ncf90api_correcao.f90 $(ncf90api_module) $(ncf90api_library)
+	gfortran $(FLAGS) -o $(progname)correcao.out f90NetCDF_correcao.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 clean:
 	rm -f *.out

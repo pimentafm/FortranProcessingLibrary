@@ -3,41 +3,41 @@ Build System
 
 .. highlight:: sh
 
-Download ncf90api Source Code
-=============================
+Download f90NetCDF API Source Code
+==================================
 
-`Download the ncf90api source code <http://www.biosfera.dea.ufv.br>`__
+`Download the f90NetCDF source code <http://www.biosfera.dea.ufv.br>`__
 
 Directory Structure
 ===================
 
 ::
 
-  ncf90api
+  f90NetCDF
           -->src
-                ncf90api.f90
-                ncf90api_constants.f90
-                ncf90api_datatypes.f90
-                ncf90api_interfaces.f90
-                ncf90api_griddims.f90
-                ncf90api_readgrid.f90
-                ncf90api_writegrid.f90        
-                ncf90api_fvalue.f90
-                ncf90api_checkerror.f90
-                ncf90api_datetime.f90
-                ncf90api_fileutils.f90
+                f90NetCDF.f90
+                f90NetCDF_constants.f90
+                f90NetCDF_datatypes.f90
+                f90NetCDF_interfaces.f90
+                f90NetCDF_griddims.f90
+                f90NetCDF_readgrid.f90
+                f90NetCDF_writegrid.f90        
+                f90NetCDF_fvalue.f90
+                f90NetCDF_checkerror.f90
+                f90NetCDF_datetime.f90
+                f90NetCDF_fileutils.f90
           -->shell_gencodes
-                           ncf90api_datatype.sh
-                           ncf90api_interfaces.sh
-                           ncf90api_ncoords.sh
-                           ncf90api_readgrid.sh
-                           ncf90api_writegrid2d.sh
-                           ncf90api_fvalue.sh
+                           f90NetCDF_datatype.sh
+                           f90NetCDF_interfaces.sh
+                           f90NetCDF_ncoords.sh
+                           f90NetCDF_readgrid.sh
+                           f90NetCDF_writegrid2d.sh
+                           f90NetCDF_fvalue.sh
           -->examples
                      Makefile
-                     ncf90api_getinfo.f90
-                     ncf90api_mask.f90
-                     ncf90api_time.f90
+                     f90NetCDF_getinfo.f90
+                     f90NetCDF_mask.f90
+                     f90NetCDF_time.f90
           -->docs
           Makefile
           GNUGPL
@@ -46,7 +46,7 @@ Directory Structure
 Instalation
 ===========
 
-The **ncf90api** library was developed in Fedora Linux operating system. The compilation was tested in Fedora 23 and Debian 8.4.
+The **f90NetCDF** library was developed in Fedora Linux operating system. The compilation was tested in Fedora 23 and Debian 8.4.
 
 .. note::
    
@@ -54,7 +54,7 @@ The **ncf90api** library was developed in Fedora Linux operating system. The com
 
 :: 
 
-  cd ncf90api/
+  cd f90NetCDF/
   make
 
 ::
@@ -64,9 +64,9 @@ The **ncf90api** library was developed in Fedora Linux operating system. The com
  ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
  VERSION=$(shell lsb_release -sr) 
  
- #ncf90api library and module names
- ncf90api_lib=libncf90api.so
- ncf90api_mod=ncf90api.mod
+ #f90NetCDF library and module names
+ f90NetCDF_lib=libf90NetCDF.so
+ f90NetCDF_mod=f90NetCDF.mod
  
  COMPILER=gfortran
  FLAGS=-Wall -shared -O3 -fPIC -cpp
@@ -79,26 +79,26 @@ The **ncf90api** library was developed in Fedora Linux operating system. The com
    #RedHat netcdf modules path
    netcdf_libs=-I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
  
-   #ncf90api source files and directories
-   ncf90api_srcdir=$(shell pwd)/src/
-   ncf90api_libdir=/usr/lib64/
-   ncf90api_moddir=/usr/lib64/gfortran/modules/
+   #f90NetCDF source files and directories
+   f90NetCDF_srcdir=$(shell pwd)/src/
+   f90NetCDF_libdir=/usr/lib64/
+   f90NetCDF_moddir=/usr/lib64/gfortran/modules/
  endif
  ifeq ($(OS), Debian)
    $(info "$(OS) $(VERSION) $(ARCH) bits")
    #Debian netcdf modules path
    netcdf_libs=-I/usr/include/ -lnetcdff -lnetcdf
-   #ncf90api source files and directories
-   ncf90api_srcdir=$(shell pwd)/src/
-   ncf90api_libdir=/usr/lib/
-   ncf90api_moddir=/usr/include/
+   #f90NetCDF source files and directories
+   f90NetCDF_srcdir=$(shell pwd)/src/
+   f90NetCDF_libdir=/usr/lib/
+   f90NetCDF_moddir=/usr/include/
  endif
  #================================================================
 
  compile:
-         $(COMPILER) $(OPENMP) $(FLAGS) -o $(ncf90api_lib) $(ncf90api_srcdir)ncf90api.f90 $(netcdf_libs)
-         mv $(ncf90api_lib) $(ncf90api_libdir)
-         mv $(ncf90api_mod) $(ncf90api_moddir)
+         $(COMPILER) $(OPENMP) $(FLAGS) -o $(f90NetCDF_lib) $(f90NetCDF_srcdir)f90NetCDF.f90 $(netcdf_libs)
+         mv $(f90NetCDF_lib) $(f90NetCDF_libdir)
+         mv $(f90NetCDF_mod) $(f90NetCDF_moddir)
 
 
 Compile Examples
@@ -122,36 +122,36 @@ Compile Examples
    $(info "$(OS) $(VERSION) $(ARCH) bits")
  
    #Set module path
-   ncf90api_module=-I/usr/lib64/gfortran/modules/
+   f90NetCDF_module=-I/usr/lib64/gfortran/modules/
  endif
  ifeq ($(OS), Debian)
    #Print OS
    $(info "$(OS) $(VERSION) $(ARCH) bits")
  
    #Set module path
-   ncf90api_module=-I/usr/include/
+   f90NetCDF_module=-I/usr/include/
  endif 
  #================================================================
  
  srcdir=$(shell pwd)/src/
  
- ncf90api_library=-lncf90api
+ f90NetCDF_library=-lf90NetCDF
  
  #Debian based
- #ncf90api_module=-I/usr/include/
+ #f90NetCDF_module=-I/usr/include/
  
- progname=ncf90api_
+ progname=f90NetCDF_
  
  FLAGS=-Wall -O3
  
  ex1:
-         gfortran $(FLAGS) -o $(progname)getinfo.out ncf90api_getinfo.f90 $(ncf90api_module) $(ncf90api_library    )
+         gfortran $(FLAGS) -o $(progname)getinfo.out f90NetCDF_getinfo.f90 $(f90NetCDF_module) $(f90NetCDF_library)
  
  ex2:    
-         gfortran $(FLAGS) -o $(progname)mask.out ncf90api_mask.f90 $(ncf90api_module) $(ncf90api_library)
+         gfortran $(FLAGS) -o $(progname)mask.out f90NetCDF_mask.f90 $(f90NetCDF_module) $(f90NetCDF_library)
  
  ex3:    
-         gfortran $(FLAGS) -o $(progname)time.out ncf90api_time.f90 $(ncf90api_module) $(ncf90api_library)
+         gfortran $(FLAGS) -o $(progname)time.out f90NetCDF_time.f90 $(f90NetCDF_module) $(f90NetCDF_library)
  
  clean:
          rm -f *.out

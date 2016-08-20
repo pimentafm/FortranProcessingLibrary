@@ -37,9 +37,9 @@ ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 VERSION=$(shell lsb_release -sr)
 
 
-#ncf90api library and module names
-ncf90api_lib=libncf90api.so
-ncf90api_mod=ncf90api.mod
+#f90NetCDF library and module names
+f90NetCDF_lib=libf90NetCDF.so
+f90NetCDF_mod=f90netcdf.mod
 
 COMPILER=gfortran
 FLAGS=-Wall -shared -O3 -fPIC -cpp
@@ -51,22 +51,22 @@ ifeq ($(OS), Fedora)
   #RedHat netcdf modules path
   netcdf_libs=-I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
 
-  #ncf90api source files and directories
-  ncf90api_srcdir=$(shell pwd)/src/
-  ncf90api_libdir=/usr/lib64/
-  ncf90api_moddir=/usr/lib64/gfortran/modules/
+  #f90NetCDF source files and directories
+  f90NetCDF_srcdir=$(shell pwd)/src/
+  f90NetCDF_libdir=/usr/lib64/
+  f90NetCDF_moddir=/usr/lib64/gfortran/modules/
 endif
 ifeq ($(OS), Debian)
   $(info "$(OS) $(VERSION) $(ARCH) bits")
   #Debian netcdf modules path
   netcdf_libs=-I/usr/include/ -lnetcdff -lnetcdf
-  #ncf90api source files and directories
-  ncf90api_srcdir=$(shell pwd)/src/
-  ncf90api_libdir=/usr/lib/
-  ncf90api_moddir=/usr/include/
+  #f90NetCDF source files and directories
+  f90NetCDF_srcdir=$(shell pwd)/src/
+  f90NetCDF_libdir=/usr/lib/
+  f90NetCDF_moddir=/usr/include/
 endif
 
 compile:
-	$(COMPILER) $(OPENMP) $(FLAGS) -o $(ncf90api_lib) $(ncf90api_srcdir)ncf90api.f90 $(netcdf_libs)
-	mv $(ncf90api_lib) $(ncf90api_libdir)
-	mv $(ncf90api_mod) $(ncf90api_moddir)
+	$(COMPILER) $(OPENMP) $(FLAGS) -o $(f90NetCDF_lib) $(f90NetCDF_srcdir)f90NetCDF.f90 $(netcdf_libs)
+	mv $(f90NetCDF_lib) $(f90NetCDF_libdir)
+	mv $(f90NetCDF_mod) $(f90NetCDF_moddir)
