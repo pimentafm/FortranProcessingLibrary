@@ -33,12 +33,35 @@ echo "!:========================================================================
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:============================================================================="
 
+# Suffixes for naming the type of the dimensions of file structures. 
+# arrid -> prefixes for
+#          b - byte
+#          s - short
+#          i - integer
+#          f - float
+#          d - double
+
+# Suffixes for naming the type of the variable of file structures. 
+# arr   -> byte   - byte
+#          short  - short
+#          int    - integer
+#          float  - float
+#          double - double
+
+# Kind of the dataset and FIllValue
+# arr2  -> integer(kind=byte)  - byte
+#          integer(kind=short) - short
+#          integer(kind=intgr) - integer
+#          real(kind=float)    - float
+#          real(kind=double)   - double
+
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arrid=("b" "s" "i" "f" "d")
 declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
 echo "!Zonal Statistics ============================================================="
 
+# 2d datasets
 for i in {0..4}; do
 for j in {0..4}; do
   echo "!NetCDF(i,j)-> ${arr[$i]}-${arr[$j]}
