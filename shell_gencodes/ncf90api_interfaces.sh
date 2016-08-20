@@ -33,7 +33,7 @@ echo "!:========================================================================
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:============================================================================="
 
-#Suffixes for naming the type of the dimensions of file structures. 
+# Suffixes for naming the type of the dimensions of file structures. 
 # arrid -> prefixes for
 #          b - byte
 #          s - short
@@ -41,19 +41,19 @@ echo "!:========================================================================
 #          f - float
 #          d - double
 
-#Suffixes for naming the type of the variable of file structures. 
-#arr   -> byte   - byte
-#         short  - short
-#         int    - integer
-#         float  - float
-#         double - double
+# Suffixes for naming the type of the variable of file structures. 
+# arr   -> byte   - byte
+#          short  - short
+#          int    - integer
+#          float  - float
+#          double - double
 
-#Kind of the dataset and FIllValue
-#arr2  -> integer(kind=byte)  - byte
-#         integer(kind=short) - short
-#         integer(kind=intgr) - integer
-#         real(kind=float)    - float
-#         real(kind=double)   - double
+# Kind of the dataset and FIllValue
+# arr2  -> integer(kind=byte)  - byte
+#          integer(kind=short) - short
+#          integer(kind=intgr) - integer
+#          real(kind=float)    - float
+#          real(kind=double)   - double
 
 declare -a arrid=("b" "s" "i" "f" "d")
 declare -a arr=("byte" "short" "int" "float" "double")
@@ -68,19 +68,19 @@ end interface check
 echo "
 interface ncoords
   module procedure" 
-for j in {3..4}; do # lon, lat
+for j in {3..4}; do # 2d datasets lon, lat
   for i in {0..4}; do 
     echo "                ncoords2d_${arr[$i]}_ll${arrid[$j]}, &" #16 spaces
   done
 done
-for k in {2..4}; do # time
+for k in {2..4}; do # 3d datasets time
   for j in {3..4}; do # lon, lat
     for i in {0..4}; do 
       echo "                ncoords3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}, &"
     done
   done
 done
-for l in {2..3}; do # level
+for l in {2..3}; do # 4d datasets level
   for k in {2..4}; do # time
     for j in {3..4}; do # lon, lat
       for i in {0..4}; do 
@@ -95,19 +95,19 @@ echo "end interface ncoords"
 echo "
 interface readgrid
   module procedure" 
-for j in {3..4}; do # lon, lat
+for j in {3..4}; do # 2d datasets lon, lat
   for i in {0..4}; do 
     echo "                readgrid2d_${arr[$i]}_ll${arrid[$j]}, &"
   done
 done
-for k in {2..4}; do # time
+for k in {2..4}; do # 3d datasets time
   for j in {3..4}; do # lon, lat
     for i in {0..4}; do 
       echo "                readgrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}, &"
     done
   done
 done
-for l in {2..3}; do # level
+for l in {2..3}; do # 4d datasets level
   for k in {2..4}; do # time
     for j in {3..4}; do # lon, lat
       for i in {0..4}; do 
@@ -122,19 +122,19 @@ echo "end interface readgrid"
 echo "
 interface writegrid
   module procedure" 
-for j in {3..4}; do # lon , lat
+for j in {3..4}; do # 2d datasets lon , lat
   for i in {0..4}; do 
     echo "                writegrid2d_${arr[$i]}_ll${arrid[$j]}, &"
   done
 done
-for k in {2..4}; do # time
+for k in {2..4}; do # 3d datasets time
   for j in {3..4}; do # lon, lat
     for i in {0..4}; do 
       echo "                writegrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}, &"
     done
   done
 done
-for l in {2..3}; do # level
+for l in {2..3}; do # 4d datasets level
   for k in {2..4}; do # time
     for j in {3..4}; do # lon, lat
       for i in {0..4}; do 
@@ -149,14 +149,14 @@ echo "end interface writegrid"
 echo "
 interface setFillValue
   module procedure"
-for k in {3..4}; do # lon, lat
+for k in {3..4}; do # 2d datasets lon, lat
   for j in {0..4}; do
     for i in {0..4}; do 
       echo "                setfvalue2d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}, &"
     done
   done
 done
-for l in {2..4}; do # time
+for l in {2..4}; do # 3d datasets time
   for k in {3..4}; do # lon, lat
     for j in {0..4}; do 
       for i in {0..4}; do 

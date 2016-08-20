@@ -32,10 +32,34 @@ echo "!:========================================================================
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:============================================================================="
+
+# Suffixes for naming the type of the dimensions of file structures. 
+# arrid -> prefixes for
+#          b - byte
+#          s - short
+#          i - integer
+#          f - float
+#          d - double
+
+# Suffixes for naming the type of the variable of file structures. 
+# arr   -> byte   - byte
+#          short  - short
+#          int    - integer
+#          float  - float
+#          double - double
+
+# Kind of the dataset and FIllValue
+# arr2  -> integer(kind=byte)  - byte
+#          integer(kind=short) - short
+#          integer(kind=intgr) - integer
+#          real(kind=float)    - float
+#          real(kind=double)   - double
+
 declare -a arrid=("b" "s" "i" "f" "d")
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
 
+# 2d datasets
 for j in {3..4}; do # lon, lat
 for i in {0..4}; do
   echo "
@@ -114,6 +138,7 @@ end subroutine writegrid2d_${arr[$i]}_ll${arrid[$j]}"
 done
 done
 
+#3d datasets
 for k in {2..4}; do # time
 for j in {3..4}; do # lon,lat
 for i in {0..4}; do
@@ -201,6 +226,7 @@ done
 done
 done
 
+# 4d datasets 
 for l in {2..3}; do # level
 for k in {2..4}; do # time
 for j in {3..4}; do # lon,lat
