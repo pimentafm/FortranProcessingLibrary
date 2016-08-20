@@ -38,7 +38,7 @@ program main
 
   type(nc4d_float_lld_td_lf) :: var
 
-  character(400) :: inputpath, outputpath
+  character(400) :: inputpath, outputpath, cam
 
   inputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/precdaily1980.nc"
   
@@ -58,7 +58,9 @@ program main
   write(*,*) var%nlons
 
   write(*,*) var%levels
-  write(*,*) var%ncdata 
   call writegrid(outputpath, var)
+
+  cam = "/home/fernando/Documents/WORKSPACE/pousa/dadosSoja/input/"
+  write(*,*) lineNumber(trim(adjustl(cam))//"areapropriedaderuralORIGINAL.txt")
 
 end program main
