@@ -4,8 +4,8 @@ Introduction
 Overview
 ========
 
-**f90NetCDF API** (Fortran 90 API for NetCDF) is a library designed to facilitate the I/O and processing of large NetCDF datasources using the Fortran 90 programming language.
-**f90NetCDF API** can read and write data up to 3 dimensions in a much simpler way (like `NCL - NCAR Command Language <http://www.ncl.ucar.edu/>`_) using dynamic data structures and dynamic modules.
+**f90NetCDF API** (Fortran 90 API for NetCDF) is a library designed to facilitate the I/O and processing of large NetCDF datasets using the Fortran 90 programming language.
+**f90NetCDF API** can read and write data up to 4 dimensions in a much simpler way (like `NCL - NCAR Command Language <http://www.ncl.ucar.edu/>`_) using dynamic data structures and dynamic modules.
 
 Dependencies
 ============
@@ -31,7 +31,7 @@ License and copyright
 
 Citing f90NetCDF API
 ====================
-f90NetCDF API - Fortran 90 Application Program Interface for NetCDF I/O processing (Version 1.0) [Software]. (2016). 
+PIMENTA, F. M.. **f90NetCDF API - Fortran 90 Application Program Interface for NetCDF I/O processing** (Version 1.0) [Software]. (2016). 
 Viçosa, Minas Gerais - Brazil. `http://www.biosfera.dea.ufv.br <http://www.biosfera.dea.ufv.br>`_.
 
 .. References

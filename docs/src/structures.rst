@@ -2,32 +2,34 @@ Data Types and Structures
 *************************
 
 .. highlight:: fortran
+   :linenothreshold: 2
 
 f90NetCDF module
 ================
 
-**f90NetCDF** functions as a module that can be compiled with other programs.
+**f90NetCDF** works as a module and can be compiled with other programs.
 Its structure is composed of several files containing all definitions of data types, 
 external libraries and intrinsic functions.
 
 ::
 
   module f90NetCDF
+    use omp_lib
     use netcdf
     use iso_c_binding
     implicit none
-    include "f90NetCDF_constants.f90"   !Parameter variables
+    include "f90NetCDF_constants.f90"   !Parameter definitions
     include "f90NetCDF_datatypes.f90"   !Datatype structure declarations
-    include "f90NetCDF_interfaces.f90"  !Interfaces for subroutines definitions and datatypes
-
+    include "f90NetCDF_interfaces.f90"  !Interfaces for subroutines/functions definitions and datatypes
+  
     contains
     include "f90NetCDF_checkerror.f90"  !Error checker subroutines
-    include "f90NetCDF_datetime.f90"    !System date-time subroutine
-    include "f90NetCDF_griddims.f90"    !Subroutines to get the number of coordinates from NetCDF file
+    include "f90NetCDF_datetime.f90"    !System date-time subroutines
+    include "f90NetCDF_griddims.f90"    !Subroutines to get the number of coordinates and basic info from NetCDF file
     include "f90NetCDF_readgrid.f90"    !NetCDF file reader subroutines
     include "f90NetCDF_writegrid.f90"   !NetCDF file writer subroutines
     include "f90NetCDF_fvalue.f90"      !Set FillValue and mask creator subroutines
-    include "f90NetCDF_fileutils.f90"   !File Utilities
+    include "f90NetCDF_fileutils.f90"   !File utilities
   end module f90NetCDF
 
 Data Types and Parameters Definition
@@ -37,7 +39,7 @@ Data Types and Parameters Definition
 
 **BYTE**, **SHORT**, **INTEGER**, **FLOAT** and **DOUBLE**.
 
-Datatypes are defined using **ISO_C_BINDINGS** module into the file **f90NetCDF_constants.f90**.
+Numeric datatypes are defined using **ISO_C_BINDINGS** module into the file **f90NetCDF_constants.f90**.
 Parameters can be defined into this file too.
 
 ::
@@ -56,7 +58,7 @@ Parameters can be defined into this file too.
 
 The structures following the syntax below:
 
-For 2d dataset:
+For 2d datasets:
 
 ::
 
@@ -128,3 +130,30 @@ setFillvalue3d
 
 Interfaces
 ==========
+
++------------------------+------------+----------+----------+
+| Header row, column 1   | Header 2   | Header 3 | Header 4 |
+| (header rows optional) |            |          |          |
++========================+============+==========+==========+
+| body row 1, column 1   | column 2   | column 3 | column 4 |
++------------------------+------------+----------+----------+
+| body row 2             | ...        | ...      |          |
++------------------------+------------+----------+----------+
+
+=====  =====  =======
+A      B      A and B
+=====  =====  =======
+False  False  False
+True   False  False
+False  True   False
+True   True   True
+=====  =====  =======
+
+.. seealso::
+
+   Module :py:mod:`zipfile`
+      Documentation of the :py:mod:`zipfile` standard module.
+
+   `GNU tar manual, Basic Tar Format <http://link>`_
+      Documentation for tar archive files, including GNU tar extensions.
+

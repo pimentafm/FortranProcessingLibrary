@@ -13,39 +13,36 @@ Directory Structure
 
 ::
 
-  f90NetCDF
-          -->src
-                f90NetCDF.f90
-                f90NetCDF_constants.f90
-                f90NetCDF_datatypes.f90
-                f90NetCDF_interfaces.f90
-                f90NetCDF_griddims.f90
-                f90NetCDF_readgrid.f90
-                f90NetCDF_writegrid.f90        
-                f90NetCDF_fvalue.f90
-                f90NetCDF_checkerror.f90
-                f90NetCDF_datetime.f90
-                f90NetCDF_fileutils.f90
-
-          -->shell_gencodes
-                           f90NetCDF_datatype.sh
-                           f90NetCDF_interfaces.sh
-                           f90NetCDF_ncoords.sh
-                           f90NetCDF_readgrid.sh
-                           f90NetCDF_writegrid2d.sh
-                           f90NetCDF_fvalue.sh
-          -->examples
-                     Makefile
-                     f90NetCDF_getinfo.f90
-                     f90NetCDF_mask.f90
-                     f90NetCDF_time.f90
-
-          -->docs
-                 **Sphinx document structure**  
-     
-          Makefile
-          GNUGPL
-          README
+  f90NetCDF/
+           |---src/
+           |      |---f90NetCDF.f90
+           |      |---f90NetCDF_constants.f90
+           |      |---f90NetCDF_datatypes.f90
+           |      |---f90NetCDF_interfaces.f90
+           |      |---f90NetCDF_griddims.f90
+           |      |---f90NetCDF_readgrid.f90
+           |      |---f90NetCDF_writegrid.f90        
+           |      |---f90NetCDF_fvalue.f90
+           |      |---f90NetCDF_checkerror.f90
+           |      |---f90NetCDF_datetime.f90
+           |      |---f90NetCDF_fileutils.f90
+           |---shell_gencodes/
+           |                 |---f90NetCDF_datatype.sh
+           |                 |---f90NetCDF_interfaces.sh
+           |                 |---f90NetCDF_ncoords.sh
+           |                 |---f90NetCDF_readgrid.sh
+           |                 |---f90NetCDF_writegrid2d.sh
+           |                 |---f90NetCDF_fvalue.sh
+           |---examples/
+           |           |---Makefile
+           |           |---f90NetCDF_getinfo.f90
+           |           |---f90NetCDF_mask.f90
+           |           |---f90NetCDF_time.f90
+           |---docs/
+           |       |---**Sphinx document structure**  
+           |---Makefile
+           |---GNUGPL
+           |---README
 
 Instalation
 ===========
