@@ -1,6 +1,5 @@
 Data Types and Structures
 *************************
-
 .. highlight:: fortran
    :linenothreshold: 2
 
@@ -35,15 +34,28 @@ external libraries and intrinsic functions.
 Data Types and Parameters Definition
 ====================================
 
-**f90NetCDF** supports 5 datatype structures.
+**f90NetCDF** supports 5 datatype structures: **BYTE**, **SHORT**, **INTEGER**, **FLOAT** and **DOUBLE**.
 
-**BYTE**, **SHORT**, **INTEGER**, **FLOAT** and **DOUBLE**.
++---------+------------------+------------------+-----------------------+
+|  Type   | Minimum value    | Maximum value    | Default FillValue     |
++=========+==================+==================+=======================+
+|  byte   | -128             | 127              | -127                  |
++---------+------------------+------------------+-----------------------+
+|  short  | -32768           | 32767            | -32767                |
++---------+------------------++-----------------+-----------------------+
+| integer | -2147483648      | 2147483647       | 2147483647            |
++---------+------------------+------------------+-----------------------+
+|  float  | +/- 1.175494e-38 | +/- 1.701411e+38 | 9.96921e+36           |
++---------+------------------+------------------+-----------------------+
+| double  | +/- 2.22507e-308 | +/- 8.98846e+307 | 9.969209968386869e+36 |
++---------+------------------+------------------+-----------------------+
 
 Numeric datatypes are defined using **ISO_C_BINDINGS** module into the file **f90NetCDF_constants.f90**.
 Parameters can be defined into this file too.
 
 ::
 
+  !f90NetCDF_constants.f90
   integer, parameter :: byte = C_SIGNED_CHAR
   integer, parameter :: short = C_SHORT
   integer, parameter :: intgr = C_INT
@@ -56,98 +68,24 @@ Parameters can be defined into this file too.
   real(kind=double), parameter :: boltzman= 5.67e-8          ! Stefan-Boltzmann constant ~ W/m^2/K^4
   real(kind=double), parameter :: speed_of_light = 299792458 ! Speed of the light ~ m/s
 
-The structures following the syntax below:
+**f90NetCDF API** can read and write data up to 4 dimensions in a much simpler way using dynamic data structures and dynamic modules as follows:
 
-For 2d datasets:
+.. toctree::
+   :maxdepth: 2
 
-::
+   datatypes/nc2d
+   datatypes/nc3d
+   datatypes/nc4d
 
-  !NetCDF(lon, lat)
-  type :: nc2d_DATATYPE_llLATLONDATATYPE
-    sequence
-    character(len=20) :: varname, lonname, latname, varunits, long_name, &
-                         lonunits, latunits
-    integer(kind=intgr) :: nlons, nlats, vartype
-    integer(kind=DATATYPE) :: FillValue
-    real(kind=LATLONDATATYPE), dimension(:), allocatable :: longitudes, latitudes
-    integer(kind=DATATYPE), dimension(:,:), allocatable :: ncdata
-  end type nc2d_DATATYPE_llLATLONDATATYPE
+Functions and Subroutines
+=========================
 
-For 3d dataset:
+.. toctree::
+   :maxdepth: 2
 
-::
-
-  !NetCDF(lon, lat, time)
-  type :: nc3d_DATATYPE_llLONLATDATATYPE_tTIMEDATATYPE
-    sequence
-    character(len=20) :: varname, timename, lonname, latname, varunits, &
-                         long_name, lonunits, latunits, timeunits
-    integer(kind=intgr) :: nlons, nlats, ntimes, vartype
-    integer(kind=DATATYPE) :: FillValue
-    real(kind=TIMEDATATYPE), dimension(:), allocatable :: times
-    real(kind=LONLATDATATYPE), dimension(:), allocatable :: longitudes, latitudes
-    integer(kind=DATATYPE), dimension(:,:,:), allocatable :: ncdata
-  end type nc3d_DATATYPE_llLONLATDATATYPE_tTIMEDATATYPE
-
-Functions
-=========
-
-ncoords
--------
-
-ncoords2d
-.........
-
-ncoords3d
-.........
-
-readgrid
---------
-
-readgrid2d
-..........
-
-readgrid3d
-..........
-
-writegrid
----------
-
-writegrid2d
-...........
-
-writegrid3d
-...........
-
-setFillValue
-------------
-
-setFillvalue2d
-..............
-
-setFillvalue3d
-..............
-
-Interfaces
-==========
-
-+------------------------+------------+----------+----------+
-| Header row, column 1   | Header 2   | Header 3 | Header 4 |
-| (header rows optional) |            |          |          |
-+========================+============+==========+==========+
-| body row 1, column 1   | column 2   | column 3 | column 4 |
-+------------------------+------------+----------+----------+
-| body row 2             | ...        | ...      |          |
-+------------------------+------------+----------+----------+
-
-=====  =====  =======
-A      B      A and B
-=====  =====  =======
-False  False  False
-True   False  False
-False  True   False
-True   True   True
-=====  =====  =======
+   functions_subroutines/ncoords
+   functions_subroutines/readgrid
+   functions_subroutines/writegrid
 
 .. seealso::
 
