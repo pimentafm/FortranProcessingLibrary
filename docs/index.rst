@@ -15,7 +15,7 @@ Contents:
    src/introduction
    src/buildsystem
    src/structures
-   src/how2use
+   src/usermanual
    src/download 
    src/examples
 

@@ -12,6 +12,7 @@ external libraries and intrinsic functions.
 
 ::
 
+  !f90NetCDF.f90
   module f90NetCDF
     use omp_lib
     use netcdf
@@ -31,7 +32,7 @@ external libraries and intrinsic functions.
     include "f90NetCDF_fileutils.f90"   !File utilities
   end module f90NetCDF
 
-Data Types and Parameters Definition
+Data Types and Parameter Definitions
 ====================================
 
 **f90NetCDF** supports 5 datatype structures: **BYTE**, **SHORT**, **INTEGER**, **FLOAT** and **DOUBLE**.
@@ -70,18 +71,26 @@ Parameters can be defined into this file too.
 
 **f90NetCDF API** can read and write data up to 4 dimensions in a much simpler way using dynamic data structures and dynamic modules as follows:
 
+Type Structures
+===============
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    datatypes/nc2d
    datatypes/nc3d
    datatypes/nc4d
 
+Interfaces
+==========
+
+TODO
+
 Functions and Subroutines
 =========================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    functions_subroutines/ncoords
    functions_subroutines/readgrid
