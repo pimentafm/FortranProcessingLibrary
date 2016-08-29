@@ -69,7 +69,7 @@ Parameters can be defined into this file too.
   real(kind=double), parameter :: boltzman= 5.67e-8          ! Stefan-Boltzmann constant ~ W/m^2/K^4
   real(kind=double), parameter :: speed_of_light = 299792458 ! Speed of the light ~ m/s
 
-**f90NetCDF API** can read and write data up to 4 dimensions in a much simpler way using dynamic data structures and dynamic modules as follows:
+**f90NetCDF** can read and write data up to 4 dimensions in a much simpler way using dynamic data structures and dynamic modules as follows:
 
 Type Structures
 ===============

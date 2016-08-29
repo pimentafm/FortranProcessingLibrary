@@ -4,8 +4,8 @@ Introduction
 Overview
 ========
 
-**f90NetCDF API** (Fortran 90 API for NetCDF) is a library designed to facilitate the I/O and processing of large NetCDF datasets using the Fortran 90 programming language.
-**f90NetCDF API** can read and write data up to 4 dimensions in a much simpler way (like `NCL - NCAR Command Language <http://www.ncl.ucar.edu/>`_) using dynamic data structures and dynamic modules.
+**f90NetCDF** (Fortran 90 for NetCDF) is a API library designed to facilitate the I/O and processing of large NetCDF datasets using the Fortran 90 programming language.
+**f90NetCDF** can read and write data up to 4 dimensions in a much simpler way (like `NCL - NCAR Command Language <http://www.ncl.ucar.edu/>`_) using dynamic data structures and dynamic modules.
 
 Dependencies
 ============
@@ -15,12 +15,12 @@ Dependencies
 
 License and copyright
 =====================
- **f90NetCDF API** is free software: you can redistribute it and/or modify
+ **f90NetCDF** is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation, either version 3 of the License, or
  (at your option) any later version.
 
- **f90NetCDF API** is distributed in the hope that it will be useful,
+ **f90NetCDF** is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  `GNU General Public License <http://www.gnu.org/licenses/>`_ for more details.
@@ -29,9 +29,9 @@ License and copyright
 
  e-mail: fernando.m.pimenta@gmail.com
 
-Citing f90NetCDF API
-====================
-PIMENTA, F. M.. **f90NetCDF API - Fortran 90 Application Program Interface for NetCDF I/O processing** (Version 1.0) [Software]. (2016). 
+Citing f90NetCDF
+================
+PIMENTA, F. M.. **f90NetCDF - Fortran 90 Application Program Interface Library for NetCDF I/O processing** (Version 1.0) [Software]. (2016). 
 Viçosa, Minas Gerais - Brazil. `http://www.biosfera.dea.ufv.br <http://www.biosfera.dea.ufv.br>`_.
 
 .. References

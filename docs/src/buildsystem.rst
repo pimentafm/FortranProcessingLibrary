@@ -3,8 +3,8 @@ Build System
 
 .. highlight:: sh
 
-Download f90NetCDF API Source Code
-==================================
+Download f90NetCDF Source Code
+==============================
 
 Download the `f90NetCDF <http://www.biosfera.dea.ufv.br>`_ source code 
 

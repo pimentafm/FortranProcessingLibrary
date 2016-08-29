@@ -1,13 +1,13 @@
-.. ncf90api documentation master file, created by
+.. f90NetCDF documentation master file, created by
    sphinx-quickstart on Thu Jun 23 16:15:02 2016.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to ncf90api's documentation!
-====================================
+Welcome to f90NetCDF's documentation!
+=====================================
 
-Contents:
----------
+API Documentation:
+------------------
 
 .. toctree::
    :maxdepth: 2
@@ -15,7 +15,7 @@ Contents:
    src/introduction
    src/buildsystem
    src/structures
-   src/usermanual
+   src/usermanual/usermanual
    src/download 
    src/examples
 
