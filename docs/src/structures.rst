@@ -84,7 +84,12 @@ Type Structures
 Interfaces
 ==========
 
-TODO
+Interfaces can be used to invoke different functions using the same name.
+
+.. toctree::
+   :maxdepth: 1
+
+   interfaces/interfaces
 
 Functions and Subroutines
 =========================
