@@ -116,7 +116,7 @@ Array processing
 .. toctree::
    :maxdepth: 1
 
-   functions_subroutines/fvalue2d.rst
+   functions_subroutines/setfillvalue2d.rst
 
 .. seealso::
 
