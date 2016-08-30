@@ -117,6 +117,8 @@ Array processing
    :maxdepth: 1
 
    functions_subroutines/setfillvalue2d.rst
+   functions_subroutines/setfillvalue3d.rst
+   functions_subroutines/setfillvalue4d.rst
 
 .. seealso::
 

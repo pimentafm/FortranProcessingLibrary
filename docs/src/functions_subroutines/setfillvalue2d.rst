@@ -1,46 +1,39 @@
 setfillvalue2d (2-dimensional Dataset)
-```````````````````````````````````
+``````````````````````````````````````
 .. highlight:: fortran
    :linenothreshold: 2
 
-setfillvalue2d _ ``[vdt]`` _ll ``[cdt]`` subroutine is used to write a 2-dimensional NetCDF dataset into a file. 
-Combinations can be made for the statements of this subroutine by replacing ``[vdt]`` 
+setfillvalue2d _ ``[maskdt][mapdt]`` _ll ``[cdt]`` subroutine is used to create a mask in a 2-dimensional NetCDF using another map. 
+Combinations can be made for the statements of this subroutine by replacing ``[maskdt]`` and ``[mapdt]`` 
 by one of the data types defined in the **f90NetCDF** library (``[byte, short, int, float, double]``) 
 and ``[cdt]`` by a defined suffix for the data type of the coordinates (``f`` for float and ``d`` for double).
 
-setfillvalue2d _ ``[vdt]`` _ll ``[cdt]`` (ifile, idata)
-----------------------------------------------------
+setfillvalue2d _ ``[maskdt][mapdt]`` _ll ``[cdt]`` (ifile, idata)
+-----------------------------------------------------------------
 
 :Type naming:
- :``[vdt]``: variable datatype `[byte, short, int, float or double]`
- :``[cdt]``: coordinates datatype(float ``f``, double ``d``).
+ :``[maskdt]``: variable datatype for mask `[byte, short, int, float, double]`
+ :``[mapdt]``: variable datatype for map `[byte, short, int, float, double]`
+ :``[cdt]``: coordinates datatype (float ``f``, double ``d``).
 :Subroutine Parameters:
- :``ofile``: file path `[character]` 
- :``odata``: 2d dataset structure `[f90NetCDF defined type structure]` 
- :``headerfile``: text file `[character]` `[optional]`
+ :``mask``: map to use as mask `[f90NetCDF defined type structure]` 
+ :``map``: map to be masked `[f90NetCDF defined type structure]` 
+ :``num``: number in ``mask`` `[optional]` `[f90NetCDF defined type structure]` 
 :Local parameters: 
- :``ncid``: map ID `[integer]`
- :``xdimid``: longitude dimension ID `[integer]`
- :``ydimid``: latitude dimension ID `[integer]`
- :``dimids``: Array of dimension IDs corresponding to the variable dimensions `[integer]`
- :``xvarid``: longitude array ID `[integer]`
- :``yvarid``: latitude array ID `[integer]`
- :``varid``: variable dimension ID `[integer]`
- :``headerfile``:
- :``attribute``:
- :``content``:
- :``nkeys``:
+ :``i``: variable to iterate longitude positions `[integer]`
+ :``j``: variable to iterate latitude positions `[integer]`
+
 :Result:
- Save data into a NetCDF file format.
+A map masked by another map.
 
 **Example:**
 
 Masks a 2-dimensional NetCDF dataset using other map as filter.
-Map declared as double and mask declared as float (setfillvalue2d _ ``floatdouble`` _ll ``f``).
+Map declared as double, mask declared as float and coordinates declared as float (setfillvalue2d _ ``floatdouble`` _ll ``f``).
 
 ::
 
-  !NetCDF <var float-double> (lon <float>, lat <float>)
+  !NetCDF <variable float-double> (longitude <float>, latitude <float>)
   subroutine setfvalue2d_floatdouble_llf(mask, map, num)
     type (nc2d_float_llf) :: mask
     type (nc2d_double_llf) :: map
