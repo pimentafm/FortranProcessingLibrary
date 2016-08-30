@@ -165,4 +165,15 @@ for l in {2..4}; do # 3d datasets time
     done
   done
 done
+for l in {2..3}; do # 4d datasets level
+  for k in {2..4}; do # time
+    for j in {3..4}; do # lon, lat
+      for i in {0..4}; do # datatypes
+        for h in {0..4}; do
+          echo "                setfvalue4d_${arr[$h]}${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}, &"
+        done
+      done
+    done
+  done
+done
 echo "end interface setFillValue"
