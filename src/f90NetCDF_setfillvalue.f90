@@ -32,7 +32,7 @@
 !:=============================================================================
 !Set FillValue in map using mask FillValue - NetCDF(i,j) ===========
 
-!NetCDF <var byte-byte> (lon <byte>, lat <byte>)
+!NetCDF <var byte-byte> (lon <float>, lat <float>)
 subroutine setfvalue2d_bytebyte_llf(mask, map, num)
   type (nc2d_byte_llf) :: mask
   type (nc2d_byte_llf) :: map
@@ -60,7 +60,7 @@ subroutine setfvalue2d_bytebyte_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_bytebyte_llf
 
-!NetCDF <var byte-short> (lon <byte>, lat <short>)
+!NetCDF <var byte-short> (lon <float>, lat <float>)
 subroutine setfvalue2d_byteshort_llf(mask, map, num)
   type (nc2d_byte_llf) :: mask
   type (nc2d_short_llf) :: map
@@ -88,7 +88,7 @@ subroutine setfvalue2d_byteshort_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_byteshort_llf
 
-!NetCDF <var byte-int> (lon <byte>, lat <int>)
+!NetCDF <var byte-int> (lon <float>, lat <float>)
 subroutine setfvalue2d_byteint_llf(mask, map, num)
   type (nc2d_byte_llf) :: mask
   type (nc2d_int_llf) :: map
@@ -116,7 +116,7 @@ subroutine setfvalue2d_byteint_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_byteint_llf
 
-!NetCDF <var byte-float> (lon <byte>, lat <float>)
+!NetCDF <var byte-float> (lon <float>, lat <float>)
 subroutine setfvalue2d_bytefloat_llf(mask, map, num)
   type (nc2d_byte_llf) :: mask
   type (nc2d_float_llf) :: map
@@ -144,7 +144,7 @@ subroutine setfvalue2d_bytefloat_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_bytefloat_llf
 
-!NetCDF <var byte-double> (lon <byte>, lat <double>)
+!NetCDF <var byte-double> (lon <float>, lat <float>)
 subroutine setfvalue2d_bytedouble_llf(mask, map, num)
   type (nc2d_byte_llf) :: mask
   type (nc2d_double_llf) :: map
@@ -172,7 +172,7 @@ subroutine setfvalue2d_bytedouble_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_bytedouble_llf
 
-!NetCDF <var short-byte> (lon <short>, lat <byte>)
+!NetCDF <var short-byte> (lon <float>, lat <float>)
 subroutine setfvalue2d_shortbyte_llf(mask, map, num)
   type (nc2d_short_llf) :: mask
   type (nc2d_byte_llf) :: map
@@ -200,7 +200,7 @@ subroutine setfvalue2d_shortbyte_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_shortbyte_llf
 
-!NetCDF <var short-short> (lon <short>, lat <short>)
+!NetCDF <var short-short> (lon <float>, lat <float>)
 subroutine setfvalue2d_shortshort_llf(mask, map, num)
   type (nc2d_short_llf) :: mask
   type (nc2d_short_llf) :: map
@@ -228,7 +228,7 @@ subroutine setfvalue2d_shortshort_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_shortshort_llf
 
-!NetCDF <var short-int> (lon <short>, lat <int>)
+!NetCDF <var short-int> (lon <float>, lat <float>)
 subroutine setfvalue2d_shortint_llf(mask, map, num)
   type (nc2d_short_llf) :: mask
   type (nc2d_int_llf) :: map
@@ -256,7 +256,7 @@ subroutine setfvalue2d_shortint_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_shortint_llf
 
-!NetCDF <var short-float> (lon <short>, lat <float>)
+!NetCDF <var short-float> (lon <float>, lat <float>)
 subroutine setfvalue2d_shortfloat_llf(mask, map, num)
   type (nc2d_short_llf) :: mask
   type (nc2d_float_llf) :: map
@@ -284,7 +284,7 @@ subroutine setfvalue2d_shortfloat_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_shortfloat_llf
 
-!NetCDF <var short-double> (lon <short>, lat <double>)
+!NetCDF <var short-double> (lon <float>, lat <float>)
 subroutine setfvalue2d_shortdouble_llf(mask, map, num)
   type (nc2d_short_llf) :: mask
   type (nc2d_double_llf) :: map
@@ -312,7 +312,7 @@ subroutine setfvalue2d_shortdouble_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_shortdouble_llf
 
-!NetCDF <var int-byte> (lon <int>, lat <byte>)
+!NetCDF <var int-byte> (lon <float>, lat <float>)
 subroutine setfvalue2d_intbyte_llf(mask, map, num)
   type (nc2d_int_llf) :: mask
   type (nc2d_byte_llf) :: map
@@ -340,7 +340,7 @@ subroutine setfvalue2d_intbyte_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_intbyte_llf
 
-!NetCDF <var int-short> (lon <int>, lat <short>)
+!NetCDF <var int-short> (lon <float>, lat <float>)
 subroutine setfvalue2d_intshort_llf(mask, map, num)
   type (nc2d_int_llf) :: mask
   type (nc2d_short_llf) :: map
@@ -368,7 +368,7 @@ subroutine setfvalue2d_intshort_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_intshort_llf
 
-!NetCDF <var int-int> (lon <int>, lat <int>)
+!NetCDF <var int-int> (lon <float>, lat <float>)
 subroutine setfvalue2d_intint_llf(mask, map, num)
   type (nc2d_int_llf) :: mask
   type (nc2d_int_llf) :: map
@@ -396,7 +396,7 @@ subroutine setfvalue2d_intint_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_intint_llf
 
-!NetCDF <var int-float> (lon <int>, lat <float>)
+!NetCDF <var int-float> (lon <float>, lat <float>)
 subroutine setfvalue2d_intfloat_llf(mask, map, num)
   type (nc2d_int_llf) :: mask
   type (nc2d_float_llf) :: map
@@ -424,7 +424,7 @@ subroutine setfvalue2d_intfloat_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_intfloat_llf
 
-!NetCDF <var int-double> (lon <int>, lat <double>)
+!NetCDF <var int-double> (lon <float>, lat <float>)
 subroutine setfvalue2d_intdouble_llf(mask, map, num)
   type (nc2d_int_llf) :: mask
   type (nc2d_double_llf) :: map
@@ -452,7 +452,7 @@ subroutine setfvalue2d_intdouble_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_intdouble_llf
 
-!NetCDF <var float-byte> (lon <float>, lat <byte>)
+!NetCDF <var float-byte> (lon <float>, lat <float>)
 subroutine setfvalue2d_floatbyte_llf(mask, map, num)
   type (nc2d_float_llf) :: mask
   type (nc2d_byte_llf) :: map
@@ -480,7 +480,7 @@ subroutine setfvalue2d_floatbyte_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_floatbyte_llf
 
-!NetCDF <var float-short> (lon <float>, lat <short>)
+!NetCDF <var float-short> (lon <float>, lat <float>)
 subroutine setfvalue2d_floatshort_llf(mask, map, num)
   type (nc2d_float_llf) :: mask
   type (nc2d_short_llf) :: map
@@ -508,7 +508,7 @@ subroutine setfvalue2d_floatshort_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_floatshort_llf
 
-!NetCDF <var float-int> (lon <float>, lat <int>)
+!NetCDF <var float-int> (lon <float>, lat <float>)
 subroutine setfvalue2d_floatint_llf(mask, map, num)
   type (nc2d_float_llf) :: mask
   type (nc2d_int_llf) :: map
@@ -564,7 +564,7 @@ subroutine setfvalue2d_floatfloat_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_floatfloat_llf
 
-!NetCDF <var float-double> (lon <float>, lat <double>)
+!NetCDF <var float-double> (lon <float>, lat <float>)
 subroutine setfvalue2d_floatdouble_llf(mask, map, num)
   type (nc2d_float_llf) :: mask
   type (nc2d_double_llf) :: map
@@ -592,7 +592,7 @@ subroutine setfvalue2d_floatdouble_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_floatdouble_llf
 
-!NetCDF <var double-byte> (lon <double>, lat <byte>)
+!NetCDF <var double-byte> (lon <float>, lat <float>)
 subroutine setfvalue2d_doublebyte_llf(mask, map, num)
   type (nc2d_double_llf) :: mask
   type (nc2d_byte_llf) :: map
@@ -620,7 +620,7 @@ subroutine setfvalue2d_doublebyte_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_doublebyte_llf
 
-!NetCDF <var double-short> (lon <double>, lat <short>)
+!NetCDF <var double-short> (lon <float>, lat <float>)
 subroutine setfvalue2d_doubleshort_llf(mask, map, num)
   type (nc2d_double_llf) :: mask
   type (nc2d_short_llf) :: map
@@ -648,7 +648,7 @@ subroutine setfvalue2d_doubleshort_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_doubleshort_llf
 
-!NetCDF <var double-int> (lon <double>, lat <int>)
+!NetCDF <var double-int> (lon <float>, lat <float>)
 subroutine setfvalue2d_doubleint_llf(mask, map, num)
   type (nc2d_double_llf) :: mask
   type (nc2d_int_llf) :: map
@@ -676,7 +676,7 @@ subroutine setfvalue2d_doubleint_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_doubleint_llf
 
-!NetCDF <var double-float> (lon <double>, lat <float>)
+!NetCDF <var double-float> (lon <float>, lat <float>)
 subroutine setfvalue2d_doublefloat_llf(mask, map, num)
   type (nc2d_double_llf) :: mask
   type (nc2d_float_llf) :: map
@@ -704,7 +704,7 @@ subroutine setfvalue2d_doublefloat_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_doublefloat_llf
 
-!NetCDF <var double-double> (lon <double>, lat <double>)
+!NetCDF <var double-double> (lon <float>, lat <float>)
 subroutine setfvalue2d_doubledouble_llf(mask, map, num)
   type (nc2d_double_llf) :: mask
   type (nc2d_double_llf) :: map
@@ -732,7 +732,7 @@ subroutine setfvalue2d_doubledouble_llf(mask, map, num)
   end if
 end subroutine setfvalue2d_doubledouble_llf
 
-!NetCDF <var byte-byte> (lon <byte>, lat <byte>)
+!NetCDF <var byte-byte> (lon <double>, lat <double>)
 subroutine setfvalue2d_bytebyte_lld(mask, map, num)
   type (nc2d_byte_lld) :: mask
   type (nc2d_byte_lld) :: map
@@ -760,7 +760,7 @@ subroutine setfvalue2d_bytebyte_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_bytebyte_lld
 
-!NetCDF <var byte-short> (lon <byte>, lat <short>)
+!NetCDF <var byte-short> (lon <double>, lat <double>)
 subroutine setfvalue2d_byteshort_lld(mask, map, num)
   type (nc2d_byte_lld) :: mask
   type (nc2d_short_lld) :: map
@@ -788,7 +788,7 @@ subroutine setfvalue2d_byteshort_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_byteshort_lld
 
-!NetCDF <var byte-int> (lon <byte>, lat <int>)
+!NetCDF <var byte-int> (lon <double>, lat <double>)
 subroutine setfvalue2d_byteint_lld(mask, map, num)
   type (nc2d_byte_lld) :: mask
   type (nc2d_int_lld) :: map
@@ -816,7 +816,7 @@ subroutine setfvalue2d_byteint_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_byteint_lld
 
-!NetCDF <var byte-float> (lon <byte>, lat <float>)
+!NetCDF <var byte-float> (lon <double>, lat <double>)
 subroutine setfvalue2d_bytefloat_lld(mask, map, num)
   type (nc2d_byte_lld) :: mask
   type (nc2d_float_lld) :: map
@@ -844,7 +844,7 @@ subroutine setfvalue2d_bytefloat_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_bytefloat_lld
 
-!NetCDF <var byte-double> (lon <byte>, lat <double>)
+!NetCDF <var byte-double> (lon <double>, lat <double>)
 subroutine setfvalue2d_bytedouble_lld(mask, map, num)
   type (nc2d_byte_lld) :: mask
   type (nc2d_double_lld) :: map
@@ -872,7 +872,7 @@ subroutine setfvalue2d_bytedouble_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_bytedouble_lld
 
-!NetCDF <var short-byte> (lon <short>, lat <byte>)
+!NetCDF <var short-byte> (lon <double>, lat <double>)
 subroutine setfvalue2d_shortbyte_lld(mask, map, num)
   type (nc2d_short_lld) :: mask
   type (nc2d_byte_lld) :: map
@@ -900,7 +900,7 @@ subroutine setfvalue2d_shortbyte_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_shortbyte_lld
 
-!NetCDF <var short-short> (lon <short>, lat <short>)
+!NetCDF <var short-short> (lon <double>, lat <double>)
 subroutine setfvalue2d_shortshort_lld(mask, map, num)
   type (nc2d_short_lld) :: mask
   type (nc2d_short_lld) :: map
@@ -928,7 +928,7 @@ subroutine setfvalue2d_shortshort_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_shortshort_lld
 
-!NetCDF <var short-int> (lon <short>, lat <int>)
+!NetCDF <var short-int> (lon <double>, lat <double>)
 subroutine setfvalue2d_shortint_lld(mask, map, num)
   type (nc2d_short_lld) :: mask
   type (nc2d_int_lld) :: map
@@ -956,7 +956,7 @@ subroutine setfvalue2d_shortint_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_shortint_lld
 
-!NetCDF <var short-float> (lon <short>, lat <float>)
+!NetCDF <var short-float> (lon <double>, lat <double>)
 subroutine setfvalue2d_shortfloat_lld(mask, map, num)
   type (nc2d_short_lld) :: mask
   type (nc2d_float_lld) :: map
@@ -984,7 +984,7 @@ subroutine setfvalue2d_shortfloat_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_shortfloat_lld
 
-!NetCDF <var short-double> (lon <short>, lat <double>)
+!NetCDF <var short-double> (lon <double>, lat <double>)
 subroutine setfvalue2d_shortdouble_lld(mask, map, num)
   type (nc2d_short_lld) :: mask
   type (nc2d_double_lld) :: map
@@ -1012,7 +1012,7 @@ subroutine setfvalue2d_shortdouble_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_shortdouble_lld
 
-!NetCDF <var int-byte> (lon <int>, lat <byte>)
+!NetCDF <var int-byte> (lon <double>, lat <double>)
 subroutine setfvalue2d_intbyte_lld(mask, map, num)
   type (nc2d_int_lld) :: mask
   type (nc2d_byte_lld) :: map
@@ -1040,7 +1040,7 @@ subroutine setfvalue2d_intbyte_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_intbyte_lld
 
-!NetCDF <var int-short> (lon <int>, lat <short>)
+!NetCDF <var int-short> (lon <double>, lat <double>)
 subroutine setfvalue2d_intshort_lld(mask, map, num)
   type (nc2d_int_lld) :: mask
   type (nc2d_short_lld) :: map
@@ -1068,7 +1068,7 @@ subroutine setfvalue2d_intshort_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_intshort_lld
 
-!NetCDF <var int-int> (lon <int>, lat <int>)
+!NetCDF <var int-int> (lon <double>, lat <double>)
 subroutine setfvalue2d_intint_lld(mask, map, num)
   type (nc2d_int_lld) :: mask
   type (nc2d_int_lld) :: map
@@ -1096,7 +1096,7 @@ subroutine setfvalue2d_intint_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_intint_lld
 
-!NetCDF <var int-float> (lon <int>, lat <float>)
+!NetCDF <var int-float> (lon <double>, lat <double>)
 subroutine setfvalue2d_intfloat_lld(mask, map, num)
   type (nc2d_int_lld) :: mask
   type (nc2d_float_lld) :: map
@@ -1124,7 +1124,7 @@ subroutine setfvalue2d_intfloat_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_intfloat_lld
 
-!NetCDF <var int-double> (lon <int>, lat <double>)
+!NetCDF <var int-double> (lon <double>, lat <double>)
 subroutine setfvalue2d_intdouble_lld(mask, map, num)
   type (nc2d_int_lld) :: mask
   type (nc2d_double_lld) :: map
@@ -1152,7 +1152,7 @@ subroutine setfvalue2d_intdouble_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_intdouble_lld
 
-!NetCDF <var float-byte> (lon <float>, lat <byte>)
+!NetCDF <var float-byte> (lon <double>, lat <double>)
 subroutine setfvalue2d_floatbyte_lld(mask, map, num)
   type (nc2d_float_lld) :: mask
   type (nc2d_byte_lld) :: map
@@ -1180,7 +1180,7 @@ subroutine setfvalue2d_floatbyte_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_floatbyte_lld
 
-!NetCDF <var float-short> (lon <float>, lat <short>)
+!NetCDF <var float-short> (lon <double>, lat <double>)
 subroutine setfvalue2d_floatshort_lld(mask, map, num)
   type (nc2d_float_lld) :: mask
   type (nc2d_short_lld) :: map
@@ -1208,7 +1208,7 @@ subroutine setfvalue2d_floatshort_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_floatshort_lld
 
-!NetCDF <var float-int> (lon <float>, lat <int>)
+!NetCDF <var float-int> (lon <double>, lat <double>)
 subroutine setfvalue2d_floatint_lld(mask, map, num)
   type (nc2d_float_lld) :: mask
   type (nc2d_int_lld) :: map
@@ -1236,7 +1236,7 @@ subroutine setfvalue2d_floatint_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_floatint_lld
 
-!NetCDF <var float-float> (lon <float>, lat <float>)
+!NetCDF <var float-float> (lon <double>, lat <double>)
 subroutine setfvalue2d_floatfloat_lld(mask, map, num)
   type (nc2d_float_lld) :: mask
   type (nc2d_float_lld) :: map
@@ -1264,7 +1264,7 @@ subroutine setfvalue2d_floatfloat_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_floatfloat_lld
 
-!NetCDF <var float-double> (lon <float>, lat <double>)
+!NetCDF <var float-double> (lon <double>, lat <double>)
 subroutine setfvalue2d_floatdouble_lld(mask, map, num)
   type (nc2d_float_lld) :: mask
   type (nc2d_double_lld) :: map
@@ -1292,7 +1292,7 @@ subroutine setfvalue2d_floatdouble_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_floatdouble_lld
 
-!NetCDF <var double-byte> (lon <double>, lat <byte>)
+!NetCDF <var double-byte> (lon <double>, lat <double>)
 subroutine setfvalue2d_doublebyte_lld(mask, map, num)
   type (nc2d_double_lld) :: mask
   type (nc2d_byte_lld) :: map
@@ -1320,7 +1320,7 @@ subroutine setfvalue2d_doublebyte_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_doublebyte_lld
 
-!NetCDF <var double-short> (lon <double>, lat <short>)
+!NetCDF <var double-short> (lon <double>, lat <double>)
 subroutine setfvalue2d_doubleshort_lld(mask, map, num)
   type (nc2d_double_lld) :: mask
   type (nc2d_short_lld) :: map
@@ -1348,7 +1348,7 @@ subroutine setfvalue2d_doubleshort_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_doubleshort_lld
 
-!NetCDF <var double-int> (lon <double>, lat <int>)
+!NetCDF <var double-int> (lon <double>, lat <double>)
 subroutine setfvalue2d_doubleint_lld(mask, map, num)
   type (nc2d_double_lld) :: mask
   type (nc2d_int_lld) :: map
@@ -1376,7 +1376,7 @@ subroutine setfvalue2d_doubleint_lld(mask, map, num)
   end if
 end subroutine setfvalue2d_doubleint_lld
 
-!NetCDF <var double-float> (lon <double>, lat <float>)
+!NetCDF <var double-float> (lon <double>, lat <double>)
 subroutine setfvalue2d_doublefloat_lld(mask, map, num)
   type (nc2d_double_lld) :: mask
   type (nc2d_float_lld) :: map
