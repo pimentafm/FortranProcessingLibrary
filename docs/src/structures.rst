@@ -94,12 +94,29 @@ Interfaces can be used to invoke different functions using the same name.
 Functions and Subroutines
 =========================
 
+I/O processing
+--------------
+
 .. toctree::
    :maxdepth: 1
 
-   functions_subroutines/ncoords
-   functions_subroutines/readgrid
-   functions_subroutines/writegrid
+   functions_subroutines/ncoords2d
+   functions_subroutines/ncoords3d
+   functions_subroutines/ncoords4d
+   functions_subroutines/readgrid2d
+   functions_subroutines/readgrid3d
+   functions_subroutines/readgrid4d
+   functions_subroutines/writegrid2d
+   functions_subroutines/writegrid3d
+   functions_subroutines/writegrid4d
+
+Array processing
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   functions_subroutines/fvalue2d.rst
 
 .. seealso::
 

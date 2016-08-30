@@ -12,6 +12,7 @@ Dependencies
 * `GNU Fortran Compiler <https://gcc.gnu.org/onlinedocs/gfortran/>`_
 * `NetCDF Library (C/C++ and Fortran) <http://www.unidata.ucar.edu/software/netcdf/>`_
 * `ISO_C_BINDINGS <https://gcc.gnu.org/onlinedocs/gfortran/Interoperability-with-C.html>`_
+* `OpenMP <http://openmp.org/wp/openmp-specifications/>`_
 
 License and copyright
 =====================

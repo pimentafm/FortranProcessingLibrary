@@ -232,7 +232,7 @@ for k in {2..4}; do # time
 for j in {3..4}; do # lon,lat
 for i in {0..4}; do
   echo "
-!NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>, time <${arr[$k]}>, level <${arrid[$l]}>)
+!NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>, time <${arr[$k]}>, level <${arr[$l]}>)
 subroutine writegrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile

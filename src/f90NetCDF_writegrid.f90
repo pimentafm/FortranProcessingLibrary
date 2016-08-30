@@ -3161,7 +3161,7 @@ subroutine writegrid3d_double_lld_td(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid3d_double_lld_td
 
-!NetCDF <var byte> (lon <float>, lat <float>, time <int>, level <i>)
+!NetCDF <var byte> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine writegrid4d_byte_llf_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -3248,7 +3248,7 @@ subroutine writegrid4d_byte_llf_ti_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_byte_llf_ti_li
 
-!NetCDF <var short> (lon <float>, lat <float>, time <int>, level <i>)
+!NetCDF <var short> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine writegrid4d_short_llf_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -3335,7 +3335,7 @@ subroutine writegrid4d_short_llf_ti_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_short_llf_ti_li
 
-!NetCDF <var int> (lon <float>, lat <float>, time <int>, level <i>)
+!NetCDF <var int> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine writegrid4d_int_llf_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -3422,7 +3422,7 @@ subroutine writegrid4d_int_llf_ti_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_int_llf_ti_li
 
-!NetCDF <var float> (lon <float>, lat <float>, time <int>, level <i>)
+!NetCDF <var float> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine writegrid4d_float_llf_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -3509,7 +3509,7 @@ subroutine writegrid4d_float_llf_ti_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_float_llf_ti_li
 
-!NetCDF <var double> (lon <float>, lat <float>, time <int>, level <i>)
+!NetCDF <var double> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine writegrid4d_double_llf_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -3596,7 +3596,7 @@ subroutine writegrid4d_double_llf_ti_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_double_llf_ti_li
 
-!NetCDF <var byte> (lon <double>, lat <double>, time <int>, level <i>)
+!NetCDF <var byte> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine writegrid4d_byte_lld_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -3683,7 +3683,7 @@ subroutine writegrid4d_byte_lld_ti_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_byte_lld_ti_li
 
-!NetCDF <var short> (lon <double>, lat <double>, time <int>, level <i>)
+!NetCDF <var short> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine writegrid4d_short_lld_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -3770,7 +3770,7 @@ subroutine writegrid4d_short_lld_ti_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_short_lld_ti_li
 
-!NetCDF <var int> (lon <double>, lat <double>, time <int>, level <i>)
+!NetCDF <var int> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine writegrid4d_int_lld_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -3857,7 +3857,7 @@ subroutine writegrid4d_int_lld_ti_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_int_lld_ti_li
 
-!NetCDF <var float> (lon <double>, lat <double>, time <int>, level <i>)
+!NetCDF <var float> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine writegrid4d_float_lld_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -3944,7 +3944,7 @@ subroutine writegrid4d_float_lld_ti_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_float_lld_ti_li
 
-!NetCDF <var double> (lon <double>, lat <double>, time <int>, level <i>)
+!NetCDF <var double> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine writegrid4d_double_lld_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -4031,7 +4031,7 @@ subroutine writegrid4d_double_lld_ti_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_double_lld_ti_li
 
-!NetCDF <var byte> (lon <float>, lat <float>, time <float>, level <i>)
+!NetCDF <var byte> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine writegrid4d_byte_llf_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -4118,7 +4118,7 @@ subroutine writegrid4d_byte_llf_tf_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_byte_llf_tf_li
 
-!NetCDF <var short> (lon <float>, lat <float>, time <float>, level <i>)
+!NetCDF <var short> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine writegrid4d_short_llf_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -4205,7 +4205,7 @@ subroutine writegrid4d_short_llf_tf_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_short_llf_tf_li
 
-!NetCDF <var int> (lon <float>, lat <float>, time <float>, level <i>)
+!NetCDF <var int> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine writegrid4d_int_llf_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -4292,7 +4292,7 @@ subroutine writegrid4d_int_llf_tf_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_int_llf_tf_li
 
-!NetCDF <var float> (lon <float>, lat <float>, time <float>, level <i>)
+!NetCDF <var float> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine writegrid4d_float_llf_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -4379,7 +4379,7 @@ subroutine writegrid4d_float_llf_tf_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_float_llf_tf_li
 
-!NetCDF <var double> (lon <float>, lat <float>, time <float>, level <i>)
+!NetCDF <var double> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine writegrid4d_double_llf_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -4466,7 +4466,7 @@ subroutine writegrid4d_double_llf_tf_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_double_llf_tf_li
 
-!NetCDF <var byte> (lon <double>, lat <double>, time <float>, level <i>)
+!NetCDF <var byte> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine writegrid4d_byte_lld_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -4553,7 +4553,7 @@ subroutine writegrid4d_byte_lld_tf_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_byte_lld_tf_li
 
-!NetCDF <var short> (lon <double>, lat <double>, time <float>, level <i>)
+!NetCDF <var short> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine writegrid4d_short_lld_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -4640,7 +4640,7 @@ subroutine writegrid4d_short_lld_tf_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_short_lld_tf_li
 
-!NetCDF <var int> (lon <double>, lat <double>, time <float>, level <i>)
+!NetCDF <var int> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine writegrid4d_int_lld_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -4727,7 +4727,7 @@ subroutine writegrid4d_int_lld_tf_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_int_lld_tf_li
 
-!NetCDF <var float> (lon <double>, lat <double>, time <float>, level <i>)
+!NetCDF <var float> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine writegrid4d_float_lld_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -4814,7 +4814,7 @@ subroutine writegrid4d_float_lld_tf_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_float_lld_tf_li
 
-!NetCDF <var double> (lon <double>, lat <double>, time <float>, level <i>)
+!NetCDF <var double> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine writegrid4d_double_lld_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -4901,7 +4901,7 @@ subroutine writegrid4d_double_lld_tf_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_double_lld_tf_li
 
-!NetCDF <var byte> (lon <float>, lat <float>, time <double>, level <i>)
+!NetCDF <var byte> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine writegrid4d_byte_llf_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -4988,7 +4988,7 @@ subroutine writegrid4d_byte_llf_td_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_byte_llf_td_li
 
-!NetCDF <var short> (lon <float>, lat <float>, time <double>, level <i>)
+!NetCDF <var short> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine writegrid4d_short_llf_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -5075,7 +5075,7 @@ subroutine writegrid4d_short_llf_td_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_short_llf_td_li
 
-!NetCDF <var int> (lon <float>, lat <float>, time <double>, level <i>)
+!NetCDF <var int> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine writegrid4d_int_llf_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -5162,7 +5162,7 @@ subroutine writegrid4d_int_llf_td_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_int_llf_td_li
 
-!NetCDF <var float> (lon <float>, lat <float>, time <double>, level <i>)
+!NetCDF <var float> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine writegrid4d_float_llf_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -5249,7 +5249,7 @@ subroutine writegrid4d_float_llf_td_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_float_llf_td_li
 
-!NetCDF <var double> (lon <float>, lat <float>, time <double>, level <i>)
+!NetCDF <var double> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine writegrid4d_double_llf_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -5336,7 +5336,7 @@ subroutine writegrid4d_double_llf_td_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_double_llf_td_li
 
-!NetCDF <var byte> (lon <double>, lat <double>, time <double>, level <i>)
+!NetCDF <var byte> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine writegrid4d_byte_lld_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -5423,7 +5423,7 @@ subroutine writegrid4d_byte_lld_td_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_byte_lld_td_li
 
-!NetCDF <var short> (lon <double>, lat <double>, time <double>, level <i>)
+!NetCDF <var short> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine writegrid4d_short_lld_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -5510,7 +5510,7 @@ subroutine writegrid4d_short_lld_td_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_short_lld_td_li
 
-!NetCDF <var int> (lon <double>, lat <double>, time <double>, level <i>)
+!NetCDF <var int> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine writegrid4d_int_lld_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -5597,7 +5597,7 @@ subroutine writegrid4d_int_lld_td_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_int_lld_td_li
 
-!NetCDF <var float> (lon <double>, lat <double>, time <double>, level <i>)
+!NetCDF <var float> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine writegrid4d_float_lld_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -5684,7 +5684,7 @@ subroutine writegrid4d_float_lld_td_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_float_lld_td_li
 
-!NetCDF <var double> (lon <double>, lat <double>, time <double>, level <i>)
+!NetCDF <var double> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine writegrid4d_double_lld_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -5771,7 +5771,7 @@ subroutine writegrid4d_double_lld_td_li(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_double_lld_td_li
 
-!NetCDF <var byte> (lon <float>, lat <float>, time <int>, level <f>)
+!NetCDF <var byte> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine writegrid4d_byte_llf_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -5858,7 +5858,7 @@ subroutine writegrid4d_byte_llf_ti_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_byte_llf_ti_lf
 
-!NetCDF <var short> (lon <float>, lat <float>, time <int>, level <f>)
+!NetCDF <var short> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine writegrid4d_short_llf_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -5945,7 +5945,7 @@ subroutine writegrid4d_short_llf_ti_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_short_llf_ti_lf
 
-!NetCDF <var int> (lon <float>, lat <float>, time <int>, level <f>)
+!NetCDF <var int> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine writegrid4d_int_llf_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -6032,7 +6032,7 @@ subroutine writegrid4d_int_llf_ti_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_int_llf_ti_lf
 
-!NetCDF <var float> (lon <float>, lat <float>, time <int>, level <f>)
+!NetCDF <var float> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine writegrid4d_float_llf_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -6119,7 +6119,7 @@ subroutine writegrid4d_float_llf_ti_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_float_llf_ti_lf
 
-!NetCDF <var double> (lon <float>, lat <float>, time <int>, level <f>)
+!NetCDF <var double> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine writegrid4d_double_llf_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -6206,7 +6206,7 @@ subroutine writegrid4d_double_llf_ti_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_double_llf_ti_lf
 
-!NetCDF <var byte> (lon <double>, lat <double>, time <int>, level <f>)
+!NetCDF <var byte> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine writegrid4d_byte_lld_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -6293,7 +6293,7 @@ subroutine writegrid4d_byte_lld_ti_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_byte_lld_ti_lf
 
-!NetCDF <var short> (lon <double>, lat <double>, time <int>, level <f>)
+!NetCDF <var short> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine writegrid4d_short_lld_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -6380,7 +6380,7 @@ subroutine writegrid4d_short_lld_ti_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_short_lld_ti_lf
 
-!NetCDF <var int> (lon <double>, lat <double>, time <int>, level <f>)
+!NetCDF <var int> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine writegrid4d_int_lld_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -6467,7 +6467,7 @@ subroutine writegrid4d_int_lld_ti_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_int_lld_ti_lf
 
-!NetCDF <var float> (lon <double>, lat <double>, time <int>, level <f>)
+!NetCDF <var float> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine writegrid4d_float_lld_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -6554,7 +6554,7 @@ subroutine writegrid4d_float_lld_ti_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_float_lld_ti_lf
 
-!NetCDF <var double> (lon <double>, lat <double>, time <int>, level <f>)
+!NetCDF <var double> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine writegrid4d_double_lld_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -6641,7 +6641,7 @@ subroutine writegrid4d_double_lld_ti_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_double_lld_ti_lf
 
-!NetCDF <var byte> (lon <float>, lat <float>, time <float>, level <f>)
+!NetCDF <var byte> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine writegrid4d_byte_llf_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -6728,7 +6728,7 @@ subroutine writegrid4d_byte_llf_tf_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_byte_llf_tf_lf
 
-!NetCDF <var short> (lon <float>, lat <float>, time <float>, level <f>)
+!NetCDF <var short> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine writegrid4d_short_llf_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -6815,7 +6815,7 @@ subroutine writegrid4d_short_llf_tf_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_short_llf_tf_lf
 
-!NetCDF <var int> (lon <float>, lat <float>, time <float>, level <f>)
+!NetCDF <var int> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine writegrid4d_int_llf_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -6902,7 +6902,7 @@ subroutine writegrid4d_int_llf_tf_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_int_llf_tf_lf
 
-!NetCDF <var float> (lon <float>, lat <float>, time <float>, level <f>)
+!NetCDF <var float> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine writegrid4d_float_llf_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -6989,7 +6989,7 @@ subroutine writegrid4d_float_llf_tf_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_float_llf_tf_lf
 
-!NetCDF <var double> (lon <float>, lat <float>, time <float>, level <f>)
+!NetCDF <var double> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine writegrid4d_double_llf_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -7076,7 +7076,7 @@ subroutine writegrid4d_double_llf_tf_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_double_llf_tf_lf
 
-!NetCDF <var byte> (lon <double>, lat <double>, time <float>, level <f>)
+!NetCDF <var byte> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine writegrid4d_byte_lld_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -7163,7 +7163,7 @@ subroutine writegrid4d_byte_lld_tf_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_byte_lld_tf_lf
 
-!NetCDF <var short> (lon <double>, lat <double>, time <float>, level <f>)
+!NetCDF <var short> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine writegrid4d_short_lld_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -7250,7 +7250,7 @@ subroutine writegrid4d_short_lld_tf_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_short_lld_tf_lf
 
-!NetCDF <var int> (lon <double>, lat <double>, time <float>, level <f>)
+!NetCDF <var int> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine writegrid4d_int_lld_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -7337,7 +7337,7 @@ subroutine writegrid4d_int_lld_tf_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_int_lld_tf_lf
 
-!NetCDF <var float> (lon <double>, lat <double>, time <float>, level <f>)
+!NetCDF <var float> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine writegrid4d_float_lld_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -7424,7 +7424,7 @@ subroutine writegrid4d_float_lld_tf_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_float_lld_tf_lf
 
-!NetCDF <var double> (lon <double>, lat <double>, time <float>, level <f>)
+!NetCDF <var double> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine writegrid4d_double_lld_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -7511,7 +7511,7 @@ subroutine writegrid4d_double_lld_tf_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_double_lld_tf_lf
 
-!NetCDF <var byte> (lon <float>, lat <float>, time <double>, level <f>)
+!NetCDF <var byte> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine writegrid4d_byte_llf_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -7598,7 +7598,7 @@ subroutine writegrid4d_byte_llf_td_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_byte_llf_td_lf
 
-!NetCDF <var short> (lon <float>, lat <float>, time <double>, level <f>)
+!NetCDF <var short> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine writegrid4d_short_llf_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -7685,7 +7685,7 @@ subroutine writegrid4d_short_llf_td_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_short_llf_td_lf
 
-!NetCDF <var int> (lon <float>, lat <float>, time <double>, level <f>)
+!NetCDF <var int> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine writegrid4d_int_llf_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -7772,7 +7772,7 @@ subroutine writegrid4d_int_llf_td_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_int_llf_td_lf
 
-!NetCDF <var float> (lon <float>, lat <float>, time <double>, level <f>)
+!NetCDF <var float> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine writegrid4d_float_llf_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -7859,7 +7859,7 @@ subroutine writegrid4d_float_llf_td_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_float_llf_td_lf
 
-!NetCDF <var double> (lon <float>, lat <float>, time <double>, level <f>)
+!NetCDF <var double> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine writegrid4d_double_llf_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -7946,7 +7946,7 @@ subroutine writegrid4d_double_llf_td_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_double_llf_td_lf
 
-!NetCDF <var byte> (lon <double>, lat <double>, time <double>, level <f>)
+!NetCDF <var byte> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine writegrid4d_byte_lld_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -8033,7 +8033,7 @@ subroutine writegrid4d_byte_lld_td_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_byte_lld_td_lf
 
-!NetCDF <var short> (lon <double>, lat <double>, time <double>, level <f>)
+!NetCDF <var short> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine writegrid4d_short_lld_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -8120,7 +8120,7 @@ subroutine writegrid4d_short_lld_td_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_short_lld_td_lf
 
-!NetCDF <var int> (lon <double>, lat <double>, time <double>, level <f>)
+!NetCDF <var int> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine writegrid4d_int_lld_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -8207,7 +8207,7 @@ subroutine writegrid4d_int_lld_td_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_int_lld_td_lf
 
-!NetCDF <var float> (lon <double>, lat <double>, time <double>, level <f>)
+!NetCDF <var float> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine writegrid4d_float_lld_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
@@ -8294,7 +8294,7 @@ subroutine writegrid4d_float_lld_td_lf(ofile, odata, headerfile)
   call check(nf90_close(ncid))
 end subroutine writegrid4d_float_lld_td_lf
 
-!NetCDF <var double> (lon <double>, lat <double>, time <double>, level <f>)
+!NetCDF <var double> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine writegrid4d_double_lld_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile

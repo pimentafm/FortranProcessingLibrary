@@ -26,4 +26,5 @@ Quick links:
   * NetCDF Library (C/C++ and Fortran) http://www.unidata.ucar.edu/software/netcdf/
   * Fortran 90 Documentation http://www.fortran90.org/
   * Fortran Standards: https://gcc.gnu.org/wiki/GFortranStandards
+  * OpenMP http://openmp.org/wp/openmp-specifications/
 
