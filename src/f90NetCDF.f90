@@ -47,7 +47,7 @@ module f90NetCDF
   include "f90NetCDF_griddims.f90"    !Subroutines to get the number of coordinates from NetCDF file
   include "f90NetCDF_readgrid.f90"    !NetCDF file reader subroutines
   include "f90NetCDF_writegrid.f90"   !NetCDF file writer subroutines
-  include "f90NetCDF_fvalue.f90"      !Set FillValue and mask creator subroutines
+  include "f90NetCDF_setfillvalue.f90"      !Set FillValue and mask creator subroutines
 !  include "f90NetCDF_zonalstats.f90"  !Zonal Statistics subroutines
   include "f90NetCDF_fileutils.f90"   !File Utilities
 end module f90NetCDF
