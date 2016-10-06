@@ -66,19 +66,10 @@ ex1:
 	gfortran $(FLAGS) -o $(progname)getinfo.out f90NetCDF_getinfo.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 ex2:	
-	gfortran $(FLAGS) -o $(progname)mask.out f90NetCDF_mask.f90 $(f90NetCDF_module) $(f90NetCDF_library)
+	gfortran $(FLAGS) -o $(progname)constants.out f90NetCDF_constants.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 ex3:	
 	gfortran $(FLAGS) -o $(progname)time.out f90NetCDF_time.f90 $(f90NetCDF_module) $(f90NetCDF_library)
-
-ex4:	
-	gfortran $(FLAGS) -o $(progname)mary.out f90NetCDF_mary.f90 $(f90NetCDF_module) $(f90NetCDF_library)
-
-ex5:	
-	gfortran $(FLAGS) -o $(progname)5p.out f90NetCDF_5p.f90 $(f90NetCDF_module) $(f90NetCDF_library)
-
-correcao:	
-	gfortran $(FLAGS) -o $(progname)correcao.out f90NetCDF_correcao.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 clean:
 	rm -f *.out
