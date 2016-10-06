@@ -55,6 +55,7 @@ The **f90NetCDF** library was developed in Fedora Linux operating system. The co
 
 :: 
 
+  #Run make inside library directory
   cd f90NetCDF/
   make
 

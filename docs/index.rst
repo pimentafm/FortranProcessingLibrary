@@ -6,6 +6,12 @@
 Welcome to f90NetCDF's documentation!
 =====================================
 
+Download:
+---------
+
+`f90NetCDF Version 1.0 <http://www.biosfera.dea.ufv.br>`__
+``````````````````````````````````````````````````````````
+ 
 API Documentation:
 ------------------
 
@@ -15,8 +21,21 @@ API Documentation:
    src/introduction
    src/buildsystem
    src/structures
+
+User Manual:
+------------
+
+.. toctree::
+   :maxdepth: 2
+
    src/usermanual/usermanual
-   src/download 
+
+Examples
+--------
+
+.. toctree::
+   :maxdepth: 2
+
    src/examples
 
 Quick links:

@@ -1,5 +1,5 @@
-Data Types and Structures
-*************************
+API
+***
 .. highlight:: fortran
    :linenothreshold: 2
 
@@ -119,6 +119,22 @@ Array processing
    functions_subroutines/setfillvalue2d.rst
    functions_subroutines/setfillvalue3d.rst
    functions_subroutines/setfillvalue4d.rst
+
+Utilities
+---------
+
+.. toctree::
+   :maxdepth: 1
+
+   functions_subroutines/utilities.rst
+
+Error Checker
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   functions_subroutines/checkerrors.rst
 
 .. seealso::
 
