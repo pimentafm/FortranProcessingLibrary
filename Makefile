@@ -42,7 +42,7 @@ f90NetCDF_lib=libf90NetCDF.so
 f90NetCDF_mod=f90netcdf.mod
 
 COMPILER=gfortran
-FLAGS=-Wall -shared -fPIC -cpp
+FLAGS=-Wall -O3 -shared -fPIC -cpp
 OPENMP=-fopenmp
 
 ifeq ($(OS), Fedora)

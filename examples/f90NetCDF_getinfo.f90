@@ -33,7 +33,7 @@
 
 !:==================== A Very Simple Test Program =============================
 program main
-  use ncf90api
+  use f90netcdf
   implicit none
 
   !Database download from UNIDATA:

@@ -51,25 +51,21 @@ ifeq ($(OS), Debian)
   f90NetCDF_module=-I/usr/include/
 endif
 
-srcdir=$(shell pwd)/src/
-
 f90NetCDF_library=-lf90NetCDF
 
 #Debian based
 #f90NetCDF_module=-I/usr/include/
 
-progname=f90NetCDF_
-
 FLAGS= -Wall -O3
 
 ex1:
-	gfortran $(FLAGS) -o $(progname)getinfo.out f90NetCDF_getinfo.f90 $(f90NetCDF_module) $(f90NetCDF_library)
+	gfortran $(FLAGS) -o getinfo.out f90NetCDF_getinfo.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 ex2:	
-	gfortran $(FLAGS) -o $(progname)constants.out f90NetCDF_constants.f90 $(f90NetCDF_module) $(f90NetCDF_library)
+	gfortran $(FLAGS) -o constants.out f90NetCDF_constants.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 ex3:	
-	gfortran $(FLAGS) -o $(progname)time.out f90NetCDF_time.f90 $(f90NetCDF_module) $(f90NetCDF_library)
+	gfortran $(FLAGS) -o time.out f90NetCDF_time.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 clean:
 	rm -f *.out

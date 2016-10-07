@@ -33,7 +33,7 @@
 
 !:==================== Defined constants ======== =============================
 program constants
-  use ncf90api
+  use f90netcdf
   implicit none
 
   write(*,*) "f90NetCDF datatype constants"
@@ -47,13 +47,13 @@ program constants
   
   write(*,*) "f90NetCDF parameters and constants"
   write(*,*) "=================================="
-  write(*,'(a37,f12.9)') "                                  pi: ", pi
-  write(*,'(a37,f12.6)') "        Average radius of earth (km): ", earth_radius
-  write(*,'(a37,f10.7)') "     Acceleration of gravity (m/s^2): ", acc_gravity
-  write(*,'(a37,f12.1)') "            Speed of the light (m/s): ", speed_of_light
-  write(*,*) "Stefan-Boltzmann constant (W/m^2K^4): ", stefan_boltzmann
-  write(*,'(a37,f20.10)') "          Boltzmann constant (JK^-1): ", boltzmann
-  write(*,'(a37,f20.5)') "           Atomic mass constant (kg): ", atomic_mass
-  write(*,'(a37,f20.5)') "          Avogadro constant (mol^-1): ", avogadro
+  write(*,'(a39,f12.9)') "                                  pi: ", pi
+  write(*,'(a39,f12.6)') "        Average radius of earth (km): ", earth_radius
+  write(*,'(a39,f10.7)') "     Acceleration of gravity (m/s^2): ", acc_gravity
+  write(*,'(a39,f12.1)') "            Speed of the light (m/s): ", speed_of_light
+  write(*,'(a39,es13.6e2)') " Stefan-Boltzmann constant (W/m^2K^4): ", stefan_boltzmann
+  write(*,'(a39,es15.8e2)') "          Boltzmann constant (JK^-1): ", boltzmann
+  write(*,'(a39,es16.9e2)') "           Atomic mass constant (kg): ", atomic_mass
+  write(*,'(a39,es16.9e2)') "          Avogadro constant (mol^-1): ", avogadro
 
 end program constants
