@@ -60,7 +60,7 @@ f90NetCDF_library=-lf90NetCDF
 
 progname=f90NetCDF_
 
-FLAGS=-Wall -O3
+FLAGS= -Wall -O3
 
 ex1:
 	gfortran $(FLAGS) -o $(progname)getinfo.out f90NetCDF_getinfo.f90 $(f90NetCDF_module) $(f90NetCDF_library)
