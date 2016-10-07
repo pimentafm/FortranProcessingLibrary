@@ -18,20 +18,20 @@ API Documentation:
 .. toctree::
    :maxdepth: 2
 
-   src/introduction
-   src/buildsystem
-   src/structures
+   src/1_introduction
+   src/2_buildsystem
+   src/3_structures
 
-User Manual:
-------------
+User Documentation
+------------------
 
 .. toctree::
    :maxdepth: 2
 
    src/usermanual/usermanual
 
-Examples
---------
+Application Examples
+--------------------
 
 .. toctree::
    :maxdepth: 2

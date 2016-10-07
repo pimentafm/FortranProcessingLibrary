@@ -1,14 +1,9 @@
 User Manual
-***********
+===========
 
-TODO---
-=======
+tstsststststs
 
-Title 2
--------
+.. toctree::
+   :maxdepth: 1
 
-Title 3
-.......
-
-Title 4
-_______
+   1_defvars

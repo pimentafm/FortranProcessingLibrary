@@ -1,14 +1,9 @@
-TODO----
-********
+Examples
+========
 
-Title 1
-=======
+Examplessssd dddd
 
-Title 2
--------
-
-Title 3
-.......
-
-Title 4
-_______
+.. toctree::
+   :maxdepth: 2
+  
+   examples/ex1
