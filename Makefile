@@ -1,5 +1,5 @@
 #:=============================================================================
-# This file is part of f90NetCDF API (Fortran 90 API for NetCDF).
+# This file is part of f90NetCDF (Fortran 90 API for NetCDF).
 
 # Copyright (C) 2015 Fernando Martins Pimenta
 
@@ -17,35 +17,38 @@
 # along with f90NetCDF_tools.  If not, see <http://www.gnu.org/licenses/>.
 
 #:=============================================================================
-#About Author:
-#Student of Surveying and Cartographic Engineering
-# Federal University of Viçosa - Brazil
+# About Author:
+#  Fernando Martins Pimenta
+#  Student of Surveying and Cartographic Engineering
+#  Federal University of Viçosa - Brazil
 
-#Bachelor of Biosystems Engineer
-# Federal University of São João del-Rei - Brazil
+#  Bachelor of Biosystems Engineer
+#  Federal University of São João del-Rei - Brazil
 
-# Research Group on Atmosphere-Biosphere Interaction
-# Federal University of Viçosa
-# Data: August 09, 2015
+#  Research Group on Atmosphere-Biosphere Interaction
+#  Federal University of Viçosa
+#  Data: August 09, 2015
 
-#Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
+# Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 #:=============================================================================
 
-#Check OS
+#Check system name version and arch
 OS=$(shell lsb_release -si)
-ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 VERSION=$(shell lsb_release -sr)
+ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 
 
 #f90NetCDF library and module names
 f90NetCDF_lib=libf90NetCDF.so
 f90NetCDF_mod=f90netcdf.mod
 
+#Compilation parameters
 COMPILER=gfortran
 FLAGS=-Wall -O3 -shared -fPIC -cpp
 OPENMP=-fopenmp
 
-ifeq ($(OS), Fedora)
+#Check distro
+ifeq ($(OS), $(filter $(OS), Fedora Korora))
   $(info "$(OS) $(VERSION) $(ARCH) bits")
 
   #RedHat netcdf modules path
@@ -56,7 +59,7 @@ ifeq ($(OS), Fedora)
   f90NetCDF_libdir=/usr/lib64/
   f90NetCDF_moddir=/usr/lib64/gfortran/modules/
 endif
-ifeq ($(OS), Debian)
+ifeq ($(OS), $(filter $(OS), Debian Ubuntu))
   $(info "$(OS) $(VERSION) $(ARCH) bits")
   #Debian netcdf modules path
   netcdf_libs=-I/usr/include/ -lnetcdff -lnetcdf

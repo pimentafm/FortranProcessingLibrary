@@ -30,8 +30,8 @@ User Documentation
 
    src/usermanual/usermanual
 
-Application Examples
---------------------
+Code Examples
+-------------
 
 .. toctree::
    :maxdepth: 2

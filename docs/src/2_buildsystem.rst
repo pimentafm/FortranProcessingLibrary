@@ -45,21 +45,27 @@ Directory Structure
 Instalation
 ===========
 
-The **f90NetCDF** library was developed in Fedora Linux operating system. The compilation was tested in Fedora 23 and Debian 8.4.
+**f90NetCDF** library was developed in Fedora Linux operating system. The compilation was tested in Fedora 23 and Debian 8.4.
 
-.. note::
-   
-  If your operating system has different architecture you can define the variables according to it in the Makefile.
+
+Compiling Dependencies
+``````````````````````
+
+Run make inside library directory
 
 :: 
 
-  #Run make inside library directory
   cd f90NetCDF/
   make
 
+.. important::
+   Is necessary to configure Makefile according to your system if errors occur in the compilation.
+
+
+
 ::
    
- #Check OS
+ #Check
  OS=$(shell lsb_release -si)
  ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
  VERSION=$(shell lsb_release -sr) 

@@ -32,17 +32,17 @@
 ===============================================================================
 
 TODO:
-    OK Develop a better way to generate subroutines in fortran from ShellScripts.
-    -> Develop an interface to call subroutines in fortran from the command line.
-    -> Develop a deallocate datatype subroutine.
-    OK Add valid_min and valid_max in netcdf datatypes.
-    -> Add check class error subroutine if not encounter number of class into map.
-    -> Fixes output format for zonalstatistics subroutines.
-    OK Develop function to check if exists _FillValue variable in the file. 
-    OK User can use GDAL for set a _FillValue into netcdf file easily.
-    -> Parallelize the code.
-    OK Implement subroutines for 3D I/O. 
-    -> Implement subroutines for 4D I/O. 
-    -> Implement map plotting subroutine.
-    -> Implement subroutines to datatype conversions.
-    -> Command Line Args to call subroutines
+     [OK] Develop a better way to generate subroutines in fortran from ShellScripts.
+     [OK] Add valid_min and valid_max in netcdf datatypes.
+     [OK] Develop function to check if exists _FillValue variable in the file. 
+     [OK] User can use GDAL for set a _FillValue into netcdf file easily.
+     [OK] Implement subroutines for 3D I/O. 
+     [OK] Implement subroutines for 4D I/O. 
+     [Partially OK] Parallelize the code.
+     [->] Develop a deallocate datatype subroutine/function.
+     [->] Add check class error subroutine if not encounter number of class into map.
+     [->] Reimplementation of zonal statistics subroutines/functions
+          [->] Fixes output format for zonal statistics subroutines.
+     [->] Implement map plotting subroutine (GMT/Python ????).
+     [->] Implement subroutines to datatype conversions.
+     [->] Command Line Args subroutines
