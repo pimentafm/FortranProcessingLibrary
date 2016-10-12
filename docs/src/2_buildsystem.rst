@@ -59,52 +59,53 @@ Run make inside library directory
   make
 
 .. important::
-   Is necessary to configure Makefile according to your system if errors occur in the compilation.
-
+   * Compile all dependencies first
+   * Is necessary to configure Makefile according to your system if errors occur in the compilation.
 
 
 ::
    
- #Check
- OS=$(shell lsb_release -si)
- ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
- VERSION=$(shell lsb_release -sr) 
- 
- #f90NetCDF library and module names
- f90NetCDF_lib=libf90NetCDF.so
- f90NetCDF_mod=f90netcdf.mod
- 
- COMPILER=gfortran
- FLAGS=-Wall -shared -O3 -fPIC -cpp
- OPENMP=-fopenmp
-
- #Modify the paths below according to your operating system ======
- ifeq ($(OS), Fedora)
-   $(info "$(OS) $(VERSION) $(ARCH) bits")
- 
-   #RedHat netcdf modules path
-   netcdf_libs=-I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
- 
-   #f90NetCDF source files and directories
-   f90NetCDF_srcdir=$(shell pwd)/src/
-   f90NetCDF_libdir=/usr/lib64/
-   f90NetCDF_moddir=/usr/lib64/gfortran/modules/
- endif
- ifeq ($(OS), Debian)
-   $(info "$(OS) $(VERSION) $(ARCH) bits")
-   #Debian netcdf modules path
-   netcdf_libs=-I/usr/include/ -lnetcdff -lnetcdf
-   #f90NetCDF source files and directories
-   f90NetCDF_srcdir=$(shell pwd)/src/
-   f90NetCDF_libdir=/usr/lib/
-   f90NetCDF_moddir=/usr/include/
- endif
- #================================================================
-
- compile:
-         $(COMPILER) $(OPENMP) $(FLAGS) -o $(f90NetCDF_lib) $(f90NetCDF_srcdir)f90NetCDF.f90 $(netcdf_libs)
-         mv $(f90NetCDF_lib) $(f90NetCDF_libdir)
-         mv $(f90NetCDF_mod) $(f90NetCDF_moddir)
+  #Check system name version and arch
+  OS=$(shell lsb_release -si)
+  VERSION=$(shell lsb_release -sr)
+  ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+  
+  
+  #f90NetCDF library and module names
+  f90NetCDF_lib=libf90NetCDF.so
+  f90NetCDF_mod=f90netcdf.mod
+  
+  #Compilation parameters
+  COMPILER=gfortran
+  FLAGS=-Wall -O3 -shared -fPIC -cpp
+  OPENMP=-fopenmp
+  
+  #Check distro
+  ifeq ($(OS), $(filter $(OS), Fedora Korora))
+    $(info "$(OS) $(VERSION) $(ARCH) bits")
+  
+    #RedHat netcdf modules path
+    netcdf_libs=-I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
+  
+    #f90NetCDF source files and directories
+    f90NetCDF_srcdir=$(shell pwd)/src/
+    f90NetCDF_libdir=/usr/lib64/
+    f90NetCDF_moddir=/usr/lib64/gfortran/modules/
+  endif
+  ifeq ($(OS), $(filter $(OS), Debian Ubuntu))
+    $(info "$(OS) $(VERSION) $(ARCH) bits")
+    #Debian netcdf modules path
+    netcdf_libs=-I/usr/include/ -lnetcdff -lnetcdf
+    #f90NetCDF source files and directories
+    f90NetCDF_srcdir=$(shell pwd)/src/
+    f90NetCDF_libdir=/usr/lib/
+    f90NetCDF_moddir=/usr/include/
+  endif
+  
+  compile:
+  	$(COMPILER) $(OPENMP) $(FLAGS) -o $(f90NetCDF_lib) $(f90NetCDF_srcdir)f90NetCDF.f90 $(netcdf_libs)
+  	mv $(f90NetCDF_lib) $(f90NetCDF_libdir)
+  	mv $(f90NetCDF_mod) $(f90NetCDF_moddir)
 
 
 Compile Examples
@@ -117,48 +118,45 @@ Compile Examples
 
 ::
 
- #Check OS
- OS=$(shell lsb_release -si)
- ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
- VERSION=$(shell lsb_release -sr)
- 
- #Modify the paths below according to your operating system ======
- ifeq ($(OS), Fedora)
-   #Print OS
-   $(info "$(OS) $(VERSION) $(ARCH) bits")
- 
-   #Set module path
-   f90NetCDF_module=-I/usr/lib64/gfortran/modules/
- endif
- ifeq ($(OS), Debian)
-   #Print OS
-   $(info "$(OS) $(VERSION) $(ARCH) bits")
- 
-   #Set module path
-   f90NetCDF_module=-I/usr/include/
- endif 
- #================================================================
- 
- srcdir=$(shell pwd)/src/
- 
- f90NetCDF_library=-lf90NetCDF
- 
- #Debian based
- #f90NetCDF_module=-I/usr/include/
- 
- progname=f90NetCDF_
- 
- FLAGS=-Wall -O3
- 
- ex1:
-         gfortran $(FLAGS) -o $(progname)getinfo.out f90NetCDF_getinfo.f90 $(f90NetCDF_module) $(f90NetCDF_library)
- 
- ex2:    
-         gfortran $(FLAGS) -o $(progname)mask.out f90NetCDF_mask.f90 $(f90NetCDF_module) $(f90NetCDF_library)
- 
- ex3:    
-         gfortran $(FLAGS) -o $(progname)time.out f90NetCDF_time.f90 $(f90NetCDF_module) $(f90NetCDF_library)
- 
- clean:
-         rm -f *.out
-
+  #Check system name version and arch
+  OS=$(shell lsb_release -si)
+  VERSION=$(shell lsb_release -sr)
+  ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+  
+  
+  #f90NetCDF library and module names
+  f90NetCDF_lib=libf90NetCDF.so
+  f90NetCDF_mod=f90netcdf.mod
+  
+  #Compilation parameters
+  COMPILER=gfortran
+  FLAGS=-Wall -O3 -shared -fPIC -cpp
+  OPENMP=-fopenmp
+  
+  #Check distro
+  ifeq ($(OS), $(filter $(OS), Fedora Korora))
+    $(info "$(OS) $(VERSION) $(ARCH) bits")
+  
+    #RedHat netcdf modules path
+    netcdf_libs=-I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
+  
+    #f90NetCDF source files and directories
+    f90NetCDF_srcdir=$(shell pwd)/src/
+    f90NetCDF_libdir=/usr/lib64/
+    f90NetCDF_moddir=/usr/lib64/gfortran/modules/
+  endif
+  ifeq ($(OS), $(filter $(OS), Debian Ubuntu))
+    $(info "$(OS) $(VERSION) $(ARCH) bits")
+    #Debian netcdf modules path
+    netcdf_libs=-I/usr/include/ -lnetcdff -lnetcdf
+    #f90NetCDF source files and directories
+    f90NetCDF_srcdir=$(shell pwd)/src/
+    f90NetCDF_libdir=/usr/lib/
+    f90NetCDF_moddir=/usr/include/
+  endif
+  
+  compile:
+  	$(COMPILER) $(OPENMP) $(FLAGS) -o $(f90NetCDF_lib) $(f90NetCDF_srcdir)f90NetCDF.f90 $(netcdf_libs)
+  	mv $(f90NetCDF_lib) $(f90NetCDF_libdir)
+  	mv $(f90NetCDF_mod) $(f90NetCDF_moddir)
+  
