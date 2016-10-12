@@ -59,13 +59,13 @@ f90NetCDF_library=-lf90NetCDF
 FLAGS= -Wall -O3
 
 ex1:
-	gfortran $(FLAGS) -o getinfo.out f90NetCDF_getinfo.f90 $(f90NetCDF_module) $(f90NetCDF_library)
+	gfortran $(FLAGS) -o ex1_constants.out ex1_constants.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 ex2:	
-	gfortran $(FLAGS) -o constants.out f90NetCDF_constants.f90 $(f90NetCDF_module) $(f90NetCDF_library)
+	gfortran $(FLAGS) -o ex2_getinfo.out ex2_getinfo.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 ex3:	
-	gfortran $(FLAGS) -o time.out f90NetCDF_time.f90 $(f90NetCDF_module) $(f90NetCDF_library)
+	gfortran $(FLAGS) -o ex3_time.out ex3_time.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 
 clean:
 	rm -f *.out
