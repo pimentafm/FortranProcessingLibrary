@@ -36,14 +36,14 @@ OS=$(shell lsb_release -si)
 ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 VERSION=$(shell lsb_release -sr)
 
-ifeq ($(OS), Fedora) 
+ifeq ($(OS), $(filter $(OS), Fedora Korora))
   #Print OS
   $(info "$(OS) $(VERSION) $(ARCH) bits")
   
   #Set module path
   f90NetCDF_module=-I/usr/lib64/gfortran/modules/
 endif
-ifeq ($(OS), Debian)
+ifeq ($(OS), $(filter $(OS), Debian Ubuntu))
   #Print OS
   $(info "$(OS) $(VERSION) $(ARCH) bits")
   
