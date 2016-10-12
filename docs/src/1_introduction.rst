@@ -7,13 +7,6 @@ Overview
 **f90NetCDF** (Fortran 90 for NetCDF) is an API library designed to facilitate the I/O and processing of large NetCDF datasets using Fortran 90 programming language.
 **f90NetCDF** reads and writes data up to 4 dimensions in a much simpler way (like `NCL - NCAR Command Language <http://www.ncl.ucar.edu/>`_) using dynamic data structures and dynamic modules.
 
-Dependencies
-============
-* `GNU Fortran Compiler <https://gcc.gnu.org/onlinedocs/gfortran/>`_
-* `NetCDF Library (C/C++ and Fortran) <http://www.unidata.ucar.edu/software/netcdf/>`_
-* `ISO_C_BINDINGS <https://gcc.gnu.org/onlinedocs/gfortran/Interoperability-with-C.html>`_
-* `OpenMP <http://openmp.org/wp/openmp-specifications/>`_
-
 License and copyright
 =====================
  **f90NetCDF** is free software: you can redistribute it and/or modify

@@ -5,7 +5,6 @@ Build System
 
 .. **Download** `f90NetCDF <http://www.biosfera.dea.ufv.br>`_ **Source Code**
 
-
 Directory Structure
 ===================
 
@@ -42,26 +41,28 @@ Directory Structure
            |---GNUGPL
            |---README
 
+Dependencies
+============
+* `GNU Fortran Compiler <https://gcc.gnu.org/onlinedocs/gfortran/>`_
+* `NetCDF Library (C/C++ and Fortran) <http://www.unidata.ucar.edu/software/netcdf/>`_
+* `ISO_C_BINDINGS <https://gcc.gnu.org/onlinedocs/gfortran/Interoperability-with-C.html>`_
+* `OpenMP <http://openmp.org/wp/openmp-specifications/>`_ (Optional)
+
 Instalation
 ===========
-
 **f90NetCDF** library was developed in Fedora Linux operating system. The compilation was tested in Fedora 23 and Debian 8.4.
 
+.. important::
 
-Compiling Dependencies
-``````````````````````
-
-Run make inside library directory
+  * Run make inside library directory after installing the dependencies.
 
 :: 
 
   cd f90NetCDF/
   make
 
-.. important::
-   * Compile all dependencies first
-   * Is necessary to configure Makefile according to your system if errors occur in the compilation.
-
+The required settings can be made in the Makefile according to each operating system.
+Example below shows a configuration compatible with Fedora-based systems and some Debian-based systems.
 
 ::
    
@@ -107,9 +108,13 @@ Run make inside library directory
   	mv $(f90NetCDF_lib) $(f90NetCDF_libdir)
   	mv $(f90NetCDF_mod) $(f90NetCDF_moddir)
 
+.. note::
+  * Configure Makefile according to your system only if errors occur in compilation.
 
 Compile Examples
-================
+''''''''''''''''
+
+Check if the compilation ran without errors running some of the example programs.
 
 ::
 
@@ -118,45 +123,42 @@ Compile Examples
 
 ::
 
-  #Check system name version and arch
+  #Check OS
   OS=$(shell lsb_release -si)
-  VERSION=$(shell lsb_release -sr)
   ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+  VERSION=$(shell lsb_release -sr)
   
-  
-  #f90NetCDF library and module names
-  f90NetCDF_lib=libf90NetCDF.so
-  f90NetCDF_mod=f90netcdf.mod
-  
-  #Compilation parameters
-  COMPILER=gfortran
-  FLAGS=-Wall -O3 -shared -fPIC -cpp
-  OPENMP=-fopenmp
-  
-  #Check distro
   ifeq ($(OS), $(filter $(OS), Fedora Korora))
+    #Print OS
     $(info "$(OS) $(VERSION) $(ARCH) bits")
-  
-    #RedHat netcdf modules path
-    netcdf_libs=-I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
-  
-    #f90NetCDF source files and directories
-    f90NetCDF_srcdir=$(shell pwd)/src/
-    f90NetCDF_libdir=/usr/lib64/
-    f90NetCDF_moddir=/usr/lib64/gfortran/modules/
+    
+    #Set module path
+    f90NetCDF_module=-I/usr/lib64/gfortran/modules/
   endif
   ifeq ($(OS), $(filter $(OS), Debian Ubuntu))
+    #Print OS
     $(info "$(OS) $(VERSION) $(ARCH) bits")
-    #Debian netcdf modules path
-    netcdf_libs=-I/usr/include/ -lnetcdff -lnetcdf
-    #f90NetCDF source files and directories
-    f90NetCDF_srcdir=$(shell pwd)/src/
-    f90NetCDF_libdir=/usr/lib/
-    f90NetCDF_moddir=/usr/include/
+    
+    #Set module path
+    f90NetCDF_module=-I/usr/include/
   endif
   
-  compile:
-  	$(COMPILER) $(OPENMP) $(FLAGS) -o $(f90NetCDF_lib) $(f90NetCDF_srcdir)f90NetCDF.f90 $(netcdf_libs)
-  	mv $(f90NetCDF_lib) $(f90NetCDF_libdir)
-  	mv $(f90NetCDF_mod) $(f90NetCDF_moddir)
+  f90NetCDF_library=-lf90NetCDF
   
+  #Debian based
+  #f90NetCDF_module=-I/usr/include/
+  
+  FLAGS= -Wall -O3
+  
+  ex1:
+  	gfortran $(FLAGS) -o ex1_constants.out ex1_constants.f90 $(f90NetCDF_module) $(f90NetCDF_library)
+  
+  ex2:	
+  	gfortran $(FLAGS) -o ex2_getinfo.out ex2_getinfo.f90 $(f90NetCDF_module) $(f90NetCDF_library)
+  
+  ex3:	
+  	gfortran $(FLAGS) -o ex3_time.out ex3_time.f90 $(f90NetCDF_module) $(f90NetCDF_library)
+  
+  clean:
+  	rm -f *.out
+ 
