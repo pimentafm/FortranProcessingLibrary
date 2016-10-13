@@ -33,31 +33,52 @@
 
 !:==================== Generate costumizeble grid file ========================
 
-!NetCDF <>
-subroutine gengrid2d_int_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc2d_int_llf) :: idata
-  integer(kind=intgr) :: i
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+program main
+  use f90netcdf
+  implicit none
 
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+  type(nc2d_int_llf) :: grid
+  integer(kind=intgr) :: i, j, s
 
-  allocate(idata%ncdata(idata%nlons, idata%nlats))
-  allocate(idata%longitudes(idata%nlons))  
-  allocate(idata%latitudes(idata%nlats))
+  character(200) :: outputpath
 
-  idata%vartype = intgr
+  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/mygrid.nc"
 
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
+  grid%long_name = "My Grid ~ 1 degree"
+  
+  grid%varname = "id"
+  grid%lonname = "lon"
+  grid%latname = "lat"
+
+  grid%varunits = "dimensionless"
+  grid%lonunits = "degrees_east"
+  grid%latunits = "degrees_north"
+
+  grid%FillValue = -9999
+
+!                   Ymax
+!            _________________
+!           |__|__|__|__|__|__|
+!           |__|__|__|__|__|__|
+!      Xmin |__|__|__|__|__|__| Xmax
+!           |__|__|__|__|__|__|
+!           |__|__|__|__|__|__| 
+!
+!                   Ymin
+
+                                      !Xmin               Ymin                Xmax              Ymax           
+  call gengrid2d_int_llf(grid, -74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965, 1.0 )
+
+  s = 0
+  do i = 1, grid%nlons
+    do j = 1, grid%nlats
+      s = s + 1
+      grid%ncdata(i,j) = s    
+    end do
   end do
+  
+  call writegrid(outputpath, grid)
 
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-    
-end subroutine gengrid2d_int_llf
 
+end program main
 

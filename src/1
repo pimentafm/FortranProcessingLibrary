@@ -36,28 +36,14 @@
 !NetCDF <>
 subroutine gengrid2d_int_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
   type (nc2d_int_llf) :: idata
-  integer(kind=intgr) :: i
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+  idata%nlons = (Xmax - Xmin)/res
+  idata%nlats = (Ymax - Ymin)/res
 
-  allocate(idata%ncdata(idata%nlons, idata%nlats))
-  allocate(idata%longitudes(idata%nlons))  
-  allocate(idata%latitudes(idata%nlats))
+  write(*,*) "nlons ", nlons 
+  write(*,*) "nlats ", nlats
 
-  idata%vartype = intgr
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-    
 end subroutine gengrid2d_int_llf
 
 
