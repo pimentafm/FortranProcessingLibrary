@@ -37,24 +37,71 @@ program main
   use f90netcdf
   implicit none
 
-  type(nc2d_int_llf) :: grid
-  integer(kind=intgr) :: i, j, s
+  type(nc2d_int_llf) :: grid2d
+  type(nc3d_int_llf_ti) :: grid3d
+  type(nc4d_int_llf_ti_li) :: grid4d
+ 
+  integer(kind=intgr) :: i, j, k, l, s
 
-  character(200) :: outputpath
+  real(kind=4) :: Xmin, Ymin, Xmax, Ymax, res
 
-  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/mygrid.nc"
+  character(200) :: opath2d, opath3d, opath4d
 
-  grid%long_name = "My Grid ~ 1 degree"
+  !Output files
+  opath2d = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/grid2d.nc"
+  opath3d = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/grid3d.nc"
+  opath4d = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/grid4d.nc"
+
+
+  !Grid 2d
+  grid2d%long_name = "My Grid ~ 1 degree"
   
-  grid%varname = "id"
-  grid%lonname = "lon"
-  grid%latname = "lat"
+  grid2d%varname = "id"
+  grid2d%lonname = "lon"
+  grid2d%latname = "lat"
 
-  grid%varunits = "dimensionless"
-  grid%lonunits = "degrees_east"
-  grid%latunits = "degrees_north"
+  grid2d%varunits = "dimensionless"
+  grid2d%lonunits = "degrees_east"
+  grid2d%latunits = "degrees_north"
 
-  grid%FillValue = -9999
+  grid2d%FillValue = -9999
+
+  !Grid 3d
+  grid3d%long_name = "My Grid ~ 1 degree"
+  
+  grid3d%varname = "id"
+  grid3d%lonname = "lon"
+  grid3d%latname = "lat"
+  grid3d%timename = "time"
+
+  grid3d%varunits = "dimensionless"
+  grid3d%lonunits = "degrees_east"
+  grid3d%latunits = "degrees_north"
+  grid3d%timeunits = "hour"
+
+  grid3d%ntimes = 10
+
+  grid3d%FillValue = -9999
+
+  !Grid 4d
+  grid4d%long_name = "My Grid ~ 1 degree"
+  
+  grid4d%varname = "id"
+  grid4d%lonname = "lon"
+  grid4d%latname = "lat"
+  grid4d%timename = "time"
+  grid4d%levelname = "level"
+
+  grid4d%varunits = "dimensionless"
+  grid4d%lonunits = "degrees_east"
+  grid4d%latunits = "degrees_north"
+  grid4d%timeunits = "hour"
+  grid4d%levelunits = "m"
+
+  grid4d%ntimes = 10
+  grid4d%nlevels = 5
+
+  grid4d%FillValue = -9999
 
 !                   Ymax
 !            _________________
@@ -66,19 +113,54 @@ program main
 !
 !                   Ymin
 
-                                      !Xmin               Ymin                Xmax              Ymax           
-  call gengrid2d_int_llf(grid, -74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965, 1.0 )
+  Xmin = 80.0
+  Ymin = 40.0
+  Xmax = 180.0
+  Ymax = 90.0
+  res = 1.0
+
+                                !Xmin  Ymin  Xmax   Ymax           
+  call gengrid(grid2d, Xmin, Ymin, Xmax, Ymax, res)
 
   s = 0
-  do i = 1, grid%nlons
-    do j = 1, grid%nlats
+  do i = 1, grid2d%nlons
+    do j = 1, grid2d%nlats
       s = s + 1
-      grid%ncdata(i,j) = s    
+      grid2d%ncdata(i,j) = s    
     end do
   end do
   
-  call writegrid(outputpath, grid)
+  call writegrid(opath2d, grid2d)
 
+  call gengrid(grid3d, -74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965, 1.0 )
+
+  do i = 1, grid3d%ntimes
+    s = 0
+    do j = 1, grid3d%nlons
+      do k = 1, grid3d%nlats
+        s = s + 1
+        grid3d%ncdata(j,k,i) = s    
+      end do
+    end do
+  end do
+  
+  call writegrid(opath3d, grid3d)
+
+  call gengrid(grid4d, -74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965, 1.0 )
+
+  do l = 1, grid4d%nlevels
+    do i = 1, grid4d%ntimes
+      s = 0
+      do j = 1, grid4d%nlons
+        do k = 1, grid4d%nlats
+          s = s + 1
+          grid4d%ncdata(j,k,i,l) = s    
+        end do
+      end do
+    end do
+  end do
+
+  call writegrid(opath4d, grid4d)
 
 end program main
 

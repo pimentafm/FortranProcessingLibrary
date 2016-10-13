@@ -31,9 +31,59 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
 
-!:==================== Generate costumizeble grid file ========================
+!NetCDF <var byte> (lon <float>, lat <float>)
+subroutine gengrid2d_byte_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc2d_byte_llf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
-!NetCDF <>
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+
+  idata%vartype = byte
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid2d_byte_llf
+
+!NetCDF <var short> (lon <float>, lat <float>)
+subroutine gengrid2d_short_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc2d_short_llf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+
+  idata%vartype = short
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid2d_short_llf
+
+!NetCDF <var int> (lon <float>, lat <float>)
 subroutine gengrid2d_int_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
   type (nc2d_int_llf) :: idata
   integer(kind=intgr) :: i
@@ -57,7 +107,3276 @@ subroutine gengrid2d_int_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
   do i = 1, idata%nlats - 1
     idata%latitudes(i+1) = idata%latitudes(i) + res
   end do
-    
 end subroutine gengrid2d_int_llf
 
+!NetCDF <var float> (lon <float>, lat <float>)
+subroutine gengrid2d_float_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc2d_float_llf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+
+  idata%vartype = float
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid2d_float_llf
+
+!NetCDF <var double> (lon <float>, lat <float>)
+subroutine gengrid2d_double_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc2d_double_llf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+
+  idata%vartype = double
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid2d_double_llf
+
+!NetCDF <var byte> (lon <double>, lat <double>)
+subroutine gengrid2d_byte_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc2d_byte_lld) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+
+  idata%vartype = byte
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid2d_byte_lld
+
+!NetCDF <var short> (lon <double>, lat <double>)
+subroutine gengrid2d_short_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc2d_short_lld) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+
+  idata%vartype = short
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid2d_short_lld
+
+!NetCDF <var int> (lon <double>, lat <double>)
+subroutine gengrid2d_int_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc2d_int_lld) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+
+  idata%vartype = intgr
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid2d_int_lld
+
+!NetCDF <var float> (lon <double>, lat <double>)
+subroutine gengrid2d_float_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc2d_float_lld) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+
+  idata%vartype = float
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid2d_float_lld
+
+!NetCDF <var double> (lon <double>, lat <double>)
+subroutine gengrid2d_double_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc2d_double_lld) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+
+  idata%vartype = double
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid2d_double_lld
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <int>)
+subroutine gengrid3d_byte_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_byte_llf_ti) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_byte_llf_ti
+
+!NetCDF <var short> (lon <float>, lat <float>, time <int>)
+subroutine gengrid3d_short_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_short_llf_ti) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_short_llf_ti
+
+!NetCDF <var int> (lon <float>, lat <float>, time <int>)
+subroutine gengrid3d_int_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_int_llf_ti) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_int_llf_ti
+
+!NetCDF <var float> (lon <float>, lat <float>, time <int>)
+subroutine gengrid3d_float_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_float_llf_ti) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_float_llf_ti
+
+!NetCDF <var double> (lon <float>, lat <float>, time <int>)
+subroutine gengrid3d_double_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_double_llf_ti) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_double_llf_ti
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <int>)
+subroutine gengrid3d_byte_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_byte_lld_ti) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_byte_lld_ti
+
+!NetCDF <var short> (lon <double>, lat <double>, time <int>)
+subroutine gengrid3d_short_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_short_lld_ti) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_short_lld_ti
+
+!NetCDF <var int> (lon <double>, lat <double>, time <int>)
+subroutine gengrid3d_int_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_int_lld_ti) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_int_lld_ti
+
+!NetCDF <var float> (lon <double>, lat <double>, time <int>)
+subroutine gengrid3d_float_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_float_lld_ti) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_float_lld_ti
+
+!NetCDF <var double> (lon <double>, lat <double>, time <int>)
+subroutine gengrid3d_double_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_double_lld_ti) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_double_lld_ti
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <float>)
+subroutine gengrid3d_byte_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_byte_llf_tf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_byte_llf_tf
+
+!NetCDF <var short> (lon <float>, lat <float>, time <float>)
+subroutine gengrid3d_short_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_short_llf_tf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_short_llf_tf
+
+!NetCDF <var int> (lon <float>, lat <float>, time <float>)
+subroutine gengrid3d_int_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_int_llf_tf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_int_llf_tf
+
+!NetCDF <var float> (lon <float>, lat <float>, time <float>)
+subroutine gengrid3d_float_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_float_llf_tf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_float_llf_tf
+
+!NetCDF <var double> (lon <float>, lat <float>, time <float>)
+subroutine gengrid3d_double_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_double_llf_tf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_double_llf_tf
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <float>)
+subroutine gengrid3d_byte_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_byte_lld_tf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_byte_lld_tf
+
+!NetCDF <var short> (lon <double>, lat <double>, time <float>)
+subroutine gengrid3d_short_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_short_lld_tf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_short_lld_tf
+
+!NetCDF <var int> (lon <double>, lat <double>, time <float>)
+subroutine gengrid3d_int_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_int_lld_tf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_int_lld_tf
+
+!NetCDF <var float> (lon <double>, lat <double>, time <float>)
+subroutine gengrid3d_float_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_float_lld_tf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_float_lld_tf
+
+!NetCDF <var double> (lon <double>, lat <double>, time <float>)
+subroutine gengrid3d_double_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_double_lld_tf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_double_lld_tf
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <double>)
+subroutine gengrid3d_byte_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_byte_llf_td) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_byte_llf_td
+
+!NetCDF <var short> (lon <float>, lat <float>, time <double>)
+subroutine gengrid3d_short_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_short_llf_td) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_short_llf_td
+
+!NetCDF <var int> (lon <float>, lat <float>, time <double>)
+subroutine gengrid3d_int_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_int_llf_td) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_int_llf_td
+
+!NetCDF <var float> (lon <float>, lat <float>, time <double>)
+subroutine gengrid3d_float_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_float_llf_td) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_float_llf_td
+
+!NetCDF <var double> (lon <float>, lat <float>, time <double>)
+subroutine gengrid3d_double_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_double_llf_td) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_double_llf_td
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <double>)
+subroutine gengrid3d_byte_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_byte_lld_td) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_byte_lld_td
+
+!NetCDF <var short> (lon <double>, lat <double>, time <double>)
+subroutine gengrid3d_short_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_short_lld_td) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_short_lld_td
+
+!NetCDF <var int> (lon <double>, lat <double>, time <double>)
+subroutine gengrid3d_int_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_int_lld_td) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_int_lld_td
+
+!NetCDF <var float> (lon <double>, lat <double>, time <double>)
+subroutine gengrid3d_float_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_float_lld_td) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_float_lld_td
+
+!NetCDF <var double> (lon <double>, lat <double>, time <double>)
+subroutine gengrid3d_double_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc3d_double_lld_td) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid3d_double_lld_td
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <int>, level <int>)
+subroutine gengrid4d_byte_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_byte_llf_ti_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_byte_llf_ti_li
+
+!NetCDF <var short> (lon <float>, lat <float>, time <int>, level <int>)
+subroutine gengrid4d_short_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_short_llf_ti_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_short_llf_ti_li
+
+!NetCDF <var int> (lon <float>, lat <float>, time <int>, level <int>)
+subroutine gengrid4d_int_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_int_llf_ti_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_int_llf_ti_li
+
+!NetCDF <var float> (lon <float>, lat <float>, time <int>, level <int>)
+subroutine gengrid4d_float_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_float_llf_ti_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_float_llf_ti_li
+
+!NetCDF <var double> (lon <float>, lat <float>, time <int>, level <int>)
+subroutine gengrid4d_double_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_double_llf_ti_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_double_llf_ti_li
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <int>, level <int>)
+subroutine gengrid4d_byte_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_byte_lld_ti_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_byte_lld_ti_li
+
+!NetCDF <var short> (lon <double>, lat <double>, time <int>, level <int>)
+subroutine gengrid4d_short_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_short_lld_ti_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_short_lld_ti_li
+
+!NetCDF <var int> (lon <double>, lat <double>, time <int>, level <int>)
+subroutine gengrid4d_int_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_int_lld_ti_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_int_lld_ti_li
+
+!NetCDF <var float> (lon <double>, lat <double>, time <int>, level <int>)
+subroutine gengrid4d_float_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_float_lld_ti_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_float_lld_ti_li
+
+!NetCDF <var double> (lon <double>, lat <double>, time <int>, level <int>)
+subroutine gengrid4d_double_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_double_lld_ti_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_double_lld_ti_li
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <float>, level <int>)
+subroutine gengrid4d_byte_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_byte_llf_tf_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_byte_llf_tf_li
+
+!NetCDF <var short> (lon <float>, lat <float>, time <float>, level <int>)
+subroutine gengrid4d_short_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_short_llf_tf_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_short_llf_tf_li
+
+!NetCDF <var int> (lon <float>, lat <float>, time <float>, level <int>)
+subroutine gengrid4d_int_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_int_llf_tf_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_int_llf_tf_li
+
+!NetCDF <var float> (lon <float>, lat <float>, time <float>, level <int>)
+subroutine gengrid4d_float_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_float_llf_tf_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_float_llf_tf_li
+
+!NetCDF <var double> (lon <float>, lat <float>, time <float>, level <int>)
+subroutine gengrid4d_double_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_double_llf_tf_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_double_llf_tf_li
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <float>, level <int>)
+subroutine gengrid4d_byte_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_byte_lld_tf_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_byte_lld_tf_li
+
+!NetCDF <var short> (lon <double>, lat <double>, time <float>, level <int>)
+subroutine gengrid4d_short_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_short_lld_tf_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_short_lld_tf_li
+
+!NetCDF <var int> (lon <double>, lat <double>, time <float>, level <int>)
+subroutine gengrid4d_int_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_int_lld_tf_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_int_lld_tf_li
+
+!NetCDF <var float> (lon <double>, lat <double>, time <float>, level <int>)
+subroutine gengrid4d_float_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_float_lld_tf_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_float_lld_tf_li
+
+!NetCDF <var double> (lon <double>, lat <double>, time <float>, level <int>)
+subroutine gengrid4d_double_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_double_lld_tf_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_double_lld_tf_li
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <double>, level <int>)
+subroutine gengrid4d_byte_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_byte_llf_td_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_byte_llf_td_li
+
+!NetCDF <var short> (lon <float>, lat <float>, time <double>, level <int>)
+subroutine gengrid4d_short_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_short_llf_td_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_short_llf_td_li
+
+!NetCDF <var int> (lon <float>, lat <float>, time <double>, level <int>)
+subroutine gengrid4d_int_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_int_llf_td_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_int_llf_td_li
+
+!NetCDF <var float> (lon <float>, lat <float>, time <double>, level <int>)
+subroutine gengrid4d_float_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_float_llf_td_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_float_llf_td_li
+
+!NetCDF <var double> (lon <float>, lat <float>, time <double>, level <int>)
+subroutine gengrid4d_double_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_double_llf_td_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_double_llf_td_li
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <double>, level <int>)
+subroutine gengrid4d_byte_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_byte_lld_td_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_byte_lld_td_li
+
+!NetCDF <var short> (lon <double>, lat <double>, time <double>, level <int>)
+subroutine gengrid4d_short_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_short_lld_td_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_short_lld_td_li
+
+!NetCDF <var int> (lon <double>, lat <double>, time <double>, level <int>)
+subroutine gengrid4d_int_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_int_lld_td_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_int_lld_td_li
+
+!NetCDF <var float> (lon <double>, lat <double>, time <double>, level <int>)
+subroutine gengrid4d_float_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_float_lld_td_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_float_lld_td_li
+
+!NetCDF <var double> (lon <double>, lat <double>, time <double>, level <int>)
+subroutine gengrid4d_double_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_double_lld_td_li) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_double_lld_td_li
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <int>, level <float>)
+subroutine gengrid4d_byte_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_byte_llf_ti_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_byte_llf_ti_lf
+
+!NetCDF <var short> (lon <float>, lat <float>, time <int>, level <float>)
+subroutine gengrid4d_short_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_short_llf_ti_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_short_llf_ti_lf
+
+!NetCDF <var int> (lon <float>, lat <float>, time <int>, level <float>)
+subroutine gengrid4d_int_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_int_llf_ti_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_int_llf_ti_lf
+
+!NetCDF <var float> (lon <float>, lat <float>, time <int>, level <float>)
+subroutine gengrid4d_float_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_float_llf_ti_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_float_llf_ti_lf
+
+!NetCDF <var double> (lon <float>, lat <float>, time <int>, level <float>)
+subroutine gengrid4d_double_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_double_llf_ti_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_double_llf_ti_lf
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <int>, level <float>)
+subroutine gengrid4d_byte_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_byte_lld_ti_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_byte_lld_ti_lf
+
+!NetCDF <var short> (lon <double>, lat <double>, time <int>, level <float>)
+subroutine gengrid4d_short_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_short_lld_ti_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_short_lld_ti_lf
+
+!NetCDF <var int> (lon <double>, lat <double>, time <int>, level <float>)
+subroutine gengrid4d_int_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_int_lld_ti_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_int_lld_ti_lf
+
+!NetCDF <var float> (lon <double>, lat <double>, time <int>, level <float>)
+subroutine gengrid4d_float_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_float_lld_ti_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_float_lld_ti_lf
+
+!NetCDF <var double> (lon <double>, lat <double>, time <int>, level <float>)
+subroutine gengrid4d_double_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_double_lld_ti_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_double_lld_ti_lf
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <float>, level <float>)
+subroutine gengrid4d_byte_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_byte_llf_tf_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_byte_llf_tf_lf
+
+!NetCDF <var short> (lon <float>, lat <float>, time <float>, level <float>)
+subroutine gengrid4d_short_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_short_llf_tf_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_short_llf_tf_lf
+
+!NetCDF <var int> (lon <float>, lat <float>, time <float>, level <float>)
+subroutine gengrid4d_int_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_int_llf_tf_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_int_llf_tf_lf
+
+!NetCDF <var float> (lon <float>, lat <float>, time <float>, level <float>)
+subroutine gengrid4d_float_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_float_llf_tf_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_float_llf_tf_lf
+
+!NetCDF <var double> (lon <float>, lat <float>, time <float>, level <float>)
+subroutine gengrid4d_double_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_double_llf_tf_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_double_llf_tf_lf
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <float>, level <float>)
+subroutine gengrid4d_byte_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_byte_lld_tf_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_byte_lld_tf_lf
+
+!NetCDF <var short> (lon <double>, lat <double>, time <float>, level <float>)
+subroutine gengrid4d_short_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_short_lld_tf_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_short_lld_tf_lf
+
+!NetCDF <var int> (lon <double>, lat <double>, time <float>, level <float>)
+subroutine gengrid4d_int_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_int_lld_tf_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_int_lld_tf_lf
+
+!NetCDF <var float> (lon <double>, lat <double>, time <float>, level <float>)
+subroutine gengrid4d_float_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_float_lld_tf_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_float_lld_tf_lf
+
+!NetCDF <var double> (lon <double>, lat <double>, time <float>, level <float>)
+subroutine gengrid4d_double_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_double_lld_tf_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_double_lld_tf_lf
+
+!NetCDF <var byte> (lon <float>, lat <float>, time <double>, level <float>)
+subroutine gengrid4d_byte_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_byte_llf_td_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_byte_llf_td_lf
+
+!NetCDF <var short> (lon <float>, lat <float>, time <double>, level <float>)
+subroutine gengrid4d_short_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_short_llf_td_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_short_llf_td_lf
+
+!NetCDF <var int> (lon <float>, lat <float>, time <double>, level <float>)
+subroutine gengrid4d_int_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_int_llf_td_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_int_llf_td_lf
+
+!NetCDF <var float> (lon <float>, lat <float>, time <double>, level <float>)
+subroutine gengrid4d_float_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_float_llf_td_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_float_llf_td_lf
+
+!NetCDF <var double> (lon <float>, lat <float>, time <double>, level <float>)
+subroutine gengrid4d_double_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_double_llf_td_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_double_llf_td_lf
+
+!NetCDF <var byte> (lon <double>, lat <double>, time <double>, level <float>)
+subroutine gengrid4d_byte_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_byte_lld_td_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = byte
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_byte_lld_td_lf
+
+!NetCDF <var short> (lon <double>, lat <double>, time <double>, level <float>)
+subroutine gengrid4d_short_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_short_lld_td_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = short
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_short_lld_td_lf
+
+!NetCDF <var int> (lon <double>, lat <double>, time <double>, level <float>)
+subroutine gengrid4d_int_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_int_lld_td_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = intgr
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_int_lld_td_lf
+
+!NetCDF <var float> (lon <double>, lat <double>, time <double>, level <float>)
+subroutine gengrid4d_float_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_float_lld_td_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = float
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_float_lld_td_lf
+
+!NetCDF <var double> (lon <double>, lat <double>, time <double>, level <float>)
+subroutine gengrid4d_double_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
+  type (nc4d_double_lld_td_lf) :: idata
+  integer(kind=intgr) :: i
+  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
+  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
+
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%longitudes(idata%nlons))  
+  allocate(idata%latitudes(idata%nlats))
+  allocate(idata%times(idata%ntimes))
+  allocate(idata%levels(idata%nlevels))
+
+  idata%vartype = double
+
+  do i = 1, idata%ntimes
+    idata%times(i) = i
+  end do
+
+  do i = 1, idata%nlevels
+    idata%levels(i) = i
+  end do
+
+  idata%longitudes(1) = Xmin
+  do i = 1, idata%nlons - 1
+    idata%longitudes(i+1) = idata%longitudes(i) + res
+  end do
+
+  idata%latitudes(1) = Ymin
+  do i = 1, idata%nlats - 1
+    idata%latitudes(i+1) = idata%latitudes(i) + res
+  end do
+end subroutine gengrid4d_double_lld_td_lf
