@@ -57,4 +57,11 @@ program constants
   write(*,'(a39,es16.9e2)') "           Atomic mass constant (kg): ", atomic_mass
   write(*,'(a39,es16.9e2)') "          Avogadro constant (mol^-1): ", avogadro
 
+  write(*,'(a39,f12.0)') "                          Minute (s): ", minute
+  write(*,'(a39,f12.0)') "                            Hour (s): ", hour
+  write(*,'(a39,f12.0)') "                             Day (s): ", day 
+  write(*,'(a39,f12.0)') "                            Week (s): ", week
+  write(*,'(a39,f12.0)') "                           Month (s): ", month
+  write(*,'(a39,f12.0)') "                            Year (s): ", year
+ 
 end program constants
