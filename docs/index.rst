@@ -19,7 +19,7 @@ API Documentation:
    :maxdepth: 2
 
    src/1_introduction
-   src/2_buildsystem
+   src/2_buildlib
    src/3_structures
 
 User Documentation

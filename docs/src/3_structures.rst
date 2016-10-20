@@ -122,6 +122,7 @@ Array processing
    functions_subroutines/setfillvalue2d.rst
    functions_subroutines/setfillvalue3d.rst
    functions_subroutines/setfillvalue4d.rst
+   functions_subroutines/gengrid2d.rst
 
 Utilities
 ---------

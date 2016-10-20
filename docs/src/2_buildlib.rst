@@ -1,5 +1,5 @@
-Build System
-************
+Build Library
+*************
 
 .. highlight:: sh
 
