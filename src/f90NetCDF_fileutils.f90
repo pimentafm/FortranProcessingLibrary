@@ -98,17 +98,14 @@ subroutine readheader(hfile, attribute, content)
 end subroutine readheader
 
 !:=== Line number counter.
-function lineNumber(sourcefile) result(nlines)
-  character(len=*), intent(in) :: sourcefile
-  integer(kind=4)  :: nlines
-
-  open(100, file=sourcefile, status='old')
-    nlines = 0
-    do
-      read(100, *, end=101)
-      nlines = nlines + 1
-    end do
+function lineNumber(fileunit) result(nlines)
+  integer(kind=4) :: fileunit, nlines
+  nlines = 0
+  do
+    read(fileunit, *, end=101)
+    nlines = nlines + 1
+  end do
 101 continue
-    rewind(100)
+  rewind(fileunit)
 end function lineNumber
 
