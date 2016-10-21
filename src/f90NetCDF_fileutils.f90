@@ -33,17 +33,17 @@
 !File Manipulation subroutines ================================================
 
 !:=== Checks if file exists.
-subroutine file_exists(ifile)
+function file_exists(ifile) result(fexist)
   logical :: fexist
   character(*) :: ifile
 
   inquire(file=ifile, exist=fexist)
   
   if(.not.fexist)then
-    write(*,*)"Header file don't exist"
+    write(*,*) trim(adjustl(ifile))//" don't exist."
     stop
   end if
-end subroutine file_exists
+end function file_exists
 
 !:=== This subroutine counts existing keys within a file.
 subroutine countkeys(ifile, nkeys)

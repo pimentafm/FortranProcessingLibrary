@@ -77,19 +77,20 @@ subroutine writegrid2d_byte_llf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
   
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
  
@@ -150,19 +151,20 @@ subroutine writegrid2d_short_llf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
   
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
  
@@ -223,19 +225,20 @@ subroutine writegrid2d_int_llf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
   
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
  
@@ -296,19 +299,20 @@ subroutine writegrid2d_float_llf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
   
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
  
@@ -369,19 +373,20 @@ subroutine writegrid2d_double_llf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
   
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
  
@@ -442,19 +447,20 @@ subroutine writegrid2d_byte_lld(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
   
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
  
@@ -515,19 +521,20 @@ subroutine writegrid2d_short_lld(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
   
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
  
@@ -588,19 +595,20 @@ subroutine writegrid2d_int_lld(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
   
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
  
@@ -661,19 +669,20 @@ subroutine writegrid2d_float_lld(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
   
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
  
@@ -734,19 +743,20 @@ subroutine writegrid2d_double_lld(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
   
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
  
@@ -811,19 +821,20 @@ subroutine writegrid3d_byte_llf_ti(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -891,19 +902,20 @@ subroutine writegrid3d_short_llf_ti(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -971,19 +983,20 @@ subroutine writegrid3d_int_llf_ti(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -1051,19 +1064,20 @@ subroutine writegrid3d_float_llf_ti(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -1131,19 +1145,20 @@ subroutine writegrid3d_double_llf_ti(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -1211,19 +1226,20 @@ subroutine writegrid3d_byte_lld_ti(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -1291,19 +1307,20 @@ subroutine writegrid3d_short_lld_ti(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -1371,19 +1388,20 @@ subroutine writegrid3d_int_lld_ti(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -1451,19 +1469,20 @@ subroutine writegrid3d_float_lld_ti(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -1531,19 +1550,20 @@ subroutine writegrid3d_double_lld_ti(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -1611,19 +1631,20 @@ subroutine writegrid3d_byte_llf_tf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -1691,19 +1712,20 @@ subroutine writegrid3d_short_llf_tf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -1771,19 +1793,20 @@ subroutine writegrid3d_int_llf_tf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -1851,19 +1874,20 @@ subroutine writegrid3d_float_llf_tf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -1931,19 +1955,20 @@ subroutine writegrid3d_double_llf_tf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -2011,19 +2036,20 @@ subroutine writegrid3d_byte_lld_tf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -2091,19 +2117,20 @@ subroutine writegrid3d_short_lld_tf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -2171,19 +2198,20 @@ subroutine writegrid3d_int_lld_tf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -2251,19 +2279,20 @@ subroutine writegrid3d_float_lld_tf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -2331,19 +2360,20 @@ subroutine writegrid3d_double_lld_tf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -2411,19 +2441,20 @@ subroutine writegrid3d_byte_llf_td(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -2491,19 +2522,20 @@ subroutine writegrid3d_short_llf_td(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -2571,19 +2603,20 @@ subroutine writegrid3d_int_llf_td(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -2651,19 +2684,20 @@ subroutine writegrid3d_float_llf_td(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -2731,19 +2765,20 @@ subroutine writegrid3d_double_llf_td(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -2811,19 +2846,20 @@ subroutine writegrid3d_byte_lld_td(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -2891,19 +2927,20 @@ subroutine writegrid3d_short_lld_td(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -2971,19 +3008,20 @@ subroutine writegrid3d_int_lld_td(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -3051,19 +3089,20 @@ subroutine writegrid3d_float_lld_td(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -3131,19 +3170,20 @@ subroutine writegrid3d_double_lld_td(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -3215,19 +3255,20 @@ subroutine writegrid4d_byte_llf_ti_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -3302,19 +3343,20 @@ subroutine writegrid4d_short_llf_ti_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -3389,19 +3431,20 @@ subroutine writegrid4d_int_llf_ti_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -3476,19 +3519,20 @@ subroutine writegrid4d_float_llf_ti_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -3563,19 +3607,20 @@ subroutine writegrid4d_double_llf_ti_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -3650,19 +3695,20 @@ subroutine writegrid4d_byte_lld_ti_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -3737,19 +3783,20 @@ subroutine writegrid4d_short_lld_ti_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -3824,19 +3871,20 @@ subroutine writegrid4d_int_lld_ti_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -3911,19 +3959,20 @@ subroutine writegrid4d_float_lld_ti_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -3998,19 +4047,20 @@ subroutine writegrid4d_double_lld_ti_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -4085,19 +4135,20 @@ subroutine writegrid4d_byte_llf_tf_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -4172,19 +4223,20 @@ subroutine writegrid4d_short_llf_tf_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -4259,19 +4311,20 @@ subroutine writegrid4d_int_llf_tf_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -4346,19 +4399,20 @@ subroutine writegrid4d_float_llf_tf_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -4433,19 +4487,20 @@ subroutine writegrid4d_double_llf_tf_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -4520,19 +4575,20 @@ subroutine writegrid4d_byte_lld_tf_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -4607,19 +4663,20 @@ subroutine writegrid4d_short_lld_tf_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -4694,19 +4751,20 @@ subroutine writegrid4d_int_lld_tf_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -4781,19 +4839,20 @@ subroutine writegrid4d_float_lld_tf_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -4868,19 +4927,20 @@ subroutine writegrid4d_double_lld_tf_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -4955,19 +5015,20 @@ subroutine writegrid4d_byte_llf_td_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -5042,19 +5103,20 @@ subroutine writegrid4d_short_llf_td_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -5129,19 +5191,20 @@ subroutine writegrid4d_int_llf_td_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -5216,19 +5279,20 @@ subroutine writegrid4d_float_llf_td_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -5303,19 +5367,20 @@ subroutine writegrid4d_double_llf_td_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -5390,19 +5455,20 @@ subroutine writegrid4d_byte_lld_td_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -5477,19 +5543,20 @@ subroutine writegrid4d_short_lld_td_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -5564,19 +5631,20 @@ subroutine writegrid4d_int_lld_td_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -5651,19 +5719,20 @@ subroutine writegrid4d_float_lld_td_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -5738,19 +5807,20 @@ subroutine writegrid4d_double_lld_td_li(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -5825,19 +5895,20 @@ subroutine writegrid4d_byte_llf_ti_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -5912,19 +5983,20 @@ subroutine writegrid4d_short_llf_ti_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -5999,19 +6071,20 @@ subroutine writegrid4d_int_llf_ti_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -6086,19 +6159,20 @@ subroutine writegrid4d_float_llf_ti_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -6173,19 +6247,20 @@ subroutine writegrid4d_double_llf_ti_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -6260,19 +6335,20 @@ subroutine writegrid4d_byte_lld_ti_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -6347,19 +6423,20 @@ subroutine writegrid4d_short_lld_ti_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -6434,19 +6511,20 @@ subroutine writegrid4d_int_lld_ti_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -6521,19 +6599,20 @@ subroutine writegrid4d_float_lld_ti_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -6608,19 +6687,20 @@ subroutine writegrid4d_double_lld_ti_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -6695,19 +6775,20 @@ subroutine writegrid4d_byte_llf_tf_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -6782,19 +6863,20 @@ subroutine writegrid4d_short_llf_tf_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -6869,19 +6951,20 @@ subroutine writegrid4d_int_llf_tf_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -6956,19 +7039,20 @@ subroutine writegrid4d_float_llf_tf_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -7043,19 +7127,20 @@ subroutine writegrid4d_double_llf_tf_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -7130,19 +7215,20 @@ subroutine writegrid4d_byte_lld_tf_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -7217,19 +7303,20 @@ subroutine writegrid4d_short_lld_tf_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -7304,19 +7391,20 @@ subroutine writegrid4d_int_lld_tf_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -7391,19 +7479,20 @@ subroutine writegrid4d_float_lld_tf_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -7478,19 +7567,20 @@ subroutine writegrid4d_double_lld_tf_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -7565,19 +7655,20 @@ subroutine writegrid4d_byte_llf_td_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -7652,19 +7743,20 @@ subroutine writegrid4d_short_llf_td_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -7739,19 +7831,20 @@ subroutine writegrid4d_int_llf_td_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -7826,19 +7919,20 @@ subroutine writegrid4d_float_llf_td_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -7913,19 +8007,20 @@ subroutine writegrid4d_double_llf_td_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -8000,19 +8095,20 @@ subroutine writegrid4d_byte_lld_td_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -8087,19 +8183,20 @@ subroutine writegrid4d_short_lld_td_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -8174,19 +8271,20 @@ subroutine writegrid4d_int_lld_td_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -8261,19 +8359,20 @@ subroutine writegrid4d_float_lld_td_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
@@ -8348,19 +8447,20 @@ subroutine writegrid4d_double_lld_td_lf(ofile, odata, headerfile)
   call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
   call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
  
- !Check if headerfile was setted
+  !Check if headerfile was setted
   if(present(headerfile))then
-    call file_exists(headerfile) !Check if headerfile exists
-    call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
+    if(file_exists(headerfile))then !Check if headerfile exists
+      call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-    allocate(attribute(nkeys))
-    allocate(content(nkeys))
+      allocate(attribute(nkeys))
+      allocate(content(nkeys))
 
-    call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
+      call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
-    do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
-      call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
-    end do
+      do nkeys = 1, size(attribute) !Put the attrubutes and contents into netcdf
+        call check(nf90_put_att(ncid, nf90_global, attribute(nkeys), content(nkeys)))
+      end do
+    end if
   end if
   call check(nf90_enddef(ncid))
 
