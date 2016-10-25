@@ -60,6 +60,7 @@ declare -a arrid=("b" "s" "i" "f" "d")
 declare -a arr=("byte" "short" "int" "float" "double")
 declare -a arrtype=("byte" "short" "intgr" "float" "double")
 declare -a arr2=("integer(kind=byte)" "integer(kind=short)" "integer(kind=intgr)" "real(kind=float)" "real(kind=double)")
+declare -a ncarr=("nf90_byte" "nf90_short" "nf90_int" "nf90_float" "nf90_double")
 
 # 2d datasets
 for j in {3..4}; do # lon, lat 
@@ -78,7 +79,7 @@ subroutine gengrid2d_${arr[$i]}_ll${arrid[$j]}(idata, Xmin, Ymin, Xmax, Ymax, re
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
 
-  idata%vartype = ${arrtype[$i]}
+  idata%vartype = ${ncarr[$i]}
 
   idata%longitudes(1) = Xmin
   do i = 1, idata%nlons - 1
@@ -112,7 +113,7 @@ subroutine gengrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(idata, Xmin, Ymin, 
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = ${arrtype[$i]}
+  idata%vartype = ${ncarr[$i]}
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -153,7 +154,7 @@ subroutine gengrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(idata
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = ${arrtype[$i]}
+  idata%vartype = ${ncarr[$i]}
 
   do i = 1, idata%ntimes
     idata%times(i) = i

@@ -45,7 +45,7 @@ subroutine gengrid2d_byte_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   idata%longitudes(1) = Xmin
   do i = 1, idata%nlons - 1
@@ -71,7 +71,7 @@ subroutine gengrid2d_short_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   idata%longitudes(1) = Xmin
   do i = 1, idata%nlons - 1
@@ -97,7 +97,7 @@ subroutine gengrid2d_int_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   idata%longitudes(1) = Xmin
   do i = 1, idata%nlons - 1
@@ -123,7 +123,7 @@ subroutine gengrid2d_float_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   idata%longitudes(1) = Xmin
   do i = 1, idata%nlons - 1
@@ -149,7 +149,7 @@ subroutine gengrid2d_double_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   idata%longitudes(1) = Xmin
   do i = 1, idata%nlons - 1
@@ -175,7 +175,7 @@ subroutine gengrid2d_byte_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   idata%longitudes(1) = Xmin
   do i = 1, idata%nlons - 1
@@ -201,7 +201,7 @@ subroutine gengrid2d_short_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   idata%longitudes(1) = Xmin
   do i = 1, idata%nlons - 1
@@ -227,7 +227,7 @@ subroutine gengrid2d_int_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   idata%longitudes(1) = Xmin
   do i = 1, idata%nlons - 1
@@ -253,7 +253,7 @@ subroutine gengrid2d_float_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   idata%longitudes(1) = Xmin
   do i = 1, idata%nlons - 1
@@ -279,7 +279,7 @@ subroutine gengrid2d_double_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   idata%longitudes(1) = Xmin
   do i = 1, idata%nlons - 1
@@ -306,7 +306,7 @@ subroutine gengrid3d_byte_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -337,7 +337,7 @@ subroutine gengrid3d_short_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -368,7 +368,7 @@ subroutine gengrid3d_int_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -399,7 +399,7 @@ subroutine gengrid3d_float_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -430,7 +430,7 @@ subroutine gengrid3d_double_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -461,7 +461,7 @@ subroutine gengrid3d_byte_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -492,7 +492,7 @@ subroutine gengrid3d_short_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -523,7 +523,7 @@ subroutine gengrid3d_int_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -554,7 +554,7 @@ subroutine gengrid3d_float_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -585,7 +585,7 @@ subroutine gengrid3d_double_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -616,7 +616,7 @@ subroutine gengrid3d_byte_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -647,7 +647,7 @@ subroutine gengrid3d_short_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -678,7 +678,7 @@ subroutine gengrid3d_int_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -709,7 +709,7 @@ subroutine gengrid3d_float_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -740,7 +740,7 @@ subroutine gengrid3d_double_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -771,7 +771,7 @@ subroutine gengrid3d_byte_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -802,7 +802,7 @@ subroutine gengrid3d_short_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -833,7 +833,7 @@ subroutine gengrid3d_int_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -864,7 +864,7 @@ subroutine gengrid3d_float_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -895,7 +895,7 @@ subroutine gengrid3d_double_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -926,7 +926,7 @@ subroutine gengrid3d_byte_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -957,7 +957,7 @@ subroutine gengrid3d_short_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -988,7 +988,7 @@ subroutine gengrid3d_int_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1019,7 +1019,7 @@ subroutine gengrid3d_float_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1050,7 +1050,7 @@ subroutine gengrid3d_double_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1081,7 +1081,7 @@ subroutine gengrid3d_byte_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1112,7 +1112,7 @@ subroutine gengrid3d_short_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1143,7 +1143,7 @@ subroutine gengrid3d_int_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1174,7 +1174,7 @@ subroutine gengrid3d_float_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1205,7 +1205,7 @@ subroutine gengrid3d_double_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1237,7 +1237,7 @@ subroutine gengrid4d_byte_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1273,7 +1273,7 @@ subroutine gengrid4d_short_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1309,7 +1309,7 @@ subroutine gengrid4d_int_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1345,7 +1345,7 @@ subroutine gengrid4d_float_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1381,7 +1381,7 @@ subroutine gengrid4d_double_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1417,7 +1417,7 @@ subroutine gengrid4d_byte_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1453,7 +1453,7 @@ subroutine gengrid4d_short_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1489,7 +1489,7 @@ subroutine gengrid4d_int_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1525,7 +1525,7 @@ subroutine gengrid4d_float_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1561,7 +1561,7 @@ subroutine gengrid4d_double_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1597,7 +1597,7 @@ subroutine gengrid4d_byte_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1633,7 +1633,7 @@ subroutine gengrid4d_short_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1669,7 +1669,7 @@ subroutine gengrid4d_int_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1705,7 +1705,7 @@ subroutine gengrid4d_float_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1741,7 +1741,7 @@ subroutine gengrid4d_double_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1777,7 +1777,7 @@ subroutine gengrid4d_byte_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1813,7 +1813,7 @@ subroutine gengrid4d_short_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1849,7 +1849,7 @@ subroutine gengrid4d_int_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1885,7 +1885,7 @@ subroutine gengrid4d_float_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1921,7 +1921,7 @@ subroutine gengrid4d_double_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1957,7 +1957,7 @@ subroutine gengrid4d_byte_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -1993,7 +1993,7 @@ subroutine gengrid4d_short_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2029,7 +2029,7 @@ subroutine gengrid4d_int_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2065,7 +2065,7 @@ subroutine gengrid4d_float_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2101,7 +2101,7 @@ subroutine gengrid4d_double_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2137,7 +2137,7 @@ subroutine gengrid4d_byte_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2173,7 +2173,7 @@ subroutine gengrid4d_short_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2209,7 +2209,7 @@ subroutine gengrid4d_int_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2245,7 +2245,7 @@ subroutine gengrid4d_float_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2281,7 +2281,7 @@ subroutine gengrid4d_double_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2317,7 +2317,7 @@ subroutine gengrid4d_byte_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2353,7 +2353,7 @@ subroutine gengrid4d_short_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2389,7 +2389,7 @@ subroutine gengrid4d_int_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2425,7 +2425,7 @@ subroutine gengrid4d_float_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2461,7 +2461,7 @@ subroutine gengrid4d_double_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2497,7 +2497,7 @@ subroutine gengrid4d_byte_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2533,7 +2533,7 @@ subroutine gengrid4d_short_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2569,7 +2569,7 @@ subroutine gengrid4d_int_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2605,7 +2605,7 @@ subroutine gengrid4d_float_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2641,7 +2641,7 @@ subroutine gengrid4d_double_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2677,7 +2677,7 @@ subroutine gengrid4d_byte_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2713,7 +2713,7 @@ subroutine gengrid4d_short_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2749,7 +2749,7 @@ subroutine gengrid4d_int_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2785,7 +2785,7 @@ subroutine gengrid4d_float_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2821,7 +2821,7 @@ subroutine gengrid4d_double_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2857,7 +2857,7 @@ subroutine gengrid4d_byte_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2893,7 +2893,7 @@ subroutine gengrid4d_short_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2929,7 +2929,7 @@ subroutine gengrid4d_int_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -2965,7 +2965,7 @@ subroutine gengrid4d_float_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -3001,7 +3001,7 @@ subroutine gengrid4d_double_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -3037,7 +3037,7 @@ subroutine gengrid4d_byte_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -3073,7 +3073,7 @@ subroutine gengrid4d_short_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -3109,7 +3109,7 @@ subroutine gengrid4d_int_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -3145,7 +3145,7 @@ subroutine gengrid4d_float_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -3181,7 +3181,7 @@ subroutine gengrid4d_double_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -3217,7 +3217,7 @@ subroutine gengrid4d_byte_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = byte
+  idata%vartype = nf90_byte
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -3253,7 +3253,7 @@ subroutine gengrid4d_short_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = short
+  idata%vartype = nf90_short
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -3289,7 +3289,7 @@ subroutine gengrid4d_int_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = intgr
+  idata%vartype = nf90_int
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -3325,7 +3325,7 @@ subroutine gengrid4d_float_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = float
+  idata%vartype = nf90_float
 
   do i = 1, idata%ntimes
     idata%times(i) = i
@@ -3361,7 +3361,7 @@ subroutine gengrid4d_double_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
 
-  idata%vartype = double
+  idata%vartype = nf90_double
 
   do i = 1, idata%ntimes
     idata%times(i) = i
