@@ -43,6 +43,7 @@ program utils
   write(*,*) "============================"
 
   if(file_exists("data.txt")) then
+    write(*,*) "File OK!"
     open(100, file="data.txt", status="old")
   end if
 
