@@ -49,7 +49,8 @@ module f90NetCDF
   include "f90NetCDF_readgrid.f90"     !NetCDF file reader subroutines
   include "f90NetCDF_writegrid.f90"    !NetCDF file writer subroutines
   include "f90NetCDF_setfillvalue.f90" !Set FillValue and mask creator subroutines
-  include "f90NetCDF_gengrid.f90"      !Generate custom grid  
+  include "f90NetCDF_gengrid.f90"      !Generate custom grid 
+  include "f90NetCDF_dealloc.f90"      !Deallocate subroutines
 !  include "f90NetCDF_zonalstats.f90"  !Zonal Statistics subroutines
   include "f90NetCDF_fileutils.f90"   !File Utilities
 end module f90NetCDF
