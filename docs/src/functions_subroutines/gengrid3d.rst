@@ -15,7 +15,7 @@ gengrid3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (idata, Xmin, Ymin, Xmax, Ymax,
 :Type naming:
  :``[vdt]``: variable datatype `[byte, short, int, float or double]`
  :``[cdt]``: coordinates datatype `[float` ``f`` `, double` ``d`` `]`
- :``[tdt]``: 
+ :``[tdt]``: time datatype (integer ``i``, float ``f``, double ``d``)
 :Subroutine Parameters:
  :``idata``: map to be created  `[f90NetCDF defined type structure]`
  :``Xmin``: westernmost longitude `[double` or `float]` 
