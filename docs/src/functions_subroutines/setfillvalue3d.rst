@@ -26,8 +26,7 @@ setfillvalue3d _ ``[maskdt][mapdt]`` _ll ``[cdt]`` _t ``[tdt]`` (ifile, idata)
  :``j``: variable to iterate latitude positions `[integer]`
  :``k``: variable to iterate time positions `[integer]`
 
-:Result:
-A map masked by another map.
+:Result: A map masked by another map.
 
 **Example:**
 

@@ -162,3 +162,5 @@ Check if the compilation ran without errors running some of the example programs
   clean:
   	rm -f *.out
  
+
+Run the examples to check the library functions.

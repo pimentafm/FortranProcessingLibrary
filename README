@@ -40,11 +40,11 @@ TODO:
      [OK] Implement subroutines for 3D I/O. 
      [OK] Implement subroutines for 4D I/O. 
      [Partially OK] Parallelize the code.
-     [Partially OK] creategrid subroutine.
+     [Partially OK] Creategrid subroutine.
      [OK] Develop a deallocate datatype subroutine/function.
      [->] Add check class error subroutine if not encounter number of class into map.
      [->] Reimplementation of zonal statistics subroutines/functions
           [->] Fixes output format for zonal statistics subroutines.
-     [->] Implement map plotting subroutine (GMT/Python ????).
-     [->] Implement subroutines to datatype conversions.
+     [->] Implement map plotting subroutines (GMT/Python/GNUPLOT ????).
+     [->] Implement subroutines to convert datatypes.
      [->] Command Line Args subroutines

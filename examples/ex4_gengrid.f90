@@ -38,9 +38,9 @@ program main
   use f90netcdf
   implicit none
 
-  type(nc2d_int_llf) :: grid2d
+  type(nc2d_double_llf) :: grid2d
   type(nc3d_int_llf_ti) :: grid3d
-  type(nc4d_int_llf_ti_li) :: grid4d
+  type(nc4d_float_llf_ti_li) :: grid4d
  
   integer(kind=intgr) :: i, j, k, l, s
 

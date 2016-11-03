@@ -78,7 +78,7 @@ Type Structures
 ===============
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    datatypes/nc2d
    datatypes/nc3d
@@ -90,19 +90,19 @@ Interfaces
 Interfaces can be used to invoke different functions using the same name.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    interfaces/interfaces
 
 Functions and Subroutines
 =========================
 
-I/O processing
---------------
-
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
+   functions_subroutines/gengrid2d
+   functions_subroutines/gengrid3d
+   functions_subroutines/gengrid4d
    functions_subroutines/ncoords2d
    functions_subroutines/ncoords3d
    functions_subroutines/ncoords4d
@@ -112,25 +112,17 @@ I/O processing
    functions_subroutines/writegrid2d
    functions_subroutines/writegrid3d
    functions_subroutines/writegrid4d
-
-Array processing
-----------------
-
-.. toctree::
-   :maxdepth: 1
-
-   functions_subroutines/setfillvalue2d.rst
-   functions_subroutines/setfillvalue3d.rst
-   functions_subroutines/setfillvalue4d.rst
-   functions_subroutines/gengrid2d.rst
+   functions_subroutines/setfillvalue2d
+   functions_subroutines/setfillvalue3d
+   functions_subroutines/setfillvalue4d
 
 Utilities
 ---------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   functions_subroutines/utilities.rst
+   functions_subroutines/utilities
 
 Error Checker
 -------------
@@ -138,13 +130,5 @@ Error Checker
 .. toctree::
    :maxdepth: 1
 
-   functions_subroutines/checkerrors.rst
-
-.. seealso::
-
-   Module :py:mod:`zipfile`
-      Documentation of the :py:mod:`zipfile` standard module.
-
-   `GNU tar manual, Basic Tar Format <http://link>`_
-      Documentation for tar archive files, including GNU tar extensions.
+   functions_subroutines/checkerrors
 

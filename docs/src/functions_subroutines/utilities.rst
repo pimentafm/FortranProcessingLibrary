@@ -1,11 +1,8 @@
-Utilities
----------
-
 .. highlight:: fortran
    :linenothreshold: 2
 
 File Utilities
-``````````````
+--------------
 
 Functions and subroutines for text files handling tasks.
 
@@ -98,7 +95,7 @@ Functions and subroutines for text files handling tasks.
   end function lineNumber
 
 Time Utilities
-``````````````
+--------------
 
 Functions and subroutines for date and time tasks.
 
