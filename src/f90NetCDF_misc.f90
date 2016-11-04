@@ -32,27 +32,8 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
 
-!:==================== Fortran NetCDF API Main Module =========================
-module f90NetCDF
-  use omp_lib
-  use netcdf
-  use iso_c_binding
-  implicit none
-  include "f90NetCDF_constants.f90"    !Parameter variables
-  include "f90NetCDF_datatypes.f90"    !Datatype structure declarations
-  include "f90NetCDF_interfaces.f90"   !Interfaces for subroutines definitions and datatypes
-
-  contains
-  include "f90NetCDF_checkerror.f90"   !Error checker subroutines
-  include "f90NetCDF_datetime.f90"     !System date-time subroutine
-  include "f90NetCDF_griddims.f90"     !Subroutines to get the number of coordinates from NetCDF file
-  include "f90NetCDF_readgrid.f90"     !NetCDF file reader subroutines
-  include "f90NetCDF_writegrid.f90"    !NetCDF file writer subroutines
-  include "f90NetCDF_setfillvalue.f90" !Set FillValue and mask creator subroutines
-  include "f90NetCDF_gengrid.f90"      !Generate custom grid 
-  include "f90NetCDF_dealloc.f90"      !Deallocate subroutines
-  include "f90NetCDF_fileutils.f90"   !File Utilities
-  include "f90NetCDF_misc.f90"   !File Utilities
-!  include "f90NetCDF_zonalstats.f90"  !Zonal Statistics subroutines
-end module f90NetCDF
-
+!f90NetCDF version
+function f90NetCDF_libversion() result(fv)
+  character(len=21) :: fv
+  fv = "f90NetCDF Version 1.0"
+end function f90NetCDF_libversion
