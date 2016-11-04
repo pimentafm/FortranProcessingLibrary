@@ -16,7 +16,7 @@ nc4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]``
  :``[vdt]``: variable datatype `[byte, short, int, float or double]`
  :``[cdt]``: coordinates datatype(float[f] or double[d]).
  :``[tdt]``: time datatype(integer ``i``, float ``f`` or double ``d``).
- :``[ldt]``: level datatype(float ``f`` or double ``d``).
+ :``[ldt]``: level datatype(integer ``i`` or float ``f``).
 :Name parameters:
  :``varname``: dataset variable name `[character]`
  :``lonname``: longitude name `[character]`
