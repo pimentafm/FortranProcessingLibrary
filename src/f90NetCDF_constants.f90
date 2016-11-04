@@ -47,26 +47,3 @@ real(kind=double), parameter :: boltzmann = 1.38064852e-23      ! Boltzmann cons
 real(kind=double), parameter :: speed_of_light = 299792458.0    ! Speed of the light ~ m/s
 real(kind=double), parameter :: atomic_mass = 1.660539040e-27   ! Atomic mass constant ~ kg
 real(kind=double), parameter :: avogadro = 6.022140857e23       ! Avogadro constant ~ mol^-1
-
-
-!Units
-
-!real (kind=float), parameter :: km = 1e+3_float                  ! kilometer
-!real (kind=float), parameter :: hm = 1e+2_float                  ! hectometer
-!real (kind=float), parameter :: dam = 1e+1_float                 ! decameter
-!real (kind=float), parameter :: cm = 1e-2_float                  ! centimeter
-!real (kind=float), parameter :: dm = 1e-1_float                  ! decimeter
-!real (kind=float), parameter :: mm = 1e-3_float                  ! millimeter
-!real (kind=float), parameter :: ha = 1e+4_float                  ! hectare
-
-real (kind=float), parameter :: minute = 60_float                 ! minutes (s)
-real (kind=float), parameter :: hour = 60_float * minute          ! hour (s)
-real (kind=float), parameter :: day = 24_float * hour             ! day (s)
-real (kind=float), parameter :: week = 7_float * day              ! week (s)
-real (kind=float), parameter :: month = 30.416666667_float * day  ! month (s)
-real (kind=float), parameter :: year = 365_float * day            ! year (s)
-
-!real (kind=double), parameter :: degToRad = pi / 180_float       !
-!real (kind=double), parameter :: radToDeg = 180_float / pi       !
-
-
