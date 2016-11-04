@@ -60,16 +60,12 @@ FLAGS= -Wall -O3
 
 ex1:
 	gfortran $(FLAGS) -o ex1_constants.out ex1_constants.f90 $(f90NetCDF_module) $(f90NetCDF_library)
-
 ex2:	
 	gfortran $(FLAGS) -o ex2_getinfo.out ex2_getinfo.f90 $(f90NetCDF_module) $(f90NetCDF_library)
-
 ex3:	
 	gfortran $(FLAGS) -o ex3_time.out ex3_time.f90 $(f90NetCDF_module) $(f90NetCDF_library)
-
 ex4:	
 	gfortran $(FLAGS) -o ex4_gengrid.out ex4_gengrid.f90 $(f90NetCDF_module) $(f90NetCDF_library)
-
 ex5:	
 	gfortran $(FLAGS) -o ex5_utils.out ex5_utils.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 clean:

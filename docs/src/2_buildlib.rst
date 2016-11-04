@@ -71,7 +71,6 @@ Example below shows a configuration compatible with Fedora-based systems and som
   VERSION=$(shell lsb_release -sr)
   ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
   
-  
   #f90NetCDF library and module names
   f90NetCDF_lib=libf90NetCDF.so
   f90NetCDF_mod=f90netcdf.mod
@@ -107,7 +106,7 @@ Example below shows a configuration compatible with Fedora-based systems and som
   	$(COMPILER) $(OPENMP) $(FLAGS) -o $(f90NetCDF_lib) $(f90NetCDF_srcdir)f90NetCDF.f90 $(netcdf_libs)
   	mv $(f90NetCDF_lib) $(f90NetCDF_libdir)
   	mv $(f90NetCDF_mod) $(f90NetCDF_moddir)
-
+  
 .. note::
   * Configure Makefile according to your system only if errors occur in compilation.
 
@@ -152,15 +151,15 @@ Check if the compilation ran without errors running some of the example programs
   
   ex1:
   	gfortran $(FLAGS) -o ex1_constants.out ex1_constants.f90 $(f90NetCDF_module) $(f90NetCDF_library)
-  
   ex2:	
   	gfortran $(FLAGS) -o ex2_getinfo.out ex2_getinfo.f90 $(f90NetCDF_module) $(f90NetCDF_library)
-  
   ex3:	
   	gfortran $(FLAGS) -o ex3_time.out ex3_time.f90 $(f90NetCDF_module) $(f90NetCDF_library)
-  
+  ex4:	
+  	gfortran $(FLAGS) -o ex4_gengrid.out ex4_gengrid.f90 $(f90NetCDF_module) $(f90NetCDF_library)
+  ex5:	
+  	gfortran $(FLAGS) -o ex5_utils.out ex5_utils.f90 $(f90NetCDF_module) $(f90NetCDF_library)
   clean:
   	rm -f *.out
- 
 
 Run the examples to check the library functions.

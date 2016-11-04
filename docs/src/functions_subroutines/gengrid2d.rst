@@ -17,10 +17,10 @@ gengrid2d _ ``[vdt]`` _ll ``[cdt]`` (idata, Xmin, Ymin, Xmax, Ymax, res)
 :Subroutine Parameters:
  :``idata``: map to be created  `[f90NetCDF defined type structure]`
  :``Xmin``: westernmost longitude `[double` or `float]` 
- :``Ymin``: southernmost latitude
- :``Xmax``: easternmost longitude
- :``Ymax``: northernmost latitude
- :``res``: map resolution
+ :``Ymin``: southernmost latitude `[double` or `float]`
+ :``Xmax``: easternmost longitude `[double` or `float]`
+ :``Ymax``: northernmost latitude `[double` or `float]`
+ :``res``: map resolution `[double` or `float]`
 :Local parameters: 
  :``i``: loop controler `[integer]`
 :Result:

@@ -33,7 +33,7 @@ writegrid3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (ifile, idata)
  :``headerfile``: text file `[character]`
  :``attribute``: attribute text from ``headerfile`` `[character]`
  :``content``: content text from ``headerfile`` `[character]`
- :``nkeys``: key number identification from text into ``headerfile`` `[integer]`
+ :``nkeys``: number of attributes of ``headerfile`` `[integer]`
 :Result:
  Save data into a NetCDF file format.
 

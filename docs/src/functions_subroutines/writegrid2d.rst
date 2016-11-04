@@ -26,10 +26,10 @@ writegrid2d _ ``[vdt]`` _ll ``[cdt]`` (ifile, idata)
  :``xvarid``: longitude array ID `[integer]`
  :``yvarid``: latitude array ID `[integer]`
  :``varid``: variable dimension ID `[integer]`
- :``headerfile``:
- :``attribute``:
- :``content``:
- :``nkeys``:
+ :``headerfile``: text file `[character]`
+ :``attribute``: attribute text from ``headerfile`` `[character]`
+ :``content``: content text from ``headerfile`` `[character]`
+ :``nkeys``: number of attributes of ``headerfile`` `[integer]`
 :Result:
  Save data into a NetCDF file format.
 

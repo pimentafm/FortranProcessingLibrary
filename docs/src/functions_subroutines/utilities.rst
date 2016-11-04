@@ -6,6 +6,10 @@ File Utilities
 
 Functions and subroutines for text files handling tasks.
 
+
+file_exists
+```````````
+
 ::
 
   !:=== Checks if file exists.
@@ -20,6 +24,9 @@ Functions and subroutines for text files handling tasks.
       stop
     end if
   end subroutine file_exists
+
+count_keys
+``````````
 
 ::
   
@@ -46,8 +53,11 @@ Functions and subroutines for text files handling tasks.
     close(100)
   end subroutine countkeys
 
+readheader
+``````````
+
 ::
-  
+
   !:=== Allocate attributes and contents into arrays.
   subroutine readheader(hfile, attribute, content)
     character(len=*) :: hfile
@@ -77,6 +87,9 @@ Functions and subroutines for text files handling tasks.
     close(100)
   end subroutine readheader
 
+lineNumber
+``````````
+
 ::
   
   !:=== Line number counter.
@@ -98,6 +111,9 @@ Time Utilities
 --------------
 
 Functions and subroutines for date and time tasks.
+
+fdate_time
+``````````
 
 ::
 
@@ -132,6 +148,9 @@ Functions and subroutines for date and time tasks.
     write (strsec, '(i2.2)') systime(3)
     sysdatetime = sysmonth//" "//strday//" "//stryear//" "//strhour//':'//strmin//':'//strsec
   end subroutine fdate_time
+
+exec_time
+`````````
 
 ::
 

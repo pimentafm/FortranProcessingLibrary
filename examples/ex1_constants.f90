@@ -37,7 +37,7 @@ program constants
   use f90netcdf
   implicit none
 
-  write(*,*) "f90NetCDF datatype constants"
+  write(*,*) f90NetCDF_libversion()
   write(*,*) "============================"
 
   write(*,'(a8,i2)') "   BYTE: ", byte

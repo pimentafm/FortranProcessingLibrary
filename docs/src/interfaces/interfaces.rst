@@ -1,9 +1,7 @@
 .. highlight:: fortran
    :linenothreshold: 2
 
-.. note::
-  * All subroutine interfaces can be seen in the file f90NetCDF/src/f90NetCDF_interfaces.f90
-  * Some error checking subroutines are not in the list of interfaces because of ambiguity problems.
+Interfaces can be seen in f90NetCDF/src/**f90NetCDF_interfaces.f90**
 
 checkerror
 ----------
@@ -13,6 +11,9 @@ checkerror
   interface check
     module procedure checkerror, checktype, checkatt
   end interface check
+
+.. note::
+  Some error checking subroutines are not in the interface list due to ambiguity problems.
 
 ncoords
 -------

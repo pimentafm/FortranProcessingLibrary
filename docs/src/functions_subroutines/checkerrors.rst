@@ -1,7 +1,7 @@
 .. highlight:: fortran
    :linenothreshold: 2
 
-Customized Subroutines was developed for checking errors to facilitate the identification of problems in I/O processing.
+Subroutines to identify erros more friendly.
 
 General checkerror
 ------------------
@@ -29,8 +29,8 @@ Check if a variable name exists in a NetCDF file.
 
 ::
   
-  !Check nf90_inq_varid and nf90_inq_dimid -> ncf90api_griddims.f90 =============
-  !These subroutine was not added in ncf90api_interfaces.f90 because it's ambiguous with checkatt.
+  !Check nf90_inq_varid and nf90_inq_dimid -> f90NetCDF_griddims.f90 =============
+  !These subroutine was not added in f90NetCDF_interfaces.f90 because it's ambiguous with checkatt.
   subroutine checkvarid(ncstatus, varname)
     integer, intent(in) :: ncstatus
     character(*), intent(in) :: varname
@@ -73,7 +73,7 @@ Check if the data type declared is the same data to be read.
 
 ::
   
-  !Check nf90_get_var -> ncf90api_readgrid.f90 ===================================
+  !Check nf90_get_var -> f90NetCDF_readgrid.f90 ===============================
   subroutine checktype(ncstatus, rvar, dvar, ifile)
     integer, intent(in) :: ncstatus, rvar
     character(*), intent(in) :: dvar, ifile
@@ -125,7 +125,7 @@ Check if some attributes exist within the netcdf file.
 
 ::
   
-  !Check nf90_get_att -> ncf90api_readgrid.f90 ==================================
+  !Check nf90_get_att -> f90NetCDF_readgrid.f90 ===============================
   subroutine checkatt(ncstatus, uname, ifile)
     integer, intent(in) :: ncstatus
     character(*), intent(in) :: uname, ifile
