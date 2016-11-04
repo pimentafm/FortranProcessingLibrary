@@ -1,13 +1,10 @@
-Check Error Subroutines
------------------------
-
 .. highlight:: fortran
    :linenothreshold: 2
 
 Customized Subroutines was developed for checking errors to facilitate the identification of problems in I/O processing.
 
 General checkerror
-``````````````````
+------------------
 
 :: 
 
@@ -26,7 +23,7 @@ General checkerror
   **checkerror** subroutine returns status value indicates an error. You can handle it in any way desired to printing an associated error message likewise the subroutines below. 
 
 checkvarid
-``````````
+----------
 
 Check if a variable name exists in a NetCDF file.
 
@@ -49,7 +46,7 @@ Check if a variable name exists in a NetCDF file.
   end subroutine checkvarid
 
 checkdimid
-``````````
+----------
 
 Check if a dimension name exists in a NetCDF file.
 
@@ -70,7 +67,7 @@ Check if a dimension name exists in a NetCDF file.
   end subroutine checkdimid
 
 checktype
-`````````
+---------
 
 Check if the data type declared is the same data to be read.
 
@@ -121,7 +118,7 @@ Check if the data type declared is the same data to be read.
   end subroutine checktype
 
 checkatt
-````````
+--------
 
 Check if some attributes exist within the netcdf file.
 

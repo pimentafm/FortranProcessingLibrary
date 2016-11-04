@@ -128,7 +128,7 @@ Error Checker
 -------------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    functions_subroutines/checkerrors
 
