@@ -32,7 +32,7 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
 
-!:==================== Defined constants ======== =============================
+!:========================= Defined constants =================================
 program constants
   use f90netcdf
   implicit none
@@ -44,7 +44,7 @@ program constants
   write(*,'(a8,i2)') "  SHORT: ", short
   write(*,'(a8,i2)') "INTEGER: ", intgr
   write(*,'(a8,i2)') "  FLOAT: ", float
-  write(*,'(a8,i2)') " DOUBLE: ", double, char(10)
+  write(*,'(a8,i2)') " DOUBLE: ", double, char(10) !char(10) skip a line
   
   write(*,*) "f90NetCDF parameters and constants"
   write(*,*) "=================================="
@@ -56,12 +56,4 @@ program constants
   write(*,'(a39,es15.8e2)') "          Boltzmann constant (JK^-1): ", boltzmann
   write(*,'(a39,es16.9e2)') "           Atomic mass constant (kg): ", atomic_mass
   write(*,'(a39,es16.9e2)') "          Avogadro constant (mol^-1): ", avogadro
-
-  write(*,'(a39,f12.0)') "                          Minute (s): ", minute
-  write(*,'(a39,f12.0)') "                            Hour (s): ", hour
-  write(*,'(a39,f12.0)') "                             Day (s): ", day 
-  write(*,'(a39,f12.0)') "                            Week (s): ", week
-  write(*,'(a39,f12.0)') "                           Month (s): ", month
-  write(*,'(a39,f12.0)') "                            Year (s): ", year
- 
 end program constants

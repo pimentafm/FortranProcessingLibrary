@@ -32,7 +32,7 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
 
-!:==================== Generate costumizeble grid file ========================
+!:========================= Generate grid file ================================
 
 program main
   use f90netcdf
@@ -49,9 +49,9 @@ program main
   character(200) :: opath2d, opath3d, opath4d
 
   !Output files
-  opath2d = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/grid2d.nc"
-  opath3d = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/grid3d.nc"
-  opath4d = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/grid4d.nc"
+  opath2d = "database/grid2d.nc"
+  opath3d = "database/grid3d.nc"
+  opath4d = "database/grid4d.nc"
 
 
   !Grid 2d
@@ -104,20 +104,17 @@ program main
 
   grid4d%FillValue = -9999
 
-! Latitude |
-!          |
-!          |                 Ymax
-!          |          _________________
-!          |         |__|__|__|__|__|__|
-!          |         |__|__|__|__|__|__|
-!          |    Xmin |__|__|__|__|__|__| Xmax
-!          |         |__|__|__|__|__|__|
-!          |         |__|__|__|__|__|__| 
-!          | 
-!          |                 Ymin
-!          |
-!          |____________________________________
-!                                      Longitude 
+  !   Latitude|                                  Xmin: westernmost longitude   
+  !           |                                  Ymin: southernmost latitude
+  !           |       Ymax                       Xmax: easternmost longitude
+  !           |_________________                 Ymax: northernmost latitude
+  !           |__|__|__|__|__|__|                i, j: initial position of the matrix on the x-axis and y-axis (i=0,j=0).
+  !           |__|__|__|__|__|__|                
+  !      Xmin |__|__|__|__|__|__| Xmax           
+  !           |__|__|__|__|__|__|
+  !          j|__|__|__|__|__|__|_____________ 
+  !           i                      Longitude 
+  !                   Ymin
 
   Xmin = 80.0
   Ymin = 40.0
@@ -125,7 +122,6 @@ program main
   Ymax = 90.0
   res = 1.0
 
-                                !Xmin  Ymin  Xmax   Ymax           
   call gengrid(grid2d, Xmin, Ymin, Xmax, Ymax, res)
 
   s = 0

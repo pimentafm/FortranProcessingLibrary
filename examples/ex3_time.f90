@@ -37,9 +37,12 @@ program main
   use f90netcdf
   implicit none
 
-  !Structure declarations for CATTLE19902012.nc
-  !3d dataset, variable type: double, longitude and latitude datatype: double, time datatype: integer
+  !Structure declarations for CATTLE19902012.nc (3d dataset)
+  !variable type: double
+  !longitude and latitude type: double
+  !time type: integer
 
+  !Related article and data download
   !Dias, L.C.P., Pimenta, F.M., Santos, A.B., Costa, M.H., Ladle, R.J. (2016). 
   !Patterns of land use, extensification and intensification of Brazilian agriculture. 
   !Global Change Biology. doi:10.1111/gcb.13314
@@ -49,8 +52,9 @@ program main
  
   type(nc3d_double_lld_ti) :: cattle
 
-  !Structure declarations for maskestadosBR2012.nc
-  !2d dataset, variable type: byte, longitude and latitude datatype: double
+  !Structure declarations for maskestadosBR2012.nc (2d dataset)
+  !variable type: byte
+  !longitude and latitude datatype: double
   
   !Download:
 
@@ -60,9 +64,9 @@ program main
   
   character(200) :: inputpath, outputpath, maskfile
 
-  inputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/CATTLE19902012.nc"
-  maskfile = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/maskestadosBRbyte.nc"
-  outputpath = "/home/fernando/Documents/WORKSPACE/dadosTestef90netcdfapi/output/cattle19902012_mask.nc"
+  inputpath = "database/CATTLE19902012.nc"
+  maskfile = "database/maskestadosBRbyte.nc"
+  outputpath = "database/cattle19902012_mask.nc"
   
   cattle%varname = "Cattle"
   cattle%timename = "time"
