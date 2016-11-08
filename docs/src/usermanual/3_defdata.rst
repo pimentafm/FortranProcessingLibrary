@@ -1,7 +1,7 @@
 Data Type Structures
 ********************
 
-**f90NetCDF** define datasets as data structures
+**f90NetCDF** define datasets as data structures with any attributtes.
 
 Create grided data
 ====================

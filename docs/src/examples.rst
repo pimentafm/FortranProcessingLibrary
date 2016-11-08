@@ -39,6 +39,7 @@ complex illustration.
    :width: 150 px
 
 .. toctree::
+   :maxdepth: 2
    :hidden:
 
    examples/ex01.rst
