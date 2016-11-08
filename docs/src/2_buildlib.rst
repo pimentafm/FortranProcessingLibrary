@@ -1,3 +1,5 @@
+.. _buildlib:
+
 Build Library
 *************
 

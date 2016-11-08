@@ -2,7 +2,7 @@ User Manual
 ===========
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    1_introduction
    2_firstprogram

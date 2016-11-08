@@ -32,7 +32,7 @@ Save as file (**myfirstprogram.f90**) and compiling using gfortran.
 .. important::
    ``-I<dir>`` This option specifies where to put .mod files for compiled modules. It is also added to the list of directories to Influencing the linking step. `See the GNU Fortran Compiler Documentation <https://gcc.gnu.org/onlinedocs/gfortran/>`_ .
    
-   ``<dir>`` is defined in Makefile as ``$(f90NetCDF_moddir)``. See Build Library page.
+   ``<dir>`` is defined in Makefile as ``$(f90NetCDF_moddir)``. See :ref:`buildlib`.
    
 
 After compilation run the program ``./myfirstprogram.f90``
