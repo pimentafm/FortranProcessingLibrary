@@ -4,9 +4,12 @@ User Manual
 .. toctree::
    :maxdepth: 2
 
-   1_introduction
-   2_firstprogram
-   3_defdata
-   4_gendataset
-   5_readgrid
-   6_writegrid
+   1_introduction.rst
+   2_firstprogram.rst
+   3_defdata.rst
+   4_griddims.rst
+   5_readgrid.rst
+   6_writegrid.rst
+   7_gendataset.rst
+   8_setfvalue.rst
+   9_dealloc.rst
