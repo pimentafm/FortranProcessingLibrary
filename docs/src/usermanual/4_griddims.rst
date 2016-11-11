@@ -4,7 +4,7 @@ ncoords subroutine
 .. highlight:: fortran
    :linenothreshold: 2
 
-Inquire about the coordinates and variable type of a file.
+Inquire about the coordinates, time, level and variable type of a file.
 
 Hou to use
 ==========
@@ -13,6 +13,11 @@ Hou to use
 
     :p ifile: dataset file path `[character]` [#f1]_
     :p idata: map structure to be readed `[f90NetCDF defined type structure]` [#f1]_
+    :r nlons: number of longitudes
+    :r nlats: number of latitudes
+    :r ntimes: number of times ``[3d and 4d datasets]``
+    :r nlevels: number of levels ``[4d datasets]``
+              
 
 .. [#f1] Defined by user 
 
@@ -22,7 +27,7 @@ Hou to use
 
 Get the number of latitudes and longitudes of a file.
 
-.. literalinclude:: fortran/4_ncoords.f90
+.. literalinclude:: fortran/4_griddims.f90
    :language: fortran
 
 

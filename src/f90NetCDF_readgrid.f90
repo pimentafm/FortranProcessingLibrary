@@ -39,7 +39,7 @@ subroutine readgrid2d_byte_llf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats))
   allocate(idata%longitudes(idata%nlons))
@@ -76,7 +76,7 @@ subroutine readgrid2d_short_llf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats))
   allocate(idata%longitudes(idata%nlons))
@@ -113,7 +113,7 @@ subroutine readgrid2d_int_llf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats))
   allocate(idata%longitudes(idata%nlons))
@@ -150,7 +150,7 @@ subroutine readgrid2d_float_llf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats))
   allocate(idata%longitudes(idata%nlons))
@@ -187,7 +187,7 @@ subroutine readgrid2d_double_llf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats))
   allocate(idata%longitudes(idata%nlons))
@@ -224,7 +224,7 @@ subroutine readgrid2d_byte_lld(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats))
   allocate(idata%longitudes(idata%nlons))
@@ -261,7 +261,7 @@ subroutine readgrid2d_short_lld(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats))
   allocate(idata%longitudes(idata%nlons))
@@ -298,7 +298,7 @@ subroutine readgrid2d_int_lld(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats))
   allocate(idata%longitudes(idata%nlons))
@@ -335,7 +335,7 @@ subroutine readgrid2d_float_lld(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats))
   allocate(idata%longitudes(idata%nlons))
@@ -372,7 +372,7 @@ subroutine readgrid2d_double_lld(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats))
   allocate(idata%longitudes(idata%nlons))
@@ -409,7 +409,7 @@ subroutine readgrid3d_byte_llf_ti(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -452,7 +452,7 @@ subroutine readgrid3d_short_llf_ti(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -495,7 +495,7 @@ subroutine readgrid3d_int_llf_ti(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -538,7 +538,7 @@ subroutine readgrid3d_float_llf_ti(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -581,7 +581,7 @@ subroutine readgrid3d_double_llf_ti(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -624,7 +624,7 @@ subroutine readgrid3d_byte_lld_ti(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -667,7 +667,7 @@ subroutine readgrid3d_short_lld_ti(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -710,7 +710,7 @@ subroutine readgrid3d_int_lld_ti(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -753,7 +753,7 @@ subroutine readgrid3d_float_lld_ti(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -796,7 +796,7 @@ subroutine readgrid3d_double_lld_ti(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -839,7 +839,7 @@ subroutine readgrid3d_byte_llf_tf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -882,7 +882,7 @@ subroutine readgrid3d_short_llf_tf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -925,7 +925,7 @@ subroutine readgrid3d_int_llf_tf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -968,7 +968,7 @@ subroutine readgrid3d_float_llf_tf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1011,7 +1011,7 @@ subroutine readgrid3d_double_llf_tf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1054,7 +1054,7 @@ subroutine readgrid3d_byte_lld_tf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1097,7 +1097,7 @@ subroutine readgrid3d_short_lld_tf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1140,7 +1140,7 @@ subroutine readgrid3d_int_lld_tf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1183,7 +1183,7 @@ subroutine readgrid3d_float_lld_tf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1226,7 +1226,7 @@ subroutine readgrid3d_double_lld_tf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1269,7 +1269,7 @@ subroutine readgrid3d_byte_llf_td(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1312,7 +1312,7 @@ subroutine readgrid3d_short_llf_td(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1355,7 +1355,7 @@ subroutine readgrid3d_int_llf_td(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1398,7 +1398,7 @@ subroutine readgrid3d_float_llf_td(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1441,7 +1441,7 @@ subroutine readgrid3d_double_llf_td(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1484,7 +1484,7 @@ subroutine readgrid3d_byte_lld_td(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1527,7 +1527,7 @@ subroutine readgrid3d_short_lld_td(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1570,7 +1570,7 @@ subroutine readgrid3d_int_lld_td(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1613,7 +1613,7 @@ subroutine readgrid3d_float_lld_td(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1656,7 +1656,7 @@ subroutine readgrid3d_double_lld_td(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -1699,7 +1699,7 @@ subroutine readgrid4d_byte_llf_ti_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -1748,7 +1748,7 @@ subroutine readgrid4d_short_llf_ti_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -1797,7 +1797,7 @@ subroutine readgrid4d_int_llf_ti_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -1846,7 +1846,7 @@ subroutine readgrid4d_float_llf_ti_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -1895,7 +1895,7 @@ subroutine readgrid4d_double_llf_ti_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -1944,7 +1944,7 @@ subroutine readgrid4d_byte_lld_ti_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -1993,7 +1993,7 @@ subroutine readgrid4d_short_lld_ti_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2042,7 +2042,7 @@ subroutine readgrid4d_int_lld_ti_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2091,7 +2091,7 @@ subroutine readgrid4d_float_lld_ti_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2140,7 +2140,7 @@ subroutine readgrid4d_double_lld_ti_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2189,7 +2189,7 @@ subroutine readgrid4d_byte_llf_tf_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2238,7 +2238,7 @@ subroutine readgrid4d_short_llf_tf_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2287,7 +2287,7 @@ subroutine readgrid4d_int_llf_tf_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2336,7 +2336,7 @@ subroutine readgrid4d_float_llf_tf_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2385,7 +2385,7 @@ subroutine readgrid4d_double_llf_tf_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2434,7 +2434,7 @@ subroutine readgrid4d_byte_lld_tf_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2483,7 +2483,7 @@ subroutine readgrid4d_short_lld_tf_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2532,7 +2532,7 @@ subroutine readgrid4d_int_lld_tf_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2581,7 +2581,7 @@ subroutine readgrid4d_float_lld_tf_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2630,7 +2630,7 @@ subroutine readgrid4d_double_lld_tf_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2679,7 +2679,7 @@ subroutine readgrid4d_byte_llf_td_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2728,7 +2728,7 @@ subroutine readgrid4d_short_llf_td_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2777,7 +2777,7 @@ subroutine readgrid4d_int_llf_td_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2826,7 +2826,7 @@ subroutine readgrid4d_float_llf_td_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2875,7 +2875,7 @@ subroutine readgrid4d_double_llf_td_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2924,7 +2924,7 @@ subroutine readgrid4d_byte_lld_td_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -2973,7 +2973,7 @@ subroutine readgrid4d_short_lld_td_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3022,7 +3022,7 @@ subroutine readgrid4d_int_lld_td_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3071,7 +3071,7 @@ subroutine readgrid4d_float_lld_td_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3120,7 +3120,7 @@ subroutine readgrid4d_double_lld_td_li(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3169,7 +3169,7 @@ subroutine readgrid4d_byte_llf_ti_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3218,7 +3218,7 @@ subroutine readgrid4d_short_llf_ti_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3267,7 +3267,7 @@ subroutine readgrid4d_int_llf_ti_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3316,7 +3316,7 @@ subroutine readgrid4d_float_llf_ti_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3365,7 +3365,7 @@ subroutine readgrid4d_double_llf_ti_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3414,7 +3414,7 @@ subroutine readgrid4d_byte_lld_ti_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3463,7 +3463,7 @@ subroutine readgrid4d_short_lld_ti_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3512,7 +3512,7 @@ subroutine readgrid4d_int_lld_ti_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3561,7 +3561,7 @@ subroutine readgrid4d_float_lld_ti_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3610,7 +3610,7 @@ subroutine readgrid4d_double_lld_ti_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3659,7 +3659,7 @@ subroutine readgrid4d_byte_llf_tf_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3708,7 +3708,7 @@ subroutine readgrid4d_short_llf_tf_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3757,7 +3757,7 @@ subroutine readgrid4d_int_llf_tf_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3806,7 +3806,7 @@ subroutine readgrid4d_float_llf_tf_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3855,7 +3855,7 @@ subroutine readgrid4d_double_llf_tf_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3904,7 +3904,7 @@ subroutine readgrid4d_byte_lld_tf_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -3953,7 +3953,7 @@ subroutine readgrid4d_short_lld_tf_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -4002,7 +4002,7 @@ subroutine readgrid4d_int_lld_tf_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -4051,7 +4051,7 @@ subroutine readgrid4d_float_lld_tf_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -4100,7 +4100,7 @@ subroutine readgrid4d_double_lld_tf_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -4149,7 +4149,7 @@ subroutine readgrid4d_byte_llf_td_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -4198,7 +4198,7 @@ subroutine readgrid4d_short_llf_td_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -4247,7 +4247,7 @@ subroutine readgrid4d_int_llf_td_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -4296,7 +4296,7 @@ subroutine readgrid4d_float_llf_td_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -4345,7 +4345,7 @@ subroutine readgrid4d_double_llf_td_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -4394,7 +4394,7 @@ subroutine readgrid4d_byte_lld_td_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -4443,7 +4443,7 @@ subroutine readgrid4d_short_lld_td_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -4492,7 +4492,7 @@ subroutine readgrid4d_int_lld_td_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -4541,7 +4541,7 @@ subroutine readgrid4d_float_lld_td_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))
@@ -4590,7 +4590,7 @@ subroutine readgrid4d_double_lld_td_lf(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))

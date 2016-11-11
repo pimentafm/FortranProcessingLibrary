@@ -71,7 +71,7 @@ subroutine readgrid2d_${arr[$i]}_ll${arrid[$j]}(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats))
   allocate(idata%longitudes(idata%nlons))
@@ -115,7 +115,7 @@ subroutine readgrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ifile, idata)
 
   integer(kind=intgr) :: ncid, varid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
   allocate(idata%times(idata%ntimes))
@@ -167,7 +167,7 @@ subroutine readgrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(ifil
 
   integer(kind=intgr) :: ncid, varid, lvarid, tvarid, xvarid, yvarid
 
-  call ncoords(ifile, idata)
+  call griddims(ifile, idata)
 
   allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
   allocate(idata%levels(idata%nlevels))

@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>readgrid subroutine &mdash; f90NetCDF v1.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/my_theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="f90NetCDF v1.0" href="../../index.html"/>
+        <link rel="up" title="User Manual" href="usermanual.html"/>
+        <link rel="next" title="writegrid subroutine" href="6_writegrid.html"/>
+        <link rel="prev" title="ncoords subroutine" href="4_griddims.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> f90NetCDF
+          
+
+          
+            
+            <img src="../../_static/f90NetCDFlogo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../1_introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_buildlib.html">Build Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_structures.html">API</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="usermanual.html">User Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_firstprogram.html">How to Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_defdata.html">Data Type Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_griddims.html">ncoords subroutine</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">readgrid subroutine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hou-to-use">Hou to use</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#code-example-read-info-from-netcdf-file-in-fortran-90">[Code example] Read info from NetCDF file in fortran 90</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="6_writegrid.html">writegrid subroutine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_gendataset.html">gendataset subroutine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_setfvalue.html">setFillValue subroutine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_dealloc.html">dealloc subroutine</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">f90NetCDF</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="usermanual.html">User Manual</a> &raquo;</li>
+      
+    <li>readgrid subroutine</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="readgrid-subroutine">
+<h1>readgrid subroutine<a class="headerlink" href="#readgrid-subroutine" title="Permalink to this headline">¶</a></h1>
+<p>Reads NetCDF files.</p>
+<div class="section" id="hou-to-use">
+<h2>Hou to use<a class="headerlink" href="#hou-to-use" title="Permalink to this headline">¶</a></h2>
+<dl class="subroutine">
+<dt id="f/_/readgrid">
+<em class="property">subroutine  </em><code class="descname">readgrid</code><span class="sig-paren">(</span><em>ifile</em>, <em>idata</em><span class="sig-paren">)</span><a class="headerlink" href="#f/_/readgrid" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ifile</strong> :: dataset file path <cite>[character]</cite> <a class="footnote-reference" href="#f1" id="id1">[1]</a></li>
+<li><strong>idata</strong> :: map structure to be readed <cite>[f90NetCDF defined type structure]</cite> <a class="footnote-reference" href="#f1" id="id2">[1]</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>)</em> Defined by user</td></tr>
+</tbody>
+</table>
+<div class="section" id="code-example-read-info-from-netcdf-file-in-fortran-90">
+<h3>[Code example] Read info from NetCDF file in fortran 90<a class="headerlink" href="#code-example-read-info-from-netcdf-file-in-fortran-90" title="Permalink to this headline">¶</a></h3>
+<p>Read a dataset.</p>
+<div class="highlight-fortran"><div class="highlight"><pre><span></span><span class="k">program </span><span class="n">main</span>
+  <span class="k">use </span><span class="n">f90netcdf</span>
+  <span class="k">implicit none</span>
+
+  <span class="c">!Database download from UNIDATA:</span>
+  <span class="c">!                               file: test_echam_spectral.nc</span>
+  <span class="c">!                               http://www.unidata.ucar.edu/software/netcdf/examples/files.html                  </span>
+
+  <span class="c">!Set float datatype 3d dataset with, longitude and latitude and time in double datatype  </span>
+  <span class="k">type</span><span class="p">(</span><span class="n">nc3d_float_lld_td</span><span class="p">)</span> <span class="kd">::</span> <span class="n">spectral</span>
+
+  <span class="c">!Input and Output declarations</span>
+  <span class="kt">character</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="kd">::</span> <span class="n">inputpath</span><span class="p">,</span> <span class="n">outputpath</span>
+
+  <span class="n">inputpath</span> <span class="o">=</span> <span class="s2">&quot;database/test_echam_spectral.nc&quot;</span>
+  
+  <span class="n">outputpath</span> <span class="o">=</span> <span class="s2">&quot;database/spectral.nc&quot;</span>
+
+  <span class="c">!Set necessary parameters for read the data</span>
+  <span class="n">spectral</span><span class="p">%</span><span class="n">varname</span> <span class="o">=</span> <span class="s2">&quot;albedo_nir&quot;</span>
+  <span class="n">spectral</span><span class="p">%</span><span class="n">timename</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span>
+  <span class="n">spectral</span><span class="p">%</span><span class="n">lonname</span> <span class="o">=</span> <span class="s2">&quot;lon&quot;</span>
+  <span class="n">spectral</span><span class="p">%</span><span class="n">latname</span> <span class="o">=</span> <span class="s2">&quot;lat&quot;</span>
+
+  <span class="c">!Call function to read the data (readgrid(input_data_path, defined_data_structure))</span>
+  <span class="k">call </span><span class="n">readgrid</span><span class="p">(</span><span class="n">inputpath</span><span class="p">,</span> <span class="n">spectral</span><span class="p">)</span>
+  
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s2">&quot;====== Dataset Information =======&quot;</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s2">&quot;==================================&quot;</span>
+  
+  <span class="c">!Get data information using pointer to structures</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="s2">&quot;  varname: &quot;</span><span class="p">,</span> <span class="n">spectral</span><span class="p">%</span><span class="n">varname</span>  
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="s2">&quot; varunits: &quot;</span><span class="p">,</span> <span class="n">spectral</span><span class="p">%</span><span class="n">varunits</span>
+  
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="s2">&quot;  lonname: &quot;</span><span class="p">,</span> <span class="n">spectral</span><span class="p">%</span><span class="n">lonname</span> 
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span> <span class="s2">&quot;    nlons: &quot;</span><span class="p">,</span> <span class="n">spectral</span><span class="p">%</span><span class="n">nlons</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="s2">&quot; lonunits: &quot;</span><span class="p">,</span> <span class="n">spectral</span><span class="p">%</span><span class="n">lonunits</span>
+
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="s2">&quot;  latname: &quot;</span><span class="p">,</span> <span class="n">spectral</span><span class="p">%</span><span class="n">latname</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span> <span class="s2">&quot;    nlats: &quot;</span><span class="p">,</span> <span class="n">spectral</span><span class="p">%</span><span class="n">nlats</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="s2">&quot; latunits: &quot;</span><span class="p">,</span> <span class="n">spectral</span><span class="p">%</span><span class="n">latunits</span>
+
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="s2">&quot; timename: &quot;</span><span class="p">,</span> <span class="n">spectral</span><span class="p">%</span><span class="n">timename</span>  
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span> <span class="s2">&quot;   ntimes: &quot;</span><span class="p">,</span> <span class="n">spectral</span><span class="p">%</span><span class="n">ntimes</span>
+  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="s2">&quot;timeunits: &quot;</span><span class="p">,</span> <span class="n">spectral</span><span class="p">%</span><span class="n">timeunits</span>
+
+<span class="mi">100</span> <span class="k">format</span><span class="p">(</span><span class="mi">2</span><span class="n">a12</span><span class="p">)</span>
+<span class="mi">101</span> <span class="k">format</span><span class="p">(</span><span class="n">a12</span><span class="p">,</span><span class="n">i3</span><span class="p">)</span>
+ 
+  <span class="k">call </span><span class="n">writegrid</span><span class="p">(</span><span class="n">outputpath</span><span class="p">,</span> <span class="n">spectral</span><span class="p">)</span> 
+
+<span class="k">end program </span><span class="n">main</span>
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1">#RedHat based systems</span>
+gfortran -o readgrid.out readgrid.f90 -I/usr/lib64/gfortran/modules/ -lf90NetCDF
+
+<span class="c1">#Debian based systems</span>
+gfortran -o readgrid.out readgrid.f90 -I/usr/include/ -lf90NetCDF
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p><code class="docutils literal"><span class="pre">-I&lt;dir&gt;</span></code> This option specifies where to put .mod files for compiled modules. It is also added to the list of directories to Influencing the linking step. <a class="reference external" href="https://gcc.gnu.org/onlinedocs/gfortran/">See the GNU Fortran Compiler Documentation</a> .</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;dir&gt;</span></code> is defined in Makefile as <code class="docutils literal"><span class="pre">$(f90NetCDF_moddir)</span></code>. See <a class="reference internal" href="../2_buildlib.html#buildlib"><span class="std std-ref">Build Library</span></a>.</p>
+</div>
+<p>After compilation run the program <code class="docutils literal"><span class="pre">./readgrid.f90</span></code></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="6_writegrid.html" class="btn btn-neutral float-right" title="writegrid subroutine" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="4_griddims.html" class="btn btn-neutral" title="ncoords subroutine" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Fernando Martins Pimenta.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -65,7 +65,7 @@ for j in {3..4}; do # lon, lat
 for i in {0..4}; do
   echo "
 !NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>)
-subroutine ncoords2d_${arr[$i]}_ll${arrid[$j]}(ifile, idata)
+subroutine griddims2d_${arr[$i]}_ll${arrid[$j]}(ifile, idata)
   type (nc2d_${arr[$i]}_ll${arrid[$j]}) :: idata
   integer(kind=intgr) :: ncid, xdimid, ydimid, varid
   character(*), intent(in) :: ifile
@@ -88,7 +88,7 @@ subroutine ncoords2d_${arr[$i]}_ll${arrid[$j]}(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-end subroutine ncoords2d_${arr[$i]}_ll${arrid[$j]}"
+end subroutine griddims2d_${arr[$i]}_ll${arrid[$j]}"
 done
 done
 
@@ -98,7 +98,7 @@ for j in {3..4}; do # lon, lat
 for i in {0..4}; do
   echo "
 !NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>, time <${arr[$k]}>)
-subroutine ncoords3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ifile, idata)
+subroutine griddims3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ifile, idata)
   type (nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}) :: idata 
   integer(kind=intgr) :: ncid, tdimid, xdimid, ydimid, varid
   character(*), intent(in) :: ifile
@@ -125,7 +125,7 @@ subroutine ncoords3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ifile, idata)
 
   !Close NetCDF
   call check(nf90_close(ncid))
-end subroutine ncoords3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}"
+end subroutine griddims3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}"
 done
 done
 done
@@ -137,7 +137,7 @@ for j in {3..4}; do # lon, lat
 for i in {0..4}; do
   echo "
 !NetCDF <var ${arr[$i]}> (lon <${arr[$j]}>, lat <${arr[$j]}>, time <${arr[$k]}>, level <${arr[$l]}>)
-subroutine ncoords4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(ifile, idata)
+subroutine griddims4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(ifile, idata)
   type (nc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}) :: idata 
   integer(kind=intgr) :: ncid, ldimid, tdimid, xdimid, ydimid, varid
   character(*), intent(in) :: ifile
@@ -168,7 +168,7 @@ subroutine ncoords4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(ifile
 
   !Close NetCDF
   call check(nf90_close(ncid))
-end subroutine ncoords4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}"
+end subroutine griddims4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}"
 done
 done
 done

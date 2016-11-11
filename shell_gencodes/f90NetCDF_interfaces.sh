@@ -67,17 +67,17 @@ end interface check"
 
 #NCOORDS
 echo "
-interface ncoords
+interface griddims
   module procedure" 
 for j in {3..4}; do # 2d datasets lon, lat
   for i in {0..4}; do 
-    echo "                ncoords2d_${arr[$i]}_ll${arrid[$j]}, &" #16 spaces
+    echo "                griddims2d_${arr[$i]}_ll${arrid[$j]}, &" #16 spaces
   done
 done
 for k in {2..4}; do # 3d datasets time
   for j in {3..4}; do # lon, lat
     for i in {0..4}; do 
-      echo "                ncoords3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}, &"
+      echo "                griddims3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}, &"
     done
   done
 done
@@ -85,12 +85,12 @@ for l in {2..3}; do # 4d datasets level
   for k in {2..4}; do # time
     for j in {3..4}; do # lon, lat
       for i in {0..4}; do 
-        echo "                ncoords4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}, &"
+        echo "                griddims4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}, &"
       done
     done
   done
 done
-echo "end interface ncoords"
+echo "end interface griddims"
 
 #READGRID
 echo "

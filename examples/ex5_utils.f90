@@ -42,13 +42,13 @@ program utils
   write(*,*) "Count line number"
   write(*,*) "============================"
 
-  if(file_exists("data.txt")) then
+  if(file_exists("database/data.txt")) then
     write(*,*) "File OK!"
-    open(100, file="data.txt", status="old")
+    open(100, file="database/data.txt", status="old")
   end if
 
   nlines = lineNumber(100)
 
-  write(*,*) nlines, file_exists("data.txt")
+  write(*,*) nlines, file_exists("database/data.txt")
 
 end program utils
