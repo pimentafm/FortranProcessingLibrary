@@ -28,7 +28,7 @@ Directory Structure
            |---shell_gencodes/
            |                 |---f90NetCDF_datatype.sh
            |                 |---f90NetCDF_interfaces.sh
-           |                 |---f90NetCDF_ncoords.sh
+           |                 |---f90NetCDF_griddims.sh
            |                 |---f90NetCDF_readgrid.sh
            |                 |---f90NetCDF_writegrid2d.sh
            |                 |---f90NetCDF_fvalue.sh

@@ -1,4 +1,4 @@
-program generategrid
+program main
   use f90netcdf
   implicit none
 
@@ -28,18 +28,6 @@ program generategrid
 
   grid3d%FillValue = -9999
 
-  !   Latitude|                                  Xmin: westernmost longitude   
-  !           |                                  Ymin: southernmost latitude
-  !           |       Ymax                       Xmax: easternmost longitude
-  !           |_________________                 Ymax: northernmost latitude
-  !           |__|__|__|__|__|__|                i, j: initial position of the matrix on the x-axis and y-axis (i=0,j=0).
-  !           |__|__|__|__|__|__|                
-  !      Xmin |__|__|__|__|__|__| Xmax           
-  !           |__|__|__|__|__|__|
-  !          j|__|__|__|__|__|__|_____________ 
-  !           i                      Longitude 
-  !                   Ymin
-
   Xmin = 80.0
   Ymin = 40.0
   Xmax = 180.0
@@ -63,5 +51,4 @@ program generategrid
   !Write a NetCDF dataset into file
   call writegrid(outpath, grid3d)
   
-end program generategrid
-
+end program main

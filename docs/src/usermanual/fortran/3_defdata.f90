@@ -1,59 +1,46 @@
-program generategrid
+program main
   use f90netcdf
   implicit none
 
-  type(nc3d_int_llf_ti) :: grid3d
-  
-  integer(kind=intgr) :: i, j, k, s
+  !Definition of double 4-dimensional dataset (lon, lat, time, level)
+  !Array of coordinastes in float type
+  !Array of times in integer type
+  !Array o levels in integer type
+  type(nc4d_double_llf_ti_li) :: grid4d
 
-  real(kind=4) :: Xmin, Ymin, Xmax, Ymax, res
+  !Set initial data fields
+  grid4d%varname = "landuse" !Variable name to read from NetCDF file.
+  grid4d%timename = "time" !Name of time dimension   
+  grid4d%levelname = "Pressure" !Name of level dimension
+  grid4d%lonname = "lon" !Name of longitude dimension
+  grid4d%latname = "lat" !Name of latitude dimension
+  grid4d%long_name = "Land Use of Brazil (2940-2012)" !NetCDF title [optional]
 
-  !Grid 3d
-  grid3d%long_name = "My Grid ~ 1 degree"
-  
-  grid3d%varname = "id"
-  grid3d%lonname = "lon"
-  grid3d%latname = "lat"
-  grid3d%timename = "time"
+  grid4d%varunits = "ha" !Variable unit
+  grid4d%timeunits = "hour" !Time unit
+  grid4d%levelunits = "hPa" !Level unit
+  grid4d%lonunits = "degrees_east" !longitude unit
+  grid4d%latunits = "degrees_north" !Latitude unit
+  grid4d%nlons = 40 !Total number of longitudes
+  grid4d%nlats = 57 !Total number of latitudes
+  grid4d%ntimes = 10 !Total number of times
+  grid4d%nlevels = 3 !Total number of levels
 
-  grid3d%varunits = "dimensionless"
-  grid3d%lonunits = "degrees_east"
-  grid3d%latunits = "degrees_north"
-  grid3d%timeunits = "hour"
+  write(*,*) grid4d%varname    
+  write(*,*) grid4d%timename   
+  write(*,*) grid4d%levelname  
+  write(*,*) grid4d%lonname    
+  write(*,*) grid4d%latname    
+  write(*,*) grid4d%long_name  
 
-  grid3d%ntimes = 10
-
-  grid3d%FillValue = -9999
-
-  !   Latitude|                                  Xmin: westernmost longitude   
-  !           |                                  Ymin: southernmost latitude
-  !           |       Ymax                       Xmax: easternmost longitude
-  !           |_________________                 Ymax: northernmost latitude
-  !           |__|__|__|__|__|__|                i, j: initial position of the matrix on the x-axis and y-axis (i=0,j=0).
-  !           |__|__|__|__|__|__|                
-  !      Xmin |__|__|__|__|__|__| Xmax           
-  !           |__|__|__|__|__|__|
-  !          j|__|__|__|__|__|__|_____________ 
-  !           i                      Longitude 
-  !                   Ymin
-
-  Xmin = 80.0
-  Ymin = 40.0
-  Xmax = 180.0
-  Ymax = 90.0
-  res = 1.0
-
-  call gengrid(grid3d, -74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965, 1.0 )
-
-  do i = 1, grid3d%ntimes
-    s = 0
-    do j = 1, grid3d%nlons
-      do k = 1, grid3d%nlats
-        s = s + 1
-        grid3d%ncdata(j,k,i) = s    
-      end do
-    end do
-  end do
-  
-end program generategrid
-
+  write(*,*) grid4d%varunits   
+  write(*,*) grid4d%timeunits  
+  write(*,*) grid4d%levelunits 
+  write(*,*) grid4d%lonunits   
+  write(*,*) grid4d%latunits   
+  write(*,*) grid4d%nlons      
+  write(*,*) grid4d%nlats      
+  write(*,*) grid4d%ntimes     
+  write(*,*) grid4d%nlevels   
+ 
+end program main

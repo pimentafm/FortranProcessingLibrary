@@ -28,6 +28,8 @@ Namming Structures
       type(nc4d_short_lld_ti_li) :: grid4d ! 4d short dataset with double coordinates, integer time and integer level array. 
 
 
+.. _structurefields:
+   
 Structure Fields
 ================
 
@@ -69,7 +71,7 @@ Structure Fields
 [Code example] Set dataset fields in fortran 90
 -----------------------------------------------
 
-.. literalinclude:: fortran/3_setfield.f90
+.. literalinclude:: fortran/3_defdata.f90
    :language: fortran
 
 Save as file (**setfields.f90**) and compiling using gfortran.

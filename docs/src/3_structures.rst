@@ -103,9 +103,9 @@ Functions and Subroutines
    functions_subroutines/gengrid2d
    functions_subroutines/gengrid3d
    functions_subroutines/gengrid4d
-   functions_subroutines/ncoords2d
-   functions_subroutines/ncoords3d
-   functions_subroutines/ncoords4d
+   functions_subroutines/griddims2d
+   functions_subroutines/griddims3d
+   functions_subroutines/griddims4d
    functions_subroutines/readgrid2d
    functions_subroutines/readgrid3d
    functions_subroutines/readgrid4d

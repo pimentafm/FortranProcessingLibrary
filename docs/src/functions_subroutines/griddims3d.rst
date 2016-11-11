@@ -1,16 +1,16 @@
-ncoords3d (3-dimensional Dataset)
-`````````````````````````````````
+griddims3d (3-dimensional Dataset)
+``````````````````````````````````
 .. highlight:: fortran
    :linenothreshold: 2
 
-ncoords3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` subroutine is used to read the dimension informations in a 3-dimensional NetCDF dataset. 
+griddims3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` subroutine is used to read the dimension informations in a 3-dimensional NetCDF dataset. 
 Combinations can be made for the statements of this subroutine by replacing ``[vdt]`` 
 by one of the data types defined in the **f90NetCDF** library (``[byte, short, int, float, double]``), 
 ``[cdt]`` by a defined suffix for the data type of the coordinates ``f`` for float and ``d`` for double and
 ``[tdt]`` by a defined suffix for the datatype of time (``i`` for integer, ``f`` for float and ``d`` for double).
 
-ncoords3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (ifile, idata)
----------------------------------------------------------------
+griddims3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (ifile, idata)
+----------------------------------------------------------------
 
 :Type naming:
  :``[vdt]``: variable datatype `[byte, short, int, float or double]`
@@ -39,7 +39,7 @@ coordinates declared as double and time declared as integer (nc3d _ ``short`` _l
 ::
 
   !NetCDF <variable short> (longitude <double>, latitude <double>, time <int>)
-  subroutine ncoords3d_short_lld_ti(ifile, idata)
+  subroutine griddims3d_short_lld_ti(ifile, idata)
     type (nc3d_short_lld_ti) :: idata 
     integer(kind=intgr) :: ncid, tdimid, xdimid, ydimid, varid
     character(*), intent(in) :: ifile
@@ -66,4 +66,4 @@ coordinates declared as double and time declared as integer (nc3d _ ``short`` _l
   
     !Close NetCDF
     call check(nf90_close(ncid))
-  end subroutine ncoords3d_short_lld_ti
+  end subroutine griddims3d_short_lld_ti

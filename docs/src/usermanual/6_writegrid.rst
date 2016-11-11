@@ -13,7 +13,9 @@ Hou to use
 
     :p ifile: dataset file path `[character]` [#f1]_
     :p idata: map structure to be readed `[f90NetCDF defined type structure]` [#f1]_
-    :p headerfile: text file with metadata informations `[character]` `[optional]`  [#f1]_
+    :o headerfile: text file with metadata informations `[character]` `[optional]`  [#f1]_
+    :r file: NetCDF dataset
+    :call: :f:prog:`writegrid(ifile,idata[,headerfile])`
  
 .. [#f1] Defined by user 
 
@@ -25,7 +27,6 @@ Write a NetCDF dataset.
 
 .. literalinclude:: fortran/6_writegrid.f90
    :language: fortran
-
 
 .. highlight:: sh
 

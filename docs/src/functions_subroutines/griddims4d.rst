@@ -1,16 +1,16 @@
-ncoords4d (4-dimensional Dataset)
-`````````````````````````````````
+griddims4d (4-dimensional Dataset)
+``````````````````````````````````
 .. highlight:: fortran
    :linenothreshold: 2
 
-ncoords4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` subroutine is used to read the dimension informations in a 4-dimensional NetCDF dataset. 
+griddims4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` subroutine is used to read the dimension informations in a 4-dimensional NetCDF dataset. 
 Combinations can be made for the statements of this structure by replacing ``[vdt]`` by one of the data types 
 defined in the **f90NetCDF** library (``[byte, short, int, float, double]``), ``[cdt]`` by a defined suffix 
 for the data type of the coordinates (``f`` for float and ``d`` for double), ``[tdt]`` by a defined suffix 
 for the datatype of time (``i`` for integer, ``f`` for float and ``d`` for double) and ``[ldt]`` for a level suffix ((``f`` for float and ``d`` for double).
 
-ncoords4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` (ifile, idata)
-----------------------------------------------------------------------------
+griddims4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` (ifile, idata)
+-----------------------------------------------------------------------------
 
 :Type naming:
  :``[vdt]``: variable datatype `[byte, short, int, float, double]`
@@ -42,7 +42,7 @@ coordinates declared as double, time declared as double and level declared as fl
 ::
 
   !NetCDF <var double> (longitude <double>, latitude <double>, time <double>, level <float>)
-  subroutine ncoords4d_double_lld_td_lf(ifile, idata)
+  subroutine griddims4d_double_lld_td_lf(ifile, idata)
     type (nc4d_double_lld_td_lf) :: idata 
     integer(kind=intgr) :: ncid, ldimid, tdimid, xdimid, ydimid, varid
     character(*), intent(in) :: ifile
@@ -73,4 +73,4 @@ coordinates declared as double, time declared as double and level declared as fl
   
     !Close NetCDF
     call check(nf90_close(ncid))
-  end subroutine ncoords4d_double_lld_td_lf
+  end subroutine griddims4d_double_lld_td_lf

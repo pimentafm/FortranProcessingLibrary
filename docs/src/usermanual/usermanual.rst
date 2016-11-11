@@ -10,6 +10,6 @@ User Manual
    4_griddims.rst
    5_readgrid.rst
    6_writegrid.rst
-   7_gendataset.rst
+   7_gengrid.rst
    8_setfvalue.rst
    9_dealloc.rst

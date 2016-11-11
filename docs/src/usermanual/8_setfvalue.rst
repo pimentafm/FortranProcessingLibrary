@@ -9,17 +9,12 @@ Generates grids from user-defined coordinates and resolution.
 Hou to use
 ==========
 
-.. f:subroutine:: setFillValue(idata, Xmin, Ymin, Xmax, Ymax, res)
+.. f:subroutine:: setFillValue(mask,idata[,num])
 
-    :p idata: map to be created `[f90NetCDF defined type structure]` [#f1]_
-    :p Xmin: westernmost longitude `[double or float]` [#f1]_
-    :p Ymin: southernmost latitude `[double or float]` [#f1]_
-    :p Xmax: easternmost longitude `[double or float]` [#f1]_
-    :p Ymax: northernmost latitude `[double or float]` [#f1]_
-    :p res: map resolution `[double or float]` [#f1]_
-
-.. [#f1] Defined by user 
-
+    :p idata: map to be masked `[f90NetCDF defined type structure]`
+    :p mask: mask `[f90NetCDF defined type structure]`
+    :p num[optional]: Parameter filtering according to mask
+    :call: :f:prog:`setFillValue(mask,map[,num])`
 
 [Code example] Create grided data in fortran 90
 -----------------------------------------------

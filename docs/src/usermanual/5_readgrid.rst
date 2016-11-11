@@ -13,6 +13,9 @@ Hou to use
 
     :p ifile: dataset file path `[character]` [#f1]_
     :p idata: map structure to be readed `[f90NetCDF defined type structure]` [#f1]_
+    :r idata: map structure with readed fields.
+    :r fields: structure fields. See :ref:`structurefields`.
+    :call: :f:prog:`readgrid(ifile,idata)`
 
 .. [#f1] Defined by user 
 

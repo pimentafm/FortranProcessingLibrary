@@ -10,20 +10,18 @@ program main
   type(nc3d_float_lld_td) :: spectral
 
   !Input and Output declarations
-  character(200) :: inputpath, outputpath
+  character(200) :: inputpath
 
   inputpath = "database/test_echam_spectral.nc"
   
-  outputpath = "database/spectral.nc"
-
   !Set necessary parameters for read the data
   spectral%varname = "albedo_nir"
   spectral%timename = "time"
   spectral%lonname = "lon"
   spectral%latname = "lat"
 
-  !Call function to read the data (readgrid(input_data_path, defined_data_structure))
-  call ncoords(inputpath, spectral)
+  !Call function to get data dimension sizes
+  call griddims(inputpath, spectral)
   
   write(*,*) "====== Dataset Information ======="
   write(*,*) "=================================="

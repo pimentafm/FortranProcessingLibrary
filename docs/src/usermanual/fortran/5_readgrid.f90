@@ -7,14 +7,13 @@ program main
   !                               http://www.unidata.ucar.edu/software/netcdf/examples/files.html                  
 
   !Set float datatype 3d dataset with, longitude and latitude and time in double datatype  
+
   type(nc3d_float_lld_td) :: spectral
 
   !Input and Output declarations
-  character(200) :: inputpath, outputpath
+  character(200) :: inputpath
 
   inputpath = "database/test_echam_spectral.nc"
-  
-  outputpath = "database/spectral.nc"
 
   !Set necessary parameters for read the data
   spectral%varname = "albedo_nir"
@@ -46,7 +45,5 @@ program main
 
 100 format(2a12)
 101 format(a12,i3)
- 
-  call writegrid(outputpath, spectral) 
 
 end program main

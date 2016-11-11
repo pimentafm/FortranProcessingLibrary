@@ -15,19 +15,19 @@ checkerror
 .. note::
   Some error checking subroutines are not in the interface list due to ambiguity problems.
 
-ncoords
--------
+griddims
+--------
 
 ::
 
-  interface ncoords
-    module procedure ncoords2d_byte_llf, &
+  interface griddims
+    module procedure griddims2d_byte_llf, &
                       ...
-                      ncoords3d_byte_llf_ti, &
+                      griddims3d_byte_llf_ti, &
                       ...
-                      ncoords4d_byte_llf_ti_li, &
+                      griddims4d_byte_llf_ti_li, &
                       ...
-  end interface ncoords
+  end interface griddims
 
 readgrid
 --------

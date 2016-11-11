@@ -1,15 +1,15 @@
-ncoords2d (2-dimensional Dataset)
-`````````````````````````````````
+griddims2d (2-dimensional Dataset)
+``````````````````````````````````
 .. highlight:: fortran
    :linenothreshold: 2
 
-ncoords2d _ ``[vdt]`` _ll ``[cdt]`` subroutine is used to read the dimension informations in a 2-dimensional NetCDF dataset. 
+griddims2d _ ``[vdt]`` _ll ``[cdt]`` subroutine is used to read the dimension informations in a 2-dimensional NetCDF dataset. 
 Combinations can be made for the statements of this subroutine by replacing ``[vdt]`` 
 by one of the data types defined in the **f90NetCDF** library (``[byte, short, int, float, double]``) 
 and ``[cdt]`` by a defined suffix for the data type of the coordinates ``f`` for float and ``d`` for double.
 
-ncoords2d _ ``[vdt]`` _ll ``[cdt]`` (ifile, idata)
---------------------------------------------------
+griddims2d _ ``[vdt]`` _ll ``[cdt]`` (ifile, idata)
+---------------------------------------------------
 
 :Type naming:
  :``[vdt]``: variable datatype `[byte, short, int, float or double]`
@@ -34,7 +34,7 @@ Read variable datatype ID and coordinates dimensions of a 2-dimensional NetCDF d
 ::
 
   !NetCDF <variable byte> (longitude <float>, latitude <float>)
-  subroutine ncoords2d_byte_llf(ifile, idata)
+  subroutine griddims2d_byte_llf(ifile, idata)
     type (nc2d_byte_llf) :: idata
     integer(kind=intgr) :: ncid, xdimid, ydimid, varid
     character(*), intent(in) :: ifile
@@ -57,4 +57,4 @@ Read variable datatype ID and coordinates dimensions of a 2-dimensional NetCDF d
   
     !Close NetCDF
     call check(nf90_close(ncid))
-  end subroutine ncoords2d_byte_llf
+  end subroutine griddims2d_byte_llf

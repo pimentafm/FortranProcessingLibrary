@@ -1,4 +1,4 @@
-program generategrid
+program main
   use f90netcdf
   implicit none
 
@@ -55,5 +55,4 @@ program generategrid
     end do
   end do
   
-end program generategrid
-
+end program main
