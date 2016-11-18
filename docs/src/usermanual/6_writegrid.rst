@@ -20,8 +20,8 @@ Hou to use
 .. [#f1] Defined by user 
 
 
-[Code example] Write data to NetCDF file using fortran 90
----------------------------------------------------------
+[Code example] Write data to NetCDF using fortran 90
+----------------------------------------------------
 
 Write a NetCDF dataset.
 
@@ -44,5 +44,5 @@ Write a NetCDF dataset.
    ``<dir>`` is defined in Makefile as ``$(f90NetCDF_moddir)``. See :ref:`buildlib`.
    
 
-After compilation run the program ``./writegrid.f90``
+After compilation run the program ``./writegrid.out``
 

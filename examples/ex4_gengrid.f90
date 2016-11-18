@@ -116,11 +116,11 @@ program main
   !           i                      Longitude 
   !                   Ymin
 
-  Xmin = 80.0
-  Ymin = 40.0
-  Xmax = 180.0
-  Ymax = 90.0
-  res = 1.0
+  Xmin = -74.7371
+  Ymin = -34.3437
+  Xmax = -34.7371
+  Ymax = 5.6562
+  res = 0.00833333
 
   call gengrid(grid2d, Xmin, Ymin, Xmax, Ymax, res)
 

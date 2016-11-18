@@ -46,5 +46,5 @@ Create a grid dataset from map extent ``-74.73715442059999, -34.343706397220295,
    ``<dir>`` is defined in Makefile as ``$(f90NetCDF_moddir)``. See :ref:`buildlib`.
    
 
-After compilation run the program ``./dealloc.f90``
+After compilation run the program ``./dealloc.out``
 

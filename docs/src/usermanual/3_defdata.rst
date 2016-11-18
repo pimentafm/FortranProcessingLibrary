@@ -92,5 +92,5 @@ Save as file (**setfields.f90**) and compiling using gfortran.
    ``<dir>`` is defined in Makefile as ``$(f90NetCDF_moddir)``. See :ref:`buildlib`.
    
 
-After compilation run the program ``./setfields.f90``
+After compilation run the program ``./setfields.out``
 

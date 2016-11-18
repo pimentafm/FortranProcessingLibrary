@@ -35,5 +35,5 @@ Save as file (**myfirstprogram.f90**) and compiling using gfortran.
    ``<dir>`` is defined in Makefile as ``$(f90NetCDF_moddir)``. See :ref:`buildlib`.
    
 
-After compilation run the program ``./myfirstprogram.f90``
+After compilation run the program ``./myfirstprogram.out``
 

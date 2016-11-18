@@ -20,8 +20,8 @@ Hou to use
 .. [#f1] Defined by user 
 
 
-[Code example] Read info from NetCDF file in fortran 90
--------------------------------------------------------
+[Code example] Read data from NetCDF using fortran 90
+-----------------------------------------------------
 
 Read a dataset.
 
@@ -45,5 +45,5 @@ Read a dataset.
    ``<dir>`` is defined in Makefile as ``$(f90NetCDF_moddir)``. See :ref:`buildlib`.
    
 
-After compilation run the program ``./readgrid.f90``
+After compilation run the program ``./readgrid.out``
 

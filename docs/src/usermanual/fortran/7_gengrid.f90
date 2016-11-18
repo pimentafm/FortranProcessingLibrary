@@ -6,8 +6,6 @@ program main
   
   integer(kind=intgr) :: i, j, k, s
 
-  real(kind=4) :: Xmin, Ymin, Xmax, Ymax, res
-
   !Grid 3d
   grid3d%long_name = "My Grid ~ 1 degree"
   
@@ -37,13 +35,7 @@ program main
   !           i                      Longitude 
   !                   Ymin
 
-  Xmin = 80.0
-  Ymin = 40.0
-  Xmax = 180.0
-  Ymax = 90.0
-  res = 1.0
-
-  call gengrid(grid3d, -74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965, 1.0 )
+  call gengrid(grid3d, -74.737154, -34.343706, -34.737154, 5.656293, 1.0 )
 
   do i = 1, grid3d%ntimes
     s = 0

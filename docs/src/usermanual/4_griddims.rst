@@ -48,5 +48,5 @@ Get the number of latitudes and longitudes of a file.
    ``<dir>`` is defined in Makefile as ``$(f90NetCDF_moddir)``. See :ref:`buildlib`.
    
 
-After compilation run the program ``./griddims.f90``
+After compilation run the program ``./griddims.out``
 
