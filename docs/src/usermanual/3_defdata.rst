@@ -68,13 +68,13 @@ Structure Fields
 .. [#f2] Defined on read and/or write data
 
 
-[Code example] Set dataset fields in fortran 90
------------------------------------------------
+[Code example] Set dataset fields
+---------------------------------
 
 .. literalinclude:: fortran/3_defdata.f90
    :language: fortran
 
-Save as file (**setfields.f90**) and compiling using gfortran.
+Save as file (**setfields.f90**) and compiling using **gfortran**.
 
 .. highlight:: sh
 

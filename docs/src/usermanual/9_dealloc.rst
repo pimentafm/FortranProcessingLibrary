@@ -4,27 +4,23 @@ dealloc subroutine
 .. highlight:: fortran
    :linenothreshold: 2
 
-Generates grids from user-defined coordinates and resolution.
+Dealloc data, longitudes, latitudes, times and levels from a dataset array.
 
 Hou to use
 ==========
 
-.. f:subroutine:: dealloc(idata, Xmin, Ymin, Xmax, Ymax, res)
+.. f:subroutine:: dealloc(idata)
 
     :p idata: map to be created `[f90NetCDF defined type structure]` [#f1]_
-    :p Xmin: westernmost longitude `[double or float]` [#f1]_
-    :p Ymin: southernmost latitude `[double or float]` [#f1]_
-    :p Xmax: easternmost longitude `[double or float]` [#f1]_
-    :p Ymax: northernmost latitude `[double or float]` [#f1]_
-    :p res: map resolution `[double or float]` [#f1]_
+    :call: :f:prog:`dealloc(idata)`
 
 .. [#f1] Defined by user 
 
 
-[Code example] Create grided data in fortran 90
------------------------------------------------
+[Code example] Deallocating of a dataset structure
+--------------------------------------------------
 
-Create a grid dataset from map extent ``-74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965`` and ``1.0`` degree resolution.
+Reusing the same structure to read multiple NetCDF files.
 
 .. literalinclude:: fortran/9_dealloc.f90
    :language: fortran

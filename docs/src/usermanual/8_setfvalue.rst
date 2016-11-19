@@ -4,7 +4,7 @@ setFillValue subroutine
 .. highlight:: fortran
    :linenothreshold: 2
 
-Generates grids from user-defined coordinates and resolution.
+Set a Fill Value from a mask data in an array.
 
 Hou to use
 ==========
@@ -16,10 +16,10 @@ Hou to use
     :p num[optional]: Parameter filtering according to mask
     :call: :f:prog:`setFillValue(mask,map[,num])`
 
-[Code example] Create grided data in fortran 90
------------------------------------------------
+[Code example] Masks a NetCDF dataset
+-------------------------------------
 
-Create a grid dataset from map extent ``-74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965`` and ``1.0`` degree resolution.
+Masks the 23 years of brazilian cattle productivity to São Paulo using the states map.
 
 .. literalinclude:: fortran/8_setfvalue.f90
    :language: fortran

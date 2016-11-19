@@ -68,5 +68,7 @@ ex4:
 	gfortran $(FLAGS) -o ex4_gengrid.out ex4_gengrid.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 ex5:	
 	gfortran $(FLAGS) -o ex5_utils.out ex5_utils.f90 $(f90NetCDF_module) $(f90NetCDF_library)
+ex6:	
+	gfortran $(FLAGS) -o ex6_dealloc.out ex6_dealloc.f90 $(f90NetCDF_module) $(f90NetCDF_library)
 clean:
 	rm -f *.out
