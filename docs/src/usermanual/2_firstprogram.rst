@@ -1,6 +1,8 @@
 How to Start
 ************
 
+Build the library according to :ref:`buildlib`.
+
 First program
 =============
 
