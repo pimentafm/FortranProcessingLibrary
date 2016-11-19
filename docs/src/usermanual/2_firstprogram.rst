@@ -17,7 +17,7 @@ Create a program in fortran 90 standard using the f90NetCDF module.
     write(*,*) "This is my first program using " f90NetCDF_libversion()
   end program myfirstprogram
 
-Save as file (**myfirstprogram.f90**) and compiling using gfortran.
+Save as file (**myfirstprogram.f90**) and compiling using **gfortran**.
 
 .. highlight:: sh
 

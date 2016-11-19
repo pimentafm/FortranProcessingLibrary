@@ -9,7 +9,7 @@ User Manual
    3_defdata.rst
    4_griddims.rst
    5_readgrid.rst
-   6_writegrid.rst
-   7_gengrid.rst
+   6_gengrid.rst
+   7_writegrid.rst
    8_setfvalue.rst
    9_dealloc.rst

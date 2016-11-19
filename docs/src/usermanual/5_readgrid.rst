@@ -20,8 +20,8 @@ Hou to use
 .. [#f1] Defined by user 
 
 
-[Code example] Read data from NetCDF using fortran 90
------------------------------------------------------
+[Code example] Read data from NetCDF
+------------------------------------
 
 Read a dataset.
 

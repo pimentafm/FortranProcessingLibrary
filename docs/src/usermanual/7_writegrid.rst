@@ -20,12 +20,12 @@ Hou to use
 .. [#f1] Defined by user 
 
 
-[Code example] Write data to NetCDF using fortran 90
-----------------------------------------------------
+[Code example] Write data to NetCDF
+------------------------------------
 
 Write a NetCDF dataset.
 
-.. literalinclude:: fortran/6_writegrid.f90
+.. literalinclude:: fortran/7_writegrid.f90
    :language: fortran
 
 .. highlight:: sh

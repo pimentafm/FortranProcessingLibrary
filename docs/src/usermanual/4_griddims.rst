@@ -23,8 +23,8 @@ Hou to use
 .. [#f1] Defined by user 
 
 
-[Code example]  fortran 90
------------------------------------------------
+[Code example] Read dataset information
+---------------------------------------
 
 Get the number of latitudes and longitudes of a file.
 
