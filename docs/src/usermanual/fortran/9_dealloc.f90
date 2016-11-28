@@ -1,5 +1,5 @@
 program main
-  use f90NetCDF
+  use FPL
   implicit none
 
   integer(kind=4) :: k

@@ -1,22 +1,22 @@
 #!/bin/bash
 
 echo "!:=============================================================================
-! This file is part of f90NetCDF (Fortran 90 API for NetCDF).
+! This file is part of FPL (Fortran Processing Library).
 
 ! Copyright (C) 2015 Fernando Martins Pimenta
 
-! f90NetCDF is free software: you can redistribute it and/or modify
+! FPL is free software: you can redistribute it and/or modify
 ! it under the terms of the GNU General Public License as published by
 ! the Free Software Foundation, either version 3 of the License, or
 ! (at your option) any later version.
 
-! f90NetCDF is distributed in the hope that it will be useful,
+! FPL is distributed in the hope that it will be useful,
 ! but WITHOUT ANY WARRANTY; without even the implied warranty of
 ! MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ! GNU General Public License for more details.
 
 ! You should have received a copy of the GNU General Public License
-! along with f90NetCDF.  If not, see <http://www.gnu.org/licenses/>.
+! along with FPL.  If not, see <http://www.gnu.org/licenses/>.
 
 !:=============================================================================
 ! About Author:
@@ -66,10 +66,16 @@ for j in {3..4};do # lon, lat
 for i in {0..4};do
   echo "
 !NetCDF(lon, lat) ${arr[$i]}
-subroutine dealloc2d_${arr[$i]}_ll${arrid[$j]}(idata)
-  type(nc2d_${arr[$i]}_ll${arrid[$j]}) :: idata
-  deallocate(idata%longitudes, idata%latitudes, idata%ncdata)
-end subroutine dealloc2d_${arr[$i]}_ll${arrid[$j]}"
+
+type :: nc2d_${arr[$i]}_ll${arrid[$j]}
+  sequence
+  character(len=100) :: varname, lonname, latname, long_name, varunits, &
+                        lonunits, latunits
+  integer(kind=intgr) :: nlons, nlats, vartype
+  ${arr2[$i]} :: FillValue
+  real(kind=${arr[$j]}), dimension(:), allocatable :: longitudes, latitudes
+  ${arr2[$i]}, dimension(:,:), allocatable :: ncdata
+end type nc2d_${arr[$i]}_ll${arrid[$j]}"
 done
 done
 
@@ -79,10 +85,17 @@ for j in {3..4};do # lon, lat
 for i in {0..4};do
   echo "
 !NetCDF(lon, lat, time) ${arr[$i]}
-subroutine dealloc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(idata)
-  type(nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}) :: idata
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata)
-end subroutine dealloc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}"
+type :: nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}
+
+  sequence
+  character(len=100) :: varname, timename, lonname, latname, long_name, &
+                        varunits, lonunits, latunits, timeunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  ${arr2[$i]} :: FillValue
+  ${arr2[$k]}, dimension(:), allocatable :: times
+  real(kind=${arr[$j]}), dimension(:), allocatable :: longitudes, latitudes
+  ${arr2[$i]}, dimension(:,:,:), allocatable :: ncdata
+end type nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}"
 done
 done
 done
@@ -94,11 +107,21 @@ for j in {3..4};do # lon, lat
 for i in {0..4};do
   echo "
 !NetCDF(lon, lat, time, level) ${arr[$i]}
-subroutine dealloc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(idata)
-  type(nc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}) :: idata
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata)
-end subroutine dealloc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}"
+type :: nc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}
+
+  sequence
+  character(len=100) :: varname, timename, levelname, lonname, latname, &
+                        long_name, varunits, lonunits, latunits, &
+                        timeunits, levelunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
+  ${arr2[$i]} :: FillValue
+  ${arr2[$l]}, dimension(:), allocatable :: levels
+  ${arr2[$k]}, dimension(:), allocatable :: times
+  real(kind=${arr[$j]}), dimension(:), allocatable :: longitudes, latitudes
+  ${arr2[$i]}, dimension(:,:,:,:), allocatable :: ncdata
+end type nc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}"
 done
 done
 done
 done
+

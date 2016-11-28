@@ -5,7 +5,7 @@ writegrid3d (3-dimensional Dataset)
 
 writegrid3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` subroutine is used to write a 3-dimensional NetCDF dataset into a file. 
 Combinations can be made for the statements of this subroutine by replacing ``[vdt]`` 
-by one of the data types defined in the **f90NetCDF** library (``[byte, short, int, float, double]``), 
+by one of the data types defined in the **FPL** library (``[byte, short, int, float, double]``), 
 ``[cdt]`` by a defined suffix for the data type of the coordinates ``f`` for float and ``d`` for double and
 ``[tdt]`` by a defined suffix for the datatype of time (``i`` for integer, ``f`` for float and ``d`` for double).
 
@@ -18,7 +18,7 @@ writegrid3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (ifile, idata)
  :``[tdt]``: time datatype (integer ``i``, float ``f``, double ``d``)
 :Subroutine Parameters:
  :``ofile``: file path `[character]` 
- :``odata``: 3d dataset structure `[f90NetCDF defined type structure]` 
+ :``odata``: 3d dataset structure `[FPL defined type structure]` 
  :``headerfile``: text file `[character]` `[optional]`
 :Local parameters: 
  :``ncid``: map ID `[integer]`
@@ -89,7 +89,7 @@ Write a 3-dimensional NetCDF dataset with variable declared as short coordinates
   
     !Put Global Attributes
     call fdate_time(sysdatetime)
-    call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+    call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by FPL API v0.1"))
     call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
    
    !Check if headerfile was setted

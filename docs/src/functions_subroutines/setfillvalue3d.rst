@@ -5,7 +5,7 @@ setfillvalue3d (3-dimensional Dataset)
 
 setfillvalue3d _ ``[maskdt][mapdt]`` _ll ``[cdt]`` _t ``[tdt]`` subroutine is used to create a mask in a 3-dimensional NetCDF
 using another map. Combinations can be made for the statements of this subroutine by replacing ``[maskdt]`` and ``[mapdt]`` 
-by one of the data types defined in the **f90NetCDF** library (``[byte, short, int, float, double]``), 
+by one of the data types defined in the **FPL** library (``[byte, short, int, float, double]``), 
 ``[cdt]`` by a defined suffix for the data type of the coordinates ``f`` for float and ``d`` for double and
 ``[tdt]`` by a defined suffix for the datatype of time (``i`` for integer, ``f`` for float and ``d`` for double).
 
@@ -18,9 +18,9 @@ setfillvalue3d _ ``[maskdt][mapdt]`` _ll ``[cdt]`` _t ``[tdt]`` (ifile, idata)
  :``[cdt]``: coordinates datatype (float ``f``, double ``d``).
  :``[tdt]``: time datatype (integer ``i``, float ``f``, double ``i``)
 :Subroutine Parameters:
- :``mask``: map to use as mask `[f90NetCDF defined type structure]` 
- :``map``: map to be masked `[f90NetCDF defined type structure]` 
- :``num``: number in ``mask`` `[optional]` `[f90NetCDF defined type structure]` 
+ :``mask``: map to use as mask `[FPL defined type structure]` 
+ :``map``: map to be masked `[FPL defined type structure]` 
+ :``num``: number in ``mask`` `[optional]` `[FPL defined type structure]` 
 :Local parameters: 
  :``i``: variable to iterate longitude positions `[integer]`
  :``j``: variable to iterate latitude positions `[integer]`

@@ -32,28 +32,27 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
 
-!:========================= Defined constants =================================
-program constants
-  use fpl
+!:==================== Fortran NetCDF API Main Module =========================
+module FPL
+  use omp_lib
+  use netcdf
+  use iso_c_binding
   implicit none
+  include "FPL_constants.f90"    !Parameter variables
+  include "FPL_datatypes.f90"    !Datatype structure declarations
+  include "FPL_interfaces.f90"   !Interfaces for subroutines definitions and datatypes
 
-  write(*,*) FPL_libversion()
-  write(*,*) "============================"
+  contains
+  include "FPL_checkerror.f90"   !Error checker subroutines
+  include "FPL_datetime.f90"     !System date-time subroutine
+  include "FPL_griddims.f90"     !Subroutines to get the number of coordinates from NetCDF file
+  include "FPL_readgrid.f90"     !NetCDF file reader subroutines
+  include "FPL_writegrid.f90"    !NetCDF file writer subroutines
+  include "FPL_setfillvalue.f90" !Set FillValue and mask creator subroutines
+  include "FPL_gengrid.f90"      !Generate custom grid 
+  include "FPL_dealloc.f90"      !Deallocate subroutines
+  include "FPL_fileutils.f90"   !File Utilities
+  include "FPL_misc.f90"   !File Utilities
+! include "FPL_zonalstats.f90"  !Zonal Statistics subroutines
+end module FPL
 
-  write(*,'(a8,i2)') "   BYTE: ", byte
-  write(*,'(a8,i2)') "  SHORT: ", short
-  write(*,'(a8,i2)') "INTEGER: ", intgr
-  write(*,'(a8,i2)') "  FLOAT: ", float
-  write(*,'(a8,i2)') " DOUBLE: ", double, char(10) !char(10) skip a line
-  
-  write(*,*) "FPL parameters and constants"
-  write(*,*) "=================================="
-  write(*,'(a39,f12.9)') "                                  pi: ", pi
-  write(*,'(a39,f12.6)') "        Average radius of earth (km): ", earth_radius
-  write(*,'(a39,f10.7)') "     Acceleration of gravity (m/s^2): ", acc_gravity
-  write(*,'(a39,f12.1)') "            Speed of the light (m/s): ", speed_of_light
-  write(*,'(a39,es13.6e2)') " Stefan-Boltzmann constant (W/m^2K^4): ", stefan_boltzmann
-  write(*,'(a39,es15.8e2)') "          Boltzmann constant (JK^-1): ", boltzmann
-  write(*,'(a39,es16.9e2)') "           Atomic mass constant (kg): ", atomic_mass
-  write(*,'(a39,es16.9e2)') "          Avogadro constant (mol^-1): ", avogadro
-end program constants

@@ -12,7 +12,7 @@ Hou to use
 .. f:subroutine:: writegrid(ifile,idata,[headerfile])
 
     :p ifile: dataset file path `[character]` [#f1]_
-    :p idata: map structure to be readed `[f90NetCDF defined type structure]` [#f1]_
+    :p idata: map structure to be readed `[FPL defined type structure]` [#f1]_
     :o headerfile: text file with metadata informations `[character]` `[optional]`  [#f1]_
     :r file: NetCDF dataset
     :call: :f:prog:`writegrid(ifile,idata[,headerfile])`
@@ -33,15 +33,15 @@ Write a NetCDF dataset.
 ::
 
    #RedHat based systems
-   gfortran -o writegrid.out writegrid.f90 -I/usr/lib64/gfortran/modules/ -lf90NetCDF
+   gfortran -o writegrid.out writegrid.f90 -I/usr/lib64/gfortran/modules/ -lFPL
    
    #Debian based systems
-   gfortran -o writegrid.out writegrid.f90 -I/usr/include/ -lf90NetCDF
+   gfortran -o writegrid.out writegrid.f90 -I/usr/include/ -lFPL
 
 .. important::
    ``-I<dir>`` This option specifies where to put .mod files for compiled modules. It is also added to the list of directories to Influencing the linking step. `See the GNU Fortran Compiler Documentation <https://gcc.gnu.org/onlinedocs/gfortran/>`_ .
    
-   ``<dir>`` is defined in Makefile as ``$(f90NetCDF_moddir)``. See :ref:`buildlib`.
+   ``<dir>`` is defined in Makefile as ``$(FPL_moddir)``. See :ref:`buildlib`.
    
 
 After compilation run the program ``./writegrid.out``

@@ -5,7 +5,7 @@ nc3d (3-dimensional Dataset)
 
 nc3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` structure is used to declare a 3-dimensional NetCDF dataset. 
 Combinations can be made for the declaration of the structure by replacing ``[vdt]`` 
-by one of the data types defined in the **f90NetCDF** library (``[byte, short, int, float, double]``), 
+by one of the data types defined in the **FPL** library (``[byte, short, int, float, double]``), 
 ``[cdt]`` by a defined suffix for the data type of the coordinates ``f`` for float and ``d`` for double and
 ``[tdt]`` by a defined suffix for the datatype of time (``i`` for integer, ``f`` for float and ``d`` for double).
 

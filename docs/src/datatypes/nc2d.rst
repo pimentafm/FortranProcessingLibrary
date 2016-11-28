@@ -5,7 +5,7 @@ nc2d (2-dimensional Dataset)
 
 nc2d _ ``[vdt]`` _ll ``[cdt]`` structure is used to declare a 2-dimensional NetCDF dataset. 
 Combinations can be made for the declaration of the structure by replacing ``[vdt]`` 
-by one of the data types defined in the **f90NetCDF** library (``[byte, short, int, float, double]``) 
+by one of the data types defined in the **FPL** library (``[byte, short, int, float, double]``) 
 and ``[cdt]`` by a defined suffix for the data type of the coordinates ``f`` for float and ``d`` for double.
 
 nc2d _ ``[vdt]`` _ll ``[cdt]``

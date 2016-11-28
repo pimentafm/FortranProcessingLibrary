@@ -5,7 +5,7 @@ writegrid2d (2-dimensional Dataset)
 
 writegrid2d _ ``[vdt]`` _ll ``[cdt]`` subroutine is used to write a 2-dimensional NetCDF dataset into a file. 
 Combinations can be made for the statements of this subroutine by replacing ``[vdt]`` 
-by one of the data types defined in the **f90NetCDF** library (``[byte, short, int, float, double]``) 
+by one of the data types defined in the **FPL** library (``[byte, short, int, float, double]``) 
 and ``[cdt]`` by a defined suffix for the data type of the coordinates (``f`` for float and ``d`` for double).
 
 writegrid2d _ ``[vdt]`` _ll ``[cdt]`` (ifile, idata)
@@ -16,7 +16,7 @@ writegrid2d _ ``[vdt]`` _ll ``[cdt]`` (ifile, idata)
  :``[cdt]``: coordinates datatype(float ``f``, double ``d``).
 :Subroutine Parameters:
  :``ofile``: file path `[character]` 
- :``odata``: 2d dataset structure `[f90NetCDF defined type structure]` 
+ :``odata``: 2d dataset structure `[FPL defined type structure]` 
  :``headerfile``: text file `[character]` `[optional]`
 :Local parameters: 
  :``ncid``: map ID `[integer]`
@@ -81,7 +81,7 @@ Write a 2-dimensional NetCDF dataset with variable declared as integer and coord
    
     !Put Global Attributes
     call fdate_time(sysdatetime)
-    call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+    call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by FPL API v0.1"))
     call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
     
    !Check if headerfile was setted

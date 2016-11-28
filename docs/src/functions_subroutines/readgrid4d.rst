@@ -5,7 +5,7 @@ readgrid4d (4-dimensional Dataset)
 
 readgrid4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` subroutine is used to read and alloc a 4-dimensional NetCDF dataset into a datatype structure. 
 Combinations can be made for the statements of this subroutine by replacing ``[vdt]`` by one of the data types 
-defined in the **f90NetCDF** library (``[byte, short, int, float, double]``), ``[cdt]`` by a defined suffix 
+defined in the **FPL** library (``[byte, short, int, float, double]``), ``[cdt]`` by a defined suffix 
 for the data type of the coordinates (``f`` for float and ``d`` for double), ``[tdt]`` by a defined suffix 
 for the datatype of time (``i`` for integer, ``f`` for float and ``d`` for double) and ``[ldt]`` for a level suffix ((``f`` for float and ``d`` for double).
 
@@ -19,7 +19,7 @@ readgrid4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` (ifile, idata)
  :``[ldt]``: level datatype (integer ``i``,float ``f``)
 :Subroutine Parameters:
  :``ifile``: file path `[character]` 
- :``idata``: 4d dataset structure `[f90NetCDF defined type structure]` 
+ :``idata``: 4d dataset structure `[FPL defined type structure]` 
 :Local parameters: 
  :``ncid``: map ID `[integer]`
  :``xdimid``: longitude dimension ID `[integer]`

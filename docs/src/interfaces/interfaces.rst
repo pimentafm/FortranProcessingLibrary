@@ -1,7 +1,7 @@
 .. highlight:: fortran
    :linenothreshold: 2
 
-Interfaces can be seen in f90NetCDF/src/**f90NetCDF_interfaces.f90**
+Interfaces can be seen in FPL/src/**FPL_interfaces.f90**
 
 checkerror
 ----------

@@ -5,7 +5,7 @@ readgrid2d (2-dimensional Dataset)
 
 readgrid2d _ ``[vdt]`` _ll ``[cdt]`` subroutine is used to read and alloc a 2-dimensional NetCDF dataset into a datatype structure. 
 Combinations can be made for the statements of this subroutine by replacing ``[vdt]`` 
-by one of the data types defined in the **f90NetCDF** library (``[byte, short, int, float, double]``) 
+by one of the data types defined in the **FPL** library (``[byte, short, int, float, double]``) 
 and ``[cdt]`` by a defined suffix for the data type of the coordinates ``f`` for float and ``d`` for double.
 
 readgrid2d _ ``[vdt]`` _ll ``[cdt]`` (ifile, idata)
@@ -16,7 +16,7 @@ readgrid2d _ ``[vdt]`` _ll ``[cdt]`` (ifile, idata)
  :``[cdt]``: coordinates datatype(float ``f``, double ``d``).
 :Subroutine Parameters:
  :``ifile``: file path `[character]` 
- :``idata``: 2d dataset structure `[f90NetCDF defined type structure]` 
+ :``idata``: 2d dataset structure `[FPL defined type structure]` 
 :Local parameters: 
  :``ncid``: map ID `[integer]`
  :``xdimid``: longitude dimension ID `[integer]`

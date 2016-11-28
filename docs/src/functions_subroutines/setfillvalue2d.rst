@@ -5,7 +5,7 @@ setfillvalue2d (2-dimensional Dataset)
 
 setfillvalue2d _ ``[maskdt][mapdt]`` _ll ``[cdt]`` subroutine is used to create a mask in a 2-dimensional NetCDF using another map. 
 Combinations can be made for the statements of this subroutine by replacing ``[maskdt]`` and ``[mapdt]`` 
-by one of the data types defined in the **f90NetCDF** library (``[byte, short, int, float, double]``) 
+by one of the data types defined in the **FPL** library (``[byte, short, int, float, double]``) 
 and ``[cdt]`` by a defined suffix for the data type of the coordinates (``f`` for float and ``d`` for double).
 
 setfillvalue2d _ ``[maskdt][mapdt]`` _ll ``[cdt]`` (ifile, idata)
@@ -16,9 +16,9 @@ setfillvalue2d _ ``[maskdt][mapdt]`` _ll ``[cdt]`` (ifile, idata)
  :``[mapdt]``: variable datatype for map `[byte, short, int, float, double]`
  :``[cdt]``: coordinates datatype (float ``f``, double ``d``).
 :Subroutine Parameters:
- :``mask``: map to use as mask `[f90NetCDF defined type structure]` 
- :``map``: map to be masked `[f90NetCDF defined type structure]` 
- :``num``: number in ``mask`` `[optional]` `[f90NetCDF defined type structure]` 
+ :``mask``: map to use as mask `[FPL defined type structure]` 
+ :``map``: map to be masked `[FPL defined type structure]` 
+ :``num``: number in ``mask`` `[optional]` `[FPL defined type structure]` 
 :Local parameters: 
  :``i``: variable to iterate longitude positions `[integer]`
  :``j``: variable to iterate latitude positions `[integer]`

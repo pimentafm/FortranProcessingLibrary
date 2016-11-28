@@ -5,7 +5,7 @@ writegrid4d (4-dimensional Dataset)
 
 writegrid4d _ ``[vdt]`` _ll ``[cdt]`` subroutine is used to write a 4-dimensional NetCDF dataset into a file. 
 Combinations can be made for the statements of this subroutine by replacing ``[vdt]`` 
-defined in the **f90NetCDF** library (``[byte, short, int, float, double]``), ``[cdt]`` by a defined suffix 
+defined in the **FPL** library (``[byte, short, int, float, double]``), ``[cdt]`` by a defined suffix 
 for the data type of the coordinates (``f`` for float and ``d`` for double), ``[tdt]`` by a defined suffix 
 for the datatype of time (``i`` for integer, ``f`` for float and ``d`` for double) and ``[ldt]`` for a level suffix ((``f`` for float and ``d`` for double).
 
@@ -19,7 +19,7 @@ writegrid4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` (ifile, idata)
  :``[ldt]``: level datatype (integer ``i``, float ``f``)
 :Subroutine Parameters:
  :``ofile``: file path `[character]` 
- :``odata``: 4d dataset structure `[f90NetCDF defined type structure]` 
+ :``odata``: 4d dataset structure `[FPL defined type structure]` 
  :``headerfile``: text file `[character]` `[optional]`
 :Local parameters: 
  :``ncid``: map ID `[integer]`
@@ -97,7 +97,7 @@ Write a 4-dimensional NetCDF dataset with variable declared as short coordinates
   
     !Put Global Attributes
     call fdate_time(sysdatetime)
-    call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by f90NetCDF API v0.1"))
+    call check(nf90_put_att(ncid, nf90_global, "History", sysdatetime//" Created by FPL API v0.1"))
     call check(nf90_put_att(ncid, nf90_global, "NetCDF-Version", trim(nf90_inq_libvers())))
    
    !Check if headerfile was setted

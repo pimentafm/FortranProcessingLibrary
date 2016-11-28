@@ -5,7 +5,7 @@ griddims3d (3-dimensional Dataset)
 
 griddims3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` subroutine is used to read the dimension informations in a 3-dimensional NetCDF dataset. 
 Combinations can be made for the statements of this subroutine by replacing ``[vdt]`` 
-by one of the data types defined in the **f90NetCDF** library (``[byte, short, int, float, double]``), 
+by one of the data types defined in the **FPL** library (``[byte, short, int, float, double]``), 
 ``[cdt]`` by a defined suffix for the data type of the coordinates ``f`` for float and ``d`` for double and
 ``[tdt]`` by a defined suffix for the datatype of time (``i`` for integer, ``f`` for float and ``d`` for double).
 
@@ -18,7 +18,7 @@ griddims3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (ifile, idata)
  :``[tdt]``: time datatype (integer ``i``, float ``f``, double ``i``)
 :Subroutine Parameters:
  :``ifile``: file path `[character]` 
- :``idata``: 3d dataset structure `[f90NetCDF defined type structure]` 
+ :``idata``: 3d dataset structure `[FPL defined type structure]` 
 :Local parameters: 
  :``ncid``: map ID `[integer]`
  :``tdimid``: time dimension ID `[integer]`

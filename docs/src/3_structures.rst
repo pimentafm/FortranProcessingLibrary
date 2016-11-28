@@ -3,39 +3,39 @@ API
 .. highlight:: fortran
    :linenothreshold: 2
 
-f90NetCDF module
+FPL module
 ================
 
-**f90NetCDF** works as a module and can be compiled with other programs.
+**FPL** works as a module and can be compiled with other programs.
 Its structure is composed of several files containing all definitions of data types, 
 external libraries and intrinsic functions.
 
 ::
 
-  !f90NetCDF.f90
-  module f90NetCDF
+  !FPL.f90
+  module FPL
     use omp_lib
     use netcdf
     use iso_c_binding
     implicit none
-    include "f90NetCDF_constants.f90"   !Parameter definitions
-    include "f90NetCDF_datatypes.f90"   !Datatype structure declarations
-    include "f90NetCDF_interfaces.f90"  !Interfaces for subroutines/functions definitions and datatypes
+    include "FPL_constants.f90"   !Parameter definitions
+    include "FPL_datatypes.f90"   !Datatype structure declarations
+    include "FPL_interfaces.f90"  !Interfaces for subroutines/functions definitions and datatypes
   
     contains
-    include "f90NetCDF_checkerror.f90"  !Error checker subroutines
-    include "f90NetCDF_datetime.f90"    !System date-time subroutines
-    include "f90NetCDF_griddims.f90"    !Subroutines to get the number of coordinates and basic info from NetCDF file
-    include "f90NetCDF_readgrid.f90"    !NetCDF file reader subroutines
-    include "f90NetCDF_writegrid.f90"   !NetCDF file writer subroutines
-    include "f90NetCDF_fvalue.f90"      !Set FillValue and mask creator subroutines
-    include "f90NetCDF_fileutils.f90"   !File utilities
-  end module f90NetCDF
+    include "FPL_checkerror.f90"  !Error checker subroutines
+    include "FPL_datetime.f90"    !System date-time subroutines
+    include "FPL_griddims.f90"    !Subroutines to get the number of coordinates and basic info from NetCDF file
+    include "FPL_readgrid.f90"    !NetCDF file reader subroutines
+    include "FPL_writegrid.f90"   !NetCDF file writer subroutines
+    include "FPL_fvalue.f90"      !Set FillValue and mask creator subroutines
+    include "FPL_fileutils.f90"   !File utilities
+  end module FPL
 
 Data Types and Parameter Definitions
 ====================================
 
-**f90NetCDF** supports 5 datatype structures: **BYTE**, **SHORT**, **INTEGER**, **FLOAT** and **DOUBLE**.
+**FPL** supports 5 datatype structures: **BYTE**, **SHORT**, **INTEGER**, **FLOAT** and **DOUBLE**.
 
 +---------+------------------+------------------+-----------------------+
 |  Type   | Minimum value    | Maximum value    | Default FillValue     |
@@ -51,7 +51,7 @@ Data Types and Parameter Definitions
 | double  | +/- 2.22507e-308 | +/- 8.98846e+307 | 9.969209968386869e+36 |
 +---------+------------------+------------------+-----------------------+
 
-Numeric datatypes are defined using **ISO_C_BINDINGS** module into the file **f90NetCDF_constants.f90**.
+Numeric datatypes are defined using **ISO_C_BINDINGS** module into the file **FPL_constants.f90**.
 Parameters can be defined into this file too.
 
 ::
@@ -72,7 +72,7 @@ Parameters can be defined into this file too.
   real(kind=double), parameter :: avogadro = 6.022140857e23       ! Avogadro constant ~ mol^-1
 
 
-**f90NetCDF** can read and write data up to 4 dimensions in a much simpler way using dynamic data structures and dynamic modules as follows:
+**FPL** can read and write data up to 4 dimensions in a much simpler way using dynamic data structures and dynamic modules as follows:
 
 Type Structures
 ===============

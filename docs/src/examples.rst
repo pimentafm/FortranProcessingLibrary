@@ -3,7 +3,7 @@
 Examples
 ========
 
-Examples of using **f90NetCDF**.
+Examples of using **FPL**.
 
 +------------------+--------------------+---------------------+
 |:ref:`example_01` |:ref:`example_02`   |:ref:`example_03`    |

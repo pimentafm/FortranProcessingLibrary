@@ -5,7 +5,7 @@ gengrid4d (3-dimensional Dataset)
 
 gengrid4d _ ``[vdt]`` _ll ``[cdt]`` subroutine is used to create a 4-dimensional dataset defined by user. 
 Combinations can be made for the statements of this structure by replacing ``[vdt]`` by one of the data types 
-defined in the **f90NetCDF** library (``[byte, short, int, float, double]``), ``[cdt]`` by a defined suffix 
+defined in the **FPL** library (``[byte, short, int, float, double]``), ``[cdt]`` by a defined suffix 
 for the data type of the coordinates (``f`` for float and ``d`` for double), ``[tdt]`` by a defined suffix 
 for the datatype of time (``i`` for integer, ``f`` for float and ``d`` for double) and ``[ldt]`` for a level suffix ((``f`` for float and ``d`` for double).
 
@@ -18,7 +18,7 @@ gengrid4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` (idata, Xmin, Ymin
  :``[tdt]``: time datatype (integer ``i``, float ``f``, double ``d``)
  :``[ldt]``: level datatype (integer ``i``, float ``f``)
 :Subroutine Parameters:
- :``idata``: map to be created  `[f90NetCDF defined type structure]`
+ :``idata``: map to be created  `[FPL defined type structure]`
  :``Xmin``: westernmost longitude `[double` or `float]` 
  :``Ymin``: southernmost latitude `[double` or `float]`
  :``Xmax``: easternmost longitude `[double` or `float]`
