@@ -29,7 +29,6 @@
 *.kate-swp
 
 #images
-*.png
 *.jpeg
 *.jpg
 *.svg
