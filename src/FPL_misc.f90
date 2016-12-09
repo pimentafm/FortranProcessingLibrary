@@ -34,6 +34,6 @@
 
 !FPL version
 function FPL_libversion() result(fv)
-  character(len=21) :: fv
-  fv = "FPL Version 1.0"
+  character(len=45) :: fv
+  fv = "FPL - Fortran Processing Library Version 1.0"
 end function FPL_libversion

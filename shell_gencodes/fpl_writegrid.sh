@@ -106,7 +106,7 @@ subroutine writegrid2d_${arr[$i]}_ll${arrid[$j]}(ofile, odata, headerfile)
  
   !Put Global Attributes
   call fdate_time(sysdatetime)
-  call check(nf90_put_att(ncid, nf90_global, "'"'History'"'", sysdatetime//"'"' Created by FPL API v0.1'"'"))
+  call check(nf90_put_att(ncid, nf90_global, "'"'History'"'", sysdatetime//"'"' Created by FPL - Fortran Processing Library v0.1'"'"))
   call check(nf90_put_att(ncid, nf90_global, "'"'NetCDF-Version'"'", trim(nf90_inq_libvers())))
   
   !Check if headerfile was setted
@@ -191,7 +191,7 @@ subroutine writegrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ofile, odata, hea
 
   !Put Global Attributes
   call fdate_time(sysdatetime)
-  call check(nf90_put_att(ncid, nf90_global, "'"'History'"'", sysdatetime//"'"' Created by FPL API v0.1'"'"))
+  call check(nf90_put_att(ncid, nf90_global, "'"'History'"'", sysdatetime//"'"' Created by FPL - Fortran Processing Library v0.1'"'"))
   call check(nf90_put_att(ncid, nf90_global, "'"'NetCDF-Version'"'", trim(nf90_inq_libvers())))
  
   !Check if headerfile was setted
@@ -285,7 +285,7 @@ subroutine writegrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(ofi
 
   !Put Global Attributes
   call fdate_time(sysdatetime)
-  call check(nf90_put_att(ncid, nf90_global, "'"'History'"'", sysdatetime//"'"' Created by FPL API v0.1'"'"))
+  call check(nf90_put_att(ncid, nf90_global, "'"'History'"'", sysdatetime//"'"' Created by FPL - Fortran Processing Library v0.1'"'"))
   call check(nf90_put_att(ncid, nf90_global, "'"'NetCDF-Version'"'", trim(nf90_inq_libvers())))
  
   !Check if headerfile was setted
