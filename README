@@ -41,9 +41,10 @@ TODO:
      [Partially OK] Parallelize the code.
      [Partially OK] Creategrid subroutine.
      [OK] Develop a deallocate datatype subroutine/function.
-     [->] Add check class error subroutine if not encounter number of class into map.
      [->] Reimplementation of zonal statistics subroutines/functions
           [->] Fixes output format for zonal statistics subroutines.
+          [->] Add check class error subroutine if not encounter number of class into map.
      [->] Implement map plotting subroutines (GMT/Python/GNUPLOT ????).
      [->] Implement subroutines to convert datatypes.
      [->] Command Line Args subroutines
+     [->] Modify the file_exists subroutine to warn "file does not exist" and continue running.
