@@ -1,5 +1,5 @@
 program main
-  use f90netcdf
+  use fpl
   implicit none
 
   !Database download from UNIDATA:

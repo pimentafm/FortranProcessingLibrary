@@ -1,5 +1,5 @@
 program main
-  use f90netcdf
+  use fpl
   implicit none
 
   !Structure declarations for CATTLE19902012.nc (3d dataset)

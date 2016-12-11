@@ -14,9 +14,9 @@ Create a program in fortran 90 standard using the FPL module.
 ::
 
   program myfirstprogram
-    use f90netcdf !FPL module
+    use fpl !FPL module
     implicit none
-    write(*,*) "This is my first program using " FPL_libversion()
+    write(*,*) "This is my first program using " fpl_libversion()
   end program myfirstprogram
 
 Save as file (**myfirstprogram.f90**) and compiling using **gfortran**.

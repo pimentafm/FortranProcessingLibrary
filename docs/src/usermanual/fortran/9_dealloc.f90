@@ -1,5 +1,5 @@
 program main
-  use FPL
+  use fpl
   implicit none
 
   integer(kind=4) :: k

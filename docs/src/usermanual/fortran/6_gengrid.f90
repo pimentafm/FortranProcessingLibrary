@@ -1,5 +1,5 @@
 program main
-  use f90netcdf
+  use fpl
   implicit none
 
   type(nc3d_int_llf_ti) :: grid3d

@@ -1,5 +1,5 @@
 program main
-  use f90netcdf
+  use fpl
   implicit none
 
   type(nc2d_double_llf) :: grid2d

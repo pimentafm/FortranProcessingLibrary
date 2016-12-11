@@ -1,5 +1,5 @@
 program main
-  use f90netcdf
+  use fpl
   implicit none
 
   !Definition of double 4-dimensional dataset (lon, lat, time, level)
@@ -14,7 +14,7 @@ program main
   grid4d%levelname = "Pressure" !Name of level dimension
   grid4d%lonname = "lon" !Name of longitude dimension
   grid4d%latname = "lat" !Name of latitude dimension
-  grid4d%long_name = "Land Use of Brazil (2940-2012)" !NetCDF title [optional]
+  grid4d%long_name = "Land Use of Brazil (1940-2012)" !NetCDF title [optional]
 
   grid4d%varunits = "ha" !Variable unit
   grid4d%timeunits = "hour" !Time unit
