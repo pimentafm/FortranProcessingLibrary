@@ -119,6 +119,9 @@ Functions and Subroutines
    functions_subroutines/setfillvalue2d
    functions_subroutines/setfillvalue3d
    functions_subroutines/setfillvalue4d
+   functions_subroutines/dealloc2d
+   functions_subroutines/dealloc3d
+   functions_subroutines/dealloc4d
 
 Utilities
 ---------

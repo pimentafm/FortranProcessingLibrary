@@ -3,7 +3,7 @@ nc4d (4-dimensional Dataset)
 .. highlight:: fortran
    :linenothreshold: 2
 
-nc4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` structure is used to declare a 3-dimensional NetCDF dataset. 
+nc4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` structure is used to declare a 4-dimensional NetCDF dataset. 
 Combinations can be made for the declaration of the structure by replacing ``[vdt]`` by one of the data types 
 defined in the **FPL** library (``[byte, short, int, float, double]``), ``[cdt]`` by a defined suffix 
 for the data type of the coordinates (``f`` for float and ``d`` for double), ``[tdt]`` by a defined suffix 

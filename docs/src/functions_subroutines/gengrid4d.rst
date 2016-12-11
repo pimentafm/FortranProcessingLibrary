@@ -3,7 +3,7 @@ gengrid4d (3-dimensional Dataset)
 .. highlight:: fortran
    :linenothreshold: 2
 
-gengrid4d _ ``[vdt]`` _ll ``[cdt]`` subroutine is used to create a 4-dimensional dataset defined by user. 
+gengrid4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` subroutine is used to create a 4-dimensional dataset defined by user. 
 Combinations can be made for the statements of this structure by replacing ``[vdt]`` by one of the data types 
 defined in the **FPL** library (``[byte, short, int, float, double]``), ``[cdt]`` by a defined suffix 
 for the data type of the coordinates (``f`` for float and ``d`` for double), ``[tdt]`` by a defined suffix 
@@ -31,28 +31,33 @@ gengrid4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` (idata, Xmin, Ymin
 
 **Code Example:**
 
-Generate a grid of type byte with latitude and longitude defined as float. (gengrid _ ``byte`` _ll ``f``).
+Generate a grid of type byte with latitude and longitude defined as double, time and level defined as integer. (gengrid4d _ ``byte`` _ll ``d`` _t ``i`` _l ``i``).
 
 ::
 
-  !NetCDF <var byte> (lon <float>, lat <float>, time <double>)
-  subroutine gengrid4d_byte_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
-    type (nc4d_byte_llf_td) :: idata
+  !NetCDF <var byte> (lon <double>, lat <double>, time <int>, level <int>)
+  subroutine gengrid4d_byte_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
+    type (nc4d_byte_lld_ti_li) :: idata
     integer(kind=intgr) :: i
-    real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+    real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
   
     idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
     idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
   
-    allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+    allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
     allocate(idata%longitudes(idata%nlons))  
     allocate(idata%latitudes(idata%nlats))
     allocate(idata%times(idata%ntimes))
+    allocate(idata%levels(idata%nlevels))
   
-    idata%vartype = byte
+    idata%vartype = nf90_byte
   
     do i = 1, idata%ntimes
       idata%times(i) = i
+    end do
+  
+    do i = 1, idata%nlevels
+      idata%levels(i) = i
     end do
   
     idata%longitudes(1) = Xmin
@@ -64,4 +69,4 @@ Generate a grid of type byte with latitude and longitude defined as float. (geng
     do i = 1, idata%nlats - 1
       idata%latitudes(i+1) = idata%latitudes(i) + res
     end do
-  end subroutine gengrid4d_byte_llf_td
+  end subroutine gengrid4d_byte_lld_ti_li

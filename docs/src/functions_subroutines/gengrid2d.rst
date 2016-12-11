@@ -28,7 +28,7 @@ gengrid2d _ ``[vdt]`` _ll ``[cdt]`` (idata, Xmin, Ymin, Xmax, Ymax, res)
 
 **Code Example:**
 
-Generate a grid of type byte with latitude and longitude defined as float. (gengrid _ ``byte`` _ll ``f``).
+Generate a grid of type byte with latitude and longitude defined as float. (gengrid2d _ ``byte`` _ll ``f``).
 
 ::
 
