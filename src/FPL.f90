@@ -32,7 +32,7 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
 
-!:==================== Fortran NetCDF API Main Module =========================
+!:=========================== FPL Main Module =================================
 module FPL
   use omp_lib
   use netcdf
@@ -51,8 +51,8 @@ module FPL
   include "FPL_setfillvalue.f90" !Set FillValue and mask creator subroutines
   include "FPL_gengrid.f90"      !Generate custom grid 
   include "FPL_dealloc.f90"      !Deallocate subroutines
-  include "FPL_fileutils.f90"   !File Utilities
-  include "FPL_misc.f90"   !File Utilities
+  include "FPL_fileutils.f90"    !File Utilities
+  include "FPL_misc.f90"         !Miscelanious
 ! include "FPL_zonalstats.f90"  !Zonal Statistics subroutines
 end module FPL
 
