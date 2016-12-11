@@ -36,7 +36,6 @@ OS=$(shell lsb_release -si)
 VERSION=$(shell lsb_release -sr)
 ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 
-
 #FPL library and module names
 FPL_lib=libFPL.so
 FPL_mod=fpl.mod

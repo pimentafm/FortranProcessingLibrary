@@ -15,30 +15,42 @@ Directory Structure
   FPL/
            |---src/
            |      |---FPL.f90
+           |      |---FPL_checkerror.f90
            |      |---FPL_constants.f90
            |      |---FPL_datatypes.f90
-           |      |---FPL_interfaces.f90
-           |      |---FPL_griddims.f90
-           |      |---FPL_readgrid.f90
-           |      |---FPL_writegrid.f90        
-           |      |---FPL_fvalue.f90
-           |      |---FPL_checkerror.f90
            |      |---FPL_datetime.f90
-           |      |---FPL_fileutils.f90
+           |      |---FPL_dealloc.f90
+           |      |---FPL_fileutils.f90        
+           |      |---FPL_gengrid.f90
+           |      |---FPL_griddims.f90
+           |      |---FPL_interfaces.f90
+           |      |---FPL_misc.f90
+           |      |---FPL_readgrid.f90
+           |      |---FPL_setfillvalue.f90
+           |      |---FPL_writegrid.f90
+           |
            |---shell_gencodes/
            |                 |---FPL_datatype.sh
-           |                 |---FPL_interfaces.sh
+           |                 |---FPL_dealloc.sh
+           |                 |---FPL_gengrid.sh
            |                 |---FPL_griddims.sh
+           |                 |---FPL_interfaces.sh
            |                 |---FPL_readgrid.sh
-           |                 |---FPL_writegrid2d.sh
-           |                 |---FPL_fvalue.sh
+           |                 |---FPL_setfillvalue.sh
+           |                 |---FPL_writegrid.sh
+           |
            |---examples/
            |           |---Makefile
-           |           |---FPL_getinfo.f90
-           |           |---FPL_mask.f90
-           |           |---FPL_time.f90
+           |           |---ex1_constants.f90
+           |           |---ex2_getinfo.f90
+           |           |---ex3_time.f90
+           |           |---ex4_gengrid.f90
+           |           |---ex5_utils.f90
+           |           |---ex6_dealloc.f90
+           |
            |---docs/
            |       |---**Sphinx document structure**  
+           |
            |---Makefile
            |---GNUGPL
            |---README
@@ -75,7 +87,7 @@ Example below shows a configuration compatible with Fedora-based systems and som
   
   #FPL library and module names
   FPL_lib=libFPL.so
-  FPL_mod=f90netcdf.mod
+  FPL_mod=fpl.mod
   
   #Compilation parameters
   COMPILER=gfortran
@@ -161,6 +173,8 @@ Check if the compilation ran without errors running some of the example programs
   	gfortran $(FLAGS) -o ex4_gengrid.out ex4_gengrid.f90 $(FPL_module) $(FPL_library)
   ex5:	
   	gfortran $(FLAGS) -o ex5_utils.out ex5_utils.f90 $(FPL_module) $(FPL_library)
+  ex6:	
+  	gfortran $(FLAGS) -o ex6_dealloc.out ex6_dealloc.f90 $(FPL_module) $(FPL_library)
   clean:
   	rm -f *.out
 
