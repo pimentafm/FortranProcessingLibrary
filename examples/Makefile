@@ -58,6 +58,8 @@ FPL_library=-lFPL
 
 FLAGS= -Wall -O3
 
+ex0:
+	gfortran $(FLAGS) -o ex0_libtest.out ex0_libtest.f90 $(FPL_module) $(FPL_library)
 ex1:
 	gfortran $(FLAGS) -o ex1_constants.out ex1_constants.f90 $(FPL_module) $(FPL_library)
 ex2:	
