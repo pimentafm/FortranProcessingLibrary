@@ -13,3 +13,4 @@ User Manual
    7_writegrid.rst
    8_setfvalue.rst
    9_dealloc.rst
+   fileutils.rst
