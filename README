@@ -1,6 +1,6 @@
 =============================================================================
  This file is part of FPL (Fortran Processing Library).
-Copyright (C) 2015 Fernando Martins Pimenta
+ Copyright (C) 2015 Fernando Martins Pimenta
  
   FPL is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -30,6 +30,11 @@ Copyright (C) 2015 Fernando Martins Pimenta
  
  Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 =============================================================================
+
+Dependencies:
+             gcc-gfortran
+             netcdf-fortran
+             netcdf-fortran-devel
 
 TODO:
      [OK] Develop a better way to generate subroutines in fortran from ShellScripts.
