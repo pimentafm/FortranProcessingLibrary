@@ -1,0 +1,5 @@
+[Author]
+Fernando Martins Pimenta
+[Example]
+Example of using optional parameter in fortran 90 subroutine
+

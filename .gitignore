@@ -10,7 +10,6 @@
 *.bin
 
 #File Types
-*.txt
 *.nc
 *.prn
 *.swp
@@ -18,22 +17,6 @@
 *.pdf
 *.so
 
-#Eclipse Config Files
-*.cproject
-*.directory
-*.project
-*.xml
-
 #kdevelop files
 *.kdev4*
 *.kate-swp
-
-#images
-*.jpeg
-*.jpg
-*.svg
-*.ps
-*.eps
-*.tif
-
-#git files
