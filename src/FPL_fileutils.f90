@@ -41,7 +41,6 @@ function file_exists(ifile) result(fexist)
   
   if(.not.fexist)then
     write(*,*) trim(adjustl(ifile))//" don't exist."
-    stop
   end if
 end function file_exists
 
