@@ -40,7 +40,8 @@ function file_exists(ifile) result(fexist)
   inquire(file=ifile, exist=fexist)
   
   if(.not.fexist)then
-    write(*,*) trim(adjustl(ifile))//" don't exist."
+    write(*,*) achar(27)//"[1"//achar(59)// &
+               "37m"//trim(adjustl(ifile))//achar(27)//"[0m don't exist."
   end if
 end function file_exists
 
