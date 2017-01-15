@@ -17,6 +17,9 @@
 *.pdf
 *.so
 
+#directory
+*.directory
+
 #kdevelop files
 *.kdev4*
 *.kate-swp

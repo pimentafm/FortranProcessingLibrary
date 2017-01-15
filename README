@@ -35,6 +35,7 @@ Dependencies:
              gcc-gfortran
              netcdf-fortran
              netcdf-fortran-devel
+             openmpi
 
 TODO:
      [OK] Develop a better way to generate subroutines in fortran from ShellScripts.
