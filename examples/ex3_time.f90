@@ -42,7 +42,7 @@ program main
   !longitude and latitude type: double
   !time type: integer
 
-  !Related article and data download
+  !Related article and original data download
   !Dias, L.C.P., Pimenta, F.M., Santos, A.B., Costa, M.H., Ladle, R.J. (2016). 
   !Patterns of land use, extensification and intensification of Brazilian agriculture. 
   !Global Change Biology. doi:10.1111/gcb.13314
@@ -52,11 +52,9 @@ program main
  
   type(nc3d_double_lld_ti) :: cattle
 
-  !Structure declarations for maskestadosBR2012.nc (2d dataset)
+  !Structure declarations for brazil_UF.nc (2d dataset)
   !variable type: byte
   !longitude and latitude datatype: double
-  
-  !Download:
 
   type(nc2d_byte_lld) :: maskara
 
@@ -65,7 +63,7 @@ program main
   character(200) :: inputpath, outputpath, maskfile
 
   inputpath = "database/CATTLE19902012.nc"
-  maskfile = "database/maskestadosBRbyte.nc"
+  maskfile = "database/brazil_UF.nc"
   outputpath = "database/cattle19902012_mask.nc"
   
   cattle%varname = "Cattle"
@@ -73,7 +71,7 @@ program main
   cattle%lonname = "lon"
   cattle%latname = "lat"
  
-  maskara%varname = "Band1"
+  maskara%varname = "UF"
   maskara%lonname = "lon"
   maskara%latname = "lat"
  
@@ -91,7 +89,7 @@ program main
 
   write(*,*)"Setting FillValue"
   call exec_time(start_time)
-  call setFillValue(maskara, cattle, 21)
+  call setfvalue3d_bytedouble_lld_ti(maskara, cattle, 18)
   call exec_time(end_time)
   write(*,'("  Time:", f15.3," seconds")') end_time - start_time
 

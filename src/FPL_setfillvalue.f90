@@ -42,8 +42,8 @@ subroutine setfvalue2d_bytebyte_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -51,8 +51,8 @@ subroutine setfvalue2d_bytebyte_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -70,8 +70,8 @@ subroutine setfvalue2d_byteshort_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -79,8 +79,8 @@ subroutine setfvalue2d_byteshort_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -98,8 +98,8 @@ subroutine setfvalue2d_byteint_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -107,8 +107,8 @@ subroutine setfvalue2d_byteint_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -126,8 +126,8 @@ subroutine setfvalue2d_bytefloat_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -135,8 +135,8 @@ subroutine setfvalue2d_bytefloat_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -154,8 +154,8 @@ subroutine setfvalue2d_bytedouble_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -163,8 +163,8 @@ subroutine setfvalue2d_bytedouble_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -182,8 +182,8 @@ subroutine setfvalue2d_shortbyte_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -191,8 +191,8 @@ subroutine setfvalue2d_shortbyte_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -210,8 +210,8 @@ subroutine setfvalue2d_shortshort_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -219,8 +219,8 @@ subroutine setfvalue2d_shortshort_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -238,8 +238,8 @@ subroutine setfvalue2d_shortint_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -247,8 +247,8 @@ subroutine setfvalue2d_shortint_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -266,8 +266,8 @@ subroutine setfvalue2d_shortfloat_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -275,8 +275,8 @@ subroutine setfvalue2d_shortfloat_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -294,8 +294,8 @@ subroutine setfvalue2d_shortdouble_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -303,8 +303,8 @@ subroutine setfvalue2d_shortdouble_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -322,8 +322,8 @@ subroutine setfvalue2d_intbyte_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -331,8 +331,8 @@ subroutine setfvalue2d_intbyte_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -350,8 +350,8 @@ subroutine setfvalue2d_intshort_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -359,8 +359,8 @@ subroutine setfvalue2d_intshort_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -378,8 +378,8 @@ subroutine setfvalue2d_intint_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -387,8 +387,8 @@ subroutine setfvalue2d_intint_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -406,8 +406,8 @@ subroutine setfvalue2d_intfloat_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -415,8 +415,8 @@ subroutine setfvalue2d_intfloat_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -434,8 +434,8 @@ subroutine setfvalue2d_intdouble_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -443,8 +443,8 @@ subroutine setfvalue2d_intdouble_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -462,8 +462,8 @@ subroutine setfvalue2d_floatbyte_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -471,8 +471,8 @@ subroutine setfvalue2d_floatbyte_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -490,8 +490,8 @@ subroutine setfvalue2d_floatshort_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -499,8 +499,8 @@ subroutine setfvalue2d_floatshort_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -518,8 +518,8 @@ subroutine setfvalue2d_floatint_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -527,8 +527,8 @@ subroutine setfvalue2d_floatint_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -546,8 +546,8 @@ subroutine setfvalue2d_floatfloat_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -555,8 +555,8 @@ subroutine setfvalue2d_floatfloat_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -574,8 +574,8 @@ subroutine setfvalue2d_floatdouble_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -583,8 +583,8 @@ subroutine setfvalue2d_floatdouble_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -602,8 +602,8 @@ subroutine setfvalue2d_doublebyte_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -611,8 +611,8 @@ subroutine setfvalue2d_doublebyte_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -630,8 +630,8 @@ subroutine setfvalue2d_doubleshort_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -639,8 +639,8 @@ subroutine setfvalue2d_doubleshort_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -658,8 +658,8 @@ subroutine setfvalue2d_doubleint_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -667,8 +667,8 @@ subroutine setfvalue2d_doubleint_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -686,8 +686,8 @@ subroutine setfvalue2d_doublefloat_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -695,8 +695,8 @@ subroutine setfvalue2d_doublefloat_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -714,8 +714,8 @@ subroutine setfvalue2d_doubledouble_llf(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -723,8 +723,8 @@ subroutine setfvalue2d_doubledouble_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -742,8 +742,8 @@ subroutine setfvalue2d_bytebyte_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -751,8 +751,8 @@ subroutine setfvalue2d_bytebyte_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -770,8 +770,8 @@ subroutine setfvalue2d_byteshort_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -779,8 +779,8 @@ subroutine setfvalue2d_byteshort_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -798,8 +798,8 @@ subroutine setfvalue2d_byteint_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -807,8 +807,8 @@ subroutine setfvalue2d_byteint_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -826,8 +826,8 @@ subroutine setfvalue2d_bytefloat_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -835,8 +835,8 @@ subroutine setfvalue2d_bytefloat_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -854,8 +854,8 @@ subroutine setfvalue2d_bytedouble_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -863,8 +863,8 @@ subroutine setfvalue2d_bytedouble_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -882,8 +882,8 @@ subroutine setfvalue2d_shortbyte_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -891,8 +891,8 @@ subroutine setfvalue2d_shortbyte_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -910,8 +910,8 @@ subroutine setfvalue2d_shortshort_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -919,8 +919,8 @@ subroutine setfvalue2d_shortshort_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -938,8 +938,8 @@ subroutine setfvalue2d_shortint_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -947,8 +947,8 @@ subroutine setfvalue2d_shortint_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -966,8 +966,8 @@ subroutine setfvalue2d_shortfloat_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -975,8 +975,8 @@ subroutine setfvalue2d_shortfloat_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -994,8 +994,8 @@ subroutine setfvalue2d_shortdouble_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1003,8 +1003,8 @@ subroutine setfvalue2d_shortdouble_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1022,8 +1022,8 @@ subroutine setfvalue2d_intbyte_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1031,8 +1031,8 @@ subroutine setfvalue2d_intbyte_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1050,8 +1050,8 @@ subroutine setfvalue2d_intshort_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1059,8 +1059,8 @@ subroutine setfvalue2d_intshort_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1078,8 +1078,8 @@ subroutine setfvalue2d_intint_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1087,8 +1087,8 @@ subroutine setfvalue2d_intint_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1106,8 +1106,8 @@ subroutine setfvalue2d_intfloat_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1115,8 +1115,8 @@ subroutine setfvalue2d_intfloat_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1134,8 +1134,8 @@ subroutine setfvalue2d_intdouble_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1143,8 +1143,8 @@ subroutine setfvalue2d_intdouble_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1162,8 +1162,8 @@ subroutine setfvalue2d_floatbyte_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1171,8 +1171,8 @@ subroutine setfvalue2d_floatbyte_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1190,8 +1190,8 @@ subroutine setfvalue2d_floatshort_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1199,8 +1199,8 @@ subroutine setfvalue2d_floatshort_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1218,8 +1218,8 @@ subroutine setfvalue2d_floatint_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1227,8 +1227,8 @@ subroutine setfvalue2d_floatint_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1246,8 +1246,8 @@ subroutine setfvalue2d_floatfloat_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1255,8 +1255,8 @@ subroutine setfvalue2d_floatfloat_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1274,8 +1274,8 @@ subroutine setfvalue2d_floatdouble_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1283,8 +1283,8 @@ subroutine setfvalue2d_floatdouble_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1302,8 +1302,8 @@ subroutine setfvalue2d_doublebyte_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1311,8 +1311,8 @@ subroutine setfvalue2d_doublebyte_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1330,8 +1330,8 @@ subroutine setfvalue2d_doubleshort_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1339,8 +1339,8 @@ subroutine setfvalue2d_doubleshort_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1358,8 +1358,8 @@ subroutine setfvalue2d_doubleint_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1367,8 +1367,8 @@ subroutine setfvalue2d_doubleint_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1386,8 +1386,8 @@ subroutine setfvalue2d_doublefloat_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1395,8 +1395,8 @@ subroutine setfvalue2d_doublefloat_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1414,8 +1414,8 @@ subroutine setfvalue2d_doubledouble_lld(mask, map, num)
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1423,8 +1423,8 @@ subroutine setfvalue2d_doubledouble_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1444,8 +1444,8 @@ subroutine setfvalue3d_bytebyte_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1455,8 +1455,8 @@ subroutine setfvalue3d_bytebyte_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1476,8 +1476,8 @@ subroutine setfvalue3d_byteshort_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1487,8 +1487,8 @@ subroutine setfvalue3d_byteshort_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1508,8 +1508,8 @@ subroutine setfvalue3d_byteint_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1519,8 +1519,8 @@ subroutine setfvalue3d_byteint_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1540,8 +1540,8 @@ subroutine setfvalue3d_bytefloat_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1551,8 +1551,8 @@ subroutine setfvalue3d_bytefloat_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1572,8 +1572,8 @@ subroutine setfvalue3d_bytedouble_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1583,8 +1583,8 @@ subroutine setfvalue3d_bytedouble_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1604,8 +1604,8 @@ subroutine setfvalue3d_shortbyte_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1615,8 +1615,8 @@ subroutine setfvalue3d_shortbyte_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1636,8 +1636,8 @@ subroutine setfvalue3d_shortshort_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1647,8 +1647,8 @@ subroutine setfvalue3d_shortshort_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1668,8 +1668,8 @@ subroutine setfvalue3d_shortint_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1679,8 +1679,8 @@ subroutine setfvalue3d_shortint_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1700,8 +1700,8 @@ subroutine setfvalue3d_shortfloat_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1711,8 +1711,8 @@ subroutine setfvalue3d_shortfloat_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1732,8 +1732,8 @@ subroutine setfvalue3d_shortdouble_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1743,8 +1743,8 @@ subroutine setfvalue3d_shortdouble_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1764,8 +1764,8 @@ subroutine setfvalue3d_intbyte_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1775,8 +1775,8 @@ subroutine setfvalue3d_intbyte_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1796,8 +1796,8 @@ subroutine setfvalue3d_intshort_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1807,8 +1807,8 @@ subroutine setfvalue3d_intshort_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1828,8 +1828,8 @@ subroutine setfvalue3d_intint_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1839,8 +1839,8 @@ subroutine setfvalue3d_intint_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1860,8 +1860,8 @@ subroutine setfvalue3d_intfloat_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1871,8 +1871,8 @@ subroutine setfvalue3d_intfloat_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1892,8 +1892,8 @@ subroutine setfvalue3d_intdouble_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1903,8 +1903,8 @@ subroutine setfvalue3d_intdouble_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1924,8 +1924,8 @@ subroutine setfvalue3d_floatbyte_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1935,8 +1935,8 @@ subroutine setfvalue3d_floatbyte_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1956,8 +1956,8 @@ subroutine setfvalue3d_floatshort_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1967,8 +1967,8 @@ subroutine setfvalue3d_floatshort_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1988,8 +1988,8 @@ subroutine setfvalue3d_floatint_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1999,8 +1999,8 @@ subroutine setfvalue3d_floatint_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2020,8 +2020,8 @@ subroutine setfvalue3d_floatfloat_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2031,8 +2031,8 @@ subroutine setfvalue3d_floatfloat_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2052,8 +2052,8 @@ subroutine setfvalue3d_floatdouble_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2063,8 +2063,8 @@ subroutine setfvalue3d_floatdouble_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2084,8 +2084,8 @@ subroutine setfvalue3d_doublebyte_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2095,8 +2095,8 @@ subroutine setfvalue3d_doublebyte_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2116,8 +2116,8 @@ subroutine setfvalue3d_doubleshort_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2127,8 +2127,8 @@ subroutine setfvalue3d_doubleshort_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2148,8 +2148,8 @@ subroutine setfvalue3d_doubleint_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2159,8 +2159,8 @@ subroutine setfvalue3d_doubleint_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2180,8 +2180,8 @@ subroutine setfvalue3d_doublefloat_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2191,8 +2191,8 @@ subroutine setfvalue3d_doublefloat_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2212,8 +2212,8 @@ subroutine setfvalue3d_doubledouble_llf_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2223,8 +2223,8 @@ subroutine setfvalue3d_doubledouble_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2244,8 +2244,8 @@ subroutine setfvalue3d_bytebyte_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2255,8 +2255,8 @@ subroutine setfvalue3d_bytebyte_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2276,8 +2276,8 @@ subroutine setfvalue3d_byteshort_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2287,8 +2287,8 @@ subroutine setfvalue3d_byteshort_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2308,8 +2308,8 @@ subroutine setfvalue3d_byteint_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2319,8 +2319,8 @@ subroutine setfvalue3d_byteint_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2340,8 +2340,8 @@ subroutine setfvalue3d_bytefloat_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2351,8 +2351,8 @@ subroutine setfvalue3d_bytefloat_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2372,8 +2372,8 @@ subroutine setfvalue3d_bytedouble_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2383,8 +2383,8 @@ subroutine setfvalue3d_bytedouble_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2404,8 +2404,8 @@ subroutine setfvalue3d_shortbyte_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2415,8 +2415,8 @@ subroutine setfvalue3d_shortbyte_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2436,8 +2436,8 @@ subroutine setfvalue3d_shortshort_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2447,8 +2447,8 @@ subroutine setfvalue3d_shortshort_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2468,8 +2468,8 @@ subroutine setfvalue3d_shortint_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2479,8 +2479,8 @@ subroutine setfvalue3d_shortint_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2500,8 +2500,8 @@ subroutine setfvalue3d_shortfloat_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2511,8 +2511,8 @@ subroutine setfvalue3d_shortfloat_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2532,8 +2532,8 @@ subroutine setfvalue3d_shortdouble_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2543,8 +2543,8 @@ subroutine setfvalue3d_shortdouble_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2564,8 +2564,8 @@ subroutine setfvalue3d_intbyte_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2575,8 +2575,8 @@ subroutine setfvalue3d_intbyte_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2596,8 +2596,8 @@ subroutine setfvalue3d_intshort_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2607,8 +2607,8 @@ subroutine setfvalue3d_intshort_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2628,8 +2628,8 @@ subroutine setfvalue3d_intint_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2639,8 +2639,8 @@ subroutine setfvalue3d_intint_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2660,8 +2660,8 @@ subroutine setfvalue3d_intfloat_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2671,8 +2671,8 @@ subroutine setfvalue3d_intfloat_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2692,8 +2692,8 @@ subroutine setfvalue3d_intdouble_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2703,8 +2703,8 @@ subroutine setfvalue3d_intdouble_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2724,8 +2724,8 @@ subroutine setfvalue3d_floatbyte_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2735,8 +2735,8 @@ subroutine setfvalue3d_floatbyte_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2756,8 +2756,8 @@ subroutine setfvalue3d_floatshort_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2767,8 +2767,8 @@ subroutine setfvalue3d_floatshort_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2788,8 +2788,8 @@ subroutine setfvalue3d_floatint_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2799,8 +2799,8 @@ subroutine setfvalue3d_floatint_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2820,8 +2820,8 @@ subroutine setfvalue3d_floatfloat_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2831,8 +2831,8 @@ subroutine setfvalue3d_floatfloat_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2852,8 +2852,8 @@ subroutine setfvalue3d_floatdouble_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2863,8 +2863,8 @@ subroutine setfvalue3d_floatdouble_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2884,8 +2884,8 @@ subroutine setfvalue3d_doublebyte_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2895,8 +2895,8 @@ subroutine setfvalue3d_doublebyte_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2916,8 +2916,8 @@ subroutine setfvalue3d_doubleshort_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2927,8 +2927,8 @@ subroutine setfvalue3d_doubleshort_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2948,8 +2948,8 @@ subroutine setfvalue3d_doubleint_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2959,8 +2959,8 @@ subroutine setfvalue3d_doubleint_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2980,8 +2980,8 @@ subroutine setfvalue3d_doublefloat_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2991,8 +2991,8 @@ subroutine setfvalue3d_doublefloat_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3012,8 +3012,8 @@ subroutine setfvalue3d_doubledouble_lld_ti(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3023,8 +3023,8 @@ subroutine setfvalue3d_doubledouble_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3044,8 +3044,8 @@ subroutine setfvalue3d_bytebyte_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3055,8 +3055,8 @@ subroutine setfvalue3d_bytebyte_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3076,8 +3076,8 @@ subroutine setfvalue3d_byteshort_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3087,8 +3087,8 @@ subroutine setfvalue3d_byteshort_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3108,8 +3108,8 @@ subroutine setfvalue3d_byteint_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3119,8 +3119,8 @@ subroutine setfvalue3d_byteint_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3140,8 +3140,8 @@ subroutine setfvalue3d_bytefloat_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3151,8 +3151,8 @@ subroutine setfvalue3d_bytefloat_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3172,8 +3172,8 @@ subroutine setfvalue3d_bytedouble_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3183,8 +3183,8 @@ subroutine setfvalue3d_bytedouble_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3204,8 +3204,8 @@ subroutine setfvalue3d_shortbyte_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3215,8 +3215,8 @@ subroutine setfvalue3d_shortbyte_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3236,8 +3236,8 @@ subroutine setfvalue3d_shortshort_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3247,8 +3247,8 @@ subroutine setfvalue3d_shortshort_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3268,8 +3268,8 @@ subroutine setfvalue3d_shortint_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3279,8 +3279,8 @@ subroutine setfvalue3d_shortint_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3300,8 +3300,8 @@ subroutine setfvalue3d_shortfloat_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3311,8 +3311,8 @@ subroutine setfvalue3d_shortfloat_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3332,8 +3332,8 @@ subroutine setfvalue3d_shortdouble_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3343,8 +3343,8 @@ subroutine setfvalue3d_shortdouble_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3364,8 +3364,8 @@ subroutine setfvalue3d_intbyte_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3375,8 +3375,8 @@ subroutine setfvalue3d_intbyte_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3396,8 +3396,8 @@ subroutine setfvalue3d_intshort_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3407,8 +3407,8 @@ subroutine setfvalue3d_intshort_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3428,8 +3428,8 @@ subroutine setfvalue3d_intint_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3439,8 +3439,8 @@ subroutine setfvalue3d_intint_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3460,8 +3460,8 @@ subroutine setfvalue3d_intfloat_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3471,8 +3471,8 @@ subroutine setfvalue3d_intfloat_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3492,8 +3492,8 @@ subroutine setfvalue3d_intdouble_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3503,8 +3503,8 @@ subroutine setfvalue3d_intdouble_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3524,8 +3524,8 @@ subroutine setfvalue3d_floatbyte_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3535,8 +3535,8 @@ subroutine setfvalue3d_floatbyte_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3556,8 +3556,8 @@ subroutine setfvalue3d_floatshort_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3567,8 +3567,8 @@ subroutine setfvalue3d_floatshort_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3588,8 +3588,8 @@ subroutine setfvalue3d_floatint_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3599,8 +3599,8 @@ subroutine setfvalue3d_floatint_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3620,8 +3620,8 @@ subroutine setfvalue3d_floatfloat_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3631,8 +3631,8 @@ subroutine setfvalue3d_floatfloat_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3652,8 +3652,8 @@ subroutine setfvalue3d_floatdouble_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3663,8 +3663,8 @@ subroutine setfvalue3d_floatdouble_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3684,8 +3684,8 @@ subroutine setfvalue3d_doublebyte_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3695,8 +3695,8 @@ subroutine setfvalue3d_doublebyte_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3716,8 +3716,8 @@ subroutine setfvalue3d_doubleshort_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3727,8 +3727,8 @@ subroutine setfvalue3d_doubleshort_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3748,8 +3748,8 @@ subroutine setfvalue3d_doubleint_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3759,8 +3759,8 @@ subroutine setfvalue3d_doubleint_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3780,8 +3780,8 @@ subroutine setfvalue3d_doublefloat_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3791,8 +3791,8 @@ subroutine setfvalue3d_doublefloat_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3812,8 +3812,8 @@ subroutine setfvalue3d_doubledouble_llf_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3823,8 +3823,8 @@ subroutine setfvalue3d_doubledouble_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3844,8 +3844,8 @@ subroutine setfvalue3d_bytebyte_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3855,8 +3855,8 @@ subroutine setfvalue3d_bytebyte_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3876,8 +3876,8 @@ subroutine setfvalue3d_byteshort_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3887,8 +3887,8 @@ subroutine setfvalue3d_byteshort_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3908,8 +3908,8 @@ subroutine setfvalue3d_byteint_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3919,8 +3919,8 @@ subroutine setfvalue3d_byteint_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3940,8 +3940,8 @@ subroutine setfvalue3d_bytefloat_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3951,8 +3951,8 @@ subroutine setfvalue3d_bytefloat_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3972,8 +3972,8 @@ subroutine setfvalue3d_bytedouble_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3983,8 +3983,8 @@ subroutine setfvalue3d_bytedouble_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4004,8 +4004,8 @@ subroutine setfvalue3d_shortbyte_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4015,8 +4015,8 @@ subroutine setfvalue3d_shortbyte_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4036,8 +4036,8 @@ subroutine setfvalue3d_shortshort_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4047,8 +4047,8 @@ subroutine setfvalue3d_shortshort_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4068,8 +4068,8 @@ subroutine setfvalue3d_shortint_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4079,8 +4079,8 @@ subroutine setfvalue3d_shortint_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4100,8 +4100,8 @@ subroutine setfvalue3d_shortfloat_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4111,8 +4111,8 @@ subroutine setfvalue3d_shortfloat_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4132,8 +4132,8 @@ subroutine setfvalue3d_shortdouble_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4143,8 +4143,8 @@ subroutine setfvalue3d_shortdouble_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4164,8 +4164,8 @@ subroutine setfvalue3d_intbyte_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4175,8 +4175,8 @@ subroutine setfvalue3d_intbyte_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4196,8 +4196,8 @@ subroutine setfvalue3d_intshort_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4207,8 +4207,8 @@ subroutine setfvalue3d_intshort_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4228,8 +4228,8 @@ subroutine setfvalue3d_intint_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4239,8 +4239,8 @@ subroutine setfvalue3d_intint_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4260,8 +4260,8 @@ subroutine setfvalue3d_intfloat_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4271,8 +4271,8 @@ subroutine setfvalue3d_intfloat_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4292,8 +4292,8 @@ subroutine setfvalue3d_intdouble_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4303,8 +4303,8 @@ subroutine setfvalue3d_intdouble_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4324,8 +4324,8 @@ subroutine setfvalue3d_floatbyte_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4335,8 +4335,8 @@ subroutine setfvalue3d_floatbyte_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4356,8 +4356,8 @@ subroutine setfvalue3d_floatshort_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4367,8 +4367,8 @@ subroutine setfvalue3d_floatshort_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4388,8 +4388,8 @@ subroutine setfvalue3d_floatint_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4399,8 +4399,8 @@ subroutine setfvalue3d_floatint_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4420,8 +4420,8 @@ subroutine setfvalue3d_floatfloat_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4431,8 +4431,8 @@ subroutine setfvalue3d_floatfloat_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4452,8 +4452,8 @@ subroutine setfvalue3d_floatdouble_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4463,8 +4463,8 @@ subroutine setfvalue3d_floatdouble_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4484,8 +4484,8 @@ subroutine setfvalue3d_doublebyte_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4495,8 +4495,8 @@ subroutine setfvalue3d_doublebyte_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4516,8 +4516,8 @@ subroutine setfvalue3d_doubleshort_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4527,8 +4527,8 @@ subroutine setfvalue3d_doubleshort_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4548,8 +4548,8 @@ subroutine setfvalue3d_doubleint_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4559,8 +4559,8 @@ subroutine setfvalue3d_doubleint_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4580,8 +4580,8 @@ subroutine setfvalue3d_doublefloat_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4591,8 +4591,8 @@ subroutine setfvalue3d_doublefloat_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4612,8 +4612,8 @@ subroutine setfvalue3d_doubledouble_lld_tf(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4623,8 +4623,8 @@ subroutine setfvalue3d_doubledouble_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4644,8 +4644,8 @@ subroutine setfvalue3d_bytebyte_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4655,8 +4655,8 @@ subroutine setfvalue3d_bytebyte_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4676,8 +4676,8 @@ subroutine setfvalue3d_byteshort_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4687,8 +4687,8 @@ subroutine setfvalue3d_byteshort_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4708,8 +4708,8 @@ subroutine setfvalue3d_byteint_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4719,8 +4719,8 @@ subroutine setfvalue3d_byteint_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4740,8 +4740,8 @@ subroutine setfvalue3d_bytefloat_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4751,8 +4751,8 @@ subroutine setfvalue3d_bytefloat_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4772,8 +4772,8 @@ subroutine setfvalue3d_bytedouble_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4783,8 +4783,8 @@ subroutine setfvalue3d_bytedouble_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4804,8 +4804,8 @@ subroutine setfvalue3d_shortbyte_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4815,8 +4815,8 @@ subroutine setfvalue3d_shortbyte_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4836,8 +4836,8 @@ subroutine setfvalue3d_shortshort_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4847,8 +4847,8 @@ subroutine setfvalue3d_shortshort_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4868,8 +4868,8 @@ subroutine setfvalue3d_shortint_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4879,8 +4879,8 @@ subroutine setfvalue3d_shortint_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4900,8 +4900,8 @@ subroutine setfvalue3d_shortfloat_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4911,8 +4911,8 @@ subroutine setfvalue3d_shortfloat_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4932,8 +4932,8 @@ subroutine setfvalue3d_shortdouble_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4943,8 +4943,8 @@ subroutine setfvalue3d_shortdouble_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4964,8 +4964,8 @@ subroutine setfvalue3d_intbyte_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4975,8 +4975,8 @@ subroutine setfvalue3d_intbyte_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4996,8 +4996,8 @@ subroutine setfvalue3d_intshort_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5007,8 +5007,8 @@ subroutine setfvalue3d_intshort_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5028,8 +5028,8 @@ subroutine setfvalue3d_intint_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5039,8 +5039,8 @@ subroutine setfvalue3d_intint_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5060,8 +5060,8 @@ subroutine setfvalue3d_intfloat_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5071,8 +5071,8 @@ subroutine setfvalue3d_intfloat_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5092,8 +5092,8 @@ subroutine setfvalue3d_intdouble_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5103,8 +5103,8 @@ subroutine setfvalue3d_intdouble_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5124,8 +5124,8 @@ subroutine setfvalue3d_floatbyte_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5135,8 +5135,8 @@ subroutine setfvalue3d_floatbyte_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5156,8 +5156,8 @@ subroutine setfvalue3d_floatshort_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5167,8 +5167,8 @@ subroutine setfvalue3d_floatshort_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5188,8 +5188,8 @@ subroutine setfvalue3d_floatint_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5199,8 +5199,8 @@ subroutine setfvalue3d_floatint_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5220,8 +5220,8 @@ subroutine setfvalue3d_floatfloat_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5231,8 +5231,8 @@ subroutine setfvalue3d_floatfloat_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5252,8 +5252,8 @@ subroutine setfvalue3d_floatdouble_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5263,8 +5263,8 @@ subroutine setfvalue3d_floatdouble_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5284,8 +5284,8 @@ subroutine setfvalue3d_doublebyte_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5295,8 +5295,8 @@ subroutine setfvalue3d_doublebyte_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5316,8 +5316,8 @@ subroutine setfvalue3d_doubleshort_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5327,8 +5327,8 @@ subroutine setfvalue3d_doubleshort_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5348,8 +5348,8 @@ subroutine setfvalue3d_doubleint_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5359,8 +5359,8 @@ subroutine setfvalue3d_doubleint_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5380,8 +5380,8 @@ subroutine setfvalue3d_doublefloat_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5391,8 +5391,8 @@ subroutine setfvalue3d_doublefloat_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5412,8 +5412,8 @@ subroutine setfvalue3d_doubledouble_llf_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5423,8 +5423,8 @@ subroutine setfvalue3d_doubledouble_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5444,8 +5444,8 @@ subroutine setfvalue3d_bytebyte_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5455,8 +5455,8 @@ subroutine setfvalue3d_bytebyte_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5476,8 +5476,8 @@ subroutine setfvalue3d_byteshort_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5487,8 +5487,8 @@ subroutine setfvalue3d_byteshort_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5508,8 +5508,8 @@ subroutine setfvalue3d_byteint_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5519,8 +5519,8 @@ subroutine setfvalue3d_byteint_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5540,8 +5540,8 @@ subroutine setfvalue3d_bytefloat_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5551,8 +5551,8 @@ subroutine setfvalue3d_bytefloat_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5572,8 +5572,8 @@ subroutine setfvalue3d_bytedouble_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5583,8 +5583,8 @@ subroutine setfvalue3d_bytedouble_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5604,8 +5604,8 @@ subroutine setfvalue3d_shortbyte_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5615,8 +5615,8 @@ subroutine setfvalue3d_shortbyte_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5636,8 +5636,8 @@ subroutine setfvalue3d_shortshort_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5647,8 +5647,8 @@ subroutine setfvalue3d_shortshort_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5668,8 +5668,8 @@ subroutine setfvalue3d_shortint_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5679,8 +5679,8 @@ subroutine setfvalue3d_shortint_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5700,8 +5700,8 @@ subroutine setfvalue3d_shortfloat_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5711,8 +5711,8 @@ subroutine setfvalue3d_shortfloat_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5732,8 +5732,8 @@ subroutine setfvalue3d_shortdouble_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5743,8 +5743,8 @@ subroutine setfvalue3d_shortdouble_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5764,8 +5764,8 @@ subroutine setfvalue3d_intbyte_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5775,8 +5775,8 @@ subroutine setfvalue3d_intbyte_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5796,8 +5796,8 @@ subroutine setfvalue3d_intshort_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5807,8 +5807,8 @@ subroutine setfvalue3d_intshort_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5828,8 +5828,8 @@ subroutine setfvalue3d_intint_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5839,8 +5839,8 @@ subroutine setfvalue3d_intint_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5860,8 +5860,8 @@ subroutine setfvalue3d_intfloat_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5871,8 +5871,8 @@ subroutine setfvalue3d_intfloat_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5892,8 +5892,8 @@ subroutine setfvalue3d_intdouble_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5903,8 +5903,8 @@ subroutine setfvalue3d_intdouble_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5924,8 +5924,8 @@ subroutine setfvalue3d_floatbyte_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5935,8 +5935,8 @@ subroutine setfvalue3d_floatbyte_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5956,8 +5956,8 @@ subroutine setfvalue3d_floatshort_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5967,8 +5967,8 @@ subroutine setfvalue3d_floatshort_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5988,8 +5988,8 @@ subroutine setfvalue3d_floatint_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5999,8 +5999,8 @@ subroutine setfvalue3d_floatint_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6020,8 +6020,8 @@ subroutine setfvalue3d_floatfloat_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6031,8 +6031,8 @@ subroutine setfvalue3d_floatfloat_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6052,8 +6052,8 @@ subroutine setfvalue3d_floatdouble_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6063,8 +6063,8 @@ subroutine setfvalue3d_floatdouble_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6084,8 +6084,8 @@ subroutine setfvalue3d_doublebyte_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6095,8 +6095,8 @@ subroutine setfvalue3d_doublebyte_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6116,8 +6116,8 @@ subroutine setfvalue3d_doubleshort_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6127,8 +6127,8 @@ subroutine setfvalue3d_doubleshort_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6148,8 +6148,8 @@ subroutine setfvalue3d_doubleint_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6159,8 +6159,8 @@ subroutine setfvalue3d_doubleint_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6180,8 +6180,8 @@ subroutine setfvalue3d_doublefloat_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6191,8 +6191,8 @@ subroutine setfvalue3d_doublefloat_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6212,8 +6212,8 @@ subroutine setfvalue3d_doubledouble_lld_td(mask, map, num)
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6223,8 +6223,8 @@ subroutine setfvalue3d_doubledouble_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6246,8 +6246,8 @@ subroutine setfvalue4d_bytebyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6259,8 +6259,8 @@ subroutine setfvalue4d_bytebyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6282,8 +6282,8 @@ subroutine setfvalue4d_byteshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6295,8 +6295,8 @@ subroutine setfvalue4d_byteshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6318,8 +6318,8 @@ subroutine setfvalue4d_byteint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6331,8 +6331,8 @@ subroutine setfvalue4d_byteint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6354,8 +6354,8 @@ subroutine setfvalue4d_bytefloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6367,8 +6367,8 @@ subroutine setfvalue4d_bytefloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6390,8 +6390,8 @@ subroutine setfvalue4d_bytedouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6403,8 +6403,8 @@ subroutine setfvalue4d_bytedouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6426,8 +6426,8 @@ subroutine setfvalue4d_shortbyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6439,8 +6439,8 @@ subroutine setfvalue4d_shortbyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6462,8 +6462,8 @@ subroutine setfvalue4d_shortshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6475,8 +6475,8 @@ subroutine setfvalue4d_shortshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6498,8 +6498,8 @@ subroutine setfvalue4d_shortint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6511,8 +6511,8 @@ subroutine setfvalue4d_shortint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6534,8 +6534,8 @@ subroutine setfvalue4d_shortfloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6547,8 +6547,8 @@ subroutine setfvalue4d_shortfloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6570,8 +6570,8 @@ subroutine setfvalue4d_shortdouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6583,8 +6583,8 @@ subroutine setfvalue4d_shortdouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6606,8 +6606,8 @@ subroutine setfvalue4d_intbyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6619,8 +6619,8 @@ subroutine setfvalue4d_intbyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6642,8 +6642,8 @@ subroutine setfvalue4d_intshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6655,8 +6655,8 @@ subroutine setfvalue4d_intshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6678,8 +6678,8 @@ subroutine setfvalue4d_intint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6691,8 +6691,8 @@ subroutine setfvalue4d_intint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6714,8 +6714,8 @@ subroutine setfvalue4d_intfloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6727,8 +6727,8 @@ subroutine setfvalue4d_intfloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6750,8 +6750,8 @@ subroutine setfvalue4d_intdouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6763,8 +6763,8 @@ subroutine setfvalue4d_intdouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6786,8 +6786,8 @@ subroutine setfvalue4d_floatbyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6799,8 +6799,8 @@ subroutine setfvalue4d_floatbyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6822,8 +6822,8 @@ subroutine setfvalue4d_floatshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6835,8 +6835,8 @@ subroutine setfvalue4d_floatshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6858,8 +6858,8 @@ subroutine setfvalue4d_floatint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6871,8 +6871,8 @@ subroutine setfvalue4d_floatint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6894,8 +6894,8 @@ subroutine setfvalue4d_floatfloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6907,8 +6907,8 @@ subroutine setfvalue4d_floatfloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6930,8 +6930,8 @@ subroutine setfvalue4d_floatdouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6943,8 +6943,8 @@ subroutine setfvalue4d_floatdouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6966,8 +6966,8 @@ subroutine setfvalue4d_doublebyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6979,8 +6979,8 @@ subroutine setfvalue4d_doublebyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7002,8 +7002,8 @@ subroutine setfvalue4d_doubleshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7015,8 +7015,8 @@ subroutine setfvalue4d_doubleshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7038,8 +7038,8 @@ subroutine setfvalue4d_doubleint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7051,8 +7051,8 @@ subroutine setfvalue4d_doubleint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7074,8 +7074,8 @@ subroutine setfvalue4d_doublefloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7087,8 +7087,8 @@ subroutine setfvalue4d_doublefloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7110,8 +7110,8 @@ subroutine setfvalue4d_doubledouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7123,8 +7123,8 @@ subroutine setfvalue4d_doubledouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7146,8 +7146,8 @@ subroutine setfvalue4d_bytebyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7159,8 +7159,8 @@ subroutine setfvalue4d_bytebyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7182,8 +7182,8 @@ subroutine setfvalue4d_byteshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7195,8 +7195,8 @@ subroutine setfvalue4d_byteshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7218,8 +7218,8 @@ subroutine setfvalue4d_byteint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7231,8 +7231,8 @@ subroutine setfvalue4d_byteint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7254,8 +7254,8 @@ subroutine setfvalue4d_bytefloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7267,8 +7267,8 @@ subroutine setfvalue4d_bytefloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7290,8 +7290,8 @@ subroutine setfvalue4d_bytedouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7303,8 +7303,8 @@ subroutine setfvalue4d_bytedouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7326,8 +7326,8 @@ subroutine setfvalue4d_shortbyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7339,8 +7339,8 @@ subroutine setfvalue4d_shortbyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7362,8 +7362,8 @@ subroutine setfvalue4d_shortshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7375,8 +7375,8 @@ subroutine setfvalue4d_shortshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7398,8 +7398,8 @@ subroutine setfvalue4d_shortint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7411,8 +7411,8 @@ subroutine setfvalue4d_shortint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7434,8 +7434,8 @@ subroutine setfvalue4d_shortfloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7447,8 +7447,8 @@ subroutine setfvalue4d_shortfloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7470,8 +7470,8 @@ subroutine setfvalue4d_shortdouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7483,8 +7483,8 @@ subroutine setfvalue4d_shortdouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7506,8 +7506,8 @@ subroutine setfvalue4d_intbyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7519,8 +7519,8 @@ subroutine setfvalue4d_intbyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7542,8 +7542,8 @@ subroutine setfvalue4d_intshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7555,8 +7555,8 @@ subroutine setfvalue4d_intshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7578,8 +7578,8 @@ subroutine setfvalue4d_intint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7591,8 +7591,8 @@ subroutine setfvalue4d_intint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7614,8 +7614,8 @@ subroutine setfvalue4d_intfloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7627,8 +7627,8 @@ subroutine setfvalue4d_intfloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7650,8 +7650,8 @@ subroutine setfvalue4d_intdouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7663,8 +7663,8 @@ subroutine setfvalue4d_intdouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7686,8 +7686,8 @@ subroutine setfvalue4d_floatbyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7699,8 +7699,8 @@ subroutine setfvalue4d_floatbyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7722,8 +7722,8 @@ subroutine setfvalue4d_floatshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7735,8 +7735,8 @@ subroutine setfvalue4d_floatshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7758,8 +7758,8 @@ subroutine setfvalue4d_floatint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7771,8 +7771,8 @@ subroutine setfvalue4d_floatint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7794,8 +7794,8 @@ subroutine setfvalue4d_floatfloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7807,8 +7807,8 @@ subroutine setfvalue4d_floatfloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7830,8 +7830,8 @@ subroutine setfvalue4d_floatdouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7843,8 +7843,8 @@ subroutine setfvalue4d_floatdouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7866,8 +7866,8 @@ subroutine setfvalue4d_doublebyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7879,8 +7879,8 @@ subroutine setfvalue4d_doublebyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7902,8 +7902,8 @@ subroutine setfvalue4d_doubleshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7915,8 +7915,8 @@ subroutine setfvalue4d_doubleshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7938,8 +7938,8 @@ subroutine setfvalue4d_doubleint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7951,8 +7951,8 @@ subroutine setfvalue4d_doubleint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7974,8 +7974,8 @@ subroutine setfvalue4d_doublefloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7987,8 +7987,8 @@ subroutine setfvalue4d_doublefloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8010,8 +8010,8 @@ subroutine setfvalue4d_doubledouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8023,8 +8023,8 @@ subroutine setfvalue4d_doubledouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8046,8 +8046,8 @@ subroutine setfvalue4d_bytebyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8059,8 +8059,8 @@ subroutine setfvalue4d_bytebyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8082,8 +8082,8 @@ subroutine setfvalue4d_byteshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8095,8 +8095,8 @@ subroutine setfvalue4d_byteshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8118,8 +8118,8 @@ subroutine setfvalue4d_byteint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8131,8 +8131,8 @@ subroutine setfvalue4d_byteint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8154,8 +8154,8 @@ subroutine setfvalue4d_bytefloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8167,8 +8167,8 @@ subroutine setfvalue4d_bytefloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8190,8 +8190,8 @@ subroutine setfvalue4d_bytedouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8203,8 +8203,8 @@ subroutine setfvalue4d_bytedouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8226,8 +8226,8 @@ subroutine setfvalue4d_shortbyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8239,8 +8239,8 @@ subroutine setfvalue4d_shortbyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8262,8 +8262,8 @@ subroutine setfvalue4d_shortshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8275,8 +8275,8 @@ subroutine setfvalue4d_shortshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8298,8 +8298,8 @@ subroutine setfvalue4d_shortint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8311,8 +8311,8 @@ subroutine setfvalue4d_shortint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8334,8 +8334,8 @@ subroutine setfvalue4d_shortfloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8347,8 +8347,8 @@ subroutine setfvalue4d_shortfloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8370,8 +8370,8 @@ subroutine setfvalue4d_shortdouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8383,8 +8383,8 @@ subroutine setfvalue4d_shortdouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8406,8 +8406,8 @@ subroutine setfvalue4d_intbyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8419,8 +8419,8 @@ subroutine setfvalue4d_intbyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8442,8 +8442,8 @@ subroutine setfvalue4d_intshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8455,8 +8455,8 @@ subroutine setfvalue4d_intshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8478,8 +8478,8 @@ subroutine setfvalue4d_intint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8491,8 +8491,8 @@ subroutine setfvalue4d_intint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8514,8 +8514,8 @@ subroutine setfvalue4d_intfloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8527,8 +8527,8 @@ subroutine setfvalue4d_intfloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8550,8 +8550,8 @@ subroutine setfvalue4d_intdouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8563,8 +8563,8 @@ subroutine setfvalue4d_intdouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8586,8 +8586,8 @@ subroutine setfvalue4d_floatbyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8599,8 +8599,8 @@ subroutine setfvalue4d_floatbyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8622,8 +8622,8 @@ subroutine setfvalue4d_floatshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8635,8 +8635,8 @@ subroutine setfvalue4d_floatshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8658,8 +8658,8 @@ subroutine setfvalue4d_floatint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8671,8 +8671,8 @@ subroutine setfvalue4d_floatint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8694,8 +8694,8 @@ subroutine setfvalue4d_floatfloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8707,8 +8707,8 @@ subroutine setfvalue4d_floatfloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8730,8 +8730,8 @@ subroutine setfvalue4d_floatdouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8743,8 +8743,8 @@ subroutine setfvalue4d_floatdouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8766,8 +8766,8 @@ subroutine setfvalue4d_doublebyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8779,8 +8779,8 @@ subroutine setfvalue4d_doublebyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8802,8 +8802,8 @@ subroutine setfvalue4d_doubleshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8815,8 +8815,8 @@ subroutine setfvalue4d_doubleshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8838,8 +8838,8 @@ subroutine setfvalue4d_doubleint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8851,8 +8851,8 @@ subroutine setfvalue4d_doubleint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8874,8 +8874,8 @@ subroutine setfvalue4d_doublefloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8887,8 +8887,8 @@ subroutine setfvalue4d_doublefloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8910,8 +8910,8 @@ subroutine setfvalue4d_doubledouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8923,8 +8923,8 @@ subroutine setfvalue4d_doubledouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8946,8 +8946,8 @@ subroutine setfvalue4d_bytebyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8959,8 +8959,8 @@ subroutine setfvalue4d_bytebyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8982,8 +8982,8 @@ subroutine setfvalue4d_byteshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8995,8 +8995,8 @@ subroutine setfvalue4d_byteshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9018,8 +9018,8 @@ subroutine setfvalue4d_byteint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9031,8 +9031,8 @@ subroutine setfvalue4d_byteint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9054,8 +9054,8 @@ subroutine setfvalue4d_bytefloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9067,8 +9067,8 @@ subroutine setfvalue4d_bytefloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9090,8 +9090,8 @@ subroutine setfvalue4d_bytedouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9103,8 +9103,8 @@ subroutine setfvalue4d_bytedouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9126,8 +9126,8 @@ subroutine setfvalue4d_shortbyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9139,8 +9139,8 @@ subroutine setfvalue4d_shortbyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9162,8 +9162,8 @@ subroutine setfvalue4d_shortshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9175,8 +9175,8 @@ subroutine setfvalue4d_shortshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9198,8 +9198,8 @@ subroutine setfvalue4d_shortint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9211,8 +9211,8 @@ subroutine setfvalue4d_shortint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9234,8 +9234,8 @@ subroutine setfvalue4d_shortfloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9247,8 +9247,8 @@ subroutine setfvalue4d_shortfloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9270,8 +9270,8 @@ subroutine setfvalue4d_shortdouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9283,8 +9283,8 @@ subroutine setfvalue4d_shortdouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9306,8 +9306,8 @@ subroutine setfvalue4d_intbyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9319,8 +9319,8 @@ subroutine setfvalue4d_intbyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9342,8 +9342,8 @@ subroutine setfvalue4d_intshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9355,8 +9355,8 @@ subroutine setfvalue4d_intshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9378,8 +9378,8 @@ subroutine setfvalue4d_intint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9391,8 +9391,8 @@ subroutine setfvalue4d_intint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9414,8 +9414,8 @@ subroutine setfvalue4d_intfloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9427,8 +9427,8 @@ subroutine setfvalue4d_intfloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9450,8 +9450,8 @@ subroutine setfvalue4d_intdouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9463,8 +9463,8 @@ subroutine setfvalue4d_intdouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9486,8 +9486,8 @@ subroutine setfvalue4d_floatbyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9499,8 +9499,8 @@ subroutine setfvalue4d_floatbyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9522,8 +9522,8 @@ subroutine setfvalue4d_floatshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9535,8 +9535,8 @@ subroutine setfvalue4d_floatshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9558,8 +9558,8 @@ subroutine setfvalue4d_floatint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9571,8 +9571,8 @@ subroutine setfvalue4d_floatint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9594,8 +9594,8 @@ subroutine setfvalue4d_floatfloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9607,8 +9607,8 @@ subroutine setfvalue4d_floatfloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9630,8 +9630,8 @@ subroutine setfvalue4d_floatdouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9643,8 +9643,8 @@ subroutine setfvalue4d_floatdouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9666,8 +9666,8 @@ subroutine setfvalue4d_doublebyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9679,8 +9679,8 @@ subroutine setfvalue4d_doublebyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9702,8 +9702,8 @@ subroutine setfvalue4d_doubleshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9715,8 +9715,8 @@ subroutine setfvalue4d_doubleshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9738,8 +9738,8 @@ subroutine setfvalue4d_doubleint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9751,8 +9751,8 @@ subroutine setfvalue4d_doubleint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9774,8 +9774,8 @@ subroutine setfvalue4d_doublefloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9787,8 +9787,8 @@ subroutine setfvalue4d_doublefloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9810,8 +9810,8 @@ subroutine setfvalue4d_doubledouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9823,8 +9823,8 @@ subroutine setfvalue4d_doubledouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9846,8 +9846,8 @@ subroutine setfvalue4d_bytebyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9859,8 +9859,8 @@ subroutine setfvalue4d_bytebyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9882,8 +9882,8 @@ subroutine setfvalue4d_byteshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9895,8 +9895,8 @@ subroutine setfvalue4d_byteshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9918,8 +9918,8 @@ subroutine setfvalue4d_byteint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9931,8 +9931,8 @@ subroutine setfvalue4d_byteint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9954,8 +9954,8 @@ subroutine setfvalue4d_bytefloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9967,8 +9967,8 @@ subroutine setfvalue4d_bytefloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9990,8 +9990,8 @@ subroutine setfvalue4d_bytedouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10003,8 +10003,8 @@ subroutine setfvalue4d_bytedouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10026,8 +10026,8 @@ subroutine setfvalue4d_shortbyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10039,8 +10039,8 @@ subroutine setfvalue4d_shortbyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10062,8 +10062,8 @@ subroutine setfvalue4d_shortshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10075,8 +10075,8 @@ subroutine setfvalue4d_shortshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10098,8 +10098,8 @@ subroutine setfvalue4d_shortint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10111,8 +10111,8 @@ subroutine setfvalue4d_shortint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10134,8 +10134,8 @@ subroutine setfvalue4d_shortfloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10147,8 +10147,8 @@ subroutine setfvalue4d_shortfloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10170,8 +10170,8 @@ subroutine setfvalue4d_shortdouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10183,8 +10183,8 @@ subroutine setfvalue4d_shortdouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10206,8 +10206,8 @@ subroutine setfvalue4d_intbyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10219,8 +10219,8 @@ subroutine setfvalue4d_intbyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10242,8 +10242,8 @@ subroutine setfvalue4d_intshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10255,8 +10255,8 @@ subroutine setfvalue4d_intshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10278,8 +10278,8 @@ subroutine setfvalue4d_intint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10291,8 +10291,8 @@ subroutine setfvalue4d_intint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10314,8 +10314,8 @@ subroutine setfvalue4d_intfloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10327,8 +10327,8 @@ subroutine setfvalue4d_intfloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10350,8 +10350,8 @@ subroutine setfvalue4d_intdouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10363,8 +10363,8 @@ subroutine setfvalue4d_intdouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10386,8 +10386,8 @@ subroutine setfvalue4d_floatbyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10399,8 +10399,8 @@ subroutine setfvalue4d_floatbyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10422,8 +10422,8 @@ subroutine setfvalue4d_floatshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10435,8 +10435,8 @@ subroutine setfvalue4d_floatshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10458,8 +10458,8 @@ subroutine setfvalue4d_floatint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10471,8 +10471,8 @@ subroutine setfvalue4d_floatint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10494,8 +10494,8 @@ subroutine setfvalue4d_floatfloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10507,8 +10507,8 @@ subroutine setfvalue4d_floatfloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10530,8 +10530,8 @@ subroutine setfvalue4d_floatdouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10543,8 +10543,8 @@ subroutine setfvalue4d_floatdouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10566,8 +10566,8 @@ subroutine setfvalue4d_doublebyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10579,8 +10579,8 @@ subroutine setfvalue4d_doublebyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10602,8 +10602,8 @@ subroutine setfvalue4d_doubleshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10615,8 +10615,8 @@ subroutine setfvalue4d_doubleshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10638,8 +10638,8 @@ subroutine setfvalue4d_doubleint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10651,8 +10651,8 @@ subroutine setfvalue4d_doubleint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10674,8 +10674,8 @@ subroutine setfvalue4d_doublefloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10687,8 +10687,8 @@ subroutine setfvalue4d_doublefloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10710,8 +10710,8 @@ subroutine setfvalue4d_doubledouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10723,8 +10723,8 @@ subroutine setfvalue4d_doubledouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10746,8 +10746,8 @@ subroutine setfvalue4d_bytebyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10759,8 +10759,8 @@ subroutine setfvalue4d_bytebyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10782,8 +10782,8 @@ subroutine setfvalue4d_byteshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10795,8 +10795,8 @@ subroutine setfvalue4d_byteshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10818,8 +10818,8 @@ subroutine setfvalue4d_byteint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10831,8 +10831,8 @@ subroutine setfvalue4d_byteint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10854,8 +10854,8 @@ subroutine setfvalue4d_bytefloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10867,8 +10867,8 @@ subroutine setfvalue4d_bytefloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10890,8 +10890,8 @@ subroutine setfvalue4d_bytedouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10903,8 +10903,8 @@ subroutine setfvalue4d_bytedouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10926,8 +10926,8 @@ subroutine setfvalue4d_shortbyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10939,8 +10939,8 @@ subroutine setfvalue4d_shortbyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10962,8 +10962,8 @@ subroutine setfvalue4d_shortshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10975,8 +10975,8 @@ subroutine setfvalue4d_shortshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10998,8 +10998,8 @@ subroutine setfvalue4d_shortint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11011,8 +11011,8 @@ subroutine setfvalue4d_shortint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11034,8 +11034,8 @@ subroutine setfvalue4d_shortfloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11047,8 +11047,8 @@ subroutine setfvalue4d_shortfloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11070,8 +11070,8 @@ subroutine setfvalue4d_shortdouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11083,8 +11083,8 @@ subroutine setfvalue4d_shortdouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11106,8 +11106,8 @@ subroutine setfvalue4d_intbyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11119,8 +11119,8 @@ subroutine setfvalue4d_intbyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11142,8 +11142,8 @@ subroutine setfvalue4d_intshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11155,8 +11155,8 @@ subroutine setfvalue4d_intshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11178,8 +11178,8 @@ subroutine setfvalue4d_intint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11191,8 +11191,8 @@ subroutine setfvalue4d_intint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11214,8 +11214,8 @@ subroutine setfvalue4d_intfloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11227,8 +11227,8 @@ subroutine setfvalue4d_intfloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11250,8 +11250,8 @@ subroutine setfvalue4d_intdouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11263,8 +11263,8 @@ subroutine setfvalue4d_intdouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11286,8 +11286,8 @@ subroutine setfvalue4d_floatbyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11299,8 +11299,8 @@ subroutine setfvalue4d_floatbyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11322,8 +11322,8 @@ subroutine setfvalue4d_floatshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11335,8 +11335,8 @@ subroutine setfvalue4d_floatshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11358,8 +11358,8 @@ subroutine setfvalue4d_floatint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11371,8 +11371,8 @@ subroutine setfvalue4d_floatint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11394,8 +11394,8 @@ subroutine setfvalue4d_floatfloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11407,8 +11407,8 @@ subroutine setfvalue4d_floatfloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11430,8 +11430,8 @@ subroutine setfvalue4d_floatdouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11443,8 +11443,8 @@ subroutine setfvalue4d_floatdouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11466,8 +11466,8 @@ subroutine setfvalue4d_doublebyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11479,8 +11479,8 @@ subroutine setfvalue4d_doublebyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11502,8 +11502,8 @@ subroutine setfvalue4d_doubleshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11515,8 +11515,8 @@ subroutine setfvalue4d_doubleshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11538,8 +11538,8 @@ subroutine setfvalue4d_doubleint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11551,8 +11551,8 @@ subroutine setfvalue4d_doubleint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11574,8 +11574,8 @@ subroutine setfvalue4d_doublefloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11587,8 +11587,8 @@ subroutine setfvalue4d_doublefloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11610,8 +11610,8 @@ subroutine setfvalue4d_doubledouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11623,8 +11623,8 @@ subroutine setfvalue4d_doubledouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11646,8 +11646,8 @@ subroutine setfvalue4d_bytebyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11659,8 +11659,8 @@ subroutine setfvalue4d_bytebyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11682,8 +11682,8 @@ subroutine setfvalue4d_byteshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11695,8 +11695,8 @@ subroutine setfvalue4d_byteshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11718,8 +11718,8 @@ subroutine setfvalue4d_byteint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11731,8 +11731,8 @@ subroutine setfvalue4d_byteint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11754,8 +11754,8 @@ subroutine setfvalue4d_bytefloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11767,8 +11767,8 @@ subroutine setfvalue4d_bytefloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11790,8 +11790,8 @@ subroutine setfvalue4d_bytedouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11803,8 +11803,8 @@ subroutine setfvalue4d_bytedouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11826,8 +11826,8 @@ subroutine setfvalue4d_shortbyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11839,8 +11839,8 @@ subroutine setfvalue4d_shortbyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11862,8 +11862,8 @@ subroutine setfvalue4d_shortshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11875,8 +11875,8 @@ subroutine setfvalue4d_shortshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11898,8 +11898,8 @@ subroutine setfvalue4d_shortint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11911,8 +11911,8 @@ subroutine setfvalue4d_shortint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11934,8 +11934,8 @@ subroutine setfvalue4d_shortfloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11947,8 +11947,8 @@ subroutine setfvalue4d_shortfloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11970,8 +11970,8 @@ subroutine setfvalue4d_shortdouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11983,8 +11983,8 @@ subroutine setfvalue4d_shortdouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12006,8 +12006,8 @@ subroutine setfvalue4d_intbyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12019,8 +12019,8 @@ subroutine setfvalue4d_intbyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12042,8 +12042,8 @@ subroutine setfvalue4d_intshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12055,8 +12055,8 @@ subroutine setfvalue4d_intshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12078,8 +12078,8 @@ subroutine setfvalue4d_intint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12091,8 +12091,8 @@ subroutine setfvalue4d_intint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12114,8 +12114,8 @@ subroutine setfvalue4d_intfloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12127,8 +12127,8 @@ subroutine setfvalue4d_intfloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12150,8 +12150,8 @@ subroutine setfvalue4d_intdouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12163,8 +12163,8 @@ subroutine setfvalue4d_intdouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12186,8 +12186,8 @@ subroutine setfvalue4d_floatbyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12199,8 +12199,8 @@ subroutine setfvalue4d_floatbyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12222,8 +12222,8 @@ subroutine setfvalue4d_floatshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12235,8 +12235,8 @@ subroutine setfvalue4d_floatshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12258,8 +12258,8 @@ subroutine setfvalue4d_floatint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12271,8 +12271,8 @@ subroutine setfvalue4d_floatint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12294,8 +12294,8 @@ subroutine setfvalue4d_floatfloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12307,8 +12307,8 @@ subroutine setfvalue4d_floatfloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12330,8 +12330,8 @@ subroutine setfvalue4d_floatdouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12343,8 +12343,8 @@ subroutine setfvalue4d_floatdouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12366,8 +12366,8 @@ subroutine setfvalue4d_doublebyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12379,8 +12379,8 @@ subroutine setfvalue4d_doublebyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12402,8 +12402,8 @@ subroutine setfvalue4d_doubleshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12415,8 +12415,8 @@ subroutine setfvalue4d_doubleshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12438,8 +12438,8 @@ subroutine setfvalue4d_doubleint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12451,8 +12451,8 @@ subroutine setfvalue4d_doubleint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12474,8 +12474,8 @@ subroutine setfvalue4d_doublefloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12487,8 +12487,8 @@ subroutine setfvalue4d_doublefloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12510,8 +12510,8 @@ subroutine setfvalue4d_doubledouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12523,8 +12523,8 @@ subroutine setfvalue4d_doubledouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12546,8 +12546,8 @@ subroutine setfvalue4d_bytebyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12559,8 +12559,8 @@ subroutine setfvalue4d_bytebyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12582,8 +12582,8 @@ subroutine setfvalue4d_byteshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12595,8 +12595,8 @@ subroutine setfvalue4d_byteshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12618,8 +12618,8 @@ subroutine setfvalue4d_byteint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12631,8 +12631,8 @@ subroutine setfvalue4d_byteint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12654,8 +12654,8 @@ subroutine setfvalue4d_bytefloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12667,8 +12667,8 @@ subroutine setfvalue4d_bytefloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12690,8 +12690,8 @@ subroutine setfvalue4d_bytedouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12703,8 +12703,8 @@ subroutine setfvalue4d_bytedouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12726,8 +12726,8 @@ subroutine setfvalue4d_shortbyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12739,8 +12739,8 @@ subroutine setfvalue4d_shortbyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12762,8 +12762,8 @@ subroutine setfvalue4d_shortshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12775,8 +12775,8 @@ subroutine setfvalue4d_shortshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12798,8 +12798,8 @@ subroutine setfvalue4d_shortint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12811,8 +12811,8 @@ subroutine setfvalue4d_shortint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12834,8 +12834,8 @@ subroutine setfvalue4d_shortfloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12847,8 +12847,8 @@ subroutine setfvalue4d_shortfloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12870,8 +12870,8 @@ subroutine setfvalue4d_shortdouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12883,8 +12883,8 @@ subroutine setfvalue4d_shortdouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12906,8 +12906,8 @@ subroutine setfvalue4d_intbyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12919,8 +12919,8 @@ subroutine setfvalue4d_intbyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12942,8 +12942,8 @@ subroutine setfvalue4d_intshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12955,8 +12955,8 @@ subroutine setfvalue4d_intshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12978,8 +12978,8 @@ subroutine setfvalue4d_intint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12991,8 +12991,8 @@ subroutine setfvalue4d_intint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13014,8 +13014,8 @@ subroutine setfvalue4d_intfloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13027,8 +13027,8 @@ subroutine setfvalue4d_intfloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13050,8 +13050,8 @@ subroutine setfvalue4d_intdouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13063,8 +13063,8 @@ subroutine setfvalue4d_intdouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13086,8 +13086,8 @@ subroutine setfvalue4d_floatbyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13099,8 +13099,8 @@ subroutine setfvalue4d_floatbyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13122,8 +13122,8 @@ subroutine setfvalue4d_floatshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13135,8 +13135,8 @@ subroutine setfvalue4d_floatshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13158,8 +13158,8 @@ subroutine setfvalue4d_floatint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13171,8 +13171,8 @@ subroutine setfvalue4d_floatint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13194,8 +13194,8 @@ subroutine setfvalue4d_floatfloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13207,8 +13207,8 @@ subroutine setfvalue4d_floatfloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13230,8 +13230,8 @@ subroutine setfvalue4d_floatdouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13243,8 +13243,8 @@ subroutine setfvalue4d_floatdouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13266,8 +13266,8 @@ subroutine setfvalue4d_doublebyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13279,8 +13279,8 @@ subroutine setfvalue4d_doublebyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13302,8 +13302,8 @@ subroutine setfvalue4d_doubleshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13315,8 +13315,8 @@ subroutine setfvalue4d_doubleshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13338,8 +13338,8 @@ subroutine setfvalue4d_doubleint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13351,8 +13351,8 @@ subroutine setfvalue4d_doubleint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13374,8 +13374,8 @@ subroutine setfvalue4d_doublefloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13387,8 +13387,8 @@ subroutine setfvalue4d_doublefloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13410,8 +13410,8 @@ subroutine setfvalue4d_doubledouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13423,8 +13423,8 @@ subroutine setfvalue4d_doubledouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13446,8 +13446,8 @@ subroutine setfvalue4d_bytebyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13459,8 +13459,8 @@ subroutine setfvalue4d_bytebyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13482,8 +13482,8 @@ subroutine setfvalue4d_byteshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13495,8 +13495,8 @@ subroutine setfvalue4d_byteshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13518,8 +13518,8 @@ subroutine setfvalue4d_byteint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13531,8 +13531,8 @@ subroutine setfvalue4d_byteint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13554,8 +13554,8 @@ subroutine setfvalue4d_bytefloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13567,8 +13567,8 @@ subroutine setfvalue4d_bytefloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13590,8 +13590,8 @@ subroutine setfvalue4d_bytedouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13603,8 +13603,8 @@ subroutine setfvalue4d_bytedouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13626,8 +13626,8 @@ subroutine setfvalue4d_shortbyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13639,8 +13639,8 @@ subroutine setfvalue4d_shortbyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13662,8 +13662,8 @@ subroutine setfvalue4d_shortshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13675,8 +13675,8 @@ subroutine setfvalue4d_shortshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13698,8 +13698,8 @@ subroutine setfvalue4d_shortint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13711,8 +13711,8 @@ subroutine setfvalue4d_shortint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13734,8 +13734,8 @@ subroutine setfvalue4d_shortfloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13747,8 +13747,8 @@ subroutine setfvalue4d_shortfloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13770,8 +13770,8 @@ subroutine setfvalue4d_shortdouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13783,8 +13783,8 @@ subroutine setfvalue4d_shortdouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13806,8 +13806,8 @@ subroutine setfvalue4d_intbyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13819,8 +13819,8 @@ subroutine setfvalue4d_intbyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13842,8 +13842,8 @@ subroutine setfvalue4d_intshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13855,8 +13855,8 @@ subroutine setfvalue4d_intshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13878,8 +13878,8 @@ subroutine setfvalue4d_intint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13891,8 +13891,8 @@ subroutine setfvalue4d_intint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13914,8 +13914,8 @@ subroutine setfvalue4d_intfloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13927,8 +13927,8 @@ subroutine setfvalue4d_intfloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13950,8 +13950,8 @@ subroutine setfvalue4d_intdouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13963,8 +13963,8 @@ subroutine setfvalue4d_intdouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13986,8 +13986,8 @@ subroutine setfvalue4d_floatbyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13999,8 +13999,8 @@ subroutine setfvalue4d_floatbyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14022,8 +14022,8 @@ subroutine setfvalue4d_floatshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14035,8 +14035,8 @@ subroutine setfvalue4d_floatshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14058,8 +14058,8 @@ subroutine setfvalue4d_floatint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14071,8 +14071,8 @@ subroutine setfvalue4d_floatint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14094,8 +14094,8 @@ subroutine setfvalue4d_floatfloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14107,8 +14107,8 @@ subroutine setfvalue4d_floatfloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14130,8 +14130,8 @@ subroutine setfvalue4d_floatdouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14143,8 +14143,8 @@ subroutine setfvalue4d_floatdouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14166,8 +14166,8 @@ subroutine setfvalue4d_doublebyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14179,8 +14179,8 @@ subroutine setfvalue4d_doublebyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14202,8 +14202,8 @@ subroutine setfvalue4d_doubleshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14215,8 +14215,8 @@ subroutine setfvalue4d_doubleshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14238,8 +14238,8 @@ subroutine setfvalue4d_doubleint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14251,8 +14251,8 @@ subroutine setfvalue4d_doubleint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14274,8 +14274,8 @@ subroutine setfvalue4d_doublefloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14287,8 +14287,8 @@ subroutine setfvalue4d_doublefloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14310,8 +14310,8 @@ subroutine setfvalue4d_doubledouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14323,8 +14323,8 @@ subroutine setfvalue4d_doubledouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14346,8 +14346,8 @@ subroutine setfvalue4d_bytebyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14359,8 +14359,8 @@ subroutine setfvalue4d_bytebyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14382,8 +14382,8 @@ subroutine setfvalue4d_byteshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14395,8 +14395,8 @@ subroutine setfvalue4d_byteshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14418,8 +14418,8 @@ subroutine setfvalue4d_byteint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14431,8 +14431,8 @@ subroutine setfvalue4d_byteint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14454,8 +14454,8 @@ subroutine setfvalue4d_bytefloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14467,8 +14467,8 @@ subroutine setfvalue4d_bytefloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14490,8 +14490,8 @@ subroutine setfvalue4d_bytedouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14503,8 +14503,8 @@ subroutine setfvalue4d_bytedouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14526,8 +14526,8 @@ subroutine setfvalue4d_shortbyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14539,8 +14539,8 @@ subroutine setfvalue4d_shortbyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14562,8 +14562,8 @@ subroutine setfvalue4d_shortshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14575,8 +14575,8 @@ subroutine setfvalue4d_shortshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14598,8 +14598,8 @@ subroutine setfvalue4d_shortint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14611,8 +14611,8 @@ subroutine setfvalue4d_shortint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14634,8 +14634,8 @@ subroutine setfvalue4d_shortfloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14647,8 +14647,8 @@ subroutine setfvalue4d_shortfloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14670,8 +14670,8 @@ subroutine setfvalue4d_shortdouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14683,8 +14683,8 @@ subroutine setfvalue4d_shortdouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14706,8 +14706,8 @@ subroutine setfvalue4d_intbyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14719,8 +14719,8 @@ subroutine setfvalue4d_intbyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14742,8 +14742,8 @@ subroutine setfvalue4d_intshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14755,8 +14755,8 @@ subroutine setfvalue4d_intshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14778,8 +14778,8 @@ subroutine setfvalue4d_intint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14791,8 +14791,8 @@ subroutine setfvalue4d_intint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14814,8 +14814,8 @@ subroutine setfvalue4d_intfloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14827,8 +14827,8 @@ subroutine setfvalue4d_intfloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14850,8 +14850,8 @@ subroutine setfvalue4d_intdouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14863,8 +14863,8 @@ subroutine setfvalue4d_intdouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14886,8 +14886,8 @@ subroutine setfvalue4d_floatbyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14899,8 +14899,8 @@ subroutine setfvalue4d_floatbyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14922,8 +14922,8 @@ subroutine setfvalue4d_floatshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14935,8 +14935,8 @@ subroutine setfvalue4d_floatshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14958,8 +14958,8 @@ subroutine setfvalue4d_floatint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14971,8 +14971,8 @@ subroutine setfvalue4d_floatint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14994,8 +14994,8 @@ subroutine setfvalue4d_floatfloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15007,8 +15007,8 @@ subroutine setfvalue4d_floatfloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15030,8 +15030,8 @@ subroutine setfvalue4d_floatdouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15043,8 +15043,8 @@ subroutine setfvalue4d_floatdouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15066,8 +15066,8 @@ subroutine setfvalue4d_doublebyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15079,8 +15079,8 @@ subroutine setfvalue4d_doublebyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15102,8 +15102,8 @@ subroutine setfvalue4d_doubleshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15115,8 +15115,8 @@ subroutine setfvalue4d_doubleshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15138,8 +15138,8 @@ subroutine setfvalue4d_doubleint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15151,8 +15151,8 @@ subroutine setfvalue4d_doubleint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15174,8 +15174,8 @@ subroutine setfvalue4d_doublefloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15187,8 +15187,8 @@ subroutine setfvalue4d_doublefloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15210,8 +15210,8 @@ subroutine setfvalue4d_doubledouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15223,8 +15223,8 @@ subroutine setfvalue4d_doubledouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15246,8 +15246,8 @@ subroutine setfvalue4d_bytebyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15259,8 +15259,8 @@ subroutine setfvalue4d_bytebyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15282,8 +15282,8 @@ subroutine setfvalue4d_byteshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15295,8 +15295,8 @@ subroutine setfvalue4d_byteshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15318,8 +15318,8 @@ subroutine setfvalue4d_byteint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15331,8 +15331,8 @@ subroutine setfvalue4d_byteint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15354,8 +15354,8 @@ subroutine setfvalue4d_bytefloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15367,8 +15367,8 @@ subroutine setfvalue4d_bytefloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15390,8 +15390,8 @@ subroutine setfvalue4d_bytedouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15403,8 +15403,8 @@ subroutine setfvalue4d_bytedouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15426,8 +15426,8 @@ subroutine setfvalue4d_shortbyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15439,8 +15439,8 @@ subroutine setfvalue4d_shortbyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15462,8 +15462,8 @@ subroutine setfvalue4d_shortshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15475,8 +15475,8 @@ subroutine setfvalue4d_shortshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15498,8 +15498,8 @@ subroutine setfvalue4d_shortint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15511,8 +15511,8 @@ subroutine setfvalue4d_shortint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15534,8 +15534,8 @@ subroutine setfvalue4d_shortfloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15547,8 +15547,8 @@ subroutine setfvalue4d_shortfloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15570,8 +15570,8 @@ subroutine setfvalue4d_shortdouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15583,8 +15583,8 @@ subroutine setfvalue4d_shortdouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15606,8 +15606,8 @@ subroutine setfvalue4d_intbyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15619,8 +15619,8 @@ subroutine setfvalue4d_intbyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15642,8 +15642,8 @@ subroutine setfvalue4d_intshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15655,8 +15655,8 @@ subroutine setfvalue4d_intshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15678,8 +15678,8 @@ subroutine setfvalue4d_intint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15691,8 +15691,8 @@ subroutine setfvalue4d_intint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15714,8 +15714,8 @@ subroutine setfvalue4d_intfloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15727,8 +15727,8 @@ subroutine setfvalue4d_intfloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15750,8 +15750,8 @@ subroutine setfvalue4d_intdouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15763,8 +15763,8 @@ subroutine setfvalue4d_intdouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15786,8 +15786,8 @@ subroutine setfvalue4d_floatbyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15799,8 +15799,8 @@ subroutine setfvalue4d_floatbyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15822,8 +15822,8 @@ subroutine setfvalue4d_floatshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15835,8 +15835,8 @@ subroutine setfvalue4d_floatshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15858,8 +15858,8 @@ subroutine setfvalue4d_floatint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15871,8 +15871,8 @@ subroutine setfvalue4d_floatint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15894,8 +15894,8 @@ subroutine setfvalue4d_floatfloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15907,8 +15907,8 @@ subroutine setfvalue4d_floatfloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15930,8 +15930,8 @@ subroutine setfvalue4d_floatdouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15943,8 +15943,8 @@ subroutine setfvalue4d_floatdouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15966,8 +15966,8 @@ subroutine setfvalue4d_doublebyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15979,8 +15979,8 @@ subroutine setfvalue4d_doublebyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16002,8 +16002,8 @@ subroutine setfvalue4d_doubleshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16015,8 +16015,8 @@ subroutine setfvalue4d_doubleshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16038,8 +16038,8 @@ subroutine setfvalue4d_doubleint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16051,8 +16051,8 @@ subroutine setfvalue4d_doubleint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16074,8 +16074,8 @@ subroutine setfvalue4d_doublefloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16087,8 +16087,8 @@ subroutine setfvalue4d_doublefloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16110,8 +16110,8 @@ subroutine setfvalue4d_doubledouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16123,8 +16123,8 @@ subroutine setfvalue4d_doubledouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16146,8 +16146,8 @@ subroutine setfvalue4d_bytebyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16159,8 +16159,8 @@ subroutine setfvalue4d_bytebyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16182,8 +16182,8 @@ subroutine setfvalue4d_byteshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16195,8 +16195,8 @@ subroutine setfvalue4d_byteshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16218,8 +16218,8 @@ subroutine setfvalue4d_byteint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16231,8 +16231,8 @@ subroutine setfvalue4d_byteint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16254,8 +16254,8 @@ subroutine setfvalue4d_bytefloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16267,8 +16267,8 @@ subroutine setfvalue4d_bytefloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16290,8 +16290,8 @@ subroutine setfvalue4d_bytedouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16303,8 +16303,8 @@ subroutine setfvalue4d_bytedouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16326,8 +16326,8 @@ subroutine setfvalue4d_shortbyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16339,8 +16339,8 @@ subroutine setfvalue4d_shortbyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16362,8 +16362,8 @@ subroutine setfvalue4d_shortshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16375,8 +16375,8 @@ subroutine setfvalue4d_shortshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16398,8 +16398,8 @@ subroutine setfvalue4d_shortint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16411,8 +16411,8 @@ subroutine setfvalue4d_shortint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16434,8 +16434,8 @@ subroutine setfvalue4d_shortfloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16447,8 +16447,8 @@ subroutine setfvalue4d_shortfloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16470,8 +16470,8 @@ subroutine setfvalue4d_shortdouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16483,8 +16483,8 @@ subroutine setfvalue4d_shortdouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16506,8 +16506,8 @@ subroutine setfvalue4d_intbyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16519,8 +16519,8 @@ subroutine setfvalue4d_intbyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16542,8 +16542,8 @@ subroutine setfvalue4d_intshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16555,8 +16555,8 @@ subroutine setfvalue4d_intshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16578,8 +16578,8 @@ subroutine setfvalue4d_intint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16591,8 +16591,8 @@ subroutine setfvalue4d_intint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16614,8 +16614,8 @@ subroutine setfvalue4d_intfloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16627,8 +16627,8 @@ subroutine setfvalue4d_intfloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16650,8 +16650,8 @@ subroutine setfvalue4d_intdouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16663,8 +16663,8 @@ subroutine setfvalue4d_intdouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16686,8 +16686,8 @@ subroutine setfvalue4d_floatbyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16699,8 +16699,8 @@ subroutine setfvalue4d_floatbyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16722,8 +16722,8 @@ subroutine setfvalue4d_floatshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16735,8 +16735,8 @@ subroutine setfvalue4d_floatshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16758,8 +16758,8 @@ subroutine setfvalue4d_floatint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16771,8 +16771,8 @@ subroutine setfvalue4d_floatint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16794,8 +16794,8 @@ subroutine setfvalue4d_floatfloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16807,8 +16807,8 @@ subroutine setfvalue4d_floatfloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16830,8 +16830,8 @@ subroutine setfvalue4d_floatdouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16843,8 +16843,8 @@ subroutine setfvalue4d_floatdouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16866,8 +16866,8 @@ subroutine setfvalue4d_doublebyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16879,8 +16879,8 @@ subroutine setfvalue4d_doublebyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16902,8 +16902,8 @@ subroutine setfvalue4d_doubleshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16915,8 +16915,8 @@ subroutine setfvalue4d_doubleshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16938,8 +16938,8 @@ subroutine setfvalue4d_doubleint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16951,8 +16951,8 @@ subroutine setfvalue4d_doubleint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16974,8 +16974,8 @@ subroutine setfvalue4d_doublefloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16987,8 +16987,8 @@ subroutine setfvalue4d_doublefloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -17010,8 +17010,8 @@ subroutine setfvalue4d_doubledouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -17023,8 +17023,8 @@ subroutine setfvalue4d_doubledouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do

@@ -32,7 +32,7 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
 
-!:================================ Dealloc === ================================
+!:================================ Dealloc ====================================
 
 program main
   use FPL
@@ -43,7 +43,7 @@ program main
 
   type(nc2d_double_lld) :: soybean
 
-  do k = 2000, 2010
+  do k = 2000, 2014
     write(year, '(i4)') k
     write(*, '(1a1,a25,x,i4,$)') char(13), "Filtering :::::::::::::: ", k
  

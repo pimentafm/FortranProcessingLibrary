@@ -76,8 +76,8 @@ subroutine setfvalue2d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}(mask, map, num)
 
   if(present(num))then
     !"'$omp'" parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -85,8 +85,8 @@ subroutine setfvalue2d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}(mask, map, num)
     !"'$omp'" end parallel do
   else
     !"'$omp'" parallel do private(i, j)
-    do i = 1, mask%nlats
-      do j = 1, mask%nlons
+    do i = 1, mask%nlons
+      do j = 1, mask%nlats
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -116,8 +116,8 @@ subroutine setfvalue3d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}_t${arrid[$l]}(mask, m
   if(present(num))then
     !"'$omp'" parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -127,8 +127,8 @@ subroutine setfvalue3d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}_t${arrid[$l]}(mask, m
   else
     !"'$omp'" parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlats
-        do j = 1, mask%nlons
+      do i = 1, mask%nlons
+        do j = 1, mask%nlats
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -162,8 +162,8 @@ subroutine setfvalue4d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}_t${arrid[$l]}_l${arri
     !"'$omp'" parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -175,8 +175,8 @@ subroutine setfvalue4d_${arr[$j]}${arr[$i]}_ll${arrid[$k]}_t${arrid[$l]}_l${arri
     !"'$omp'" parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlats
-          do j = 1, mask%nlons
+        do i = 1, mask%nlons
+          do j = 1, mask%nlats
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
