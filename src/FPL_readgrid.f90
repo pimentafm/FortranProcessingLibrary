@@ -3808,7 +3808,8 @@ subroutine readgrid4d_float_llf_tf_lf(ifile, idata)
 
   call griddims(ifile, idata)
 
-  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  !Alocar na ordem do arquivo (OBS: é ao contrário)
+  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%nlevels, idata%ntimes))
   allocate(idata%levels(idata%nlevels))
   allocate(idata%times(idata%ntimes))
   allocate(idata%longitudes(idata%nlons))

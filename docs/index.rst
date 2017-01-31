@@ -34,7 +34,6 @@ Code Examples
 -------------
 
 .. toctree::
-   :maxdepth: 2
 
    src/examples
 

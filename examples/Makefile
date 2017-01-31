@@ -62,7 +62,7 @@ OMP= -fopenmp
 ex0:
 	gfortran $(FLAGS) $(OMP) -o ex0_libtest.out ex0_libtest.f90 $(FPL_module) $(FPL_library)
 ex1:
-	gfortran $(FLAGS) -o ex1_constants.out ex1_constants.f90 $(FPL_module) $(FPL_library)
+	gfortran $(FLAGS) -o ex1_readwrite.out ex1_readwrite.f90 $(FPL_module) $(FPL_library)
 ex2:	
 	gfortran $(FLAGS) -o ex2_getinfo.out ex2_getinfo.f90 $(FPL_module) $(FPL_library)
 ex3:	
@@ -75,5 +75,7 @@ ex6:
 	gfortran $(FLAGS) -o ex6_dealloc.out ex6_dealloc.f90 $(FPL_module) $(FPL_library)
 ex7:	
 	gfortran $(FLAGS) -o ex7_concat.out ex7_concat.f90 $(FPL_module) $(FPL_library)
+4D:	
+	gfortran $(FLAGS) -o 4d.out teste4d.f90 $(FPL_module) $(FPL_library)
 clean:
 	rm -f *.out

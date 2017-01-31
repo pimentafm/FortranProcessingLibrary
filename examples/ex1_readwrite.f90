@@ -33,27 +33,36 @@
 !:=============================================================================
 
 !:========================= Defined constants =================================
-program constants
+program main
   use fpl
   implicit none
 
-  write(*,*) FPL_libversion()
-  write(*,*) "============================"
+  type(nc4d_float_llf_tf_lf) :: tempC
+  character(len=32) :: input, output
 
-  write(*,'(a8,i2)') "   BYTE: ", byte
-  write(*,'(a8,i2)') "  SHORT: ", short
-  write(*,'(a8,i2)') "INTEGER: ", intgr
-  write(*,'(a8,i2)') "  FLOAT: ", float
-  write(*,'(a8,i2)') " DOUBLE: ", double, char(10) !char(10) skip a line
+  input = "database/temp.mon.nc"
+  output = "database/temp.mon.farenheit.nc"
+
+  tempC%varname = "temp"
+  tempC%lonname = "longitude"
+  tempC%latname = "latitude"
+  tempC%timename = "time"
+  tempC%levelname = "level"
+
+  call readgrid(input, tempC)
+
+  write(*,*) tempC%nlevels
+  write(*,*) tempC%nlats
+  write(*,*) tempC%nlons
+  write(*,*) tempC%ntimes
+  write(*,*) "==========="
+  write(*,*) tempC%longitudes(1) 
+  write(*,*) tempC%latitudes(1)
+  write(*,*) tempC%levels(1)
+  write(*,*) tempC%times(1)
+  write(*,*) tempC%times(12)
   
-  write(*,*) "FPL parameters and constants"
-  write(*,*) "=================================="
-  write(*,'(a39,f12.9)') "                                  pi: ", pi
-  write(*,'(a39,f12.6)') "        Average radius of earth (km): ", earth_radius
-  write(*,'(a39,f10.7)') "     Acceleration of gravity (m/s^2): ", acc_gravity
-  write(*,'(a39,f12.1)') "            Speed of the light (m/s): ", speed_of_light
-  write(*,'(a39,es13.6e2)') " Stefan-Boltzmann constant (W/m^2K^4): ", stefan_boltzmann
-  write(*,'(a39,es15.8e2)') "          Boltzmann constant (JK^-1): ", boltzmann
-  write(*,'(a39,es16.9e2)') "           Atomic mass constant (kg): ", atomic_mass
-  write(*,'(a39,es16.9e2)') "          Avogadro constant (mol^-1): ", avogadro
-end program constants
+
+  call writegrid(output, tempC)
+
+end program main

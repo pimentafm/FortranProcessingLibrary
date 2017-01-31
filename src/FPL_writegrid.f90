@@ -7008,7 +7008,9 @@ subroutine writegrid4d_float_llf_tf_lf(ofile, odata, headerfile)
   call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
   call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
   call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
-  dimids = (/xdimid, ydimid, tdimid, ldimid/)
+
+  !Tem que estar na mesma ordem do alloate na subrotina readgrid
+  dimids = (/xdimid, ydimid, ldimid, tdimid/)
 
   !Define variables
   call check(nf90_def_var(ncid, odata%levelname, nf90_float, ldimid, lvarid))

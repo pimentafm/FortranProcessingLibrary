@@ -1,12 +1,11 @@
 .. _example_03:
 
-(3) Example
------------
+(3) Raster Mask
+---------------
 
-TODO
+.. literalinclude:: fortran/example03.f90
+   :language: fortran
 
 .. figure:: images/example_03.*
    :width: 500 px
    :align: center
-
-   todo
