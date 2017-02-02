@@ -32,35 +32,25 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
 
-!:====================== Get metadata from file ===============================
-program main
-  use fpl
-  implicit none
+Subroutine Order(p,q, dp, dq)
+  integer p,q,temp
+  character(len=100) :: dp, dq, tempd
+  if (p>q) then
+    temp=p
+    tempd=dp
+    p=q
+    dp=dq
+    q=temp
+    dq=tempd
+  end if
+end subroutine Order
 
-  !Database download from UNIDATA:
-  !                               file: test_echam_spectral.nc
-  !                               http://www.unidata.ucar.edu/software/netcdf/examples/files.html                  
-
-  !Set float datatype 3d dataset with, longitude and latitude and time in double datatype  
-  type(nc4d_float_lld_td_li) :: spectral
-
-  !Input and Output declarations
-  character(200) :: inputpath, outputpath
-
-  inputpath = "database/echan_specX.nc"
-  
-  outputpath = "database/teste4DD.nc"
-
-  !Set necessary parameters for read the data
-  spectral%varname = "xl"
-  spectral%timename = "time"
-  spectral%lonname = "lon"
-  spectral%latname = "lat"
-  spectral%levelname = "mlev"
-
-  !Call function to read the data (readgrid(input_data_path, defined_data_structure))
-  call readgrid(inputpath, spectral)
-  
-  call writegrid(outputpath, spectral) 
-
-end program main
+Subroutine bubbleSort(dimid, dimname, n)
+  integer dimid(1:n), j, n, i
+  character(len=100) :: dimname(1:n)
+  do i=1, n
+    do j=n, i+1, -1
+      call Order(dimid(j-1), dimid(j), dimname(j-1), dimname(j))
+    end do
+  end do
+end subroutine bubbleSort

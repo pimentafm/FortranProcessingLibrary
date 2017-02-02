@@ -81,12 +81,16 @@ program main
   call exec_time(end_time)
   write(*,'("  Time:", f15.3," seconds")') end_time - start_time
 
+  write(*,*) "vartype: ", maskara%vartype
+
   write(*,*)"Reading mask"
   call exec_time(start_time)
   call readgrid(inputpath, cattle)
   call exec_time(end_time)
   write(*,'("  Time:", f15.3," seconds")') end_time - start_time
 
+  write(*,*) "cattle vartype: ", cattle%vartype
+  
   write(*,*)"Setting FillValue"
   call exec_time(start_time)
   call setfvalue3d_bytedouble_lld_ti(maskara, cattle, 18)

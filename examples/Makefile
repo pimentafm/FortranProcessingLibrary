@@ -75,7 +75,5 @@ ex6:
 	gfortran $(FLAGS) -o ex6_dealloc.out ex6_dealloc.f90 $(FPL_module) $(FPL_library)
 ex7:	
 	gfortran $(FLAGS) -o ex7_concat.out ex7_concat.f90 $(FPL_module) $(FPL_library)
-4D:	
-	gfortran $(FLAGS) -o 4d.out teste4d.f90 $(FPL_module) $(FPL_library)
 clean:
 	rm -f *.out

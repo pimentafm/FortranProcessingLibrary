@@ -66,12 +66,14 @@ for j in {3..4};do # lon, lat
 for i in {0..4};do
   echo "
 !NetCDF(lon, lat) ${arr[$i]}
-
 type :: nc2d_${arr[$i]}_ll${arrid[$j]}
   sequence
   character(len=100) :: varname, lonname, latname, long_name, varunits, &
                         lonunits, latunits
-  integer(kind=intgr) :: nlons, nlats, vartype
+  character(len=100), dimension(:), allocatable :: dimname, dimunits
+  integer(kind=intgr) :: nlons, nlats, ndims, vartype
+  integer(kind=intgr), dimension(:), allocatable :: dimid, dimsize, varids
+  integer(kind=intgr), dimension(2) :: dims
   ${arr2[$i]} :: FillValue
   real(kind=${arr[$j]}), dimension(:), allocatable :: longitudes, latitudes
   ${arr2[$i]}, dimension(:,:), allocatable :: ncdata
@@ -86,11 +88,13 @@ for i in {0..4};do
   echo "
 !NetCDF(lon, lat, time) ${arr[$i]}
 type :: nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}
-
   sequence
   character(len=100) :: varname, timename, lonname, latname, long_name, &
                         varunits, lonunits, latunits, timeunits
-  integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+  character(len=100), dimension(:), allocatable :: dimname, dimunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, ndims, vartype
+  integer(kind=intgr), dimension(:), allocatable :: dimid, dimsize, varids
+  integer(kind=intgr), dimension(3) :: dims
   ${arr2[$i]} :: FillValue
   ${arr2[$k]}, dimension(:), allocatable :: times
   real(kind=${arr[$j]}), dimension(:), allocatable :: longitudes, latitudes
@@ -108,12 +112,14 @@ for i in {0..4};do
   echo "
 !NetCDF(lon, lat, time, level) ${arr[$i]}
 type :: nc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}
-
   sequence
   character(len=100) :: varname, timename, levelname, lonname, latname, &
                         long_name, varunits, lonunits, latunits, &
                         timeunits, levelunits
-  integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, vartype
+  character(len=100), dimension(:), allocatable :: dimname, dimunits
+  integer(kind=intgr) :: nlons, nlats, ntimes, nlevels, ndims, vartype
+  integer(kind=intgr), dimension(:), allocatable :: dimid, dimsize, varids
+  integer(kind=intgr), dimension(4) :: dims
   ${arr2[$i]} :: FillValue
   ${arr2[$l]}, dimension(:), allocatable :: levels
   ${arr2[$k]}, dimension(:), allocatable :: times

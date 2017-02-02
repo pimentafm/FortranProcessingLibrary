@@ -51,18 +51,6 @@ program main
 
   call readgrid(input, tempC)
 
-  write(*,*) tempC%nlevels
-  write(*,*) tempC%nlats
-  write(*,*) tempC%nlons
-  write(*,*) tempC%ntimes
-  write(*,*) "==========="
-  write(*,*) tempC%longitudes(1) 
-  write(*,*) tempC%latitudes(1)
-  write(*,*) tempC%levels(1)
-  write(*,*) tempC%times(1)
-  write(*,*) tempC%times(12)
-  
-
   call writegrid(output, tempC)
 
 end program main

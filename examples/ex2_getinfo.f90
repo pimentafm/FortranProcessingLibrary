@@ -45,7 +45,9 @@ program main
   type(nc3d_float_lld_td) :: spectral
 
   !Input and Output declarations
-  character(200) :: inputpath, outputpath
+  character(100) :: inputpath, outputpath
+
+  integer(kind=4) :: i
 
   inputpath = "database/test_echam_spectral.nc"
   
@@ -66,6 +68,7 @@ program main
   !Get data information using pointer to structures
   write(*,100) "  varname: ", spectral%varname  
   write(*,100) " varunits: ", spectral%varunits
+  write(*,100) "long_name: ", spectral%long_name
   
   write(*,100) "  lonname: ", spectral%lonname 
   write(*,101) "    nlons: ", spectral%nlons
@@ -79,9 +82,23 @@ program main
   write(*,101) "   ntimes: ", spectral%ntimes
   write(*,100) "timeunits: ", spectral%timeunits
 
+  write(*,*) "ndims: ", spectral%ndims
+  write(*,*) "vartype: ", spectral%vartype
+
+  write(*,*) "Dimensions"
+  write(*,*) "ndims: ", spectral%ndims
+
+  do i = 1, spectral%ndims
+   write(*,*) spectral%dimname(i), spectral%dimunits(i), &
+              spectral%dimsize(i), spectral%dimid(i), &
+              spectral%varids(i)
+  end do
+
+  write(*,*) "FILLVALUE: ", spectral%FillValue
+   
 100 format(2a12)
 101 format(a12,i3)
  
   call writegrid(outputpath, spectral) 
-
+    
 end program main

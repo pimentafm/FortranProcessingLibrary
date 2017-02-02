@@ -70,8 +70,7 @@ subroutine writegrid2d_${arr[$i]}_ll${arrid[$j]}(ofile, odata, headerfile)
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
   type(nc2d_${arr[$i]}_ll${arrid[$j]}) :: odata
-  integer(kind=intgr) :: ncid, varid, xdimid, ydimid, xvarid, yvarid
-  integer(kind=intgr), dimension(2) :: dimids
+  integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
@@ -82,18 +81,14 @@ subroutine writegrid2d_${arr[$i]}_ll${arrid[$j]}(ofile, odata, headerfile)
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
-  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
-  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
-  dimids = (/xdimid, ydimid/)
+  do i = 1, odata%ndims
+    call check(nf90_def_dim(ncid, odata%dimname(i), odata%dimsize(i), odata%dimid(i)))
+    !Define variables
+    call check(nf90_def_var(ncid, odata%dimname(i), nf90_${arr[$j]}, odata%dimid(i), odata%varids(i)))
+    call check(nf90_put_att(ncid, odata%varids(i), "'"units"'", odata%dimunits(i)))
+  end do
 
-  !Define variables
-  call check(nf90_def_var(ncid, odata%lonname, nf90_${arr[$j]}, xdimid, xvarid))
-  call check(nf90_put_att(ncid, xvarid, "'"units"'", odata%lonunits))
-
-  call check(nf90_def_var(ncid, odata%latname, nf90_${arr[$j]}, ydimid, yvarid))
-  call check(nf90_put_att(ncid, yvarid, "'"units"'", odata%latunits))
-
-  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, odata%dims, varid))
   call check(nf90_put_att(ncid, varid, "'"long_name"'", odata%long_name))
   call check(nf90_put_att(ncid, varid, "'"_FillValue"'", odata%FillValue))
          
@@ -103,12 +98,12 @@ subroutine writegrid2d_${arr[$i]}_ll${arrid[$j]}(ofile, odata, headerfile)
              maxval(odata%ncdata, mask=odata%ncdata.ne.odata%FillValue)))
 
   call check(nf90_put_att(ncid, varid, "'"units"'", odata%varunits))
- 
+
   !Put Global Attributes
   call fdate_time(sysdatetime)
-  call check(nf90_put_att(ncid, nf90_global, "'"'History'"'", sysdatetime//"'"' Created by FPL - Fortran Processing Library v0.1'"'"))
-  call check(nf90_put_att(ncid, nf90_global, "'"'NetCDF-Version'"'", trim(nf90_inq_libvers())))
-  
+  call check(nf90_put_att(ncid, nf90_global, "'"History"'", sysdatetime//fpl_libversion()))
+  call check(nf90_put_att(ncid, nf90_global, "'"NetCDF-Version"'", trim(nf90_inq_libvers())))
+ 
   !Check if headerfile was setted
   if(present(headerfile))then
     if(file_exists(headerfile))then !Check if headerfile exists
@@ -125,12 +120,16 @@ subroutine writegrid2d_${arr[$i]}_ll${arrid[$j]}(ofile, odata, headerfile)
     end if
   end if
   call check(nf90_enddef(ncid))
- 
-  !Write longitudes
-  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
 
-  !Write latitudes
-  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+  !Write times, levels, lats and lons
+  do i = 1, odata%ndims
+    if(odata%dimname(i).eq."'"longitude"'".or.odata%dimname(i).eq."'"lon"'") then
+      call check(nf90_put_var(ncid, odata%varids(i), odata%longitudes))
+    end if
+    if(odata%dimname(i).eq."'"latitude"'".or.odata%dimname(i).eq."'"lat"'") then
+      call check(nf90_put_var(ncid, odata%varids(i), odata%latitudes))
+    end if
+  end do
 
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
@@ -151,8 +150,7 @@ subroutine writegrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ofile, odata, hea
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
   type(nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}) :: odata
-  integer(kind=intgr) :: ncid, varid,tdimid, xdimid, ydimid, tvarid, xvarid, yvarid
-  integer(kind=intgr), dimension(3) :: dimids
+  integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
@@ -163,22 +161,23 @@ subroutine writegrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ofile, odata, hea
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
-  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
-  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
-  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
-  dimids = (/xdimid, ydimid, tdimid/)
+
+  do i = 1, odata%ndims
+    call check(nf90_def_dim(ncid, odata%dimname(i), odata%dimsize(i), odata%dimid(i)))
+  end do
 
   !Define variables
-  call check(nf90_def_var(ncid, odata%timename, nf90_${arr[$k]}, tdimid, tvarid))
-  call check(nf90_put_att(ncid, tvarid, "'"units"'", odata%timeunits))
+  call check(nf90_def_var(ncid, odata%dimname(1), nf90_${arr[$j]}, odata%dimid(1), odata%varids(1)))
+  call check(nf90_put_att(ncid, odata%varids(1), "'"units"'", odata%dimunits(1)))
+  
+  call check(nf90_def_var(ncid, odata%dimname(2), nf90_${arr[$j]}, odata%dimid(2), odata%varids(2)))
+  call check(nf90_put_att(ncid, odata%varids(2), "'"units"'", odata%dimunits(2)))
 
-  call check(nf90_def_var(ncid, odata%lonname, nf90_${arr[$j]}, xdimid, xvarid))
-  call check(nf90_put_att(ncid, xvarid, "'"units"'", odata%lonunits))
+  call check(nf90_def_var(ncid, odata%dimname(3), nf90_${arr[$k]}, odata%dimid(3), odata%varids(3)))
+  call check(nf90_put_att(ncid, odata%varids(3), "'"units"'", odata%dimunits(3)))
 
-  call check(nf90_def_var(ncid, odata%latname, nf90_${arr[$j]}, ydimid, yvarid))
-  call check(nf90_put_att(ncid, yvarid, "'"units"'", odata%latunits))
 
-  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, odata%dims, varid))
   call check(nf90_put_att(ncid, varid, "'"long_name"'", odata%long_name))
   call check(nf90_put_att(ncid, varid, "'"_FillValue"'", odata%FillValue))
          
@@ -191,8 +190,8 @@ subroutine writegrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ofile, odata, hea
 
   !Put Global Attributes
   call fdate_time(sysdatetime)
-  call check(nf90_put_att(ncid, nf90_global, "'"'History'"'", sysdatetime//"'"' Created by FPL - Fortran Processing Library v0.1'"'"))
-  call check(nf90_put_att(ncid, nf90_global, "'"'NetCDF-Version'"'", trim(nf90_inq_libvers())))
+  call check(nf90_put_att(ncid, nf90_global, "'"History"'", sysdatetime//fpl_libversion()))
+  call check(nf90_put_att(ncid, nf90_global, "'"NetCDF-Version"'", trim(nf90_inq_libvers())))
  
   !Check if headerfile was setted
   if(present(headerfile))then
@@ -211,14 +210,18 @@ subroutine writegrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ofile, odata, hea
   end if
   call check(nf90_enddef(ncid))
 
-  !Write times
-  call check(nf90_put_var(ncid, tvarid, odata%times))
- 
-  !Write longitudes
-  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
-
-  !Write latitudes
-  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+  !Write times, levels, lats and lons
+  do i = 1, odata%ndims
+    if(odata%dimname(i).eq."'"longitude"'".or.odata%dimname(i).eq."'"lon"'") then
+      call check(nf90_put_var(ncid, odata%varids(i), odata%longitudes))
+    end if
+    if(odata%dimname(i).eq."'"latitude"'".or.odata%dimname(i).eq."'"lat"'") then
+      call check(nf90_put_var(ncid, odata%varids(i), odata%latitudes))
+    end if
+    if(odata%dimname(i).eq."'"time"'") then
+      call check(nf90_put_var(ncid, odata%varids(i), odata%times))
+    end if
+  end do
 
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
@@ -241,8 +244,7 @@ subroutine writegrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(ofi
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
   type(nc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}) :: odata
-  integer(kind=intgr) :: ncid, varid, ldimid, tdimid, xdimid, ydimid, lvarid, tvarid, xvarid, yvarid
-  integer(kind=intgr), dimension(4) :: dimids
+  integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
@@ -253,26 +255,26 @@ subroutine writegrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(ofi
   call check(nf90_create(ofile, nf90_clobber, ncid))
 
   !Define dimensions
-  call check(nf90_def_dim(ncid, odata%levelname, odata%nlevels, ldimid))
-  call check(nf90_def_dim(ncid, odata%timename, odata%ntimes, tdimid))
-  call check(nf90_def_dim(ncid, odata%lonname, odata%nlons, xdimid))
-  call check(nf90_def_dim(ncid, odata%latname, odata%nlats, ydimid))
-  dimids = (/xdimid, ydimid, tdimid, ldimid/)
+
+  do i = 1, odata%ndims
+    call check(nf90_def_dim(ncid, odata%dimname(i), odata%dimsize(i), odata%dimid(i)))
+  end do
 
   !Define variables
-  call check(nf90_def_var(ncid, odata%levelname, nf90_${arr[$l]}, ldimid, lvarid))
-  call check(nf90_put_att(ncid, lvarid, "'"units"'", odata%levelunits))
+  call check(nf90_def_var(ncid, odata%dimname(1), nf90_${arr[$j]}, odata%dimid(1), odata%varids(1)))
+  call check(nf90_put_att(ncid, odata%varids(1), "'"units"'", odata%dimunits(1)))
   
-  call check(nf90_def_var(ncid, odata%timename, nf90_${arr[$k]}, tdimid, tvarid))
-  call check(nf90_put_att(ncid, tvarid, "'"units"'", odata%timeunits))
+  call check(nf90_def_var(ncid, odata%dimname(2), nf90_${arr[$j]}, odata%dimid(2), odata%varids(2)))
+  call check(nf90_put_att(ncid, odata%varids(2), "'"units"'", odata%dimunits(2)))
 
-  call check(nf90_def_var(ncid, odata%lonname, nf90_${arr[$j]}, xdimid, xvarid))
-  call check(nf90_put_att(ncid, xvarid, "'"units"'", odata%lonunits))
+  call check(nf90_def_var(ncid, odata%dimname(3), nf90_${arr[$k]}, odata%dimid(3), odata%varids(3)))
+  call check(nf90_put_att(ncid, odata%varids(3), "'"units"'", odata%dimunits(3)))
+  
+  call check(nf90_def_var(ncid, odata%dimname(4), nf90_${arr[$l]}, odata%dimid(4), odata%varids(4)))
+  call check(nf90_put_att(ncid, odata%varids(4), "'"units"'", odata%dimunits(4)))
 
-  call check(nf90_def_var(ncid, odata%latname, nf90_${arr[$j]}, ydimid, yvarid))
-  call check(nf90_put_att(ncid, yvarid, "'"units"'", odata%latunits))
 
-  call check(nf90_def_var(ncid, odata%varname, odata%vartype, dimids, varid))
+  call check(nf90_def_var(ncid, odata%varname, odata%vartype, odata%dims, varid))
   call check(nf90_put_att(ncid, varid, "'"long_name"'", odata%long_name))
   call check(nf90_put_att(ncid, varid, "'"_FillValue"'", odata%FillValue))
          
@@ -285,8 +287,8 @@ subroutine writegrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(ofi
 
   !Put Global Attributes
   call fdate_time(sysdatetime)
-  call check(nf90_put_att(ncid, nf90_global, "'"'History'"'", sysdatetime//"'"' Created by FPL - Fortran Processing Library v0.1'"'"))
-  call check(nf90_put_att(ncid, nf90_global, "'"'NetCDF-Version'"'", trim(nf90_inq_libvers())))
+  call check(nf90_put_att(ncid, nf90_global, "'"History"'", sysdatetime//fpl_libversion()))
+  call check(nf90_put_att(ncid, nf90_global, "'"NetCDF-Version"'", trim(nf90_inq_libvers())))
  
   !Check if headerfile was setted
   if(present(headerfile))then
@@ -305,21 +307,25 @@ subroutine writegrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(ofi
   end if
   call check(nf90_enddef(ncid))
 
-  !Write times
-  call check(nf90_put_var(ncid, lvarid, odata%levels))
-
-  !Write times
-  call check(nf90_put_var(ncid, tvarid, odata%times))
- 
-  !Write longitudes
-  call check(nf90_put_var(ncid, xvarid, odata%longitudes))
-
-  !Write latitudes
-  call check(nf90_put_var(ncid, yvarid, odata%latitudes))
+  !Write times, levels, lats and lons
+  do i = 1, odata%ndims
+    if(odata%dimname(i).eq."'"longitude"'".or.odata%dimname(i).eq."'"lon"'") then
+      call check(nf90_put_var(ncid, odata%varids(i), odata%longitudes))
+    end if
+    if(odata%dimname(i).eq."'"latitude"'".or.odata%dimname(i).eq."'"lat"'") then
+      call check(nf90_put_var(ncid, odata%varids(i), odata%latitudes))
+    end if
+    if(odata%dimname(i).eq."'"time"'") then
+      call check(nf90_put_var(ncid, odata%varids(i), odata%times))
+    end if
+    if(odata%dimname(i).eq."'"level"'") then
+      call check(nf90_put_var(ncid, odata%varids(i), odata%levels))
+   end if
+  end do
 
   !Write variable
   call check(nf90_put_var(ncid, varid, odata%ncdata))
-
+  
   call check(nf90_close(ncid))
 end subroutine writegrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}"
 done
