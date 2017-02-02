@@ -70,15 +70,38 @@ for i in {0..4}; do
 subroutine gengrid2d_${arr[$i]}_ll${arrid[$j]}(idata, Xmin, Ymin, Xmax, Ymax, res)
   type (nc2d_${arr[$i]}_ll${arrid[$j]}) :: idata
   integer(kind=intgr) :: i
+  integer(kind=intgr), dimension(2) :: dimsizes, ids
+  character(len=100), dimension(2) :: dimnames, dimunits
   ${arr2[$j]} :: Xmin, Ymin, Xmax, Ymax, res
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
-  allocate(idata%ncdata(idata%nlons, idata%nlats))
+  allocate(idata%dimunits(idata%ndims))
+  allocate(idata%dimname(idata%ndims))
+  allocate(idata%dimid(idata%ndims))
+  allocate(idata%dimsize(idata%ndims))
+  allocate(idata%varids(idata%ndims))
+
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
+  
+  ids = (/ 2, 1 /)
+  dimsizes = (/ idata%nlats, idata%nlons /)
+  dimnames = (/ idata%latname, idata%lonname /)
+  dimunits = (/ idata%latunits, idata%lonunits /)
 
+  do i = 1, idata%ndims
+    idata%dimsize(i) = dimsizes(i)
+    idata%dimname(i) = dimnames(i)
+    idata%dimunits(i) = dimunits(i)
+    idata%dimid(i) = ids(i)
+    idata%varids(i) = ids(i)
+    idata%dims(i) = ids(i)
+  end do
+
+  allocate(idata%ncdata(idata%dimsize(2), idata%dimsize(1)))
+  
   idata%vartype = ${ncarr[$i]}
 
   idata%longitudes(1) = Xmin
@@ -103,16 +126,39 @@ for i in {0..4}; do
 subroutine gengrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(idata, Xmin, Ymin, Xmax, Ymax, res)
   type (nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}) :: idata
   integer(kind=intgr) :: i
+  integer(kind=intgr), dimension(3) :: dimsizes, ids
+  character(len=100), dimension(3) :: dimnames, dimunits
   ${arr2[$j]} :: Xmin, Ymin, Xmax, Ymax, res
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
-  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+  allocate(idata%dimunits(idata%ndims))
+  allocate(idata%dimname(idata%ndims))
+  allocate(idata%dimid(idata%ndims))
+  allocate(idata%dimsize(idata%ndims))
+  allocate(idata%varids(idata%ndims))
+
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
 
+  ids = (/ 3, 2, 1 /)
+  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
+  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
+  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
+
+  do i = 1, idata%ndims
+    idata%dimsize(i) = dimsizes(i)
+    idata%dimname(i) = dimnames(i)
+    idata%dimunits(i) = dimunits(i)
+    idata%dimid(i) = ids(i)
+    idata%varids(i) = ids(i)
+    idata%dims(i) = ids(i)
+  end do
+
+  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)))
+  
   idata%vartype = ${ncarr[$i]}
 
   do i = 1, idata%ntimes
@@ -143,16 +189,39 @@ for i in {0..4}; do
 subroutine gengrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(idata, Xmin, Ymin, Xmax, Ymax, res)
   type (nc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}) :: idata
   integer(kind=intgr) :: i
+  integer(kind=intgr), dimension(4) :: dimsizes, ids
+  character(len=100), dimension(4) :: dimnames, dimunits
   ${arr2[$j]} :: Xmin, Ymin, Xmax, Ymax, res
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
-  allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes, idata%nlevels))
+  allocate(idata%dimunits(idata%ndims))
+  allocate(idata%dimname(idata%ndims))
+  allocate(idata%dimid(idata%ndims))
+  allocate(idata%dimsize(idata%ndims))
+  allocate(idata%varids(idata%ndims))
+
   allocate(idata%longitudes(idata%nlons))  
   allocate(idata%latitudes(idata%nlats))
   allocate(idata%times(idata%ntimes))
   allocate(idata%levels(idata%nlevels))
+
+  ids = (/ 4, 3, 2, 1 /)
+  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
+  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
+  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
+
+  do i = 1, idata%ndims
+    idata%dimsize(i) = dimsizes(i)
+    idata%dimname(i) = dimnames(i)
+    idata%dimunits(i) = dimunits(i)
+    idata%dimid(i) = ids(i)
+    idata%varids(i) = ids(i)
+    idata%dims(i) = ids(i)
+  end do
+
+  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)))
 
   idata%vartype = ${ncarr[$i]}
 

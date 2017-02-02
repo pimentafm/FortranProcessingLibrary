@@ -55,12 +55,14 @@ program main
 
 
   !Grid 2d
-  grid2d%long_name = "My Grid ~ 1 degree"
+  grid2d%long_name = "My Grid 1 degree"
   
   grid2d%varname = "id"
   grid2d%lonname = "lon"
   grid2d%latname = "lat"
 
+  grid2d%ndims = 2
+  
   grid2d%varunits = "dimensionless"
   grid2d%lonunits = "degrees_east"
   grid2d%latunits = "degrees_north"
@@ -68,13 +70,15 @@ program main
   grid2d%FillValue = -9999
 
   !Grid 3d
-  grid3d%long_name = "My Grid ~ 1 degree"
+  grid3d%long_name = "My Grid 1 degree"
   
   grid3d%varname = "id"
   grid3d%lonname = "lon"
   grid3d%latname = "lat"
   grid3d%timename = "time"
 
+  grid3d%ndims = 3
+  
   grid3d%varunits = "dimensionless"
   grid3d%lonunits = "degrees_east"
   grid3d%latunits = "degrees_north"
@@ -85,13 +89,15 @@ program main
   grid3d%FillValue = -9999
 
   !Grid 4d
-  grid4d%long_name = "My Grid ~ 1 degree"
+  grid4d%long_name = "My Grid  ~ 1 degree"
   
   grid4d%varname = "id"
   grid4d%lonname = "lon"
   grid4d%latname = "lat"
   grid4d%timename = "time"
   grid4d%levelname = "level"
+
+  grid4d%ndims = 4
 
   grid4d%varunits = "dimensionless"
   grid4d%lonunits = "degrees_east"
@@ -130,6 +136,26 @@ program main
     end do
   end do
   
+  write(*,*) "Grid 2d info ================================="
+  write(*,'(a13,a20)') "varname :    ",   grid2d%varname  
+  write(*,'(a13,a20)') "latname :    ",   grid2d%latname
+  write(*,'(a13,a20)') "lonname :    ",   grid2d%lonname
+  write(*,'(a13,a20)') "long_name :  ",   grid2d%long_name
+  write(*,'(a13,a20)') "varunits :   ",   grid2d%varunits 
+  write(*,'(a13,a20)') "lonunits :   ",   grid2d%lonunits
+  write(*,'(a13,a20)') "latunits :   ",   grid2d%latunits
+  write(*,'(a13,4a20)') "dimname() :  ",  grid2d%dimname
+  write(*,'(a13,4a20)') "dimunits() : ",  grid2d%dimunits
+  write(*,'(a13,i4)') "nlons :      ",    grid2d%nlons
+  write(*,'(a13,i4)') "nlats :      ",    grid2d%nlats
+  write(*,'(a13,i4)') "ndims :      ",    grid2d%ndims
+  write(*,'(a13,i4)') "vartype :    ",    grid2d%vartype
+  write(*,'(a13,4i4)') "dimid() :    ",   grid2d%dimid
+  write(*,'(a13,4i6)') "dimsize() :  ",   grid2d%dimsize
+  write(*,'(a13,4i4)') "varids() :   ",   grid2d%varids
+  write(*,'(a13,4i4)') "dims() :     ",   grid2d%dims
+  write(*,'(a13,f10.4)') "FillValue :  ", grid2d%FillValue
+  
   call writegrid(opath2d, grid2d)
 
   call gengrid(grid3d, -74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965, 1.0 )
@@ -142,6 +168,29 @@ program main
     end do
   end do
   
+  write(*,*) "Grid 3d info ================================="
+  write(*,'(a13,a20)') "varname :    ",   grid3d%varname  
+  write(*,'(a13,a20)') "timename :   ",   grid3d%timename
+  write(*,'(a13,a20)') "latname :    ",   grid3d%latname
+  write(*,'(a13,a20)') "lonname :    ",   grid3d%lonname
+  write(*,'(a13,a20)') "long_name :  ",   grid3d%long_name
+  write(*,'(a13,a20)') "varunits :   ",   grid3d%varunits 
+  write(*,'(a13,a20)') "timeunits :  ",   grid3d%timeunits
+  write(*,'(a13,a20)') "lonunits :   ",   grid3d%lonunits
+  write(*,'(a13,a20)') "latunits :   ",   grid3d%latunits
+  write(*,'(a13,4a20)') "dimname() :  ",  grid3d%dimname
+  write(*,'(a13,4a20)') "dimunits() : ",  grid3d%dimunits
+  write(*,'(a13,i4)') "nlons :      ",    grid3d%nlons
+  write(*,'(a13,i4)') "nlats :      ",    grid3d%nlats
+  write(*,'(a13,i4)') "ntimes :     ",    grid3d%ntimes
+  write(*,'(a13,i4)') "ndims :      ",    grid3d%ndims
+  write(*,'(a13,i4)') "vartype :    ",    grid3d%vartype
+  write(*,'(a13,4i4)') "dimid() :    ",   grid3d%dimid
+  write(*,'(a13,4i6)') "dimsize() :  ",   grid3d%dimsize
+  write(*,'(a13,4i4)') "varids() :   ",   grid3d%varids
+  write(*,'(a13,4i4)') "dims() :     ",   grid3d%dims
+  write(*,'(a13,i6)') "FillValue :  ", grid3d%FillValue
+
   call writegrid(opath3d, grid3d)
 
   call gengrid(grid4d, -74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965, 1.0 )
@@ -155,6 +204,32 @@ program main
       end do
     end do
   end do
+
+  write(*,*) "Grid 4d info ================================="
+  write(*,'(a13,a20)') "varname :    ",   grid4d%varname  
+  write(*,'(a13,a20)') "timename :   ",   grid4d%timename
+  write(*,'(a13,a20)') "levelname :  ",   grid4d%levelname
+  write(*,'(a13,a20)') "latname :    ",   grid4d%latname
+  write(*,'(a13,a20)') "lonname :    ",   grid4d%lonname
+  write(*,'(a13,a20)') "long_name :  ",   grid4d%long_name
+  write(*,'(a13,a20)') "varunits :   ",   grid4d%varunits 
+  write(*,'(a13,a20)') "timeunits :  ",   grid4d%timeunits
+  write(*,'(a13,a20)') "levelunits : ",   grid4d%levelunits
+  write(*,'(a13,a20)') "lonunits :   ",   grid4d%lonunits
+  write(*,'(a13,a20)') "latunits :   ",   grid4d%latunits
+  write(*,'(a13,4a20)') "dimname() :  ",  grid4d%dimname
+  write(*,'(a13,4a20)') "dimunits() : ",  grid4d%dimunits
+  write(*,'(a13,i4)') "nlons :      ",    grid4d%nlons
+  write(*,'(a13,i4)') "nlats :      ",    grid4d%nlats
+  write(*,'(a13,i4)') "nlevels :    ",    grid4d%nlevels
+  write(*,'(a13,i4)') "ntimes :     ",    grid4d%ntimes
+  write(*,'(a13,i4)') "ndims :      ",    grid4d%ndims
+  write(*,'(a13,i4)') "vartype :    ",    grid4d%vartype
+  write(*,'(a13,4i4)') "dimid() :    ",   grid4d%dimid
+  write(*,'(a13,4i4)') "dimsize() :  ",   grid4d%dimsize
+  write(*,'(a13,4i4)') "varids() :   ",   grid4d%varids
+  write(*,'(a13,4i4)') "dims() :     ",   grid4d%dims
+  write(*,'(a13,f10.4)') "FillValue :  ", grid4d%FillValue
 
   call writegrid(opath4d, grid4d, "database/gridHeader.txt")
 
