@@ -69,6 +69,7 @@ for i in {0..4};do
 subroutine dealloc2d_${arr[$i]}_ll${arrid[$j]}(idata)
   type(nc2d_${arr[$i]}_ll${arrid[$j]}) :: idata
   deallocate(idata%longitudes, idata%latitudes, idata%ncdata)
+  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids)
 end subroutine dealloc2d_${arr[$i]}_ll${arrid[$j]}"
 done
 done
@@ -82,6 +83,7 @@ for i in {0..4};do
 subroutine dealloc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(idata)
   type(nc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}) :: idata
   deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata)
+  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids)
 end subroutine dealloc3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}"
 done
 done
@@ -97,6 +99,7 @@ for i in {0..4};do
 subroutine dealloc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(idata)
   type(nc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}) :: idata
   deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata)
+  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids)
 end subroutine dealloc4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}"
 done
 done
