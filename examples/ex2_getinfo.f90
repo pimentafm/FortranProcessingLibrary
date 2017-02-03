@@ -47,8 +47,6 @@ program main
   !Input and Output declarations
   character(100) :: inputpath, outputpath
 
-  integer(kind=4) :: i
-
   inputpath = "database/test_echam_spectral.nc"
   
   outputpath = "database/spectral.nc"
@@ -66,38 +64,33 @@ program main
   write(*,*) "=================================="
   
   !Get data information using pointer to structures
-  write(*,100) "  varname: ", spectral%varname  
-  write(*,100) " varunits: ", spectral%varunits
-  write(*,100) "long_name: ", spectral%long_name
-  
-  write(*,100) "  lonname: ", spectral%lonname 
-  write(*,101) "    nlons: ", spectral%nlons
-  write(*,100) " lonunits: ", spectral%lonunits
-
-  write(*,100) "  latname: ", spectral%latname
-  write(*,101) "    nlats: ", spectral%nlats
-  write(*,100) " latunits: ", spectral%latunits
-
-  write(*,100) " timename: ", spectral%timename  
-  write(*,101) "   ntimes: ", spectral%ntimes
-  write(*,100) "timeunits: ", spectral%timeunits
-
-  write(*,*) "ndims: ", spectral%ndims
-  write(*,*) "vartype: ", spectral%vartype
-
-  write(*,*) "Dimensions"
-  write(*,*) "ndims: ", spectral%ndims
-
-  do i = 1, spectral%ndims
-   write(*,*) spectral%dimname(i), spectral%dimunits(i), &
-              spectral%dimsize(i), spectral%dimid(i), &
-              spectral%varids(i)
-  end do
-
-  write(*,*) "FILLVALUE: ", spectral%FillValue
+  write(*,*) "Grid 4d info ================================="
+  write(*,100) "varname :    ",   spectral%varname  
+  write(*,100) "timename :   ",   spectral%timename
+  write(*,100) "latname :    ",   spectral%latname
+  write(*,100) "lonname :    ",   spectral%lonname
+  write(*,100) "long_name :  ",   spectral%long_name
+  write(*,100) "varunits :   ",   spectral%varunits 
+  write(*,100) "timeunits :  ",   spectral%timeunits
+  write(*,100) "lonunits :   ",   spectral%lonunits
+  write(*,100) "latunits :   ",   spectral%latunits
+  write(*,101) "dimname() :  ",  spectral%dimname
+  write(*,101) "dimunits() : ",  spectral%dimunits
+  write(*,102) "nlons :      ",    spectral%nlons
+  write(*,102) "nlats :      ",    spectral%nlats
+  write(*,102) "ntimes :     ",    spectral%ntimes
+  write(*,102) "ndims :      ",    spectral%ndims
+  write(*,102) "vartype :    ",    spectral%vartype
+  write(*,103) "dimid() :    ",   spectral%dimid
+  write(*,103) "dimsize() :  ",   spectral%dimsize
+  write(*,103) "varids() :   ",   spectral%varids
+  write(*,103) "dims() :     ",   spectral%dims
+  write(*,'(a13,f10.4)') "FillValue :  ", spectral%FillValue
    
-100 format(2a12)
-101 format(a12,i3)
+100 format(a13,a25)
+101 format(a13,3a20)
+102 format(a13,i4)
+103 format(a13,3i4)
  
   call writegrid(outputpath, spectral) 
     
