@@ -51,6 +51,12 @@ program main
 
   call readgrid(input, tempC)
 
+  !Celsius to Farenheit
+ 
+   where(tempC%ncdata.ne.tempC%FillValue) tempC%ncdata = (tempC%ncdata*9/5)+32
+   
+   tempC%varunits = "degF"
+
   call writegrid(output, tempC)
 
 end program main
