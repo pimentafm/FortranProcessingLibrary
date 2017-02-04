@@ -15,16 +15,16 @@ Hou to use
     :p path: file path [#f1]_
     :call: :f:prog:`file_exists(path)`
 
-lineNumber
+numRows
 ==========
 
 Hou to use
 ----------
 
-.. f:subroutine:: lineNumber(unit)
+.. f:subroutine:: numRows(unit)
 
     :p unit: file unit [#f1]_
-    :call: :f:prog:`lineNumber(unit)`
+    :call: :f:prog:`numRows(unit)`
 
 .. [#f1] Defined by user 
 

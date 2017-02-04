@@ -19,7 +19,7 @@ Hou to use
 [Code example] Masks a NetCDF dataset
 -------------------------------------
 
-Masks the 23 years of brazilian cattle productivity to São Paulo using the states map.
+Masks the 23 years of brazilian cattle productivity by Minas Gerais State.
 
 .. literalinclude:: fortran/8_setfvalue.f90
    :language: fortran

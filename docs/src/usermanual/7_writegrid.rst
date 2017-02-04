@@ -23,7 +23,7 @@ Hou to use
 [Code example] Write data to NetCDF
 ------------------------------------
 
-Write a NetCDF dataset.
+Read netCDF temperature (°C) data, converts it to Farenheit and write other file.
 
 .. literalinclude:: fortran/7_writegrid.f90
    :language: fortran

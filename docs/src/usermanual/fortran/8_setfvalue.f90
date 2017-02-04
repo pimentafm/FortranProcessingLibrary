@@ -7,28 +7,31 @@ program main
   !longitude and latitude type: double
   !time type: integer
 
-  !Related article and data download
+  !Related article and original data download
   !Dias, L.C.P., Pimenta, F.M., Santos, A.B., Costa, M.H., Ladle, R.J. (2016). 
   !Patterns of land use, extensification and intensification of Brazilian agriculture. 
   !Global Change Biology. doi:10.1111/gcb.13314
   !http://onlinelibrary.wiley.com/doi/10.1111/gcb.13314/ful
 
-  !Download: http://www.biosfera.dea.ufv.br/pt-BR/banco/uso-do-solo-agricola-no-brasil-1940-2012---dias-et-al-2016
+  !Download: http://www.biosfera.dea.ufv.br/en-US/bancos
  
+  !Stocking rate of cattle are in heads per hectare (head/ha)
   type(nc3d_double_lld_ti) :: cattle
 
-  !Structure declarations for maskestadosBR2012.nc (2d dataset)
+  !Structure declarations for brazil_UF.nc (2d dataset)
   !variable type: byte
   !longitude and latitude datatype: double
-  
-  !Download:
 
+  !Brazilian UF data
   type(nc2d_byte_lld) :: maskara
 
+  !Auxiliary variables for time calculation
+  real*4 :: start_time, end_time
+  
   character(200) :: inputpath, outputpath, maskfile
 
   inputpath = "database/CATTLE19902012.nc"
-  maskfile = "database/maskestadosBRbyte.nc"
+  maskfile = "database/brazil_UF.nc"
   outputpath = "database/cattle19902012_mask.nc"
   
   cattle%varname = "Cattle"
@@ -36,19 +39,20 @@ program main
   cattle%lonname = "lon"
   cattle%latname = "lat"
  
-  maskara%varname = "Band1"
+  maskara%varname = "UF"
   maskara%lonname = "lon"
   maskara%latname = "lat"
  
   write(*,*)"Readind data" 
-  call readgrid(maskfile, maskara)
-
+  call readgrid(maskfile, maskara)                               !Read states data
+  
   write(*,*)"Reading mask"
-  call readgrid(inputpath, cattle)
+  call readgrid(inputpath, cattle)                               !Read cattle data
 
   write(*,*)"Setting FillValue"
-  call setFillValue(maskara, cattle, 21)
-  
-  write(*,*) "Writing masked data"
-  call writegrid(outputpath, cattle)
+  call setfvalue3d_bytedouble_lld_ti(maskara, cattle, 18)        !Masks the cattle data where the state map is equal to 18 (Brazil-MG).
+
+  write(*,*) "Writing data"
+  call writegrid(outputpath, cattle)                             !Saves the masked data
+
 end program main

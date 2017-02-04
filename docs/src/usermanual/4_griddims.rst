@@ -12,7 +12,7 @@ Hou to use
 .. f:subroutine:: griddims(ifile,idata)
 
     :p ifile: dataset file path `[character]` [#f1]_
-    :p idata: map structure to be readed `[FPL defined type structure]` [#f1]_
+    :p idata: map structure to be readed. See :ref:`structurefields`. [#f1]_
     :r ndims: number of dimensions of variable
     :r nlons: number of longitudes
     :r nlats: number of latitudes

@@ -17,7 +17,7 @@ Hou to use
     :p Xmax: easternmost longitude `[double or float]` [#f1]_
     :p Ymax: northernmost latitude `[double or float]` [#f1]_
     :p res: map resolution `[double or float]` [#f1]_
-    :r idata: map structure with defined longitudes, latitudes and resolution `[FPL defined type structure]` [#f1]_
+    :r idata: map structure with defined longitudes, latitudes and resolution. See :ref:`structurefields` [#f1]_
     :call: :f:prog:`gengrid(idata,Xmin,Ymin,Xmax,Ymax,res)`
 
 .. [#f1] Defined by user 
@@ -26,7 +26,7 @@ Hou to use
 [Code example] Create grided data
 ---------------------------------
 
-Create a grid dataset from map extent ``-74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965`` and ``1.0`` degree resolution.
+Create a 3d netCDF from map extent ``-74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965``, ``10`` times and ``1.0`` degree resolution.
 
 .. literalinclude:: fortran/6_gengrid.f90
    :language: fortran

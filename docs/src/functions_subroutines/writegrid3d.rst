@@ -18,7 +18,7 @@ writegrid3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (ifile, idata)
  :``[tdt]``: time datatype (integer ``i``, float ``f``, double ``d``)
 :Subroutine Parameters:
  :``ofile``: file path `[character]` 
- :``odata``: 3d dataset structure `[FPL defined type structure]` 
+ :``odata``: 2d dataset structure. See :ref:`structurefields`. 
  :``headerfile``: text file `[character]` `[optional]`
 :Local parameters: 
  :``ncid``: map ID `[integer]`
@@ -30,7 +30,6 @@ writegrid3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (ifile, idata)
  :``xvarid``: longitude array ID `[integer]`
  :``yvarid``: latitude array ID `[integer]`
  :``varid``: variable dimension ID `[integer]`
- :``headerfile``: text file `[character]`
  :``attribute``: attribute text from ``headerfile`` `[character]`
  :``content``: content text from ``headerfile`` `[character]`
  :``nkeys``: number of attributes of ``headerfile`` `[integer]`

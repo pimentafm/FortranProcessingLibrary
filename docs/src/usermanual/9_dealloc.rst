@@ -20,7 +20,7 @@ Hou to use
 [Code example] Deallocating of a dataset structure
 --------------------------------------------------
 
-Reusing the same structure to read multiple NetCDF files.
+Reusing the same structure to read multiple netCDF files.
 
 .. literalinclude:: fortran/9_dealloc.f90
    :language: fortran

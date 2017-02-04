@@ -3,7 +3,7 @@ program utils
   use fpl
   implicit none
 
-  integer(kind=4) :: nlines
+  integer(kind=4) :: nrows
 
   write(*,*) "Count line number"
   write(*,*) "============================"
@@ -13,8 +13,8 @@ program utils
     open(100, file="database/data.txt", status="old")
   end if
 
-  nlines = lineNumber(100)
+  nrows = numRows(100)
 
-  write(*,*) nlines, file_exists("database/data.txt")
+  write(*,*) nrows, file_exists("database/data.txt")
 
 end program utils

@@ -2,14 +2,22 @@ program main
   use fpl
   implicit none
 
+  !Definition of dataset structures
   type(nc3d_int_llf_ti) :: grid3d
-  
-  integer(kind=intgr) :: i, j, k, s
+ 
+  !Auxiliary variables
+  integer(kind=intgr) :: i, j, k, l
 
-  !Grid 3d
-  grid3d%long_name = "My Grid ~ 1 degree"
+  character(200) :: opath3d
+
+  !Output files
+  opath3d = "database/grid3d.nc"
+
+
+  !Grid 3d definitions
+  grid3d%long_name = "My Grid 1 degree"
   
-  grid3d%varname = "id"
+  grid3d%varname = "grid"
   grid3d%lonname = "lon"
   grid3d%latname = "lat"
   grid3d%timename = "time"
@@ -35,16 +43,20 @@ program main
   !           i                      Longitude 
   !                   Ymin
 
-  call gengrid(grid3d, -74.737154, -34.343706, -34.737154, 5.656293, 1.0 )
+  !Generates a 3d grid
+  call gengrid(grid3d, -74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965, 1.0)
 
+  !Fills the array data
   do i = 1, grid3d%ntimes
-    s = 0
     do j = 1, grid3d%nlons
       do k = 1, grid3d%nlats
-        s = s + 1
-        grid3d%ncdata(j,k,i) = s    
+        grid3d%ncdata(j,k,i) = int(i*(cos(real(j))*grid3d%longitudes(j) + k*grid3d%latitudes(k)))
       end do
     end do
   end do
-  
+
+  !Write 3d data on file
+  call writegrid(opath3d, grid3d)
+
 end program main
+
