@@ -40,6 +40,8 @@ subroutine gengrid2d_byte_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(2) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 2
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -91,6 +93,8 @@ subroutine gengrid2d_short_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(2) :: dimsizes, ids
   character(len=100), dimension(2) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 2
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -144,6 +148,8 @@ subroutine gengrid2d_int_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(2) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 2
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -195,6 +201,8 @@ subroutine gengrid2d_float_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(2) :: dimsizes, ids
   character(len=100), dimension(2) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 2
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -248,6 +256,8 @@ subroutine gengrid2d_double_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(2) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 2
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -299,6 +309,8 @@ subroutine gengrid2d_byte_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(2) :: dimsizes, ids
   character(len=100), dimension(2) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 2
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -352,6 +364,8 @@ subroutine gengrid2d_short_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(2) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 2
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -403,6 +417,8 @@ subroutine gengrid2d_int_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(2) :: dimsizes, ids
   character(len=100), dimension(2) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 2
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -456,6 +472,8 @@ subroutine gengrid2d_float_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(2) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 2
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -508,6 +526,8 @@ subroutine gengrid2d_double_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(2) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 2
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -559,6 +579,8 @@ subroutine gengrid3d_byte_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -617,6 +639,8 @@ subroutine gengrid3d_short_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -673,6 +697,8 @@ subroutine gengrid3d_int_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -731,6 +757,8 @@ subroutine gengrid3d_float_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -787,6 +815,8 @@ subroutine gengrid3d_double_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -845,6 +875,8 @@ subroutine gengrid3d_byte_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -901,6 +933,8 @@ subroutine gengrid3d_short_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -959,6 +993,8 @@ subroutine gengrid3d_int_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -1015,6 +1051,8 @@ subroutine gengrid3d_float_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -1073,6 +1111,8 @@ subroutine gengrid3d_double_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -1129,6 +1169,8 @@ subroutine gengrid3d_byte_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -1187,6 +1229,8 @@ subroutine gengrid3d_short_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -1243,6 +1287,8 @@ subroutine gengrid3d_int_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -1301,6 +1347,8 @@ subroutine gengrid3d_float_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -1357,6 +1405,8 @@ subroutine gengrid3d_double_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -1415,6 +1465,8 @@ subroutine gengrid3d_byte_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -1471,6 +1523,8 @@ subroutine gengrid3d_short_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -1529,6 +1583,8 @@ subroutine gengrid3d_int_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -1585,6 +1641,8 @@ subroutine gengrid3d_float_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -1643,6 +1701,8 @@ subroutine gengrid3d_double_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -1699,6 +1759,8 @@ subroutine gengrid3d_byte_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -1757,6 +1819,8 @@ subroutine gengrid3d_short_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -1813,6 +1877,8 @@ subroutine gengrid3d_int_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -1871,6 +1937,8 @@ subroutine gengrid3d_float_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -1927,6 +1995,8 @@ subroutine gengrid3d_double_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -1985,6 +2055,8 @@ subroutine gengrid3d_byte_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -2041,6 +2113,8 @@ subroutine gengrid3d_short_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -2099,6 +2173,8 @@ subroutine gengrid3d_int_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -2155,6 +2231,8 @@ subroutine gengrid3d_float_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -2213,6 +2291,8 @@ subroutine gengrid3d_double_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(3) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 3
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -2269,6 +2349,8 @@ subroutine gengrid4d_byte_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -2332,6 +2414,8 @@ subroutine gengrid4d_short_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -2393,6 +2477,8 @@ subroutine gengrid4d_int_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -2456,6 +2542,8 @@ subroutine gengrid4d_float_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -2517,6 +2605,8 @@ subroutine gengrid4d_double_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -2580,6 +2670,8 @@ subroutine gengrid4d_byte_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -2641,6 +2733,8 @@ subroutine gengrid4d_short_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -2704,6 +2798,8 @@ subroutine gengrid4d_int_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -2765,6 +2861,8 @@ subroutine gengrid4d_float_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -2828,6 +2926,8 @@ subroutine gengrid4d_double_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -2889,6 +2989,8 @@ subroutine gengrid4d_byte_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -2952,6 +3054,8 @@ subroutine gengrid4d_short_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -3013,6 +3117,8 @@ subroutine gengrid4d_int_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -3076,6 +3182,8 @@ subroutine gengrid4d_float_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -3137,6 +3245,8 @@ subroutine gengrid4d_double_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -3200,6 +3310,8 @@ subroutine gengrid4d_byte_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -3261,6 +3373,8 @@ subroutine gengrid4d_short_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -3324,6 +3438,8 @@ subroutine gengrid4d_int_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -3385,6 +3501,8 @@ subroutine gengrid4d_float_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -3448,6 +3566,8 @@ subroutine gengrid4d_double_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -3509,6 +3629,8 @@ subroutine gengrid4d_byte_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -3572,6 +3694,8 @@ subroutine gengrid4d_short_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -3633,6 +3757,8 @@ subroutine gengrid4d_int_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -3696,6 +3822,8 @@ subroutine gengrid4d_float_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -3757,6 +3885,8 @@ subroutine gengrid4d_double_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -3820,6 +3950,8 @@ subroutine gengrid4d_byte_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -3881,6 +4013,8 @@ subroutine gengrid4d_short_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -3944,6 +4078,8 @@ subroutine gengrid4d_int_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -4005,6 +4141,8 @@ subroutine gengrid4d_float_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -4068,6 +4206,8 @@ subroutine gengrid4d_double_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -4129,6 +4269,8 @@ subroutine gengrid4d_byte_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -4192,6 +4334,8 @@ subroutine gengrid4d_short_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -4253,6 +4397,8 @@ subroutine gengrid4d_int_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -4316,6 +4462,8 @@ subroutine gengrid4d_float_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -4377,6 +4525,8 @@ subroutine gengrid4d_double_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -4440,6 +4590,8 @@ subroutine gengrid4d_byte_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -4501,6 +4653,8 @@ subroutine gengrid4d_short_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -4564,6 +4718,8 @@ subroutine gengrid4d_int_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -4625,6 +4781,8 @@ subroutine gengrid4d_float_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -4688,6 +4846,8 @@ subroutine gengrid4d_double_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -4749,6 +4909,8 @@ subroutine gengrid4d_byte_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -4812,6 +4974,8 @@ subroutine gengrid4d_short_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -4873,6 +5037,8 @@ subroutine gengrid4d_int_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -4936,6 +5102,8 @@ subroutine gengrid4d_float_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -4997,6 +5165,8 @@ subroutine gengrid4d_double_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -5060,6 +5230,8 @@ subroutine gengrid4d_byte_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -5121,6 +5293,8 @@ subroutine gengrid4d_short_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -5184,6 +5358,8 @@ subroutine gengrid4d_int_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -5245,6 +5421,8 @@ subroutine gengrid4d_float_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -5308,6 +5486,8 @@ subroutine gengrid4d_double_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -5369,6 +5549,8 @@ subroutine gengrid4d_byte_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -5432,6 +5614,8 @@ subroutine gengrid4d_short_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -5493,6 +5677,8 @@ subroutine gengrid4d_int_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -5556,6 +5742,8 @@ subroutine gengrid4d_float_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -5617,6 +5805,8 @@ subroutine gengrid4d_double_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -5680,6 +5870,8 @@ subroutine gengrid4d_byte_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -5741,6 +5933,8 @@ subroutine gengrid4d_short_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -5804,6 +5998,8 @@ subroutine gengrid4d_int_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -5866,6 +6062,8 @@ subroutine gengrid4d_float_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 4
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -5927,6 +6125,8 @@ subroutine gengrid4d_double_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))

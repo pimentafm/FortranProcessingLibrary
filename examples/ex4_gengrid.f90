@@ -66,8 +66,6 @@ program main
   grid2d%lonname = "lon"
   grid2d%latname = "lat"
 
-  grid2d%ndims = 2
-  
   grid2d%varunits = "dimensionless"
   grid2d%lonunits = "degrees_east"
   grid2d%latunits = "degrees_north"
@@ -82,8 +80,6 @@ program main
   grid3d%latname = "lat"
   grid3d%timename = "time"
 
-  grid3d%ndims = 3
-  
   grid3d%varunits = "dimensionless"
   grid3d%lonunits = "degrees_east"
   grid3d%latunits = "degrees_north"
@@ -101,8 +97,6 @@ program main
   grid4d%latname = "lat"
   grid4d%timename = "time"
   grid4d%levelname = "level"
-
-  grid4d%ndims = 4
 
   grid4d%varunits = "dimensionless"
   grid4d%lonunits = "degrees_east"

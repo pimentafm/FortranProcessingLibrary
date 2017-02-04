@@ -74,6 +74,8 @@ subroutine gengrid2d_${arr[$i]}_ll${arrid[$j]}(idata, Xmin, Ymin, Xmax, Ymax, re
   character(len=100), dimension(2) :: dimnames, dimunits
   ${arr2[$j]} :: Xmin, Ymin, Xmax, Ymax, res
 
+  idata%ndims = 2
+
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
 
@@ -132,6 +134,8 @@ subroutine gengrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(idata, Xmin, Ymin, 
   integer(kind=intgr), dimension(3) :: dimsizes, ids
   character(len=100), dimension(3) :: dimnames, dimunits
   ${arr2[$j]} :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 3
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
@@ -198,6 +202,8 @@ subroutine gengrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(idata
   integer(kind=intgr), dimension(4) :: dimsizes, ids
   character(len=100), dimension(4) :: dimnames, dimunits
   ${arr2[$j]} :: Xmin, Ymin, Xmax, Ymax, res
+
+  idata%ndims = 4
 
   idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
   idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
