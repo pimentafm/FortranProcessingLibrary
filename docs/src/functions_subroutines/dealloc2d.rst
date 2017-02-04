@@ -25,8 +25,8 @@ dealloc2d _ ``[vdt]`` _ll ``[cdt]`` (idata)
 
 ::
 
-  !NetCDF(lon, lat) float
-  subroutine dealloc2d_int_lld(idata)
-    type(nc2d_int_lld) :: idata
+  subroutine dealloc2d_byte_llf(idata)
+    type(nc2d_byte_llf) :: idata
     deallocate(idata%longitudes, idata%latitudes, idata%ncdata)
-  end subroutine dealloc2d_int_lld
+    deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids)
+  end subroutine dealloc2d_byte_llf

@@ -27,8 +27,9 @@ dealloc3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (idata)
 
 ::
 
-  !NetCDF(lon, lat, time) short
   subroutine dealloc3d_short_llf_tf(idata)
     type(nc3d_short_llf_tf) :: idata
     deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata)
+    deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids)
   end subroutine dealloc3d_short_llf_tf
+

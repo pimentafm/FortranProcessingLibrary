@@ -25,6 +25,10 @@ gengrid3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (idata, Xmin, Ymin, Xmax, Ymax,
  :``res``: map resolution `[double` or `float]`
 :Local parameters: 
  :``i``: loop controler `[integer]`
+ :``ids``: array of ID numbers `[integer]`
+ :``dimnames``: array of dimension names `[integer]`
+ :``dimsizes``: array of dimension sizes `[integer]`
+ :``dimunits``: array of dimension units `[integer]`
 :Result:
  A grid with latitude, longitude and resolution defined by the user.
 
@@ -34,21 +38,43 @@ Generate a grid of type byte with latitude and longitude defined as float and ti
 
 ::
 
-  !NetCDF <var byte> (lon <float>, lat <float>, time <double>)
   subroutine gengrid3d_byte_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
     type (nc3d_byte_llf_td) :: idata
     integer(kind=intgr) :: i
+    integer(kind=intgr), dimension(3) :: dimsizes, ids
+    character(len=100), dimension(3) :: dimnames, dimunits
     real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
   
     idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
     idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
   
-    allocate(idata%ncdata(idata%nlons, idata%nlats, idata%ntimes))
+    allocate(idata%dimunits(idata%ndims))
+    allocate(idata%dimname(idata%ndims))
+    allocate(idata%dimid(idata%ndims))
+    allocate(idata%dimsize(idata%ndims))
+    allocate(idata%varids(idata%ndims))
+  
     allocate(idata%longitudes(idata%nlons))  
     allocate(idata%latitudes(idata%nlats))
     allocate(idata%times(idata%ntimes))
   
-    idata%vartype = byte
+    ids = (/ 3, 2, 1 /)
+    dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
+    dimnames = (/ idata%timename, idata%latname, idata%lonname /)
+    dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
+  
+    do i = 1, idata%ndims
+      idata%dimsize(i) = dimsizes(i)
+      idata%dimname(i) = dimnames(i)
+      idata%dimunits(i) = dimunits(i)
+      idata%dimid(i) = ids(i)
+      idata%varids(i) = ids(i) + 10
+      idata%dims(i) = ids(i)
+    end do
+  
+    allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)))
+    
+    idata%vartype = nf90_byte
   
     do i = 1, idata%ntimes
       idata%times(i) = i
@@ -63,4 +89,8 @@ Generate a grid of type byte with latitude and longitude defined as float and ti
     do i = 1, idata%nlats - 1
       idata%latitudes(i+1) = idata%latitudes(i) + res
     end do
+  
+    idata%ncdata = idata%FillValue
+  
   end subroutine gengrid3d_byte_llf_td
+

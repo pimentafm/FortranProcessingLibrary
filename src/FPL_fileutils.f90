@@ -97,7 +97,7 @@ subroutine readheader(hfile, attribute, content)
   close(100)
 end subroutine readheader
 
-!:=== Line number counter.
+!:=== Row number counter.
 function numRows(fileunit) result(nrows)
   integer(kind=4) :: fileunit, nrows
   nrows = 0

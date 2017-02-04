@@ -87,25 +87,22 @@ readheader
     close(100)
   end subroutine readheader
 
-lineNumber
-``````````
+numRows
+```````
 
 ::
   
-  !:=== Line number counter.
-  function lineNumber(sourcefile) result(nlines)
-    character(len=*), intent(in) :: sourcefile
-    integer(kind=4)  :: nlines
-  
-    open(100, file=sourcefile, status='old')
-      nlines = 0
-      do
-        read(100, *, end=101)
-        nlines = nlines + 1
-      end do
+  !:=== row number counter.
+  function numRows(fileunit) result(nrows)
+    integer(kind=4) :: fileunit, nrows
+    nrows = 0
+    do
+      read(fileunit, *, end=101)
+      nrows = nrows + 1
+    end do
   101 continue
-      rewind(100)
-  end function lineNumber
+    rewind(fileunit)
+  end function numRows
 
 Time Utilities
 --------------
@@ -161,3 +158,35 @@ exec_time
     call date_and_time(TIME=t) 
     read(t, *)time
   end subroutine exec_time
+
+
+Sorting Utilities
+-----------------
+
+bubbleSort
+``````````
+
+::
+
+  Subroutine Order(p,q, dp, dq)
+    integer p,q,temp
+    character(len=100) :: dp, dq, tempd
+    if (p>q) then
+      temp=p
+      tempd=dp
+      p=q
+      dp=dq
+      q=temp
+      dq=tempd
+    end if
+  end subroutine Order
+  
+  Subroutine bubbleSort(dimid, dimname, n)
+    integer dimid(1:n), j, n, i
+    character(len=100) :: dimname(1:n)
+    do i=1, n
+      do j=n, i+1, -1
+        call Order(dimid(j-1), dimid(j), dimname(j-1), dimname(j))
+      end do
+    end do
+  end subroutine bubbleSort

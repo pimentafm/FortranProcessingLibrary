@@ -28,8 +28,9 @@ dealloc4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` (idata)
 
 ::
 
-  !NetCDF(lon, lat, time, level) double
   subroutine dealloc4d_double_llf_ti_li(idata)
     type(nc4d_double_llf_ti_li) :: idata
     deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata)
+    deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids)
   end subroutine dealloc4d_double_llf_ti_li
+
