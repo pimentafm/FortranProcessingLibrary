@@ -7,6 +7,10 @@
     margin: auto;
 }
 
+.wy-menu-vertical a:active {
+  background-color: #006401;
+}
+
 a:hover, a:active {
  color: #008401;
 }
