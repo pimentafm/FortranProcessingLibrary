@@ -113,6 +113,9 @@ subroutine gengrid2d_${arr[$i]}_ll${arrid[$j]}(idata, Xmin, Ymin, Xmax, Ymax, re
   do i = 1, idata%nlats - 1
     idata%latitudes(i+1) = idata%latitudes(i) + res
   end do
+
+  idata%ncdata = idata%FillValue
+
 end subroutine gengrid2d_${arr[$i]}_ll${arrid[$j]}"
 done
 done
@@ -174,6 +177,9 @@ subroutine gengrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(idata, Xmin, Ymin, 
   do i = 1, idata%nlats - 1
     idata%latitudes(i+1) = idata%latitudes(i) + res
   end do
+
+  idata%ncdata = idata%FillValue
+
 end subroutine gengrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}"
 done
 done
@@ -242,6 +248,9 @@ subroutine gengrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(idata
   do i = 1, idata%nlats - 1
     idata%latitudes(i+1) = idata%latitudes(i) + res
   end do
+
+  idata%ncdata = idata%FillValue
+
 end subroutine gengrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}"
 done
 done
