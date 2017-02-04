@@ -32,8 +32,8 @@ external libraries and intrinsic functions.
     include "FPL_gengrid.f90"      !Generate custom grid 
     include "FPL_dealloc.f90"      !Deallocate subroutines
     include "FPL_fileutils.f90"    !File Utilities
-    include "FPL_misc.f90"         !Miscelaneous
-  ! include "FPL_zonalstats.f90"  !Zonal Statistics subroutines
+    include "FPL_misc.f90"         !Miscelanious
+    include "FPL_sort.f90"         !Bubble sort subroutine
   end module FPL
 
 Data Types and Parameter Definitions

@@ -53,7 +53,7 @@ module FPL
   include "FPL_dealloc.f90"      !Deallocate subroutines
   include "FPL_fileutils.f90"    !File Utilities
   include "FPL_misc.f90"         !Miscelanious
-  include "FPL_sort.f90"         !Miscelanious
+  include "FPL_sort.f90"         !Bubble sort subroutine
 ! include "FPL_zonalstats.f90"  !Zonal Statistics subroutines
 end module FPL
 

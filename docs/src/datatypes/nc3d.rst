@@ -22,11 +22,19 @@ nc3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]``
  :``latname``: latitude name `[character]`
  :``timename``: time name `[character]`
  :``long_name``: title for dataset `[character]`
+ :``dimname``: array of dimension names `[character]`
 :Unit parameters: 
  :``varunits``: variable units `[character]` 
  :``lonunits``: longitudes units `[character]`
  :``latunits``: latitude units `[character]`
  :``timeunits``: time units `[character]`
+ :``dimunits``: dimension units array `[character]`
+:Dimension parameters:
+ :``ndims``: number of variable dimensions `[integer]`
+ :``dimid``: array of dimension IDs `[integer]`
+ :``dims``: dimension IDs corresponding to the variable dimensions `[integer]`
+ :``dimsize``: array of size of dimensions `[integer]`
+ :``varids``: array of variables IDs `[integer]`
 :Coordinate parameters: 
  :``nlons``: number of longitudes of the dataset `[integer]`
  :``nlats``: number of latitudes of the dataset `[integer]`
@@ -47,17 +55,17 @@ coordinates declared as float and time declared as double (nc3d _ ``short`` _ll 
 
 ::
 
-  !NetCDF(lon, lat, time) short
   type :: nc3d_short_llf_td
-  
     sequence
     character(len=100) :: varname, timename, lonname, latname, long_name, &
                           varunits, lonunits, latunits, timeunits
-    integer(kind=intgr) :: nlons, nlats, ntimes, vartype
+    character(len=100), dimension(:), allocatable :: dimname, dimunits
+    integer(kind=intgr) :: nlons, nlats, ntimes, ndims, vartype
+    integer(kind=intgr), dimension(:), allocatable :: dimid, dimsize, varids
+    integer(kind=intgr), dimension(3) :: dims
     integer(kind=short) :: FillValue
     real(kind=double), dimension(:), allocatable :: times
     real(kind=float), dimension(:), allocatable :: longitudes, latitudes
     integer(kind=short), dimension(:,:,:), allocatable :: ncdata
   end type nc3d_short_llf_td
-
 

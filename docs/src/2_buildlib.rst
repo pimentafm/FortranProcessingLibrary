@@ -27,21 +27,23 @@ Directory Structure
            |      |---FPL_misc.f90
            |      |---FPL_readgrid.f90
            |      |---FPL_setfillvalue.f90
+           |      |---FPL_sort.f90
            |      |---FPL_writegrid.f90
            |
            |---shell_gencodes/
-           |                 |---FPL_datatype.sh
-           |                 |---FPL_dealloc.sh
-           |                 |---FPL_gengrid.sh
-           |                 |---FPL_griddims.sh
-           |                 |---FPL_interfaces.sh
-           |                 |---FPL_readgrid.sh
-           |                 |---FPL_setfillvalue.sh
-           |                 |---FPL_writegrid.sh
+           |                 |---fpl_datatype.sh
+           |                 |---fpl_dealloc.sh
+           |                 |---fpl_gengrid.sh
+           |                 |---fpl_griddims.sh
+           |                 |---fpl_interfaces.sh
+           |                 |---fpl_readgrid.sh
+           |                 |---fpl_setfillvalue.sh
+           |                 |---fpl_writegrid.sh
            |
            |---examples/
            |           |---Makefile
-           |           |---ex1_constants.f90
+           |           |---ex_libtest.f90
+           |           |---ex1_readwrite.f90
            |           |---ex2_getinfo.f90
            |           |---ex3_time.f90
            |           |---ex4_gengrid.f90
@@ -72,7 +74,7 @@ Instalation
 
 :: 
 
-  cd FPL/
+  cd fpl/
   make
 
 The required settings can be made in the Makefile according to each operating system.
@@ -162,15 +164,18 @@ Check if the compilation ran without errors running some of the example programs
   #FPL_module=-I/usr/include/
   
   FLAGS= -Wall -O3
+  OMP= -fopenmp
   
+  ex0:
+  	gfortran $(FLAGS) $(OMP) -o ex0_libtest.out ex0_libtest.f90 $(FPL_module) $(FPL_library)
   ex1:
-  	gfortran $(FLAGS) -o ex1_constants.out ex1_constants.f90 $(FPL_module) $(FPL_library)
+  	gfortran $(FLAGS) -o ex1_readwrite.out ex1_readwrite.f90 $(FPL_module) $(FPL_library)
   ex2:	
   	gfortran $(FLAGS) -o ex2_getinfo.out ex2_getinfo.f90 $(FPL_module) $(FPL_library)
   ex3:	
   	gfortran $(FLAGS) -o ex3_time.out ex3_time.f90 $(FPL_module) $(FPL_library)
   ex4:	
-  	gfortran $(FLAGS) -o ex4_gengrid.out ex4_gengrid.f90 $(FPL_module) $(FPL_library)
+  	gfortran $(FLAGS) $(OMP) -o ex4_gengrid.out ex4_gengrid.f90 $(FPL_module) $(FPL_library)
   ex5:	
   	gfortran $(FLAGS) -o ex5_utils.out ex5_utils.f90 $(FPL_module) $(FPL_library)
   ex6:	
