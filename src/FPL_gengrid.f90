@@ -62,7 +62,7 @@ subroutine gengrid2d_byte_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -111,7 +111,7 @@ subroutine gengrid2d_short_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -160,7 +160,7 @@ subroutine gengrid2d_int_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -209,7 +209,7 @@ subroutine gengrid2d_float_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -258,7 +258,7 @@ subroutine gengrid2d_double_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -307,7 +307,7 @@ subroutine gengrid2d_byte_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -356,7 +356,7 @@ subroutine gengrid2d_short_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -405,7 +405,7 @@ subroutine gengrid2d_int_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -454,7 +454,7 @@ subroutine gengrid2d_float_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -503,7 +503,7 @@ subroutine gengrid2d_double_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -553,7 +553,7 @@ subroutine gengrid3d_byte_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -607,7 +607,7 @@ subroutine gengrid3d_short_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -661,7 +661,7 @@ subroutine gengrid3d_int_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -715,7 +715,7 @@ subroutine gengrid3d_float_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -769,7 +769,7 @@ subroutine gengrid3d_double_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -823,7 +823,7 @@ subroutine gengrid3d_byte_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -877,7 +877,7 @@ subroutine gengrid3d_short_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -931,7 +931,7 @@ subroutine gengrid3d_int_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -985,7 +985,7 @@ subroutine gengrid3d_float_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1039,7 +1039,7 @@ subroutine gengrid3d_double_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1093,7 +1093,7 @@ subroutine gengrid3d_byte_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1147,7 +1147,7 @@ subroutine gengrid3d_short_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1201,7 +1201,7 @@ subroutine gengrid3d_int_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1255,7 +1255,7 @@ subroutine gengrid3d_float_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1309,7 +1309,7 @@ subroutine gengrid3d_double_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1363,7 +1363,7 @@ subroutine gengrid3d_byte_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1417,7 +1417,7 @@ subroutine gengrid3d_short_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1471,7 +1471,7 @@ subroutine gengrid3d_int_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1525,7 +1525,7 @@ subroutine gengrid3d_float_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1579,7 +1579,7 @@ subroutine gengrid3d_double_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1633,7 +1633,7 @@ subroutine gengrid3d_byte_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1687,7 +1687,7 @@ subroutine gengrid3d_short_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1741,7 +1741,7 @@ subroutine gengrid3d_int_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1795,7 +1795,7 @@ subroutine gengrid3d_float_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1849,7 +1849,7 @@ subroutine gengrid3d_double_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1903,7 +1903,7 @@ subroutine gengrid3d_byte_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -1957,7 +1957,7 @@ subroutine gengrid3d_short_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2011,7 +2011,7 @@ subroutine gengrid3d_int_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2065,7 +2065,7 @@ subroutine gengrid3d_float_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2119,7 +2119,7 @@ subroutine gengrid3d_double_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2174,7 +2174,7 @@ subroutine gengrid4d_byte_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2233,7 +2233,7 @@ subroutine gengrid4d_short_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2292,7 +2292,7 @@ subroutine gengrid4d_int_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2351,7 +2351,7 @@ subroutine gengrid4d_float_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2410,7 +2410,7 @@ subroutine gengrid4d_double_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2469,7 +2469,7 @@ subroutine gengrid4d_byte_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2528,7 +2528,7 @@ subroutine gengrid4d_short_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2587,7 +2587,7 @@ subroutine gengrid4d_int_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2646,7 +2646,7 @@ subroutine gengrid4d_float_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2705,7 +2705,7 @@ subroutine gengrid4d_double_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2764,7 +2764,7 @@ subroutine gengrid4d_byte_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2823,7 +2823,7 @@ subroutine gengrid4d_short_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2882,7 +2882,7 @@ subroutine gengrid4d_int_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -2941,7 +2941,7 @@ subroutine gengrid4d_float_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3000,7 +3000,7 @@ subroutine gengrid4d_double_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3059,7 +3059,7 @@ subroutine gengrid4d_byte_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3118,7 +3118,7 @@ subroutine gengrid4d_short_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3177,7 +3177,7 @@ subroutine gengrid4d_int_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3236,7 +3236,7 @@ subroutine gengrid4d_float_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3295,7 +3295,7 @@ subroutine gengrid4d_double_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3354,7 +3354,7 @@ subroutine gengrid4d_byte_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3413,7 +3413,7 @@ subroutine gengrid4d_short_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3472,7 +3472,7 @@ subroutine gengrid4d_int_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3531,7 +3531,7 @@ subroutine gengrid4d_float_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3590,7 +3590,7 @@ subroutine gengrid4d_double_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3649,7 +3649,7 @@ subroutine gengrid4d_byte_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3708,7 +3708,7 @@ subroutine gengrid4d_short_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3767,7 +3767,7 @@ subroutine gengrid4d_int_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3826,7 +3826,7 @@ subroutine gengrid4d_float_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3885,7 +3885,7 @@ subroutine gengrid4d_double_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -3944,7 +3944,7 @@ subroutine gengrid4d_byte_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4003,7 +4003,7 @@ subroutine gengrid4d_short_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4062,7 +4062,7 @@ subroutine gengrid4d_int_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4121,7 +4121,7 @@ subroutine gengrid4d_float_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4180,7 +4180,7 @@ subroutine gengrid4d_double_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4239,7 +4239,7 @@ subroutine gengrid4d_byte_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4298,7 +4298,7 @@ subroutine gengrid4d_short_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4357,7 +4357,7 @@ subroutine gengrid4d_int_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4416,7 +4416,7 @@ subroutine gengrid4d_float_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4475,7 +4475,7 @@ subroutine gengrid4d_double_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4534,7 +4534,7 @@ subroutine gengrid4d_byte_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4593,7 +4593,7 @@ subroutine gengrid4d_short_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4652,7 +4652,7 @@ subroutine gengrid4d_int_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4711,7 +4711,7 @@ subroutine gengrid4d_float_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4770,7 +4770,7 @@ subroutine gengrid4d_double_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4829,7 +4829,7 @@ subroutine gengrid4d_byte_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4888,7 +4888,7 @@ subroutine gengrid4d_short_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -4947,7 +4947,7 @@ subroutine gengrid4d_int_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -5006,7 +5006,7 @@ subroutine gengrid4d_float_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -5065,7 +5065,7 @@ subroutine gengrid4d_double_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -5124,7 +5124,7 @@ subroutine gengrid4d_byte_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -5183,7 +5183,7 @@ subroutine gengrid4d_short_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -5242,7 +5242,7 @@ subroutine gengrid4d_int_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -5301,7 +5301,7 @@ subroutine gengrid4d_float_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -5360,7 +5360,7 @@ subroutine gengrid4d_double_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -5419,7 +5419,7 @@ subroutine gengrid4d_byte_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -5478,7 +5478,7 @@ subroutine gengrid4d_short_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -5537,7 +5537,7 @@ subroutine gengrid4d_int_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -5596,7 +5596,7 @@ subroutine gengrid4d_float_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -5655,7 +5655,7 @@ subroutine gengrid4d_double_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 

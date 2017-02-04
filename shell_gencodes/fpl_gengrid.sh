@@ -96,7 +96,7 @@ subroutine gengrid2d_${arr[$i]}_ll${arrid[$j]}(idata, Xmin, Ymin, Xmax, Ymax, re
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -153,7 +153,7 @@ subroutine gengrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(idata, Xmin, Ymin, 
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
@@ -217,7 +217,7 @@ subroutine gengrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(idata
     idata%dimname(i) = dimnames(i)
     idata%dimunits(i) = dimunits(i)
     idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i)
+    idata%varids(i) = ids(i) + 10
     idata%dims(i) = ids(i)
   end do
 
