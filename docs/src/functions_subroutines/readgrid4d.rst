@@ -19,24 +19,17 @@ readgrid4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` (ifile, idata)
  :``[ldt]``: level datatype (integer ``i``,float ``f``)
 :Subroutine Parameters:
  :``ifile``: file path `[character]` 
- :``idata``: 4d dataset structure `[FPL defined type structure]` 
+ :``idata``: 4d dataset structure. See :ref:`structurefields`. 
 :Local parameters: 
  :``ncid``: map ID `[integer]`
- :``xdimid``: longitude dimension ID `[integer]`
- :``ydimid``: latitude dimension ID `[integer]`
- :``varid``: variable dimension ID `[integer]`
+ :``varid``: variable ID `[integer]`
+ :``i``: auxiliary variable `[integer]`
 :Return:
- :``nlevels``: level dimension size from ``ifile`` `[integer]`
- :``ntimes``: time dimension size from ``ifile`` `[integer]`
- :``nlons``: longitude dimension size from ``ifile`` `[integer]`
- :``nlats``: latitude dimesnion size from ``ifile`` `[integer]`
- :``timeunits``: time units `[character]` 
- :``lonunits``: longitude units `[character]` 
- :``latunits``: latitude units `[character]`
- :``varunits``: variable units `[character]`
- :``idata``: array with dataset was read ``[vdt]``
- :``long_name``: long name defined in dataset `[character]`
- :``_FillValue``: fill value defined in dataset ``[vdt]``
+ :``idata``: map structure with readed fields. See :ref:`structurefields`.
+ :``levels``: array of map levels `[integer or float]`
+ :``times``: array of map times `[integer, float or double]`
+ :``longitudes``: array of longitudes `[float or double]`
+ :``latitudes``: array of latitudes `[float or double]`
 
 **Example:**
 

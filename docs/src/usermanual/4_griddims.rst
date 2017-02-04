@@ -13,11 +13,19 @@ Hou to use
 
     :p ifile: dataset file path `[character]` [#f1]_
     :p idata: map structure to be readed `[FPL defined type structure]` [#f1]_
+    :r ndims: number of dimensions of variable
     :r nlons: number of longitudes
     :r nlats: number of latitudes
     :r ntimes: number of times ``[3d and 4d datasets]``
     :r nlevels: number of levels ``[4d datasets]``
-    :r vartype: variable type of file
+    :r lonunits: longitude units
+    :r latunits: latitude units
+    :r timeunits: time units ``[3d and 4d datasets]``
+    :r levelunits: level units ``[4d datasets]``
+    :r vartype: variable type
+    :r varunits: variable units
+    :r long_name: long name
+    :r _FillValue: fill value
     :call: :f:prog:`griddims(ifile,idata)`
 
 .. [#f1] Defined by user 

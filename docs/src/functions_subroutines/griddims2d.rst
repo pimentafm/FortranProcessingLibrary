@@ -23,9 +23,21 @@ griddims2d _ ``[vdt]`` _ll ``[cdt]`` (ifile, idata)
  :``ydimid``: latitude dimension ID `[integer]`
  :``varid``: variable dimension ID `[integer]`
 :Return:
+ :``varunits``: variable units `[character]`
+ :``lonunits``: longitude units `[character]`
+ :``latunits``: latitude units `[character]`
+ :``dimunits``: dimension units array `[character]`
+ :``dimnames``: array of dimension names `[character]`
+ :``ndims``: number of variable dimensions `[integer]`
+ :``dims``: dimension IDs corresponding to the variable dimensions `[integer]`
+ :``dimid``: array of dimension IDs `[integer]`
+ :``dimsize``: array of size of dimensions `[integer]`
  :``nlons``: longitude dimension size from ``ifile`` `[integer]`
- :``nlats``: latitude dimesnion size from ``ifile`` `[integer]`
- :``vartype``: number of variable datatype `[integer]` according to `NetCDF Library (C/C++ and Fortran) <https://github.com/Unidata/netcdf-fortran>`_ 
+ :``nlats``: latitude dimension size from ``ifile`` `[integer]`
+ :``vartype``: number of variable datatype `[integer]` according to `NetCDF Library (C/C++ and Fortran) <https://github.com/Unidata/netcdf-fortran>`_
+ :``varids``: array of variables IDs `[integer]`
+ :``long_name``: `[long name dataset title]`
+ :``_FillValue``: fill value `[byte, short, integer, float, double]`
 
 **Example:**
 

@@ -18,23 +18,16 @@ readgrid3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (ifile, idata)
  :``[tdt]``: time datatype `[byte, short, int, float or double]`
 :Subroutine Parameters:
  :``ifile``: file path `[character]` 
- :``idata``: 3d dataset structure `[FPL defined type structure]` 
+ :``idata``: 3d dataset structure. See :ref:`structurefields`. 
 :Local parameters: 
  :``ncid``: map ID `[integer]`
- :``xdimid``: longitude dimension ID `[integer]`
- :``ydimid``: latitude dimension ID `[integer]`
- :``varid``: variable dimension ID `[integer]`
+ :``varid``: variable ID `[integer]`
+ :``i``: auxiliary variable `[integer]`
 :Return:
- :``ntimes``: time dimension size from ``ifile`` `[integer]`
- :``nlons``: longitude dimension size from ``ifile`` `[integer]`
- :``nlats``: latitude dimesnion size from ``ifile`` `[integer]`
- :``timeunits``: time units `[character]` 
- :``lonunits``: longitude units `[character]` 
- :``latunits``: latitude units `[character]`
- :``varunits``: variable units `[character]`
- :``idata``: array with dataset was read ``[vdt]``
- :``long_name``: long name defined in dataset `[character]`
- :``_FillValue``: fill value defined in dataset ``[vdt]``
+ :``idata``: map structure with readed fields. See :ref:`structurefields`.
+ :``times``: array of map times `[integer, float or double]`
+ :``longitudes``: array of longitudes `[float or double]`
+ :``latitudes``: array of latitudes `[float or double]`
 
 **Example:**
 

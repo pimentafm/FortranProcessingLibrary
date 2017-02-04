@@ -46,16 +46,23 @@ Structure Fields
     :f lonname: longitude name `[character]` [#f1]_
     :f latname: latitude name `[character]` [#f1]_
     :f long_name: `[long name dataset title]` [#f1]_ [#f2]_
+    :f dimnames: array of dimension names `[character]` [#f2]_
     :f varunits: variable units `[character]` [#f1]_ [#f2]_
     :f lonunits: longitude units `[character]` [#f1]_ [#f2]_
     :f latunits: latitude units `[character]` [#f1]_ [#f2]_
     :f timeunits: time units `[character]` ``[3d and 4d datasets]`` [#f1]_ [#f2]_
     :f levelunits: level units `[character]` ``[4d datasets]`` [#f1]_ [#f2]_
+    :f dimunits: dimension units array `[character]` [#f2]_
+    :f ndims: number of variable dimensions `[integer]` [#f2]_
+    :f dims: dimension IDs corresponding to the variable dimensions `[integer]` [#f2]_
+    :f dimid: array of dimension IDs `[integer]` [#f2]_
+    :f dimsize: array of size of dimensions `[integer]` [#f2]_
     :f nlons: number of dataset longitudes `[integer]` [#f1]_ [#f2]_
     :f nlats: number of dataset latitudes `[integer]` [#f1]_ [#f2]_
     :f ntimes: number of dataset times `[integer]` ``[3d and 4d datasets]`` [#f1]_ [#f2]_
     :f nlevels: number of dataset level `[integer]` ``[4d datasets]`` [#f1]_ [#f2]_
     :f vartype: type number for NetCDF-fortran library `[integer]` [#f2]_
+    :f varids: array of variables IDs `[integer]` [#f2]_
     :f FillValue: fill value `[byte, short, integer, float, double]` [#f1]_ [#f2]_
     :f levels: levels array `[integer, float]` ``[4d datasets]`` [#f1]_ [#f2]_
     :f times: times array `[integer, float, double]` ``[3d and 4d datasets]`` [#f1]_ [#f2]_
