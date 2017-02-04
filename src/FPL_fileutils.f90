@@ -98,14 +98,14 @@ subroutine readheader(hfile, attribute, content)
 end subroutine readheader
 
 !:=== Line number counter.
-function lineNumber(fileunit) result(nlines)
-  integer(kind=4) :: fileunit, nlines
-  nlines = 0
+function numRows(fileunit) result(nrows)
+  integer(kind=4) :: fileunit, nrows
+  nrows = 0
   do
     read(fileunit, *, end=101)
-    nlines = nlines + 1
+    nrows = nrows + 1
   end do
 101 continue
   rewind(fileunit)
-end function lineNumber
+end function numRows
 

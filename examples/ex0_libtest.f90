@@ -1,10 +1,49 @@
+!:=============================================================================
+! This file is part of FPL (Fortran Processing Library).
+
+! Copyright (C) 2015 Fernando Martins Pimenta
+
+! FPL is free software: you can redistribute it and/or modify
+! it under the terms of the GNU General Public License as published by
+! the Free Software Foundation, either version 3 of the License, or
+! (at your option) any later version.
+
+! FPL is distributed in the hope that it will be useful,
+! but WITHOUT ANY WARRANTY; without even the implied warranty of
+! MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+! GNU General Public License for more details.
+
+! You should have received a copy of the GNU General Public License
+! along with FPL.  If not, see <http://www.gnu.org/licenses/>.
+
+!:=============================================================================
+! About Author:
+! Fernando Martins Pimenta
+!  Student of Surveying and Cartographic Engineering
+!  Federal University of Viçosa - Brazil
+
+!  Bachelor of Biosystems Engineer
+!  Federal University of São João del-Rei - Brazil
+
+!  Research Group on Atmosphere-Biosphere Interaction
+!  Federal University of Viçosa
+!  Data: August 09, 2015
+
+!Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
+!:=============================================================================
+
+!:+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+! Tests library operation and shows some internal variables
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 program libtest
   use fpl
   implicit none
 
+  !Shows FPL library version
   write(*,*) fpl_libversion()
 
-  !OpenMP -------------------------------------------------------------
+  !OpenMP is required
   call omp_set_num_threads(3)
 
   write(*,*) "Num procs  : ", omp_get_num_procs()
@@ -14,8 +53,8 @@ program libtest
  !$omp parallel
    write(*,*) "Num threads (parallel region): ", omp_get_num_threads()
  !$omp end parallel
- !---------------------------------------------------------------------
 
+  !Internal datatype definitions
   write(*,'(a8,i2)') "   BYTE: ", byte
   write(*,'(a8,i2)') "  SHORT: ", short
   write(*,'(a8,i2)') "INTEGER: ", intgr

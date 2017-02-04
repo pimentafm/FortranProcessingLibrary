@@ -32,14 +32,18 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
 
-!:====================== Get metadata from file ===============================
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+! Reads a netCDF, show some information and saves 
+! the variable was read in another file
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 program main
   use fpl
   implicit none
 
-  !Database download from UNIDATA:
-  !                               file: test_echam_spectral.nc
-  !                               http://www.unidata.ucar.edu/software/netcdf/examples/files.html                  
+  !  Source: UNIDATA
+  !    file: test_echam_spectral.nc
+  !download: http://www.unidata.ucar.edu/software/netcdf/examples/files.html                  
 
   !Set float datatype 3d dataset with, longitude and latitude and time in double datatype  
   type(nc3d_float_lld_td) :: spectral
@@ -92,6 +96,7 @@ program main
 102 format(a13,i4)
 103 format(a13,3i4)
  
+  !Write the data on file
   call writegrid(outputpath, spectral) 
     
 end program main

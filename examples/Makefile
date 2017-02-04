@@ -68,7 +68,7 @@ ex2:
 ex3:	
 	gfortran $(FLAGS) -o ex3_time.out ex3_time.f90 $(FPL_module) $(FPL_library)
 ex4:	
-	gfortran $(FLAGS) -o ex4_gengrid.out ex4_gengrid.f90 $(FPL_module) $(FPL_library)
+	gfortran $(FLAGS) $(OMP) -o ex4_gengrid.out ex4_gengrid.f90 $(FPL_module) $(FPL_library)
 ex5:	
 	gfortran $(FLAGS) -o ex5_utils.out ex5_utils.f90 $(FPL_module) $(FPL_library)
 ex6:	

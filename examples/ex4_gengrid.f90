@@ -32,18 +32,23 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
 
-!:========================= Generate grid file ================================
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+! Generates 2d, 3d and 4d data grids
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 program main
   use fpl
   implicit none
 
+  !Definition of dataset structures
   type(nc2d_double_llf) :: grid2d
   type(nc3d_int_llf_ti) :: grid3d
   type(nc4d_float_llf_ti_li) :: grid4d
  
+  !Auxiliary variables
   integer(kind=intgr) :: i, j, k, l
 
+  !Min max coordinates
   real(kind=4) :: Xmin, Ymin, Xmax, Ymax, res
 
   character(200) :: opath2d, opath3d, opath4d
@@ -54,10 +59,10 @@ program main
   opath4d = "database/grid4d.nc"
 
 
-  !Grid 2d
+  !Grid 2d definitions
   grid2d%long_name = "My Grid 1 degree"
   
-  grid2d%varname = "id"
+  grid2d%varname = "grid"
   grid2d%lonname = "lon"
   grid2d%latname = "lat"
 
@@ -69,10 +74,10 @@ program main
 
   grid2d%FillValue = -9999
 
-  !Grid 3d
+  !Grid 3d definitions
   grid3d%long_name = "My Grid 1 degree"
   
-  grid3d%varname = "id"
+  grid3d%varname = "grid"
   grid3d%lonname = "lon"
   grid3d%latname = "lat"
   grid3d%timename = "time"
@@ -88,10 +93,10 @@ program main
 
   grid3d%FillValue = -9999
 
-  !Grid 4d
+  !Grid 4d definitions
   grid4d%long_name = "My Grid  ~ 1 degree"
   
-  grid4d%varname = "id"
+  grid4d%varname = "grid"
   grid4d%lonname = "lon"
   grid4d%latname = "lat"
   grid4d%timename = "time"
@@ -122,19 +127,23 @@ program main
   !           i                      Longitude 
   !                   Ymin
 
-  Xmin = -74.7371
-  Ymin = -34.3437
+  Xmin = -54.7371
+  Ymin = -11.3437
   Xmax = -34.7371
-  Ymax = 5.6562
+  Ymax = 2.6562
   res = 0.00833333
-
+ 
+  !Generates a 2d grid
   call gengrid(grid2d, Xmin, Ymin, Xmax, Ymax, res)
 
+  !Fills the array data using openmp
+  !$omp parallel do
   do i = 1, grid2d%nlons
     do j = 1, grid2d%nlats
       grid2d%ncdata(i,j) = cos(grid2d%longitudes(i)) + grid2d%latitudes(j)
     end do
   end do
+  !omp end parallel do
   
   write(*,*) "Grid 2d info ================================="
   write(*,'(a13,a20)') "varname :    ",   grid2d%varname  
@@ -156,10 +165,13 @@ program main
   write(*,'(a13,4i4)') "dims() :     ",   grid2d%dims
   write(*,'(a13,f10.4)') "FillValue :  ", grid2d%FillValue
   
+  !Write 2d data on file
   call writegrid(opath2d, grid2d)
 
+  !Generates a 3d grid
   call gengrid(grid3d, -74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965, 1.0 )
 
+  !Fills the array data
   do i = 1, grid3d%ntimes
     do j = 1, grid3d%nlons
       do k = 1, grid3d%nlats
@@ -191,10 +203,13 @@ program main
   write(*,'(a13,4i4)') "dims() :     ",   grid3d%dims
   write(*,'(a13,i6)') "FillValue :  ", grid3d%FillValue
 
+  !Write 3d data on file
   call writegrid(opath3d, grid3d)
 
+  !Generates 4d grid
   call gengrid(grid4d, -74.73715442059999, -34.343706397220295, -34.73715458059378, 5.6562934427799965, 1.0 )
 
+  !Fills the array data
   do l = 1, grid4d%nlevels
     do i = 1, grid4d%ntimes
       do j = 1, grid4d%nlons
@@ -231,6 +246,7 @@ program main
   write(*,'(a13,4i4)') "dims() :     ",   grid4d%dims
   write(*,'(a13,f10.4)') "FillValue :  ", grid4d%FillValue
 
+  !Write 4d data
   call writegrid(opath4d, grid4d, "database/gridHeader.txt")
 
 end program main

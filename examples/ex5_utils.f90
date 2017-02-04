@@ -32,23 +32,28 @@
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
 
-!:==================== File utilities =========================================
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+!Checks if file exists and count its number of rows
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 program utils
   use fpl
   implicit none
 
-  integer(kind=4) :: nlines
+  integer(kind=4) :: nrows
 
   write(*,*) "Count line number"
   write(*,*) "============================"
 
+  !Checks if file exists
   if(file_exists("database/data.txt")) then
     write(*,*) "File OK!"
     open(100, file="database/data.txt", status="old")
   end if
 
-  nlines = lineNumber(100)
+  !Count line numbers
+  nrows = numRows(100)
 
-  write(*,*) nlines, file_exists("database/data.txt")
+  write(*,*) nrows, file_exists("database/data.txt")
 
 end program utils
