@@ -3,7 +3,8 @@
 (4) Example
 -----------
 
-TODO
+.. literalinclude:: fortran/example04.f90
+   :language: fortran
 
 .. figure:: images/example_04.*
    :width: 500 px

@@ -100,7 +100,7 @@ program main
   
   write(*,*)"Setting FillValue"
   call exec_time(start_time)
-  call setfvalue3d_bytedouble_lld_ti(maskara, cattle, 18)        !Masks the cattle data where the state map is equal to 18.
+  call setFillValue(maskara, cattle, 18)        !Masks the cattle data where the state map is equal to 18.
   call exec_time(end_time)
   write(*,'("  Time:", f15.3," seconds")') end_time - start_time
 

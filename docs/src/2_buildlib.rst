@@ -59,14 +59,23 @@ Directory Structure
 
 Dependencies
 ============
-* `GNU Fortran Compiler <https://gcc.gnu.org/onlinedocs/gfortran/>`_
-* `NetCDF Library (C/C++ and Fortran) <http://www.unidata.ucar.edu/software/netcdf/>`_
-* `ISO_C_BINDINGS <https://gcc.gnu.org/onlinedocs/gfortran/Interoperability-with-C.html>`_
-* `OpenMP <http://openmp.org/wp/openmp-specifications/>`_ (Optional)
+
+|links|
+
+.. |links| raw:: html
+
+  <ul>
+    <li><a href="https://gcc.gnu.org/onlinedocs/gfortran" target="_blank">GNU Fortran Compiler</a></li>
+    <li><a href="http://www.unidata.ucar.edu/software/netcdf/" target="_blank">netCDF Library (C/C++ and Fortran)</a></li>
+    <li><a href="https://gcc.gnu.org/onlinedocs/gfortran/Interoperability-with-C.html" target="_blank">ISO_C_BINDINGS</a></li>
+    <li><a href="http://openmp.org" target="_blank">OpenMP</a> (optional)</li>
+  </ul> 
+   
+
 
 Instalation
 ===========
-**FPL** library was developed in Fedora Linux operating system. The compilation was tested in Fedora 23 and Debian 8.4.
+**FPL** was developed in Fedora Linux operating system. The compilation was tested in Fedora 23, Korora 25, Debian 8.4 and Ubuntu 15.10.
 
 .. important::
 
