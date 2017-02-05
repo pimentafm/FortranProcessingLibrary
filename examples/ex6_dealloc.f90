@@ -75,7 +75,7 @@ program main
     endwhere
  
     !Write filtered data on file
-    call writegrid("database/SoyMun"//year//".nc", soybean)
+    call writegrid("database/filteredSoybean"//year//".nc", soybean)
     
     !Deallocates the structure to receive new data
     call dealloc(soybean)

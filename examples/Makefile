@@ -59,6 +59,8 @@ FPL_library=-lFPL
 FLAGS= -Wall -O3
 OMP= -fopenmp
 
+all: ex0 ex1 ex2 ex3 ex4 ex5 ex6
+
 ex0:
 	gfortran $(FLAGS) $(OMP) -o ex0_libtest.out ex0_libtest.f90 $(FPL_module) $(FPL_library)
 ex1:
