@@ -4,6 +4,11 @@
 ! FPL datatypes: nc2d_byte_lld, nc3d_double_lld_ti 
 ! FPL tools:     readgrid, writegrid, exec_time, setFillValue 
 
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+! Reads netCDF files, masks data and saves the masked data
+! Uses subroutines to calculate runtime
+!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 program main
   use fpl
   implicit none
