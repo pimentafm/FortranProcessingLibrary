@@ -1,7 +1,7 @@
 .. _example_06:
 
-(6) Example
------------
+(6) Filtering data
+------------------
 
 .. literalinclude:: fortran/example06.f90
    :language: fortran
@@ -10,4 +10,3 @@
    :width: 500 px
    :align: center
 
-   todo

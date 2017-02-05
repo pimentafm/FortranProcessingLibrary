@@ -16,6 +16,7 @@
 *.swo
 *.pdf
 *.so
+*.xml
 
 #directory
 *.directory

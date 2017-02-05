@@ -1,7 +1,7 @@
 .. _example_05:
 
-(5) Example
------------
+(5) Reads a variable and save it on another file 
+------------------------------------------------
 
 .. literalinclude:: fortran/example05.f90
    :language: fortran
@@ -10,4 +10,3 @@
    :width: 500 px
    :align: center
 
-   todo
