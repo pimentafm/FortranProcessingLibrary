@@ -9,10 +9,10 @@ Welcome to FPL's documentation!
 Download:
 ---------
 
-`FPL Version 1.0 <http://www.biosfera.dea.ufv.br>`__
-`````````````````````````````````````````````````````
-`Data examples <http://www.biosfera.dea.ufv.br>`__
+`FPL Version 1.0 <http://www.biosfera.dea.ufv.br>`_
 ```````````````````````````````````````````````````
+`Data examples <http://www.biosfera.dea.ufv.br>`_
+`````````````````````````````````````````````````
  
 API Documentation:
 ------------------

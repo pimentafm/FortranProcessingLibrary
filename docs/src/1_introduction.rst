@@ -4,8 +4,9 @@ Introduction
 Overview
 ========
 
-**FPL** (Fortran Processing Library) is an API library designed to facilitate the I/O and processing of large netCDF datasets using Fortran 90 programming language.
-**FPL** reads and writes data up to 4 dimensions in a much simpler way (like |NCL|) using dynamic data structures and dynamic modules.
+**FPL** (Fortran Processing Library) is a library designed to facilitate the reading, writing and processing of data in the netCDF format using the Fortran 90 programming language. 
+**FPL** reads and writes data up to 4 dimensions in a very simpler way (such as |NCL|) using dynamic data structures and dynamic modules.
+
 
 License and copyright
 =====================
