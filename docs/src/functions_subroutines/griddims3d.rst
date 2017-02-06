@@ -18,7 +18,7 @@ griddims3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (ifile, idata)
  :``[tdt]``: time datatype (integer ``i``, float ``f``, double ``i``)
 :Subroutine Parameters:
  :``ifile``: file path `[character]` 
- :``idata``: 3d dataset structure `[FPL defined type structure]` 
+ :``idata``: map to be created. See :ref:`structurefields`.
 :Local parameters: 
  :``ncid``: map ID `[integer]`
  :``tdimid``: time dimension ID `[integer]`
@@ -38,7 +38,7 @@ griddims3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (ifile, idata)
  :``ntimes``: time dimension size from ``ifile`` `[integer]`
  :``nlons``: longitude dimension size from ``ifile`` `[integer]`
  :``nlats``: latitude dimesnion size from ``ifile`` `[integer]`
- :``vartype``: number of variable datatype `[integer]` according to `NetCDF Library (C/C++ and Fortran) <https://github.com/Unidata/netcdf-fortran>`_ 
+ :``vartype``: number of variable datatype `[integer]` according to |NCCPPF| 
  :``varids``: array of variables IDs `[integer]`
  :``long_name``: long name defined in dataset `[character]`
  :``_FillValue``: fill value defined in dataset ``[vdt]``
@@ -113,3 +113,7 @@ coordinates declared as double and time declared as integer (nc3d _ ``short`` _l
     call check(nf90_close(ncid))
   end subroutine griddims3d_short_lld_ti
 
+
+.. |NCCPPF| raw:: html
+
+  <a href="https://github.com/Unidata/netcdf-fortran" target="_blank"> netCDF Library (C/C++ and Fortran)</a>

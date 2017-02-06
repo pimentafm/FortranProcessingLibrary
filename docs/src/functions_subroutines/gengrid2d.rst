@@ -15,7 +15,7 @@ gengrid2d _ ``[vdt]`` _ll ``[cdt]`` (idata, Xmin, Ymin, Xmax, Ymax, res)
  :``[vdt]``: variable datatype `[byte, short, int, float or double]`
  :``[cdt]``: coordinates datatype `[float` ``f`` `, double` ``d`` `]`
 :Subroutine Parameters:
- :``idata``: map to be created  `[FPL defined type structure]`
+ :``idata``: map to be created. See :ref:`structurefields`.
  :``Xmin``: westernmost longitude `[double` or `float]` 
  :``Ymin``: southernmost latitude `[double` or `float]`
  :``Xmax``: easternmost longitude `[double` or `float]`

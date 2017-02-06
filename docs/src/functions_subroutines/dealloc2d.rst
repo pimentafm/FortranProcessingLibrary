@@ -15,7 +15,7 @@ dealloc2d _ ``[vdt]`` _ll ``[cdt]`` (idata)
  :``[vdt]``: variable datatype `[byte, short, int, float or double]`
  :``[cdt]``: coordinates datatype `[float` ``f`` `, double` ``d`` `]`
 :Subroutine Parameters:
- :``idata``: map to be created  `[FPL defined type structure]`
+ :``idata``: map to be created. See :ref:`structurefields`.
 :Result:
  idata structure with ncdata, longitudes and latitudes deallocated.
 

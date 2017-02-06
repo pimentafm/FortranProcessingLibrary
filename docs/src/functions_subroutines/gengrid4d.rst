@@ -18,7 +18,7 @@ gengrid4d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` _l ``[ldt]`` (idata, Xmin, Ymin
  :``[tdt]``: time datatype (integer ``i``, float ``f``, double ``d``)
  :``[ldt]``: level datatype (integer ``i``, float ``f``)
 :Subroutine Parameters:
- :``idata``: map to be created  `[FPL defined type structure]`
+ :``idata``: map to be created. See :ref:`structurefields`.
  :``Xmin``: westernmost longitude `[double` or `float]` 
  :``Ymin``: southernmost latitude `[double` or `float]`
  :``Xmax``: easternmost longitude `[double` or `float]`

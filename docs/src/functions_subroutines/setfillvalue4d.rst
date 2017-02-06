@@ -19,9 +19,9 @@ setfillvalue4d _ ``[maskdt][mapdt]`` _ll ``[cdt]`` _t ``[tdt]`` (ifile, idata)
  :``[tdt]``: time datatype (integer ``i``, float ``f``, double ``i``)
  :``[ldt]``: level datatype (integer ``i``, float ``f``, double ``i``)
 :Subroutine Parameters:
- :``mask``: map to use as mask `[FPL defined type structure]` 
- :``map``: map to be masked `[FPL defined type structure]` 
- :``num``: number in ``mask`` `[optional]` `[FPL defined type structure]` 
+ :``mask``: map to use as mask. See :ref:`structurefields`. 
+ :``map``: map to be masked. See :ref:`structurefields`. 
+ :``num``: number in ``mask`` `[optional]`. See :ref:`structurefields`. 
 :Local parameters: 
  :``i``: variable to iterate longitude positions `[integer]`
  :``j``: variable to iterate latitude positions `[integer]`

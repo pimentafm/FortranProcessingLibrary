@@ -16,7 +16,7 @@ griddims2d _ ``[vdt]`` _ll ``[cdt]`` (ifile, idata)
  :``[cdt]``: coordinates datatype(float ``f``, double ``d``).
 :Subroutine Parameters:
  :``ifile``: file path `[character]` 
- :``idata``: 2d dataset structure `[FPL defined type structure]` 
+ :``idata``: map to be created. See :ref:`structurefields`.
 :Local parameters: 
  :``ncid``: map ID `[integer]`
  :``xdimid``: longitude dimension ID `[integer]`
@@ -34,7 +34,7 @@ griddims2d _ ``[vdt]`` _ll ``[cdt]`` (ifile, idata)
  :``dimsize``: array of size of dimensions `[integer]`
  :``nlons``: longitude dimension size from ``ifile`` `[integer]`
  :``nlats``: latitude dimension size from ``ifile`` `[integer]`
- :``vartype``: number of variable datatype `[integer]` according to `NetCDF Library (C/C++ and Fortran) <https://github.com/Unidata/netcdf-fortran>`_
+ :``vartype``: number of variable datatype `[integer]` according to |NCCPPF|
  :``varids``: array of variables IDs `[integer]`
  :``long_name``: `[long name dataset title]`
  :``_FillValue``: fill value `[byte, short, integer, float, double]`
@@ -103,3 +103,7 @@ Read variable datatype ID and coordinates dimensions of a 2-dimensional NetCDF d
     call check(nf90_close(ncid))
   end subroutine griddims2d_byte_llf
 
+
+.. |NCCPPF| raw:: html
+
+  <a href="https://github.com/Unidata/netcdf-fortran" target="_blank"> netCDF Library (C/C++ and Fortran)</a>

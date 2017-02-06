@@ -16,9 +16,9 @@ setfillvalue2d _ ``[maskdt][mapdt]`` _ll ``[cdt]`` (ifile, idata)
  :``[mapdt]``: variable datatype for map `[byte, short, int, float, double]`
  :``[cdt]``: coordinates datatype (float ``f``, double ``d``).
 :Subroutine Parameters:
- :``mask``: map to use as mask `[FPL defined type structure]` 
- :``map``: map to be masked `[FPL defined type structure]` 
- :``num``: number in ``mask`` `[optional]` `[FPL defined type structure]` 
+ :``mask``: map to use as mask. See :ref:`structurefields`. 
+ :``map``: map to be masked. See :ref:`structurefields`. 
+ :``num``: number in ``mask`` `[optional]`. See :ref:`structurefields`. 
 :Local parameters: 
  :``i``: variable to iterate longitude positions `[integer]`
  :``j``: variable to iterate latitude positions `[integer]`

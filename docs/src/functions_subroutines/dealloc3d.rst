@@ -17,7 +17,7 @@ dealloc3d _ ``[vdt]`` _ll ``[cdt]`` _t ``[tdt]`` (idata)
  :``[cdt]``: coordinates datatype `[float` ``f`` `, double` ``d`` `]`
  :``[tdt]``: time datatype (integer ``i``, float ``f``, double ``i``)
 :Subroutine Parameters:
- :``idata``: map to be created  `[FPL defined type structure]`
+ :``idata``: map to be created. See :ref:`structurefields`.
 :Result:
  idata structure with ncdata, longitudes, latitudes and times deallocated.
 
