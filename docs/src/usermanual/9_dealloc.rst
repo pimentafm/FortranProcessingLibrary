@@ -6,7 +6,7 @@ dealloc subroutine
 
 Dealloc data, longitudes, latitudes, times and levels from a dataset array.
 
-Hou to use
+How to use
 ==========
 
 .. f:subroutine:: dealloc(idata)

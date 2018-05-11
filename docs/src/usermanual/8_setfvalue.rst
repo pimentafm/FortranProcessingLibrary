@@ -6,7 +6,7 @@ setFillValue subroutine
 
 Set a Fill Value from a mask data in an array.
 
-Hou to use
+How to use
 ==========
 
 .. f:subroutine:: setFillValue(mask,idata[,num])

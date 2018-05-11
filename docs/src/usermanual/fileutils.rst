@@ -7,7 +7,7 @@ Other useful subroutines/functions
 file_exists
 ===========
 
-Hou to use
+How to use
 ----------
 
 .. f:subroutine:: file_exists(path)
@@ -18,7 +18,7 @@ Hou to use
 numRows
 ==========
 
-Hou to use
+How to use
 ----------
 
 .. f:subroutine:: numRows(unit)

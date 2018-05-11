@@ -6,7 +6,7 @@ gengrid subroutine
 
 Generates grids from user-defined coordinates and resolution.
 
-Hou to use
+How to use
 ==========
 
 .. f:subroutine:: gengrid(idata, Xmin, Ymin, Xmax, Ymax, res)

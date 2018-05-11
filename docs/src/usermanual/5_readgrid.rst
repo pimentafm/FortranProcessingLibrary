@@ -6,7 +6,7 @@ readgrid subroutine
 
 Reads NetCDF files.
 
-Hou to use
+How to use
 ==========
 
 .. f:subroutine:: readgrid(ifile, idata)

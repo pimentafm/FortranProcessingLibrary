@@ -6,7 +6,7 @@ griddims subroutine
 
 Inquire about the coordinates, time, level and variable type of a NetCDF dataset.
 
-Hou to use
+How to use
 ==========
 
 .. f:subroutine:: griddims(ifile,idata)

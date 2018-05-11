@@ -6,7 +6,7 @@ writegrid subroutine
 
 Write NetCDF files.
 
-Hou to use
+How to use
 ==========
 
 .. f:subroutine:: writegrid(ifile,idata,[headerfile])
