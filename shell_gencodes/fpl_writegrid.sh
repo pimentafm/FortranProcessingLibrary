@@ -78,7 +78,7 @@ subroutine writegrid2d_${arr[$i]}_ll${arrid[$j]}(ofile, odata, headerfile)
   nkeys = 0
 
   !Create Netcdf
-  call check(nf90_create(ofile, nf90_clobber, ncid))
+  call check(nf90_create(ofile, nf90_hdf5, ncid))
 
   !Define dimensions
   do i = 1, odata%ndims
@@ -158,7 +158,7 @@ subroutine writegrid3d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}(ofile, odata, hea
   nkeys = 0
 
   !Create Netcdf
-  call check(nf90_create(ofile, nf90_clobber, ncid))
+  call check(nf90_create(ofile, nf90_hdf5, ncid))
 
   !Define dimensions
 
@@ -252,7 +252,7 @@ subroutine writegrid4d_${arr[$i]}_ll${arrid[$j]}_t${arrid[$k]}_l${arrid[$l]}(ofi
   nkeys = 0
 
   !Create Netcdf
-  call check(nf90_create(ofile, nf90_clobber, ncid))
+  call check(nf90_create(ofile, nf90_hdf5, ncid))
 
   !Define dimensions
 
