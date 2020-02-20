@@ -1,4 +1,5 @@
-=============================================================================
+# FPL - Fortran Processing Library
+```
  This file is part of FPL (Fortran Processing Library).
  Copyright (C) 2015 Fernando Martins Pimenta
  
@@ -29,28 +30,54 @@
    Data: August 09, 2015
  
  Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-=============================================================================
+ ```
 
-Dependencies:
-             gcc-gfortran
-             netcdf-fortran
-             netcdf-fortran-devel
-             openmpi
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/pimentafm/obahia-webmap?color=blue">
 
+  <a href="https://github.com/pimentafm">
+    <img alt="Made by Fernando Pimenta" src="https://img.shields.io/badge/made%20by-Fernando%20Pimenta-blue">
+  </a>
+
+  <img alt="License" src="https://img.shields.io/badge/license-GNUGPL-blue">
+</p>
+
+## Made with:
+[![made-with-fortran](https://img.shields.io/badge/Fortran90-green.svg)](https://www.fortran90.org/)
+[![made-with-fortran90netcdf !](https://img.shields.io/badge/Fortran%2090-NetCDF-1abc9c.svg)](https://GitHub.com/Naereen/ama)
+[![made-with-openmp](https://img.shields.io/badge/OpemMP-2188b6.svg)](https://www.unidata.ucar.edu/software/netcdf/docs-fortran/)
+
+
+<hr>
+
+## How to install
+
+Download FPL from [My Github](https://github.com/pimentafm/FortranProcessingLibrary).
+
+Compile the library as root.
+
+```bash
+cd /FortranProcessingLibrary
+make
+```
+
+<hr>
+
+## API and USER Documentation
+
+The documentation can be found at [Research Group on Atmosphere-Biosphere](http://www.biosfera.dea.ufv.br/fpl/) website.
+
+<hr>
+
+```
 TODO:
-     [OK] Develop a better way to generate subroutines in fortran from ShellScripts.
-     [OK] Add valid_min and valid_max in netcdf datatypes.
-     [OK] Develop function to check if exists _FillValue variable in the file. 
-     [OK] User can use GDAL for set a _FillValue into netcdf file easily.
-     [OK] Implement subroutines for 3D I/O. 
-     [OK] Implement subroutines for 4D I/O. 
      [Partially OK] Parallelize the code.
      [Partially OK] Creategrid subroutine.
-     [OK] Develop a deallocate datatype subroutine/function.
-     [->] Reimplementation of zonal statistics subroutines/functions
-          [->] Fixes output format for zonal statistics subroutines.
-          [->] Add check class error subroutine if not encounter number of class into map.
+     [->] Implement zonal statistics subroutines/functions
      [->] Implement map plotting subroutines (GMT/Python/GNUPLOT ????).
      [->] Implement subroutines to convert datatypes.
      [->] Command Line Args subroutines
-     [->] Modify the file_exists subroutine to warn "file does not exist" and continue running.
+```
+<hr>
+
+Fernando Pimenta [My Github!](https://github.com/pimentafm)
