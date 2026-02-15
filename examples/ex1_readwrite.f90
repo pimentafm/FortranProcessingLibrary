@@ -70,4 +70,7 @@ program main
   !Write the data on file
   call writegrid(output, tempC)
 
+  !Deallocate memory
+  call dealloc(tempC)
+
 end program main
