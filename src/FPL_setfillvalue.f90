@@ -35,15 +35,15 @@
 
 !NetCDF <var byte-byte> (lon <float>, lat <float>)
 subroutine setfvalue2d_bytebyte_llf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc2d_byte_llf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc2d_byte_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -51,8 +51,8 @@ subroutine setfvalue2d_bytebyte_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -63,15 +63,15 @@ end subroutine setfvalue2d_bytebyte_llf
 
 !NetCDF <var byte-short> (lon <float>, lat <float>)
 subroutine setfvalue2d_byteshort_llf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc2d_short_llf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc2d_short_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -79,8 +79,8 @@ subroutine setfvalue2d_byteshort_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -91,15 +91,15 @@ end subroutine setfvalue2d_byteshort_llf
 
 !NetCDF <var byte-int> (lon <float>, lat <float>)
 subroutine setfvalue2d_byteint_llf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc2d_int_llf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc2d_int_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -107,8 +107,8 @@ subroutine setfvalue2d_byteint_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -119,15 +119,15 @@ end subroutine setfvalue2d_byteint_llf
 
 !NetCDF <var byte-float> (lon <float>, lat <float>)
 subroutine setfvalue2d_bytefloat_llf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc2d_float_llf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc2d_float_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -135,8 +135,8 @@ subroutine setfvalue2d_bytefloat_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -147,15 +147,15 @@ end subroutine setfvalue2d_bytefloat_llf
 
 !NetCDF <var byte-double> (lon <float>, lat <float>)
 subroutine setfvalue2d_bytedouble_llf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc2d_double_llf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc2d_double_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -163,8 +163,8 @@ subroutine setfvalue2d_bytedouble_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -175,15 +175,15 @@ end subroutine setfvalue2d_bytedouble_llf
 
 !NetCDF <var short-byte> (lon <float>, lat <float>)
 subroutine setfvalue2d_shortbyte_llf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc2d_byte_llf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc2d_byte_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -191,8 +191,8 @@ subroutine setfvalue2d_shortbyte_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -203,15 +203,15 @@ end subroutine setfvalue2d_shortbyte_llf
 
 !NetCDF <var short-short> (lon <float>, lat <float>)
 subroutine setfvalue2d_shortshort_llf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc2d_short_llf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc2d_short_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -219,8 +219,8 @@ subroutine setfvalue2d_shortshort_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -231,15 +231,15 @@ end subroutine setfvalue2d_shortshort_llf
 
 !NetCDF <var short-int> (lon <float>, lat <float>)
 subroutine setfvalue2d_shortint_llf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc2d_int_llf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc2d_int_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -247,8 +247,8 @@ subroutine setfvalue2d_shortint_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -259,15 +259,15 @@ end subroutine setfvalue2d_shortint_llf
 
 !NetCDF <var short-float> (lon <float>, lat <float>)
 subroutine setfvalue2d_shortfloat_llf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc2d_float_llf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc2d_float_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -275,8 +275,8 @@ subroutine setfvalue2d_shortfloat_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -287,15 +287,15 @@ end subroutine setfvalue2d_shortfloat_llf
 
 !NetCDF <var short-double> (lon <float>, lat <float>)
 subroutine setfvalue2d_shortdouble_llf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc2d_double_llf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc2d_double_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -303,8 +303,8 @@ subroutine setfvalue2d_shortdouble_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -315,15 +315,15 @@ end subroutine setfvalue2d_shortdouble_llf
 
 !NetCDF <var int-byte> (lon <float>, lat <float>)
 subroutine setfvalue2d_intbyte_llf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc2d_byte_llf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc2d_byte_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -331,8 +331,8 @@ subroutine setfvalue2d_intbyte_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -343,15 +343,15 @@ end subroutine setfvalue2d_intbyte_llf
 
 !NetCDF <var int-short> (lon <float>, lat <float>)
 subroutine setfvalue2d_intshort_llf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc2d_short_llf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc2d_short_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -359,8 +359,8 @@ subroutine setfvalue2d_intshort_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -371,15 +371,15 @@ end subroutine setfvalue2d_intshort_llf
 
 !NetCDF <var int-int> (lon <float>, lat <float>)
 subroutine setfvalue2d_intint_llf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc2d_int_llf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc2d_int_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -387,8 +387,8 @@ subroutine setfvalue2d_intint_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -399,15 +399,15 @@ end subroutine setfvalue2d_intint_llf
 
 !NetCDF <var int-float> (lon <float>, lat <float>)
 subroutine setfvalue2d_intfloat_llf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc2d_float_llf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc2d_float_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -415,8 +415,8 @@ subroutine setfvalue2d_intfloat_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -427,15 +427,15 @@ end subroutine setfvalue2d_intfloat_llf
 
 !NetCDF <var int-double> (lon <float>, lat <float>)
 subroutine setfvalue2d_intdouble_llf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc2d_double_llf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc2d_double_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -443,8 +443,8 @@ subroutine setfvalue2d_intdouble_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -455,15 +455,15 @@ end subroutine setfvalue2d_intdouble_llf
 
 !NetCDF <var float-byte> (lon <float>, lat <float>)
 subroutine setfvalue2d_floatbyte_llf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc2d_byte_llf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc2d_byte_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -471,8 +471,8 @@ subroutine setfvalue2d_floatbyte_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -483,15 +483,15 @@ end subroutine setfvalue2d_floatbyte_llf
 
 !NetCDF <var float-short> (lon <float>, lat <float>)
 subroutine setfvalue2d_floatshort_llf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc2d_short_llf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc2d_short_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -499,8 +499,8 @@ subroutine setfvalue2d_floatshort_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -511,15 +511,15 @@ end subroutine setfvalue2d_floatshort_llf
 
 !NetCDF <var float-int> (lon <float>, lat <float>)
 subroutine setfvalue2d_floatint_llf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc2d_int_llf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc2d_int_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -527,8 +527,8 @@ subroutine setfvalue2d_floatint_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -539,15 +539,15 @@ end subroutine setfvalue2d_floatint_llf
 
 !NetCDF <var float-float> (lon <float>, lat <float>)
 subroutine setfvalue2d_floatfloat_llf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc2d_float_llf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc2d_float_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -555,8 +555,8 @@ subroutine setfvalue2d_floatfloat_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -567,15 +567,15 @@ end subroutine setfvalue2d_floatfloat_llf
 
 !NetCDF <var float-double> (lon <float>, lat <float>)
 subroutine setfvalue2d_floatdouble_llf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc2d_double_llf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc2d_double_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -583,8 +583,8 @@ subroutine setfvalue2d_floatdouble_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -595,15 +595,15 @@ end subroutine setfvalue2d_floatdouble_llf
 
 !NetCDF <var double-byte> (lon <float>, lat <float>)
 subroutine setfvalue2d_doublebyte_llf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc2d_byte_llf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc2d_byte_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -611,8 +611,8 @@ subroutine setfvalue2d_doublebyte_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -623,15 +623,15 @@ end subroutine setfvalue2d_doublebyte_llf
 
 !NetCDF <var double-short> (lon <float>, lat <float>)
 subroutine setfvalue2d_doubleshort_llf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc2d_short_llf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc2d_short_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -639,8 +639,8 @@ subroutine setfvalue2d_doubleshort_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -651,15 +651,15 @@ end subroutine setfvalue2d_doubleshort_llf
 
 !NetCDF <var double-int> (lon <float>, lat <float>)
 subroutine setfvalue2d_doubleint_llf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc2d_int_llf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc2d_int_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -667,8 +667,8 @@ subroutine setfvalue2d_doubleint_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -679,15 +679,15 @@ end subroutine setfvalue2d_doubleint_llf
 
 !NetCDF <var double-float> (lon <float>, lat <float>)
 subroutine setfvalue2d_doublefloat_llf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc2d_float_llf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc2d_float_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -695,8 +695,8 @@ subroutine setfvalue2d_doublefloat_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -707,15 +707,15 @@ end subroutine setfvalue2d_doublefloat_llf
 
 !NetCDF <var double-double> (lon <float>, lat <float>)
 subroutine setfvalue2d_doubledouble_llf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc2d_double_llf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc2d_double_llf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -723,8 +723,8 @@ subroutine setfvalue2d_doubledouble_llf(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -735,15 +735,15 @@ end subroutine setfvalue2d_doubledouble_llf
 
 !NetCDF <var byte-byte> (lon <double>, lat <double>)
 subroutine setfvalue2d_bytebyte_lld(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc2d_byte_lld) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc2d_byte_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -751,8 +751,8 @@ subroutine setfvalue2d_bytebyte_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -763,15 +763,15 @@ end subroutine setfvalue2d_bytebyte_lld
 
 !NetCDF <var byte-short> (lon <double>, lat <double>)
 subroutine setfvalue2d_byteshort_lld(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc2d_short_lld) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc2d_short_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -779,8 +779,8 @@ subroutine setfvalue2d_byteshort_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -791,15 +791,15 @@ end subroutine setfvalue2d_byteshort_lld
 
 !NetCDF <var byte-int> (lon <double>, lat <double>)
 subroutine setfvalue2d_byteint_lld(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc2d_int_lld) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc2d_int_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -807,8 +807,8 @@ subroutine setfvalue2d_byteint_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -819,15 +819,15 @@ end subroutine setfvalue2d_byteint_lld
 
 !NetCDF <var byte-float> (lon <double>, lat <double>)
 subroutine setfvalue2d_bytefloat_lld(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc2d_float_lld) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc2d_float_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -835,8 +835,8 @@ subroutine setfvalue2d_bytefloat_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -847,15 +847,15 @@ end subroutine setfvalue2d_bytefloat_lld
 
 !NetCDF <var byte-double> (lon <double>, lat <double>)
 subroutine setfvalue2d_bytedouble_lld(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc2d_double_lld) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc2d_double_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -863,8 +863,8 @@ subroutine setfvalue2d_bytedouble_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -875,15 +875,15 @@ end subroutine setfvalue2d_bytedouble_lld
 
 !NetCDF <var short-byte> (lon <double>, lat <double>)
 subroutine setfvalue2d_shortbyte_lld(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc2d_byte_lld) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc2d_byte_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -891,8 +891,8 @@ subroutine setfvalue2d_shortbyte_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -903,15 +903,15 @@ end subroutine setfvalue2d_shortbyte_lld
 
 !NetCDF <var short-short> (lon <double>, lat <double>)
 subroutine setfvalue2d_shortshort_lld(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc2d_short_lld) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc2d_short_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -919,8 +919,8 @@ subroutine setfvalue2d_shortshort_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -931,15 +931,15 @@ end subroutine setfvalue2d_shortshort_lld
 
 !NetCDF <var short-int> (lon <double>, lat <double>)
 subroutine setfvalue2d_shortint_lld(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc2d_int_lld) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc2d_int_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -947,8 +947,8 @@ subroutine setfvalue2d_shortint_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -959,15 +959,15 @@ end subroutine setfvalue2d_shortint_lld
 
 !NetCDF <var short-float> (lon <double>, lat <double>)
 subroutine setfvalue2d_shortfloat_lld(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc2d_float_lld) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc2d_float_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -975,8 +975,8 @@ subroutine setfvalue2d_shortfloat_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -987,15 +987,15 @@ end subroutine setfvalue2d_shortfloat_lld
 
 !NetCDF <var short-double> (lon <double>, lat <double>)
 subroutine setfvalue2d_shortdouble_lld(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc2d_double_lld) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc2d_double_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1003,8 +1003,8 @@ subroutine setfvalue2d_shortdouble_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1015,15 +1015,15 @@ end subroutine setfvalue2d_shortdouble_lld
 
 !NetCDF <var int-byte> (lon <double>, lat <double>)
 subroutine setfvalue2d_intbyte_lld(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc2d_byte_lld) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc2d_byte_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1031,8 +1031,8 @@ subroutine setfvalue2d_intbyte_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1043,15 +1043,15 @@ end subroutine setfvalue2d_intbyte_lld
 
 !NetCDF <var int-short> (lon <double>, lat <double>)
 subroutine setfvalue2d_intshort_lld(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc2d_short_lld) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc2d_short_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1059,8 +1059,8 @@ subroutine setfvalue2d_intshort_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1071,15 +1071,15 @@ end subroutine setfvalue2d_intshort_lld
 
 !NetCDF <var int-int> (lon <double>, lat <double>)
 subroutine setfvalue2d_intint_lld(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc2d_int_lld) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc2d_int_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1087,8 +1087,8 @@ subroutine setfvalue2d_intint_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1099,15 +1099,15 @@ end subroutine setfvalue2d_intint_lld
 
 !NetCDF <var int-float> (lon <double>, lat <double>)
 subroutine setfvalue2d_intfloat_lld(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc2d_float_lld) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc2d_float_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1115,8 +1115,8 @@ subroutine setfvalue2d_intfloat_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1127,15 +1127,15 @@ end subroutine setfvalue2d_intfloat_lld
 
 !NetCDF <var int-double> (lon <double>, lat <double>)
 subroutine setfvalue2d_intdouble_lld(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc2d_double_lld) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc2d_double_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1143,8 +1143,8 @@ subroutine setfvalue2d_intdouble_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1155,15 +1155,15 @@ end subroutine setfvalue2d_intdouble_lld
 
 !NetCDF <var float-byte> (lon <double>, lat <double>)
 subroutine setfvalue2d_floatbyte_lld(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc2d_byte_lld) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc2d_byte_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1171,8 +1171,8 @@ subroutine setfvalue2d_floatbyte_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1183,15 +1183,15 @@ end subroutine setfvalue2d_floatbyte_lld
 
 !NetCDF <var float-short> (lon <double>, lat <double>)
 subroutine setfvalue2d_floatshort_lld(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc2d_short_lld) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc2d_short_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1199,8 +1199,8 @@ subroutine setfvalue2d_floatshort_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1211,15 +1211,15 @@ end subroutine setfvalue2d_floatshort_lld
 
 !NetCDF <var float-int> (lon <double>, lat <double>)
 subroutine setfvalue2d_floatint_lld(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc2d_int_lld) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc2d_int_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1227,8 +1227,8 @@ subroutine setfvalue2d_floatint_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1239,15 +1239,15 @@ end subroutine setfvalue2d_floatint_lld
 
 !NetCDF <var float-float> (lon <double>, lat <double>)
 subroutine setfvalue2d_floatfloat_lld(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc2d_float_lld) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc2d_float_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1255,8 +1255,8 @@ subroutine setfvalue2d_floatfloat_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1267,15 +1267,15 @@ end subroutine setfvalue2d_floatfloat_lld
 
 !NetCDF <var float-double> (lon <double>, lat <double>)
 subroutine setfvalue2d_floatdouble_lld(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc2d_double_lld) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc2d_double_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1283,8 +1283,8 @@ subroutine setfvalue2d_floatdouble_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1295,15 +1295,15 @@ end subroutine setfvalue2d_floatdouble_lld
 
 !NetCDF <var double-byte> (lon <double>, lat <double>)
 subroutine setfvalue2d_doublebyte_lld(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc2d_byte_lld) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc2d_byte_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1311,8 +1311,8 @@ subroutine setfvalue2d_doublebyte_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1323,15 +1323,15 @@ end subroutine setfvalue2d_doublebyte_lld
 
 !NetCDF <var double-short> (lon <double>, lat <double>)
 subroutine setfvalue2d_doubleshort_lld(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc2d_short_lld) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc2d_short_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1339,8 +1339,8 @@ subroutine setfvalue2d_doubleshort_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1351,15 +1351,15 @@ end subroutine setfvalue2d_doubleshort_lld
 
 !NetCDF <var double-int> (lon <double>, lat <double>)
 subroutine setfvalue2d_doubleint_lld(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc2d_int_lld) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc2d_int_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1367,8 +1367,8 @@ subroutine setfvalue2d_doubleint_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1379,15 +1379,15 @@ end subroutine setfvalue2d_doubleint_lld
 
 !NetCDF <var double-float> (lon <double>, lat <double>)
 subroutine setfvalue2d_doublefloat_lld(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc2d_float_lld) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc2d_float_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1395,8 +1395,8 @@ subroutine setfvalue2d_doublefloat_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1407,15 +1407,15 @@ end subroutine setfvalue2d_doublefloat_lld
 
 !NetCDF <var double-double> (lon <double>, lat <double>)
 subroutine setfvalue2d_doubledouble_lld(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc2d_double_lld) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc2d_double_lld), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j
 
   if(present(num))then
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).ne.num) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1423,8 +1423,8 @@ subroutine setfvalue2d_doubledouble_lld(mask, map, num)
     !$omp end parallel do
   else
     !$omp parallel do private(i, j)
-    do i = 1, mask%nlons
-      do j = 1, mask%nlats
+    do j = 1, mask%nlats
+      do i = 1, mask%nlons
         if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j) = map%FillValue
         if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j).eq.map%FillValue) map%ncdata(i,j) = 0
       end do
@@ -1436,16 +1436,16 @@ end subroutine setfvalue2d_doubledouble_lld
 
 !NetCDF <var byte-byte> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_bytebyte_llf_ti(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_byte_llf_ti) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_byte_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1455,8 +1455,8 @@ subroutine setfvalue3d_bytebyte_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1468,16 +1468,16 @@ end subroutine setfvalue3d_bytebyte_llf_ti
 
 !NetCDF <var byte-short> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_byteshort_llf_ti(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_short_llf_ti) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_short_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1487,8 +1487,8 @@ subroutine setfvalue3d_byteshort_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1500,16 +1500,16 @@ end subroutine setfvalue3d_byteshort_llf_ti
 
 !NetCDF <var byte-int> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_byteint_llf_ti(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_int_llf_ti) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_int_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1519,8 +1519,8 @@ subroutine setfvalue3d_byteint_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1532,16 +1532,16 @@ end subroutine setfvalue3d_byteint_llf_ti
 
 !NetCDF <var byte-float> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_bytefloat_llf_ti(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_float_llf_ti) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_float_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1551,8 +1551,8 @@ subroutine setfvalue3d_bytefloat_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1564,16 +1564,16 @@ end subroutine setfvalue3d_bytefloat_llf_ti
 
 !NetCDF <var byte-double> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_bytedouble_llf_ti(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_double_llf_ti) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_double_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1583,8 +1583,8 @@ subroutine setfvalue3d_bytedouble_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1596,16 +1596,16 @@ end subroutine setfvalue3d_bytedouble_llf_ti
 
 !NetCDF <var short-byte> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_shortbyte_llf_ti(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_byte_llf_ti) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_byte_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1615,8 +1615,8 @@ subroutine setfvalue3d_shortbyte_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1628,16 +1628,16 @@ end subroutine setfvalue3d_shortbyte_llf_ti
 
 !NetCDF <var short-short> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_shortshort_llf_ti(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_short_llf_ti) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_short_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1647,8 +1647,8 @@ subroutine setfvalue3d_shortshort_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1660,16 +1660,16 @@ end subroutine setfvalue3d_shortshort_llf_ti
 
 !NetCDF <var short-int> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_shortint_llf_ti(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_int_llf_ti) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_int_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1679,8 +1679,8 @@ subroutine setfvalue3d_shortint_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1692,16 +1692,16 @@ end subroutine setfvalue3d_shortint_llf_ti
 
 !NetCDF <var short-float> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_shortfloat_llf_ti(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_float_llf_ti) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_float_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1711,8 +1711,8 @@ subroutine setfvalue3d_shortfloat_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1724,16 +1724,16 @@ end subroutine setfvalue3d_shortfloat_llf_ti
 
 !NetCDF <var short-double> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_shortdouble_llf_ti(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_double_llf_ti) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_double_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1743,8 +1743,8 @@ subroutine setfvalue3d_shortdouble_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1756,16 +1756,16 @@ end subroutine setfvalue3d_shortdouble_llf_ti
 
 !NetCDF <var int-byte> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_intbyte_llf_ti(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_byte_llf_ti) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_byte_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1775,8 +1775,8 @@ subroutine setfvalue3d_intbyte_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1788,16 +1788,16 @@ end subroutine setfvalue3d_intbyte_llf_ti
 
 !NetCDF <var int-short> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_intshort_llf_ti(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_short_llf_ti) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_short_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1807,8 +1807,8 @@ subroutine setfvalue3d_intshort_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1820,16 +1820,16 @@ end subroutine setfvalue3d_intshort_llf_ti
 
 !NetCDF <var int-int> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_intint_llf_ti(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_int_llf_ti) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_int_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1839,8 +1839,8 @@ subroutine setfvalue3d_intint_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1852,16 +1852,16 @@ end subroutine setfvalue3d_intint_llf_ti
 
 !NetCDF <var int-float> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_intfloat_llf_ti(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_float_llf_ti) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_float_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1871,8 +1871,8 @@ subroutine setfvalue3d_intfloat_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1884,16 +1884,16 @@ end subroutine setfvalue3d_intfloat_llf_ti
 
 !NetCDF <var int-double> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_intdouble_llf_ti(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_double_llf_ti) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_double_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1903,8 +1903,8 @@ subroutine setfvalue3d_intdouble_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1916,16 +1916,16 @@ end subroutine setfvalue3d_intdouble_llf_ti
 
 !NetCDF <var float-byte> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_floatbyte_llf_ti(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_byte_llf_ti) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_byte_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1935,8 +1935,8 @@ subroutine setfvalue3d_floatbyte_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1948,16 +1948,16 @@ end subroutine setfvalue3d_floatbyte_llf_ti
 
 !NetCDF <var float-short> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_floatshort_llf_ti(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_short_llf_ti) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_short_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1967,8 +1967,8 @@ subroutine setfvalue3d_floatshort_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1980,16 +1980,16 @@ end subroutine setfvalue3d_floatshort_llf_ti
 
 !NetCDF <var float-int> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_floatint_llf_ti(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_int_llf_ti) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_int_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -1999,8 +1999,8 @@ subroutine setfvalue3d_floatint_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2012,16 +2012,16 @@ end subroutine setfvalue3d_floatint_llf_ti
 
 !NetCDF <var float-float> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_floatfloat_llf_ti(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_float_llf_ti) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_float_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2031,8 +2031,8 @@ subroutine setfvalue3d_floatfloat_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2044,16 +2044,16 @@ end subroutine setfvalue3d_floatfloat_llf_ti
 
 !NetCDF <var float-double> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_floatdouble_llf_ti(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_double_llf_ti) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_double_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2063,8 +2063,8 @@ subroutine setfvalue3d_floatdouble_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2076,16 +2076,16 @@ end subroutine setfvalue3d_floatdouble_llf_ti
 
 !NetCDF <var double-byte> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_doublebyte_llf_ti(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_byte_llf_ti) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_byte_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2095,8 +2095,8 @@ subroutine setfvalue3d_doublebyte_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2108,16 +2108,16 @@ end subroutine setfvalue3d_doublebyte_llf_ti
 
 !NetCDF <var double-short> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_doubleshort_llf_ti(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_short_llf_ti) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_short_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2127,8 +2127,8 @@ subroutine setfvalue3d_doubleshort_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2140,16 +2140,16 @@ end subroutine setfvalue3d_doubleshort_llf_ti
 
 !NetCDF <var double-int> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_doubleint_llf_ti(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_int_llf_ti) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_int_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2159,8 +2159,8 @@ subroutine setfvalue3d_doubleint_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2172,16 +2172,16 @@ end subroutine setfvalue3d_doubleint_llf_ti
 
 !NetCDF <var double-float> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_doublefloat_llf_ti(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_float_llf_ti) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_float_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2191,8 +2191,8 @@ subroutine setfvalue3d_doublefloat_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2204,16 +2204,16 @@ end subroutine setfvalue3d_doublefloat_llf_ti
 
 !NetCDF <var double-double> (lon <float>, lat <float>, time <int>)
 subroutine setfvalue3d_doubledouble_llf_ti(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_double_llf_ti) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_double_llf_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2223,8 +2223,8 @@ subroutine setfvalue3d_doubledouble_llf_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2236,16 +2236,16 @@ end subroutine setfvalue3d_doubledouble_llf_ti
 
 !NetCDF <var byte-byte> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_bytebyte_lld_ti(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_byte_lld_ti) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_byte_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2255,8 +2255,8 @@ subroutine setfvalue3d_bytebyte_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2268,16 +2268,16 @@ end subroutine setfvalue3d_bytebyte_lld_ti
 
 !NetCDF <var byte-short> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_byteshort_lld_ti(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_short_lld_ti) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_short_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2287,8 +2287,8 @@ subroutine setfvalue3d_byteshort_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2300,16 +2300,16 @@ end subroutine setfvalue3d_byteshort_lld_ti
 
 !NetCDF <var byte-int> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_byteint_lld_ti(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_int_lld_ti) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_int_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2319,8 +2319,8 @@ subroutine setfvalue3d_byteint_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2332,16 +2332,16 @@ end subroutine setfvalue3d_byteint_lld_ti
 
 !NetCDF <var byte-float> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_bytefloat_lld_ti(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_float_lld_ti) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_float_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2351,8 +2351,8 @@ subroutine setfvalue3d_bytefloat_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2364,16 +2364,16 @@ end subroutine setfvalue3d_bytefloat_lld_ti
 
 !NetCDF <var byte-double> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_bytedouble_lld_ti(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_double_lld_ti) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_double_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2383,8 +2383,8 @@ subroutine setfvalue3d_bytedouble_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2396,16 +2396,16 @@ end subroutine setfvalue3d_bytedouble_lld_ti
 
 !NetCDF <var short-byte> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_shortbyte_lld_ti(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_byte_lld_ti) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_byte_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2415,8 +2415,8 @@ subroutine setfvalue3d_shortbyte_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2428,16 +2428,16 @@ end subroutine setfvalue3d_shortbyte_lld_ti
 
 !NetCDF <var short-short> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_shortshort_lld_ti(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_short_lld_ti) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_short_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2447,8 +2447,8 @@ subroutine setfvalue3d_shortshort_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2460,16 +2460,16 @@ end subroutine setfvalue3d_shortshort_lld_ti
 
 !NetCDF <var short-int> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_shortint_lld_ti(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_int_lld_ti) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_int_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2479,8 +2479,8 @@ subroutine setfvalue3d_shortint_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2492,16 +2492,16 @@ end subroutine setfvalue3d_shortint_lld_ti
 
 !NetCDF <var short-float> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_shortfloat_lld_ti(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_float_lld_ti) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_float_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2511,8 +2511,8 @@ subroutine setfvalue3d_shortfloat_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2524,16 +2524,16 @@ end subroutine setfvalue3d_shortfloat_lld_ti
 
 !NetCDF <var short-double> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_shortdouble_lld_ti(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_double_lld_ti) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_double_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2543,8 +2543,8 @@ subroutine setfvalue3d_shortdouble_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2556,16 +2556,16 @@ end subroutine setfvalue3d_shortdouble_lld_ti
 
 !NetCDF <var int-byte> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_intbyte_lld_ti(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_byte_lld_ti) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_byte_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2575,8 +2575,8 @@ subroutine setfvalue3d_intbyte_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2588,16 +2588,16 @@ end subroutine setfvalue3d_intbyte_lld_ti
 
 !NetCDF <var int-short> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_intshort_lld_ti(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_short_lld_ti) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_short_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2607,8 +2607,8 @@ subroutine setfvalue3d_intshort_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2620,16 +2620,16 @@ end subroutine setfvalue3d_intshort_lld_ti
 
 !NetCDF <var int-int> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_intint_lld_ti(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_int_lld_ti) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_int_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2639,8 +2639,8 @@ subroutine setfvalue3d_intint_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2652,16 +2652,16 @@ end subroutine setfvalue3d_intint_lld_ti
 
 !NetCDF <var int-float> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_intfloat_lld_ti(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_float_lld_ti) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_float_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2671,8 +2671,8 @@ subroutine setfvalue3d_intfloat_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2684,16 +2684,16 @@ end subroutine setfvalue3d_intfloat_lld_ti
 
 !NetCDF <var int-double> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_intdouble_lld_ti(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_double_lld_ti) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_double_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2703,8 +2703,8 @@ subroutine setfvalue3d_intdouble_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2716,16 +2716,16 @@ end subroutine setfvalue3d_intdouble_lld_ti
 
 !NetCDF <var float-byte> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_floatbyte_lld_ti(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_byte_lld_ti) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_byte_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2735,8 +2735,8 @@ subroutine setfvalue3d_floatbyte_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2748,16 +2748,16 @@ end subroutine setfvalue3d_floatbyte_lld_ti
 
 !NetCDF <var float-short> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_floatshort_lld_ti(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_short_lld_ti) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_short_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2767,8 +2767,8 @@ subroutine setfvalue3d_floatshort_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2780,16 +2780,16 @@ end subroutine setfvalue3d_floatshort_lld_ti
 
 !NetCDF <var float-int> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_floatint_lld_ti(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_int_lld_ti) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_int_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2799,8 +2799,8 @@ subroutine setfvalue3d_floatint_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2812,16 +2812,16 @@ end subroutine setfvalue3d_floatint_lld_ti
 
 !NetCDF <var float-float> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_floatfloat_lld_ti(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_float_lld_ti) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_float_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2831,8 +2831,8 @@ subroutine setfvalue3d_floatfloat_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2844,16 +2844,16 @@ end subroutine setfvalue3d_floatfloat_lld_ti
 
 !NetCDF <var float-double> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_floatdouble_lld_ti(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_double_lld_ti) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_double_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2863,8 +2863,8 @@ subroutine setfvalue3d_floatdouble_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2876,16 +2876,16 @@ end subroutine setfvalue3d_floatdouble_lld_ti
 
 !NetCDF <var double-byte> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_doublebyte_lld_ti(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_byte_lld_ti) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_byte_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2895,8 +2895,8 @@ subroutine setfvalue3d_doublebyte_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2908,16 +2908,16 @@ end subroutine setfvalue3d_doublebyte_lld_ti
 
 !NetCDF <var double-short> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_doubleshort_lld_ti(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_short_lld_ti) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_short_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2927,8 +2927,8 @@ subroutine setfvalue3d_doubleshort_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2940,16 +2940,16 @@ end subroutine setfvalue3d_doubleshort_lld_ti
 
 !NetCDF <var double-int> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_doubleint_lld_ti(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_int_lld_ti) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_int_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2959,8 +2959,8 @@ subroutine setfvalue3d_doubleint_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2972,16 +2972,16 @@ end subroutine setfvalue3d_doubleint_lld_ti
 
 !NetCDF <var double-float> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_doublefloat_lld_ti(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_float_lld_ti) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_float_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -2991,8 +2991,8 @@ subroutine setfvalue3d_doublefloat_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3004,16 +3004,16 @@ end subroutine setfvalue3d_doublefloat_lld_ti
 
 !NetCDF <var double-double> (lon <double>, lat <double>, time <int>)
 subroutine setfvalue3d_doubledouble_lld_ti(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_double_lld_ti) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_double_lld_ti), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3023,8 +3023,8 @@ subroutine setfvalue3d_doubledouble_lld_ti(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3036,16 +3036,16 @@ end subroutine setfvalue3d_doubledouble_lld_ti
 
 !NetCDF <var byte-byte> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_bytebyte_llf_tf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_byte_llf_tf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_byte_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3055,8 +3055,8 @@ subroutine setfvalue3d_bytebyte_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3068,16 +3068,16 @@ end subroutine setfvalue3d_bytebyte_llf_tf
 
 !NetCDF <var byte-short> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_byteshort_llf_tf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_short_llf_tf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_short_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3087,8 +3087,8 @@ subroutine setfvalue3d_byteshort_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3100,16 +3100,16 @@ end subroutine setfvalue3d_byteshort_llf_tf
 
 !NetCDF <var byte-int> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_byteint_llf_tf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_int_llf_tf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_int_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3119,8 +3119,8 @@ subroutine setfvalue3d_byteint_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3132,16 +3132,16 @@ end subroutine setfvalue3d_byteint_llf_tf
 
 !NetCDF <var byte-float> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_bytefloat_llf_tf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_float_llf_tf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_float_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3151,8 +3151,8 @@ subroutine setfvalue3d_bytefloat_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3164,16 +3164,16 @@ end subroutine setfvalue3d_bytefloat_llf_tf
 
 !NetCDF <var byte-double> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_bytedouble_llf_tf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_double_llf_tf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_double_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3183,8 +3183,8 @@ subroutine setfvalue3d_bytedouble_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3196,16 +3196,16 @@ end subroutine setfvalue3d_bytedouble_llf_tf
 
 !NetCDF <var short-byte> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_shortbyte_llf_tf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_byte_llf_tf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_byte_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3215,8 +3215,8 @@ subroutine setfvalue3d_shortbyte_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3228,16 +3228,16 @@ end subroutine setfvalue3d_shortbyte_llf_tf
 
 !NetCDF <var short-short> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_shortshort_llf_tf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_short_llf_tf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_short_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3247,8 +3247,8 @@ subroutine setfvalue3d_shortshort_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3260,16 +3260,16 @@ end subroutine setfvalue3d_shortshort_llf_tf
 
 !NetCDF <var short-int> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_shortint_llf_tf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_int_llf_tf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_int_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3279,8 +3279,8 @@ subroutine setfvalue3d_shortint_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3292,16 +3292,16 @@ end subroutine setfvalue3d_shortint_llf_tf
 
 !NetCDF <var short-float> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_shortfloat_llf_tf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_float_llf_tf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_float_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3311,8 +3311,8 @@ subroutine setfvalue3d_shortfloat_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3324,16 +3324,16 @@ end subroutine setfvalue3d_shortfloat_llf_tf
 
 !NetCDF <var short-double> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_shortdouble_llf_tf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_double_llf_tf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_double_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3343,8 +3343,8 @@ subroutine setfvalue3d_shortdouble_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3356,16 +3356,16 @@ end subroutine setfvalue3d_shortdouble_llf_tf
 
 !NetCDF <var int-byte> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_intbyte_llf_tf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_byte_llf_tf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_byte_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3375,8 +3375,8 @@ subroutine setfvalue3d_intbyte_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3388,16 +3388,16 @@ end subroutine setfvalue3d_intbyte_llf_tf
 
 !NetCDF <var int-short> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_intshort_llf_tf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_short_llf_tf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_short_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3407,8 +3407,8 @@ subroutine setfvalue3d_intshort_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3420,16 +3420,16 @@ end subroutine setfvalue3d_intshort_llf_tf
 
 !NetCDF <var int-int> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_intint_llf_tf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_int_llf_tf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_int_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3439,8 +3439,8 @@ subroutine setfvalue3d_intint_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3452,16 +3452,16 @@ end subroutine setfvalue3d_intint_llf_tf
 
 !NetCDF <var int-float> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_intfloat_llf_tf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_float_llf_tf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_float_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3471,8 +3471,8 @@ subroutine setfvalue3d_intfloat_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3484,16 +3484,16 @@ end subroutine setfvalue3d_intfloat_llf_tf
 
 !NetCDF <var int-double> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_intdouble_llf_tf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_double_llf_tf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_double_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3503,8 +3503,8 @@ subroutine setfvalue3d_intdouble_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3516,16 +3516,16 @@ end subroutine setfvalue3d_intdouble_llf_tf
 
 !NetCDF <var float-byte> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_floatbyte_llf_tf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_byte_llf_tf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_byte_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3535,8 +3535,8 @@ subroutine setfvalue3d_floatbyte_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3548,16 +3548,16 @@ end subroutine setfvalue3d_floatbyte_llf_tf
 
 !NetCDF <var float-short> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_floatshort_llf_tf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_short_llf_tf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_short_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3567,8 +3567,8 @@ subroutine setfvalue3d_floatshort_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3580,16 +3580,16 @@ end subroutine setfvalue3d_floatshort_llf_tf
 
 !NetCDF <var float-int> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_floatint_llf_tf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_int_llf_tf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_int_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3599,8 +3599,8 @@ subroutine setfvalue3d_floatint_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3612,16 +3612,16 @@ end subroutine setfvalue3d_floatint_llf_tf
 
 !NetCDF <var float-float> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_floatfloat_llf_tf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_float_llf_tf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_float_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3631,8 +3631,8 @@ subroutine setfvalue3d_floatfloat_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3644,16 +3644,16 @@ end subroutine setfvalue3d_floatfloat_llf_tf
 
 !NetCDF <var float-double> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_floatdouble_llf_tf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_double_llf_tf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_double_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3663,8 +3663,8 @@ subroutine setfvalue3d_floatdouble_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3676,16 +3676,16 @@ end subroutine setfvalue3d_floatdouble_llf_tf
 
 !NetCDF <var double-byte> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_doublebyte_llf_tf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_byte_llf_tf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_byte_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3695,8 +3695,8 @@ subroutine setfvalue3d_doublebyte_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3708,16 +3708,16 @@ end subroutine setfvalue3d_doublebyte_llf_tf
 
 !NetCDF <var double-short> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_doubleshort_llf_tf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_short_llf_tf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_short_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3727,8 +3727,8 @@ subroutine setfvalue3d_doubleshort_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3740,16 +3740,16 @@ end subroutine setfvalue3d_doubleshort_llf_tf
 
 !NetCDF <var double-int> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_doubleint_llf_tf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_int_llf_tf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_int_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3759,8 +3759,8 @@ subroutine setfvalue3d_doubleint_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3772,16 +3772,16 @@ end subroutine setfvalue3d_doubleint_llf_tf
 
 !NetCDF <var double-float> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_doublefloat_llf_tf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_float_llf_tf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_float_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3791,8 +3791,8 @@ subroutine setfvalue3d_doublefloat_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3804,16 +3804,16 @@ end subroutine setfvalue3d_doublefloat_llf_tf
 
 !NetCDF <var double-double> (lon <float>, lat <float>, time <float>)
 subroutine setfvalue3d_doubledouble_llf_tf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_double_llf_tf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_double_llf_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3823,8 +3823,8 @@ subroutine setfvalue3d_doubledouble_llf_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3836,16 +3836,16 @@ end subroutine setfvalue3d_doubledouble_llf_tf
 
 !NetCDF <var byte-byte> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_bytebyte_lld_tf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_byte_lld_tf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_byte_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3855,8 +3855,8 @@ subroutine setfvalue3d_bytebyte_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3868,16 +3868,16 @@ end subroutine setfvalue3d_bytebyte_lld_tf
 
 !NetCDF <var byte-short> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_byteshort_lld_tf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_short_lld_tf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_short_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3887,8 +3887,8 @@ subroutine setfvalue3d_byteshort_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3900,16 +3900,16 @@ end subroutine setfvalue3d_byteshort_lld_tf
 
 !NetCDF <var byte-int> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_byteint_lld_tf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_int_lld_tf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_int_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3919,8 +3919,8 @@ subroutine setfvalue3d_byteint_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3932,16 +3932,16 @@ end subroutine setfvalue3d_byteint_lld_tf
 
 !NetCDF <var byte-float> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_bytefloat_lld_tf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_float_lld_tf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_float_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3951,8 +3951,8 @@ subroutine setfvalue3d_bytefloat_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3964,16 +3964,16 @@ end subroutine setfvalue3d_bytefloat_lld_tf
 
 !NetCDF <var byte-double> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_bytedouble_lld_tf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_double_lld_tf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_double_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3983,8 +3983,8 @@ subroutine setfvalue3d_bytedouble_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -3996,16 +3996,16 @@ end subroutine setfvalue3d_bytedouble_lld_tf
 
 !NetCDF <var short-byte> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_shortbyte_lld_tf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_byte_lld_tf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_byte_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4015,8 +4015,8 @@ subroutine setfvalue3d_shortbyte_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4028,16 +4028,16 @@ end subroutine setfvalue3d_shortbyte_lld_tf
 
 !NetCDF <var short-short> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_shortshort_lld_tf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_short_lld_tf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_short_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4047,8 +4047,8 @@ subroutine setfvalue3d_shortshort_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4060,16 +4060,16 @@ end subroutine setfvalue3d_shortshort_lld_tf
 
 !NetCDF <var short-int> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_shortint_lld_tf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_int_lld_tf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_int_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4079,8 +4079,8 @@ subroutine setfvalue3d_shortint_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4092,16 +4092,16 @@ end subroutine setfvalue3d_shortint_lld_tf
 
 !NetCDF <var short-float> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_shortfloat_lld_tf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_float_lld_tf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_float_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4111,8 +4111,8 @@ subroutine setfvalue3d_shortfloat_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4124,16 +4124,16 @@ end subroutine setfvalue3d_shortfloat_lld_tf
 
 !NetCDF <var short-double> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_shortdouble_lld_tf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_double_lld_tf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_double_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4143,8 +4143,8 @@ subroutine setfvalue3d_shortdouble_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4156,16 +4156,16 @@ end subroutine setfvalue3d_shortdouble_lld_tf
 
 !NetCDF <var int-byte> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_intbyte_lld_tf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_byte_lld_tf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_byte_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4175,8 +4175,8 @@ subroutine setfvalue3d_intbyte_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4188,16 +4188,16 @@ end subroutine setfvalue3d_intbyte_lld_tf
 
 !NetCDF <var int-short> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_intshort_lld_tf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_short_lld_tf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_short_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4207,8 +4207,8 @@ subroutine setfvalue3d_intshort_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4220,16 +4220,16 @@ end subroutine setfvalue3d_intshort_lld_tf
 
 !NetCDF <var int-int> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_intint_lld_tf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_int_lld_tf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_int_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4239,8 +4239,8 @@ subroutine setfvalue3d_intint_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4252,16 +4252,16 @@ end subroutine setfvalue3d_intint_lld_tf
 
 !NetCDF <var int-float> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_intfloat_lld_tf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_float_lld_tf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_float_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4271,8 +4271,8 @@ subroutine setfvalue3d_intfloat_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4284,16 +4284,16 @@ end subroutine setfvalue3d_intfloat_lld_tf
 
 !NetCDF <var int-double> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_intdouble_lld_tf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_double_lld_tf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_double_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4303,8 +4303,8 @@ subroutine setfvalue3d_intdouble_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4316,16 +4316,16 @@ end subroutine setfvalue3d_intdouble_lld_tf
 
 !NetCDF <var float-byte> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_floatbyte_lld_tf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_byte_lld_tf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_byte_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4335,8 +4335,8 @@ subroutine setfvalue3d_floatbyte_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4348,16 +4348,16 @@ end subroutine setfvalue3d_floatbyte_lld_tf
 
 !NetCDF <var float-short> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_floatshort_lld_tf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_short_lld_tf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_short_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4367,8 +4367,8 @@ subroutine setfvalue3d_floatshort_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4380,16 +4380,16 @@ end subroutine setfvalue3d_floatshort_lld_tf
 
 !NetCDF <var float-int> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_floatint_lld_tf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_int_lld_tf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_int_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4399,8 +4399,8 @@ subroutine setfvalue3d_floatint_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4412,16 +4412,16 @@ end subroutine setfvalue3d_floatint_lld_tf
 
 !NetCDF <var float-float> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_floatfloat_lld_tf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_float_lld_tf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_float_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4431,8 +4431,8 @@ subroutine setfvalue3d_floatfloat_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4444,16 +4444,16 @@ end subroutine setfvalue3d_floatfloat_lld_tf
 
 !NetCDF <var float-double> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_floatdouble_lld_tf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_double_lld_tf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_double_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4463,8 +4463,8 @@ subroutine setfvalue3d_floatdouble_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4476,16 +4476,16 @@ end subroutine setfvalue3d_floatdouble_lld_tf
 
 !NetCDF <var double-byte> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_doublebyte_lld_tf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_byte_lld_tf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_byte_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4495,8 +4495,8 @@ subroutine setfvalue3d_doublebyte_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4508,16 +4508,16 @@ end subroutine setfvalue3d_doublebyte_lld_tf
 
 !NetCDF <var double-short> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_doubleshort_lld_tf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_short_lld_tf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_short_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4527,8 +4527,8 @@ subroutine setfvalue3d_doubleshort_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4540,16 +4540,16 @@ end subroutine setfvalue3d_doubleshort_lld_tf
 
 !NetCDF <var double-int> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_doubleint_lld_tf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_int_lld_tf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_int_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4559,8 +4559,8 @@ subroutine setfvalue3d_doubleint_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4572,16 +4572,16 @@ end subroutine setfvalue3d_doubleint_lld_tf
 
 !NetCDF <var double-float> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_doublefloat_lld_tf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_float_lld_tf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_float_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4591,8 +4591,8 @@ subroutine setfvalue3d_doublefloat_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4604,16 +4604,16 @@ end subroutine setfvalue3d_doublefloat_lld_tf
 
 !NetCDF <var double-double> (lon <double>, lat <double>, time <float>)
 subroutine setfvalue3d_doubledouble_lld_tf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_double_lld_tf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_double_lld_tf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4623,8 +4623,8 @@ subroutine setfvalue3d_doubledouble_lld_tf(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4636,16 +4636,16 @@ end subroutine setfvalue3d_doubledouble_lld_tf
 
 !NetCDF <var byte-byte> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_bytebyte_llf_td(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_byte_llf_td) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_byte_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4655,8 +4655,8 @@ subroutine setfvalue3d_bytebyte_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4668,16 +4668,16 @@ end subroutine setfvalue3d_bytebyte_llf_td
 
 !NetCDF <var byte-short> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_byteshort_llf_td(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_short_llf_td) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_short_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4687,8 +4687,8 @@ subroutine setfvalue3d_byteshort_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4700,16 +4700,16 @@ end subroutine setfvalue3d_byteshort_llf_td
 
 !NetCDF <var byte-int> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_byteint_llf_td(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_int_llf_td) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_int_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4719,8 +4719,8 @@ subroutine setfvalue3d_byteint_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4732,16 +4732,16 @@ end subroutine setfvalue3d_byteint_llf_td
 
 !NetCDF <var byte-float> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_bytefloat_llf_td(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_float_llf_td) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_float_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4751,8 +4751,8 @@ subroutine setfvalue3d_bytefloat_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4764,16 +4764,16 @@ end subroutine setfvalue3d_bytefloat_llf_td
 
 !NetCDF <var byte-double> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_bytedouble_llf_td(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc3d_double_llf_td) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc3d_double_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4783,8 +4783,8 @@ subroutine setfvalue3d_bytedouble_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4796,16 +4796,16 @@ end subroutine setfvalue3d_bytedouble_llf_td
 
 !NetCDF <var short-byte> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_shortbyte_llf_td(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_byte_llf_td) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_byte_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4815,8 +4815,8 @@ subroutine setfvalue3d_shortbyte_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4828,16 +4828,16 @@ end subroutine setfvalue3d_shortbyte_llf_td
 
 !NetCDF <var short-short> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_shortshort_llf_td(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_short_llf_td) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_short_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4847,8 +4847,8 @@ subroutine setfvalue3d_shortshort_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4860,16 +4860,16 @@ end subroutine setfvalue3d_shortshort_llf_td
 
 !NetCDF <var short-int> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_shortint_llf_td(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_int_llf_td) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_int_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4879,8 +4879,8 @@ subroutine setfvalue3d_shortint_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4892,16 +4892,16 @@ end subroutine setfvalue3d_shortint_llf_td
 
 !NetCDF <var short-float> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_shortfloat_llf_td(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_float_llf_td) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_float_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4911,8 +4911,8 @@ subroutine setfvalue3d_shortfloat_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4924,16 +4924,16 @@ end subroutine setfvalue3d_shortfloat_llf_td
 
 !NetCDF <var short-double> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_shortdouble_llf_td(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc3d_double_llf_td) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc3d_double_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4943,8 +4943,8 @@ subroutine setfvalue3d_shortdouble_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4956,16 +4956,16 @@ end subroutine setfvalue3d_shortdouble_llf_td
 
 !NetCDF <var int-byte> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_intbyte_llf_td(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_byte_llf_td) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_byte_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4975,8 +4975,8 @@ subroutine setfvalue3d_intbyte_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -4988,16 +4988,16 @@ end subroutine setfvalue3d_intbyte_llf_td
 
 !NetCDF <var int-short> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_intshort_llf_td(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_short_llf_td) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_short_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5007,8 +5007,8 @@ subroutine setfvalue3d_intshort_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5020,16 +5020,16 @@ end subroutine setfvalue3d_intshort_llf_td
 
 !NetCDF <var int-int> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_intint_llf_td(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_int_llf_td) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_int_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5039,8 +5039,8 @@ subroutine setfvalue3d_intint_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5052,16 +5052,16 @@ end subroutine setfvalue3d_intint_llf_td
 
 !NetCDF <var int-float> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_intfloat_llf_td(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_float_llf_td) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_float_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5071,8 +5071,8 @@ subroutine setfvalue3d_intfloat_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5084,16 +5084,16 @@ end subroutine setfvalue3d_intfloat_llf_td
 
 !NetCDF <var int-double> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_intdouble_llf_td(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc3d_double_llf_td) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc3d_double_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5103,8 +5103,8 @@ subroutine setfvalue3d_intdouble_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5116,16 +5116,16 @@ end subroutine setfvalue3d_intdouble_llf_td
 
 !NetCDF <var float-byte> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_floatbyte_llf_td(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_byte_llf_td) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_byte_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5135,8 +5135,8 @@ subroutine setfvalue3d_floatbyte_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5148,16 +5148,16 @@ end subroutine setfvalue3d_floatbyte_llf_td
 
 !NetCDF <var float-short> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_floatshort_llf_td(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_short_llf_td) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_short_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5167,8 +5167,8 @@ subroutine setfvalue3d_floatshort_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5180,16 +5180,16 @@ end subroutine setfvalue3d_floatshort_llf_td
 
 !NetCDF <var float-int> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_floatint_llf_td(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_int_llf_td) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_int_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5199,8 +5199,8 @@ subroutine setfvalue3d_floatint_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5212,16 +5212,16 @@ end subroutine setfvalue3d_floatint_llf_td
 
 !NetCDF <var float-float> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_floatfloat_llf_td(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_float_llf_td) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_float_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5231,8 +5231,8 @@ subroutine setfvalue3d_floatfloat_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5244,16 +5244,16 @@ end subroutine setfvalue3d_floatfloat_llf_td
 
 !NetCDF <var float-double> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_floatdouble_llf_td(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc3d_double_llf_td) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc3d_double_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5263,8 +5263,8 @@ subroutine setfvalue3d_floatdouble_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5276,16 +5276,16 @@ end subroutine setfvalue3d_floatdouble_llf_td
 
 !NetCDF <var double-byte> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_doublebyte_llf_td(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_byte_llf_td) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_byte_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5295,8 +5295,8 @@ subroutine setfvalue3d_doublebyte_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5308,16 +5308,16 @@ end subroutine setfvalue3d_doublebyte_llf_td
 
 !NetCDF <var double-short> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_doubleshort_llf_td(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_short_llf_td) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_short_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5327,8 +5327,8 @@ subroutine setfvalue3d_doubleshort_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5340,16 +5340,16 @@ end subroutine setfvalue3d_doubleshort_llf_td
 
 !NetCDF <var double-int> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_doubleint_llf_td(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_int_llf_td) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_int_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5359,8 +5359,8 @@ subroutine setfvalue3d_doubleint_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5372,16 +5372,16 @@ end subroutine setfvalue3d_doubleint_llf_td
 
 !NetCDF <var double-float> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_doublefloat_llf_td(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_float_llf_td) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_float_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5391,8 +5391,8 @@ subroutine setfvalue3d_doublefloat_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5404,16 +5404,16 @@ end subroutine setfvalue3d_doublefloat_llf_td
 
 !NetCDF <var double-double> (lon <float>, lat <float>, time <double>)
 subroutine setfvalue3d_doubledouble_llf_td(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc3d_double_llf_td) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc3d_double_llf_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5423,8 +5423,8 @@ subroutine setfvalue3d_doubledouble_llf_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5436,16 +5436,16 @@ end subroutine setfvalue3d_doubledouble_llf_td
 
 !NetCDF <var byte-byte> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_bytebyte_lld_td(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_byte_lld_td) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_byte_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5455,8 +5455,8 @@ subroutine setfvalue3d_bytebyte_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5468,16 +5468,16 @@ end subroutine setfvalue3d_bytebyte_lld_td
 
 !NetCDF <var byte-short> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_byteshort_lld_td(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_short_lld_td) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_short_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5487,8 +5487,8 @@ subroutine setfvalue3d_byteshort_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5500,16 +5500,16 @@ end subroutine setfvalue3d_byteshort_lld_td
 
 !NetCDF <var byte-int> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_byteint_lld_td(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_int_lld_td) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_int_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5519,8 +5519,8 @@ subroutine setfvalue3d_byteint_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5532,16 +5532,16 @@ end subroutine setfvalue3d_byteint_lld_td
 
 !NetCDF <var byte-float> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_bytefloat_lld_td(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_float_lld_td) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_float_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5551,8 +5551,8 @@ subroutine setfvalue3d_bytefloat_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5564,16 +5564,16 @@ end subroutine setfvalue3d_bytefloat_lld_td
 
 !NetCDF <var byte-double> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_bytedouble_lld_td(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc3d_double_lld_td) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc3d_double_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5583,8 +5583,8 @@ subroutine setfvalue3d_bytedouble_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5596,16 +5596,16 @@ end subroutine setfvalue3d_bytedouble_lld_td
 
 !NetCDF <var short-byte> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_shortbyte_lld_td(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_byte_lld_td) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_byte_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5615,8 +5615,8 @@ subroutine setfvalue3d_shortbyte_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5628,16 +5628,16 @@ end subroutine setfvalue3d_shortbyte_lld_td
 
 !NetCDF <var short-short> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_shortshort_lld_td(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_short_lld_td) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_short_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5647,8 +5647,8 @@ subroutine setfvalue3d_shortshort_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5660,16 +5660,16 @@ end subroutine setfvalue3d_shortshort_lld_td
 
 !NetCDF <var short-int> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_shortint_lld_td(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_int_lld_td) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_int_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5679,8 +5679,8 @@ subroutine setfvalue3d_shortint_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5692,16 +5692,16 @@ end subroutine setfvalue3d_shortint_lld_td
 
 !NetCDF <var short-float> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_shortfloat_lld_td(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_float_lld_td) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_float_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5711,8 +5711,8 @@ subroutine setfvalue3d_shortfloat_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5724,16 +5724,16 @@ end subroutine setfvalue3d_shortfloat_lld_td
 
 !NetCDF <var short-double> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_shortdouble_lld_td(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc3d_double_lld_td) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc3d_double_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5743,8 +5743,8 @@ subroutine setfvalue3d_shortdouble_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5756,16 +5756,16 @@ end subroutine setfvalue3d_shortdouble_lld_td
 
 !NetCDF <var int-byte> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_intbyte_lld_td(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_byte_lld_td) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_byte_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5775,8 +5775,8 @@ subroutine setfvalue3d_intbyte_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5788,16 +5788,16 @@ end subroutine setfvalue3d_intbyte_lld_td
 
 !NetCDF <var int-short> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_intshort_lld_td(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_short_lld_td) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_short_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5807,8 +5807,8 @@ subroutine setfvalue3d_intshort_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5820,16 +5820,16 @@ end subroutine setfvalue3d_intshort_lld_td
 
 !NetCDF <var int-int> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_intint_lld_td(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_int_lld_td) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_int_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5839,8 +5839,8 @@ subroutine setfvalue3d_intint_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5852,16 +5852,16 @@ end subroutine setfvalue3d_intint_lld_td
 
 !NetCDF <var int-float> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_intfloat_lld_td(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_float_lld_td) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_float_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5871,8 +5871,8 @@ subroutine setfvalue3d_intfloat_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5884,16 +5884,16 @@ end subroutine setfvalue3d_intfloat_lld_td
 
 !NetCDF <var int-double> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_intdouble_lld_td(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc3d_double_lld_td) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc3d_double_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5903,8 +5903,8 @@ subroutine setfvalue3d_intdouble_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5916,16 +5916,16 @@ end subroutine setfvalue3d_intdouble_lld_td
 
 !NetCDF <var float-byte> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_floatbyte_lld_td(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_byte_lld_td) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_byte_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5935,8 +5935,8 @@ subroutine setfvalue3d_floatbyte_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5948,16 +5948,16 @@ end subroutine setfvalue3d_floatbyte_lld_td
 
 !NetCDF <var float-short> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_floatshort_lld_td(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_short_lld_td) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_short_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5967,8 +5967,8 @@ subroutine setfvalue3d_floatshort_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5980,16 +5980,16 @@ end subroutine setfvalue3d_floatshort_lld_td
 
 !NetCDF <var float-int> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_floatint_lld_td(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_int_lld_td) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_int_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -5999,8 +5999,8 @@ subroutine setfvalue3d_floatint_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6012,16 +6012,16 @@ end subroutine setfvalue3d_floatint_lld_td
 
 !NetCDF <var float-float> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_floatfloat_lld_td(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_float_lld_td) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_float_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6031,8 +6031,8 @@ subroutine setfvalue3d_floatfloat_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6044,16 +6044,16 @@ end subroutine setfvalue3d_floatfloat_lld_td
 
 !NetCDF <var float-double> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_floatdouble_lld_td(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc3d_double_lld_td) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc3d_double_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6063,8 +6063,8 @@ subroutine setfvalue3d_floatdouble_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6076,16 +6076,16 @@ end subroutine setfvalue3d_floatdouble_lld_td
 
 !NetCDF <var double-byte> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_doublebyte_lld_td(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_byte_lld_td) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_byte_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6095,8 +6095,8 @@ subroutine setfvalue3d_doublebyte_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6108,16 +6108,16 @@ end subroutine setfvalue3d_doublebyte_lld_td
 
 !NetCDF <var double-short> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_doubleshort_lld_td(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_short_lld_td) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_short_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6127,8 +6127,8 @@ subroutine setfvalue3d_doubleshort_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6140,16 +6140,16 @@ end subroutine setfvalue3d_doubleshort_lld_td
 
 !NetCDF <var double-int> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_doubleint_lld_td(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_int_lld_td) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_int_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6159,8 +6159,8 @@ subroutine setfvalue3d_doubleint_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6172,16 +6172,16 @@ end subroutine setfvalue3d_doubleint_lld_td
 
 !NetCDF <var double-float> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_doublefloat_lld_td(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_float_lld_td) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_float_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6191,8 +6191,8 @@ subroutine setfvalue3d_doublefloat_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6204,16 +6204,16 @@ end subroutine setfvalue3d_doublefloat_lld_td
 
 !NetCDF <var double-double> (lon <double>, lat <double>, time <double>)
 subroutine setfvalue3d_doubledouble_lld_td(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc3d_double_lld_td) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc3d_double_lld_td), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k
 
   if(present(num))then
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6223,8 +6223,8 @@ subroutine setfvalue3d_doubledouble_lld_td(mask, map, num)
   else
     !$omp parallel do private(k, i, j)
     do k = 1, map%ntimes
-      do i = 1, mask%nlons
-        do j = 1, mask%nlats
+      do j = 1, mask%nlats
+        do i = 1, mask%nlons
           if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k) = map%FillValue
           if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k).eq.map%FillValue) map%ncdata(i,j,k) = 0
         end do
@@ -6237,8 +6237,8 @@ end subroutine setfvalue3d_doubledouble_lld_td
 
 !NetCDF <var byte-byte> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_bytebyte_llf_ti_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_byte_llf_ti_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_byte_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6246,8 +6246,8 @@ subroutine setfvalue4d_bytebyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6259,8 +6259,8 @@ subroutine setfvalue4d_bytebyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6273,8 +6273,8 @@ end subroutine setfvalue4d_bytebyte_llf_ti_li
 
 !NetCDF <var byte-short> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_byteshort_llf_ti_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_short_llf_ti_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_short_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6282,8 +6282,8 @@ subroutine setfvalue4d_byteshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6295,8 +6295,8 @@ subroutine setfvalue4d_byteshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6309,8 +6309,8 @@ end subroutine setfvalue4d_byteshort_llf_ti_li
 
 !NetCDF <var byte-int> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_byteint_llf_ti_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_int_llf_ti_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_int_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6318,8 +6318,8 @@ subroutine setfvalue4d_byteint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6331,8 +6331,8 @@ subroutine setfvalue4d_byteint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6345,8 +6345,8 @@ end subroutine setfvalue4d_byteint_llf_ti_li
 
 !NetCDF <var byte-float> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_bytefloat_llf_ti_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_float_llf_ti_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_float_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6354,8 +6354,8 @@ subroutine setfvalue4d_bytefloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6367,8 +6367,8 @@ subroutine setfvalue4d_bytefloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6381,8 +6381,8 @@ end subroutine setfvalue4d_bytefloat_llf_ti_li
 
 !NetCDF <var byte-double> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_bytedouble_llf_ti_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_double_llf_ti_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_double_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6390,8 +6390,8 @@ subroutine setfvalue4d_bytedouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6403,8 +6403,8 @@ subroutine setfvalue4d_bytedouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6417,8 +6417,8 @@ end subroutine setfvalue4d_bytedouble_llf_ti_li
 
 !NetCDF <var short-byte> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_shortbyte_llf_ti_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_byte_llf_ti_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_byte_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6426,8 +6426,8 @@ subroutine setfvalue4d_shortbyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6439,8 +6439,8 @@ subroutine setfvalue4d_shortbyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6453,8 +6453,8 @@ end subroutine setfvalue4d_shortbyte_llf_ti_li
 
 !NetCDF <var short-short> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_shortshort_llf_ti_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_short_llf_ti_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_short_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6462,8 +6462,8 @@ subroutine setfvalue4d_shortshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6475,8 +6475,8 @@ subroutine setfvalue4d_shortshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6489,8 +6489,8 @@ end subroutine setfvalue4d_shortshort_llf_ti_li
 
 !NetCDF <var short-int> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_shortint_llf_ti_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_int_llf_ti_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_int_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6498,8 +6498,8 @@ subroutine setfvalue4d_shortint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6511,8 +6511,8 @@ subroutine setfvalue4d_shortint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6525,8 +6525,8 @@ end subroutine setfvalue4d_shortint_llf_ti_li
 
 !NetCDF <var short-float> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_shortfloat_llf_ti_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_float_llf_ti_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_float_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6534,8 +6534,8 @@ subroutine setfvalue4d_shortfloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6547,8 +6547,8 @@ subroutine setfvalue4d_shortfloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6561,8 +6561,8 @@ end subroutine setfvalue4d_shortfloat_llf_ti_li
 
 !NetCDF <var short-double> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_shortdouble_llf_ti_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_double_llf_ti_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_double_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6570,8 +6570,8 @@ subroutine setfvalue4d_shortdouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6583,8 +6583,8 @@ subroutine setfvalue4d_shortdouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6597,8 +6597,8 @@ end subroutine setfvalue4d_shortdouble_llf_ti_li
 
 !NetCDF <var int-byte> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_intbyte_llf_ti_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_byte_llf_ti_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_byte_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6606,8 +6606,8 @@ subroutine setfvalue4d_intbyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6619,8 +6619,8 @@ subroutine setfvalue4d_intbyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6633,8 +6633,8 @@ end subroutine setfvalue4d_intbyte_llf_ti_li
 
 !NetCDF <var int-short> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_intshort_llf_ti_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_short_llf_ti_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_short_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6642,8 +6642,8 @@ subroutine setfvalue4d_intshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6655,8 +6655,8 @@ subroutine setfvalue4d_intshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6669,8 +6669,8 @@ end subroutine setfvalue4d_intshort_llf_ti_li
 
 !NetCDF <var int-int> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_intint_llf_ti_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_int_llf_ti_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_int_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6678,8 +6678,8 @@ subroutine setfvalue4d_intint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6691,8 +6691,8 @@ subroutine setfvalue4d_intint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6705,8 +6705,8 @@ end subroutine setfvalue4d_intint_llf_ti_li
 
 !NetCDF <var int-float> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_intfloat_llf_ti_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_float_llf_ti_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_float_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6714,8 +6714,8 @@ subroutine setfvalue4d_intfloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6727,8 +6727,8 @@ subroutine setfvalue4d_intfloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6741,8 +6741,8 @@ end subroutine setfvalue4d_intfloat_llf_ti_li
 
 !NetCDF <var int-double> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_intdouble_llf_ti_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_double_llf_ti_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_double_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6750,8 +6750,8 @@ subroutine setfvalue4d_intdouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6763,8 +6763,8 @@ subroutine setfvalue4d_intdouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6777,8 +6777,8 @@ end subroutine setfvalue4d_intdouble_llf_ti_li
 
 !NetCDF <var float-byte> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_floatbyte_llf_ti_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_byte_llf_ti_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_byte_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6786,8 +6786,8 @@ subroutine setfvalue4d_floatbyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6799,8 +6799,8 @@ subroutine setfvalue4d_floatbyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6813,8 +6813,8 @@ end subroutine setfvalue4d_floatbyte_llf_ti_li
 
 !NetCDF <var float-short> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_floatshort_llf_ti_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_short_llf_ti_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_short_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6822,8 +6822,8 @@ subroutine setfvalue4d_floatshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6835,8 +6835,8 @@ subroutine setfvalue4d_floatshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6849,8 +6849,8 @@ end subroutine setfvalue4d_floatshort_llf_ti_li
 
 !NetCDF <var float-int> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_floatint_llf_ti_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_int_llf_ti_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_int_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6858,8 +6858,8 @@ subroutine setfvalue4d_floatint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6871,8 +6871,8 @@ subroutine setfvalue4d_floatint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6885,8 +6885,8 @@ end subroutine setfvalue4d_floatint_llf_ti_li
 
 !NetCDF <var float-float> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_floatfloat_llf_ti_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_float_llf_ti_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_float_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6894,8 +6894,8 @@ subroutine setfvalue4d_floatfloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6907,8 +6907,8 @@ subroutine setfvalue4d_floatfloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6921,8 +6921,8 @@ end subroutine setfvalue4d_floatfloat_llf_ti_li
 
 !NetCDF <var float-double> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_floatdouble_llf_ti_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_double_llf_ti_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_double_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6930,8 +6930,8 @@ subroutine setfvalue4d_floatdouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6943,8 +6943,8 @@ subroutine setfvalue4d_floatdouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6957,8 +6957,8 @@ end subroutine setfvalue4d_floatdouble_llf_ti_li
 
 !NetCDF <var double-byte> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_doublebyte_llf_ti_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_byte_llf_ti_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_byte_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -6966,8 +6966,8 @@ subroutine setfvalue4d_doublebyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6979,8 +6979,8 @@ subroutine setfvalue4d_doublebyte_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -6993,8 +6993,8 @@ end subroutine setfvalue4d_doublebyte_llf_ti_li
 
 !NetCDF <var double-short> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_doubleshort_llf_ti_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_short_llf_ti_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_short_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7002,8 +7002,8 @@ subroutine setfvalue4d_doubleshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7015,8 +7015,8 @@ subroutine setfvalue4d_doubleshort_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7029,8 +7029,8 @@ end subroutine setfvalue4d_doubleshort_llf_ti_li
 
 !NetCDF <var double-int> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_doubleint_llf_ti_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_int_llf_ti_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_int_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7038,8 +7038,8 @@ subroutine setfvalue4d_doubleint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7051,8 +7051,8 @@ subroutine setfvalue4d_doubleint_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7065,8 +7065,8 @@ end subroutine setfvalue4d_doubleint_llf_ti_li
 
 !NetCDF <var double-float> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_doublefloat_llf_ti_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_float_llf_ti_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_float_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7074,8 +7074,8 @@ subroutine setfvalue4d_doublefloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7087,8 +7087,8 @@ subroutine setfvalue4d_doublefloat_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7101,8 +7101,8 @@ end subroutine setfvalue4d_doublefloat_llf_ti_li
 
 !NetCDF <var double-double> (lon <float>, lat <float>, time <int>, level <int>)
 subroutine setfvalue4d_doubledouble_llf_ti_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_double_llf_ti_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_double_llf_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7110,8 +7110,8 @@ subroutine setfvalue4d_doubledouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7123,8 +7123,8 @@ subroutine setfvalue4d_doubledouble_llf_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7137,8 +7137,8 @@ end subroutine setfvalue4d_doubledouble_llf_ti_li
 
 !NetCDF <var byte-byte> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_bytebyte_lld_ti_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_byte_lld_ti_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_byte_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7146,8 +7146,8 @@ subroutine setfvalue4d_bytebyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7159,8 +7159,8 @@ subroutine setfvalue4d_bytebyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7173,8 +7173,8 @@ end subroutine setfvalue4d_bytebyte_lld_ti_li
 
 !NetCDF <var byte-short> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_byteshort_lld_ti_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_short_lld_ti_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_short_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7182,8 +7182,8 @@ subroutine setfvalue4d_byteshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7195,8 +7195,8 @@ subroutine setfvalue4d_byteshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7209,8 +7209,8 @@ end subroutine setfvalue4d_byteshort_lld_ti_li
 
 !NetCDF <var byte-int> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_byteint_lld_ti_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_int_lld_ti_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_int_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7218,8 +7218,8 @@ subroutine setfvalue4d_byteint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7231,8 +7231,8 @@ subroutine setfvalue4d_byteint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7245,8 +7245,8 @@ end subroutine setfvalue4d_byteint_lld_ti_li
 
 !NetCDF <var byte-float> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_bytefloat_lld_ti_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_float_lld_ti_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_float_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7254,8 +7254,8 @@ subroutine setfvalue4d_bytefloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7267,8 +7267,8 @@ subroutine setfvalue4d_bytefloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7281,8 +7281,8 @@ end subroutine setfvalue4d_bytefloat_lld_ti_li
 
 !NetCDF <var byte-double> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_bytedouble_lld_ti_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_double_lld_ti_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_double_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7290,8 +7290,8 @@ subroutine setfvalue4d_bytedouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7303,8 +7303,8 @@ subroutine setfvalue4d_bytedouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7317,8 +7317,8 @@ end subroutine setfvalue4d_bytedouble_lld_ti_li
 
 !NetCDF <var short-byte> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_shortbyte_lld_ti_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_byte_lld_ti_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_byte_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7326,8 +7326,8 @@ subroutine setfvalue4d_shortbyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7339,8 +7339,8 @@ subroutine setfvalue4d_shortbyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7353,8 +7353,8 @@ end subroutine setfvalue4d_shortbyte_lld_ti_li
 
 !NetCDF <var short-short> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_shortshort_lld_ti_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_short_lld_ti_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_short_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7362,8 +7362,8 @@ subroutine setfvalue4d_shortshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7375,8 +7375,8 @@ subroutine setfvalue4d_shortshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7389,8 +7389,8 @@ end subroutine setfvalue4d_shortshort_lld_ti_li
 
 !NetCDF <var short-int> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_shortint_lld_ti_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_int_lld_ti_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_int_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7398,8 +7398,8 @@ subroutine setfvalue4d_shortint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7411,8 +7411,8 @@ subroutine setfvalue4d_shortint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7425,8 +7425,8 @@ end subroutine setfvalue4d_shortint_lld_ti_li
 
 !NetCDF <var short-float> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_shortfloat_lld_ti_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_float_lld_ti_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_float_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7434,8 +7434,8 @@ subroutine setfvalue4d_shortfloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7447,8 +7447,8 @@ subroutine setfvalue4d_shortfloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7461,8 +7461,8 @@ end subroutine setfvalue4d_shortfloat_lld_ti_li
 
 !NetCDF <var short-double> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_shortdouble_lld_ti_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_double_lld_ti_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_double_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7470,8 +7470,8 @@ subroutine setfvalue4d_shortdouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7483,8 +7483,8 @@ subroutine setfvalue4d_shortdouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7497,8 +7497,8 @@ end subroutine setfvalue4d_shortdouble_lld_ti_li
 
 !NetCDF <var int-byte> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_intbyte_lld_ti_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_byte_lld_ti_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_byte_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7506,8 +7506,8 @@ subroutine setfvalue4d_intbyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7519,8 +7519,8 @@ subroutine setfvalue4d_intbyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7533,8 +7533,8 @@ end subroutine setfvalue4d_intbyte_lld_ti_li
 
 !NetCDF <var int-short> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_intshort_lld_ti_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_short_lld_ti_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_short_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7542,8 +7542,8 @@ subroutine setfvalue4d_intshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7555,8 +7555,8 @@ subroutine setfvalue4d_intshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7569,8 +7569,8 @@ end subroutine setfvalue4d_intshort_lld_ti_li
 
 !NetCDF <var int-int> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_intint_lld_ti_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_int_lld_ti_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_int_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7578,8 +7578,8 @@ subroutine setfvalue4d_intint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7591,8 +7591,8 @@ subroutine setfvalue4d_intint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7605,8 +7605,8 @@ end subroutine setfvalue4d_intint_lld_ti_li
 
 !NetCDF <var int-float> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_intfloat_lld_ti_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_float_lld_ti_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_float_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7614,8 +7614,8 @@ subroutine setfvalue4d_intfloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7627,8 +7627,8 @@ subroutine setfvalue4d_intfloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7641,8 +7641,8 @@ end subroutine setfvalue4d_intfloat_lld_ti_li
 
 !NetCDF <var int-double> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_intdouble_lld_ti_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_double_lld_ti_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_double_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7650,8 +7650,8 @@ subroutine setfvalue4d_intdouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7663,8 +7663,8 @@ subroutine setfvalue4d_intdouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7677,8 +7677,8 @@ end subroutine setfvalue4d_intdouble_lld_ti_li
 
 !NetCDF <var float-byte> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_floatbyte_lld_ti_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_byte_lld_ti_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_byte_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7686,8 +7686,8 @@ subroutine setfvalue4d_floatbyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7699,8 +7699,8 @@ subroutine setfvalue4d_floatbyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7713,8 +7713,8 @@ end subroutine setfvalue4d_floatbyte_lld_ti_li
 
 !NetCDF <var float-short> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_floatshort_lld_ti_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_short_lld_ti_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_short_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7722,8 +7722,8 @@ subroutine setfvalue4d_floatshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7735,8 +7735,8 @@ subroutine setfvalue4d_floatshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7749,8 +7749,8 @@ end subroutine setfvalue4d_floatshort_lld_ti_li
 
 !NetCDF <var float-int> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_floatint_lld_ti_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_int_lld_ti_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_int_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7758,8 +7758,8 @@ subroutine setfvalue4d_floatint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7771,8 +7771,8 @@ subroutine setfvalue4d_floatint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7785,8 +7785,8 @@ end subroutine setfvalue4d_floatint_lld_ti_li
 
 !NetCDF <var float-float> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_floatfloat_lld_ti_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_float_lld_ti_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_float_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7794,8 +7794,8 @@ subroutine setfvalue4d_floatfloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7807,8 +7807,8 @@ subroutine setfvalue4d_floatfloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7821,8 +7821,8 @@ end subroutine setfvalue4d_floatfloat_lld_ti_li
 
 !NetCDF <var float-double> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_floatdouble_lld_ti_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_double_lld_ti_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_double_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7830,8 +7830,8 @@ subroutine setfvalue4d_floatdouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7843,8 +7843,8 @@ subroutine setfvalue4d_floatdouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7857,8 +7857,8 @@ end subroutine setfvalue4d_floatdouble_lld_ti_li
 
 !NetCDF <var double-byte> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_doublebyte_lld_ti_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_byte_lld_ti_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_byte_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7866,8 +7866,8 @@ subroutine setfvalue4d_doublebyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7879,8 +7879,8 @@ subroutine setfvalue4d_doublebyte_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7893,8 +7893,8 @@ end subroutine setfvalue4d_doublebyte_lld_ti_li
 
 !NetCDF <var double-short> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_doubleshort_lld_ti_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_short_lld_ti_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_short_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7902,8 +7902,8 @@ subroutine setfvalue4d_doubleshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7915,8 +7915,8 @@ subroutine setfvalue4d_doubleshort_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7929,8 +7929,8 @@ end subroutine setfvalue4d_doubleshort_lld_ti_li
 
 !NetCDF <var double-int> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_doubleint_lld_ti_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_int_lld_ti_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_int_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7938,8 +7938,8 @@ subroutine setfvalue4d_doubleint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7951,8 +7951,8 @@ subroutine setfvalue4d_doubleint_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7965,8 +7965,8 @@ end subroutine setfvalue4d_doubleint_lld_ti_li
 
 !NetCDF <var double-float> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_doublefloat_lld_ti_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_float_lld_ti_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_float_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -7974,8 +7974,8 @@ subroutine setfvalue4d_doublefloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -7987,8 +7987,8 @@ subroutine setfvalue4d_doublefloat_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8001,8 +8001,8 @@ end subroutine setfvalue4d_doublefloat_lld_ti_li
 
 !NetCDF <var double-double> (lon <double>, lat <double>, time <int>, level <int>)
 subroutine setfvalue4d_doubledouble_lld_ti_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_double_lld_ti_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_double_lld_ti_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8010,8 +8010,8 @@ subroutine setfvalue4d_doubledouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8023,8 +8023,8 @@ subroutine setfvalue4d_doubledouble_lld_ti_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8037,8 +8037,8 @@ end subroutine setfvalue4d_doubledouble_lld_ti_li
 
 !NetCDF <var byte-byte> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_bytebyte_llf_tf_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_byte_llf_tf_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_byte_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8046,8 +8046,8 @@ subroutine setfvalue4d_bytebyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8059,8 +8059,8 @@ subroutine setfvalue4d_bytebyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8073,8 +8073,8 @@ end subroutine setfvalue4d_bytebyte_llf_tf_li
 
 !NetCDF <var byte-short> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_byteshort_llf_tf_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_short_llf_tf_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_short_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8082,8 +8082,8 @@ subroutine setfvalue4d_byteshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8095,8 +8095,8 @@ subroutine setfvalue4d_byteshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8109,8 +8109,8 @@ end subroutine setfvalue4d_byteshort_llf_tf_li
 
 !NetCDF <var byte-int> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_byteint_llf_tf_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_int_llf_tf_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_int_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8118,8 +8118,8 @@ subroutine setfvalue4d_byteint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8131,8 +8131,8 @@ subroutine setfvalue4d_byteint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8145,8 +8145,8 @@ end subroutine setfvalue4d_byteint_llf_tf_li
 
 !NetCDF <var byte-float> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_bytefloat_llf_tf_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_float_llf_tf_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_float_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8154,8 +8154,8 @@ subroutine setfvalue4d_bytefloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8167,8 +8167,8 @@ subroutine setfvalue4d_bytefloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8181,8 +8181,8 @@ end subroutine setfvalue4d_bytefloat_llf_tf_li
 
 !NetCDF <var byte-double> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_bytedouble_llf_tf_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_double_llf_tf_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_double_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8190,8 +8190,8 @@ subroutine setfvalue4d_bytedouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8203,8 +8203,8 @@ subroutine setfvalue4d_bytedouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8217,8 +8217,8 @@ end subroutine setfvalue4d_bytedouble_llf_tf_li
 
 !NetCDF <var short-byte> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_shortbyte_llf_tf_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_byte_llf_tf_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_byte_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8226,8 +8226,8 @@ subroutine setfvalue4d_shortbyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8239,8 +8239,8 @@ subroutine setfvalue4d_shortbyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8253,8 +8253,8 @@ end subroutine setfvalue4d_shortbyte_llf_tf_li
 
 !NetCDF <var short-short> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_shortshort_llf_tf_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_short_llf_tf_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_short_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8262,8 +8262,8 @@ subroutine setfvalue4d_shortshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8275,8 +8275,8 @@ subroutine setfvalue4d_shortshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8289,8 +8289,8 @@ end subroutine setfvalue4d_shortshort_llf_tf_li
 
 !NetCDF <var short-int> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_shortint_llf_tf_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_int_llf_tf_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_int_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8298,8 +8298,8 @@ subroutine setfvalue4d_shortint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8311,8 +8311,8 @@ subroutine setfvalue4d_shortint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8325,8 +8325,8 @@ end subroutine setfvalue4d_shortint_llf_tf_li
 
 !NetCDF <var short-float> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_shortfloat_llf_tf_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_float_llf_tf_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_float_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8334,8 +8334,8 @@ subroutine setfvalue4d_shortfloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8347,8 +8347,8 @@ subroutine setfvalue4d_shortfloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8361,8 +8361,8 @@ end subroutine setfvalue4d_shortfloat_llf_tf_li
 
 !NetCDF <var short-double> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_shortdouble_llf_tf_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_double_llf_tf_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_double_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8370,8 +8370,8 @@ subroutine setfvalue4d_shortdouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8383,8 +8383,8 @@ subroutine setfvalue4d_shortdouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8397,8 +8397,8 @@ end subroutine setfvalue4d_shortdouble_llf_tf_li
 
 !NetCDF <var int-byte> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_intbyte_llf_tf_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_byte_llf_tf_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_byte_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8406,8 +8406,8 @@ subroutine setfvalue4d_intbyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8419,8 +8419,8 @@ subroutine setfvalue4d_intbyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8433,8 +8433,8 @@ end subroutine setfvalue4d_intbyte_llf_tf_li
 
 !NetCDF <var int-short> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_intshort_llf_tf_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_short_llf_tf_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_short_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8442,8 +8442,8 @@ subroutine setfvalue4d_intshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8455,8 +8455,8 @@ subroutine setfvalue4d_intshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8469,8 +8469,8 @@ end subroutine setfvalue4d_intshort_llf_tf_li
 
 !NetCDF <var int-int> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_intint_llf_tf_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_int_llf_tf_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_int_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8478,8 +8478,8 @@ subroutine setfvalue4d_intint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8491,8 +8491,8 @@ subroutine setfvalue4d_intint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8505,8 +8505,8 @@ end subroutine setfvalue4d_intint_llf_tf_li
 
 !NetCDF <var int-float> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_intfloat_llf_tf_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_float_llf_tf_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_float_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8514,8 +8514,8 @@ subroutine setfvalue4d_intfloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8527,8 +8527,8 @@ subroutine setfvalue4d_intfloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8541,8 +8541,8 @@ end subroutine setfvalue4d_intfloat_llf_tf_li
 
 !NetCDF <var int-double> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_intdouble_llf_tf_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_double_llf_tf_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_double_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8550,8 +8550,8 @@ subroutine setfvalue4d_intdouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8563,8 +8563,8 @@ subroutine setfvalue4d_intdouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8577,8 +8577,8 @@ end subroutine setfvalue4d_intdouble_llf_tf_li
 
 !NetCDF <var float-byte> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_floatbyte_llf_tf_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_byte_llf_tf_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_byte_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8586,8 +8586,8 @@ subroutine setfvalue4d_floatbyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8599,8 +8599,8 @@ subroutine setfvalue4d_floatbyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8613,8 +8613,8 @@ end subroutine setfvalue4d_floatbyte_llf_tf_li
 
 !NetCDF <var float-short> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_floatshort_llf_tf_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_short_llf_tf_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_short_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8622,8 +8622,8 @@ subroutine setfvalue4d_floatshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8635,8 +8635,8 @@ subroutine setfvalue4d_floatshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8649,8 +8649,8 @@ end subroutine setfvalue4d_floatshort_llf_tf_li
 
 !NetCDF <var float-int> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_floatint_llf_tf_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_int_llf_tf_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_int_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8658,8 +8658,8 @@ subroutine setfvalue4d_floatint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8671,8 +8671,8 @@ subroutine setfvalue4d_floatint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8685,8 +8685,8 @@ end subroutine setfvalue4d_floatint_llf_tf_li
 
 !NetCDF <var float-float> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_floatfloat_llf_tf_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_float_llf_tf_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_float_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8694,8 +8694,8 @@ subroutine setfvalue4d_floatfloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8707,8 +8707,8 @@ subroutine setfvalue4d_floatfloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8721,8 +8721,8 @@ end subroutine setfvalue4d_floatfloat_llf_tf_li
 
 !NetCDF <var float-double> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_floatdouble_llf_tf_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_double_llf_tf_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_double_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8730,8 +8730,8 @@ subroutine setfvalue4d_floatdouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8743,8 +8743,8 @@ subroutine setfvalue4d_floatdouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8757,8 +8757,8 @@ end subroutine setfvalue4d_floatdouble_llf_tf_li
 
 !NetCDF <var double-byte> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_doublebyte_llf_tf_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_byte_llf_tf_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_byte_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8766,8 +8766,8 @@ subroutine setfvalue4d_doublebyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8779,8 +8779,8 @@ subroutine setfvalue4d_doublebyte_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8793,8 +8793,8 @@ end subroutine setfvalue4d_doublebyte_llf_tf_li
 
 !NetCDF <var double-short> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_doubleshort_llf_tf_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_short_llf_tf_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_short_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8802,8 +8802,8 @@ subroutine setfvalue4d_doubleshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8815,8 +8815,8 @@ subroutine setfvalue4d_doubleshort_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8829,8 +8829,8 @@ end subroutine setfvalue4d_doubleshort_llf_tf_li
 
 !NetCDF <var double-int> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_doubleint_llf_tf_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_int_llf_tf_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_int_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8838,8 +8838,8 @@ subroutine setfvalue4d_doubleint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8851,8 +8851,8 @@ subroutine setfvalue4d_doubleint_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8865,8 +8865,8 @@ end subroutine setfvalue4d_doubleint_llf_tf_li
 
 !NetCDF <var double-float> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_doublefloat_llf_tf_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_float_llf_tf_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_float_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8874,8 +8874,8 @@ subroutine setfvalue4d_doublefloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8887,8 +8887,8 @@ subroutine setfvalue4d_doublefloat_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8901,8 +8901,8 @@ end subroutine setfvalue4d_doublefloat_llf_tf_li
 
 !NetCDF <var double-double> (lon <float>, lat <float>, time <float>, level <int>)
 subroutine setfvalue4d_doubledouble_llf_tf_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_double_llf_tf_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_double_llf_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8910,8 +8910,8 @@ subroutine setfvalue4d_doubledouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8923,8 +8923,8 @@ subroutine setfvalue4d_doubledouble_llf_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8937,8 +8937,8 @@ end subroutine setfvalue4d_doubledouble_llf_tf_li
 
 !NetCDF <var byte-byte> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_bytebyte_lld_tf_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_byte_lld_tf_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_byte_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8946,8 +8946,8 @@ subroutine setfvalue4d_bytebyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8959,8 +8959,8 @@ subroutine setfvalue4d_bytebyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8973,8 +8973,8 @@ end subroutine setfvalue4d_bytebyte_lld_tf_li
 
 !NetCDF <var byte-short> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_byteshort_lld_tf_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_short_lld_tf_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_short_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -8982,8 +8982,8 @@ subroutine setfvalue4d_byteshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -8995,8 +8995,8 @@ subroutine setfvalue4d_byteshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9009,8 +9009,8 @@ end subroutine setfvalue4d_byteshort_lld_tf_li
 
 !NetCDF <var byte-int> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_byteint_lld_tf_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_int_lld_tf_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_int_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9018,8 +9018,8 @@ subroutine setfvalue4d_byteint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9031,8 +9031,8 @@ subroutine setfvalue4d_byteint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9045,8 +9045,8 @@ end subroutine setfvalue4d_byteint_lld_tf_li
 
 !NetCDF <var byte-float> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_bytefloat_lld_tf_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_float_lld_tf_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_float_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9054,8 +9054,8 @@ subroutine setfvalue4d_bytefloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9067,8 +9067,8 @@ subroutine setfvalue4d_bytefloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9081,8 +9081,8 @@ end subroutine setfvalue4d_bytefloat_lld_tf_li
 
 !NetCDF <var byte-double> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_bytedouble_lld_tf_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_double_lld_tf_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_double_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9090,8 +9090,8 @@ subroutine setfvalue4d_bytedouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9103,8 +9103,8 @@ subroutine setfvalue4d_bytedouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9117,8 +9117,8 @@ end subroutine setfvalue4d_bytedouble_lld_tf_li
 
 !NetCDF <var short-byte> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_shortbyte_lld_tf_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_byte_lld_tf_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_byte_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9126,8 +9126,8 @@ subroutine setfvalue4d_shortbyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9139,8 +9139,8 @@ subroutine setfvalue4d_shortbyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9153,8 +9153,8 @@ end subroutine setfvalue4d_shortbyte_lld_tf_li
 
 !NetCDF <var short-short> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_shortshort_lld_tf_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_short_lld_tf_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_short_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9162,8 +9162,8 @@ subroutine setfvalue4d_shortshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9175,8 +9175,8 @@ subroutine setfvalue4d_shortshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9189,8 +9189,8 @@ end subroutine setfvalue4d_shortshort_lld_tf_li
 
 !NetCDF <var short-int> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_shortint_lld_tf_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_int_lld_tf_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_int_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9198,8 +9198,8 @@ subroutine setfvalue4d_shortint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9211,8 +9211,8 @@ subroutine setfvalue4d_shortint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9225,8 +9225,8 @@ end subroutine setfvalue4d_shortint_lld_tf_li
 
 !NetCDF <var short-float> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_shortfloat_lld_tf_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_float_lld_tf_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_float_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9234,8 +9234,8 @@ subroutine setfvalue4d_shortfloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9247,8 +9247,8 @@ subroutine setfvalue4d_shortfloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9261,8 +9261,8 @@ end subroutine setfvalue4d_shortfloat_lld_tf_li
 
 !NetCDF <var short-double> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_shortdouble_lld_tf_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_double_lld_tf_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_double_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9270,8 +9270,8 @@ subroutine setfvalue4d_shortdouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9283,8 +9283,8 @@ subroutine setfvalue4d_shortdouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9297,8 +9297,8 @@ end subroutine setfvalue4d_shortdouble_lld_tf_li
 
 !NetCDF <var int-byte> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_intbyte_lld_tf_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_byte_lld_tf_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_byte_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9306,8 +9306,8 @@ subroutine setfvalue4d_intbyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9319,8 +9319,8 @@ subroutine setfvalue4d_intbyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9333,8 +9333,8 @@ end subroutine setfvalue4d_intbyte_lld_tf_li
 
 !NetCDF <var int-short> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_intshort_lld_tf_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_short_lld_tf_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_short_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9342,8 +9342,8 @@ subroutine setfvalue4d_intshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9355,8 +9355,8 @@ subroutine setfvalue4d_intshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9369,8 +9369,8 @@ end subroutine setfvalue4d_intshort_lld_tf_li
 
 !NetCDF <var int-int> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_intint_lld_tf_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_int_lld_tf_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_int_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9378,8 +9378,8 @@ subroutine setfvalue4d_intint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9391,8 +9391,8 @@ subroutine setfvalue4d_intint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9405,8 +9405,8 @@ end subroutine setfvalue4d_intint_lld_tf_li
 
 !NetCDF <var int-float> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_intfloat_lld_tf_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_float_lld_tf_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_float_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9414,8 +9414,8 @@ subroutine setfvalue4d_intfloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9427,8 +9427,8 @@ subroutine setfvalue4d_intfloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9441,8 +9441,8 @@ end subroutine setfvalue4d_intfloat_lld_tf_li
 
 !NetCDF <var int-double> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_intdouble_lld_tf_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_double_lld_tf_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_double_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9450,8 +9450,8 @@ subroutine setfvalue4d_intdouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9463,8 +9463,8 @@ subroutine setfvalue4d_intdouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9477,8 +9477,8 @@ end subroutine setfvalue4d_intdouble_lld_tf_li
 
 !NetCDF <var float-byte> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_floatbyte_lld_tf_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_byte_lld_tf_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_byte_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9486,8 +9486,8 @@ subroutine setfvalue4d_floatbyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9499,8 +9499,8 @@ subroutine setfvalue4d_floatbyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9513,8 +9513,8 @@ end subroutine setfvalue4d_floatbyte_lld_tf_li
 
 !NetCDF <var float-short> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_floatshort_lld_tf_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_short_lld_tf_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_short_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9522,8 +9522,8 @@ subroutine setfvalue4d_floatshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9535,8 +9535,8 @@ subroutine setfvalue4d_floatshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9549,8 +9549,8 @@ end subroutine setfvalue4d_floatshort_lld_tf_li
 
 !NetCDF <var float-int> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_floatint_lld_tf_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_int_lld_tf_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_int_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9558,8 +9558,8 @@ subroutine setfvalue4d_floatint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9571,8 +9571,8 @@ subroutine setfvalue4d_floatint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9585,8 +9585,8 @@ end subroutine setfvalue4d_floatint_lld_tf_li
 
 !NetCDF <var float-float> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_floatfloat_lld_tf_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_float_lld_tf_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_float_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9594,8 +9594,8 @@ subroutine setfvalue4d_floatfloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9607,8 +9607,8 @@ subroutine setfvalue4d_floatfloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9621,8 +9621,8 @@ end subroutine setfvalue4d_floatfloat_lld_tf_li
 
 !NetCDF <var float-double> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_floatdouble_lld_tf_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_double_lld_tf_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_double_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9630,8 +9630,8 @@ subroutine setfvalue4d_floatdouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9643,8 +9643,8 @@ subroutine setfvalue4d_floatdouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9657,8 +9657,8 @@ end subroutine setfvalue4d_floatdouble_lld_tf_li
 
 !NetCDF <var double-byte> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_doublebyte_lld_tf_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_byte_lld_tf_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_byte_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9666,8 +9666,8 @@ subroutine setfvalue4d_doublebyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9679,8 +9679,8 @@ subroutine setfvalue4d_doublebyte_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9693,8 +9693,8 @@ end subroutine setfvalue4d_doublebyte_lld_tf_li
 
 !NetCDF <var double-short> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_doubleshort_lld_tf_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_short_lld_tf_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_short_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9702,8 +9702,8 @@ subroutine setfvalue4d_doubleshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9715,8 +9715,8 @@ subroutine setfvalue4d_doubleshort_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9729,8 +9729,8 @@ end subroutine setfvalue4d_doubleshort_lld_tf_li
 
 !NetCDF <var double-int> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_doubleint_lld_tf_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_int_lld_tf_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_int_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9738,8 +9738,8 @@ subroutine setfvalue4d_doubleint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9751,8 +9751,8 @@ subroutine setfvalue4d_doubleint_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9765,8 +9765,8 @@ end subroutine setfvalue4d_doubleint_lld_tf_li
 
 !NetCDF <var double-float> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_doublefloat_lld_tf_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_float_lld_tf_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_float_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9774,8 +9774,8 @@ subroutine setfvalue4d_doublefloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9787,8 +9787,8 @@ subroutine setfvalue4d_doublefloat_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9801,8 +9801,8 @@ end subroutine setfvalue4d_doublefloat_lld_tf_li
 
 !NetCDF <var double-double> (lon <double>, lat <double>, time <float>, level <int>)
 subroutine setfvalue4d_doubledouble_lld_tf_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_double_lld_tf_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_double_lld_tf_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9810,8 +9810,8 @@ subroutine setfvalue4d_doubledouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9823,8 +9823,8 @@ subroutine setfvalue4d_doubledouble_lld_tf_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9837,8 +9837,8 @@ end subroutine setfvalue4d_doubledouble_lld_tf_li
 
 !NetCDF <var byte-byte> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_bytebyte_llf_td_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_byte_llf_td_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_byte_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9846,8 +9846,8 @@ subroutine setfvalue4d_bytebyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9859,8 +9859,8 @@ subroutine setfvalue4d_bytebyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9873,8 +9873,8 @@ end subroutine setfvalue4d_bytebyte_llf_td_li
 
 !NetCDF <var byte-short> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_byteshort_llf_td_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_short_llf_td_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_short_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9882,8 +9882,8 @@ subroutine setfvalue4d_byteshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9895,8 +9895,8 @@ subroutine setfvalue4d_byteshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9909,8 +9909,8 @@ end subroutine setfvalue4d_byteshort_llf_td_li
 
 !NetCDF <var byte-int> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_byteint_llf_td_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_int_llf_td_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_int_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9918,8 +9918,8 @@ subroutine setfvalue4d_byteint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9931,8 +9931,8 @@ subroutine setfvalue4d_byteint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9945,8 +9945,8 @@ end subroutine setfvalue4d_byteint_llf_td_li
 
 !NetCDF <var byte-float> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_bytefloat_llf_td_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_float_llf_td_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_float_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9954,8 +9954,8 @@ subroutine setfvalue4d_bytefloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9967,8 +9967,8 @@ subroutine setfvalue4d_bytefloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -9981,8 +9981,8 @@ end subroutine setfvalue4d_bytefloat_llf_td_li
 
 !NetCDF <var byte-double> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_bytedouble_llf_td_li(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_double_llf_td_li) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_double_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -9990,8 +9990,8 @@ subroutine setfvalue4d_bytedouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10003,8 +10003,8 @@ subroutine setfvalue4d_bytedouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10017,8 +10017,8 @@ end subroutine setfvalue4d_bytedouble_llf_td_li
 
 !NetCDF <var short-byte> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_shortbyte_llf_td_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_byte_llf_td_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_byte_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10026,8 +10026,8 @@ subroutine setfvalue4d_shortbyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10039,8 +10039,8 @@ subroutine setfvalue4d_shortbyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10053,8 +10053,8 @@ end subroutine setfvalue4d_shortbyte_llf_td_li
 
 !NetCDF <var short-short> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_shortshort_llf_td_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_short_llf_td_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_short_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10062,8 +10062,8 @@ subroutine setfvalue4d_shortshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10075,8 +10075,8 @@ subroutine setfvalue4d_shortshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10089,8 +10089,8 @@ end subroutine setfvalue4d_shortshort_llf_td_li
 
 !NetCDF <var short-int> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_shortint_llf_td_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_int_llf_td_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_int_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10098,8 +10098,8 @@ subroutine setfvalue4d_shortint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10111,8 +10111,8 @@ subroutine setfvalue4d_shortint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10125,8 +10125,8 @@ end subroutine setfvalue4d_shortint_llf_td_li
 
 !NetCDF <var short-float> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_shortfloat_llf_td_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_float_llf_td_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_float_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10134,8 +10134,8 @@ subroutine setfvalue4d_shortfloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10147,8 +10147,8 @@ subroutine setfvalue4d_shortfloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10161,8 +10161,8 @@ end subroutine setfvalue4d_shortfloat_llf_td_li
 
 !NetCDF <var short-double> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_shortdouble_llf_td_li(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_double_llf_td_li) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_double_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10170,8 +10170,8 @@ subroutine setfvalue4d_shortdouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10183,8 +10183,8 @@ subroutine setfvalue4d_shortdouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10197,8 +10197,8 @@ end subroutine setfvalue4d_shortdouble_llf_td_li
 
 !NetCDF <var int-byte> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_intbyte_llf_td_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_byte_llf_td_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_byte_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10206,8 +10206,8 @@ subroutine setfvalue4d_intbyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10219,8 +10219,8 @@ subroutine setfvalue4d_intbyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10233,8 +10233,8 @@ end subroutine setfvalue4d_intbyte_llf_td_li
 
 !NetCDF <var int-short> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_intshort_llf_td_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_short_llf_td_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_short_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10242,8 +10242,8 @@ subroutine setfvalue4d_intshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10255,8 +10255,8 @@ subroutine setfvalue4d_intshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10269,8 +10269,8 @@ end subroutine setfvalue4d_intshort_llf_td_li
 
 !NetCDF <var int-int> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_intint_llf_td_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_int_llf_td_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_int_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10278,8 +10278,8 @@ subroutine setfvalue4d_intint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10291,8 +10291,8 @@ subroutine setfvalue4d_intint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10305,8 +10305,8 @@ end subroutine setfvalue4d_intint_llf_td_li
 
 !NetCDF <var int-float> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_intfloat_llf_td_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_float_llf_td_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_float_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10314,8 +10314,8 @@ subroutine setfvalue4d_intfloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10327,8 +10327,8 @@ subroutine setfvalue4d_intfloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10341,8 +10341,8 @@ end subroutine setfvalue4d_intfloat_llf_td_li
 
 !NetCDF <var int-double> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_intdouble_llf_td_li(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_double_llf_td_li) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_double_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10350,8 +10350,8 @@ subroutine setfvalue4d_intdouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10363,8 +10363,8 @@ subroutine setfvalue4d_intdouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10377,8 +10377,8 @@ end subroutine setfvalue4d_intdouble_llf_td_li
 
 !NetCDF <var float-byte> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_floatbyte_llf_td_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_byte_llf_td_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_byte_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10386,8 +10386,8 @@ subroutine setfvalue4d_floatbyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10399,8 +10399,8 @@ subroutine setfvalue4d_floatbyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10413,8 +10413,8 @@ end subroutine setfvalue4d_floatbyte_llf_td_li
 
 !NetCDF <var float-short> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_floatshort_llf_td_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_short_llf_td_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_short_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10422,8 +10422,8 @@ subroutine setfvalue4d_floatshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10435,8 +10435,8 @@ subroutine setfvalue4d_floatshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10449,8 +10449,8 @@ end subroutine setfvalue4d_floatshort_llf_td_li
 
 !NetCDF <var float-int> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_floatint_llf_td_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_int_llf_td_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_int_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10458,8 +10458,8 @@ subroutine setfvalue4d_floatint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10471,8 +10471,8 @@ subroutine setfvalue4d_floatint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10485,8 +10485,8 @@ end subroutine setfvalue4d_floatint_llf_td_li
 
 !NetCDF <var float-float> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_floatfloat_llf_td_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_float_llf_td_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_float_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10494,8 +10494,8 @@ subroutine setfvalue4d_floatfloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10507,8 +10507,8 @@ subroutine setfvalue4d_floatfloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10521,8 +10521,8 @@ end subroutine setfvalue4d_floatfloat_llf_td_li
 
 !NetCDF <var float-double> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_floatdouble_llf_td_li(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_double_llf_td_li) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_double_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10530,8 +10530,8 @@ subroutine setfvalue4d_floatdouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10543,8 +10543,8 @@ subroutine setfvalue4d_floatdouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10557,8 +10557,8 @@ end subroutine setfvalue4d_floatdouble_llf_td_li
 
 !NetCDF <var double-byte> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_doublebyte_llf_td_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_byte_llf_td_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_byte_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10566,8 +10566,8 @@ subroutine setfvalue4d_doublebyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10579,8 +10579,8 @@ subroutine setfvalue4d_doublebyte_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10593,8 +10593,8 @@ end subroutine setfvalue4d_doublebyte_llf_td_li
 
 !NetCDF <var double-short> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_doubleshort_llf_td_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_short_llf_td_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_short_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10602,8 +10602,8 @@ subroutine setfvalue4d_doubleshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10615,8 +10615,8 @@ subroutine setfvalue4d_doubleshort_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10629,8 +10629,8 @@ end subroutine setfvalue4d_doubleshort_llf_td_li
 
 !NetCDF <var double-int> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_doubleint_llf_td_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_int_llf_td_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_int_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10638,8 +10638,8 @@ subroutine setfvalue4d_doubleint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10651,8 +10651,8 @@ subroutine setfvalue4d_doubleint_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10665,8 +10665,8 @@ end subroutine setfvalue4d_doubleint_llf_td_li
 
 !NetCDF <var double-float> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_doublefloat_llf_td_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_float_llf_td_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_float_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10674,8 +10674,8 @@ subroutine setfvalue4d_doublefloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10687,8 +10687,8 @@ subroutine setfvalue4d_doublefloat_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10701,8 +10701,8 @@ end subroutine setfvalue4d_doublefloat_llf_td_li
 
 !NetCDF <var double-double> (lon <float>, lat <float>, time <double>, level <int>)
 subroutine setfvalue4d_doubledouble_llf_td_li(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_double_llf_td_li) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_double_llf_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10710,8 +10710,8 @@ subroutine setfvalue4d_doubledouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10723,8 +10723,8 @@ subroutine setfvalue4d_doubledouble_llf_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10737,8 +10737,8 @@ end subroutine setfvalue4d_doubledouble_llf_td_li
 
 !NetCDF <var byte-byte> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_bytebyte_lld_td_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_byte_lld_td_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_byte_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10746,8 +10746,8 @@ subroutine setfvalue4d_bytebyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10759,8 +10759,8 @@ subroutine setfvalue4d_bytebyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10773,8 +10773,8 @@ end subroutine setfvalue4d_bytebyte_lld_td_li
 
 !NetCDF <var byte-short> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_byteshort_lld_td_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_short_lld_td_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_short_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10782,8 +10782,8 @@ subroutine setfvalue4d_byteshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10795,8 +10795,8 @@ subroutine setfvalue4d_byteshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10809,8 +10809,8 @@ end subroutine setfvalue4d_byteshort_lld_td_li
 
 !NetCDF <var byte-int> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_byteint_lld_td_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_int_lld_td_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_int_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10818,8 +10818,8 @@ subroutine setfvalue4d_byteint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10831,8 +10831,8 @@ subroutine setfvalue4d_byteint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10845,8 +10845,8 @@ end subroutine setfvalue4d_byteint_lld_td_li
 
 !NetCDF <var byte-float> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_bytefloat_lld_td_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_float_lld_td_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_float_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10854,8 +10854,8 @@ subroutine setfvalue4d_bytefloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10867,8 +10867,8 @@ subroutine setfvalue4d_bytefloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10881,8 +10881,8 @@ end subroutine setfvalue4d_bytefloat_lld_td_li
 
 !NetCDF <var byte-double> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_bytedouble_lld_td_li(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_double_lld_td_li) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_double_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10890,8 +10890,8 @@ subroutine setfvalue4d_bytedouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10903,8 +10903,8 @@ subroutine setfvalue4d_bytedouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10917,8 +10917,8 @@ end subroutine setfvalue4d_bytedouble_lld_td_li
 
 !NetCDF <var short-byte> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_shortbyte_lld_td_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_byte_lld_td_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_byte_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10926,8 +10926,8 @@ subroutine setfvalue4d_shortbyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10939,8 +10939,8 @@ subroutine setfvalue4d_shortbyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10953,8 +10953,8 @@ end subroutine setfvalue4d_shortbyte_lld_td_li
 
 !NetCDF <var short-short> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_shortshort_lld_td_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_short_lld_td_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_short_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10962,8 +10962,8 @@ subroutine setfvalue4d_shortshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10975,8 +10975,8 @@ subroutine setfvalue4d_shortshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -10989,8 +10989,8 @@ end subroutine setfvalue4d_shortshort_lld_td_li
 
 !NetCDF <var short-int> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_shortint_lld_td_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_int_lld_td_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_int_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -10998,8 +10998,8 @@ subroutine setfvalue4d_shortint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11011,8 +11011,8 @@ subroutine setfvalue4d_shortint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11025,8 +11025,8 @@ end subroutine setfvalue4d_shortint_lld_td_li
 
 !NetCDF <var short-float> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_shortfloat_lld_td_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_float_lld_td_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_float_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11034,8 +11034,8 @@ subroutine setfvalue4d_shortfloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11047,8 +11047,8 @@ subroutine setfvalue4d_shortfloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11061,8 +11061,8 @@ end subroutine setfvalue4d_shortfloat_lld_td_li
 
 !NetCDF <var short-double> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_shortdouble_lld_td_li(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_double_lld_td_li) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_double_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11070,8 +11070,8 @@ subroutine setfvalue4d_shortdouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11083,8 +11083,8 @@ subroutine setfvalue4d_shortdouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11097,8 +11097,8 @@ end subroutine setfvalue4d_shortdouble_lld_td_li
 
 !NetCDF <var int-byte> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_intbyte_lld_td_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_byte_lld_td_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_byte_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11106,8 +11106,8 @@ subroutine setfvalue4d_intbyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11119,8 +11119,8 @@ subroutine setfvalue4d_intbyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11133,8 +11133,8 @@ end subroutine setfvalue4d_intbyte_lld_td_li
 
 !NetCDF <var int-short> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_intshort_lld_td_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_short_lld_td_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_short_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11142,8 +11142,8 @@ subroutine setfvalue4d_intshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11155,8 +11155,8 @@ subroutine setfvalue4d_intshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11169,8 +11169,8 @@ end subroutine setfvalue4d_intshort_lld_td_li
 
 !NetCDF <var int-int> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_intint_lld_td_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_int_lld_td_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_int_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11178,8 +11178,8 @@ subroutine setfvalue4d_intint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11191,8 +11191,8 @@ subroutine setfvalue4d_intint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11205,8 +11205,8 @@ end subroutine setfvalue4d_intint_lld_td_li
 
 !NetCDF <var int-float> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_intfloat_lld_td_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_float_lld_td_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_float_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11214,8 +11214,8 @@ subroutine setfvalue4d_intfloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11227,8 +11227,8 @@ subroutine setfvalue4d_intfloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11241,8 +11241,8 @@ end subroutine setfvalue4d_intfloat_lld_td_li
 
 !NetCDF <var int-double> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_intdouble_lld_td_li(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_double_lld_td_li) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_double_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11250,8 +11250,8 @@ subroutine setfvalue4d_intdouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11263,8 +11263,8 @@ subroutine setfvalue4d_intdouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11277,8 +11277,8 @@ end subroutine setfvalue4d_intdouble_lld_td_li
 
 !NetCDF <var float-byte> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_floatbyte_lld_td_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_byte_lld_td_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_byte_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11286,8 +11286,8 @@ subroutine setfvalue4d_floatbyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11299,8 +11299,8 @@ subroutine setfvalue4d_floatbyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11313,8 +11313,8 @@ end subroutine setfvalue4d_floatbyte_lld_td_li
 
 !NetCDF <var float-short> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_floatshort_lld_td_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_short_lld_td_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_short_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11322,8 +11322,8 @@ subroutine setfvalue4d_floatshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11335,8 +11335,8 @@ subroutine setfvalue4d_floatshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11349,8 +11349,8 @@ end subroutine setfvalue4d_floatshort_lld_td_li
 
 !NetCDF <var float-int> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_floatint_lld_td_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_int_lld_td_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_int_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11358,8 +11358,8 @@ subroutine setfvalue4d_floatint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11371,8 +11371,8 @@ subroutine setfvalue4d_floatint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11385,8 +11385,8 @@ end subroutine setfvalue4d_floatint_lld_td_li
 
 !NetCDF <var float-float> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_floatfloat_lld_td_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_float_lld_td_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_float_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11394,8 +11394,8 @@ subroutine setfvalue4d_floatfloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11407,8 +11407,8 @@ subroutine setfvalue4d_floatfloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11421,8 +11421,8 @@ end subroutine setfvalue4d_floatfloat_lld_td_li
 
 !NetCDF <var float-double> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_floatdouble_lld_td_li(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_double_lld_td_li) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_double_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11430,8 +11430,8 @@ subroutine setfvalue4d_floatdouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11443,8 +11443,8 @@ subroutine setfvalue4d_floatdouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11457,8 +11457,8 @@ end subroutine setfvalue4d_floatdouble_lld_td_li
 
 !NetCDF <var double-byte> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_doublebyte_lld_td_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_byte_lld_td_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_byte_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11466,8 +11466,8 @@ subroutine setfvalue4d_doublebyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11479,8 +11479,8 @@ subroutine setfvalue4d_doublebyte_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11493,8 +11493,8 @@ end subroutine setfvalue4d_doublebyte_lld_td_li
 
 !NetCDF <var double-short> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_doubleshort_lld_td_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_short_lld_td_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_short_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11502,8 +11502,8 @@ subroutine setfvalue4d_doubleshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11515,8 +11515,8 @@ subroutine setfvalue4d_doubleshort_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11529,8 +11529,8 @@ end subroutine setfvalue4d_doubleshort_lld_td_li
 
 !NetCDF <var double-int> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_doubleint_lld_td_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_int_lld_td_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_int_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11538,8 +11538,8 @@ subroutine setfvalue4d_doubleint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11551,8 +11551,8 @@ subroutine setfvalue4d_doubleint_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11565,8 +11565,8 @@ end subroutine setfvalue4d_doubleint_lld_td_li
 
 !NetCDF <var double-float> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_doublefloat_lld_td_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_float_lld_td_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_float_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11574,8 +11574,8 @@ subroutine setfvalue4d_doublefloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11587,8 +11587,8 @@ subroutine setfvalue4d_doublefloat_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11601,8 +11601,8 @@ end subroutine setfvalue4d_doublefloat_lld_td_li
 
 !NetCDF <var double-double> (lon <double>, lat <double>, time <double>, level <int>)
 subroutine setfvalue4d_doubledouble_lld_td_li(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_double_lld_td_li) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_double_lld_td_li), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11610,8 +11610,8 @@ subroutine setfvalue4d_doubledouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11623,8 +11623,8 @@ subroutine setfvalue4d_doubledouble_lld_td_li(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11637,8 +11637,8 @@ end subroutine setfvalue4d_doubledouble_lld_td_li
 
 !NetCDF <var byte-byte> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_bytebyte_llf_ti_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_byte_llf_ti_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_byte_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11646,8 +11646,8 @@ subroutine setfvalue4d_bytebyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11659,8 +11659,8 @@ subroutine setfvalue4d_bytebyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11673,8 +11673,8 @@ end subroutine setfvalue4d_bytebyte_llf_ti_lf
 
 !NetCDF <var byte-short> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_byteshort_llf_ti_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_short_llf_ti_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_short_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11682,8 +11682,8 @@ subroutine setfvalue4d_byteshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11695,8 +11695,8 @@ subroutine setfvalue4d_byteshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11709,8 +11709,8 @@ end subroutine setfvalue4d_byteshort_llf_ti_lf
 
 !NetCDF <var byte-int> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_byteint_llf_ti_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_int_llf_ti_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_int_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11718,8 +11718,8 @@ subroutine setfvalue4d_byteint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11731,8 +11731,8 @@ subroutine setfvalue4d_byteint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11745,8 +11745,8 @@ end subroutine setfvalue4d_byteint_llf_ti_lf
 
 !NetCDF <var byte-float> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_bytefloat_llf_ti_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_float_llf_ti_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_float_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11754,8 +11754,8 @@ subroutine setfvalue4d_bytefloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11767,8 +11767,8 @@ subroutine setfvalue4d_bytefloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11781,8 +11781,8 @@ end subroutine setfvalue4d_bytefloat_llf_ti_lf
 
 !NetCDF <var byte-double> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_bytedouble_llf_ti_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_double_llf_ti_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_double_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11790,8 +11790,8 @@ subroutine setfvalue4d_bytedouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11803,8 +11803,8 @@ subroutine setfvalue4d_bytedouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11817,8 +11817,8 @@ end subroutine setfvalue4d_bytedouble_llf_ti_lf
 
 !NetCDF <var short-byte> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_shortbyte_llf_ti_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_byte_llf_ti_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_byte_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11826,8 +11826,8 @@ subroutine setfvalue4d_shortbyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11839,8 +11839,8 @@ subroutine setfvalue4d_shortbyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11853,8 +11853,8 @@ end subroutine setfvalue4d_shortbyte_llf_ti_lf
 
 !NetCDF <var short-short> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_shortshort_llf_ti_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_short_llf_ti_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_short_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11862,8 +11862,8 @@ subroutine setfvalue4d_shortshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11875,8 +11875,8 @@ subroutine setfvalue4d_shortshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11889,8 +11889,8 @@ end subroutine setfvalue4d_shortshort_llf_ti_lf
 
 !NetCDF <var short-int> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_shortint_llf_ti_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_int_llf_ti_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_int_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11898,8 +11898,8 @@ subroutine setfvalue4d_shortint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11911,8 +11911,8 @@ subroutine setfvalue4d_shortint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11925,8 +11925,8 @@ end subroutine setfvalue4d_shortint_llf_ti_lf
 
 !NetCDF <var short-float> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_shortfloat_llf_ti_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_float_llf_ti_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_float_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11934,8 +11934,8 @@ subroutine setfvalue4d_shortfloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11947,8 +11947,8 @@ subroutine setfvalue4d_shortfloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11961,8 +11961,8 @@ end subroutine setfvalue4d_shortfloat_llf_ti_lf
 
 !NetCDF <var short-double> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_shortdouble_llf_ti_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_double_llf_ti_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_double_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -11970,8 +11970,8 @@ subroutine setfvalue4d_shortdouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11983,8 +11983,8 @@ subroutine setfvalue4d_shortdouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -11997,8 +11997,8 @@ end subroutine setfvalue4d_shortdouble_llf_ti_lf
 
 !NetCDF <var int-byte> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_intbyte_llf_ti_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_byte_llf_ti_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_byte_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12006,8 +12006,8 @@ subroutine setfvalue4d_intbyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12019,8 +12019,8 @@ subroutine setfvalue4d_intbyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12033,8 +12033,8 @@ end subroutine setfvalue4d_intbyte_llf_ti_lf
 
 !NetCDF <var int-short> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_intshort_llf_ti_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_short_llf_ti_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_short_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12042,8 +12042,8 @@ subroutine setfvalue4d_intshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12055,8 +12055,8 @@ subroutine setfvalue4d_intshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12069,8 +12069,8 @@ end subroutine setfvalue4d_intshort_llf_ti_lf
 
 !NetCDF <var int-int> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_intint_llf_ti_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_int_llf_ti_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_int_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12078,8 +12078,8 @@ subroutine setfvalue4d_intint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12091,8 +12091,8 @@ subroutine setfvalue4d_intint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12105,8 +12105,8 @@ end subroutine setfvalue4d_intint_llf_ti_lf
 
 !NetCDF <var int-float> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_intfloat_llf_ti_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_float_llf_ti_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_float_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12114,8 +12114,8 @@ subroutine setfvalue4d_intfloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12127,8 +12127,8 @@ subroutine setfvalue4d_intfloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12141,8 +12141,8 @@ end subroutine setfvalue4d_intfloat_llf_ti_lf
 
 !NetCDF <var int-double> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_intdouble_llf_ti_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_double_llf_ti_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_double_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12150,8 +12150,8 @@ subroutine setfvalue4d_intdouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12163,8 +12163,8 @@ subroutine setfvalue4d_intdouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12177,8 +12177,8 @@ end subroutine setfvalue4d_intdouble_llf_ti_lf
 
 !NetCDF <var float-byte> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_floatbyte_llf_ti_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_byte_llf_ti_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_byte_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12186,8 +12186,8 @@ subroutine setfvalue4d_floatbyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12199,8 +12199,8 @@ subroutine setfvalue4d_floatbyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12213,8 +12213,8 @@ end subroutine setfvalue4d_floatbyte_llf_ti_lf
 
 !NetCDF <var float-short> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_floatshort_llf_ti_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_short_llf_ti_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_short_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12222,8 +12222,8 @@ subroutine setfvalue4d_floatshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12235,8 +12235,8 @@ subroutine setfvalue4d_floatshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12249,8 +12249,8 @@ end subroutine setfvalue4d_floatshort_llf_ti_lf
 
 !NetCDF <var float-int> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_floatint_llf_ti_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_int_llf_ti_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_int_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12258,8 +12258,8 @@ subroutine setfvalue4d_floatint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12271,8 +12271,8 @@ subroutine setfvalue4d_floatint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12285,8 +12285,8 @@ end subroutine setfvalue4d_floatint_llf_ti_lf
 
 !NetCDF <var float-float> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_floatfloat_llf_ti_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_float_llf_ti_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_float_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12294,8 +12294,8 @@ subroutine setfvalue4d_floatfloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12307,8 +12307,8 @@ subroutine setfvalue4d_floatfloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12321,8 +12321,8 @@ end subroutine setfvalue4d_floatfloat_llf_ti_lf
 
 !NetCDF <var float-double> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_floatdouble_llf_ti_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_double_llf_ti_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_double_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12330,8 +12330,8 @@ subroutine setfvalue4d_floatdouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12343,8 +12343,8 @@ subroutine setfvalue4d_floatdouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12357,8 +12357,8 @@ end subroutine setfvalue4d_floatdouble_llf_ti_lf
 
 !NetCDF <var double-byte> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_doublebyte_llf_ti_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_byte_llf_ti_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_byte_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12366,8 +12366,8 @@ subroutine setfvalue4d_doublebyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12379,8 +12379,8 @@ subroutine setfvalue4d_doublebyte_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12393,8 +12393,8 @@ end subroutine setfvalue4d_doublebyte_llf_ti_lf
 
 !NetCDF <var double-short> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_doubleshort_llf_ti_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_short_llf_ti_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_short_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12402,8 +12402,8 @@ subroutine setfvalue4d_doubleshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12415,8 +12415,8 @@ subroutine setfvalue4d_doubleshort_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12429,8 +12429,8 @@ end subroutine setfvalue4d_doubleshort_llf_ti_lf
 
 !NetCDF <var double-int> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_doubleint_llf_ti_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_int_llf_ti_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_int_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12438,8 +12438,8 @@ subroutine setfvalue4d_doubleint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12451,8 +12451,8 @@ subroutine setfvalue4d_doubleint_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12465,8 +12465,8 @@ end subroutine setfvalue4d_doubleint_llf_ti_lf
 
 !NetCDF <var double-float> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_doublefloat_llf_ti_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_float_llf_ti_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_float_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12474,8 +12474,8 @@ subroutine setfvalue4d_doublefloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12487,8 +12487,8 @@ subroutine setfvalue4d_doublefloat_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12501,8 +12501,8 @@ end subroutine setfvalue4d_doublefloat_llf_ti_lf
 
 !NetCDF <var double-double> (lon <float>, lat <float>, time <int>, level <float>)
 subroutine setfvalue4d_doubledouble_llf_ti_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_double_llf_ti_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_double_llf_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12510,8 +12510,8 @@ subroutine setfvalue4d_doubledouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12523,8 +12523,8 @@ subroutine setfvalue4d_doubledouble_llf_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12537,8 +12537,8 @@ end subroutine setfvalue4d_doubledouble_llf_ti_lf
 
 !NetCDF <var byte-byte> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_bytebyte_lld_ti_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_byte_lld_ti_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_byte_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12546,8 +12546,8 @@ subroutine setfvalue4d_bytebyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12559,8 +12559,8 @@ subroutine setfvalue4d_bytebyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12573,8 +12573,8 @@ end subroutine setfvalue4d_bytebyte_lld_ti_lf
 
 !NetCDF <var byte-short> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_byteshort_lld_ti_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_short_lld_ti_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_short_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12582,8 +12582,8 @@ subroutine setfvalue4d_byteshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12595,8 +12595,8 @@ subroutine setfvalue4d_byteshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12609,8 +12609,8 @@ end subroutine setfvalue4d_byteshort_lld_ti_lf
 
 !NetCDF <var byte-int> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_byteint_lld_ti_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_int_lld_ti_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_int_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12618,8 +12618,8 @@ subroutine setfvalue4d_byteint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12631,8 +12631,8 @@ subroutine setfvalue4d_byteint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12645,8 +12645,8 @@ end subroutine setfvalue4d_byteint_lld_ti_lf
 
 !NetCDF <var byte-float> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_bytefloat_lld_ti_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_float_lld_ti_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_float_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12654,8 +12654,8 @@ subroutine setfvalue4d_bytefloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12667,8 +12667,8 @@ subroutine setfvalue4d_bytefloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12681,8 +12681,8 @@ end subroutine setfvalue4d_bytefloat_lld_ti_lf
 
 !NetCDF <var byte-double> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_bytedouble_lld_ti_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_double_lld_ti_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_double_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12690,8 +12690,8 @@ subroutine setfvalue4d_bytedouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12703,8 +12703,8 @@ subroutine setfvalue4d_bytedouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12717,8 +12717,8 @@ end subroutine setfvalue4d_bytedouble_lld_ti_lf
 
 !NetCDF <var short-byte> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_shortbyte_lld_ti_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_byte_lld_ti_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_byte_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12726,8 +12726,8 @@ subroutine setfvalue4d_shortbyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12739,8 +12739,8 @@ subroutine setfvalue4d_shortbyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12753,8 +12753,8 @@ end subroutine setfvalue4d_shortbyte_lld_ti_lf
 
 !NetCDF <var short-short> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_shortshort_lld_ti_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_short_lld_ti_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_short_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12762,8 +12762,8 @@ subroutine setfvalue4d_shortshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12775,8 +12775,8 @@ subroutine setfvalue4d_shortshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12789,8 +12789,8 @@ end subroutine setfvalue4d_shortshort_lld_ti_lf
 
 !NetCDF <var short-int> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_shortint_lld_ti_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_int_lld_ti_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_int_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12798,8 +12798,8 @@ subroutine setfvalue4d_shortint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12811,8 +12811,8 @@ subroutine setfvalue4d_shortint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12825,8 +12825,8 @@ end subroutine setfvalue4d_shortint_lld_ti_lf
 
 !NetCDF <var short-float> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_shortfloat_lld_ti_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_float_lld_ti_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_float_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12834,8 +12834,8 @@ subroutine setfvalue4d_shortfloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12847,8 +12847,8 @@ subroutine setfvalue4d_shortfloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12861,8 +12861,8 @@ end subroutine setfvalue4d_shortfloat_lld_ti_lf
 
 !NetCDF <var short-double> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_shortdouble_lld_ti_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_double_lld_ti_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_double_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12870,8 +12870,8 @@ subroutine setfvalue4d_shortdouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12883,8 +12883,8 @@ subroutine setfvalue4d_shortdouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12897,8 +12897,8 @@ end subroutine setfvalue4d_shortdouble_lld_ti_lf
 
 !NetCDF <var int-byte> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_intbyte_lld_ti_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_byte_lld_ti_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_byte_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12906,8 +12906,8 @@ subroutine setfvalue4d_intbyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12919,8 +12919,8 @@ subroutine setfvalue4d_intbyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12933,8 +12933,8 @@ end subroutine setfvalue4d_intbyte_lld_ti_lf
 
 !NetCDF <var int-short> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_intshort_lld_ti_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_short_lld_ti_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_short_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12942,8 +12942,8 @@ subroutine setfvalue4d_intshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12955,8 +12955,8 @@ subroutine setfvalue4d_intshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12969,8 +12969,8 @@ end subroutine setfvalue4d_intshort_lld_ti_lf
 
 !NetCDF <var int-int> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_intint_lld_ti_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_int_lld_ti_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_int_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -12978,8 +12978,8 @@ subroutine setfvalue4d_intint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -12991,8 +12991,8 @@ subroutine setfvalue4d_intint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13005,8 +13005,8 @@ end subroutine setfvalue4d_intint_lld_ti_lf
 
 !NetCDF <var int-float> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_intfloat_lld_ti_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_float_lld_ti_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_float_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13014,8 +13014,8 @@ subroutine setfvalue4d_intfloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13027,8 +13027,8 @@ subroutine setfvalue4d_intfloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13041,8 +13041,8 @@ end subroutine setfvalue4d_intfloat_lld_ti_lf
 
 !NetCDF <var int-double> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_intdouble_lld_ti_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_double_lld_ti_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_double_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13050,8 +13050,8 @@ subroutine setfvalue4d_intdouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13063,8 +13063,8 @@ subroutine setfvalue4d_intdouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13077,8 +13077,8 @@ end subroutine setfvalue4d_intdouble_lld_ti_lf
 
 !NetCDF <var float-byte> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_floatbyte_lld_ti_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_byte_lld_ti_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_byte_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13086,8 +13086,8 @@ subroutine setfvalue4d_floatbyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13099,8 +13099,8 @@ subroutine setfvalue4d_floatbyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13113,8 +13113,8 @@ end subroutine setfvalue4d_floatbyte_lld_ti_lf
 
 !NetCDF <var float-short> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_floatshort_lld_ti_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_short_lld_ti_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_short_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13122,8 +13122,8 @@ subroutine setfvalue4d_floatshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13135,8 +13135,8 @@ subroutine setfvalue4d_floatshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13149,8 +13149,8 @@ end subroutine setfvalue4d_floatshort_lld_ti_lf
 
 !NetCDF <var float-int> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_floatint_lld_ti_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_int_lld_ti_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_int_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13158,8 +13158,8 @@ subroutine setfvalue4d_floatint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13171,8 +13171,8 @@ subroutine setfvalue4d_floatint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13185,8 +13185,8 @@ end subroutine setfvalue4d_floatint_lld_ti_lf
 
 !NetCDF <var float-float> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_floatfloat_lld_ti_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_float_lld_ti_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_float_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13194,8 +13194,8 @@ subroutine setfvalue4d_floatfloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13207,8 +13207,8 @@ subroutine setfvalue4d_floatfloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13221,8 +13221,8 @@ end subroutine setfvalue4d_floatfloat_lld_ti_lf
 
 !NetCDF <var float-double> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_floatdouble_lld_ti_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_double_lld_ti_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_double_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13230,8 +13230,8 @@ subroutine setfvalue4d_floatdouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13243,8 +13243,8 @@ subroutine setfvalue4d_floatdouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13257,8 +13257,8 @@ end subroutine setfvalue4d_floatdouble_lld_ti_lf
 
 !NetCDF <var double-byte> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_doublebyte_lld_ti_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_byte_lld_ti_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_byte_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13266,8 +13266,8 @@ subroutine setfvalue4d_doublebyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13279,8 +13279,8 @@ subroutine setfvalue4d_doublebyte_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13293,8 +13293,8 @@ end subroutine setfvalue4d_doublebyte_lld_ti_lf
 
 !NetCDF <var double-short> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_doubleshort_lld_ti_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_short_lld_ti_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_short_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13302,8 +13302,8 @@ subroutine setfvalue4d_doubleshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13315,8 +13315,8 @@ subroutine setfvalue4d_doubleshort_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13329,8 +13329,8 @@ end subroutine setfvalue4d_doubleshort_lld_ti_lf
 
 !NetCDF <var double-int> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_doubleint_lld_ti_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_int_lld_ti_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_int_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13338,8 +13338,8 @@ subroutine setfvalue4d_doubleint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13351,8 +13351,8 @@ subroutine setfvalue4d_doubleint_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13365,8 +13365,8 @@ end subroutine setfvalue4d_doubleint_lld_ti_lf
 
 !NetCDF <var double-float> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_doublefloat_lld_ti_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_float_lld_ti_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_float_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13374,8 +13374,8 @@ subroutine setfvalue4d_doublefloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13387,8 +13387,8 @@ subroutine setfvalue4d_doublefloat_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13401,8 +13401,8 @@ end subroutine setfvalue4d_doublefloat_lld_ti_lf
 
 !NetCDF <var double-double> (lon <double>, lat <double>, time <int>, level <float>)
 subroutine setfvalue4d_doubledouble_lld_ti_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_double_lld_ti_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_double_lld_ti_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13410,8 +13410,8 @@ subroutine setfvalue4d_doubledouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13423,8 +13423,8 @@ subroutine setfvalue4d_doubledouble_lld_ti_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13437,8 +13437,8 @@ end subroutine setfvalue4d_doubledouble_lld_ti_lf
 
 !NetCDF <var byte-byte> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_bytebyte_llf_tf_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_byte_llf_tf_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_byte_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13446,8 +13446,8 @@ subroutine setfvalue4d_bytebyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13459,8 +13459,8 @@ subroutine setfvalue4d_bytebyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13473,8 +13473,8 @@ end subroutine setfvalue4d_bytebyte_llf_tf_lf
 
 !NetCDF <var byte-short> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_byteshort_llf_tf_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_short_llf_tf_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_short_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13482,8 +13482,8 @@ subroutine setfvalue4d_byteshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13495,8 +13495,8 @@ subroutine setfvalue4d_byteshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13509,8 +13509,8 @@ end subroutine setfvalue4d_byteshort_llf_tf_lf
 
 !NetCDF <var byte-int> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_byteint_llf_tf_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_int_llf_tf_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_int_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13518,8 +13518,8 @@ subroutine setfvalue4d_byteint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13531,8 +13531,8 @@ subroutine setfvalue4d_byteint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13545,8 +13545,8 @@ end subroutine setfvalue4d_byteint_llf_tf_lf
 
 !NetCDF <var byte-float> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_bytefloat_llf_tf_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_float_llf_tf_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_float_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13554,8 +13554,8 @@ subroutine setfvalue4d_bytefloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13567,8 +13567,8 @@ subroutine setfvalue4d_bytefloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13581,8 +13581,8 @@ end subroutine setfvalue4d_bytefloat_llf_tf_lf
 
 !NetCDF <var byte-double> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_bytedouble_llf_tf_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_double_llf_tf_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_double_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13590,8 +13590,8 @@ subroutine setfvalue4d_bytedouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13603,8 +13603,8 @@ subroutine setfvalue4d_bytedouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13617,8 +13617,8 @@ end subroutine setfvalue4d_bytedouble_llf_tf_lf
 
 !NetCDF <var short-byte> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_shortbyte_llf_tf_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_byte_llf_tf_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_byte_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13626,8 +13626,8 @@ subroutine setfvalue4d_shortbyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13639,8 +13639,8 @@ subroutine setfvalue4d_shortbyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13653,8 +13653,8 @@ end subroutine setfvalue4d_shortbyte_llf_tf_lf
 
 !NetCDF <var short-short> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_shortshort_llf_tf_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_short_llf_tf_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_short_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13662,8 +13662,8 @@ subroutine setfvalue4d_shortshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13675,8 +13675,8 @@ subroutine setfvalue4d_shortshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13689,8 +13689,8 @@ end subroutine setfvalue4d_shortshort_llf_tf_lf
 
 !NetCDF <var short-int> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_shortint_llf_tf_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_int_llf_tf_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_int_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13698,8 +13698,8 @@ subroutine setfvalue4d_shortint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13711,8 +13711,8 @@ subroutine setfvalue4d_shortint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13725,8 +13725,8 @@ end subroutine setfvalue4d_shortint_llf_tf_lf
 
 !NetCDF <var short-float> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_shortfloat_llf_tf_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_float_llf_tf_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_float_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13734,8 +13734,8 @@ subroutine setfvalue4d_shortfloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13747,8 +13747,8 @@ subroutine setfvalue4d_shortfloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13761,8 +13761,8 @@ end subroutine setfvalue4d_shortfloat_llf_tf_lf
 
 !NetCDF <var short-double> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_shortdouble_llf_tf_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_double_llf_tf_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_double_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13770,8 +13770,8 @@ subroutine setfvalue4d_shortdouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13783,8 +13783,8 @@ subroutine setfvalue4d_shortdouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13797,8 +13797,8 @@ end subroutine setfvalue4d_shortdouble_llf_tf_lf
 
 !NetCDF <var int-byte> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_intbyte_llf_tf_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_byte_llf_tf_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_byte_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13806,8 +13806,8 @@ subroutine setfvalue4d_intbyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13819,8 +13819,8 @@ subroutine setfvalue4d_intbyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13833,8 +13833,8 @@ end subroutine setfvalue4d_intbyte_llf_tf_lf
 
 !NetCDF <var int-short> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_intshort_llf_tf_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_short_llf_tf_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_short_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13842,8 +13842,8 @@ subroutine setfvalue4d_intshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13855,8 +13855,8 @@ subroutine setfvalue4d_intshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13869,8 +13869,8 @@ end subroutine setfvalue4d_intshort_llf_tf_lf
 
 !NetCDF <var int-int> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_intint_llf_tf_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_int_llf_tf_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_int_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13878,8 +13878,8 @@ subroutine setfvalue4d_intint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13891,8 +13891,8 @@ subroutine setfvalue4d_intint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13905,8 +13905,8 @@ end subroutine setfvalue4d_intint_llf_tf_lf
 
 !NetCDF <var int-float> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_intfloat_llf_tf_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_float_llf_tf_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_float_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13914,8 +13914,8 @@ subroutine setfvalue4d_intfloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13927,8 +13927,8 @@ subroutine setfvalue4d_intfloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13941,8 +13941,8 @@ end subroutine setfvalue4d_intfloat_llf_tf_lf
 
 !NetCDF <var int-double> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_intdouble_llf_tf_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_double_llf_tf_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_double_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13950,8 +13950,8 @@ subroutine setfvalue4d_intdouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13963,8 +13963,8 @@ subroutine setfvalue4d_intdouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13977,8 +13977,8 @@ end subroutine setfvalue4d_intdouble_llf_tf_lf
 
 !NetCDF <var float-byte> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_floatbyte_llf_tf_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_byte_llf_tf_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_byte_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -13986,8 +13986,8 @@ subroutine setfvalue4d_floatbyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -13999,8 +13999,8 @@ subroutine setfvalue4d_floatbyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14013,8 +14013,8 @@ end subroutine setfvalue4d_floatbyte_llf_tf_lf
 
 !NetCDF <var float-short> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_floatshort_llf_tf_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_short_llf_tf_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_short_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14022,8 +14022,8 @@ subroutine setfvalue4d_floatshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14035,8 +14035,8 @@ subroutine setfvalue4d_floatshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14049,8 +14049,8 @@ end subroutine setfvalue4d_floatshort_llf_tf_lf
 
 !NetCDF <var float-int> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_floatint_llf_tf_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_int_llf_tf_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_int_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14058,8 +14058,8 @@ subroutine setfvalue4d_floatint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14071,8 +14071,8 @@ subroutine setfvalue4d_floatint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14085,8 +14085,8 @@ end subroutine setfvalue4d_floatint_llf_tf_lf
 
 !NetCDF <var float-float> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_floatfloat_llf_tf_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_float_llf_tf_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_float_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14094,8 +14094,8 @@ subroutine setfvalue4d_floatfloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14107,8 +14107,8 @@ subroutine setfvalue4d_floatfloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14121,8 +14121,8 @@ end subroutine setfvalue4d_floatfloat_llf_tf_lf
 
 !NetCDF <var float-double> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_floatdouble_llf_tf_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_double_llf_tf_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_double_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14130,8 +14130,8 @@ subroutine setfvalue4d_floatdouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14143,8 +14143,8 @@ subroutine setfvalue4d_floatdouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14157,8 +14157,8 @@ end subroutine setfvalue4d_floatdouble_llf_tf_lf
 
 !NetCDF <var double-byte> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_doublebyte_llf_tf_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_byte_llf_tf_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_byte_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14166,8 +14166,8 @@ subroutine setfvalue4d_doublebyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14179,8 +14179,8 @@ subroutine setfvalue4d_doublebyte_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14193,8 +14193,8 @@ end subroutine setfvalue4d_doublebyte_llf_tf_lf
 
 !NetCDF <var double-short> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_doubleshort_llf_tf_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_short_llf_tf_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_short_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14202,8 +14202,8 @@ subroutine setfvalue4d_doubleshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14215,8 +14215,8 @@ subroutine setfvalue4d_doubleshort_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14229,8 +14229,8 @@ end subroutine setfvalue4d_doubleshort_llf_tf_lf
 
 !NetCDF <var double-int> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_doubleint_llf_tf_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_int_llf_tf_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_int_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14238,8 +14238,8 @@ subroutine setfvalue4d_doubleint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14251,8 +14251,8 @@ subroutine setfvalue4d_doubleint_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14265,8 +14265,8 @@ end subroutine setfvalue4d_doubleint_llf_tf_lf
 
 !NetCDF <var double-float> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_doublefloat_llf_tf_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_float_llf_tf_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_float_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14274,8 +14274,8 @@ subroutine setfvalue4d_doublefloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14287,8 +14287,8 @@ subroutine setfvalue4d_doublefloat_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14301,8 +14301,8 @@ end subroutine setfvalue4d_doublefloat_llf_tf_lf
 
 !NetCDF <var double-double> (lon <float>, lat <float>, time <float>, level <float>)
 subroutine setfvalue4d_doubledouble_llf_tf_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_double_llf_tf_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_double_llf_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14310,8 +14310,8 @@ subroutine setfvalue4d_doubledouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14323,8 +14323,8 @@ subroutine setfvalue4d_doubledouble_llf_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14337,8 +14337,8 @@ end subroutine setfvalue4d_doubledouble_llf_tf_lf
 
 !NetCDF <var byte-byte> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_bytebyte_lld_tf_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_byte_lld_tf_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_byte_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14346,8 +14346,8 @@ subroutine setfvalue4d_bytebyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14359,8 +14359,8 @@ subroutine setfvalue4d_bytebyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14373,8 +14373,8 @@ end subroutine setfvalue4d_bytebyte_lld_tf_lf
 
 !NetCDF <var byte-short> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_byteshort_lld_tf_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_short_lld_tf_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_short_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14382,8 +14382,8 @@ subroutine setfvalue4d_byteshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14395,8 +14395,8 @@ subroutine setfvalue4d_byteshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14409,8 +14409,8 @@ end subroutine setfvalue4d_byteshort_lld_tf_lf
 
 !NetCDF <var byte-int> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_byteint_lld_tf_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_int_lld_tf_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_int_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14418,8 +14418,8 @@ subroutine setfvalue4d_byteint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14431,8 +14431,8 @@ subroutine setfvalue4d_byteint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14445,8 +14445,8 @@ end subroutine setfvalue4d_byteint_lld_tf_lf
 
 !NetCDF <var byte-float> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_bytefloat_lld_tf_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_float_lld_tf_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_float_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14454,8 +14454,8 @@ subroutine setfvalue4d_bytefloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14467,8 +14467,8 @@ subroutine setfvalue4d_bytefloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14481,8 +14481,8 @@ end subroutine setfvalue4d_bytefloat_lld_tf_lf
 
 !NetCDF <var byte-double> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_bytedouble_lld_tf_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_double_lld_tf_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_double_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14490,8 +14490,8 @@ subroutine setfvalue4d_bytedouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14503,8 +14503,8 @@ subroutine setfvalue4d_bytedouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14517,8 +14517,8 @@ end subroutine setfvalue4d_bytedouble_lld_tf_lf
 
 !NetCDF <var short-byte> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_shortbyte_lld_tf_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_byte_lld_tf_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_byte_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14526,8 +14526,8 @@ subroutine setfvalue4d_shortbyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14539,8 +14539,8 @@ subroutine setfvalue4d_shortbyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14553,8 +14553,8 @@ end subroutine setfvalue4d_shortbyte_lld_tf_lf
 
 !NetCDF <var short-short> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_shortshort_lld_tf_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_short_lld_tf_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_short_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14562,8 +14562,8 @@ subroutine setfvalue4d_shortshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14575,8 +14575,8 @@ subroutine setfvalue4d_shortshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14589,8 +14589,8 @@ end subroutine setfvalue4d_shortshort_lld_tf_lf
 
 !NetCDF <var short-int> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_shortint_lld_tf_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_int_lld_tf_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_int_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14598,8 +14598,8 @@ subroutine setfvalue4d_shortint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14611,8 +14611,8 @@ subroutine setfvalue4d_shortint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14625,8 +14625,8 @@ end subroutine setfvalue4d_shortint_lld_tf_lf
 
 !NetCDF <var short-float> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_shortfloat_lld_tf_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_float_lld_tf_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_float_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14634,8 +14634,8 @@ subroutine setfvalue4d_shortfloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14647,8 +14647,8 @@ subroutine setfvalue4d_shortfloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14661,8 +14661,8 @@ end subroutine setfvalue4d_shortfloat_lld_tf_lf
 
 !NetCDF <var short-double> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_shortdouble_lld_tf_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_double_lld_tf_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_double_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14670,8 +14670,8 @@ subroutine setfvalue4d_shortdouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14683,8 +14683,8 @@ subroutine setfvalue4d_shortdouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14697,8 +14697,8 @@ end subroutine setfvalue4d_shortdouble_lld_tf_lf
 
 !NetCDF <var int-byte> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_intbyte_lld_tf_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_byte_lld_tf_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_byte_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14706,8 +14706,8 @@ subroutine setfvalue4d_intbyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14719,8 +14719,8 @@ subroutine setfvalue4d_intbyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14733,8 +14733,8 @@ end subroutine setfvalue4d_intbyte_lld_tf_lf
 
 !NetCDF <var int-short> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_intshort_lld_tf_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_short_lld_tf_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_short_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14742,8 +14742,8 @@ subroutine setfvalue4d_intshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14755,8 +14755,8 @@ subroutine setfvalue4d_intshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14769,8 +14769,8 @@ end subroutine setfvalue4d_intshort_lld_tf_lf
 
 !NetCDF <var int-int> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_intint_lld_tf_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_int_lld_tf_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_int_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14778,8 +14778,8 @@ subroutine setfvalue4d_intint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14791,8 +14791,8 @@ subroutine setfvalue4d_intint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14805,8 +14805,8 @@ end subroutine setfvalue4d_intint_lld_tf_lf
 
 !NetCDF <var int-float> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_intfloat_lld_tf_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_float_lld_tf_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_float_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14814,8 +14814,8 @@ subroutine setfvalue4d_intfloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14827,8 +14827,8 @@ subroutine setfvalue4d_intfloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14841,8 +14841,8 @@ end subroutine setfvalue4d_intfloat_lld_tf_lf
 
 !NetCDF <var int-double> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_intdouble_lld_tf_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_double_lld_tf_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_double_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14850,8 +14850,8 @@ subroutine setfvalue4d_intdouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14863,8 +14863,8 @@ subroutine setfvalue4d_intdouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14877,8 +14877,8 @@ end subroutine setfvalue4d_intdouble_lld_tf_lf
 
 !NetCDF <var float-byte> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_floatbyte_lld_tf_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_byte_lld_tf_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_byte_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14886,8 +14886,8 @@ subroutine setfvalue4d_floatbyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14899,8 +14899,8 @@ subroutine setfvalue4d_floatbyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14913,8 +14913,8 @@ end subroutine setfvalue4d_floatbyte_lld_tf_lf
 
 !NetCDF <var float-short> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_floatshort_lld_tf_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_short_lld_tf_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_short_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14922,8 +14922,8 @@ subroutine setfvalue4d_floatshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14935,8 +14935,8 @@ subroutine setfvalue4d_floatshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14949,8 +14949,8 @@ end subroutine setfvalue4d_floatshort_lld_tf_lf
 
 !NetCDF <var float-int> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_floatint_lld_tf_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_int_lld_tf_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_int_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14958,8 +14958,8 @@ subroutine setfvalue4d_floatint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14971,8 +14971,8 @@ subroutine setfvalue4d_floatint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -14985,8 +14985,8 @@ end subroutine setfvalue4d_floatint_lld_tf_lf
 
 !NetCDF <var float-float> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_floatfloat_lld_tf_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_float_lld_tf_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_float_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -14994,8 +14994,8 @@ subroutine setfvalue4d_floatfloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15007,8 +15007,8 @@ subroutine setfvalue4d_floatfloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15021,8 +15021,8 @@ end subroutine setfvalue4d_floatfloat_lld_tf_lf
 
 !NetCDF <var float-double> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_floatdouble_lld_tf_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_double_lld_tf_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_double_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15030,8 +15030,8 @@ subroutine setfvalue4d_floatdouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15043,8 +15043,8 @@ subroutine setfvalue4d_floatdouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15057,8 +15057,8 @@ end subroutine setfvalue4d_floatdouble_lld_tf_lf
 
 !NetCDF <var double-byte> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_doublebyte_lld_tf_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_byte_lld_tf_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_byte_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15066,8 +15066,8 @@ subroutine setfvalue4d_doublebyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15079,8 +15079,8 @@ subroutine setfvalue4d_doublebyte_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15093,8 +15093,8 @@ end subroutine setfvalue4d_doublebyte_lld_tf_lf
 
 !NetCDF <var double-short> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_doubleshort_lld_tf_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_short_lld_tf_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_short_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15102,8 +15102,8 @@ subroutine setfvalue4d_doubleshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15115,8 +15115,8 @@ subroutine setfvalue4d_doubleshort_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15129,8 +15129,8 @@ end subroutine setfvalue4d_doubleshort_lld_tf_lf
 
 !NetCDF <var double-int> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_doubleint_lld_tf_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_int_lld_tf_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_int_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15138,8 +15138,8 @@ subroutine setfvalue4d_doubleint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15151,8 +15151,8 @@ subroutine setfvalue4d_doubleint_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15165,8 +15165,8 @@ end subroutine setfvalue4d_doubleint_lld_tf_lf
 
 !NetCDF <var double-float> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_doublefloat_lld_tf_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_float_lld_tf_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_float_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15174,8 +15174,8 @@ subroutine setfvalue4d_doublefloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15187,8 +15187,8 @@ subroutine setfvalue4d_doublefloat_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15201,8 +15201,8 @@ end subroutine setfvalue4d_doublefloat_lld_tf_lf
 
 !NetCDF <var double-double> (lon <double>, lat <double>, time <float>, level <float>)
 subroutine setfvalue4d_doubledouble_lld_tf_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_double_lld_tf_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_double_lld_tf_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15210,8 +15210,8 @@ subroutine setfvalue4d_doubledouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15223,8 +15223,8 @@ subroutine setfvalue4d_doubledouble_lld_tf_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15237,8 +15237,8 @@ end subroutine setfvalue4d_doubledouble_lld_tf_lf
 
 !NetCDF <var byte-byte> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_bytebyte_llf_td_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_byte_llf_td_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_byte_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15246,8 +15246,8 @@ subroutine setfvalue4d_bytebyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15259,8 +15259,8 @@ subroutine setfvalue4d_bytebyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15273,8 +15273,8 @@ end subroutine setfvalue4d_bytebyte_llf_td_lf
 
 !NetCDF <var byte-short> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_byteshort_llf_td_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_short_llf_td_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_short_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15282,8 +15282,8 @@ subroutine setfvalue4d_byteshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15295,8 +15295,8 @@ subroutine setfvalue4d_byteshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15309,8 +15309,8 @@ end subroutine setfvalue4d_byteshort_llf_td_lf
 
 !NetCDF <var byte-int> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_byteint_llf_td_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_int_llf_td_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_int_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15318,8 +15318,8 @@ subroutine setfvalue4d_byteint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15331,8 +15331,8 @@ subroutine setfvalue4d_byteint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15345,8 +15345,8 @@ end subroutine setfvalue4d_byteint_llf_td_lf
 
 !NetCDF <var byte-float> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_bytefloat_llf_td_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_float_llf_td_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_float_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15354,8 +15354,8 @@ subroutine setfvalue4d_bytefloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15367,8 +15367,8 @@ subroutine setfvalue4d_bytefloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15381,8 +15381,8 @@ end subroutine setfvalue4d_bytefloat_llf_td_lf
 
 !NetCDF <var byte-double> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_bytedouble_llf_td_lf(mask, map, num)
-  type (nc2d_byte_llf) :: mask
-  type (nc4d_double_llf_td_lf) :: map
+  type (nc2d_byte_llf), intent(in) :: mask
+  type (nc4d_double_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15390,8 +15390,8 @@ subroutine setfvalue4d_bytedouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15403,8 +15403,8 @@ subroutine setfvalue4d_bytedouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15417,8 +15417,8 @@ end subroutine setfvalue4d_bytedouble_llf_td_lf
 
 !NetCDF <var short-byte> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_shortbyte_llf_td_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_byte_llf_td_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_byte_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15426,8 +15426,8 @@ subroutine setfvalue4d_shortbyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15439,8 +15439,8 @@ subroutine setfvalue4d_shortbyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15453,8 +15453,8 @@ end subroutine setfvalue4d_shortbyte_llf_td_lf
 
 !NetCDF <var short-short> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_shortshort_llf_td_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_short_llf_td_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_short_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15462,8 +15462,8 @@ subroutine setfvalue4d_shortshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15475,8 +15475,8 @@ subroutine setfvalue4d_shortshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15489,8 +15489,8 @@ end subroutine setfvalue4d_shortshort_llf_td_lf
 
 !NetCDF <var short-int> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_shortint_llf_td_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_int_llf_td_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_int_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15498,8 +15498,8 @@ subroutine setfvalue4d_shortint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15511,8 +15511,8 @@ subroutine setfvalue4d_shortint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15525,8 +15525,8 @@ end subroutine setfvalue4d_shortint_llf_td_lf
 
 !NetCDF <var short-float> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_shortfloat_llf_td_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_float_llf_td_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_float_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15534,8 +15534,8 @@ subroutine setfvalue4d_shortfloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15547,8 +15547,8 @@ subroutine setfvalue4d_shortfloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15561,8 +15561,8 @@ end subroutine setfvalue4d_shortfloat_llf_td_lf
 
 !NetCDF <var short-double> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_shortdouble_llf_td_lf(mask, map, num)
-  type (nc2d_short_llf) :: mask
-  type (nc4d_double_llf_td_lf) :: map
+  type (nc2d_short_llf), intent(in) :: mask
+  type (nc4d_double_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15570,8 +15570,8 @@ subroutine setfvalue4d_shortdouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15583,8 +15583,8 @@ subroutine setfvalue4d_shortdouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15597,8 +15597,8 @@ end subroutine setfvalue4d_shortdouble_llf_td_lf
 
 !NetCDF <var int-byte> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_intbyte_llf_td_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_byte_llf_td_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_byte_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15606,8 +15606,8 @@ subroutine setfvalue4d_intbyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15619,8 +15619,8 @@ subroutine setfvalue4d_intbyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15633,8 +15633,8 @@ end subroutine setfvalue4d_intbyte_llf_td_lf
 
 !NetCDF <var int-short> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_intshort_llf_td_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_short_llf_td_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_short_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15642,8 +15642,8 @@ subroutine setfvalue4d_intshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15655,8 +15655,8 @@ subroutine setfvalue4d_intshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15669,8 +15669,8 @@ end subroutine setfvalue4d_intshort_llf_td_lf
 
 !NetCDF <var int-int> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_intint_llf_td_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_int_llf_td_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_int_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15678,8 +15678,8 @@ subroutine setfvalue4d_intint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15691,8 +15691,8 @@ subroutine setfvalue4d_intint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15705,8 +15705,8 @@ end subroutine setfvalue4d_intint_llf_td_lf
 
 !NetCDF <var int-float> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_intfloat_llf_td_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_float_llf_td_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_float_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15714,8 +15714,8 @@ subroutine setfvalue4d_intfloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15727,8 +15727,8 @@ subroutine setfvalue4d_intfloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15741,8 +15741,8 @@ end subroutine setfvalue4d_intfloat_llf_td_lf
 
 !NetCDF <var int-double> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_intdouble_llf_td_lf(mask, map, num)
-  type (nc2d_int_llf) :: mask
-  type (nc4d_double_llf_td_lf) :: map
+  type (nc2d_int_llf), intent(in) :: mask
+  type (nc4d_double_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15750,8 +15750,8 @@ subroutine setfvalue4d_intdouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15763,8 +15763,8 @@ subroutine setfvalue4d_intdouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15777,8 +15777,8 @@ end subroutine setfvalue4d_intdouble_llf_td_lf
 
 !NetCDF <var float-byte> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_floatbyte_llf_td_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_byte_llf_td_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_byte_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15786,8 +15786,8 @@ subroutine setfvalue4d_floatbyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15799,8 +15799,8 @@ subroutine setfvalue4d_floatbyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15813,8 +15813,8 @@ end subroutine setfvalue4d_floatbyte_llf_td_lf
 
 !NetCDF <var float-short> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_floatshort_llf_td_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_short_llf_td_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_short_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15822,8 +15822,8 @@ subroutine setfvalue4d_floatshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15835,8 +15835,8 @@ subroutine setfvalue4d_floatshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15849,8 +15849,8 @@ end subroutine setfvalue4d_floatshort_llf_td_lf
 
 !NetCDF <var float-int> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_floatint_llf_td_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_int_llf_td_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_int_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15858,8 +15858,8 @@ subroutine setfvalue4d_floatint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15871,8 +15871,8 @@ subroutine setfvalue4d_floatint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15885,8 +15885,8 @@ end subroutine setfvalue4d_floatint_llf_td_lf
 
 !NetCDF <var float-float> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_floatfloat_llf_td_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_float_llf_td_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_float_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15894,8 +15894,8 @@ subroutine setfvalue4d_floatfloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15907,8 +15907,8 @@ subroutine setfvalue4d_floatfloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15921,8 +15921,8 @@ end subroutine setfvalue4d_floatfloat_llf_td_lf
 
 !NetCDF <var float-double> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_floatdouble_llf_td_lf(mask, map, num)
-  type (nc2d_float_llf) :: mask
-  type (nc4d_double_llf_td_lf) :: map
+  type (nc2d_float_llf), intent(in) :: mask
+  type (nc4d_double_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15930,8 +15930,8 @@ subroutine setfvalue4d_floatdouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15943,8 +15943,8 @@ subroutine setfvalue4d_floatdouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15957,8 +15957,8 @@ end subroutine setfvalue4d_floatdouble_llf_td_lf
 
 !NetCDF <var double-byte> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_doublebyte_llf_td_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_byte_llf_td_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_byte_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -15966,8 +15966,8 @@ subroutine setfvalue4d_doublebyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15979,8 +15979,8 @@ subroutine setfvalue4d_doublebyte_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -15993,8 +15993,8 @@ end subroutine setfvalue4d_doublebyte_llf_td_lf
 
 !NetCDF <var double-short> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_doubleshort_llf_td_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_short_llf_td_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_short_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16002,8 +16002,8 @@ subroutine setfvalue4d_doubleshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16015,8 +16015,8 @@ subroutine setfvalue4d_doubleshort_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16029,8 +16029,8 @@ end subroutine setfvalue4d_doubleshort_llf_td_lf
 
 !NetCDF <var double-int> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_doubleint_llf_td_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_int_llf_td_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_int_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16038,8 +16038,8 @@ subroutine setfvalue4d_doubleint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16051,8 +16051,8 @@ subroutine setfvalue4d_doubleint_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16065,8 +16065,8 @@ end subroutine setfvalue4d_doubleint_llf_td_lf
 
 !NetCDF <var double-float> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_doublefloat_llf_td_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_float_llf_td_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_float_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16074,8 +16074,8 @@ subroutine setfvalue4d_doublefloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16087,8 +16087,8 @@ subroutine setfvalue4d_doublefloat_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16101,8 +16101,8 @@ end subroutine setfvalue4d_doublefloat_llf_td_lf
 
 !NetCDF <var double-double> (lon <float>, lat <float>, time <double>, level <float>)
 subroutine setfvalue4d_doubledouble_llf_td_lf(mask, map, num)
-  type (nc2d_double_llf) :: mask
-  type (nc4d_double_llf_td_lf) :: map
+  type (nc2d_double_llf), intent(in) :: mask
+  type (nc4d_double_llf_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16110,8 +16110,8 @@ subroutine setfvalue4d_doubledouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16123,8 +16123,8 @@ subroutine setfvalue4d_doubledouble_llf_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16137,8 +16137,8 @@ end subroutine setfvalue4d_doubledouble_llf_td_lf
 
 !NetCDF <var byte-byte> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_bytebyte_lld_td_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_byte_lld_td_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_byte_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16146,8 +16146,8 @@ subroutine setfvalue4d_bytebyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16159,8 +16159,8 @@ subroutine setfvalue4d_bytebyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16173,8 +16173,8 @@ end subroutine setfvalue4d_bytebyte_lld_td_lf
 
 !NetCDF <var byte-short> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_byteshort_lld_td_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_short_lld_td_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_short_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16182,8 +16182,8 @@ subroutine setfvalue4d_byteshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16195,8 +16195,8 @@ subroutine setfvalue4d_byteshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16209,8 +16209,8 @@ end subroutine setfvalue4d_byteshort_lld_td_lf
 
 !NetCDF <var byte-int> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_byteint_lld_td_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_int_lld_td_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_int_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16218,8 +16218,8 @@ subroutine setfvalue4d_byteint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16231,8 +16231,8 @@ subroutine setfvalue4d_byteint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16245,8 +16245,8 @@ end subroutine setfvalue4d_byteint_lld_td_lf
 
 !NetCDF <var byte-float> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_bytefloat_lld_td_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_float_lld_td_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_float_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16254,8 +16254,8 @@ subroutine setfvalue4d_bytefloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16267,8 +16267,8 @@ subroutine setfvalue4d_bytefloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16281,8 +16281,8 @@ end subroutine setfvalue4d_bytefloat_lld_td_lf
 
 !NetCDF <var byte-double> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_bytedouble_lld_td_lf(mask, map, num)
-  type (nc2d_byte_lld) :: mask
-  type (nc4d_double_lld_td_lf) :: map
+  type (nc2d_byte_lld), intent(in) :: mask
+  type (nc4d_double_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16290,8 +16290,8 @@ subroutine setfvalue4d_bytedouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16303,8 +16303,8 @@ subroutine setfvalue4d_bytedouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16317,8 +16317,8 @@ end subroutine setfvalue4d_bytedouble_lld_td_lf
 
 !NetCDF <var short-byte> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_shortbyte_lld_td_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_byte_lld_td_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_byte_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16326,8 +16326,8 @@ subroutine setfvalue4d_shortbyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16339,8 +16339,8 @@ subroutine setfvalue4d_shortbyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16353,8 +16353,8 @@ end subroutine setfvalue4d_shortbyte_lld_td_lf
 
 !NetCDF <var short-short> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_shortshort_lld_td_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_short_lld_td_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_short_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16362,8 +16362,8 @@ subroutine setfvalue4d_shortshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16375,8 +16375,8 @@ subroutine setfvalue4d_shortshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16389,8 +16389,8 @@ end subroutine setfvalue4d_shortshort_lld_td_lf
 
 !NetCDF <var short-int> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_shortint_lld_td_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_int_lld_td_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_int_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16398,8 +16398,8 @@ subroutine setfvalue4d_shortint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16411,8 +16411,8 @@ subroutine setfvalue4d_shortint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16425,8 +16425,8 @@ end subroutine setfvalue4d_shortint_lld_td_lf
 
 !NetCDF <var short-float> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_shortfloat_lld_td_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_float_lld_td_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_float_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16434,8 +16434,8 @@ subroutine setfvalue4d_shortfloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16447,8 +16447,8 @@ subroutine setfvalue4d_shortfloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16461,8 +16461,8 @@ end subroutine setfvalue4d_shortfloat_lld_td_lf
 
 !NetCDF <var short-double> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_shortdouble_lld_td_lf(mask, map, num)
-  type (nc2d_short_lld) :: mask
-  type (nc4d_double_lld_td_lf) :: map
+  type (nc2d_short_lld), intent(in) :: mask
+  type (nc4d_double_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16470,8 +16470,8 @@ subroutine setfvalue4d_shortdouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16483,8 +16483,8 @@ subroutine setfvalue4d_shortdouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16497,8 +16497,8 @@ end subroutine setfvalue4d_shortdouble_lld_td_lf
 
 !NetCDF <var int-byte> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_intbyte_lld_td_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_byte_lld_td_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_byte_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16506,8 +16506,8 @@ subroutine setfvalue4d_intbyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16519,8 +16519,8 @@ subroutine setfvalue4d_intbyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16533,8 +16533,8 @@ end subroutine setfvalue4d_intbyte_lld_td_lf
 
 !NetCDF <var int-short> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_intshort_lld_td_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_short_lld_td_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_short_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16542,8 +16542,8 @@ subroutine setfvalue4d_intshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16555,8 +16555,8 @@ subroutine setfvalue4d_intshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16569,8 +16569,8 @@ end subroutine setfvalue4d_intshort_lld_td_lf
 
 !NetCDF <var int-int> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_intint_lld_td_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_int_lld_td_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_int_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16578,8 +16578,8 @@ subroutine setfvalue4d_intint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16591,8 +16591,8 @@ subroutine setfvalue4d_intint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16605,8 +16605,8 @@ end subroutine setfvalue4d_intint_lld_td_lf
 
 !NetCDF <var int-float> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_intfloat_lld_td_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_float_lld_td_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_float_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16614,8 +16614,8 @@ subroutine setfvalue4d_intfloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16627,8 +16627,8 @@ subroutine setfvalue4d_intfloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16641,8 +16641,8 @@ end subroutine setfvalue4d_intfloat_lld_td_lf
 
 !NetCDF <var int-double> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_intdouble_lld_td_lf(mask, map, num)
-  type (nc2d_int_lld) :: mask
-  type (nc4d_double_lld_td_lf) :: map
+  type (nc2d_int_lld), intent(in) :: mask
+  type (nc4d_double_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16650,8 +16650,8 @@ subroutine setfvalue4d_intdouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16663,8 +16663,8 @@ subroutine setfvalue4d_intdouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16677,8 +16677,8 @@ end subroutine setfvalue4d_intdouble_lld_td_lf
 
 !NetCDF <var float-byte> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_floatbyte_lld_td_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_byte_lld_td_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_byte_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16686,8 +16686,8 @@ subroutine setfvalue4d_floatbyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16699,8 +16699,8 @@ subroutine setfvalue4d_floatbyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16713,8 +16713,8 @@ end subroutine setfvalue4d_floatbyte_lld_td_lf
 
 !NetCDF <var float-short> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_floatshort_lld_td_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_short_lld_td_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_short_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16722,8 +16722,8 @@ subroutine setfvalue4d_floatshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16735,8 +16735,8 @@ subroutine setfvalue4d_floatshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16749,8 +16749,8 @@ end subroutine setfvalue4d_floatshort_lld_td_lf
 
 !NetCDF <var float-int> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_floatint_lld_td_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_int_lld_td_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_int_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16758,8 +16758,8 @@ subroutine setfvalue4d_floatint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16771,8 +16771,8 @@ subroutine setfvalue4d_floatint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16785,8 +16785,8 @@ end subroutine setfvalue4d_floatint_lld_td_lf
 
 !NetCDF <var float-float> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_floatfloat_lld_td_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_float_lld_td_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_float_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16794,8 +16794,8 @@ subroutine setfvalue4d_floatfloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16807,8 +16807,8 @@ subroutine setfvalue4d_floatfloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16821,8 +16821,8 @@ end subroutine setfvalue4d_floatfloat_lld_td_lf
 
 !NetCDF <var float-double> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_floatdouble_lld_td_lf(mask, map, num)
-  type (nc2d_float_lld) :: mask
-  type (nc4d_double_lld_td_lf) :: map
+  type (nc2d_float_lld), intent(in) :: mask
+  type (nc4d_double_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16830,8 +16830,8 @@ subroutine setfvalue4d_floatdouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16843,8 +16843,8 @@ subroutine setfvalue4d_floatdouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16857,8 +16857,8 @@ end subroutine setfvalue4d_floatdouble_lld_td_lf
 
 !NetCDF <var double-byte> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_doublebyte_lld_td_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_byte_lld_td_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_byte_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16866,8 +16866,8 @@ subroutine setfvalue4d_doublebyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16879,8 +16879,8 @@ subroutine setfvalue4d_doublebyte_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16893,8 +16893,8 @@ end subroutine setfvalue4d_doublebyte_lld_td_lf
 
 !NetCDF <var double-short> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_doubleshort_lld_td_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_short_lld_td_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_short_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16902,8 +16902,8 @@ subroutine setfvalue4d_doubleshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16915,8 +16915,8 @@ subroutine setfvalue4d_doubleshort_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16929,8 +16929,8 @@ end subroutine setfvalue4d_doubleshort_lld_td_lf
 
 !NetCDF <var double-int> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_doubleint_lld_td_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_int_lld_td_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_int_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16938,8 +16938,8 @@ subroutine setfvalue4d_doubleint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16951,8 +16951,8 @@ subroutine setfvalue4d_doubleint_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16965,8 +16965,8 @@ end subroutine setfvalue4d_doubleint_lld_td_lf
 
 !NetCDF <var double-float> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_doublefloat_lld_td_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_float_lld_td_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_float_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -16974,8 +16974,8 @@ subroutine setfvalue4d_doublefloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -16987,8 +16987,8 @@ subroutine setfvalue4d_doublefloat_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -17001,8 +17001,8 @@ end subroutine setfvalue4d_doublefloat_lld_td_lf
 
 !NetCDF <var double-double> (lon <double>, lat <double>, time <double>, level <float>)
 subroutine setfvalue4d_doubledouble_lld_td_lf(mask, map, num)
-  type (nc2d_double_lld) :: mask
-  type (nc4d_double_lld_td_lf) :: map
+  type (nc2d_double_lld), intent(in) :: mask
+  type (nc4d_double_lld_td_lf), intent(inout) :: map
   integer, optional, intent(in):: num
   integer(kind=intgr) :: i, j, k, l
 
@@ -17010,8 +17010,8 @@ subroutine setfvalue4d_doubledouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).ne.num) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).eq.num).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do
@@ -17023,8 +17023,8 @@ subroutine setfvalue4d_doubledouble_lld_td_lf(mask, map, num)
     !$omp parallel do private(l, k, i, j)
     do l = 1, map%nlevels
       do k = 1, map%ntimes
-        do i = 1, mask%nlons
-          do j = 1, mask%nlats
+        do j = 1, mask%nlats
+          do i = 1, mask%nlons
             if(mask%ncdata(i,j).eq.mask%FillValue) map%ncdata(i,j,k,l) = map%FillValue
             if((mask%ncdata(i,j).ne.mask%FillValue).and.map%ncdata(i,j,k,l).eq.map%FillValue) map%ncdata(i,j,k,l) = 0
           end do

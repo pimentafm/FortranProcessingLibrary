@@ -32,6 +32,30 @@
 !:=============================================================================
 
 !:======= Error Handler Module ================================================
+
+!:=== Print filename extracted from full path (pure Fortran, no system call)
+subroutine print_filename(ifile)
+  character(*), intent(in) :: ifile
+  integer :: pos
+  pos = index(ifile, '/', back=.true.)
+  if (pos > 0) then
+    write(*,*) " File: "//trim(adjustl(ifile(pos+1:)))
+  else
+    write(*,*) " File: "//trim(adjustl(ifile))
+  end if
+end subroutine print_filename
+
+!:=== Check allocation status
+subroutine check_alloc(istat, arrname)
+  integer, intent(in) :: istat
+  character(*), intent(in) :: arrname
+  if (istat .ne. 0) then
+    write(*,*) achar(27)//"[1"//achar(59)// &
+               "91m ERROR: Failed to allocate "//trim(adjustl(arrname))//achar(27)//"[0m"
+    stop 1
+  end if
+end subroutine check_alloc
+
 !:======= ShellScript Colours
 
 !:RED -> fatal errors
@@ -135,7 +159,7 @@ subroutine checktype(ncstatus, rvar, dvar, ifile)
                    "91m WARNING: Input type: BYTE | Declared type: " &
                    //trim(adjustl(dvar))//achar(27)//"[0m"
     end select
-    call system(" echo "//trim(adjustl(ifile))//" | sed 's/.*\// File: /'")
+    call print_filename(ifile)
     stop
   end if
 end subroutine checktype
@@ -156,7 +180,7 @@ subroutine checkatt(ncstatus, uname, ifile)
       write(*,*) achar(27)//"[0"//achar(59)// &
                  "94m  Try this: gdal_translate -of netcdf -a_nodata <nodata_value> input.nc output.nc" &
                  //achar(27)//"[0m"  
-      call system(" echo "//trim(adjustl(ifile))//" | sed 's/.*\// File: /'")
+      call print_filename(ifile)
       stop
       else
         write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
@@ -174,7 +198,7 @@ subroutine checkatt(ncstatus, uname, ifile)
         write(*,*) achar(27)//"[0"//achar(59)// &
                    "94m         Set in your file: yourdata%"//trim(adjustl(uname))// &
                    " = units (degrees, km, ...)"//achar(27)//"[0m"
-        call system(" echo "//trim(adjustl(ifile))//" | sed 's/.*\// File: /'")
+        call print_filename(ifile)
     end if
   end if
 end subroutine checkatt

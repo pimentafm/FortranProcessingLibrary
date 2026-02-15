@@ -37,12 +37,13 @@ subroutine writegrid2d_byte_llf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_byte_llf) :: odata
+  type(nc2d_byte_llf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -77,8 +78,10 @@ subroutine writegrid2d_byte_llf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -110,12 +113,13 @@ subroutine writegrid2d_short_llf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_short_llf) :: odata
+  type(nc2d_short_llf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -150,8 +154,10 @@ subroutine writegrid2d_short_llf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -183,12 +189,13 @@ subroutine writegrid2d_int_llf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_int_llf) :: odata
+  type(nc2d_int_llf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -223,8 +230,10 @@ subroutine writegrid2d_int_llf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -256,12 +265,13 @@ subroutine writegrid2d_float_llf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_float_llf) :: odata
+  type(nc2d_float_llf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -296,8 +306,10 @@ subroutine writegrid2d_float_llf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -329,12 +341,13 @@ subroutine writegrid2d_double_llf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_double_llf) :: odata
+  type(nc2d_double_llf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -369,8 +382,10 @@ subroutine writegrid2d_double_llf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -402,12 +417,13 @@ subroutine writegrid2d_byte_lld(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_byte_lld) :: odata
+  type(nc2d_byte_lld), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -442,8 +458,10 @@ subroutine writegrid2d_byte_lld(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -475,12 +493,13 @@ subroutine writegrid2d_short_lld(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_short_lld) :: odata
+  type(nc2d_short_lld), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -515,8 +534,10 @@ subroutine writegrid2d_short_lld(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -548,12 +569,13 @@ subroutine writegrid2d_int_lld(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_int_lld) :: odata
+  type(nc2d_int_lld), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -588,8 +610,10 @@ subroutine writegrid2d_int_lld(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -621,12 +645,13 @@ subroutine writegrid2d_float_lld(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_float_lld) :: odata
+  type(nc2d_float_lld), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -661,8 +686,10 @@ subroutine writegrid2d_float_lld(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -694,12 +721,13 @@ subroutine writegrid2d_double_lld(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc2d_double_lld) :: odata
+  type(nc2d_double_lld), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -734,8 +762,10 @@ subroutine writegrid2d_double_lld(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -767,12 +797,13 @@ subroutine writegrid3d_byte_llf_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_byte_llf_ti) :: odata
+  type(nc3d_byte_llf_ti), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -816,8 +847,10 @@ subroutine writegrid3d_byte_llf_ti(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -852,12 +885,13 @@ subroutine writegrid3d_short_llf_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_short_llf_ti) :: odata
+  type(nc3d_short_llf_ti), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -901,8 +935,10 @@ subroutine writegrid3d_short_llf_ti(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -937,12 +973,13 @@ subroutine writegrid3d_int_llf_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_int_llf_ti) :: odata
+  type(nc3d_int_llf_ti), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -986,8 +1023,10 @@ subroutine writegrid3d_int_llf_ti(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -1022,12 +1061,13 @@ subroutine writegrid3d_float_llf_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_float_llf_ti) :: odata
+  type(nc3d_float_llf_ti), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -1071,8 +1111,10 @@ subroutine writegrid3d_float_llf_ti(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -1107,12 +1149,13 @@ subroutine writegrid3d_double_llf_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_double_llf_ti) :: odata
+  type(nc3d_double_llf_ti), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -1156,8 +1199,10 @@ subroutine writegrid3d_double_llf_ti(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -1192,12 +1237,13 @@ subroutine writegrid3d_byte_lld_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_byte_lld_ti) :: odata
+  type(nc3d_byte_lld_ti), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -1241,8 +1287,10 @@ subroutine writegrid3d_byte_lld_ti(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -1277,12 +1325,13 @@ subroutine writegrid3d_short_lld_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_short_lld_ti) :: odata
+  type(nc3d_short_lld_ti), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -1326,8 +1375,10 @@ subroutine writegrid3d_short_lld_ti(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -1362,12 +1413,13 @@ subroutine writegrid3d_int_lld_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_int_lld_ti) :: odata
+  type(nc3d_int_lld_ti), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -1411,8 +1463,10 @@ subroutine writegrid3d_int_lld_ti(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -1447,12 +1501,13 @@ subroutine writegrid3d_float_lld_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_float_lld_ti) :: odata
+  type(nc3d_float_lld_ti), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -1496,8 +1551,10 @@ subroutine writegrid3d_float_lld_ti(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -1532,12 +1589,13 @@ subroutine writegrid3d_double_lld_ti(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_double_lld_ti) :: odata
+  type(nc3d_double_lld_ti), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -1581,8 +1639,10 @@ subroutine writegrid3d_double_lld_ti(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -1617,12 +1677,13 @@ subroutine writegrid3d_byte_llf_tf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_byte_llf_tf) :: odata
+  type(nc3d_byte_llf_tf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -1666,8 +1727,10 @@ subroutine writegrid3d_byte_llf_tf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -1702,12 +1765,13 @@ subroutine writegrid3d_short_llf_tf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_short_llf_tf) :: odata
+  type(nc3d_short_llf_tf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -1751,8 +1815,10 @@ subroutine writegrid3d_short_llf_tf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -1787,12 +1853,13 @@ subroutine writegrid3d_int_llf_tf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_int_llf_tf) :: odata
+  type(nc3d_int_llf_tf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -1836,8 +1903,10 @@ subroutine writegrid3d_int_llf_tf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -1872,12 +1941,13 @@ subroutine writegrid3d_float_llf_tf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_float_llf_tf) :: odata
+  type(nc3d_float_llf_tf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -1921,8 +1991,10 @@ subroutine writegrid3d_float_llf_tf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -1957,12 +2029,13 @@ subroutine writegrid3d_double_llf_tf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_double_llf_tf) :: odata
+  type(nc3d_double_llf_tf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -2006,8 +2079,10 @@ subroutine writegrid3d_double_llf_tf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -2042,12 +2117,13 @@ subroutine writegrid3d_byte_lld_tf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_byte_lld_tf) :: odata
+  type(nc3d_byte_lld_tf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -2091,8 +2167,10 @@ subroutine writegrid3d_byte_lld_tf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -2127,12 +2205,13 @@ subroutine writegrid3d_short_lld_tf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_short_lld_tf) :: odata
+  type(nc3d_short_lld_tf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -2176,8 +2255,10 @@ subroutine writegrid3d_short_lld_tf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -2212,12 +2293,13 @@ subroutine writegrid3d_int_lld_tf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_int_lld_tf) :: odata
+  type(nc3d_int_lld_tf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -2261,8 +2343,10 @@ subroutine writegrid3d_int_lld_tf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -2297,12 +2381,13 @@ subroutine writegrid3d_float_lld_tf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_float_lld_tf) :: odata
+  type(nc3d_float_lld_tf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -2346,8 +2431,10 @@ subroutine writegrid3d_float_lld_tf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -2382,12 +2469,13 @@ subroutine writegrid3d_double_lld_tf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_double_lld_tf) :: odata
+  type(nc3d_double_lld_tf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -2431,8 +2519,10 @@ subroutine writegrid3d_double_lld_tf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -2467,12 +2557,13 @@ subroutine writegrid3d_byte_llf_td(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_byte_llf_td) :: odata
+  type(nc3d_byte_llf_td), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -2516,8 +2607,10 @@ subroutine writegrid3d_byte_llf_td(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -2552,12 +2645,13 @@ subroutine writegrid3d_short_llf_td(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_short_llf_td) :: odata
+  type(nc3d_short_llf_td), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -2601,8 +2695,10 @@ subroutine writegrid3d_short_llf_td(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -2637,12 +2733,13 @@ subroutine writegrid3d_int_llf_td(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_int_llf_td) :: odata
+  type(nc3d_int_llf_td), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -2686,8 +2783,10 @@ subroutine writegrid3d_int_llf_td(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -2722,12 +2821,13 @@ subroutine writegrid3d_float_llf_td(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_float_llf_td) :: odata
+  type(nc3d_float_llf_td), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -2771,8 +2871,10 @@ subroutine writegrid3d_float_llf_td(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -2807,12 +2909,13 @@ subroutine writegrid3d_double_llf_td(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_double_llf_td) :: odata
+  type(nc3d_double_llf_td), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -2856,8 +2959,10 @@ subroutine writegrid3d_double_llf_td(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -2892,12 +2997,13 @@ subroutine writegrid3d_byte_lld_td(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_byte_lld_td) :: odata
+  type(nc3d_byte_lld_td), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -2941,8 +3047,10 @@ subroutine writegrid3d_byte_lld_td(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -2977,12 +3085,13 @@ subroutine writegrid3d_short_lld_td(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_short_lld_td) :: odata
+  type(nc3d_short_lld_td), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -3026,8 +3135,10 @@ subroutine writegrid3d_short_lld_td(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -3062,12 +3173,13 @@ subroutine writegrid3d_int_lld_td(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_int_lld_td) :: odata
+  type(nc3d_int_lld_td), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -3111,8 +3223,10 @@ subroutine writegrid3d_int_lld_td(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -3147,12 +3261,13 @@ subroutine writegrid3d_float_lld_td(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_float_lld_td) :: odata
+  type(nc3d_float_lld_td), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -3196,8 +3311,10 @@ subroutine writegrid3d_float_lld_td(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -3232,12 +3349,13 @@ subroutine writegrid3d_double_lld_td(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc3d_double_lld_td) :: odata
+  type(nc3d_double_lld_td), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -3281,8 +3399,10 @@ subroutine writegrid3d_double_lld_td(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -3317,12 +3437,13 @@ subroutine writegrid4d_byte_llf_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_byte_llf_ti_li) :: odata
+  type(nc4d_byte_llf_ti_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -3369,8 +3490,10 @@ subroutine writegrid4d_byte_llf_ti_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -3408,12 +3531,13 @@ subroutine writegrid4d_short_llf_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_short_llf_ti_li) :: odata
+  type(nc4d_short_llf_ti_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -3460,8 +3584,10 @@ subroutine writegrid4d_short_llf_ti_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -3499,12 +3625,13 @@ subroutine writegrid4d_int_llf_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_int_llf_ti_li) :: odata
+  type(nc4d_int_llf_ti_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -3551,8 +3678,10 @@ subroutine writegrid4d_int_llf_ti_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -3590,12 +3719,13 @@ subroutine writegrid4d_float_llf_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_float_llf_ti_li) :: odata
+  type(nc4d_float_llf_ti_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -3642,8 +3772,10 @@ subroutine writegrid4d_float_llf_ti_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -3681,12 +3813,13 @@ subroutine writegrid4d_double_llf_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_double_llf_ti_li) :: odata
+  type(nc4d_double_llf_ti_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -3733,8 +3866,10 @@ subroutine writegrid4d_double_llf_ti_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -3772,12 +3907,13 @@ subroutine writegrid4d_byte_lld_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_byte_lld_ti_li) :: odata
+  type(nc4d_byte_lld_ti_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -3824,8 +3960,10 @@ subroutine writegrid4d_byte_lld_ti_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -3863,12 +4001,13 @@ subroutine writegrid4d_short_lld_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_short_lld_ti_li) :: odata
+  type(nc4d_short_lld_ti_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -3915,8 +4054,10 @@ subroutine writegrid4d_short_lld_ti_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -3954,12 +4095,13 @@ subroutine writegrid4d_int_lld_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_int_lld_ti_li) :: odata
+  type(nc4d_int_lld_ti_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -4006,8 +4148,10 @@ subroutine writegrid4d_int_lld_ti_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -4045,12 +4189,13 @@ subroutine writegrid4d_float_lld_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_float_lld_ti_li) :: odata
+  type(nc4d_float_lld_ti_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -4097,8 +4242,10 @@ subroutine writegrid4d_float_lld_ti_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -4136,12 +4283,13 @@ subroutine writegrid4d_double_lld_ti_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_double_lld_ti_li) :: odata
+  type(nc4d_double_lld_ti_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -4188,8 +4336,10 @@ subroutine writegrid4d_double_lld_ti_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -4227,12 +4377,13 @@ subroutine writegrid4d_byte_llf_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_byte_llf_tf_li) :: odata
+  type(nc4d_byte_llf_tf_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -4279,8 +4430,10 @@ subroutine writegrid4d_byte_llf_tf_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -4318,12 +4471,13 @@ subroutine writegrid4d_short_llf_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_short_llf_tf_li) :: odata
+  type(nc4d_short_llf_tf_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -4370,8 +4524,10 @@ subroutine writegrid4d_short_llf_tf_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -4409,12 +4565,13 @@ subroutine writegrid4d_int_llf_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_int_llf_tf_li) :: odata
+  type(nc4d_int_llf_tf_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -4461,8 +4618,10 @@ subroutine writegrid4d_int_llf_tf_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -4500,12 +4659,13 @@ subroutine writegrid4d_float_llf_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_float_llf_tf_li) :: odata
+  type(nc4d_float_llf_tf_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -4552,8 +4712,10 @@ subroutine writegrid4d_float_llf_tf_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -4591,12 +4753,13 @@ subroutine writegrid4d_double_llf_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_double_llf_tf_li) :: odata
+  type(nc4d_double_llf_tf_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -4643,8 +4806,10 @@ subroutine writegrid4d_double_llf_tf_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -4682,12 +4847,13 @@ subroutine writegrid4d_byte_lld_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_byte_lld_tf_li) :: odata
+  type(nc4d_byte_lld_tf_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -4734,8 +4900,10 @@ subroutine writegrid4d_byte_lld_tf_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -4773,12 +4941,13 @@ subroutine writegrid4d_short_lld_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_short_lld_tf_li) :: odata
+  type(nc4d_short_lld_tf_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -4825,8 +4994,10 @@ subroutine writegrid4d_short_lld_tf_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -4864,12 +5035,13 @@ subroutine writegrid4d_int_lld_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_int_lld_tf_li) :: odata
+  type(nc4d_int_lld_tf_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -4916,8 +5088,10 @@ subroutine writegrid4d_int_lld_tf_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -4955,12 +5129,13 @@ subroutine writegrid4d_float_lld_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_float_lld_tf_li) :: odata
+  type(nc4d_float_lld_tf_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -5007,8 +5182,10 @@ subroutine writegrid4d_float_lld_tf_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -5046,12 +5223,13 @@ subroutine writegrid4d_double_lld_tf_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_double_lld_tf_li) :: odata
+  type(nc4d_double_lld_tf_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -5098,8 +5276,10 @@ subroutine writegrid4d_double_lld_tf_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -5137,12 +5317,13 @@ subroutine writegrid4d_byte_llf_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_byte_llf_td_li) :: odata
+  type(nc4d_byte_llf_td_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -5189,8 +5370,10 @@ subroutine writegrid4d_byte_llf_td_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -5228,12 +5411,13 @@ subroutine writegrid4d_short_llf_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_short_llf_td_li) :: odata
+  type(nc4d_short_llf_td_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -5280,8 +5464,10 @@ subroutine writegrid4d_short_llf_td_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -5319,12 +5505,13 @@ subroutine writegrid4d_int_llf_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_int_llf_td_li) :: odata
+  type(nc4d_int_llf_td_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -5371,8 +5558,10 @@ subroutine writegrid4d_int_llf_td_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -5410,12 +5599,13 @@ subroutine writegrid4d_float_llf_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_float_llf_td_li) :: odata
+  type(nc4d_float_llf_td_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -5462,8 +5652,10 @@ subroutine writegrid4d_float_llf_td_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -5501,12 +5693,13 @@ subroutine writegrid4d_double_llf_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_double_llf_td_li) :: odata
+  type(nc4d_double_llf_td_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -5553,8 +5746,10 @@ subroutine writegrid4d_double_llf_td_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -5592,12 +5787,13 @@ subroutine writegrid4d_byte_lld_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_byte_lld_td_li) :: odata
+  type(nc4d_byte_lld_td_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -5644,8 +5840,10 @@ subroutine writegrid4d_byte_lld_td_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -5683,12 +5881,13 @@ subroutine writegrid4d_short_lld_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_short_lld_td_li) :: odata
+  type(nc4d_short_lld_td_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -5735,8 +5934,10 @@ subroutine writegrid4d_short_lld_td_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -5774,12 +5975,13 @@ subroutine writegrid4d_int_lld_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_int_lld_td_li) :: odata
+  type(nc4d_int_lld_td_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -5826,8 +6028,10 @@ subroutine writegrid4d_int_lld_td_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -5865,12 +6069,13 @@ subroutine writegrid4d_float_lld_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_float_lld_td_li) :: odata
+  type(nc4d_float_lld_td_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -5917,8 +6122,10 @@ subroutine writegrid4d_float_lld_td_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -5956,12 +6163,13 @@ subroutine writegrid4d_double_lld_td_li(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_double_lld_td_li) :: odata
+  type(nc4d_double_lld_td_li), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -6008,8 +6216,10 @@ subroutine writegrid4d_double_lld_td_li(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -6047,12 +6257,13 @@ subroutine writegrid4d_byte_llf_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_byte_llf_ti_lf) :: odata
+  type(nc4d_byte_llf_ti_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -6099,8 +6310,10 @@ subroutine writegrid4d_byte_llf_ti_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -6138,12 +6351,13 @@ subroutine writegrid4d_short_llf_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_short_llf_ti_lf) :: odata
+  type(nc4d_short_llf_ti_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -6190,8 +6404,10 @@ subroutine writegrid4d_short_llf_ti_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -6229,12 +6445,13 @@ subroutine writegrid4d_int_llf_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_int_llf_ti_lf) :: odata
+  type(nc4d_int_llf_ti_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -6281,8 +6498,10 @@ subroutine writegrid4d_int_llf_ti_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -6320,12 +6539,13 @@ subroutine writegrid4d_float_llf_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_float_llf_ti_lf) :: odata
+  type(nc4d_float_llf_ti_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -6372,8 +6592,10 @@ subroutine writegrid4d_float_llf_ti_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -6411,12 +6633,13 @@ subroutine writegrid4d_double_llf_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_double_llf_ti_lf) :: odata
+  type(nc4d_double_llf_ti_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -6463,8 +6686,10 @@ subroutine writegrid4d_double_llf_ti_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -6502,12 +6727,13 @@ subroutine writegrid4d_byte_lld_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_byte_lld_ti_lf) :: odata
+  type(nc4d_byte_lld_ti_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -6554,8 +6780,10 @@ subroutine writegrid4d_byte_lld_ti_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -6593,12 +6821,13 @@ subroutine writegrid4d_short_lld_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_short_lld_ti_lf) :: odata
+  type(nc4d_short_lld_ti_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -6645,8 +6874,10 @@ subroutine writegrid4d_short_lld_ti_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -6684,12 +6915,13 @@ subroutine writegrid4d_int_lld_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_int_lld_ti_lf) :: odata
+  type(nc4d_int_lld_ti_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -6736,8 +6968,10 @@ subroutine writegrid4d_int_lld_ti_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -6775,12 +7009,13 @@ subroutine writegrid4d_float_lld_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_float_lld_ti_lf) :: odata
+  type(nc4d_float_lld_ti_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -6827,8 +7062,10 @@ subroutine writegrid4d_float_lld_ti_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -6866,12 +7103,13 @@ subroutine writegrid4d_double_lld_ti_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_double_lld_ti_lf) :: odata
+  type(nc4d_double_lld_ti_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -6918,8 +7156,10 @@ subroutine writegrid4d_double_lld_ti_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -6957,12 +7197,13 @@ subroutine writegrid4d_byte_llf_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_byte_llf_tf_lf) :: odata
+  type(nc4d_byte_llf_tf_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -7009,8 +7250,10 @@ subroutine writegrid4d_byte_llf_tf_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -7048,12 +7291,13 @@ subroutine writegrid4d_short_llf_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_short_llf_tf_lf) :: odata
+  type(nc4d_short_llf_tf_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -7100,8 +7344,10 @@ subroutine writegrid4d_short_llf_tf_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -7139,12 +7385,13 @@ subroutine writegrid4d_int_llf_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_int_llf_tf_lf) :: odata
+  type(nc4d_int_llf_tf_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -7191,8 +7438,10 @@ subroutine writegrid4d_int_llf_tf_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -7230,12 +7479,13 @@ subroutine writegrid4d_float_llf_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_float_llf_tf_lf) :: odata
+  type(nc4d_float_llf_tf_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -7282,8 +7532,10 @@ subroutine writegrid4d_float_llf_tf_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -7321,12 +7573,13 @@ subroutine writegrid4d_double_llf_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_double_llf_tf_lf) :: odata
+  type(nc4d_double_llf_tf_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -7373,8 +7626,10 @@ subroutine writegrid4d_double_llf_tf_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -7412,12 +7667,13 @@ subroutine writegrid4d_byte_lld_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_byte_lld_tf_lf) :: odata
+  type(nc4d_byte_lld_tf_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -7464,8 +7720,10 @@ subroutine writegrid4d_byte_lld_tf_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -7503,12 +7761,13 @@ subroutine writegrid4d_short_lld_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_short_lld_tf_lf) :: odata
+  type(nc4d_short_lld_tf_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -7555,8 +7814,10 @@ subroutine writegrid4d_short_lld_tf_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -7594,12 +7855,13 @@ subroutine writegrid4d_int_lld_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_int_lld_tf_lf) :: odata
+  type(nc4d_int_lld_tf_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -7646,8 +7908,10 @@ subroutine writegrid4d_int_lld_tf_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -7685,12 +7949,13 @@ subroutine writegrid4d_float_lld_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_float_lld_tf_lf) :: odata
+  type(nc4d_float_lld_tf_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -7737,8 +8002,10 @@ subroutine writegrid4d_float_lld_tf_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -7776,12 +8043,13 @@ subroutine writegrid4d_double_lld_tf_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_double_lld_tf_lf) :: odata
+  type(nc4d_double_lld_tf_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -7828,8 +8096,10 @@ subroutine writegrid4d_double_lld_tf_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -7867,12 +8137,13 @@ subroutine writegrid4d_byte_llf_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_byte_llf_td_lf) :: odata
+  type(nc4d_byte_llf_td_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -7919,8 +8190,10 @@ subroutine writegrid4d_byte_llf_td_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -7958,12 +8231,13 @@ subroutine writegrid4d_short_llf_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_short_llf_td_lf) :: odata
+  type(nc4d_short_llf_td_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -8010,8 +8284,10 @@ subroutine writegrid4d_short_llf_td_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -8049,12 +8325,13 @@ subroutine writegrid4d_int_llf_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_int_llf_td_lf) :: odata
+  type(nc4d_int_llf_td_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -8101,8 +8378,10 @@ subroutine writegrid4d_int_llf_td_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -8140,12 +8419,13 @@ subroutine writegrid4d_float_llf_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_float_llf_td_lf) :: odata
+  type(nc4d_float_llf_td_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -8192,8 +8472,10 @@ subroutine writegrid4d_float_llf_td_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -8231,12 +8513,13 @@ subroutine writegrid4d_double_llf_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_double_llf_td_lf) :: odata
+  type(nc4d_double_llf_td_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -8283,8 +8566,10 @@ subroutine writegrid4d_double_llf_td_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -8322,12 +8607,13 @@ subroutine writegrid4d_byte_lld_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_byte_lld_td_lf) :: odata
+  type(nc4d_byte_lld_td_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -8374,8 +8660,10 @@ subroutine writegrid4d_byte_lld_td_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -8413,12 +8701,13 @@ subroutine writegrid4d_short_lld_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_short_lld_td_lf) :: odata
+  type(nc4d_short_lld_td_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -8465,8 +8754,10 @@ subroutine writegrid4d_short_lld_td_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -8504,12 +8795,13 @@ subroutine writegrid4d_int_lld_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_int_lld_td_lf) :: odata
+  type(nc4d_int_lld_td_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -8556,8 +8848,10 @@ subroutine writegrid4d_int_lld_td_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -8595,12 +8889,13 @@ subroutine writegrid4d_float_lld_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_float_lld_td_lf) :: odata
+  type(nc4d_float_lld_td_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -8647,8 +8942,10 @@ subroutine writegrid4d_float_lld_td_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
@@ -8686,12 +8983,13 @@ subroutine writegrid4d_double_lld_td_lf(ofile, odata, headerfile)
   character(*), intent(in) :: ofile
   character(*),  optional, intent(in) :: headerfile
   character(len=21) :: sysdatetime
-  type(nc4d_double_lld_td_lf) :: odata
+  type(nc4d_double_lld_td_lf), intent(inout) :: odata
   integer(kind=intgr) :: ncid, varid, i
 
   !:=== Header file
   character(len=100), dimension(:), allocatable :: attribute, content
   integer(kind=4) :: nkeys
+  integer :: alloc_stat
   nkeys = 0
 
   !Create Netcdf
@@ -8738,8 +9036,10 @@ subroutine writegrid4d_double_lld_td_lf(ofile, odata, headerfile)
     if(file_exists(headerfile))then !Check if headerfile exists
       call countkeys(headerfile, nkeys)!Count number of keys inside headerfile
 
-      allocate(attribute(nkeys))
-      allocate(content(nkeys))
+      allocate(attribute(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "attribute")
+      allocate(content(nkeys), stat=alloc_stat)
+      call check_alloc(alloc_stat, "content")
 
       call readheader(headerfile, attribute, content) !Allocate the content of keys into arrays
 
