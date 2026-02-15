@@ -63,6 +63,32 @@
 
 <hr>
 
+## Requirements
+
+| Dependency         | Description                                      |
+| ------------------ | ------------------------------------------------ |
+| **GFortran**       | GNU Fortran compiler (part of GCC)               |
+| **NetCDF**         | Network Common Data Form libraries               |
+| **NetCDF-Fortran** | Fortran bindings for NetCDF (`libnetcdff`)       |
+| **OpenMP**         | Multi-threading support (included with GFortran) |
+| **Make**           | Build automation tool                            |
+
+### Installation of dependencies
+
+**Debian / Ubuntu:**
+
+```bash
+sudo apt install gfortran libnetcdf-dev libnetcdff-dev make
+```
+
+**Fedora / RHEL:**
+
+```bash
+sudo dnf install gcc-gfortran netcdf-devel netcdf-fortran-devel make
+```
+
+<hr>
+
 ## How to install
 
 Download FPL from [My Github](https://github.com/pimentafm/FortranProcessingLibrary).
