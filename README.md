@@ -34,20 +34,32 @@
 ```
 
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/pimentafm/FortranProcessingLibrary?color=blue">
-
-  <a href="https://github.com/pimentafm">
-    <img alt="Made by Fernando Pimenta" src="https://img.shields.io/badge/made%20by-Fernando%20Pimenta-blue">
+  <a href="https://github.com/pimentafm/FortranProcessingLibrary">
+    <img alt="GitHub stars" src="https://img.shields.io/github/stars/pimentafm/FortranProcessingLibrary?style=flat-square&color=yellow">
   </a>
-
-  <img alt="License" src="https://img.shields.io/badge/license-GNUGPL-blue">
+  <a href="https://github.com/pimentafm/FortranProcessingLibrary/issues">
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/pimentafm/FortranProcessingLibrary?style=flat-square&color=orange">
+  </a>
+  <a href="https://github.com/pimentafm/FortranProcessingLibrary">
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/pimentafm/FortranProcessingLibrary?style=flat-square&color=blue">
+  </a>
+  <a href="https://github.com/pimentafm/FortranProcessingLibrary">
+    <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/pimentafm/FortranProcessingLibrary?style=flat-square&color=blue">
+  </a>
+  <a href="https://github.com/pimentafm/FortranProcessingLibrary/blob/master/LICENSE">
+    <img alt="License: GPL v3" src="https://img.shields.io/badge/license-GPLv3-blue?style=flat-square">
+  </a>
+  <a href="https://github.com/pimentafm">
+    <img alt="Made by Fernando Pimenta" src="https://img.shields.io/badge/author-Fernando%20Pimenta-blue?style=flat-square">
+  </a>
 </p>
 
-## Made with:
-
-[![made-with-fortran](https://img.shields.io/badge/Fortran90-green.svg)](https://www.fortran90.org/)
-[![made-with-fortran90netcdf !](https://img.shields.io/badge/Fortran%2090-NetCDF-1abc9c.svg)](https://GitHub.com/Naereen/ama)
-[![made-with-openmp](https://img.shields.io/badge/OpemMP-2188b6.svg)](https://www.unidata.ucar.edu/software/netcdf/docs-fortran/)
+<p align="center">
+  <img alt="Fortran" src="https://img.shields.io/badge/Fortran_90-734F96?style=for-the-badge&logo=fortran&logoColor=white">
+  <img alt="NetCDF" src="https://img.shields.io/badge/NetCDF-1abc9c?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA0SURBVDhPYxgFgwkwMjD8B2IGKM0ABYxQGgUwQWkUMApKowAmKI0CmKA0CmCC0ihg4AEAG1YEL0GpVDsAAAAASUVORK5CYII=&logoColor=white">
+  <img alt="OpenMP" src="https://img.shields.io/badge/OpenMP-2188b6?style=for-the-badge">
+  <img alt="HDF5" src="https://img.shields.io/badge/HDF5-0075B8?style=for-the-badge">
+</p>
 
 <hr>
 
