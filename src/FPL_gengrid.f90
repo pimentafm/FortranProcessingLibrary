@@ -31,7203 +31,803 @@
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
+#define FPL_SUBR gengrid2d_byte_llf
+#define FPL_TYPE nc2d_byte_llf
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid2d_byte_lld
+#define FPL_TYPE nc2d_byte_lld
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid2d_short_llf
+#define FPL_TYPE nc2d_short_llf
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid2d_short_lld
+#define FPL_TYPE nc2d_short_lld
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid2d_int_llf
+#define FPL_TYPE nc2d_int_llf
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid2d_int_lld
+#define FPL_TYPE nc2d_int_lld
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid2d_float_llf
+#define FPL_TYPE nc2d_float_llf
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid2d_float_lld
+#define FPL_TYPE nc2d_float_lld
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid2d_double_llf
+#define FPL_TYPE nc2d_double_llf
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid2d_double_lld
+#define FPL_TYPE nc2d_double_lld
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_byte_llf_ti
+#define FPL_TYPE nc3d_byte_llf_ti
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_byte_llf_tf
+#define FPL_TYPE nc3d_byte_llf_tf
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_byte_llf_td
+#define FPL_TYPE nc3d_byte_llf_td
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_byte_lld_ti
+#define FPL_TYPE nc3d_byte_lld_ti
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_byte_lld_tf
+#define FPL_TYPE nc3d_byte_lld_tf
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_byte_lld_td
+#define FPL_TYPE nc3d_byte_lld_td
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_short_llf_ti
+#define FPL_TYPE nc3d_short_llf_ti
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_short_llf_tf
+#define FPL_TYPE nc3d_short_llf_tf
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_short_llf_td
+#define FPL_TYPE nc3d_short_llf_td
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_short_lld_ti
+#define FPL_TYPE nc3d_short_lld_ti
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_short_lld_tf
+#define FPL_TYPE nc3d_short_lld_tf
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_short_lld_td
+#define FPL_TYPE nc3d_short_lld_td
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_int_llf_ti
+#define FPL_TYPE nc3d_int_llf_ti
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_int_llf_tf
+#define FPL_TYPE nc3d_int_llf_tf
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_int_llf_td
+#define FPL_TYPE nc3d_int_llf_td
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_int_lld_ti
+#define FPL_TYPE nc3d_int_lld_ti
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_int_lld_tf
+#define FPL_TYPE nc3d_int_lld_tf
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_int_lld_td
+#define FPL_TYPE nc3d_int_lld_td
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_float_llf_ti
+#define FPL_TYPE nc3d_float_llf_ti
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_float_llf_tf
+#define FPL_TYPE nc3d_float_llf_tf
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_float_llf_td
+#define FPL_TYPE nc3d_float_llf_td
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_float_lld_ti
+#define FPL_TYPE nc3d_float_lld_ti
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_float_lld_tf
+#define FPL_TYPE nc3d_float_lld_tf
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_float_lld_td
+#define FPL_TYPE nc3d_float_lld_td
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_double_llf_ti
+#define FPL_TYPE nc3d_double_llf_ti
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_double_llf_tf
+#define FPL_TYPE nc3d_double_llf_tf
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_double_llf_td
+#define FPL_TYPE nc3d_double_llf_td
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_double_lld_ti
+#define FPL_TYPE nc3d_double_lld_ti
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_double_lld_tf
+#define FPL_TYPE nc3d_double_lld_tf
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid3d_double_lld_td
+#define FPL_TYPE nc3d_double_lld_td
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_byte_llf_ti_li
+#define FPL_TYPE nc4d_byte_llf_ti_li
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_byte_llf_ti_lf
+#define FPL_TYPE nc4d_byte_llf_ti_lf
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_byte_llf_tf_li
+#define FPL_TYPE nc4d_byte_llf_tf_li
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_byte_llf_tf_lf
+#define FPL_TYPE nc4d_byte_llf_tf_lf
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_byte_llf_td_li
+#define FPL_TYPE nc4d_byte_llf_td_li
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_byte_llf_td_lf
+#define FPL_TYPE nc4d_byte_llf_td_lf
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_byte_lld_ti_li
+#define FPL_TYPE nc4d_byte_lld_ti_li
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_byte_lld_ti_lf
+#define FPL_TYPE nc4d_byte_lld_ti_lf
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_byte_lld_tf_li
+#define FPL_TYPE nc4d_byte_lld_tf_li
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_byte_lld_tf_lf
+#define FPL_TYPE nc4d_byte_lld_tf_lf
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_byte_lld_td_li
+#define FPL_TYPE nc4d_byte_lld_td_li
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_byte_lld_td_lf
+#define FPL_TYPE nc4d_byte_lld_td_lf
+#define FPL_NF90_VARTYPE nf90_byte
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_short_llf_ti_li
+#define FPL_TYPE nc4d_short_llf_ti_li
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_short_llf_ti_lf
+#define FPL_TYPE nc4d_short_llf_ti_lf
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_short_llf_tf_li
+#define FPL_TYPE nc4d_short_llf_tf_li
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_short_llf_tf_lf
+#define FPL_TYPE nc4d_short_llf_tf_lf
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_short_llf_td_li
+#define FPL_TYPE nc4d_short_llf_td_li
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_short_llf_td_lf
+#define FPL_TYPE nc4d_short_llf_td_lf
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_short_lld_ti_li
+#define FPL_TYPE nc4d_short_lld_ti_li
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_short_lld_ti_lf
+#define FPL_TYPE nc4d_short_lld_ti_lf
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_short_lld_tf_li
+#define FPL_TYPE nc4d_short_lld_tf_li
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_short_lld_tf_lf
+#define FPL_TYPE nc4d_short_lld_tf_lf
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_short_lld_td_li
+#define FPL_TYPE nc4d_short_lld_td_li
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_short_lld_td_lf
+#define FPL_TYPE nc4d_short_lld_td_lf
+#define FPL_NF90_VARTYPE nf90_short
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_int_llf_ti_li
+#define FPL_TYPE nc4d_int_llf_ti_li
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_int_llf_ti_lf
+#define FPL_TYPE nc4d_int_llf_ti_lf
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_int_llf_tf_li
+#define FPL_TYPE nc4d_int_llf_tf_li
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_int_llf_tf_lf
+#define FPL_TYPE nc4d_int_llf_tf_lf
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_int_llf_td_li
+#define FPL_TYPE nc4d_int_llf_td_li
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_int_llf_td_lf
+#define FPL_TYPE nc4d_int_llf_td_lf
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_int_lld_ti_li
+#define FPL_TYPE nc4d_int_lld_ti_li
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_int_lld_ti_lf
+#define FPL_TYPE nc4d_int_lld_ti_lf
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_int_lld_tf_li
+#define FPL_TYPE nc4d_int_lld_tf_li
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_int_lld_tf_lf
+#define FPL_TYPE nc4d_int_lld_tf_lf
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_int_lld_td_li
+#define FPL_TYPE nc4d_int_lld_td_li
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_int_lld_td_lf
+#define FPL_TYPE nc4d_int_lld_td_lf
+#define FPL_NF90_VARTYPE nf90_int
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_float_llf_ti_li
+#define FPL_TYPE nc4d_float_llf_ti_li
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_float_llf_ti_lf
+#define FPL_TYPE nc4d_float_llf_ti_lf
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_float_llf_tf_li
+#define FPL_TYPE nc4d_float_llf_tf_li
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_float_llf_tf_lf
+#define FPL_TYPE nc4d_float_llf_tf_lf
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_float_llf_td_li
+#define FPL_TYPE nc4d_float_llf_td_li
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_float_llf_td_lf
+#define FPL_TYPE nc4d_float_llf_td_lf
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_float_lld_ti_li
+#define FPL_TYPE nc4d_float_lld_ti_li
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_float_lld_ti_lf
+#define FPL_TYPE nc4d_float_lld_ti_lf
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_float_lld_tf_li
+#define FPL_TYPE nc4d_float_lld_tf_li
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_float_lld_tf_lf
+#define FPL_TYPE nc4d_float_lld_tf_lf
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_float_lld_td_li
+#define FPL_TYPE nc4d_float_lld_td_li
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_float_lld_td_lf
+#define FPL_TYPE nc4d_float_lld_td_lf
+#define FPL_NF90_VARTYPE nf90_float
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_double_llf_ti_li
+#define FPL_TYPE nc4d_double_llf_ti_li
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_double_llf_ti_lf
+#define FPL_TYPE nc4d_double_llf_ti_lf
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_double_llf_tf_li
+#define FPL_TYPE nc4d_double_llf_tf_li
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_double_llf_tf_lf
+#define FPL_TYPE nc4d_double_llf_tf_lf
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_double_llf_td_li
+#define FPL_TYPE nc4d_double_llf_td_li
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_double_llf_td_lf
+#define FPL_TYPE nc4d_double_llf_td_lf
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_double_lld_ti_li
+#define FPL_TYPE nc4d_double_lld_ti_li
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_double_lld_ti_lf
+#define FPL_TYPE nc4d_double_lld_ti_lf
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_double_lld_tf_li
+#define FPL_TYPE nc4d_double_lld_tf_li
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_double_lld_tf_lf
+#define FPL_TYPE nc4d_double_lld_tf_lf
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_double_lld_td_li
+#define FPL_TYPE nc4d_double_lld_td_li
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
+
+#define FPL_SUBR gengrid4d_double_lld_td_lf
+#define FPL_TYPE nc4d_double_lld_td_lf
+#define FPL_NF90_VARTYPE nf90_double
+#include "templates/gengrid_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+#undef FPL_NF90_VARTYPE
 
-!NetCDF <var byte> (lon <float>, lat <float>)
-subroutine gengrid2d_byte_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc2d_byte_llf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(2) :: dimsizes, ids
-  character(len=100), dimension(2) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 2
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  
-  ids = (/ 2, 1 /)
-  dimsizes = (/ idata%nlats, idata%nlons /)
-  dimnames = (/ idata%latname, idata%lonname /)
-  dimunits = (/ idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_byte
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid2d_byte_llf
-
-!NetCDF <var short> (lon <float>, lat <float>)
-subroutine gengrid2d_short_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc2d_short_llf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(2) :: dimsizes, ids
-  character(len=100), dimension(2) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 2
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  
-  ids = (/ 2, 1 /)
-  dimsizes = (/ idata%nlats, idata%nlons /)
-  dimnames = (/ idata%latname, idata%lonname /)
-  dimunits = (/ idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_short
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid2d_short_llf
-
-!NetCDF <var int> (lon <float>, lat <float>)
-subroutine gengrid2d_int_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc2d_int_llf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(2) :: dimsizes, ids
-  character(len=100), dimension(2) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 2
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  
-  ids = (/ 2, 1 /)
-  dimsizes = (/ idata%nlats, idata%nlons /)
-  dimnames = (/ idata%latname, idata%lonname /)
-  dimunits = (/ idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_int
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid2d_int_llf
-
-!NetCDF <var float> (lon <float>, lat <float>)
-subroutine gengrid2d_float_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc2d_float_llf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(2) :: dimsizes, ids
-  character(len=100), dimension(2) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 2
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  
-  ids = (/ 2, 1 /)
-  dimsizes = (/ idata%nlats, idata%nlons /)
-  dimnames = (/ idata%latname, idata%lonname /)
-  dimunits = (/ idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_float
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid2d_float_llf
-
-!NetCDF <var double> (lon <float>, lat <float>)
-subroutine gengrid2d_double_llf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc2d_double_llf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(2) :: dimsizes, ids
-  character(len=100), dimension(2) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 2
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  
-  ids = (/ 2, 1 /)
-  dimsizes = (/ idata%nlats, idata%nlons /)
-  dimnames = (/ idata%latname, idata%lonname /)
-  dimunits = (/ idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_double
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid2d_double_llf
-
-!NetCDF <var byte> (lon <double>, lat <double>)
-subroutine gengrid2d_byte_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc2d_byte_lld), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(2) :: dimsizes, ids
-  character(len=100), dimension(2) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 2
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  
-  ids = (/ 2, 1 /)
-  dimsizes = (/ idata%nlats, idata%nlons /)
-  dimnames = (/ idata%latname, idata%lonname /)
-  dimunits = (/ idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_byte
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid2d_byte_lld
-
-!NetCDF <var short> (lon <double>, lat <double>)
-subroutine gengrid2d_short_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc2d_short_lld), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(2) :: dimsizes, ids
-  character(len=100), dimension(2) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 2
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  
-  ids = (/ 2, 1 /)
-  dimsizes = (/ idata%nlats, idata%nlons /)
-  dimnames = (/ idata%latname, idata%lonname /)
-  dimunits = (/ idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_short
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid2d_short_lld
-
-!NetCDF <var int> (lon <double>, lat <double>)
-subroutine gengrid2d_int_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc2d_int_lld), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(2) :: dimsizes, ids
-  character(len=100), dimension(2) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 2
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  
-  ids = (/ 2, 1 /)
-  dimsizes = (/ idata%nlats, idata%nlons /)
-  dimnames = (/ idata%latname, idata%lonname /)
-  dimunits = (/ idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_int
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid2d_int_lld
-
-!NetCDF <var float> (lon <double>, lat <double>)
-subroutine gengrid2d_float_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc2d_float_lld), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(2) :: dimsizes, ids
-  character(len=100), dimension(2) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 2
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  
-  ids = (/ 2, 1 /)
-  dimsizes = (/ idata%nlats, idata%nlons /)
-  dimnames = (/ idata%latname, idata%lonname /)
-  dimunits = (/ idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_float
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid2d_float_lld
-
-!NetCDF <var double> (lon <double>, lat <double>)
-subroutine gengrid2d_double_lld(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc2d_double_lld), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(2) :: dimsizes, ids
-  character(len=100), dimension(2) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 2
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  
-  ids = (/ 2, 1 /)
-  dimsizes = (/ idata%nlats, idata%nlons /)
-  dimnames = (/ idata%latname, idata%lonname /)
-  dimunits = (/ idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_double
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid2d_double_lld
-
-!NetCDF <var byte> (lon <float>, lat <float>, time <int>)
-subroutine gengrid3d_byte_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_byte_llf_ti), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_byte_llf_ti
-
-!NetCDF <var short> (lon <float>, lat <float>, time <int>)
-subroutine gengrid3d_short_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_short_llf_ti), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_short_llf_ti
-
-!NetCDF <var int> (lon <float>, lat <float>, time <int>)
-subroutine gengrid3d_int_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_int_llf_ti), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_int_llf_ti
-
-!NetCDF <var float> (lon <float>, lat <float>, time <int>)
-subroutine gengrid3d_float_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_float_llf_ti), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_float_llf_ti
-
-!NetCDF <var double> (lon <float>, lat <float>, time <int>)
-subroutine gengrid3d_double_llf_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_double_llf_ti), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_double_llf_ti
-
-!NetCDF <var byte> (lon <double>, lat <double>, time <int>)
-subroutine gengrid3d_byte_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_byte_lld_ti), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_byte_lld_ti
-
-!NetCDF <var short> (lon <double>, lat <double>, time <int>)
-subroutine gengrid3d_short_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_short_lld_ti), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_short_lld_ti
-
-!NetCDF <var int> (lon <double>, lat <double>, time <int>)
-subroutine gengrid3d_int_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_int_lld_ti), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_int_lld_ti
-
-!NetCDF <var float> (lon <double>, lat <double>, time <int>)
-subroutine gengrid3d_float_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_float_lld_ti), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_float_lld_ti
-
-!NetCDF <var double> (lon <double>, lat <double>, time <int>)
-subroutine gengrid3d_double_lld_ti(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_double_lld_ti), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_double_lld_ti
-
-!NetCDF <var byte> (lon <float>, lat <float>, time <float>)
-subroutine gengrid3d_byte_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_byte_llf_tf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_byte_llf_tf
-
-!NetCDF <var short> (lon <float>, lat <float>, time <float>)
-subroutine gengrid3d_short_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_short_llf_tf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_short_llf_tf
-
-!NetCDF <var int> (lon <float>, lat <float>, time <float>)
-subroutine gengrid3d_int_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_int_llf_tf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_int_llf_tf
-
-!NetCDF <var float> (lon <float>, lat <float>, time <float>)
-subroutine gengrid3d_float_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_float_llf_tf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_float_llf_tf
-
-!NetCDF <var double> (lon <float>, lat <float>, time <float>)
-subroutine gengrid3d_double_llf_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_double_llf_tf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_double_llf_tf
-
-!NetCDF <var byte> (lon <double>, lat <double>, time <float>)
-subroutine gengrid3d_byte_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_byte_lld_tf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_byte_lld_tf
-
-!NetCDF <var short> (lon <double>, lat <double>, time <float>)
-subroutine gengrid3d_short_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_short_lld_tf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_short_lld_tf
-
-!NetCDF <var int> (lon <double>, lat <double>, time <float>)
-subroutine gengrid3d_int_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_int_lld_tf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_int_lld_tf
-
-!NetCDF <var float> (lon <double>, lat <double>, time <float>)
-subroutine gengrid3d_float_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_float_lld_tf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_float_lld_tf
-
-!NetCDF <var double> (lon <double>, lat <double>, time <float>)
-subroutine gengrid3d_double_lld_tf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_double_lld_tf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_double_lld_tf
-
-!NetCDF <var byte> (lon <float>, lat <float>, time <double>)
-subroutine gengrid3d_byte_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_byte_llf_td), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_byte_llf_td
-
-!NetCDF <var short> (lon <float>, lat <float>, time <double>)
-subroutine gengrid3d_short_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_short_llf_td), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_short_llf_td
-
-!NetCDF <var int> (lon <float>, lat <float>, time <double>)
-subroutine gengrid3d_int_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_int_llf_td), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_int_llf_td
-
-!NetCDF <var float> (lon <float>, lat <float>, time <double>)
-subroutine gengrid3d_float_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_float_llf_td), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_float_llf_td
-
-!NetCDF <var double> (lon <float>, lat <float>, time <double>)
-subroutine gengrid3d_double_llf_td(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_double_llf_td), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_double_llf_td
-
-!NetCDF <var byte> (lon <double>, lat <double>, time <double>)
-subroutine gengrid3d_byte_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_byte_lld_td), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_byte_lld_td
-
-!NetCDF <var short> (lon <double>, lat <double>, time <double>)
-subroutine gengrid3d_short_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_short_lld_td), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_short_lld_td
-
-!NetCDF <var int> (lon <double>, lat <double>, time <double>)
-subroutine gengrid3d_int_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_int_lld_td), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_int_lld_td
-
-!NetCDF <var float> (lon <double>, lat <double>, time <double>)
-subroutine gengrid3d_float_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_float_lld_td), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_float_lld_td
-
-!NetCDF <var double> (lon <double>, lat <double>, time <double>)
-subroutine gengrid3d_double_lld_td(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc3d_double_lld_td), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(3) :: dimsizes, ids
-  character(len=100), dimension(3) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 3
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-
-  ids = (/ 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-  
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid3d_double_lld_td
-
-!NetCDF <var byte> (lon <float>, lat <float>, time <int>, level <int>)
-subroutine gengrid4d_byte_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_byte_llf_ti_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_byte_llf_ti_li
-
-!NetCDF <var short> (lon <float>, lat <float>, time <int>, level <int>)
-subroutine gengrid4d_short_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_short_llf_ti_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_short_llf_ti_li
-
-!NetCDF <var int> (lon <float>, lat <float>, time <int>, level <int>)
-subroutine gengrid4d_int_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_int_llf_ti_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_int_llf_ti_li
-
-!NetCDF <var float> (lon <float>, lat <float>, time <int>, level <int>)
-subroutine gengrid4d_float_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_float_llf_ti_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_float_llf_ti_li
-
-!NetCDF <var double> (lon <float>, lat <float>, time <int>, level <int>)
-subroutine gengrid4d_double_llf_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_double_llf_ti_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_double_llf_ti_li
-
-!NetCDF <var byte> (lon <double>, lat <double>, time <int>, level <int>)
-subroutine gengrid4d_byte_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_byte_lld_ti_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_byte_lld_ti_li
-
-!NetCDF <var short> (lon <double>, lat <double>, time <int>, level <int>)
-subroutine gengrid4d_short_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_short_lld_ti_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_short_lld_ti_li
-
-!NetCDF <var int> (lon <double>, lat <double>, time <int>, level <int>)
-subroutine gengrid4d_int_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_int_lld_ti_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_int_lld_ti_li
-
-!NetCDF <var float> (lon <double>, lat <double>, time <int>, level <int>)
-subroutine gengrid4d_float_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_float_lld_ti_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_float_lld_ti_li
-
-!NetCDF <var double> (lon <double>, lat <double>, time <int>, level <int>)
-subroutine gengrid4d_double_lld_ti_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_double_lld_ti_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_double_lld_ti_li
-
-!NetCDF <var byte> (lon <float>, lat <float>, time <float>, level <int>)
-subroutine gengrid4d_byte_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_byte_llf_tf_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_byte_llf_tf_li
-
-!NetCDF <var short> (lon <float>, lat <float>, time <float>, level <int>)
-subroutine gengrid4d_short_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_short_llf_tf_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_short_llf_tf_li
-
-!NetCDF <var int> (lon <float>, lat <float>, time <float>, level <int>)
-subroutine gengrid4d_int_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_int_llf_tf_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_int_llf_tf_li
-
-!NetCDF <var float> (lon <float>, lat <float>, time <float>, level <int>)
-subroutine gengrid4d_float_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_float_llf_tf_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_float_llf_tf_li
-
-!NetCDF <var double> (lon <float>, lat <float>, time <float>, level <int>)
-subroutine gengrid4d_double_llf_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_double_llf_tf_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_double_llf_tf_li
-
-!NetCDF <var byte> (lon <double>, lat <double>, time <float>, level <int>)
-subroutine gengrid4d_byte_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_byte_lld_tf_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_byte_lld_tf_li
-
-!NetCDF <var short> (lon <double>, lat <double>, time <float>, level <int>)
-subroutine gengrid4d_short_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_short_lld_tf_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_short_lld_tf_li
-
-!NetCDF <var int> (lon <double>, lat <double>, time <float>, level <int>)
-subroutine gengrid4d_int_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_int_lld_tf_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_int_lld_tf_li
-
-!NetCDF <var float> (lon <double>, lat <double>, time <float>, level <int>)
-subroutine gengrid4d_float_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_float_lld_tf_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_float_lld_tf_li
-
-!NetCDF <var double> (lon <double>, lat <double>, time <float>, level <int>)
-subroutine gengrid4d_double_lld_tf_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_double_lld_tf_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_double_lld_tf_li
-
-!NetCDF <var byte> (lon <float>, lat <float>, time <double>, level <int>)
-subroutine gengrid4d_byte_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_byte_llf_td_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_byte_llf_td_li
-
-!NetCDF <var short> (lon <float>, lat <float>, time <double>, level <int>)
-subroutine gengrid4d_short_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_short_llf_td_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_short_llf_td_li
-
-!NetCDF <var int> (lon <float>, lat <float>, time <double>, level <int>)
-subroutine gengrid4d_int_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_int_llf_td_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_int_llf_td_li
-
-!NetCDF <var float> (lon <float>, lat <float>, time <double>, level <int>)
-subroutine gengrid4d_float_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_float_llf_td_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_float_llf_td_li
-
-!NetCDF <var double> (lon <float>, lat <float>, time <double>, level <int>)
-subroutine gengrid4d_double_llf_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_double_llf_td_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_double_llf_td_li
-
-!NetCDF <var byte> (lon <double>, lat <double>, time <double>, level <int>)
-subroutine gengrid4d_byte_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_byte_lld_td_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_byte_lld_td_li
-
-!NetCDF <var short> (lon <double>, lat <double>, time <double>, level <int>)
-subroutine gengrid4d_short_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_short_lld_td_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_short_lld_td_li
-
-!NetCDF <var int> (lon <double>, lat <double>, time <double>, level <int>)
-subroutine gengrid4d_int_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_int_lld_td_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_int_lld_td_li
-
-!NetCDF <var float> (lon <double>, lat <double>, time <double>, level <int>)
-subroutine gengrid4d_float_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_float_lld_td_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_float_lld_td_li
-
-!NetCDF <var double> (lon <double>, lat <double>, time <double>, level <int>)
-subroutine gengrid4d_double_lld_td_li(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_double_lld_td_li), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_double_lld_td_li
-
-!NetCDF <var byte> (lon <float>, lat <float>, time <int>, level <float>)
-subroutine gengrid4d_byte_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_byte_llf_ti_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_byte_llf_ti_lf
-
-!NetCDF <var short> (lon <float>, lat <float>, time <int>, level <float>)
-subroutine gengrid4d_short_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_short_llf_ti_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_short_llf_ti_lf
-
-!NetCDF <var int> (lon <float>, lat <float>, time <int>, level <float>)
-subroutine gengrid4d_int_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_int_llf_ti_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_int_llf_ti_lf
-
-!NetCDF <var float> (lon <float>, lat <float>, time <int>, level <float>)
-subroutine gengrid4d_float_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_float_llf_ti_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_float_llf_ti_lf
-
-!NetCDF <var double> (lon <float>, lat <float>, time <int>, level <float>)
-subroutine gengrid4d_double_llf_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_double_llf_ti_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_double_llf_ti_lf
-
-!NetCDF <var byte> (lon <double>, lat <double>, time <int>, level <float>)
-subroutine gengrid4d_byte_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_byte_lld_ti_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_byte_lld_ti_lf
-
-!NetCDF <var short> (lon <double>, lat <double>, time <int>, level <float>)
-subroutine gengrid4d_short_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_short_lld_ti_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_short_lld_ti_lf
-
-!NetCDF <var int> (lon <double>, lat <double>, time <int>, level <float>)
-subroutine gengrid4d_int_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_int_lld_ti_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_int_lld_ti_lf
-
-!NetCDF <var float> (lon <double>, lat <double>, time <int>, level <float>)
-subroutine gengrid4d_float_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_float_lld_ti_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_float_lld_ti_lf
-
-!NetCDF <var double> (lon <double>, lat <double>, time <int>, level <float>)
-subroutine gengrid4d_double_lld_ti_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_double_lld_ti_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_double_lld_ti_lf
-
-!NetCDF <var byte> (lon <float>, lat <float>, time <float>, level <float>)
-subroutine gengrid4d_byte_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_byte_llf_tf_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_byte_llf_tf_lf
-
-!NetCDF <var short> (lon <float>, lat <float>, time <float>, level <float>)
-subroutine gengrid4d_short_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_short_llf_tf_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_short_llf_tf_lf
-
-!NetCDF <var int> (lon <float>, lat <float>, time <float>, level <float>)
-subroutine gengrid4d_int_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_int_llf_tf_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_int_llf_tf_lf
-
-!NetCDF <var float> (lon <float>, lat <float>, time <float>, level <float>)
-subroutine gengrid4d_float_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_float_llf_tf_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_float_llf_tf_lf
-
-!NetCDF <var double> (lon <float>, lat <float>, time <float>, level <float>)
-subroutine gengrid4d_double_llf_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_double_llf_tf_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_double_llf_tf_lf
-
-!NetCDF <var byte> (lon <double>, lat <double>, time <float>, level <float>)
-subroutine gengrid4d_byte_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_byte_lld_tf_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_byte_lld_tf_lf
-
-!NetCDF <var short> (lon <double>, lat <double>, time <float>, level <float>)
-subroutine gengrid4d_short_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_short_lld_tf_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_short_lld_tf_lf
-
-!NetCDF <var int> (lon <double>, lat <double>, time <float>, level <float>)
-subroutine gengrid4d_int_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_int_lld_tf_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_int_lld_tf_lf
-
-!NetCDF <var float> (lon <double>, lat <double>, time <float>, level <float>)
-subroutine gengrid4d_float_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_float_lld_tf_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_float_lld_tf_lf
-
-!NetCDF <var double> (lon <double>, lat <double>, time <float>, level <float>)
-subroutine gengrid4d_double_lld_tf_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_double_lld_tf_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_double_lld_tf_lf
-
-!NetCDF <var byte> (lon <float>, lat <float>, time <double>, level <float>)
-subroutine gengrid4d_byte_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_byte_llf_td_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_byte_llf_td_lf
-
-!NetCDF <var short> (lon <float>, lat <float>, time <double>, level <float>)
-subroutine gengrid4d_short_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_short_llf_td_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_short_llf_td_lf
-
-!NetCDF <var int> (lon <float>, lat <float>, time <double>, level <float>)
-subroutine gengrid4d_int_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_int_llf_td_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_int_llf_td_lf
-
-!NetCDF <var float> (lon <float>, lat <float>, time <double>, level <float>)
-subroutine gengrid4d_float_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_float_llf_td_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_float_llf_td_lf
-
-!NetCDF <var double> (lon <float>, lat <float>, time <double>, level <float>)
-subroutine gengrid4d_double_llf_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_double_llf_td_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=float) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_double_llf_td_lf
-
-!NetCDF <var byte> (lon <double>, lat <double>, time <double>, level <float>)
-subroutine gengrid4d_byte_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_byte_lld_td_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_byte
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_byte_lld_td_lf
-
-!NetCDF <var short> (lon <double>, lat <double>, time <double>, level <float>)
-subroutine gengrid4d_short_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_short_lld_td_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_short
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_short_lld_td_lf
-
-!NetCDF <var int> (lon <double>, lat <double>, time <double>, level <float>)
-subroutine gengrid4d_int_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_int_lld_td_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_int
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_int_lld_td_lf
-
-!NetCDF <var float> (lon <double>, lat <double>, time <double>, level <float>)
-subroutine gengrid4d_float_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_float_lld_td_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_float
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_float_lld_td_lf
-
-!NetCDF <var double> (lon <double>, lat <double>, time <double>, level <float>)
-subroutine gengrid4d_double_lld_td_lf(idata, Xmin, Ymin, Xmax, Ymax, res)
-  type (nc4d_double_lld_td_lf), intent(inout) :: idata
-  integer(kind=intgr) :: i
-  integer(kind=intgr), dimension(4) :: dimsizes, ids
-  character(len=100), dimension(4) :: dimnames, dimunits
-  real(kind=double) :: Xmin, Ymin, Xmax, Ymax, res
-  integer :: alloc_stat
-
-  idata%ndims = 4
-
-  idata%nlons = int(abs(ceiling(Xmax - Xmin)/res))
-  idata%nlats = int(abs(ceiling(Ymax - Ymin)/res))
-
-  allocate(idata%dimunits(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimunits")
-  allocate(idata%dimname(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimname")
-  allocate(idata%dimid(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimid")
-  allocate(idata%dimsize(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "dimsize")
-  allocate(idata%varids(idata%ndims), stat=alloc_stat)
-  call check_alloc(alloc_stat, "varids")
-
-  allocate(idata%longitudes(idata%nlons), stat=alloc_stat)  
-  call check_alloc(alloc_stat, "longitudes")
-  allocate(idata%latitudes(idata%nlats), stat=alloc_stat)
-  call check_alloc(alloc_stat, "latitudes")
-  allocate(idata%times(idata%ntimes), stat=alloc_stat)
-  call check_alloc(alloc_stat, "times")
-  allocate(idata%levels(idata%nlevels), stat=alloc_stat)
-  call check_alloc(alloc_stat, "levels")
-
-  ids = (/ 4, 3, 2, 1 /)
-  dimsizes = (/ idata%ntimes, idata%nlevels, idata%nlats, idata%nlons /)
-  dimnames = (/ idata%timename, idata%levelname, idata%latname, idata%lonname /)
-  dimunits = (/ idata%timeunits, idata%levelunits, idata%latunits, idata%lonunits /)
-
-  do i = 1, idata%ndims
-    idata%dimsize(i) = dimsizes(i)
-    idata%dimname(i) = dimnames(i)
-    idata%dimunits(i) = dimunits(i)
-    idata%dimid(i) = ids(i)
-    idata%varids(i) = ids(i) + 10
-    idata%dims(i) = ids(i)
-  end do
-
-  allocate(idata%ncdata(idata%dimsize(4), idata%dimsize(3), idata%dimsize(2), idata%dimsize(1)), stat=alloc_stat)
-  call check_alloc(alloc_stat, "ncdata")
-
-  idata%vartype = nf90_double
-
-  do i = 1, idata%ntimes
-    idata%times(i) = i
-  end do
-
-  do i = 1, idata%nlevels
-    idata%levels(i) = i
-  end do
-
-  idata%longitudes(1) = Xmin
-  do i = 1, idata%nlons - 1
-    idata%longitudes(i+1) = idata%longitudes(i) + res
-  end do
-
-  idata%latitudes(1) = Ymin
-  do i = 1, idata%nlats - 1
-    idata%latitudes(i+1) = idata%latitudes(i) + res
-  end do
-
-  idata%ncdata = idata%FillValue
-
-end subroutine gengrid4d_double_lld_td_lf

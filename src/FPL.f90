@@ -31,29 +31,27 @@
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
-
 !:=========================== FPL Main Module =================================
 module FPL
   use omp_lib
   use netcdf
   use iso_c_binding
   implicit none
-  include "FPL_constants.f90"    !Parameter variables
-  include "FPL_datatypes.f90"    !Datatype structure declarations
-  include "FPL_interfaces.f90"   !Interfaces for subroutines definitions and datatypes
+#include "FPL_constants.f90"
+#include "FPL_datatypes.f90"
+#include "FPL_interfaces.f90"
 
   contains
-  include "FPL_checkerror.f90"   !Error checker subroutines
-  include "FPL_datetime.f90"     !System date-time subroutine
-  include "FPL_griddims.f90"     !Subroutines to get the number of coordinates from NetCDF file
-  include "FPL_readgrid.f90"     !NetCDF file reader subroutines
-  include "FPL_writegrid.f90"    !NetCDF file writer subroutines
-  include "FPL_setfillvalue.f90" !Set FillValue and mask creator subroutines
-  include "FPL_gengrid.f90"      !Generate custom grid 
-  include "FPL_dealloc.f90"      !Deallocate subroutines
-  include "FPL_fileutils.f90"    !File Utilities
-  include "FPL_misc.f90"         !Miscelanious
-  include "FPL_sort.f90"         !Bubble sort subroutine
-! include "FPL_zonalstats.f90"  !Zonal Statistics subroutines
+#include "FPL_checkerror.f90"
+#include "FPL_datetime.f90"
+#include "FPL_griddims.f90"
+#include "FPL_readgrid.f90"
+#include "FPL_writegrid.f90"
+#include "FPL_setfillvalue.f90"
+#include "FPL_gengrid.f90"
+#include "FPL_dealloc.f90"
+#include "FPL_fileutils.f90"
+#include "FPL_misc.f90"
+#include "FPL_sort.f90"
+! #include "FPL_zonalstats.f90"
 end module FPL
-

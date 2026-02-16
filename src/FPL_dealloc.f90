@@ -31,803 +31,603 @@
 
 !Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 !:=============================================================================
+#define FPL_SUBR dealloc2d_byte_llf
+#define FPL_TYPE nc2d_byte_llf
+#include "templates/dealloc_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc2d_byte_lld
+#define FPL_TYPE nc2d_byte_lld
+#include "templates/dealloc_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc2d_short_llf
+#define FPL_TYPE nc2d_short_llf
+#include "templates/dealloc_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc2d_short_lld
+#define FPL_TYPE nc2d_short_lld
+#include "templates/dealloc_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc2d_int_llf
+#define FPL_TYPE nc2d_int_llf
+#include "templates/dealloc_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc2d_int_lld
+#define FPL_TYPE nc2d_int_lld
+#include "templates/dealloc_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc2d_float_llf
+#define FPL_TYPE nc2d_float_llf
+#include "templates/dealloc_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc2d_float_lld
+#define FPL_TYPE nc2d_float_lld
+#include "templates/dealloc_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc2d_double_llf
+#define FPL_TYPE nc2d_double_llf
+#include "templates/dealloc_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc2d_double_lld
+#define FPL_TYPE nc2d_double_lld
+#include "templates/dealloc_2d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_byte_llf_ti
+#define FPL_TYPE nc3d_byte_llf_ti
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_byte_llf_tf
+#define FPL_TYPE nc3d_byte_llf_tf
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_byte_llf_td
+#define FPL_TYPE nc3d_byte_llf_td
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_byte_lld_ti
+#define FPL_TYPE nc3d_byte_lld_ti
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_byte_lld_tf
+#define FPL_TYPE nc3d_byte_lld_tf
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_byte_lld_td
+#define FPL_TYPE nc3d_byte_lld_td
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_short_llf_ti
+#define FPL_TYPE nc3d_short_llf_ti
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_short_llf_tf
+#define FPL_TYPE nc3d_short_llf_tf
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_short_llf_td
+#define FPL_TYPE nc3d_short_llf_td
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_short_lld_ti
+#define FPL_TYPE nc3d_short_lld_ti
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_short_lld_tf
+#define FPL_TYPE nc3d_short_lld_tf
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_short_lld_td
+#define FPL_TYPE nc3d_short_lld_td
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_int_llf_ti
+#define FPL_TYPE nc3d_int_llf_ti
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_int_llf_tf
+#define FPL_TYPE nc3d_int_llf_tf
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_int_llf_td
+#define FPL_TYPE nc3d_int_llf_td
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_int_lld_ti
+#define FPL_TYPE nc3d_int_lld_ti
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_int_lld_tf
+#define FPL_TYPE nc3d_int_lld_tf
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_int_lld_td
+#define FPL_TYPE nc3d_int_lld_td
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_float_llf_ti
+#define FPL_TYPE nc3d_float_llf_ti
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_float_llf_tf
+#define FPL_TYPE nc3d_float_llf_tf
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_float_llf_td
+#define FPL_TYPE nc3d_float_llf_td
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_float_lld_ti
+#define FPL_TYPE nc3d_float_lld_ti
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_float_lld_tf
+#define FPL_TYPE nc3d_float_lld_tf
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_float_lld_td
+#define FPL_TYPE nc3d_float_lld_td
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_double_llf_ti
+#define FPL_TYPE nc3d_double_llf_ti
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_double_llf_tf
+#define FPL_TYPE nc3d_double_llf_tf
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_double_llf_td
+#define FPL_TYPE nc3d_double_llf_td
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_double_lld_ti
+#define FPL_TYPE nc3d_double_lld_ti
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_double_lld_tf
+#define FPL_TYPE nc3d_double_lld_tf
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc3d_double_lld_td
+#define FPL_TYPE nc3d_double_lld_td
+#include "templates/dealloc_3d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_byte_llf_ti_li
+#define FPL_TYPE nc4d_byte_llf_ti_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_byte_llf_ti_lf
+#define FPL_TYPE nc4d_byte_llf_ti_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_byte_llf_tf_li
+#define FPL_TYPE nc4d_byte_llf_tf_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_byte_llf_tf_lf
+#define FPL_TYPE nc4d_byte_llf_tf_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_byte_llf_td_li
+#define FPL_TYPE nc4d_byte_llf_td_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_byte_llf_td_lf
+#define FPL_TYPE nc4d_byte_llf_td_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_byte_lld_ti_li
+#define FPL_TYPE nc4d_byte_lld_ti_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_byte_lld_ti_lf
+#define FPL_TYPE nc4d_byte_lld_ti_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_byte_lld_tf_li
+#define FPL_TYPE nc4d_byte_lld_tf_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_byte_lld_tf_lf
+#define FPL_TYPE nc4d_byte_lld_tf_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_byte_lld_td_li
+#define FPL_TYPE nc4d_byte_lld_td_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_byte_lld_td_lf
+#define FPL_TYPE nc4d_byte_lld_td_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_short_llf_ti_li
+#define FPL_TYPE nc4d_short_llf_ti_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_short_llf_ti_lf
+#define FPL_TYPE nc4d_short_llf_ti_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_short_llf_tf_li
+#define FPL_TYPE nc4d_short_llf_tf_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_short_llf_tf_lf
+#define FPL_TYPE nc4d_short_llf_tf_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_short_llf_td_li
+#define FPL_TYPE nc4d_short_llf_td_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_short_llf_td_lf
+#define FPL_TYPE nc4d_short_llf_td_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_short_lld_ti_li
+#define FPL_TYPE nc4d_short_lld_ti_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_short_lld_ti_lf
+#define FPL_TYPE nc4d_short_lld_ti_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_short_lld_tf_li
+#define FPL_TYPE nc4d_short_lld_tf_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_short_lld_tf_lf
+#define FPL_TYPE nc4d_short_lld_tf_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_short_lld_td_li
+#define FPL_TYPE nc4d_short_lld_td_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_short_lld_td_lf
+#define FPL_TYPE nc4d_short_lld_td_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_int_llf_ti_li
+#define FPL_TYPE nc4d_int_llf_ti_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_int_llf_ti_lf
+#define FPL_TYPE nc4d_int_llf_ti_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_int_llf_tf_li
+#define FPL_TYPE nc4d_int_llf_tf_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_int_llf_tf_lf
+#define FPL_TYPE nc4d_int_llf_tf_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_int_llf_td_li
+#define FPL_TYPE nc4d_int_llf_td_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_int_llf_td_lf
+#define FPL_TYPE nc4d_int_llf_td_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_int_lld_ti_li
+#define FPL_TYPE nc4d_int_lld_ti_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_int_lld_ti_lf
+#define FPL_TYPE nc4d_int_lld_ti_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_int_lld_tf_li
+#define FPL_TYPE nc4d_int_lld_tf_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_int_lld_tf_lf
+#define FPL_TYPE nc4d_int_lld_tf_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_int_lld_td_li
+#define FPL_TYPE nc4d_int_lld_td_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_int_lld_td_lf
+#define FPL_TYPE nc4d_int_lld_td_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_float_llf_ti_li
+#define FPL_TYPE nc4d_float_llf_ti_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_float_llf_ti_lf
+#define FPL_TYPE nc4d_float_llf_ti_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_float_llf_tf_li
+#define FPL_TYPE nc4d_float_llf_tf_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_float_llf_tf_lf
+#define FPL_TYPE nc4d_float_llf_tf_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_float_llf_td_li
+#define FPL_TYPE nc4d_float_llf_td_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_float_llf_td_lf
+#define FPL_TYPE nc4d_float_llf_td_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_float_lld_ti_li
+#define FPL_TYPE nc4d_float_lld_ti_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_float_lld_ti_lf
+#define FPL_TYPE nc4d_float_lld_ti_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_float_lld_tf_li
+#define FPL_TYPE nc4d_float_lld_tf_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_float_lld_tf_lf
+#define FPL_TYPE nc4d_float_lld_tf_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_float_lld_td_li
+#define FPL_TYPE nc4d_float_lld_td_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_float_lld_td_lf
+#define FPL_TYPE nc4d_float_lld_td_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_double_llf_ti_li
+#define FPL_TYPE nc4d_double_llf_ti_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_double_llf_ti_lf
+#define FPL_TYPE nc4d_double_llf_ti_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_double_llf_tf_li
+#define FPL_TYPE nc4d_double_llf_tf_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_double_llf_tf_lf
+#define FPL_TYPE nc4d_double_llf_tf_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_double_llf_td_li
+#define FPL_TYPE nc4d_double_llf_td_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_double_llf_td_lf
+#define FPL_TYPE nc4d_double_llf_td_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_double_lld_ti_li
+#define FPL_TYPE nc4d_double_lld_ti_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_double_lld_ti_lf
+#define FPL_TYPE nc4d_double_lld_ti_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_double_lld_tf_li
+#define FPL_TYPE nc4d_double_lld_tf_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_double_lld_tf_lf
+#define FPL_TYPE nc4d_double_lld_tf_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_double_lld_td_li
+#define FPL_TYPE nc4d_double_lld_td_li
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
+
+#define FPL_SUBR dealloc4d_double_lld_td_lf
+#define FPL_TYPE nc4d_double_lld_td_lf
+#include "templates/dealloc_4d.inc"
+#undef FPL_SUBR
+#undef FPL_TYPE
 
-!NetCDF(lon, lat) byte
-subroutine dealloc2d_byte_llf(idata)
-  type(nc2d_byte_llf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc2d_byte_llf
-
-!NetCDF(lon, lat) short
-subroutine dealloc2d_short_llf(idata)
-  type(nc2d_short_llf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc2d_short_llf
-
-!NetCDF(lon, lat) int
-subroutine dealloc2d_int_llf(idata)
-  type(nc2d_int_llf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc2d_int_llf
-
-!NetCDF(lon, lat) float
-subroutine dealloc2d_float_llf(idata)
-  type(nc2d_float_llf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc2d_float_llf
-
-!NetCDF(lon, lat) double
-subroutine dealloc2d_double_llf(idata)
-  type(nc2d_double_llf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc2d_double_llf
-
-!NetCDF(lon, lat) byte
-subroutine dealloc2d_byte_lld(idata)
-  type(nc2d_byte_lld), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc2d_byte_lld
-
-!NetCDF(lon, lat) short
-subroutine dealloc2d_short_lld(idata)
-  type(nc2d_short_lld), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc2d_short_lld
-
-!NetCDF(lon, lat) int
-subroutine dealloc2d_int_lld(idata)
-  type(nc2d_int_lld), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc2d_int_lld
-
-!NetCDF(lon, lat) float
-subroutine dealloc2d_float_lld(idata)
-  type(nc2d_float_lld), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc2d_float_lld
-
-!NetCDF(lon, lat) double
-subroutine dealloc2d_double_lld(idata)
-  type(nc2d_double_lld), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc2d_double_lld
-
-!NetCDF(lon, lat, time) byte
-subroutine dealloc3d_byte_llf_ti(idata)
-  type(nc3d_byte_llf_ti), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_byte_llf_ti
-
-!NetCDF(lon, lat, time) short
-subroutine dealloc3d_short_llf_ti(idata)
-  type(nc3d_short_llf_ti), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_short_llf_ti
-
-!NetCDF(lon, lat, time) int
-subroutine dealloc3d_int_llf_ti(idata)
-  type(nc3d_int_llf_ti), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_int_llf_ti
-
-!NetCDF(lon, lat, time) float
-subroutine dealloc3d_float_llf_ti(idata)
-  type(nc3d_float_llf_ti), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_float_llf_ti
-
-!NetCDF(lon, lat, time) double
-subroutine dealloc3d_double_llf_ti(idata)
-  type(nc3d_double_llf_ti), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_double_llf_ti
-
-!NetCDF(lon, lat, time) byte
-subroutine dealloc3d_byte_lld_ti(idata)
-  type(nc3d_byte_lld_ti), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_byte_lld_ti
-
-!NetCDF(lon, lat, time) short
-subroutine dealloc3d_short_lld_ti(idata)
-  type(nc3d_short_lld_ti), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_short_lld_ti
-
-!NetCDF(lon, lat, time) int
-subroutine dealloc3d_int_lld_ti(idata)
-  type(nc3d_int_lld_ti), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_int_lld_ti
-
-!NetCDF(lon, lat, time) float
-subroutine dealloc3d_float_lld_ti(idata)
-  type(nc3d_float_lld_ti), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_float_lld_ti
-
-!NetCDF(lon, lat, time) double
-subroutine dealloc3d_double_lld_ti(idata)
-  type(nc3d_double_lld_ti), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_double_lld_ti
-
-!NetCDF(lon, lat, time) byte
-subroutine dealloc3d_byte_llf_tf(idata)
-  type(nc3d_byte_llf_tf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_byte_llf_tf
-
-!NetCDF(lon, lat, time) short
-subroutine dealloc3d_short_llf_tf(idata)
-  type(nc3d_short_llf_tf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_short_llf_tf
-
-!NetCDF(lon, lat, time) int
-subroutine dealloc3d_int_llf_tf(idata)
-  type(nc3d_int_llf_tf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_int_llf_tf
-
-!NetCDF(lon, lat, time) float
-subroutine dealloc3d_float_llf_tf(idata)
-  type(nc3d_float_llf_tf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_float_llf_tf
-
-!NetCDF(lon, lat, time) double
-subroutine dealloc3d_double_llf_tf(idata)
-  type(nc3d_double_llf_tf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_double_llf_tf
-
-!NetCDF(lon, lat, time) byte
-subroutine dealloc3d_byte_lld_tf(idata)
-  type(nc3d_byte_lld_tf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_byte_lld_tf
-
-!NetCDF(lon, lat, time) short
-subroutine dealloc3d_short_lld_tf(idata)
-  type(nc3d_short_lld_tf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_short_lld_tf
-
-!NetCDF(lon, lat, time) int
-subroutine dealloc3d_int_lld_tf(idata)
-  type(nc3d_int_lld_tf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_int_lld_tf
-
-!NetCDF(lon, lat, time) float
-subroutine dealloc3d_float_lld_tf(idata)
-  type(nc3d_float_lld_tf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_float_lld_tf
-
-!NetCDF(lon, lat, time) double
-subroutine dealloc3d_double_lld_tf(idata)
-  type(nc3d_double_lld_tf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_double_lld_tf
-
-!NetCDF(lon, lat, time) byte
-subroutine dealloc3d_byte_llf_td(idata)
-  type(nc3d_byte_llf_td), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_byte_llf_td
-
-!NetCDF(lon, lat, time) short
-subroutine dealloc3d_short_llf_td(idata)
-  type(nc3d_short_llf_td), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_short_llf_td
-
-!NetCDF(lon, lat, time) int
-subroutine dealloc3d_int_llf_td(idata)
-  type(nc3d_int_llf_td), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_int_llf_td
-
-!NetCDF(lon, lat, time) float
-subroutine dealloc3d_float_llf_td(idata)
-  type(nc3d_float_llf_td), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_float_llf_td
-
-!NetCDF(lon, lat, time) double
-subroutine dealloc3d_double_llf_td(idata)
-  type(nc3d_double_llf_td), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_double_llf_td
-
-!NetCDF(lon, lat, time) byte
-subroutine dealloc3d_byte_lld_td(idata)
-  type(nc3d_byte_lld_td), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_byte_lld_td
-
-!NetCDF(lon, lat, time) short
-subroutine dealloc3d_short_lld_td(idata)
-  type(nc3d_short_lld_td), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_short_lld_td
-
-!NetCDF(lon, lat, time) int
-subroutine dealloc3d_int_lld_td(idata)
-  type(nc3d_int_lld_td), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_int_lld_td
-
-!NetCDF(lon, lat, time) float
-subroutine dealloc3d_float_lld_td(idata)
-  type(nc3d_float_lld_td), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_float_lld_td
-
-!NetCDF(lon, lat, time) double
-subroutine dealloc3d_double_lld_td(idata)
-  type(nc3d_double_lld_td), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc3d_double_lld_td
-
-!NetCDF(lon, lat, time, level) byte
-subroutine dealloc4d_byte_llf_ti_li(idata)
-  type(nc4d_byte_llf_ti_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_byte_llf_ti_li
-
-!NetCDF(lon, lat, time, level) short
-subroutine dealloc4d_short_llf_ti_li(idata)
-  type(nc4d_short_llf_ti_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_short_llf_ti_li
-
-!NetCDF(lon, lat, time, level) int
-subroutine dealloc4d_int_llf_ti_li(idata)
-  type(nc4d_int_llf_ti_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_int_llf_ti_li
-
-!NetCDF(lon, lat, time, level) float
-subroutine dealloc4d_float_llf_ti_li(idata)
-  type(nc4d_float_llf_ti_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_float_llf_ti_li
-
-!NetCDF(lon, lat, time, level) double
-subroutine dealloc4d_double_llf_ti_li(idata)
-  type(nc4d_double_llf_ti_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_double_llf_ti_li
-
-!NetCDF(lon, lat, time, level) byte
-subroutine dealloc4d_byte_lld_ti_li(idata)
-  type(nc4d_byte_lld_ti_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_byte_lld_ti_li
-
-!NetCDF(lon, lat, time, level) short
-subroutine dealloc4d_short_lld_ti_li(idata)
-  type(nc4d_short_lld_ti_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_short_lld_ti_li
-
-!NetCDF(lon, lat, time, level) int
-subroutine dealloc4d_int_lld_ti_li(idata)
-  type(nc4d_int_lld_ti_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_int_lld_ti_li
-
-!NetCDF(lon, lat, time, level) float
-subroutine dealloc4d_float_lld_ti_li(idata)
-  type(nc4d_float_lld_ti_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_float_lld_ti_li
-
-!NetCDF(lon, lat, time, level) double
-subroutine dealloc4d_double_lld_ti_li(idata)
-  type(nc4d_double_lld_ti_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_double_lld_ti_li
-
-!NetCDF(lon, lat, time, level) byte
-subroutine dealloc4d_byte_llf_tf_li(idata)
-  type(nc4d_byte_llf_tf_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_byte_llf_tf_li
-
-!NetCDF(lon, lat, time, level) short
-subroutine dealloc4d_short_llf_tf_li(idata)
-  type(nc4d_short_llf_tf_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_short_llf_tf_li
-
-!NetCDF(lon, lat, time, level) int
-subroutine dealloc4d_int_llf_tf_li(idata)
-  type(nc4d_int_llf_tf_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_int_llf_tf_li
-
-!NetCDF(lon, lat, time, level) float
-subroutine dealloc4d_float_llf_tf_li(idata)
-  type(nc4d_float_llf_tf_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_float_llf_tf_li
-
-!NetCDF(lon, lat, time, level) double
-subroutine dealloc4d_double_llf_tf_li(idata)
-  type(nc4d_double_llf_tf_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_double_llf_tf_li
-
-!NetCDF(lon, lat, time, level) byte
-subroutine dealloc4d_byte_lld_tf_li(idata)
-  type(nc4d_byte_lld_tf_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_byte_lld_tf_li
-
-!NetCDF(lon, lat, time, level) short
-subroutine dealloc4d_short_lld_tf_li(idata)
-  type(nc4d_short_lld_tf_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_short_lld_tf_li
-
-!NetCDF(lon, lat, time, level) int
-subroutine dealloc4d_int_lld_tf_li(idata)
-  type(nc4d_int_lld_tf_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_int_lld_tf_li
-
-!NetCDF(lon, lat, time, level) float
-subroutine dealloc4d_float_lld_tf_li(idata)
-  type(nc4d_float_lld_tf_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_float_lld_tf_li
-
-!NetCDF(lon, lat, time, level) double
-subroutine dealloc4d_double_lld_tf_li(idata)
-  type(nc4d_double_lld_tf_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_double_lld_tf_li
-
-!NetCDF(lon, lat, time, level) byte
-subroutine dealloc4d_byte_llf_td_li(idata)
-  type(nc4d_byte_llf_td_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_byte_llf_td_li
-
-!NetCDF(lon, lat, time, level) short
-subroutine dealloc4d_short_llf_td_li(idata)
-  type(nc4d_short_llf_td_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_short_llf_td_li
-
-!NetCDF(lon, lat, time, level) int
-subroutine dealloc4d_int_llf_td_li(idata)
-  type(nc4d_int_llf_td_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_int_llf_td_li
-
-!NetCDF(lon, lat, time, level) float
-subroutine dealloc4d_float_llf_td_li(idata)
-  type(nc4d_float_llf_td_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_float_llf_td_li
-
-!NetCDF(lon, lat, time, level) double
-subroutine dealloc4d_double_llf_td_li(idata)
-  type(nc4d_double_llf_td_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_double_llf_td_li
-
-!NetCDF(lon, lat, time, level) byte
-subroutine dealloc4d_byte_lld_td_li(idata)
-  type(nc4d_byte_lld_td_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_byte_lld_td_li
-
-!NetCDF(lon, lat, time, level) short
-subroutine dealloc4d_short_lld_td_li(idata)
-  type(nc4d_short_lld_td_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_short_lld_td_li
-
-!NetCDF(lon, lat, time, level) int
-subroutine dealloc4d_int_lld_td_li(idata)
-  type(nc4d_int_lld_td_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_int_lld_td_li
-
-!NetCDF(lon, lat, time, level) float
-subroutine dealloc4d_float_lld_td_li(idata)
-  type(nc4d_float_lld_td_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_float_lld_td_li
-
-!NetCDF(lon, lat, time, level) double
-subroutine dealloc4d_double_lld_td_li(idata)
-  type(nc4d_double_lld_td_li), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_double_lld_td_li
-
-!NetCDF(lon, lat, time, level) byte
-subroutine dealloc4d_byte_llf_ti_lf(idata)
-  type(nc4d_byte_llf_ti_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_byte_llf_ti_lf
-
-!NetCDF(lon, lat, time, level) short
-subroutine dealloc4d_short_llf_ti_lf(idata)
-  type(nc4d_short_llf_ti_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_short_llf_ti_lf
-
-!NetCDF(lon, lat, time, level) int
-subroutine dealloc4d_int_llf_ti_lf(idata)
-  type(nc4d_int_llf_ti_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_int_llf_ti_lf
-
-!NetCDF(lon, lat, time, level) float
-subroutine dealloc4d_float_llf_ti_lf(idata)
-  type(nc4d_float_llf_ti_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_float_llf_ti_lf
-
-!NetCDF(lon, lat, time, level) double
-subroutine dealloc4d_double_llf_ti_lf(idata)
-  type(nc4d_double_llf_ti_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_double_llf_ti_lf
-
-!NetCDF(lon, lat, time, level) byte
-subroutine dealloc4d_byte_lld_ti_lf(idata)
-  type(nc4d_byte_lld_ti_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_byte_lld_ti_lf
-
-!NetCDF(lon, lat, time, level) short
-subroutine dealloc4d_short_lld_ti_lf(idata)
-  type(nc4d_short_lld_ti_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_short_lld_ti_lf
-
-!NetCDF(lon, lat, time, level) int
-subroutine dealloc4d_int_lld_ti_lf(idata)
-  type(nc4d_int_lld_ti_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_int_lld_ti_lf
-
-!NetCDF(lon, lat, time, level) float
-subroutine dealloc4d_float_lld_ti_lf(idata)
-  type(nc4d_float_lld_ti_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_float_lld_ti_lf
-
-!NetCDF(lon, lat, time, level) double
-subroutine dealloc4d_double_lld_ti_lf(idata)
-  type(nc4d_double_lld_ti_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_double_lld_ti_lf
-
-!NetCDF(lon, lat, time, level) byte
-subroutine dealloc4d_byte_llf_tf_lf(idata)
-  type(nc4d_byte_llf_tf_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_byte_llf_tf_lf
-
-!NetCDF(lon, lat, time, level) short
-subroutine dealloc4d_short_llf_tf_lf(idata)
-  type(nc4d_short_llf_tf_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_short_llf_tf_lf
-
-!NetCDF(lon, lat, time, level) int
-subroutine dealloc4d_int_llf_tf_lf(idata)
-  type(nc4d_int_llf_tf_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_int_llf_tf_lf
-
-!NetCDF(lon, lat, time, level) float
-subroutine dealloc4d_float_llf_tf_lf(idata)
-  type(nc4d_float_llf_tf_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_float_llf_tf_lf
-
-!NetCDF(lon, lat, time, level) double
-subroutine dealloc4d_double_llf_tf_lf(idata)
-  type(nc4d_double_llf_tf_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_double_llf_tf_lf
-
-!NetCDF(lon, lat, time, level) byte
-subroutine dealloc4d_byte_lld_tf_lf(idata)
-  type(nc4d_byte_lld_tf_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_byte_lld_tf_lf
-
-!NetCDF(lon, lat, time, level) short
-subroutine dealloc4d_short_lld_tf_lf(idata)
-  type(nc4d_short_lld_tf_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_short_lld_tf_lf
-
-!NetCDF(lon, lat, time, level) int
-subroutine dealloc4d_int_lld_tf_lf(idata)
-  type(nc4d_int_lld_tf_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_int_lld_tf_lf
-
-!NetCDF(lon, lat, time, level) float
-subroutine dealloc4d_float_lld_tf_lf(idata)
-  type(nc4d_float_lld_tf_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_float_lld_tf_lf
-
-!NetCDF(lon, lat, time, level) double
-subroutine dealloc4d_double_lld_tf_lf(idata)
-  type(nc4d_double_lld_tf_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_double_lld_tf_lf
-
-!NetCDF(lon, lat, time, level) byte
-subroutine dealloc4d_byte_llf_td_lf(idata)
-  type(nc4d_byte_llf_td_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_byte_llf_td_lf
-
-!NetCDF(lon, lat, time, level) short
-subroutine dealloc4d_short_llf_td_lf(idata)
-  type(nc4d_short_llf_td_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_short_llf_td_lf
-
-!NetCDF(lon, lat, time, level) int
-subroutine dealloc4d_int_llf_td_lf(idata)
-  type(nc4d_int_llf_td_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_int_llf_td_lf
-
-!NetCDF(lon, lat, time, level) float
-subroutine dealloc4d_float_llf_td_lf(idata)
-  type(nc4d_float_llf_td_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_float_llf_td_lf
-
-!NetCDF(lon, lat, time, level) double
-subroutine dealloc4d_double_llf_td_lf(idata)
-  type(nc4d_double_llf_td_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_double_llf_td_lf
-
-!NetCDF(lon, lat, time, level) byte
-subroutine dealloc4d_byte_lld_td_lf(idata)
-  type(nc4d_byte_lld_td_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_byte_lld_td_lf
-
-!NetCDF(lon, lat, time, level) short
-subroutine dealloc4d_short_lld_td_lf(idata)
-  type(nc4d_short_lld_td_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_short_lld_td_lf
-
-!NetCDF(lon, lat, time, level) int
-subroutine dealloc4d_int_lld_td_lf(idata)
-  type(nc4d_int_lld_td_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_int_lld_td_lf
-
-!NetCDF(lon, lat, time, level) float
-subroutine dealloc4d_float_lld_td_lf(idata)
-  type(nc4d_float_lld_td_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_float_lld_td_lf
-
-!NetCDF(lon, lat, time, level) double
-subroutine dealloc4d_double_lld_td_lf(idata)
-  type(nc4d_double_lld_td_lf), intent(inout) :: idata
-  integer :: alloc_stat
-  deallocate(idata%longitudes, idata%latitudes, idata%times, idata%levels, idata%ncdata, stat=alloc_stat)
-  deallocate(idata%dimid, idata%dimsize, idata%dimname, idata%dimunits, idata%varids, stat=alloc_stat)
-end subroutine dealloc4d_double_lld_td_lf
