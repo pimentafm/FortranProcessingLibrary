@@ -161,7 +161,7 @@ const config: Config = {
       maxHeadingLevel: 4,
     },
     zoom: {
-      selector: '.markdown img',
+      selector: '.markdown img:not(.no-zoom)',
       background: {
         light: 'rgba(255, 255, 255, 0.9)',
         dark: 'rgba(50, 50, 50, 0.9)',

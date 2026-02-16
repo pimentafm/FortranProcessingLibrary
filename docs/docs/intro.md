@@ -123,7 +123,9 @@ FPL is free software licensed under the [GNU General Public License v3.0](http:/
 
 ## Support
 
-[![Atmosphere-Biosphere Research Group](/img/logo_grupo_en_verde.png)](http://www.biosfera.dea.ufv.br)
+<a href="http://www.biosfera.dea.ufv.br" target="_blank" rel="noopener noreferrer">
+  <img src={require('/img/logo_grupo_en_verde.png').default} alt="Atmosphere-Biosphere Research Group" width="200" className="no-zoom" />
+</a>
 
 ## Quick Links
 
