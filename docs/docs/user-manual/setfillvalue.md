@@ -9,17 +9,21 @@ Masks grid data by applying a `FillValue` to positions matching a reference mask
 ## Usage
 
 ```fortran
-call setfillvalue(idata, mask)
+call setfillvalue(mask, idata)
+call setfillvalue(mask, idata, num)   ! optional: filter by mask value
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| `idata` | FPL type | Data structure to mask (modified in-place) |
-| `mask` | FPL 2D type | Reference mask — positions with `FillValue` are applied to `idata` |
+| Parameter | Type                | Description                                                                       |
+| --------- | ------------------- | --------------------------------------------------------------------------------- |
+| `mask`    | FPL 2D type         | Reference mask (first argument)                                                   |
+| `idata`   | FPL type            | Data structure to mask — modified in-place (second argument)                      |
+| `num`     | `integer`, optional | When present, masks cells where `mask%ncdata /= num` instead of using `FillValue` |
 
 ### Behavior
 
-For every grid cell where `mask%ncdata(i,j) == mask%FillValue`, the corresponding cells in `idata%ncdata` are set to `idata%FillValue`.
+**Without `num`:** For every grid cell where `mask%ncdata(i,j) == mask%FillValue`, the corresponding cells in `idata%ncdata` are set to `idata%FillValue`.
+
+**With `num`:** For every grid cell where `mask%ncdata(i,j) /= num`, the data is set to `FillValue`. Where `mask%ncdata(i,j) == num` and `idata` already has `FillValue`, it is set to `0`.
 
 Works with 2D, 3D, and 4D grids of any numeric type.
 
@@ -45,7 +49,10 @@ program main
   call readgrid(ipath_mask, maskara)
 
   ! Apply FillValue where mask is FillValue
-  call setfillvalue(cattle, maskara)
+  call setfillvalue(maskara, cattle)
+
+  ! Or filter by a specific mask value (e.g., state code 18):
+  ! call setfillvalue(maskara, cattle, 18)
 
   ! Write masked result
   call writegrid(opath, cattle)

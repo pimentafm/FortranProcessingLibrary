@@ -68,10 +68,13 @@ make build
 sudo make install
 ```
 
-Default install locations:
+Default install locations (distro-dependent):
 
-- **Library**: `/usr/lib64/libFPL.so`
-- **Module**: `/usr/lib64/gfortran/modules/fpl.mod`
+| Distribution                          | Library                    | Module                                |
+| ------------------------------------- | -------------------------- | ------------------------------------- |
+| **Fedora / RHEL / Rocky / Alma**      | `/usr/lib64/libFPL.so`     | `/usr/lib64/gfortran/modules/fpl.mod` |
+| **Debian / Ubuntu / Mint / Pop!\_OS** | `/usr/lib/libFPL.so`       | `/usr/include/fpl.mod`                |
+| **Other**                             | `/usr/local/lib/libFPL.so` | `/usr/local/include/fpl.mod`          |
 
 Override paths if needed:
 

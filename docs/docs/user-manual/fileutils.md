@@ -15,26 +15,26 @@ logical :: exists
 exists = file_exists(filepath)
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
+| Parameter  | Type           | Description      |
+| ---------- | -------------- | ---------------- |
 | `filepath` | `character(*)` | Path to the file |
 
 **Returns:** `.true.` if the file exists, `.false.` otherwise.
 
 ## numRows
 
-Count the number of lines (rows) in a text file.
+Count the number of lines (rows) in an open file unit.
 
 ```fortran
 integer :: nrows
-nrows = numRows(filepath)
+nrows = numRows(fileunit)
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| `filepath` | `character(*)` | Path to a text file |
+| Parameter  | Type      | Description                                          |
+| ---------- | --------- | ---------------------------------------------------- |
+| `fileunit` | `integer` | Fortran file unit number (file must already be open) |
 
-**Returns:** Number of lines in the file (`integer`).
+**Returns:** Number of lines in the file (`integer`). Rewinds the file unit after counting.
 
 ## Code Example
 
@@ -55,8 +55,9 @@ program main
   if (exists) then
     write(*,*) "File found: ", trim(filepath)
 
-    ! Count lines
-    nrows = numRows(filepath)
+    ! Open the file and count lines
+    open(100, file=filepath, status="old")
+    nrows = numRows(100)
     write(*,*) "Number of rows: ", nrows
   else
     write(*,*) "File not found: ", trim(filepath)

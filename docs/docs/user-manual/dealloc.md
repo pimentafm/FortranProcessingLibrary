@@ -25,6 +25,8 @@ Deallocates the following arrays if allocated:
 - `latitudes` — latitude coordinates
 - `times` — time coordinates (3D/4D types)
 - `levels` — level coordinates (4D types)
+- `dimname`, `dimunits` — dimension metadata
+- `dimid`, `dimsize`, `varids` — internal NetCDF IDs
 
 :::caution
 Always call `dealloc` before reusing or discarding an FPL structure. Failing to deallocate causes **memory leaks**, which accumulate quickly when processing large geospatial datasets.

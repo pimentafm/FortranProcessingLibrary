@@ -16,9 +16,9 @@ call fdate_time(datetime)
 write(*,*) datetime   ! e.g., "Aug 09 2024 14:30:05"
 ```
 
-| Parameter | Intent | Type | Description |
-|---|---|---|---|
-| `datetime` | `out` | `character(21)` | Formatted date/time string |
+| Parameter  | Intent | Type            | Description                |
+| ---------- | ------ | --------------- | -------------------------- |
+| `datetime` | `out`  | `character(21)` | Formatted date/time string |
 
 **Format:** `Mon DD YYYY HH:MM:SS`
 
@@ -36,9 +36,9 @@ call exec_time(t_end)
 write(*,*) "Elapsed:", t_end - t_start
 ```
 
-| Parameter | Intent | Type | Description |
-|---|---|---|---|
-| `time` | `out` | `real(4)` | Current time value |
+| Parameter | Intent | Type      | Description                         |
+| --------- | ------ | --------- | ----------------------------------- |
+| `time`    | —      | `real(4)` | Current time value (used as output) |
 
 ## Example
 

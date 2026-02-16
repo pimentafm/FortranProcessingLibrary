@@ -10,12 +10,14 @@ Writes FPL data structures to NetCDF files.
 
 ```fortran
 call writegrid(ofile, idata)
+call writegrid(ofile, idata, headerfile)   ! optional header file
 ```
 
-| Parameter | Type | Description |
-|---|---|---|
-| `ofile` | `character(*)` | Output file path |
-| `idata` | FPL type | Structure with populated data |
+| Parameter    | Type                     | Description                                                                          |
+| ------------ | ------------------------ | ------------------------------------------------------------------------------------ |
+| `ofile`      | `character(*)`           | Output file path                                                                     |
+| `idata`      | FPL type                 | Structure with populated data                                                        |
+| `headerfile` | `character(*)`, optional | Path to a header file with custom attributes (see [fileutils](fileutils#readheader)) |
 
 ### Behavior
 
