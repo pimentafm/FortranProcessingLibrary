@@ -39,7 +39,7 @@ const config: Config = {
 
   themeConfig: {
     navbar: {
-      title: 'FPL',
+      title: '',
       logo: {
         alt: 'FPL Logo',
         src: 'img/FPLlogo.png',
