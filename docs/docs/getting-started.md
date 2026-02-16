@@ -13,17 +13,18 @@ sidebar_position: 2
 | **NetCDF-Fortran** | Fortran bindings for NetCDF (`libnetcdff`)       |
 | **OpenMP**         | Multi-threading support (included with GFortran) |
 | **Make**           | Build automation tool                            |
+| **Python 3**       | Code generation script (`generate_cpp.py`)       |
 
 ### Debian / Ubuntu
 
 ```bash
-sudo apt install gfortran libnetcdf-dev libnetcdff-dev make
+sudo apt install gfortran libnetcdf-dev libnetcdff-dev make python3
 ```
 
 ### Fedora / RHEL
 
 ```bash
-sudo dnf install gcc-gfortran netcdf-devel netcdf-fortran-devel make
+sudo dnf install gcc-gfortran netcdf-devel netcdf-fortran-devel make python3
 ```
 
 ## Directory Structure
@@ -31,7 +32,7 @@ sudo dnf install gcc-gfortran netcdf-devel netcdf-fortran-devel make
 ```
 FPL/
   ├── src/                    # Library source files
-  │   ├── FPL.f90             # Main module (aggregates all includes)
+  │   ├── FPL.f90             # Main module (aggregates all via #include)
   │   ├── FPL_constants.f90   # Parameter variables
   │   ├── FPL_datatypes.f90   # Datatype structure declarations
   │   ├── FPL_interfaces.f90  # Generic interfaces
@@ -45,8 +46,16 @@ FPL/
   │   ├── FPL_fileutils.f90   # File utilities
   │   ├── FPL_datetime.f90    # Date/time subroutines
   │   ├── FPL_sort.f90        # Bubble sort
-  │   └── FPL_misc.f90        # Library version
-  ├── shell_gencodes/         # Code generation scripts
+  │   ├── FPL_misc.f90        # Library version
+  │   ├── generate_cpp.py     # Code generation script
+  │   └── templates/          # CPP template files (.inc)
+  │       ├── datatypes_{2d,3d,4d}.inc
+  │       ├── dealloc_{2d,3d,4d}.inc
+  │       ├── griddims_{2d,3d,4d}.inc
+  │       ├── readgrid_{2d,3d,4d}.inc
+  │       ├── writegrid_{2d,3d,4d}.inc
+  │       ├── gengrid_{2d,3d,4d}.inc
+  │       └── setfillvalue_{2d,3d,4d}.inc
   ├── examples/               # Example programs
   ├── docs/                   # Documentation (Docusaurus)
   └── Makefile                # Build system

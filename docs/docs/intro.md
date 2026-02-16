@@ -20,7 +20,7 @@ Developed at the [Federal University of Viçosa](https://www.ufv.br/) (UFV), Bra
 
 ## Architecture
 
-The main module `src/FPL.f90` aggregates all components via Fortran `include` statements and compiles as a shared library:
+The main module `src/FPL.f90` aggregates all components via CPP `#include` directives and compiles as a shared library:
 
 ```fortran
 module FPL
@@ -28,47 +28,70 @@ module FPL
   use netcdf
   use iso_c_binding
   implicit none
-  include "FPL_constants.f90"
-  include "FPL_datatypes.f90"
-  include "FPL_interfaces.f90"
+#include "FPL_constants.f90"
+#include "FPL_datatypes.f90"
+#include "FPL_interfaces.f90"
 
   contains
-  include "FPL_checkerror.f90"
-  include "FPL_datetime.f90"
-  include "FPL_griddims.f90"
-  include "FPL_readgrid.f90"
-  include "FPL_writegrid.f90"
-  include "FPL_setfillvalue.f90"
-  include "FPL_gengrid.f90"
-  include "FPL_dealloc.f90"
-  include "FPL_fileutils.f90"
-  include "FPL_misc.f90"
-  include "FPL_sort.f90"
+#include "FPL_checkerror.f90"
+#include "FPL_datetime.f90"
+#include "FPL_griddims.f90"
+#include "FPL_readgrid.f90"
+#include "FPL_writegrid.f90"
+#include "FPL_setfillvalue.f90"
+#include "FPL_gengrid.f90"
+#include "FPL_dealloc.f90"
+#include "FPL_fileutils.f90"
+#include "FPL_misc.f90"
+#include "FPL_sort.f90"
 end module FPL
 ```
 
-### Source Modules (~49,900 lines)
+The compiler flag `-cpp` tells `gfortran` to expand the preprocessor macros at compile time.
 
-| File | Lines | Description |
-|---|---|---|
-| `FPL_setfillvalue.f90` | 17,036 | Fill value masking with OpenMP `parallel do` |
-| `FPL_writegrid.f90` | 9,073 | Write grids to NetCDF-4 (HDF5 format) |
-| `FPL_griddims.f90` | 7,283 | Read NetCDF dimensions (lon, lat, time, level) |
-| `FPL_gengrid.f90` | 7,233 | Generate regular grids from bounding box |
-| `FPL_readgrid.f90` | 5,173 | Read variables and coordinates from NetCDF |
-| `FPL_datatypes.f90` | 1,643 | ~60 derived type definitions |
-| `FPL_interfaces.f90` | 1,055 | Generic interfaces (static polymorphism) |
-| `FPL_dealloc.f90` | 833 | Memory deallocation with `stat=` checks |
-| `FPL_checkerror.f90` | 205 | Error handling with colored output (pure Fortran) |
-| `FPL_fileutils.f90` | 111 | File utilities: `file_exists`, `countkeys`, `readheader` |
-| `FPL_datetime.f90` | 77 | System date/time (`fdate_time`, `exec_time`) |
-| `FPL_sort.f90` | 57 | Bubble sort for dimension ID ordering |
-| `FPL_constants.f90` | 49 | Physical constants and type aliases via `iso_c_binding` |
-| `FPL_misc.f90` | 39 | Library version |
+### Source Modules
+
+| File                   | Lines | Description                                              |
+| ---------------------- | ----- | -------------------------------------------------------- |
+| `FPL_setfillvalue.f90` | 4,033 | Fill value masking with OpenMP `parallel do`             |
+| `FPL_writegrid.f90`    | 1,133 | Write grids to NetCDF-4 (HDF5 format)                    |
+| `FPL_datatypes.f90`    | 1,133 | 100 derived type definitions via CPP templates           |
+| `FPL_interfaces.f90`   | 1,054 | Generic interfaces (static polymorphism)                 |
+| `FPL_readgrid.f90`     | 833   | Read variables and coordinates from NetCDF               |
+| `FPL_gengrid.f90`      | 833   | Generate regular grids from bounding box                 |
+| `FPL_griddims.f90`     | 633   | Read NetCDF dimensions (lon, lat, time, level)           |
+| `FPL_dealloc.f90`      | 633   | Memory deallocation with `stat=` checks                  |
+| `FPL_checkerror.f90`   | 205   | Error handling with colored output (pure Fortran)        |
+| `FPL_fileutils.f90`    | 111   | File utilities: `file_exists`, `countkeys`, `readheader` |
+| `FPL_datetime.f90`     | 77    | System date/time (`fdate_time`, `exec_time`)             |
+| `FPL_sort.f90`         | 57    | Bubble sort for dimension ID ordering                    |
+| `FPL_constants.f90`    | 49    | Physical constants and type aliases via `iso_c_binding`  |
+| `FPL_misc.f90`         | 39    | Library version                                          |
+| `templates/*.inc`      | 942   | 21 CPP template files (7 modules × 3 dimensions)         |
+| `generate_cpp.py`      | 239   | Python generator for `.f90` instantiation files          |
+| `FPL_dealloc.f90`      | 833   | Memory deallocation with `stat=` checks                  |
+| `FPL_checkerror.f90`   | 205   | Error handling with colored output (pure Fortran)        |
+| `FPL_fileutils.f90`    | 111   | File utilities: `file_exists`, `countkeys`, `readheader` |
+| `FPL_datetime.f90`     | 77    | System date/time (`fdate_time`, `exec_time`)             |
+| `FPL_sort.f90`         | 57    | Bubble sort for dimension ID ordering                    |
+| `FPL_constants.f90`    | 49    | Physical constants and type aliases via `iso_c_binding`  |
+| `FPL_misc.f90`         | 39    | Library version                                          |
 
 ## Code Generation
 
-The `shell_gencodes/` directory contains Bash scripts that **automatically generate** the combinatorial explosion of subroutines for each type/dimension combination — this explains the source files with thousands of lines of repetitive code.
+FPL uses the **C preprocessor (CPP)** to handle the combinatorial explosion of subroutines for each type/dimension combination. The system has two layers:
+
+1. **Template files** (`src/templates/*.inc`) — Fortran source with CPP macro placeholders (`FPL_TYPE`, `FPL_SUBR`, etc.), maintained manually
+2. **Generator script** (`src/generate_cpp.py`) — Python script that produces `.f90` files with `#define`/`#include`/`#undef` blocks for every type combination
+
+The compiler flag `-cpp` tells `gfortran` to expand the macros at compile time. To regenerate:
+
+```bash
+python3 src/generate_cpp.py
+make clean && make
+```
+
+See the [Contributing](contributing) guide for details on adding new templates.
 
 ## License
 
