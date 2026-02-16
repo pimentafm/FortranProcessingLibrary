@@ -63,7 +63,7 @@ function HomepageFeatures(): React.JSX.Element {
       <div className="container">
         <div className="row">
           {features.map((props, idx) => (
-            <Feature key={idx} {...props} />
+            <Feature {...props} />
           ))}
         </div>
       </div>
