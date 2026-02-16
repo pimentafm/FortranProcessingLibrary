@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
+import CodeBlock from '@theme/CodeBlock';
 import styles from './index.module.css';
 
 interface FeatureItem {
@@ -128,14 +129,8 @@ function CodePreview(): React.JSX.Element {
             </Link>
           </div>
           <div className={clsx('col col--6')}>
-            <div className={styles.codeBlock}>
-              <div className={styles.codeHeader}>
-                <span className={styles.codeDot} style={{background: '#ff5f57'}} />
-                <span className={styles.codeDot} style={{background: '#febc2e'}} />
-                <span className={styles.codeDot} style={{background: '#28c840'}} />
-                <span className={styles.codeFilename}>example.f90</span>
-              </div>
-              <pre className={styles.codeContent}>{`program main
+              <CodeBlock language="fortran" title="example.f90" children={`
+program main
   use fpl
   implicit none
 
@@ -155,8 +150,7 @@ function CodePreview(): React.JSX.Element {
 
   call writegrid("output.nc", temp)
   call dealloc(temp)
-end program main`}</pre>
-            </div>
+end program main`} />
           </div>
         </div>
       </div>
