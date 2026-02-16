@@ -31,23 +31,17 @@
 #Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 #:=============================================================================
 
-#Check OS
-OS=$(shell lsb_release -si)
-ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
-VERSION=$(shell lsb_release -sr)
+#Check OS (uses /etc/os-release; falls back to lsb_release)
+OS := $(shell . /etc/os-release 2>/dev/null && echo $$ID || lsb_release -si 2>/dev/null | tr 'A-Z' 'a-z')
+ARCH := $(shell uname -m)
+VERSION := $(shell . /etc/os-release 2>/dev/null && echo $$VERSION_ID || lsb_release -sr 2>/dev/null)
 
-ifeq ($(OS), $(filter $(OS), Fedora Korora))
-  #Print OS
-  $(info "$(OS) $(VERSION) $(ARCH) bits")
-  
-  #Set module path
+ifneq (,$(filter $(OS),fedora korora rhel centos rocky alma))
+  $(info --- $(OS) $(VERSION) $(ARCH) ---)
   FPL_module=-I/usr/lib64/gfortran/modules/
 endif
-ifeq ($(OS), $(filter $(OS), Debian Ubuntu))
-  #Print OS
-  $(info "$(OS) $(VERSION) $(ARCH) bits")
-  
-  #Set module path
+ifneq (,$(filter $(OS),debian ubuntu linuxmint pop))
+  $(info --- $(OS) $(VERSION) $(ARCH) ---)
   FPL_module=-I/usr/include/
 endif
 

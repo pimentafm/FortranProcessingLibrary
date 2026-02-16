@@ -132,12 +132,12 @@ program main
 
   !Fills the array data using openmp
   !$omp parallel do
-  do i = 1, grid2d%nlons
-    do j = 1, grid2d%nlats
+  do j = 1, grid2d%nlats
+    do i = 1, grid2d%nlons
       grid2d%ncdata(i,j) = cos(grid2d%longitudes(i)) + grid2d%latitudes(j)
     end do
   end do
-  !omp end parallel do
+  !$omp end parallel do
   
   write(*,*) "Grid 2d info ================================="
   write(*,'(a13,a20)') "varname :    ",   grid2d%varname  
@@ -167,8 +167,8 @@ program main
 
   !Fills the array data
   do i = 1, grid3d%ntimes
-    do j = 1, grid3d%nlons
-      do k = 1, grid3d%nlats
+    do k = 1, grid3d%nlats
+      do j = 1, grid3d%nlons
         grid3d%ncdata(j,k,i) = int(i*(cos(real(j))*grid3d%longitudes(j) + k*grid3d%latitudes(k)))
       end do
     end do
@@ -206,9 +206,9 @@ program main
   !Fills the array data
   do l = 1, grid4d%nlevels
     do i = 1, grid4d%ntimes
-      do j = 1, grid4d%nlons
-        do k = 1, grid4d%nlats
-          grid4d%ncdata(j,k,i,l) = int((l**3)/i*(cos(real(j))*grid4d%longitudes(j) + k*grid4d%latitudes(k)))   
+      do k = 1, grid4d%nlats
+        do j = 1, grid4d%nlons
+          grid4d%ncdata(j,k,i,l) = int((l**3)/i*(cos(real(j))*grid4d%longitudes(j) + k*grid4d%latitudes(k)))
         end do
       end do
     end do

@@ -72,58 +72,83 @@
 | **NetCDF-Fortran** | Fortran bindings for NetCDF (`libnetcdff`)       |
 | **OpenMP**         | Multi-threading support (included with GFortran) |
 | **Make**           | Build automation tool                            |
+| **Python 3**       | Code generation script (`generate_cpp.py`)       |
 
 ### Installation of dependencies
 
 **Debian / Ubuntu:**
 
 ```bash
-sudo apt install gfortran libnetcdf-dev libnetcdff-dev make
+sudo apt install gfortran libnetcdf-dev libnetcdff-dev make python3
 ```
 
 **Fedora / RHEL:**
 
 ```bash
-sudo dnf install gcc-gfortran netcdf-devel netcdf-fortran-devel make
+sudo dnf install gcc-gfortran netcdf-devel netcdf-fortran-devel make python3
 ```
 
 <hr>
 
-## How to install
+## How to build and install
 
-Download FPL from [My Github](https://github.com/pimentafm/FortranProcessingLibrary).
+Download FPL from [GitHub](https://github.com/pimentafm/FortranProcessingLibrary).
 
-Compile the library as root.
+**Build the library (local):**
 
 ```bash
-cd /FortranProcessingLibrary
+cd FortranProcessingLibrary
 make
+```
+
+**Install to system directories (needs root):**
+
+```bash
+sudo make install
+```
+
+**Other targets:**
+
+```bash
+make clean       # Remove local build artifacts
+make uninstall   # Remove from system dirs
+make help        # Show all targets and overridable variables
+```
+
+You can override paths if needed:
+
+```bash
+make LIBDIR=/custom/lib MODDIR=/custom/include NETCDF="-I/custom/include -lnetcdff -lnetcdf"
 ```
 
 <hr>
 
 ## Architecture
 
-The main module `src/FPL.f90` aggregates all source files via Fortran `include` statements, using `omp_lib`, `netcdf`, and `iso_c_binding`. It is compiled as a shared library (`libFPL.so`) with `gfortran -O3 -shared -fPIC -fopenmp`.
+The main module `src/FPL.f90` aggregates all source files via CPP `#include` directives, using `omp_lib`, `netcdf`, and `iso_c_binding`. It is compiled as a shared library (`libFPL.so`) with `gfortran -O3 -shared -fPIC -fopenmp -cpp`.
 
-### Source Modules (~47,300 lines)
+### Source Modules
 
-| File                   | Lines  | Description                                                                                 |
-| ---------------------- | ------ | ------------------------------------------------------------------------------------------- |
-| `FPL_setfillvalue.f90` | 17,036 | FillValue mask application (parallelized with OpenMP `!$omp parallel do`)                   |
-| `FPL_writegrid.f90`    | 8,773  | Grid writing to NetCDF (HDF5 format), with custom header file support                       |
-| `FPL_griddims.f90`     | 6,683  | Dimension reading (lon, lat, time, level) from NetCDF files                                 |
-| `FPL_gengrid.f90`      | 6,183  | Regular grid generation from Xmin/Ymin/Xmax/Ymax/resolution                                 |
-| `FPL_readgrid.f90`     | 4,623  | Variable and coordinate reading from NetCDF                                                 |
-| `FPL_datatypes.f90`    | 1,643  | Definition of ~60 derived types                                                             |
-| `FPL_interfaces.f90`   | 1,055  | Generic interfaces (static polymorphism)                                                    |
-| `FPL_dealloc.f90`      | 733    | Memory deallocation for all types                                                           |
-| `FPL_checkerror.f90`   | 181    | Error handling with colored terminal messages (ANSI escape codes)                           |
-| `FPL_fileutils.f90`    | 111    | Utilities: `file_exists`, `countkeys`, `readheader`, row counter                            |
-| `FPL_datetime.f90`     | 77     | System date/time (`fdate_time`, `exec_time`)                                                |
-| `FPL_sort.f90`         | 57     | Bubble sort for dimension ID ordering                                                       |
-| `FPL_constants.f90`    | 49     | Physical constants (pi, Earth radius, Boltzmann, etc.) and type aliases via `iso_c_binding` |
-| `FPL_misc.f90`         | 39     | Library version                                                                             |
+Generated `.f90` files use CPP `#define`/`#include`/`#undef` blocks that expand templates from `src/templates/*.inc` at compile time.
+
+| File                   | Lines | Description                                                                                       |
+| ---------------------- | ----- | ------------------------------------------------------------------------------------------------- |
+| `FPL_setfillvalue.f90` | 4,033 | FillValue mask application (parallelized with OpenMP `!$omp parallel do`)                         |
+| `FPL_writegrid.f90`    | 1,133 | Grid writing to NetCDF (HDF5 format), with custom header file support                             |
+| `FPL_datatypes.f90`    | 1,133 | Definition of 100 derived types via CPP templates                                                 |
+| `FPL_interfaces.f90`   | 1,054 | Generic interfaces (static polymorphism)                                                          |
+| `FPL_readgrid.f90`     | 833   | Variable and coordinate reading from NetCDF                                                       |
+| `FPL_gengrid.f90`      | 833   | Regular grid generation from Xmin/Ymin/Xmax/Ymax/resolution                                       |
+| `FPL_griddims.f90`     | 633   | Dimension reading (lon, lat, time, level) from NetCDF files                                       |
+| `FPL_dealloc.f90`      | 633   | Memory deallocation for all types (with `stat=` error handling)                                   |
+| `FPL_checkerror.f90`   | 205   | Error handling with colored messages, `print_filename`, `check_alloc` (pure Fortran, no `system`) |
+| `FPL_fileutils.f90`    | 111   | Utilities: `file_exists`, `countkeys`, `readheader`, row counter                                  |
+| `FPL_datetime.f90`     | 77    | System date/time (`fdate_time`, `exec_time`)                                                      |
+| `FPL_sort.f90`         | 57    | Bubble sort for dimension ID ordering                                                             |
+| `FPL_constants.f90`    | 49    | Physical constants (pi, Earth radius, Boltzmann, etc.) and type aliases via `iso_c_binding`       |
+| `FPL_misc.f90`         | 39    | Library version                                                                                   |
+| `templates/*.inc`      | 942   | 21 CPP template files (7 modules × 3 dimensionalities)                                            |
+| `generate_cpp.py`      | 239   | Python script to generate `.f90` from templates                                                   |
 
 <hr>
 
@@ -159,7 +184,7 @@ The interfaces in `FPL_interfaces.f90` allow calling the same generic procedure 
 
 ## Parallelization (OpenMP)
 
-The `setFillValue` routines use `!$omp parallel do` on the lon/lat loops — the most computationally expensive operation on large datasets. The Makefile compiles with `-fopenmp`.
+The `setFillValue` routines use `!$omp parallel do` on the lon/lat loops — the most computationally expensive operation on large datasets. Loop order follows Fortran column-major convention (inner loop over the first array dimension) for optimal cache performance. The Makefile compiles with `-fopenmp`.
 
 <hr>
 
@@ -189,7 +214,43 @@ end program main
 
 ## Code Generation
 
-The `shell_gencodes/` directory contains Bash scripts that **automatically generate** the combinatorial explosion of subroutines for each type/dimension combination — this explains the source files with thousands of lines of repetitive code.
+FPL uses the **C preprocessor (CPP)** to generate the combinatorial explosion of subroutines for each type/dimension combination. The system has two layers:
+
+1. **Template files** (`src/templates/*.inc`) — Fortran source with CPP macro placeholders (`FPL_TYPE`, `FPL_SUBR`, etc.)
+2. **Generator script** (`src/generate_cpp.py`) — Python script that produces `.f90` files with `#define`/`#include`/`#undef` blocks for every type combination
+
+The compiler flag `-cpp` tells `gfortran` to expand the macros at compile time.
+
+To regenerate after modifying templates or type definitions:
+
+```bash
+python3 src/generate_cpp.py
+make clean && make
+```
+
+<hr>
+
+## Recent Improvements
+
+### Performance
+
+- **Loop order optimization** — All loop nests in `FPL_setfillvalue.f90` iterate the first array dimension (longitude) in the inner loop, matching Fortran's column-major memory layout for better cache utilization.
+
+### Robustness
+
+- **`intent` declarations** — All subroutine parameters have `intent(in)`, `intent(inout)` declarations, enabling the compiler to catch misuse at compile time.
+- **Allocation error handling** — All `allocate()` calls use `stat=alloc_stat` followed by `call check_alloc(alloc_stat, "array_name")`, which prints a colored error message and stops on failure. All `deallocate()` calls use `stat=` to silently handle already-freed memory.
+- **Eliminated `call system()`** — Replaced non-portable shell calls in `FPL_checkerror.f90` with a pure Fortran `print_filename()` subroutine using `index(ifile, '/', back=.true.)`.
+
+### Build System
+
+- **Modern OS detection** — Makefile uses `/etc/os-release` (with `lsb_release` fallback), supporting Fedora, RHEL, Rocky, Alma, Debian, Ubuntu, Mint, and Pop!\_OS.
+- **Separate `build` and `install` targets** — `make` builds locally; `sudo make install` installs to system directories. Added `clean`, `uninstall`, and `help` targets.
+- **Overridable paths** — `LIBDIR`, `MODDIR`, and `NETCDF` can be customized on the command line.
+
+### Code Generation
+
+- **CPP preprocessor templates** — Replaced 9 Bash shell scripts (`shell_gencodes/`) with 21 CPP `.inc` template files and a compact Python generator (`generate_cpp.py`, 239 lines). Templates use `#define`/`#include`/`#undef` blocks expanded at compile time by `gfortran -cpp`, reducing total source from ~49,900 to ~11,900 lines while producing identical compiled output.
 
 <hr>
 

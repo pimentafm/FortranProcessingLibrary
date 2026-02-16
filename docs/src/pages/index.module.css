@@ -1,0 +1,321 @@
+/* ── Hero ── */
+.heroBanner {
+  background: var(--ifm-background-color);
+  padding: 5rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(37, 194, 160, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroBanner::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(37, 194, 160, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroContent {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.heroLogo {
+  width: 140px;
+  height: auto;
+  max-height: 140px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+:global([data-theme='dark']) .heroLogo {
+  filter: brightness(0) invert(1);
+}
+
+.heroText {
+  flex: 1;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--ifm-color-content-secondary);
+  max-width: 560px;
+  margin-bottom: 1.5rem;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.heroButtons :global(.button--primary) {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+}
+
+.heroButtons :global(.button--primary:hover) {
+  background: var(--ifm-color-primary-dark);
+  color: #fff;
+}
+
+.heroButtons :global(.button--outline) {
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.heroButtons :global(.button--outline:hover) {
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #fff;
+}
+
+/* ── Features grid ── */
+.features {
+  padding: 4rem 0;
+  background: var(--ifm-background-color);
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.featureCard {
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--ifm-toc-border-color);
+  height: 100%;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.featureCard:hover {
+  box-shadow: 0 4px 20px rgba(37, 194, 160, 0.1);
+  transform: translateY(-2px);
+}
+
+.featureIcon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.featureCard h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.featureCard p {
+  font-size: 0.92rem;
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Code preview section ── */
+.codePreview {
+  padding: 4rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.codePreview h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.codePreview p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ifm-color-content-secondary);
+}
+
+.codeBlock {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  background: #1e3f2a;
+}
+
+.codeHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background: #162a1e;
+}
+
+.codeDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.codeFilename {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.codeContent {
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #e4f0ea;
+  font-family: var(--ifm-font-family-monospace);
+  overflow-x: auto;
+  background: transparent;
+}
+
+/* ── Install banner ── */
+.installBanner {
+  padding: 4rem 0;
+  background: var(--ifm-background-color);
+}
+
+.installBanner h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.installSteps {
+  display: flex;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.installStep {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+  min-width: 280px;
+}
+
+.stepNumber {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.installStep strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.installCode {
+  display: block;
+  background: var(--ifm-background-surface-color);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  word-break: break-all;
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+
+/* Install banner outline button — light mode */
+.installBanner :global(.button--outline) {
+  color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+.installBanner :global(.button--outline:hover) {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #fff;
+}
+
+/* Install banner outline button — dark mode */
+:global([data-theme='dark']) .installBanner :global(.button--outline) {
+  color: var(--ifm-color-primary-light);
+  border-color: var(--ifm-color-primary-light);
+}
+
+:global([data-theme='dark']) .installBanner :global(.button--outline:hover) {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #0f1a14;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .heroContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroLogo {
+    width: 100px;
+    height: auto;
+    max-height: 100px;
+  }
+
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .heroButtons {
+    justify-content: center;
+  }
+
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .installSteps {
+    flex-direction: column;
+    align-items: center;
+  }
+}

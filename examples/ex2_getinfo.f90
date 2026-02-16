@@ -97,6 +97,9 @@ program main
 103 format(a13,3i4)
  
   !Write the data on file
-  call writegrid(outputpath, spectral) 
-    
+  call writegrid(outputpath, spectral)
+
+  !Deallocate memory
+  call dealloc(spectral)
+
 end program main

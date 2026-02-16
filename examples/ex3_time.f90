@@ -109,4 +109,8 @@ program main
   call writegrid(outputpath, cattle)                             !Saves the masked data
   call exec_time(end_time)
   write(*,'("  Time:", f15.3," seconds")') end_time - start_time
+
+  !Deallocate memory
+  call dealloc(cattle)
+  call dealloc(maskara)
 end program main

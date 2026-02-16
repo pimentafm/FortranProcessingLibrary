@@ -1,0 +1,53 @@
+@startuml c4_codegen
+!include <C4/C4_Dynamic>
+
+title FPL — Code Generation Pipeline (C4 Dynamic)
+
+participant "Developer" as dev
+participant "generate_cpp.py" as gen
+participant "templates/*.inc" as tmpl
+participant "FPL_*.f90" as f90
+participant "gfortran -cpp" as gcc
+participant "libFPL.so" as lib
+
+dev -> gen : python3 src/generate_cpp.py
+
+note right of gen
+  Type catalogue:
+  5 DTYPES × 2 COORDS = 10 (2D)
+  5 DTYPES × 2 COORDS × 3 TIMES = 30 (3D)
+  5 DTYPES × 2 COORDS × 3 TIMES × 2 LEVELS = 60 (4D)
+  Total: 100 type combinations
+end note
+
+gen -> f90 : Writes #define/#include/#undef blocks\nfor each type combination
+
+note right of f90
+  Example (FPL_dealloc.f90):
+  ──────────────────────────
+  #define FPL_SUBR dealloc2d_byte_llf
+  #define FPL_TYPE nc2d_byte_llf
+  #include "templates/dealloc_2d.inc"
+  #undef FPL_SUBR
+  #undef FPL_TYPE
+  ... (repeated 100 times)
+end note
+
+dev -> gcc : make
+
+gcc -> f90 : Reads .f90 files
+gcc -> tmpl : CPP expands #include\nsubstitutes #define macros
+
+note right of tmpl
+  Template (dealloc_2d.inc):
+  ────────────────────────
+  subroutine FPL_SUBR(idata)
+    type(FPL_TYPE), intent(inout) :: idata
+    ...
+  end subroutine FPL_SUBR
+end note
+
+gcc -> gcc : Compiles expanded Fortran\n-fopenmp -O3 -shared -fPIC
+gcc -> lib : Produces libFPL.so + fpl.mod
+
+@enduml

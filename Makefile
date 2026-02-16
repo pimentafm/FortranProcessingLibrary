@@ -31,43 +31,90 @@
 # Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
 #:=============================================================================
 
-#Check system name version and arch
-OS=$(shell lsb_release -si)
-VERSION=$(shell lsb_release -sr)
-ARCH=$(shell uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+#------------------------------------------------------------------------------
+# System detection (uses /etc/os-release; falls back to lsb_release)
+#------------------------------------------------------------------------------
+OS := $(shell . /etc/os-release 2>/dev/null && echo $$ID || lsb_release -si 2>/dev/null | tr 'A-Z' 'a-z')
+VERSION := $(shell . /etc/os-release 2>/dev/null && echo $$VERSION_ID || lsb_release -sr 2>/dev/null)
+ARCH := $(shell uname -m)
 
-#FPL library and module names
-FPL_lib=libFPL.so
-FPL_mod=fpl.mod
+$(info --- $(OS) $(VERSION) $(ARCH) ---)
 
-#Compilation parameters
-COMPILER=gfortran
-FLAGS=-Wall -O3 -shared -fPIC -cpp
-OPENMP=-fopenmp
+#------------------------------------------------------------------------------
+# FPL library and module names
+#------------------------------------------------------------------------------
+FPL_lib  := libFPL.so
+FPL_mod  := fpl.mod
+FPL_srcdir := $(CURDIR)/src
 
-#Check distro
-ifeq ($(OS), $(filter $(OS), Fedora Korora))
-  $(info "$(OS) $(VERSION) $(ARCH) bits")
+#------------------------------------------------------------------------------
+# Compiler settings
+#------------------------------------------------------------------------------
+FC       := gfortran
+FCFLAGS  := -Wall -O3 -shared -fPIC -cpp
+OPENMP   := -fopenmp
 
-  #RedHat netcdf modules path
-  netcdf_libs=-I/usr/lib64/gfortran/modules/ -lnetcdff -lnetcdf
-
-  #FPL source files and directories
-  FPL_srcdir=$(shell pwd)/src/
-  FPL_libdir=/usr/lib64/
-  FPL_moddir=/usr/lib64/gfortran/modules/
+#------------------------------------------------------------------------------
+# Distro-specific paths (override with: make LIBDIR=... MODDIR=... NETCDF=...)
+#------------------------------------------------------------------------------
+ifneq (,$(filter $(OS),fedora korora rhel centos rocky alma))
+  LIBDIR   ?= /usr/lib64
+  MODDIR   ?= /usr/lib64/gfortran/modules
+  NETCDF   ?= -I$(MODDIR) -lnetcdff -lnetcdf
+else ifneq (,$(filter $(OS),debian ubuntu linuxmint pop))
+  LIBDIR   ?= /usr/lib
+  MODDIR   ?= /usr/include
+  NETCDF   ?= -I$(MODDIR) -lnetcdff -lnetcdf
+else
+  # Generic fallback — user can override via NETCDF=...
+  LIBDIR   ?= /usr/local/lib
+  MODDIR   ?= /usr/local/include
+  NETCDF   ?= -lnetcdff -lnetcdf
+  $(warning Unknown OS "$(OS)". Set LIBDIR, MODDIR, and NETCDF manually if needed.)
 endif
-ifeq ($(OS), $(filter $(OS), Debian Ubuntu))
-  $(info "$(OS) $(VERSION) $(ARCH) bits")
-  #Debian netcdf modules path
-  netcdf_libs=-I/usr/include/ -lnetcdff -lnetcdf
-  #FPL source files and directories
-  FPL_srcdir=$(shell pwd)/src/
-  FPL_libdir=/usr/lib/
-  FPL_moddir=/usr/include/
-endif
 
-compile:
-	$(COMPILER) $(OPENMP) $(FLAGS) -o $(FPL_lib) $(FPL_srcdir)FPL.f90 $(netcdf_libs)
-	mv $(FPL_lib) $(FPL_libdir)
-	mv $(FPL_mod) $(FPL_moddir)
+#------------------------------------------------------------------------------
+# Targets
+#------------------------------------------------------------------------------
+.PHONY: all build install uninstall clean help
+
+all: build
+
+build: $(FPL_lib)
+
+$(FPL_lib): $(FPL_srcdir)/FPL.f90
+	$(FC) $(OPENMP) $(FCFLAGS) -o $(FPL_lib) $(FPL_srcdir)/FPL.f90 $(NETCDF)
+	@echo "Build complete: $(FPL_lib)  $(FPL_mod)"
+
+install: $(FPL_lib)
+	install -d $(DESTDIR)$(LIBDIR) $(DESTDIR)$(MODDIR)
+	install -m 755 $(FPL_lib) $(DESTDIR)$(LIBDIR)/
+	install -m 644 $(FPL_mod) $(DESTDIR)$(MODDIR)/
+	@echo "Installed $(FPL_lib) -> $(DESTDIR)$(LIBDIR)/"
+	@echo "Installed $(FPL_mod) -> $(DESTDIR)$(MODDIR)/"
+
+uninstall:
+	rm -f $(DESTDIR)$(LIBDIR)/$(FPL_lib)
+	rm -f $(DESTDIR)$(MODDIR)/$(FPL_mod)
+	@echo "Uninstalled $(FPL_lib) and $(FPL_mod)"
+
+clean:
+	rm -f $(FPL_lib) $(FPL_mod)
+
+# Backward compatibility with the old target name
+compile: build install
+
+help:
+	@echo "Usage:"
+	@echo "  make              Build the library (local)"
+	@echo "  make build        Build the library (local)"
+	@echo "  make install      Build + install to system dirs (may need sudo)"
+	@echo "  make uninstall    Remove from system dirs"
+	@echo "  make clean        Remove local build artifacts"
+	@echo "  make compile      Legacy: build + install"
+	@echo ""
+	@echo "Overridable variables:"
+	@echo "  FC       Fortran compiler   (default: gfortran)"
+	@echo "  LIBDIR   Library install dir (default: auto-detected)"
+	@echo "  MODDIR   Module install dir  (default: auto-detected)"
+	@echo "  NETCDF   NetCDF flags        (default: auto-detected)"
