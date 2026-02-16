@@ -100,6 +100,10 @@ See the [Code Generation](#code-generation-architecture) section below for detai
 
 ## Code Generation Architecture
 
+### Pipeline Overview
+
+![C4 — Code Generation Pipeline](/diagrams/c4_codegen.png)
+
 ### How it works
 
 Each `.inc` template file contains a single Fortran subroutine (or type definition) with **CPP macro placeholders** instead of concrete type names:

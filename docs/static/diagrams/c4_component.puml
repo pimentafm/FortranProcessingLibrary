@@ -1,0 +1,63 @@
+@startuml c4_component
+!include <C4/C4_Component>
+
+title FPL — Component Diagram (C3) — libFPL.so internals
+
+Container_Boundary(fpl_module, "module FPL (libFPL.so)") {
+
+  Component(constants, "FPL_constants", "Fortran 90", "Physical constants (pi, Earth radius, Boltzmann, etc.) and type aliases via iso_c_binding: byte, short, intgr, float, double.")
+
+  Component(datatypes, "FPL_datatypes", "CPP Templates", "100 derived types: nc{2,3,4}d_{byte,short,int,float,double}_{llf,lld}[_t{i,f,d}][_l{i,f}]. Each stores ncdata, coordinates, metadata, FillValue.")
+
+  Component(interfaces, "FPL_interfaces", "Fortran 90", "7 generic interfaces: check, griddims, readgrid, writegrid, gengrid, setFillValue, dealloc. Provides static polymorphism.")
+
+  Component(checkerror, "FPL_checkerror", "Fortran 90", "Error handling: checkerror, checktype, checkatt, check_alloc, print_filename. Colored terminal output.")
+
+  Component(griddims, "FPL_griddims", "CPP Templates", "Reads NetCDF dimensions (lon, lat, time, level), dimension IDs, sizes, and units. 100 subroutines.")
+
+  Component(readgrid, "FPL_readgrid", "CPP Templates", "Reads variable data and coordinates from NetCDF files. Calls griddims first, then allocates and fills arrays. 100 subroutines.")
+
+  Component(writegrid, "FPL_writegrid", "CPP Templates", "Writes grids to NetCDF-4 (HDF5). Supports optional header files for global attributes. 100 subroutines.")
+
+  Component(gengrid, "FPL_gengrid", "CPP Templates", "Generates regular grids from Xmin/Ymin/Xmax/Ymax/resolution. Allocates all arrays and fills coordinates. 100 subroutines.")
+
+  Component(setfillvalue, "FPL_setfillvalue", "CPP Templates + OpenMP", "Applies spatial masks using FillValue. Cross-type: 5×5 dtypes × {2,3,4}D × coords × time × level = ~500 subroutines. OpenMP parallel do.")
+
+  Component(dealloc, "FPL_dealloc", "CPP Templates", "Deallocates all allocatable arrays in a type instance. Uses stat= for safe deallocation. 100 subroutines.")
+
+  Component(fileutils, "FPL_fileutils", "Fortran 90", "file_exists, countkeys, readheader, nlines. Header file parsing for writegrid.")
+
+  Component(datetime, "FPL_datetime", "Fortran 90", "fdate_time (system timestamp), exec_time (elapsed time).")
+
+  Component(sort, "FPL_sort", "Fortran 90", "bubbleSort for dimension ID ordering in griddims.")
+
+  Component(misc, "FPL_misc", "Fortran 90", "fpl_libversion() — returns library version string.")
+}
+
+System_Ext(netcdf, "NetCDF / HDF5", "nf90_* API")
+System_Ext(omp, "OpenMP", "Parallel runtime")
+
+Rel(interfaces, griddims, "Dispatches to")
+Rel(interfaces, readgrid, "Dispatches to")
+Rel(interfaces, writegrid, "Dispatches to")
+Rel(interfaces, gengrid, "Dispatches to")
+Rel(interfaces, setfillvalue, "Dispatches to")
+Rel(interfaces, dealloc, "Dispatches to")
+Rel(interfaces, checkerror, "Dispatches to")
+
+Rel(readgrid, griddims, "Calls", "griddims(ifile, idata)")
+Rel(writegrid, fileutils, "Calls", "readheader, file_exists")
+Rel(writegrid, datetime, "Calls", "fdate_time")
+Rel(writegrid, misc, "Calls", "fpl_libversion")
+Rel(griddims, sort, "Calls", "bubbleSort")
+Rel(griddims, checkerror, "Calls", "check, checkvarid, checkdimid")
+Rel(readgrid, checkerror, "Calls", "check, check_alloc")
+
+Rel(datatypes, constants, "Uses kinds", "byte, short, intgr, float, double")
+
+Rel(griddims, netcdf, "Reads", "nf90_open, nf90_inquire_*")
+Rel(readgrid, netcdf, "Reads", "nf90_get_var")
+Rel(writegrid, netcdf, "Writes", "nf90_create, nf90_put_var")
+Rel(setfillvalue, omp, "Uses", "!$omp parallel do")
+
+@enduml

@@ -1,0 +1,20 @@
+@startuml c4_context
+!include <C4/C4_Context>
+
+title FPL — System Context Diagram (C1)
+
+Person(scientist, "Scientist / Developer", "Writes Fortran programs that read, process, and write NetCDF gridded data.")
+
+System(fpl, "FPL — Fortran Processing Library", "Shared library (libFPL.so) that provides type-safe NetCDF I/O, grid generation, fill-value masking, and memory management for 2D/3D/4D geospatial data.")
+
+System_Ext(netcdf, "NetCDF / HDF5", "Network Common Data Form libraries (libnetcdf, libnetcdff). Stores and retrieves self-describing array-oriented scientific data.")
+System_Ext(gfortran, "GFortran Compiler", "GNU Fortran compiler with CPP preprocessor (-cpp) and OpenMP support (-fopenmp).")
+System_Ext(omp, "OpenMP Runtime", "Multi-threading runtime for parallel loop execution in setFillValue routines.")
+
+Rel(scientist, fpl, "Links to", "use fpl")
+Rel(fpl, netcdf, "Reads/Writes", "nf90_* API calls")
+Rel(fpl, omp, "Uses", "!$omp parallel do")
+Rel(scientist, gfortran, "Compiles with", "gfortran -cpp -fopenmp")
+Rel(gfortran, fpl, "Builds", "libFPL.so + fpl.mod")
+
+@enduml

@@ -1,0 +1,41 @@
+@startuml c4_container
+!include <C4/C4_Container>
+
+title FPL — Container Diagram (C2)
+
+Person(scientist, "Scientist / Developer", "Writes Fortran programs using FPL.")
+
+System_Boundary(fpl_sys, "FPL — Fortran Processing Library") {
+
+  Container(libfpl, "libFPL.so", "Fortran 90 / GFortran", "Shared library containing all 100 derived types, ~600 subroutines, generic interfaces, and OpenMP-parallelized routines.")
+  Container(fplmod, "fpl.mod", "GFortran Module", "Compiled module file. Provides 'use fpl' for user programs.")
+
+  Container(generator, "generate_cpp.py", "Python 3", "Generates .f90 instantiation files with #define/#include/#undef blocks for all type combinations. 239 lines.")
+  Container(templates, "templates/*.inc", "Fortran + CPP macros", "21 template files (7 modules × 3 dimensionalities). Contain Fortran code with CPP macro placeholders (FPL_SUBR, FPL_TYPE, etc.).")
+  Container(f90files, "FPL_*.f90", "Generated Fortran", "9 generated source files with CPP blocks. Expanded at compile time by gfortran -cpp.")
+
+  Container(srcfiles, "Hand-written .f90", "Fortran 90", "FPL_constants, FPL_checkerror, FPL_datetime, FPL_fileutils, FPL_misc, FPL_sort. Not generated.")
+
+  Container(makefile, "Makefile", "GNU Make", "Build system with OS detection, install/uninstall targets, and overridable paths.")
+}
+
+System_Ext(netcdf, "NetCDF / HDF5", "libnetcdf + libnetcdff")
+System_Ext(gfortran, "GFortran", "Compiler with -cpp -fopenmp")
+
+Rel(scientist, libfpl, "Links to", "use fpl")
+Rel(scientist, fplmod, "Imports", "use fpl")
+
+Rel(generator, templates, "Reads", "#include templates/*.inc")
+Rel(generator, f90files, "Generates", "FPL_datatypes.f90, ...")
+
+Rel(gfortran, f90files, "Preprocesses + compiles", "-cpp expands #define/#include")
+Rel(gfortran, srcfiles, "Compiles", "")
+Rel(gfortran, libfpl, "Produces", "libFPL.so")
+Rel(gfortran, fplmod, "Produces", "fpl.mod")
+
+Rel(libfpl, netcdf, "Calls", "nf90_open, nf90_get_var, ...")
+
+Rel(makefile, gfortran, "Invokes", "gfortran -fopenmp -Wall -O3 -shared -fPIC -cpp")
+Rel(makefile, generator, "Can invoke", "python3 src/generate_cpp.py")
+
+@enduml

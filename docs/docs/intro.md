@@ -77,6 +77,26 @@ The compiler flag `-cpp` tells `gfortran` to expand the preprocessor macros at c
 | `FPL_constants.f90`    | 49    | Physical constants and type aliases via `iso_c_binding`  |
 | `FPL_misc.f90`         | 39    | Library version                                          |
 
+## Architecture Diagrams
+
+### System Context (C1)
+
+High-level view of FPL and its external dependencies.
+
+![C1 — System Context](/diagrams/c4_context.png)
+
+### Containers (C2)
+
+Main artifacts that compose the FPL build system.
+
+![C2 — Containers](/diagrams/c4_container.png)
+
+### Components (C3)
+
+Internal modules of the FPL library and their relationships.
+
+![C3 — Components](/diagrams/c4_component.png)
+
 ## Code Generation
 
 FPL uses the **C preprocessor (CPP)** to handle the combinatorial explosion of subroutines for each type/dimension combination. The system has two layers:
