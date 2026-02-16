@@ -261,6 +261,30 @@
   margin-top: 0.25rem;
 }
 
+/* Install banner outline button — light mode */
+.installBanner :global(.button--outline) {
+  color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+.installBanner :global(.button--outline:hover) {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #fff;
+}
+
+/* Install banner outline button — dark mode */
+:global([data-theme='dark']) .installBanner :global(.button--outline) {
+  color: var(--ifm-color-primary-light);
+  border-color: var(--ifm-color-primary-light);
+}
+
+:global([data-theme='dark']) .installBanner :global(.button--outline:hover) {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #0f1a14;
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .heroContent {

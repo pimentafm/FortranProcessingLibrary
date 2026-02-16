@@ -192,6 +192,13 @@ function InstallBanner(): React.JSX.Element {
             </div>
           </div>
         </div>
+        <p style={{marginTop: '1.5rem', textAlign: 'center'}}>
+          <Link
+            className="button button--outline button--md"
+            to="/docs/getting-started">
+            See full build instructions for other Linux distributions →
+          </Link>
+        </p>
       </div>
     </section>
   );
