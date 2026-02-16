@@ -13,11 +13,11 @@ call writegrid(ofile, idata)
 call writegrid(ofile, idata, headerfile)   ! optional header file
 ```
 
-| Parameter    | Type                     | Description                                                                          |
-| ------------ | ------------------------ | ------------------------------------------------------------------------------------ |
-| `ofile`      | `character(*)`           | Output file path                                                                     |
-| `idata`      | FPL type                 | Structure with populated data                                                        |
-| `headerfile` | `character(*)`, optional | Path to a header file with custom attributes (see [fileutils](fileutils#readheader)) |
+| Parameter    | Type                     | Description                                                                                 |
+| ------------ | ------------------------ | ------------------------------------------------------------------------------------------- |
+| `ofile`      | `character(*)`           | Output file path                                                                            |
+| `idata`      | FPL type                 | Structure with populated data                                                               |
+| `headerfile` | `character(*)`, optional | Path to a header file with custom attributes (see [fileutils](../api/fileutils#readheader)) |
 
 ### Behavior
 
