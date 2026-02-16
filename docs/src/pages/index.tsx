@@ -214,7 +214,7 @@ export default function Home(): React.JSX.Element {
           <div className="container">
             <div className={styles.featuresGrid}>
               {features.map(({icon, title, description}, idx) => (
-                <Feature key={idx} icon={icon} title={title} description={description} />
+                <Feature icon={icon} title={title} description={description} />
               ))}
             </div>
           </div>
