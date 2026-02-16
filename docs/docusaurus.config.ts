@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'FPL — Fortran Processing Library',
-  tagline: 'NetCDF data processing library for Fortran 90',
+  title: 'FPL',
+  tagline: 'High-performance NetCDF processing in Fortran 90',
   favicon: 'img/FPLlogo.png',
 
   url: 'https://pimentafm.github.io',
@@ -43,13 +43,28 @@ const config: Config = {
   ],
 
   themeConfig: {
+    colorMode: {
+      defaultMode: 'light',
+      respectPrefersColorScheme: true,
+    },
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
+      },
+    },
     navbar: {
-      title: '',
       logo: {
         alt: 'FPL Logo',
         src: 'img/FPLlogo.png',
       },
       items: [
+        {
+          type: 'doc',
+          docId: 'intro',
+          position: 'left',
+          label: 'Docs',
+        },
         {
           type: 'doc',
           docId: 'getting-started',
@@ -58,20 +73,21 @@ const config: Config = {
         },
         {
           type: 'doc',
-          docId: 'user-manual/introduction',
+          docId: 'api/datatypes',
           position: 'left',
-          label: 'User Manual',
+          label: 'API',
         },
         {
           type: 'doc',
-          docId: 'api/datatypes',
+          docId: 'examples/ex01',
           position: 'left',
-          label: 'API Reference',
+          label: 'Examples',
         },
         {
           href: 'https://github.com/pimentafm/FortranProcessingLibrary',
-          label: 'GitHub',
           position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
@@ -79,8 +95,12 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Documentation',
+          title: 'Learn',
           items: [
+            {
+              label: 'Introduction',
+              to: '/docs/',
+            },
             {
               label: 'Getting Started',
               to: '/docs/getting-started',
@@ -89,23 +109,27 @@ const config: Config = {
               label: 'User Manual',
               to: '/docs/user-manual/introduction',
             },
+          ],
+        },
+        {
+          title: 'Reference',
+          items: [
             {
               label: 'API Reference',
               to: '/docs/api/datatypes',
             },
-          ],
-        },
-        {
-          title: 'Examples',
-          items: [
             {
-              label: 'Code Examples',
+              label: 'Examples',
               to: '/docs/examples/ex01',
+            },
+            {
+              label: 'Contributing',
+              to: '/docs/contributing',
             },
           ],
         },
         {
-          title: 'Links',
+          title: 'Community',
           items: [
             {
               label: 'GitHub',
@@ -115,15 +139,23 @@ const config: Config = {
               label: 'Research Group',
               href: 'http://www.biosfera.dea.ufv.br',
             },
+            {
+              label: 'Federal University of Viçosa',
+              href: 'https://www.ufv.br/',
+            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Fernando Martins Pimenta — GPLv3 License`,
+      copyright: `Copyright © ${new Date().getFullYear()} Fernando Martins Pimenta — Licensed under GPLv3`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['fortran', 'bash', 'makefile'],
+    },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 4,
     },
   } satisfies Preset.ThemeConfig,
 };
