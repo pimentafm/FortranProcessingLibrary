@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "FPL - Fortran Processing Library"
+abstract: >-
+  A Fortran 90 library for reading, writing, and processing NetCDF gridded
+  datasets with high-level generic interfaces, derived data types, and OpenMP
+  parallelization.
+authors:
+  - family-names: Pimenta
+    given-names: Fernando Martins
+    orcid: "https://orcid.org/0000-0002-7589-5721"
+    affiliation: "Federal University of Viçosa"
+    email: fernando.m.pimenta@ufv.br
+version: "1.0.0"
+date-released: "2026-02-27"
+license: GPL-3.0
+repository-code: "https://github.com/pimentafm/FortranProcessingLibrary"
+url: "https://pimentafm.github.io/FortranProcessingLibrary/"
+keywords:
+  - Fortran
+  - NetCDF
+  - scientific computing
+  - geospatial data
+  - OpenMP
+  - climate science

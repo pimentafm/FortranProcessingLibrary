@@ -1,0 +1,12 @@
+[Author]
+Livia C. P. Dias, Fernando M. Pimenta, Ana B. Santos, Marcos H. Costa
+[e-mail]
+liviacrisdias@gmail.com, fernando.m.pimenta@gmail.com, ana.bsantos15@gmail.com, mhcosta@ufv.br
+[Institution]
+Federal University of Vicosa - MG/Brazil
+[Source]
+Research Group on Atmosphere-Biosfere Interaction - http://www.biosfera.dea.ufv.br
+[Data-History]
+Included data for the years 2013 and 2014 (December, 2016).
+[Version]
+4.0

@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.2 20190208//EN"
+                  "JATS-publishing1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="other">
+<front>
+<journal-meta>
+<journal-id></journal-id>
+<journal-title-group>
+<journal-title>Journal of Open Source Software</journal-title>
+<abbrev-journal-title>JOSS</abbrev-journal-title>
+</journal-title-group>
+<issn publication-format="electronic">2475-9066</issn>
+<publisher>
+<publisher-name>Open Journals</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="publisher-id">0</article-id>
+<article-id pub-id-type="doi">N/A</article-id>
+<title-group>
+<article-title>FPL: A Fortran Processing Library for NetCDF Data with
+OpenMP Parallelization</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">https://orcid.org/0000-0002-7589-5721</contrib-id>
+<name>
+<surname>Pimenta</surname>
+<given-names>Fernando Martins</given-names>
+</name>
+<xref ref-type="aff" rid="aff-1"/>
+</contrib>
+<aff id="aff-1">
+<institution-wrap>
+<institution>Agricultural Engineering Department, Federal University of
+Viçosa, Av. P. H. Rolfs, s/n Viçosa, MG 36570-900, Brazil</institution>
+</institution-wrap>
+</aff>
+</contrib-group>
+<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2026-02-27">
+<day>27</day>
+<month>2</month>
+<year>2026</year>
+</pub-date>
+<volume>¿VOL?</volume>
+<issue>¿ISSUE?</issue>
+<fpage>¿PAGE?</fpage>
+<permissions>
+<copyright-statement>Authors of papers retain copyright and release the
+work under a Creative Commons Attribution 4.0 International License (CC
+BY 4.0)</copyright-statement>
+<copyright-year>1970</copyright-year>
+<copyright-holder>The article authors</copyright-holder>
+<license license-type="open-access" xlink:href="https://creativecommons.org/licenses/by/4.0/">
+<license-p>Authors of papers retain copyright and release the work under
+a Creative Commons Attribution 4.0 International License (CC BY
+4.0)</license-p>
+</license>
+</permissions>
+<kwd-group kwd-group-type="author">
+<kwd>Fortran</kwd>
+<kwd>NetCDF</kwd>
+<kwd>scientific computing</kwd>
+<kwd>geospatial data</kwd>
+<kwd>OpenMP</kwd>
+<kwd>climate science</kwd>
+</kwd-group>
+</article-meta>
+</front>
+<body>
+<sec id="summary">
+  <title>Summary</title>
+  <p>The Fortran Processing Library (FPL) is a set of high-level Fortran
+  90 structures that simplify the handling and development of
+  applications based on NetCDF datasets and parallel processing. FPL is
+  intended to be a powerful and easy-to-use Fortran 90 module for
+  reading, writing, and processing NetCDF datasets for scientists and
+  programmers. The library supports 5 types of NetCDF variables
+  (<monospace>byte</monospace>, <monospace>short</monospace>,
+  <monospace>int</monospace>, <monospace>float</monospace>,
+  <monospace>double</monospace>) of up to 4 dimensions (longitude,
+  latitude, time, and level), and its structure is composed of 15 source
+  files containing definitions of physical constants, abstract data
+  types, interfaces, intrinsic subroutines, functions, and error
+  handling. FPL also provides utilities for regular grid generation from
+  bounding-box specifications, FillValue-based masking with OpenMP
+  parallelization, file metadata inspection, and safe memory management.
+  The library compiles as a single shared object
+  (<monospace>libFPL.so</monospace>) and is designed for use in
+  atmospheric science, climate research, and geospatial data processing
+  workflows written in Fortran.</p>
+</sec>
+<sec id="statement-of-need">
+  <title>Statement of Need</title>
+  <p>Most geoscientists are familiar with NetCDF (Network Common Data
+  Form), a self-described array-based data structure for storing
+  multidimensional data and a set of interfaces, libraries, and formats
+  that support the creation, access, and sharing of array-oriented data
+  (<xref alt="Ravazzani, 2013" rid="ref-ravazzani2013mosaico" ref-type="bibr">Ravazzani,
+  2013</xref>;
+  <xref alt="Robinson &amp; Perrette, 2015" rid="ref-robinson2015ncio" ref-type="bibr">Robinson
+  &amp; Perrette, 2015</xref>). The NetCDF libraries support a
+  machine-independent format for representing n-dimensional scientific
+  data with multiple variables, grid types (regular and irregular), and
+  metadata, eliminating binary output dependencies in a particular
+  computing system and ensuring that the data is fully self-described
+  within a file
+  (<xref alt="Rew &amp; Davis, 1990" rid="ref-rew1990netcdf" ref-type="bibr">Rew
+  &amp; Davis, 1990</xref>). When faced with problems involving large
+  databases, massive processing, and many data types, scientists need to
+  use efficient languages, parallel computing techniques, and data
+  abstraction approaches to improve performance and facilitate the
+  handling of NetCDF datasets. This is not a straightforward task
+  because the user needs to understand how Fortran–NetCDF–OpenMP
+  interaction works, in addition to having sufficient programming
+  expertise.</p>
+  <p>The native NetCDF-Fortran API
+  (<xref alt="Pincus &amp; Rew, 2008" rid="ref-pincus2008netcdf" ref-type="bibr">Pincus
+  &amp; Rew, 2008</xref>) is inherently low-level: reading a single
+  variable requires opening the file, querying dimension IDs, inquiring
+  dimension lengths, allocating arrays, retrieving variable IDs, reading
+  coordinate variables, reading the data variable, extracting
+  attributes, and closing the file — often spanning 30 or more lines of
+  boilerplate code. This verbosity is a significant source of
+  programming errors and impedes rapid prototyping.</p>
+  <p>FPL addresses this gap by providing generic interfaces
+  (<monospace>readgrid</monospace>, <monospace>writegrid</monospace>,
+  <monospace>gengrid</monospace>, <monospace>griddims</monospace>,
+  <monospace>setFillValue</monospace>, <monospace>dealloc</monospace>)
+  that reduce typical I/O operations to one or two subroutine calls. The
+  user declares a derived-type variable whose name encodes the desired
+  combination of data type, coordinate precision, and dimensionality
+  (e.g., <monospace>nc4d_float_llf_tf_lf</monospace> for a 4D float
+  variable with float coordinates, float time, and float levels), and
+  FPL handles all NetCDF bookkeeping internally. This design eliminates
+  an entire class of dimension-mismatch and type-mismatch bugs that are
+  common when interacting with the raw API.</p>
+  <p>The library is aimed at researchers and graduate students in
+  atmospheric sciences, climatology, oceanography, and remote sensing
+  who write data processing pipelines in Fortran and need a productive,
+  type-safe interface to NetCDF without leaving the Fortran
+  ecosystem.</p>
+</sec>
+<sec id="state-of-the-field">
+  <title>State of the Field</title>
+  <p>Several tools exist for working with NetCDF data, but none occupy
+  the same niche as FPL:</p>
+  <list list-type="bullet">
+    <list-item>
+      <p><bold>NetCDF-Fortran</bold>
+      (<xref alt="Unidata, 2024" rid="ref-unidata_netcdff" ref-type="bibr">Unidata,
+      2024</xref>): The official Fortran bindings provided by Unidata.
+      This is a low-level API that maps directly to the C library calls.
+      It provides maximum flexibility but requires substantial
+      boilerplate for every I/O operation. FPL builds on top of
+      NetCDF-Fortran rather than replacing it.</p>
+    </list-item>
+    <list-item>
+      <p><bold>NCIO</bold>
+      (<xref alt="Robinson &amp; Perrette, 2015" rid="ref-robinson2015ncio" ref-type="bibr">Robinson
+      &amp; Perrette, 2015</xref>): A simple Fortran NetCDF interface
+      that provides wrapper routines for reading and writing NetCDF
+      files. NCIO focuses on simplifying individual read/write calls but
+      does not provide derived types that bundle data with metadata,
+      grid generation capabilities, or OpenMP-parallelized masking
+      operations.</p>
+    </list-item>
+    <list-item>
+      <p><bold>PyPnetCDF</bold>
+      (<xref alt="Galiano et al., 2010" rid="ref-galiano2010pypnetcdf" ref-type="bibr">Galiano
+      et al., 2010</xref>): A high-level Python framework for parallel
+      access to NetCDF files. While it offers parallel I/O capabilities,
+      it operates in the Python ecosystem and cannot be directly
+      embedded in Fortran-based modeling workflows.</p>
+    </list-item>
+    <list-item>
+      <p><bold>MOSAICO</bold>
+      (<xref alt="Ravazzani, 2013" rid="ref-ravazzani2013mosaico" ref-type="bibr">Ravazzani,
+      2013</xref>): A Fortran library for raster-based hydrological
+      applications that provides NetCDF I/O capabilities. MOSAICO is
+      domain-specific to hydrological modeling and does not offer the
+      generic multi-type, multi-dimensional interface that FPL
+      provides.</p>
+    </list-item>
+    <list-item>
+      <p><bold>CDO</bold> (Climate Data Operators)
+      (<xref alt="Schulzweida, 2019" rid="ref-schulzweida2019cdo" ref-type="bibr">Schulzweida,
+      2019</xref>) and <bold>NCO</bold> (NetCDF Operators)
+      (<xref alt="Zender, 2008" rid="ref-zender2008nco" ref-type="bibr">Zender,
+      2008</xref>): Command-line tool suites for processing NetCDF data.
+      Both are powerful for batch operations but are not programmatic
+      libraries — they cannot be called from within a Fortran program’s
+      computational loop.</p>
+    </list-item>
+    <list-item>
+      <p><bold>xarray</bold>
+      (<xref alt="Hoyer &amp; Hamman, 2017" rid="ref-hoyer2017xarray" ref-type="bibr">Hoyer
+      &amp; Hamman, 2017</xref>): A Python library that provides
+      labeled, multi-dimensional arrays with NetCDF I/O. While xarray
+      offers an excellent high-level interface, it operates in the
+      Python ecosystem and cannot be directly used in Fortran-based
+      modeling workflows.</p>
+    </list-item>
+  </list>
+  <p>FPL fills a specific gap: a <bold>high-level Fortran-native
+  library</bold> with derived types that bundle data and metadata,
+  generic interfaces for compile-time type safety, built-in grid
+  generation, and OpenMP-parallelized masking operations.</p>
+</sec>
+<sec id="software-design">
+  <title>Software Design</title>
+  <sec id="architecture">
+    <title>Architecture</title>
+    <p>FPL is organized as a single Fortran module
+    (<monospace>module FPL</monospace>) that aggregates all
+    functionality through C preprocessor (CPP)
+    <monospace>#include</monospace> directives. The main source file
+    <monospace>src/FPL.f90</monospace> includes 14 component files that
+    provide constants, derived types, generic interfaces, and
+    implementation subroutines. This single-module design allows users
+    to access all functionality with a single
+    <monospace>use fpl</monospace> statement. Since Fortran 90 is not
+    object-oriented, classes are emulated through a language constructor
+    (the module) and its objects are accessed through subroutines or
+    functions
+    (<xref alt="Decyk &amp; Gardner, 2008" rid="ref-decyk2008oop" ref-type="bibr">Decyk
+    &amp; Gardner, 2008</xref>). FPL uses this approach to handle NetCDF
+    datasets by defining them as abstract data types encapsulated in a
+    module containing sets of predefined operations.</p>
+  </sec>
+  <sec id="code-generation-strategy">
+    <title>Code Generation Strategy</title>
+    <p>The central design challenge in FPL is the combinatorial
+    explosion of type specializations required by Fortran’s strong
+    static type system. Supporting 5 numeric types, 2 coordinate
+    precisions, 3 time types, and 2 level types across 3
+    dimensionalities yields 100 distinct derived types and corresponding
+    procedure specializations for each generic interface. Writing and
+    maintaining these by hand would be impractical.</p>
+    <p>FPL addresses this through a two-level code generation
+    strategy:</p>
+    <list list-type="order">
+      <list-item>
+        <p><bold>CPP Templates</bold> (21 <monospace>.inc</monospace>
+        files in <monospace>src/templates/</monospace>): Each template
+        implements a generic algorithm (e.g.,
+        <monospace>readgrid_2d.inc</monospace>) using CPP macros as
+        placeholders for type-specific tokens. At compile time, the
+        preprocessor expands each template once per type combination,
+        producing the full set of specialized subroutines.</p>
+      </list-item>
+      <list-item>
+        <p><bold>Python Generator</bold>
+        (<monospace>src/generate_cpp.py</monospace>): A Python script
+        generates the Fortran source files that contain the
+        <monospace>#define</monospace>/<monospace>#include</monospace>/<monospace>#undef</monospace>
+        blocks for each type combination. This script produces the
+        derived type definitions, interface blocks, and all procedure
+        wrappers.</p>
+      </list-item>
+    </list>
+    <p>This approach was chosen over Fortran 2003+ object-oriented
+    features (type-bound procedures, class polymorphism) for two
+    reasons: (a) it produces zero-overhead, fully specialized code with
+    no runtime dispatch, and (b) it maximizes portability across Fortran
+    compilers that may have incomplete support for advanced OOP
+    features.</p>
+  </sec>
+  <sec id="error-handling">
+    <title>Error Handling</title>
+    <p>The error handling follows the NetCDF error standards, augmented
+    with a series of subroutines capable of handling specific errors
+    according to a given specification. FPL uses a color system to
+    return errors: BLUE for help messages, ORANGE for warning messages,
+    and RED for fatal errors. The specific error handlers include
+    <monospace>checkvarid</monospace> (checks if a variable name
+    exists), <monospace>checkdimid</monospace> (checks if a dimension
+    name exists), <monospace>checktype</monospace> (checks if the
+    declared data type matches the data to be read), and
+    <monospace>checkatt</monospace> (checks if attributes exist within
+    the NetCDF file).</p>
+  </sec>
+  <sec id="parallelization">
+    <title>Parallelization</title>
+    <p>The <monospace>setFillValue</monospace> interface, which applies
+    2D masks to 2D, 3D, or 4D datasets, is parallelized with OpenMP
+    (<xref alt="OpenMP Architecture Review Board, 2021" rid="ref-openmp5" ref-type="bibr">OpenMP
+    Architecture Review Board, 2021</xref>) directives. The loop
+    ordering is optimized for Fortran’s column-major memory layout, with
+    the innermost loop iterating over the first (longitude) dimension to
+    maximize cache utilization.</p>
+  </sec>
+</sec>
+<sec id="research-applications">
+  <title>Research Applications</title>
+  <p>FPL has been used in research conducted by the Atmosphere-Biosphere
+  Interaction group at the Federal University of Viçosa since 2015. In
+  particular, the library was used to process data from BHALU (Brazilian
+  Historical Agricultural Land Use)
+  (<xref alt="Dias et al., 2016a" rid="ref-dias2016bhalu" ref-type="bibr">Dias
+  et al., 2016a</xref>), a publicly available historical and spatial
+  reconstruction of land-use change patterns (1940–2012) and
+  productivity (1990–2012) in Brazil. FPL enabled the processing of
+  soybean cropland datasets at 30” spatial resolution (~1 km), including
+  reading, filtering, spatial masking by state boundaries, and writing
+  the results — all within a concise Fortran program. This work
+  supported the analysis published by Dias et al.
+  (<xref alt="2016b" rid="ref-dias2016patterns" ref-type="bibr">2016b</xref>),
+  which examined patterns of land use, extensification, and
+  intensification of Brazilian agriculture using data processed with
+  FPL.</p>
+</sec>
+<sec id="ai-usage-disclosure">
+  <title>AI Usage Disclosure</title>
+  <p>Claude Code (Anthropic) was used to assist in build system
+  modernization, code review, and preparation of the JOSS submission
+  materials. All generated output was reviewed and validated by the
+  author.</p>
+</sec>
+<sec id="acknowledgements">
+  <title>Acknowledgements</title>
+  <p>The author acknowledges the Federal University of Viçosa and the
+  Research Group on Atmosphere-Biosphere Interaction for many fruitful
+  discussions and tests on FPL. The author also acknowledges Unidata for
+  developing and maintaining the NetCDF libraries.</p>
+</sec>
+</body>
+<back>
+<ref-list>
+  <title></title>
+  <ref id="ref-rew1990netcdf">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Rew</surname><given-names>R.</given-names></name>
+        <name><surname>Davis</surname><given-names>G.</given-names></name>
+      </person-group>
+      <article-title>NetCDF: An interface for scientific data access</article-title>
+      <source>IEEE Computer Graphics and Applications</source>
+      <publisher-name>IEEE</publisher-name>
+      <year iso-8601-date="1990">1990</year>
+      <volume>10</volume>
+      <issue>4</issue>
+      <pub-id pub-id-type="doi">10.1109/38.56302</pub-id>
+      <fpage>76</fpage>
+      <lpage>82</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-unidata_netcdff">
+    <element-citation>
+      <person-group person-group-type="author">
+        <string-name>Unidata</string-name>
+      </person-group>
+      <article-title>NetCDF-Fortran Libraries</article-title>
+      <publisher-name>https://www.unidata.ucar.edu/software/netcdf/</publisher-name>
+      <year iso-8601-date="2024">2024</year>
+    </element-citation>
+  </ref>
+  <ref id="ref-pincus2008netcdf">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Pincus</surname><given-names>R.</given-names></name>
+        <name><surname>Rew</surname><given-names>R.</given-names></name>
+      </person-group>
+      <source>The NetCDF Fortran 90 Interface Guide</source>
+      <year iso-8601-date="2008">2008</year>
+      <uri>https://www.unidata.ucar.edu/software/netcdf/netcdf-4/newdocs/netcdf-f90.pdf</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-openmp5">
+    <element-citation>
+      <person-group person-group-type="author">
+        <string-name>OpenMP Architecture Review Board</string-name>
+      </person-group>
+      <article-title>OpenMP application programming interface, version 5.2</article-title>
+      <publisher-name>https://www.openmp.org/specifications/</publisher-name>
+      <year iso-8601-date="2021">2021</year>
+    </element-citation>
+  </ref>
+  <ref id="ref-robinson2015ncio">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Robinson</surname><given-names>A.</given-names></name>
+        <name><surname>Perrette</surname><given-names>M.</given-names></name>
+      </person-group>
+      <article-title>NCIO 1.0: A simple Fortran NetCDF interface</article-title>
+      <source>Geoscientific Model Development</source>
+      <year iso-8601-date="2015">2015</year>
+      <volume>8</volume>
+      <issue>6</issue>
+      <pub-id pub-id-type="doi">10.5194/gmd-8-1877-2015</pub-id>
+      <fpage>1877</fpage>
+      <lpage>1883</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-galiano2010pypnetcdf">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Galiano</surname><given-names>Vicente</given-names></name>
+        <name><surname>Migallón</surname><given-names>Héctor</given-names></name>
+        <name><surname>Migallón</surname><given-names>Violeta</given-names></name>
+        <name><surname>Penadés</surname><given-names>José</given-names></name>
+      </person-group>
+      <article-title>PyPnetCDF: A high level framework for parallel access to netCDF files</article-title>
+      <source>Advances in Engineering Software</source>
+      <year iso-8601-date="2010">2010</year>
+      <volume>41</volume>
+      <issue>1</issue>
+      <pub-id pub-id-type="doi">10.1016/j.advengsoft.2009.06.005</pub-id>
+      <fpage>92</fpage>
+      <lpage>98</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-ravazzani2013mosaico">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Ravazzani</surname><given-names>Giovanni</given-names></name>
+      </person-group>
+      <article-title>MOSAICO, a library for raster based hydrological applications</article-title>
+      <source>Computers and Geosciences</source>
+      <publisher-name>Elsevier</publisher-name>
+      <year iso-8601-date="2013">2013</year>
+      <volume>51</volume>
+      <pub-id pub-id-type="doi">10.1016/j.cageo.2012.08.007</pub-id>
+      <fpage>1</fpage>
+      <lpage>6</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-schulzweida2019cdo">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Schulzweida</surname><given-names>Uwe</given-names></name>
+      </person-group>
+      <article-title>CDO user guide</article-title>
+      <year iso-8601-date="2019">2019</year>
+      <pub-id pub-id-type="doi">10.5281/zenodo.3539275</pub-id>
+    </element-citation>
+  </ref>
+  <ref id="ref-zender2008nco">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Zender</surname><given-names>Charles S.</given-names></name>
+      </person-group>
+      <article-title>Analysis of self-describing gridded geoscience data with netCDF operators (NCO)</article-title>
+      <source>Environmental Modelling &amp; Software</source>
+      <publisher-name>Elsevier</publisher-name>
+      <year iso-8601-date="2008">2008</year>
+      <volume>23</volume>
+      <issue>10–11</issue>
+      <pub-id pub-id-type="doi">10.1016/j.envsoft.2008.03.004</pub-id>
+      <fpage>1338</fpage>
+      <lpage>1342</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-hoyer2017xarray">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Hoyer</surname><given-names>Stephan</given-names></name>
+        <name><surname>Hamman</surname><given-names>Joe</given-names></name>
+      </person-group>
+      <article-title>Xarray: N-D labeled arrays and datasets in Python</article-title>
+      <source>Journal of Open Research Software</source>
+      <publisher-name>Ubiquity Press</publisher-name>
+      <year iso-8601-date="2017">2017</year>
+      <volume>5</volume>
+      <issue>1</issue>
+      <pub-id pub-id-type="doi">10.5334/jors.148</pub-id>
+      <fpage>10</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-decyk2008oop">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Decyk</surname><given-names>Viktor K.</given-names></name>
+        <name><surname>Gardner</surname><given-names>Henry J.</given-names></name>
+      </person-group>
+      <article-title>Object-oriented design patterns in Fortran 90/95: mazev1, mazev2 and mazev3</article-title>
+      <source>Computer Physics Communications</source>
+      <publisher-name>Elsevier</publisher-name>
+      <year iso-8601-date="2008">2008</year>
+      <volume>178</volume>
+      <issue>8</issue>
+      <pub-id pub-id-type="doi">10.1016/j.cpc.2007.11.013</pub-id>
+      <fpage>611</fpage>
+      <lpage>620</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-dias2016patterns">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Dias</surname><given-names>Lı́via C. P.</given-names></name>
+        <name><surname>Pimenta</surname><given-names>Fernando M.</given-names></name>
+        <name><surname>Santos</surname><given-names>Ana B.</given-names></name>
+        <name><surname>Costa</surname><given-names>Marcos H.</given-names></name>
+        <name><surname>Ladle</surname><given-names>Richard J.</given-names></name>
+      </person-group>
+      <article-title>Patterns of land use, extensification, and intensification of Brazilian agriculture</article-title>
+      <source>Global Change Biology</source>
+      <year iso-8601-date="2016">2016</year>
+      <pub-id pub-id-type="doi">10.1111/gcb.13314</pub-id>
+      <fpage>1</fpage>
+      <lpage>16</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-dias2016bhalu">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Dias</surname><given-names>Lı́via C. P.</given-names></name>
+        <name><surname>Pimenta</surname><given-names>Fernando M.</given-names></name>
+        <name><surname>Santos</surname><given-names>Ana B.</given-names></name>
+        <name><surname>Costa</surname><given-names>Marcos H.</given-names></name>
+        <name><surname>Ladle</surname><given-names>Richard J.</given-names></name>
+      </person-group>
+      <source>BHALU – Brazilian Historical Agricultural Land Use</source>
+      <year iso-8601-date="2016">2016</year>
+      <uri>ftp://madeira.dea.ufv.br/bdados/bhalu/README_Metadata_updated2016.12.10.pdf</uri>
+    </element-citation>
+  </ref>
+</ref-list>
+</back>
+</article>
