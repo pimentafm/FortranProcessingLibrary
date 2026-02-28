@@ -183,22 +183,15 @@ subroutine checkatt(ncstatus, uname, ifile)
       call print_filename(ifile)
       stop
       else
-        write(*,*)trim(adjustl(nf90_strerror(ncstatus)))
         write(*,*) achar(27)//"[38"//achar(59)//"5"//achar(59)// &
-                   "166m WARNING: Declare "//trim(adjustl(uname))//" in your NetCDF!" &
-                   //achar(27)//"[0m"
-        write(*,*) achar(27)//"[1"//achar(59)// &
-                   "94m You can set "//trim(adjustl(uname))//" into your NetCDF file" &
-                   //achar(27)//"[0m"
-        write(*,*) achar(27)//"[1"//achar(59)//"94m or set it into your code!" &
-                   //achar(27)//"[0m"
-        write(*,*) achar(27)//"[0"//achar(59)//"94m       Example: "//achar(27)//"[0m"
-        write(*,*) achar(27)//"[0"//achar(59)// &
-                   "94m       If you declared type(nc2d_<type>) :: yourdata"//achar(27)//"[0m"
-        write(*,*) achar(27)//"[0"//achar(59)// &
-                   "94m         Set in your file: yourdata%"//trim(adjustl(uname))// &
-                   " = units (degrees, km, ...)"//achar(27)//"[0m"
+                   "166m WARNING: Attribute '"//trim(adjustl(uname))// &
+                   "' not found in NetCDF file. Processing continues."//achar(27)//"[0m"
         call print_filename(ifile)
+        write(*,*) achar(27)//"[0"//achar(59)// &
+                   "94m  To fix, add the attribute with ncatted:"//achar(27)//"[0m"
+        write(*,*) achar(27)//"[0"//achar(59)// &
+                   "94m    ncatted -a "//trim(adjustl(uname))// &
+                   ",<varname>,c,c,""<value>"" <file.nc>"//achar(27)//"[0m"
     end if
   end if
 end subroutine checkatt

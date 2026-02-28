@@ -1,5 +1,5 @@
 ---
-sidebar_position: 12
+sidebar_position: 13
 ---
 
 # Error Checking
@@ -39,7 +39,10 @@ call check(nf90_status, vartype_code, declared_type_string, filepath)
 
 ### checkatt
 
-Validates NetCDF attribute retrieval. Provides guidance for missing `_FillValue`.
+Validates NetCDF attribute retrieval. Behavior depends on the attribute:
+
+- **`_FillValue`**: Aborts with an error message and `ncatted` suggestion to add the attribute
+- **Other attributes** (e.g., `units`): Prints a warning and continues processing, with an `ncatted` suggestion
 
 ```fortran
 call check(nf90_status, attribute_name, filepath)

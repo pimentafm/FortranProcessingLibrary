@@ -178,6 +178,31 @@ def gen_setfillvalue():
                                       ("FPL_MAP_TYPE",  f"nc4d_{mp[0]}_{c[0]}_{t[0]}_{l[0]}")], "setfillvalue_4d.inc")
     write("FPL_setfillvalue.f90", out)
 
+def gen_zonalstats():
+    out = GPL
+    for c in COORDS:
+        for zd in DTYPES:
+            for dd in DTYPES:
+                out += block([("FPL_SUBR", f"zonalstats2d_{zd[0]}{dd[0]}_{c[0]}"),
+                              ("FPL_ZONE_TYPE", f"nc2d_{zd[0]}_{c[0]}"),
+                              ("FPL_DATA_TYPE", f"nc2d_{dd[0]}_{c[0]}")], "zonalstats_2d.inc")
+    for c in COORDS:
+        for t in TIMES:
+            for zd in DTYPES:
+                for dd in DTYPES:
+                    out += block([("FPL_SUBR", f"zonalstats3d_{zd[0]}{dd[0]}_{c[0]}_{t[0]}"),
+                                  ("FPL_ZONE_TYPE", f"nc2d_{zd[0]}_{c[0]}"),
+                                  ("FPL_DATA_TYPE", f"nc3d_{dd[0]}_{c[0]}_{t[0]}")], "zonalstats_3d.inc")
+    for c in COORDS:
+        for t in TIMES:
+            for l in LEVELS:
+                for zd in DTYPES:
+                    for dd in DTYPES:
+                        out += block([("FPL_SUBR", f"zonalstats4d_{zd[0]}{dd[0]}_{c[0]}_{t[0]}_{l[0]}"),
+                                      ("FPL_ZONE_TYPE", f"nc2d_{zd[0]}_{c[0]}"),
+                                      ("FPL_DATA_TYPE", f"nc4d_{dd[0]}_{c[0]}_{t[0]}_{l[0]}")], "zonalstats_4d.inc")
+    write("FPL_zonalstats.f90", out)
+
 def gen_interfaces():
     out = GPL
     out += "interface check\n  module procedure checkerror, checktype, checkatt\nend interface check\n\n"
@@ -193,7 +218,13 @@ def gen_interfaces():
              [f"setfvalue3d_{md[0]}{mp[0]}_{c[0]}_{t[0]}" for c in COORDS for t in TIMES for md in DTYPES for mp in DTYPES] +
              [f"setfvalue4d_{md[0]}{mp[0]}_{c[0]}_{t[0]}_{l[0]}" for c in COORDS for t in TIMES for l in LEVELS for md in DTYPES for mp in DTYPES])
     out += "interface setFillValue\n  module procedure " + \
-           ", &\n                ".join(names) + "\nend interface setFillValue\n"
+           ", &\n                ".join(names) + "\nend interface setFillValue\n\n"
+    # zonalStats
+    names = ([f"zonalstats2d_{zd[0]}{dd[0]}_{c[0]}" for c in COORDS for zd in DTYPES for dd in DTYPES] +
+             [f"zonalstats3d_{zd[0]}{dd[0]}_{c[0]}_{t[0]}" for c in COORDS for t in TIMES for zd in DTYPES for dd in DTYPES] +
+             [f"zonalstats4d_{zd[0]}{dd[0]}_{c[0]}_{t[0]}_{l[0]}" for c in COORDS for t in TIMES for l in LEVELS for zd in DTYPES for dd in DTYPES])
+    out += "interface zonalStats\n  module procedure " + \
+           ", &\n                ".join(names) + "\nend interface zonalStats\n"
     write("FPL_interfaces.f90", out)
 
 def gen_fpl():
@@ -220,7 +251,7 @@ module FPL
 #include "FPL_fileutils.f90"
 #include "FPL_misc.f90"
 #include "FPL_sort.f90"
-! #include "FPL_zonalstats.f90"
+#include "FPL_zonalstats.f90"
 end module FPL
 """)
 
@@ -234,6 +265,7 @@ if __name__ == "__main__":
     gen_simple("gengrid", "gengrid")
     gen_writegrid()
     gen_setfillvalue()
+    gen_zonalstats()
     gen_interfaces()
     gen_fpl()
     print("Done.")

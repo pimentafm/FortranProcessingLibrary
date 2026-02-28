@@ -14,6 +14,7 @@ Developed at the [Federal University of Viçosa](https://www.ufv.br/) (UFV), Bra
 - **NetCDF I/O** — Read and write 2D, 3D, and 4D grids with support for byte, short, int, float, and double data types
 - **Grid generation** — Create regular grids from bounding box and resolution parameters
 - **Fill value masking** — Apply spatial masks using `_FillValue` with OpenMP parallelization
+- **Zonal statistics** — Per-zone aggregates (count, mean, min, max, sum, variance) from a data grid grouped by a 2D zone/classification grid, with OpenMP parallelization
 - **Cache-optimized** — Column-major loop ordering for optimal Fortran memory access patterns
 - **Robust error handling** — Allocation checks with `stat=`, explicit `intent` declarations, pure Fortran diagnostics
 - **Shared library** — Compiles as `libFPL.so` for easy linking
@@ -44,6 +45,7 @@ module FPL
 #include "FPL_fileutils.f90"
 #include "FPL_misc.f90"
 #include "FPL_sort.f90"
+#include "FPL_zonalstats.f90"
 end module FPL
 ```
 
@@ -54,9 +56,10 @@ The compiler flag `-cpp` tells `gfortran` to expand the preprocessor macros at c
 | File                   | Lines | Description                                              |
 | ---------------------- | ----- | -------------------------------------------------------- |
 | `FPL_setfillvalue.f90` | 4,033 | Fill value masking with OpenMP `parallel do`             |
+| `FPL_zonalstats.f90`   | 4,033 | Zonal statistics with OpenMP parallelization             |
 | `FPL_writegrid.f90`    | 1,133 | Write grids to NetCDF-4 (HDF5 format)                    |
+| `FPL_interfaces.f90`   | 1,557 | Generic interfaces (static polymorphism)                 |
 | `FPL_datatypes.f90`    | 1,133 | 100 derived type definitions via CPP templates           |
-| `FPL_interfaces.f90`   | 1,054 | Generic interfaces (static polymorphism)                 |
 | `FPL_readgrid.f90`     | 833   | Read variables and coordinates from NetCDF               |
 | `FPL_gengrid.f90`      | 833   | Generate regular grids from bounding box                 |
 | `FPL_griddims.f90`     | 633   | Read NetCDF dimensions (lon, lat, time, level)           |
@@ -67,15 +70,8 @@ The compiler flag `-cpp` tells `gfortran` to expand the preprocessor macros at c
 | `FPL_sort.f90`         | 57    | Bubble sort for dimension ID ordering                    |
 | `FPL_constants.f90`    | 49    | Physical constants and type aliases via `iso_c_binding`  |
 | `FPL_misc.f90`         | 39    | Library version                                          |
-| `templates/*.inc`      | 942   | 21 CPP template files (7 modules × 3 dimensions)         |
-| `generate_cpp.py`      | 239   | Python generator for `.f90` instantiation files          |
-| `FPL_dealloc.f90`      | 833   | Memory deallocation with `stat=` checks                  |
-| `FPL_checkerror.f90`   | 205   | Error handling with colored output (pure Fortran)        |
-| `FPL_fileutils.f90`    | 111   | File utilities: `file_exists`, `countkeys`, `readheader` |
-| `FPL_datetime.f90`     | 77    | System date/time (`fdate_time`, `exec_time`)             |
-| `FPL_sort.f90`         | 57    | Bubble sort for dimension ID ordering                    |
-| `FPL_constants.f90`    | 49    | Physical constants and type aliases via `iso_c_binding`  |
-| `FPL_misc.f90`         | 39    | Library version                                          |
+| `templates/*.inc`      | 1,084 | 24 CPP template files (8 modules × 3 dimensions)         |
+| `generate_cpp.py`      | 271   | Python generator for `.f90` instantiation files          |
 
 ## Architecture Diagrams
 

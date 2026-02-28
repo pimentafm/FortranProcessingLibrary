@@ -53,7 +53,7 @@ FPL_library=-lFPL
 FLAGS= -Wall -O3
 OMP= -fopenmp
 
-all: ex0 ex1 ex2 ex3 ex4 ex5 ex6
+all: ex0 ex1 ex2 ex3 ex4 ex5 ex6 ex7 ex8 ex9 ex10
 
 ex0:
 	gfortran $(FLAGS) $(OMP) -o ex0_libtest.out ex0_libtest.f90 $(FPL_module) $(FPL_library)
@@ -67,7 +67,15 @@ ex4:
 	gfortran $(FLAGS) $(OMP) -o ex4_gengrid.out ex4_gengrid.f90 $(FPL_module) $(FPL_library)
 ex5:	
 	gfortran $(FLAGS) -o ex5_utils.out ex5_utils.f90 $(FPL_module) $(FPL_library)
-ex6:	
+ex6:
 	gfortran $(FLAGS) -o ex6_dealloc.out ex6_dealloc.f90 $(FPL_module) $(FPL_library)
+ex7:
+	gfortran $(FLAGS) $(OMP) -o ex7_zonalstats_2d.out ex7_zonalstats_2d.f90 $(FPL_module) $(FPL_library)
+ex8:
+	gfortran $(FLAGS) $(OMP) -o ex8_zonalstats_3d.out ex8_zonalstats_3d.f90 $(FPL_module) $(FPL_library)
+ex9:
+	gfortran $(FLAGS) $(OMP) -o ex9_zonalstats_masked_2d.out ex9_zonalstats_masked_2d.f90 $(FPL_module) $(FPL_library)
+ex10:
+	gfortran $(FLAGS) $(OMP) -o ex10_zonalstats_masked_3d.out ex10_zonalstats_masked_3d.f90 $(FPL_module) $(FPL_library)
 clean:
 	rm -f *.out

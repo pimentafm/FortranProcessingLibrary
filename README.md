@@ -1,37 +1,14 @@
 # FPL - Fortran Processing Library
 
-```
- This file is part of FPL (Fortran Processing Library).
- Copyright (C) 2015 Fernando Martins Pimenta
+**Documentation:** [https://pimentafm.github.io/FortranProcessingLibrary/](https://pimentafm.github.io/FortranProcessingLibrary/)
 
-  FPL is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or
-  (at your option) any later version.
+**Legacy documentation:** [http://www.biosfera.dea.ufv.br/fpl/](http://www.biosfera.dea.ufv.br/fpl/)
 
-  FPL is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
+Copyright (C) 2015 Fernando Martins Pimenta. Licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
 
-  You should have received a copy of the GNU General Public License
-  along with FPL.  If not, see <http://www.gnu.org/licenses/>.
+**Author:** Fernando Martins Pimenta — [Research Group on Atmosphere-Biosphere Interaction](http://www.biosfera.dea.ufv.br/), Federal University of Viçosa, Brazil
 
- ===========================================================================
-  About Author:
-  Fernando Martins Pimenta
-   Student of Surveying and Cartographic Engineering
-   Federal University of Viçosa - Brazil
-
-   Bachelor of Biosystems Engineer
-   Federal University of São João del-Rei - Brazil
-
-   Research Group on Atmosphere-Biosphere Interaction
-   Federal University of Viçosa
-   Data: August 09, 2015
-
- Contacts: fernando.m.pimenta@gmail.com, fernando.m.pimenta@ufv.br
-```
+**Contact:** fernando.m.pimenta@gmail.com | fernando.m.pimenta@ufv.br
 
 <p align="center">
   <a href="https://github.com/pimentafm/FortranProcessingLibrary">
@@ -134,9 +111,10 @@ Generated `.f90` files use CPP `#define`/`#include`/`#undef` blocks that expand 
 | File                   | Lines | Description                                                                                       |
 | ---------------------- | ----- | ------------------------------------------------------------------------------------------------- |
 | `FPL_setfillvalue.f90` | 4,033 | FillValue mask application (parallelized with OpenMP `!$omp parallel do`)                         |
+| `FPL_zonalstats.f90`   | 4,033 | Zonal statistics with OpenMP parallelization (reduction, parallel do, collapse)                   |
 | `FPL_writegrid.f90`    | 1,133 | Grid writing to NetCDF (HDF5 format), with custom header file support                             |
+| `FPL_interfaces.f90`   | 1,557 | Generic interfaces (static polymorphism)                                                          |
 | `FPL_datatypes.f90`    | 1,133 | Definition of 100 derived types via CPP templates                                                 |
-| `FPL_interfaces.f90`   | 1,054 | Generic interfaces (static polymorphism)                                                          |
 | `FPL_readgrid.f90`     | 833   | Variable and coordinate reading from NetCDF                                                       |
 | `FPL_gengrid.f90`      | 833   | Regular grid generation from Xmin/Ymin/Xmax/Ymax/resolution                                       |
 | `FPL_griddims.f90`     | 633   | Dimension reading (lon, lat, time, level) from NetCDF files                                       |
@@ -147,8 +125,8 @@ Generated `.f90` files use CPP `#define`/`#include`/`#undef` blocks that expand 
 | `FPL_sort.f90`         | 57    | Bubble sort for dimension ID ordering                                                             |
 | `FPL_constants.f90`    | 49    | Physical constants (pi, Earth radius, Boltzmann, etc.) and type aliases via `iso_c_binding`       |
 | `FPL_misc.f90`         | 39    | Library version                                                                                   |
-| `templates/*.inc`      | 942   | 21 CPP template files (7 modules × 3 dimensionalities)                                            |
-| `generate_cpp.py`      | 239   | Python script to generate `.f90` from templates                                                   |
+| `templates/*.inc`      | 1,084 | 24 CPP template files (8 modules × 3 dimensionalities)                                            |
+| `generate_cpp.py`      | 271   | Python script to generate `.f90` from templates                                                   |
 
 <hr>
 
@@ -177,6 +155,7 @@ The interfaces in `FPL_interfaces.f90` allow calling the same generic procedure 
 - **`readgrid`** → read data from NetCDF
 - **`writegrid`** → write NetCDF (HDF5 format)
 - **`setFillValue`** → apply FillValue mask between two variables
+- **`zonalStats`** → compute per-zone aggregate statistics
 - **`gengrid`** → generate regular grid
 - **`dealloc`** → deallocate memory
 
@@ -184,7 +163,14 @@ The interfaces in `FPL_interfaces.f90` allow calling the same generic procedure 
 
 ## Parallelization (OpenMP)
 
-The `setFillValue` routines use `!$omp parallel do` on the lon/lat loops — the most computationally expensive operation on large datasets. Loop order follows Fortran column-major convention (inner loop over the first array dimension) for optimal cache performance. The Makefile compiles with `-fopenmp`.
+The `setFillValue` and `zonalStats` routines use OpenMP parallelization:
+
+- **`setFillValue`**: `!$omp parallel do` on the lon/lat loops
+- **`zonalStats` (2D)**: `!$omp parallel do` with `reduction` on accumulation arrays across the latitude loop
+- **`zonalStats` (3D)**: `!$omp parallel do` on the time loop (each timestep is independent)
+- **`zonalStats` (4D)**: `!$omp parallel do collapse(2)` on the level/time loops
+
+Loop order follows Fortran column-major convention (inner loop over the first array dimension) for optimal cache performance. The Makefile compiles with `-fopenmp`.
 
 <hr>
 
@@ -230,46 +216,31 @@ make clean && make
 
 <hr>
 
-## Recent Improvements
+## Examples
 
-### Performance
+The `examples/` directory contains complete programs demonstrating all library features:
 
-- **Loop order optimization** — All loop nests in `FPL_setfillvalue.f90` iterate the first array dimension (longitude) in the inner loop, matching Fortran's column-major memory layout for better cache utilization.
+| Example | Description                                |
+| ------- | ------------------------------------------ |
+| `ex0`   | Library test                               |
+| `ex1`   | Read and write NetCDF grids                |
+| `ex2`   | Get variable info from NetCDF              |
+| `ex3`   | Date and time utilities                    |
+| `ex4`   | Generate regular grids                     |
+| `ex5`   | File utilities                             |
+| `ex6`   | Memory deallocation                        |
+| `ex7`   | Zonal statistics (2D)                      |
+| `ex8`   | Zonal statistics (3D)                      |
+| `ex9`   | Zonal statistics with spatial masking (2D) |
+| `ex10`  | Zonal statistics with spatial masking (3D) |
 
-### Robustness
+Build and run an example:
 
-- **`intent` declarations** — All subroutine parameters have `intent(in)`, `intent(inout)` declarations, enabling the compiler to catch misuse at compile time.
-- **Allocation error handling** — All `allocate()` calls use `stat=alloc_stat` followed by `call check_alloc(alloc_stat, "array_name")`, which prints a colored error message and stops on failure. All `deallocate()` calls use `stat=` to silently handle already-freed memory.
-- **Eliminated `call system()`** — Replaced non-portable shell calls in `FPL_checkerror.f90` with a pure Fortran `print_filename()` subroutine using `index(ifile, '/', back=.true.)`.
-
-### Build System
-
-- **Modern OS detection** — Makefile uses `/etc/os-release` (with `lsb_release` fallback), supporting Fedora, RHEL, Rocky, Alma, Debian, Ubuntu, Mint, and Pop!\_OS.
-- **Separate `build` and `install` targets** — `make` builds locally; `sudo make install` installs to system directories. Added `clean`, `uninstall`, and `help` targets.
-- **Overridable paths** — `LIBDIR`, `MODDIR`, and `NETCDF` can be customized on the command line.
-
-### Code Generation
-
-- **CPP preprocessor templates** — Replaced 9 Bash shell scripts (`shell_gencodes/`) with 21 CPP `.inc` template files and a compact Python generator (`generate_cpp.py`, 239 lines). Templates use `#define`/`#include`/`#undef` blocks expanded at compile time by `gfortran -cpp`, reducing total source from ~49,900 to ~11,900 lines while producing identical compiled output.
-
-<hr>
-
-## API and USER Documentation
-
-The documentation can be found at [Research Group on Atmosphere-Biosphere](http://www.biosfera.dea.ufv.br/fpl/) website.
-
-<hr>
-
-```
-TODO:
-     [Partially OK] Parallelize the code.
-     [Partially OK] Creategrid subroutine.
-     [->] Implement zonal statistics subroutines/functions
-     [->] Implement map plotting subroutines (GMT/Python/GNUPLOT ????).
-     [->] Implement subroutines to convert datatypes.
-     [->] Command Line Args subroutines
+```bash
+make
+cd examples
+gfortran -o ex1.out ex1_readwrite.f90 -I../build -L../build -lFPL $(nf-config --fflags --flibs) -fopenmp
+./ex1.out
 ```
 
 <hr>
-
-Fernando Pimenta [My Github!](https://github.com/pimentafm)

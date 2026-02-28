@@ -153,6 +153,8 @@ The generator script (`generate_cpp.py`) produces `.f90` files that instantiate 
 | `FPL_NF90_LEVEL`   | writegrid (4D)       | NetCDF level type                                   |
 | `FPL_MASK_TYPE`    | setfillvalue         | Mask type (always 2D)                               |
 | `FPL_MAP_TYPE`     | setfillvalue         | Map type (matches subroutine dimensionality)        |
+| `FPL_ZONE_TYPE`    | zonalstats           | Zone/classification grid type (always 2D byte)      |
+| `FPL_DATA_TYPE`    | zonalstats           | Data grid type (matches subroutine dimensionality)  |
 
 ### Template files
 
@@ -165,17 +167,18 @@ The generator script (`generate_cpp.py`) produces `.f90` files that instantiate 
 | `writegrid_{2d,3d,4d}.inc`    | `FPL_SUBR`, `FPL_TYPE`, `FPL_NF90_COORD` [+`FPL_NF90_TIME`] [+`FPL_NF90_LEVEL`]      |
 | `gengrid_{2d,3d,4d}.inc`      | `FPL_SUBR`, `FPL_TYPE`, `FPL_NF90_VARTYPE`                                           |
 | `setfillvalue_{2d,3d,4d}.inc` | `FPL_SUBR`, `FPL_MASK_TYPE`, `FPL_MAP_TYPE`                                          |
+| `zonalstats_{2d,3d,4d}.inc`   | `FPL_SUBR`, `FPL_ZONE_TYPE`, `FPL_DATA_TYPE`                                        |
 
 ### Adding a new template
 
-To add a new module (e.g., `zonalstats`):
+To add a new module (e.g., `interpolate`):
 
 1. **Create the template files** in `src/templates/`:
 
    ```
-   src/templates/zonalstats_2d.inc
-   src/templates/zonalstats_3d.inc
-   src/templates/zonalstats_4d.inc
+   src/templates/interpolate_2d.inc
+   src/templates/interpolate_3d.inc
+   src/templates/interpolate_4d.inc
    ```
 
    Use CPP macros (`FPL_SUBR`, `FPL_TYPE`, etc.) as placeholders.
@@ -183,15 +186,15 @@ To add a new module (e.g., `zonalstats`):
 2. **Add a generator function** in `src/generate_cpp.py`. For simple modules that only need `FPL_SUBR` and `FPL_TYPE`:
 
    ```python
-   gen_simple("zonalstats", "zonalstats")
+   gen_simple("interpolate", "interpolate")
    ```
 
-   For modules that need extra macros, create a dedicated function (see `gen_writegrid()` or `gen_setfillvalue()` as examples).
+   For modules that need extra macros, create a dedicated function (see `gen_writegrid()`, `gen_setfillvalue()`, or `gen_zonalstats()` as examples).
 
 3. **Add the `#include`** in `gen_fpl()` inside `generate_cpp.py`:
 
    ```python
-   #include "FPL_zonalstats.f90"
+   #include "FPL_interpolate.f90"
    ```
 
 4. **Add the interface** in `gen_interfaces()` inside `generate_cpp.py`.
