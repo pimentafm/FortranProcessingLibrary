@@ -30,7 +30,7 @@ FLAGS    := -Wall -O2
 OMP      := -fopenmp
 
 TESTS := test_constants test_fileutils test_gengrid test_writegrid \
-         test_readgrid test_griddims test_setfillvalue
+         test_readgrid test_griddims test_setfillvalue test_zonalstats
 
 TESTDATA_DIR := testdata
 
@@ -64,6 +64,9 @@ test_griddims:
 
 test_setfillvalue:
 	$(FC) $(FLAGS) $(OMP) -o test_setfillvalue.out test_setfillvalue.f90 $(FPL_module) $(FPL_lib)
+
+test_zonalstats:
+	$(FC) $(FLAGS) $(OMP) -o test_zonalstats.out test_zonalstats.f90 $(FPL_module) $(FPL_lib)
 
 test: all
 	@passed=0; failed=0; total=0; \

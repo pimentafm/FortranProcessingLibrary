@@ -53,5 +53,5 @@ module FPL
 #include "FPL_fileutils.f90"
 #include "FPL_misc.f90"
 #include "FPL_sort.f90"
-! #include "FPL_zonalstats.f90"
+#include "FPL_zonalstats.f90"
 end module FPL
