@@ -98,7 +98,7 @@ allocate(zvar(nzones, cattle%ntimes))
 
 call zonalStats(zones, cattle, nzones, zcount, zmean, zmin, zmax, zsum, zvar)
 
-! Results: zmean(18, k) = mean cattle density in Mato Grosso at timestep k
+! Results: zmean(18, k) = mean cattle density in Minas Gerais at timestep k
 
 deallocate(zcount, zmean, zmin, zmax, zsum, zvar)
 call dealloc(zones)

@@ -35,7 +35,7 @@
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ! Demonstrates masking + zonal statistics (2D):
 !   1. Reads soybean land use data (2D)
-!   2. Applies a mask using brazil_UF to keep only Mato Grosso (UF=18)
+!   2. Applies a mask using brazil_UF to keep only Minas Gerais (UF=18)
 !   3. Computes zonal statistics on the masked data
 !   4. Compares masked vs unmasked results
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -55,7 +55,7 @@ program main
 
   ! Number of zones (max IBGE UF code)
   integer(kind=intgr), parameter :: nzones = 28
-  integer(kind=intgr), parameter :: uf_mato_grosso = 18
+  integer(kind=intgr), parameter :: uf_minas_gerais = 18
 
   ! Output arrays
   integer(kind=intgr), dimension(nzones) :: zcount
@@ -69,7 +69,7 @@ program main
   ! IBGE UF names
   uf_name = ""
   uf_name(17) = "Tocantins"
-  uf_name(18) = "Mato Grosso"
+  uf_name(18) = "Minas Gerais"
   uf_name(19) = "Goias"
   uf_name(20) = "Mato Grosso do Sul"
   uf_name(21) = "Maranhao"
@@ -125,18 +125,18 @@ program main
   write(*,'(a)') "======================================================================"
   write(*,*) ""
 
-  ! --- Step 2: Apply mask — keep only Mato Grosso (UF=18) ---
-  write(*,'(a,i0,a)') " Applying mask: keeping only UF=", uf_mato_grosso, &
-    " ("//trim(uf_name(uf_mato_grosso))//")"
+  ! --- Step 2: Apply mask — keep only Minas Gerais (UF=18) ---
+  write(*,'(a,i0,a)') " Applying mask: keeping only UF=", uf_minas_gerais, &
+    " ("//trim(uf_name(uf_minas_gerais))//")"
   write(*,*) ""
 
-  call setFillValue(mask, soja, uf_mato_grosso)
+  call setFillValue(mask, soja, uf_minas_gerais)
 
   ! --- Step 3: Masked zonal statistics ---
   call zonalStats(zones, soja, nzones, zcount, zmean, zmin, zmax, zsum, zvar)
 
   write(*,'(a)') "======================================================================"
-  write(*,'(a)') "  AFTER masking — Soybean Statistics (Mato Grosso only)"
+  write(*,'(a)') "  AFTER masking — Soybean Statistics (Minas Gerais only)"
   write(*,'(a)') "======================================================================"
   write(*,'(a20, a10, a12, a12, a12, a14)') &
     "State", "Pixels", "Mean (ha)", "Min (ha)", "Max (ha)", "Total (ha)"
@@ -152,7 +152,7 @@ program main
   write(*,'(a)') "======================================================================"
 
   ! --- Write CSV ---
-  ofile = "database/zonalstats_soja_2012_masked_mt.csv"
+  ofile = "database/zonalstats_soja_2012_masked_mg.csv"
   open(unit=10, file=trim(ofile), status='replace', action='write')
   write(10,'(a)') "state,pixels,mean_ha,min_ha,max_ha,sum_ha,var"
 

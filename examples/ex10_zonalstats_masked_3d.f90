@@ -35,7 +35,7 @@
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ! Demonstrates masking + zonal statistics (3D):
 !   1. Reads cattle density data (3D: lon x lat x time, 1990-2012)
-!   2. Applies a mask using brazil_UF to keep only Mato Grosso (UF=18)
+!   2. Applies a mask using brazil_UF to keep only Minas Gerais (UF=18)
 !   3. Computes zonal statistics showing temporal evolution
 !   4. Compares masked vs unmasked results
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -55,7 +55,7 @@ program main
 
   ! Number of zones (max IBGE UF code)
   integer(kind=intgr), parameter :: nzones = 28
-  integer(kind=intgr), parameter :: uf_mato_grosso = 18
+  integer(kind=intgr), parameter :: uf_minas_gerais = 18
 
   ! Output arrays (nzones x ntimes)
   integer(kind=intgr), allocatable, dimension(:,:) :: zcount
@@ -69,7 +69,7 @@ program main
   ! IBGE UF names
   uf_name = ""
   uf_name(17) = "Tocantins"
-  uf_name(18) = "Mato Grosso"
+  uf_name(18) = "Minas Gerais"
   uf_name(19) = "Goias"
   uf_name(20) = "Mato Grosso do Sul"
   uf_name(21) = "Maranhao"
@@ -134,24 +134,24 @@ program main
   write(*,'(a)') "======================================================================"
   write(*,*) ""
 
-  ! --- Step 2: Apply mask — keep only Mato Grosso (UF=18) ---
-  write(*,'(a,i0,a)') " Applying mask: keeping only UF=", uf_mato_grosso, &
-    " ("//trim(uf_name(uf_mato_grosso))//")"
+  ! --- Step 2: Apply mask — keep only Minas Gerais (UF=18) ---
+  write(*,'(a,i0,a)') " Applying mask: keeping only UF=", uf_minas_gerais, &
+    " ("//trim(uf_name(uf_minas_gerais))//")"
   write(*,*) ""
 
-  call setFillValue(mask, cattle, uf_mato_grosso)
+  call setFillValue(mask, cattle, uf_minas_gerais)
 
   ! --- Step 3: Masked zonal statistics ---
   call zonalStats(zones, cattle, nzones, zcount, zmean, zmin, zmax, zsum, zvar)
 
   write(*,'(a)') "======================================================================"
-  write(*,'(a)') "  AFTER masking — Cattle in Mato Grosso: Temporal Evolution (1990-2012)"
+  write(*,'(a)') "  AFTER masking — Cattle in Minas Gerais: Temporal Evolution (1990-2012)"
   write(*,'(a)') "======================================================================"
   write(*,'(a6, a10, a14, a14, a14, a14)') &
     "Year", "Pixels", "Mean", "Min", "Max", "Total"
   write(*,'(a)') "----------------------------------------------------------------------"
 
-  z = uf_mato_grosso
+  z = uf_minas_gerais
   do k = 1, cattle%ntimes
     write(*,'(i6, i10, f14.4, f14.4, f14.4, f14.2)') &
       int(cattle%times(k)), zcount(z,k), zmean(z,k), zmin(z,k), zmax(z,k), zsum(z,k)
@@ -160,7 +160,7 @@ program main
   write(*,'(a)') "======================================================================"
 
   ! --- Write CSV ---
-  ofile = "database/zonalstats_cattle_masked_mt.csv"
+  ofile = "database/zonalstats_cattle_masked_mg.csv"
   open(unit=10, file=trim(ofile), status='replace', action='write')
   write(10,'(a)') "state,year,pixels,mean,min,max,sum,var"
 

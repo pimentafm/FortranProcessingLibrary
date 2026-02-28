@@ -62,7 +62,7 @@ program main
   ! IBGE UF names
   uf_name = ""
   uf_name(17) = "Tocantins"
-  uf_name(18) = "Mato Grosso"
+  uf_name(18) = "Minas Gerais"
   uf_name(19) = "Goias"
   uf_name(20) = "Mato Grosso do Sul"
   uf_name(21) = "Maranhao"

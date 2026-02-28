@@ -95,10 +95,10 @@ You can apply a mask before computing zonal statistics to restrict the analysis 
 call readgrid("database/brazil_UF.nc", mask)
 call readgrid("database/LUCULTSOJA2012.nc", soja)
 
-! Keep only Mato Grosso (UF=18)
+! Keep only Minas Gerais (UF=18)
 call setFillValue(mask, soja, 18)
 
-! Compute stats — only Mato Grosso pixels remain
+! Compute stats — only Minas Gerais pixels remain
 call zonalStats(zones, soja, nzones, zcount, zmean, zmin, zmax, zsum, zvar)
 ```
 
