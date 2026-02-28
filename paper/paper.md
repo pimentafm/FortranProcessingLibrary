@@ -28,12 +28,14 @@ datasets for scientists and programmers. The library supports 5 types of NetCDF
 variables (`byte`, `short`, `int`, `float`, `double`) of up to 4 dimensions
 (longitude, latitude, time, and level), and its structure is composed of 15
 source files containing definitions of physical constants, abstract data types,
-interfaces, intrinsic subroutines, functions, and error handling. FPL also provides utilities for regular grid generation from
-bounding-box specifications, FillValue-based masking with OpenMP
-parallelization, file metadata inspection, and safe memory management. The
-library compiles as a single shared object (`libFPL.so`) and is designed for
-use in atmospheric science, climate research, and geospatial data processing
-workflows written in Fortran.
+interfaces, intrinsic subroutines, functions, and error handling. FPL also
+provides utilities for regular grid generation from bounding-box
+specifications, FillValue-based spatial masking, zonal statistics computation,
+file metadata inspection, and safe memory management. Both the masking and
+zonal statistics routines are parallelized with OpenMP. The library compiles as
+a single shared object (`libFPL.so`) and is designed for use in atmospheric
+science, climate research, and geospatial data processing workflows written in
+Fortran.
 
 # Statement of Need
 
@@ -62,8 +64,8 @@ verbosity is a significant source of programming errors and impedes rapid
 prototyping.
 
 FPL addresses this gap by providing generic interfaces (`readgrid`,
-`writegrid`, `gengrid`, `griddims`, `setFillValue`, `dealloc`) that reduce
-typical I/O operations to one or two subroutine calls. The user declares a
+`writegrid`, `gengrid`, `griddims`, `setFillValue`, `zonalStats`, `dealloc`)
+that reduce typical I/O and analysis operations to one or two subroutine calls. The user declares a
 derived-type variable whose name encodes the desired combination of data type,
 coordinate precision, and dimensionality (e.g., `nc4d_float_llf_tf_lf` for a
 4D float variable with float coordinates, float time, and float levels), and
@@ -116,7 +118,8 @@ niche as FPL:
 
 FPL fills a specific gap: a **high-level Fortran-native library** with derived
 types that bundle data and metadata, generic interfaces for compile-time type
-safety, built-in grid generation, and OpenMP-parallelized masking operations.
+safety, built-in grid generation, OpenMP-parallelized spatial masking, and
+zonal statistics computation.
 
 # Software Design
 
@@ -124,7 +127,7 @@ safety, built-in grid generation, and OpenMP-parallelized masking operations.
 
 FPL is organized as a single Fortran module (`module FPL`) that aggregates all
 functionality through C preprocessor (CPP) `#include` directives. The main
-source file `src/FPL.f90` includes 14 component files that provide constants,
+source file `src/FPL.f90` includes 15 component files that provide constants,
 derived types, generic interfaces, and implementation subroutines. This
 single-module design allows users to access all functionality with a single
 `use fpl` statement. Since Fortran 90 is not object-oriented, classes are
@@ -144,7 +147,7 @@ these by hand would be impractical.
 
 FPL addresses this through a two-level code generation strategy:
 
-1. **CPP Templates** (21 `.inc` files in `src/templates/`): Each template
+1. **CPP Templates** (24 `.inc` files in `src/templates/`): Each template
    implements a generic algorithm (e.g., `readgrid_2d.inc`) using CPP macros
    as placeholders for type-specific tokens. At compile time, the preprocessor
    expands each template once per type combination, producing the full set of
@@ -174,12 +177,24 @@ attributes exist within the NetCDF file).
 
 ## Parallelization
 
-The `setFillValue` interface, which applies 2D masks to 2D, 3D, or 4D datasets,
-is parallelized with OpenMP [@openmp5] directives. The loop ordering is
-optimized for Fortran's column-major memory layout, with the innermost loop
-iterating over the first (longitude) dimension to maximize cache utilization.
+The `setFillValue` and `zonalStats` interfaces are parallelized with OpenMP
+[@openmp5] directives. The `setFillValue` routine, which applies 2D masks to
+2D, 3D, or 4D datasets, uses `!$omp parallel do` on the spatial loops. The
+`zonalStats` routine computes per-zone aggregate statistics (count, sum, mean,
+minimum, maximum) from a data grid grouped by a 2D zone/classification grid;
+for 2D data it uses `!$omp parallel do` with `reduction` on the accumulation
+arrays, for 3D data it parallelizes over the time dimension, and for 4D data it
+uses `!$omp parallel do collapse(2)` over the level and time dimensions. All
+loop orderings are optimized for Fortran's column-major memory layout, with the
+innermost loop iterating over the first (longitude) dimension to maximize cache
+utilization.
 
 # Research Applications
+
+The full documentation is available at
+[https://pimentafm.github.io/FortranProcessingLibrary/](https://pimentafm.github.io/FortranProcessingLibrary/),
+with legacy documentation at
+[http://www.biosfera.dea.ufv.br/fpl/](http://www.biosfera.dea.ufv.br/fpl/).
 
 FPL has been used in research conducted by the Atmosphere-Biosphere Interaction
 group at the Federal University of Viçosa since 2015. In particular, the
