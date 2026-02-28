@@ -134,9 +134,10 @@ Generated `.f90` files use CPP `#define`/`#include`/`#undef` blocks that expand 
 | File                   | Lines | Description                                                                                       |
 | ---------------------- | ----- | ------------------------------------------------------------------------------------------------- |
 | `FPL_setfillvalue.f90` | 4,033 | FillValue mask application (parallelized with OpenMP `!$omp parallel do`)                         |
+| `FPL_zonalstats.f90`   | 4,033 | Zonal statistics with OpenMP parallelization (reduction, parallel do, collapse)                    |
 | `FPL_writegrid.f90`    | 1,133 | Grid writing to NetCDF (HDF5 format), with custom header file support                             |
+| `FPL_interfaces.f90`   | 1,557 | Generic interfaces (static polymorphism)                                                          |
 | `FPL_datatypes.f90`    | 1,133 | Definition of 100 derived types via CPP templates                                                 |
-| `FPL_interfaces.f90`   | 1,054 | Generic interfaces (static polymorphism)                                                          |
 | `FPL_readgrid.f90`     | 833   | Variable and coordinate reading from NetCDF                                                       |
 | `FPL_gengrid.f90`      | 833   | Regular grid generation from Xmin/Ymin/Xmax/Ymax/resolution                                       |
 | `FPL_griddims.f90`     | 633   | Dimension reading (lon, lat, time, level) from NetCDF files                                       |
@@ -147,8 +148,8 @@ Generated `.f90` files use CPP `#define`/`#include`/`#undef` blocks that expand 
 | `FPL_sort.f90`         | 57    | Bubble sort for dimension ID ordering                                                             |
 | `FPL_constants.f90`    | 49    | Physical constants (pi, Earth radius, Boltzmann, etc.) and type aliases via `iso_c_binding`       |
 | `FPL_misc.f90`         | 39    | Library version                                                                                   |
-| `templates/*.inc`      | 942   | 21 CPP template files (7 modules × 3 dimensionalities)                                            |
-| `generate_cpp.py`      | 239   | Python script to generate `.f90` from templates                                                   |
+| `templates/*.inc`      | 1,084 | 24 CPP template files (8 modules × 3 dimensionalities)                                            |
+| `generate_cpp.py`      | 271   | Python script to generate `.f90` from templates                                                   |
 
 <hr>
 
@@ -177,6 +178,7 @@ The interfaces in `FPL_interfaces.f90` allow calling the same generic procedure 
 - **`readgrid`** → read data from NetCDF
 - **`writegrid`** → write NetCDF (HDF5 format)
 - **`setFillValue`** → apply FillValue mask between two variables
+- **`zonalStats`** → compute per-zone aggregate statistics
 - **`gengrid`** → generate regular grid
 - **`dealloc`** → deallocate memory
 
@@ -184,7 +186,14 @@ The interfaces in `FPL_interfaces.f90` allow calling the same generic procedure 
 
 ## Parallelization (OpenMP)
 
-The `setFillValue` routines use `!$omp parallel do` on the lon/lat loops — the most computationally expensive operation on large datasets. Loop order follows Fortran column-major convention (inner loop over the first array dimension) for optimal cache performance. The Makefile compiles with `-fopenmp`.
+The `setFillValue` and `zonalStats` routines use OpenMP parallelization:
+
+- **`setFillValue`**: `!$omp parallel do` on the lon/lat loops
+- **`zonalStats` (2D)**: `!$omp parallel do` with `reduction` on accumulation arrays across the latitude loop
+- **`zonalStats` (3D)**: `!$omp parallel do` on the time loop (each timestep is independent)
+- **`zonalStats` (4D)**: `!$omp parallel do collapse(2)` on the level/time loops
+
+Loop order follows Fortran column-major convention (inner loop over the first array dimension) for optimal cache performance. The Makefile compiles with `-fopenmp`.
 
 <hr>
 
@@ -264,7 +273,7 @@ The documentation can be found at [Research Group on Atmosphere-Biosphere](http:
 TODO:
      [Partially OK] Parallelize the code.
      [Partially OK] Creategrid subroutine.
-     [->] Implement zonal statistics subroutines/functions
+     [OK] Implement zonal statistics subroutines/functions
      [->] Implement map plotting subroutines (GMT/Python/GNUPLOT ????).
      [->] Implement subroutines to convert datatypes.
      [->] Command Line Args subroutines

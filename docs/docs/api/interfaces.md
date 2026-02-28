@@ -16,6 +16,7 @@ FPL uses Fortran 90 generic interfaces to provide a single procedure name for al
 | `writegrid`    | `writegrid{2d,3d,4d}_*`               | Write data to NetCDF       |
 | `gengrid`      | `gengrid{2d,3d,4d}_*`                 | Generate grids from bounds |
 | `setFillValue` | `setfvalue{2d,3d,4d}_*`               | Apply fill-value masking   |
+| `zonalStats`   | `zonalstats{2d,3d,4d}_*`              | Zonal statistics           |
 | `dealloc`      | `dealloc{2d,3d,4d}_*`                 | Deallocate structures      |
 
 ## How It Works
@@ -39,10 +40,11 @@ Specific procedures follow the pattern:
 {operation}{Dd}_{type}_{coord}[_t{ttype}][_l{ltype}]
 ```
 
-For `setFillValue`, the mask and data types are combined (mask type first):
+For `setFillValue` and `zonalStats`, the mask/zone and data types are combined (mask/zone type first):
 
 ```
 setfvalue{Dd}_{masktype}{datatype}_{coord}[_t{ttype}][_l{ltype}]
+zonalstats{Dd}_{zonetype}{datatype}_{coord}[_t{ttype}][_l{ltype}]
 ```
 
 ### Example Resolutions
@@ -53,4 +55,5 @@ setfvalue{Dd}_{masktype}{datatype}_{coord}[_t{ttype}][_l{ltype}]
 | `call readgrid(file, nc3d_float_llf_ti)`              | `readgrid3d_float_llf_ti`      |
 | `call writegrid(file, nc4d_double_lld_td_lf)`         | `writegrid4d_double_lld_td_lf` |
 | `call setFillValue(nc2d_float_llf, nc3d_byte_llf_ti)` | `setfvalue3d_floatbyte_llf_ti` |
+| `call zonalStats(nc2d_byte_lld, nc3d_double_lld_ti, ...)`  | `zonalstats3d_bytedouble_lld_ti`  |
 | `call dealloc(nc2d_int_lld)`                          | `dealloc2d_int_lld`            |
