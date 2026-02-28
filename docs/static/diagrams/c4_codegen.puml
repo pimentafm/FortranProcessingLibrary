@@ -13,6 +13,7 @@ participant "libFPL.so" as lib
 dev -> gen : python3 src/generate_cpp.py
 
 note right of gen
+  8 modules × 3 dimensionalities = 24 templates
   Type catalogue:
   5 DTYPES × 2 COORDS = 10 (2D)
   5 DTYPES × 2 COORDS × 3 TIMES = 30 (3D)

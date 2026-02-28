@@ -7,12 +7,12 @@ Person(scientist, "Scientist / Developer", "Writes Fortran programs using FPL.")
 
 System_Boundary(fpl_sys, "FPL — Fortran Processing Library") {
 
-  Container(libfpl, "libFPL.so", "Fortran 90 / GFortran", "Shared library containing all 100 derived types, ~600 subroutines, generic interfaces, and OpenMP-parallelized routines.")
+  Container(libfpl, "libFPL.so", "Fortran 90 / GFortran", "Shared library containing all 100 derived types, ~700 subroutines, generic interfaces, and OpenMP-parallelized routines (setFillValue, zonalStats).")
   Container(fplmod, "fpl.mod", "GFortran Module", "Compiled module file. Provides 'use fpl' for user programs.")
 
-  Container(generator, "generate_cpp.py", "Python 3", "Generates .f90 instantiation files with #define/#include/#undef blocks for all type combinations. 239 lines.")
-  Container(templates, "templates/*.inc", "Fortran + CPP macros", "21 template files (7 modules × 3 dimensionalities). Contain Fortran code with CPP macro placeholders (FPL_SUBR, FPL_TYPE, etc.).")
-  Container(f90files, "FPL_*.f90", "Generated Fortran", "9 generated source files with CPP blocks. Expanded at compile time by gfortran -cpp.")
+  Container(generator, "generate_cpp.py", "Python 3", "Generates .f90 instantiation files with #define/#include/#undef blocks for all type combinations. 272 lines.")
+  Container(templates, "templates/*.inc", "Fortran + CPP macros", "24 template files (8 modules × 3 dimensionalities). Contain Fortran code with CPP macro placeholders (FPL_SUBR, FPL_TYPE, etc.).")
+  Container(f90files, "FPL_*.f90", "Generated Fortran", "10 generated source files with CPP blocks. Expanded at compile time by gfortran -cpp.")
 
   Container(srcfiles, "Hand-written .f90", "Fortran 90", "FPL_constants, FPL_checkerror, FPL_datetime, FPL_fileutils, FPL_misc, FPL_sort. Not generated.")
 

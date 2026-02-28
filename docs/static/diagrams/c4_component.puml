@@ -9,7 +9,7 @@ Container_Boundary(fpl_module, "module FPL (libFPL.so)") {
 
   Component(datatypes, "FPL_datatypes", "CPP Templates", "100 derived types: nc{2,3,4}d_{byte,short,int,float,double}_{llf,lld}[_t{i,f,d}][_l{i,f}]. Each stores ncdata, coordinates, metadata, FillValue.")
 
-  Component(interfaces, "FPL_interfaces", "Fortran 90", "7 generic interfaces: check, griddims, readgrid, writegrid, gengrid, setFillValue, dealloc. Provides static polymorphism.")
+  Component(interfaces, "FPL_interfaces", "Fortran 90", "8 generic interfaces: check, griddims, readgrid, writegrid, gengrid, setFillValue, zonalStats, dealloc. Provides static polymorphism.")
 
   Component(checkerror, "FPL_checkerror", "Fortran 90", "Error handling: checkerror, checktype, checkatt, check_alloc, print_filename. Colored terminal output.")
 
@@ -22,6 +22,8 @@ Container_Boundary(fpl_module, "module FPL (libFPL.so)") {
   Component(gengrid, "FPL_gengrid", "CPP Templates", "Generates regular grids from Xmin/Ymin/Xmax/Ymax/resolution. Allocates all arrays and fills coordinates. 100 subroutines.")
 
   Component(setfillvalue, "FPL_setfillvalue", "CPP Templates + OpenMP", "Applies spatial masks using FillValue. Cross-type: 5×5 dtypes × {2,3,4}D × coords × time × level = ~500 subroutines. OpenMP parallel do.")
+
+  Component(zonalstats, "FPL_zonalstats", "CPP Templates + OpenMP", "Computes per-zone aggregate statistics (count, sum, mean, min, max). OpenMP parallel do with reduction (2D), parallel do on time (3D), collapse(2) on level/time (4D). 100 subroutines.")
 
   Component(dealloc, "FPL_dealloc", "CPP Templates", "Deallocates all allocatable arrays in a type instance. Uses stat= for safe deallocation. 100 subroutines.")
 
@@ -42,6 +44,7 @@ Rel(interfaces, readgrid, "Dispatches to")
 Rel(interfaces, writegrid, "Dispatches to")
 Rel(interfaces, gengrid, "Dispatches to")
 Rel(interfaces, setfillvalue, "Dispatches to")
+Rel(interfaces, zonalstats, "Dispatches to")
 Rel(interfaces, dealloc, "Dispatches to")
 Rel(interfaces, checkerror, "Dispatches to")
 
@@ -59,5 +62,6 @@ Rel(griddims, netcdf, "Reads", "nf90_open, nf90_inquire_*")
 Rel(readgrid, netcdf, "Reads", "nf90_get_var")
 Rel(writegrid, netcdf, "Writes", "nf90_create, nf90_put_var")
 Rel(setfillvalue, omp, "Uses", "!$omp parallel do")
+Rel(zonalstats, omp, "Uses", "!$omp parallel do, reduction, collapse")
 
 @enduml
